@@ -1,183 +1,116 @@
-// views/graph.js — Model 1: typed reading graph. Data-driven SVG; no hand layout.
+// views/graph.js — Model 1: typed reading graph (shell). Consumes core.graphLayout / closure.
+// SVG scales to fill the pane (single viewport); hover traces the cycle-safe closure.
 window.SWE = window.SWE || {}; SWE.views = SWE.views || {};
 SWE.views.graph = (function () {
   'use strict';
-  const U = SWE.util, NS = 'http://www.w3.org/2000/svg';
-  const NW = 140, NH = 42, GX = 16, GY = 14, BANDGAP = 46, TOP = 46;
-  const ORDER = ['swa-science', 'emb-arch', 'emb-c', 'emb-cpp', 'emb-ops', 'simulink'];
+  const U = SWE.util, C = SWE.core;
 
-  function svgEl(tag, attrs) {
-    const n = document.createElementNS(NS, tag);
-    for (const k in attrs || {}) n.setAttribute(k, attrs[k]);
-    return n;
-  }
-  function primary(node) { for (const c of ORDER) if (node.corpora.includes(c)) return c; return node.corpora[0]; }
+  function mount(root, ctx) {
+    const corpus = ctx.corpus, relations = ctx.relations, log = ctx.log || SWE.log.NOOP;
+    const byId = {}; corpus.nodes.forEach((n) => { byId[n.id] = n; });
+    const adj = C.adjacency(relations.edges);
 
-  function mount(root) {
-    const nodesById = {}; SWE.corpus.nodes.forEach(n => nodesById[n.id] = n);
-    const E = SWE.relations.edges;
-    const inGraph = new Set(); E.forEach(e => { inGraph.add(e.s); inGraph.add(e.t); });
-    const gnodes = SWE.corpus.nodes.filter(n => inGraph.has(n.id));
-
-    root.appendChild(U.el('h2', { text: 'Reading graph — typed relations with provenance' }));
-    root.appendChild(U.el('p', { class: 'viewnote', text:
-      gnodes.length + ' of ' + SWE.corpus.nodes.length + ' nodes participate in ' + E.length +
-      ' typed edges (report-stated, derived, or marked EDITORIAL). Bands are corpora; layout is computed ' +
-      '(theme, then year). Hover or focus a node to trace its full closure — cycles are followed and terminate. ' +
-      'Click for the full citation and per-edge justifications. Dashed node borders = unverified.' }));
-
-    // kind legend
-    const leg = U.el('div', { class: 'facetbar' }, U.el('span', { class: 'lab', text: 'edge kinds' }));
-    for (const k of SWE.relations.kinds) {
-      const sw = U.el('span');
-      sw.style.cssText = 'display:inline-block;width:22px;height:0;border-top:2px ' +
-        (U.KIND_DASH[k] ? 'dashed ' : 'solid ') + U.KIND_COLOR[k] + ';margin-right:4px;vertical-align:middle';
-      leg.appendChild(U.el('span', { class: 'chip plain' }, sw, k));
-    }
-    leg.appendChild(U.el('span', { class: 'chip plain', text: '⋯ dotted = EDITORIAL provenance' }));
-    root.appendChild(leg);
-
-    // ---- layout ----
-    const pos = {}; let bandX = 20, maxY = 0;
-    const bandMeta = [];
-    for (const c of ORDER) {
-      const list = gnodes.filter(n => primary(n) === c)
-        .sort((a, b) => ((a.themes[0] || '') + '').localeCompare(b.themes[0] || '') ||
-                        (U.yearNum(a) || 9999) - (U.yearNum(b) || 9999));
-      if (!list.length) continue;
-      const ncols = Math.max(2, Math.round(Math.sqrt(list.length / 1.9)));
-      list.forEach((n, i) => {
-        pos[n.id] = { x: bandX + (i % ncols) * (NW + GX), y: TOP + Math.floor(i / ncols) * (NH + GY) };
-        maxY = Math.max(maxY, pos[n.id].y + NH);
-      });
-      bandMeta.push({ c, x: bandX, w: ncols * (NW + GX) - GX, n: list.length });
-      bandX += ncols * (NW + GX) - GX + BANDGAP;
-    }
-    const W = bandX - BANDGAP + 20, H = maxY + 26;
-
+    const vp = U.el('div', { class: 'vp' });
+    vp.appendChild(U.el('div', { class: 'vp-head' },
+      U.el('h2', { text: 'Reading graph — typed relations with provenance' }),
+      U.el('p', { class: 'note', text: 'Bands are corpora; layout is computed (theme, then year). Hover or focus a resource to trace its full ancestor + descendant closure — cycles are followed and terminate. Click for the full citation and per-edge justifications. Dashed border = unverified; ★ = report-flagged anchor.' })));
+    const body = U.el('div', { class: 'vp-body' });
     const board = U.el('div', { class: 'board' });
-    const svg = svgEl('svg', { viewBox: '0 0 ' + W + ' ' + H, width: W, height: H, role: 'img',
-      'aria-label': 'Typed reading graph of ' + gnodes.length + ' works' });
-    const defs = svgEl('defs');
-    const mk = svgEl('marker', { id: 'garr', viewBox: '0 0 10 10', refX: '8', refY: '5',
-      markerWidth: '5', markerHeight: '5', orient: 'auto-start-reverse' });
-    mk.appendChild(svgEl('path', { d: 'M2 1.5L8 5L2 8.5', fill: 'none', stroke: 'context-stroke',
-      'stroke-width': '1.7', 'stroke-linecap': 'round' }));
-    defs.appendChild(mk); svg.appendChild(defs);
-    const gB = svgEl('g'), gE = svgEl('g'), gN = svgEl('g');
-    svg.appendChild(gB); svg.appendChild(gE); svg.appendChild(gN);
+    body.appendChild(board); vp.appendChild(body); root.appendChild(vp);
 
-    for (const b of bandMeta) {
-      const r = svgEl('rect', { x: b.x - 8, y: 12, width: b.w + 16, height: H - 22, rx: 10,
-        fill: U.CORPUS_COLOR[b.c], 'fill-opacity': '0.045' });
-      gB.appendChild(r);
-      const t = svgEl('text', { x: b.x, y: 32, class: 'bandlab' });
-      t.textContent = (SWE.corpus.corpora[b.c] || b.c).toUpperCase() + ' · ' + b.n;
-      gB.appendChild(t);
-    }
+    let nodeEls = {}, edgeEls = [], rafPending = false;
 
-    // edges (endpoint trimmed to node boundary so arrowheads stay visible)
-    function anchorPt(from, to) {
+    function anchorPt(from, to, NW, NH) {
       const dx = to.x - from.x, dy = to.y - from.y;
-      const sc = Math.max(Math.abs(dx) / (NW / 2 + 5), Math.abs(dy) / (NH / 2 + 5), 1e-6);
+      const sc = Math.max(Math.abs(dx) / (NW / 2 + 6), Math.abs(dy) / (NH / 2 + 6), 1e-6);
       return { x: to.x - dx / sc, y: to.y - dy / sc };
     }
-    const edgeEls = [];
-    for (const e of E) {
-      const a = pos[e.s], b = pos[e.t]; if (!a || !b) continue;
-      const c1 = { x: a.x + NW / 2, y: a.y + NH / 2 }, c2 = { x: b.x + NW / 2, y: b.y + NH / 2 };
-      const p1 = anchorPt(c2, c1), p2 = anchorPt(c1, c2);
-      const mx = (p1.x + p2.x) / 2, my = (p1.y + p2.y) / 2 - Math.min(70, Math.hypot(p2.x - p1.x, p2.y - p1.y) / 4);
-      const path = svgEl('path', { d: 'M' + p1.x + ' ' + p1.y + ' Q ' + mx + ' ' + my + ', ' + p2.x + ' ' + p2.y,
-        class: 'gedge' + (e.src === 'editorial' ? ' edi' : ''), 'marker-end': 'url(#garr)' });
-      path.style.stroke = U.KIND_COLOR[e.kind];
-      if (U.KIND_DASH[e.kind] && e.src !== 'editorial') path.style.strokeDasharray = U.KIND_DASH[e.kind];
-      path.dataset.s = e.s; path.dataset.t = e.t;
-      gE.appendChild(path); edgeEls.push(path);
+
+    function build() {
+      const rect = board.getBoundingClientRect();
+      const aspect = rect.width > 0 && rect.height > 0 ? rect.width / rect.height : 1.4;
+      const L = C.graphLayout(corpus.nodes, relations.edges, U.CORPUS_ORDER, { aspect });
+      const NW = L.box.NW, NH = L.box.NH, pos = L.positions;
+      log.debug('graph layout', { w: Math.round(L.width), h: Math.round(L.height), aspect: +aspect.toFixed(2) });
+
+      const svg = U.svg('svg', { viewBox: `0 0 ${L.width} ${L.height}`, preserveAspectRatio: 'xMidYMid meet',
+        role: 'img', 'aria-label': `Reading graph of ${Object.keys(pos).length} works in ${L.bands.length} corpora` });
+      const defs = U.svg('defs');
+      const mk = U.svg('marker', { id: 'swe-arr', viewBox: '0 0 10 10', refX: '9', refY: '5', markerWidth: '6', markerHeight: '6', orient: 'auto-start-reverse' });
+      mk.appendChild(U.svg('path', { d: 'M1.5 1.5 L9 5 L1.5 8.5', fill: 'none', stroke: 'context-stroke', 'stroke-width': '1.6', 'stroke-linecap': 'round', 'stroke-linejoin': 'round' }));
+      defs.appendChild(mk); svg.appendChild(defs);
+      const gB = U.svg('g'), gE = U.svg('g'), gN = U.svg('g');
+      svg.appendChild(gB); svg.appendChild(gE); svg.appendChild(gN);
+
+      for (const b of L.bands) {
+        gB.appendChild(U.svg('rect', { x: b.x, y: b.y, width: b.w, height: b.h, rx: 12, fill: U.corpusFill(b.key), 'fill-opacity': 0.5, stroke: U.corpusStroke(b.key), 'stroke-opacity': 0.16 }));
+        const t = U.svg('text', { x: b.labelX, y: b.labelY, class: 'band-label', 'font-size': 13 });
+        t.textContent = (corpus.corpora[b.key] || b.key).toUpperCase() + ' · ' + b.count;
+        gB.appendChild(t);
+      }
+
+      edgeEls = [];
+      for (const e of relations.edges) {
+        const a = pos[e.s], b = pos[e.t]; if (!a || !b) continue;
+        const c1 = { x: a.x + NW / 2, y: a.y + NH / 2 }, c2 = { x: b.x + NW / 2, y: b.y + NH / 2 };
+        const p1 = anchorPt(c2, c1, NW, NH), p2 = anchorPt(c1, c2, NW, NH);
+        const my = (p1.y + p2.y) / 2 - Math.min(78, Math.hypot(p2.x - p1.x, p2.y - p1.y) / 4);
+        const path = U.svg('path', { d: `M${p1.x} ${p1.y} Q ${(p1.x + p2.x) / 2} ${my}, ${p2.x} ${p2.y}`,
+          class: 'gedge' + (e.src === 'editorial' ? ' editorial' : ''), 'marker-end': 'url(#swe-arr)' });
+        path.style.stroke = U.kindColor(e.kind);
+        if (U.KIND_DASH[e.kind] && e.src !== 'editorial') path.style.strokeDasharray = U.KIND_DASH[e.kind];
+        path.dataset.s = e.s; path.dataset.t = e.t;
+        gE.appendChild(path); edgeEls.push(path);
+      }
+
+      nodeEls = {};
+      for (const id in pos) {
+        const n = byId[id], p = pos[id], c = C.primaryCorpus(n, U.CORPUS_ORDER);
+        const isAnchor = (n.role || []).includes('anchor');
+        const g = U.svg('g', { class: 'gnode' + (n.verification === 'unverified' ? ' unv' : '') + (isAnchor ? ' anchor' : ''),
+          tabindex: '0', role: 'button', 'aria-label': `${n.title}, ${n.year}, ${n.verification}` });
+        const r = U.svg('rect', { x: p.x, y: p.y, width: NW, height: NH, rx: 8 });
+        r.style.fill = U.corpusFill(c); r.style.stroke = isAnchor ? 'var(--accent)' : U.corpusStroke(c);
+        g.appendChild(r);
+        const lines = U.wrapLabel(n.title, 22, 2);
+        lines.forEach((ln, i) => { const tx = U.svg('text', { x: p.x + 9, y: p.y + 16 + i * 13, class: 'nm', 'font-size': 10.5 }); tx.textContent = ln; g.appendChild(tx); });
+        const yr = U.svg('text', { x: p.x + 9, y: p.y + NH - 8, class: 'yr', 'font-size': 9 });
+        yr.textContent = n.year + (isAnchor ? ' ★' : '') + (n.automotive ? ' ◆' : '');
+        g.appendChild(yr);
+        const tip = U.svg('title'); tip.textContent = n.title + ' — ' + n.authors + ' (' + n.year + ')';
+        g.appendChild(tip);
+        g.addEventListener('mouseenter', () => highlight(id));
+        g.addEventListener('mouseleave', restore);
+        g.addEventListener('focus', () => highlight(id));
+        g.addEventListener('blur', restore);
+        g.addEventListener('click', (ev) => { ev.stopPropagation(); SWE.state.set({ sel: id }); });
+        g.addEventListener('keydown', (ev) => { if (ev.key === 'Enter' || ev.key === ' ') { ev.preventDefault(); SWE.state.set({ sel: id }); } });
+        gN.appendChild(g); nodeEls[id] = g;
+      }
+      board.replaceChildren(svg);
+      applyFilters(); onSelect(SWE.state.get().sel);
     }
 
-    // adjacency + cycle-safe closure
-    const up = {}, down = {};
-    E.forEach(e => { (down[e.s] = down[e.s] || []).push(e.t); (up[e.t] = up[e.t] || []).push(e.s); });
-    function closure(id, adj) {
-      const seen = new Set([id]), q = [id];
-      while (q.length) { const c = q.pop(); (adj[c] || []).forEach(x => { if (!seen.has(x)) { seen.add(x); q.push(x); } }); }
-      return seen;
-    }
-    const nodeEls = {};
     function highlight(id) {
-      const keep = new Set([...closure(id, up), ...closure(id, down)]);
+      const keep = new Set([...C.closure(id, adj.up), ...C.closure(id, adj.down)]);
       for (const nid in nodeEls) nodeEls[nid].classList.toggle('dim', !keep.has(nid));
-      for (const p of edgeEls) {
-        const hl = keep.has(p.dataset.s) && keep.has(p.dataset.t);
-        p.classList.toggle('hl', hl); p.classList.toggle('dim', !hl);
-      }
+      for (const p of edgeEls) { const on = keep.has(p.dataset.s) && keep.has(p.dataset.t); p.classList.toggle('hl', on); p.classList.toggle('dim', !on); }
     }
-    function clearHl() {
-      for (const nid in nodeEls) nodeEls[nid].classList.remove('dim');
-      for (const p of edgeEls) p.classList.remove('hl', 'dim');
-    }
+    function clearHl() { for (const nid in nodeEls) nodeEls[nid].classList.remove('dim'); for (const p of edgeEls) p.classList.remove('hl', 'dim'); }
+    function restore() { const sel = SWE.state.get().sel; if (sel && nodeEls[sel]) highlight(sel); else clearHl(); }
 
-    for (const n of gnodes) {
-      const p = pos[n.id], c = primary(n);
-      const g = svgEl('g', { class: 'gnode' + (n.verification === 'unverified' ? ' unvN' : ''), tabindex: '0',
-        role: 'button', 'aria-label': n.title + ', ' + n.verification });
-      const rect = svgEl('rect', { x: p.x, y: p.y, width: NW, height: NH, rx: 7 });
-      rect.style.fill = U.CORPUS_BG[c]; rect.style.stroke = U.CORPUS_COLOR[c];
-      if ((n.role || []).includes('anchor')) { rect.style.stroke = 'var(--accent)'; rect.style.strokeWidth = '2'; }
-      g.appendChild(rect);
-      const t1 = svgEl('text', { x: p.x + 7, y: p.y + 17, class: 'nt' });
-      t1.textContent = U.shortTitle(n.title, 24); g.appendChild(t1);
-      const t2 = svgEl('text', { x: p.x + 7, y: p.y + 33, class: 'ny' });
-      t2.textContent = n.year + ((n.role || []).includes('survey') ? ' ¶' : '') + (n.automotive ? ' ◆' : '');
-      g.appendChild(t2);
-      const tip = svgEl('title'); tip.textContent = n.title + ' — ' + n.authors + ' (' + n.year + ')';
-      g.appendChild(tip);
-      g.addEventListener('mouseenter', () => highlight(n.id));
-      g.addEventListener('mouseleave', clearHl);
-      g.addEventListener('focus', () => highlight(n.id));
-      g.addEventListener('blur', clearHl);
-      g.addEventListener('click', () => SWE.detail.show(n.id));
-      g.addEventListener('keydown', ev => { if (ev.key === 'Enter' || ev.key === ' ') { ev.preventDefault(); SWE.detail.show(n.id); } });
-      gN.appendChild(g); nodeEls[n.id] = g;
-    }
-    board.appendChild(svg); root.appendChild(board);
-    root.appendChild(U.el('p', { class: 'hint',
-      text: 'hover / focus — trace closure (cycle-safe) · click / Enter — full citation & edges · scroll the board horizontally' }));
-
-    // apply global filters as dimming
     function applyFilters() {
-      const vis = SWE.search.visibleIds();
+      const vis = C.visibleIds(corpus, SWE.state.get());
       for (const nid in nodeEls) nodeEls[nid].classList.toggle('off', !vis.has(nid));
+      for (const p of edgeEls) p.classList.toggle('off', !vis.has(p.dataset.s) || !vis.has(p.dataset.t));
     }
-    applyFilters();
+    function onSelect(sel) { for (const nid in nodeEls) nodeEls[nid].classList.toggle('sel', nid === sel); restore(); }
 
-    // ---- per-edge catalog, grouped by provenance ----
-    root.appendChild(U.el('h3', { text: 'Edge catalog — every relation with its justification' }));
-    const groups = [
-      ['report:swa', 'Report-stated — software-architecture-as-science typed edge list'],
-      ['report:sim', 'Report-stated — Simulink bottom-up DAG (detail → abstraction ⇒ prerequisite-of)'],
-      ['derived', 'Derived — mechanically from explicit report statements (quoted basis)'],
-      ['editorial', 'EDITORIAL — reasoned judgment, not report fact']];
-    for (const [src, label] of groups) {
-      const list = E.filter(e => e.src === src);
-      const det = U.el('details', { class: 'cat' }, U.el('summary', { text: label + ' (' + list.length + ')' }));
-      const ul = U.el('ul', { class: 'elist' });
-      for (const e of list) {
-        const a = nodesById[e.s], b = nodesById[e.t];
-        const li = U.el('li');
-        li.appendChild(U.el('span', { class: 'lnk', text: U.shortTitle(a.title, 60), tabindex: '0',
-          onclick: () => SWE.detail.show(a.id) }));
-        li.appendChild(U.el('span', { class: 'kt', text: e.kind }));
-        li.appendChild(U.el('span', { class: 'lnk', text: U.shortTitle(b.title, 60), tabindex: '0',
-          onclick: () => SWE.detail.show(b.id) }));
-        if (e.note) li.appendChild(U.el('span', { class: 'ov', text: ' — ' + e.note }));
-        if (e.cycle) li.appendChild(U.el('span', { class: 'badge unv', text: 'cycle ' + e.cycle }));
-        ul.appendChild(li);
-      }
-      det.appendChild(ul); root.appendChild(det);
-    }
-    return { applyFilters };
+    board.addEventListener('click', () => { if (SWE.state.get().sel) SWE.state.set({ sel: null }); });
+    const ro = new ResizeObserver(() => { if (rafPending) return; rafPending = true; requestAnimationFrame(() => { rafPending = false; build(); }); });
+    ro.observe(board);
+    build();
+    return { applyFilters, onSelect, destroy: () => ro.disconnect() };
   }
   return { label: 'Reading graph', mount };
 })();

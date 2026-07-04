@@ -1,9 +1,10 @@
 # MODELS.md — the relational models (INFERENCE layer)
 
-This file documents every navigation semantic the explorer offers. It is deliberately
-separate from the fact layer: `data/corpus.json` / `data/corpus.js` contain only what the
-six reports assert; everything here is computed or reasoned **on top of** those facts, and
-every typed edge carries a provenance tag.
+Five navigation semantics over one fact layer. `data/corpus.json` holds only what the six reports
+assert; everything here is computed **on top of** those facts, and every typed edge carries a
+provenance tag. The models are unchanged from the original design — the single-viewport rebuild
+changed how each is *rendered* (noted per model), not what it *means*. The pure computations live
+in `logic/core.js`; the view shells only project them.
 
 Corpora unified (superseding directive: everything in `E:\dev\corpora\SWE`):
 
@@ -18,90 +19,75 @@ Corpora unified (superseding directive: everything in `E:\dev\corpora\SWE`):
 
 ## Edge provenance discipline (anti-fabrication)
 
-- `report:swa` — an entry of the swa-science report's numbered Typed Edge List (edge number kept in the note).
-- `report:sim` — an entry of the simulink report's DAG Edge List. That list is directed
-  *detail → abstraction*; the report's own rationale ("reasoning about higher-order
-  abstraction requires first understanding the underlying detail") makes this exactly a
-  prerequisite semantics, so these edges carry kind `prerequisite-of`.
-- `derived` — mechanically derivable from an explicit sentence inside a report entry
-  (the quoted basis is in the edge note), e.g. "BARR-C … fully harmonized with MISRA C:2012"
-  → `companion`; "MISRA C++:2023 … merges the AUTOSAR C++14 guidelines" → `subsumes`.
-- `editorial` — my reasoned judgment, never presented as report fact; rendered with an
-  explicit **[EDITORIAL]** marker in the edge catalog and a distinct dash pattern in the graph.
+- `report:swa` — an entry of the swa-science report's numbered Typed Edge List (edge number in the note).
+- `report:sim` — an entry of the simulink report's DAG (directed detail → abstraction ⇒ `prerequisite-of`).
+- `derived` — mechanically derivable from an explicit report sentence (the quoted basis is in the note).
+- `editorial` — my reasoned judgment, never presented as report fact; rendered **EDITORIAL** with a distinct dotted edge in the graph.
 
-Current census: 204 edges = 86 report:swa + 57 report:sim + 50 derived + 11 editorial.
+Census: 204 edges = 86 `report:swa` + 57 `report:sim` + 50 `derived` + 11 `editorial`. Kind
+vocabulary (12): `prerequisite-of, refines, formalizes, surveys, applies-method-of, companion,
+subsumes, evaluates, critiques, supersedes, part-of, references`.
 
-Kind vocabulary (12, union of the swa report's 9-relation vocabulary plus three kinds needed
-by report-stated facts): `prerequisite-of, refines, formalizes, surveys, applies-method-of,
-companion, subsumes, evaluates, critiques, supersedes, part-of, references`.
-`critiques` covers the swa report's "critiques / feeds-back-into" (its cycle-forming relation);
-`supersedes` and `part-of` encode standards lineage ("supersedes the first edition", "Part 6 of…",
-"Supplement to DO-178C"); `references` encodes stated traceability ("traceable to HIC++ 4.0, JSF…").
+## Model 1 — Reading graph (`graph`)
 
-## Model 1 — Reading graph (view: `graph`)
+- **Semantic.** Typed, directed, *cyclic-capable* relations between works.
+- **Question.** "What should I read before / after / alongside this work, and why?"
+- **Computation (`core.graphLayout` + `closure`).** Node set = every work with ≥1 edge; corpus
+  bands are **shelf-packed to fit the pane's aspect** (was: laid out horizontally with a scroll);
+  within a band, nodes sort by (theme, year). Hover traces the cycle-safe closure both directions.
+- **Single-viewport rendering.** SVG scales to fill; the per-edge catalog that used to sit below
+  the board is now per-node in the inspector, and the four documented cycles (C1–C4) are tagged on
+  their edges and explained in the inspector overview.
 
-- **Semantic.** Typed, directed, *cyclic-capable* relations between works — the reference
-  pages' reading-graph pattern scaled to a computed layout.
-- **Question answered.** "What should I read before / after / alongside this work, and why?"
-- **Computation.** Node set = every node with ≥1 edge (~170 of 421). Layout is fully
-  data-driven (hand layout is impossible at this scale): nodes are grouped into corpus
-  bands, packed into a grid per band ordered by (theme, year). Hover traces the full
-  ancestor+descendant closure (cycle-safe visited-set walk); the per-edge catalog below the
-  board lists every edge with kind, provenance and its one-line justification.
-- **Cycles.** The four cycles documented by the swa report (C1–C4) are preserved and tagged
-  on their edges; `critiques` edges render dashed red.
+## Model 2 — Facet browser (`facets`)
 
-## Model 2 — Facet browser (view: `facets`)
+- **Semantic.** Classification lattice: corpus × branch × theme × type (+ verification, role, ops
+  lane, emb-arch scope).
+- **Question.** "What exists about X — and how much of it is verified?"
+- **Computation (`core.facetCount` / `passLocal`).** Pure filtering/counting over node tags; facet
+  values a source never asserts are simply absent (not UNRESOLVED); UNRESOLVED appears only where a
+  report flags a value unknown.
+- **Rendering.** A facet rail (live counts, click to narrow) above an internally-scrolling,
+  two-column result list.
 
-- **Semantic.** Classification lattice over the PHASE-2 reconciled vocabulary:
-  corpus × branch (architecture | design | process | evaluation | operations | management)
-  × theme × type (+ verification, role, ops lane, automotive band).
-- **Question answered.** "What exists about X — and how much of it is verified?"
-- **Computation.** Pure filtering/counting over node tags; no inference. Facet values that a
-  source never asserts are simply absent for that node (not UNRESOLVED — see adjustments.md);
-  UNRESOLVED appears only where a report itself flags the value unknown.
+## Model 3 — Chronology (`timeline`)
 
-## Model 3 — Chronology (view: `timeline`)
+- **Semantic.** Ordering by *year of last publication*, with living/continuously-revised documents
+  as their own stratum — a real feature of this corpus, not a defect.
+- **Question.** "How did this literature accumulate; what is maintained vs frozen?"
+- **Computation (`core.strataBuckets`).** Leading 4-digit year → strata ≤1979, 1980s … 2020s,
+  LIVING, UNRESOLVED (unparseable years land in UNRESOLVED — no interpolation).
+- **Rendering.** One column per stratum, filling the pane; each column scrolls internally.
 
-- **Semantic.** Ordering by *year of last publication* (the citation rule shared by all six
-  reports), with living/continuously-revised documents as their own stratum — a real feature
-  of this corpus (toolchain manuals, vendor docs) rather than a data defect.
-- **Question answered.** "How did this literature accumulate? What is maintained vs frozen?"
-- **Computation.** Leading 4-digit year parsed from the year field; strata ≤1979, 1980s …
-  2020s, LIVING, UNRESOLVED. No interpolation: unparseable years land in UNRESOLVED.
+## Model 4 — Cross-corpus overlap (`overlap`)
 
-## Model 4 — Cross-corpus overlap (view: `overlap`)
+- **Semantic.** The graft points: works claimed by ≥2 research passes (the property unique to a
+  *unified* corpus). The reports required overlap to be preserved and tagged, not dropped.
+- **Question.** "Which works bind the passes together; where do the corpora agree?"
+- **Computation (`core.overlapPairs` / `signatureGroups`).** Nodes with |corpora| ≥ 2, grouped by
+  exact membership signature, plus a pairwise corpus × corpus count matrix. `lead` memberships
+  (a work another report verified) are marked on the chip.
+- **Rendering.** The matrix (hot cells ≥ 4) beside internally-scrolling signature groups.
 
-- **Semantic.** The graft points: works claimed by ≥2 research passes. The reports required
-  overlap to be *preserved and tagged, not dropped* — this view is that requirement made navigable.
-- **Question answered.** "Which works bind the passes together; where do the corpora agree?"
-- **Computation.** Nodes with |corpora| ≥ 2 (44 today), grouped by exact membership signature,
-  plus a pairwise corpus×corpus count matrix. Membership added by merge (a report listing a
-  work as an unverified lead that another report verified) is marked "lead" in the detail panel.
+## Model 5 — Anchors & spine (`anchors`)
 
-## Model 5 — Anchors & spine (view: `anchors`)
-
-- **Semantic.** Curated entry points per corpus — the union of the reports' own emphasis
-  marks: swa ★ target/canonical anchors, simulink TARGET designations, ops KEY /
-  ABSOLUTELY KEY flags.
-- **Question answered.** "Where do I start in each corpus?"
-- **Computation.** role contains `anchor` — a fact carried from the reports, not my ranking.
-  emb-arch, emb-c and emb-cpp assert no anchor facet, so they contribute none (stated in-view
-  rather than silently absent).
+- **Semantic.** Curated per-corpus entry points — the union of the reports' own emphasis marks
+  (swa ★ anchors, Simulink TARGET, ops KEY / ABSOLUTELY KEY). Carried fact, not our ranking.
+- **Question.** "Where do I start in each corpus?"
+- **Computation (`core.anchorsFor`).** `role` contains `anchor`, non-lead in that corpus. Corpora
+  whose reports assert no anchor facet say so explicitly in-column rather than being silently absent.
+- **Rendering.** One column per corpus, filling the pane; each column scrolls internally.
 
 ## Cross-cutting lenses (not separate models)
 
-- **Verification lens** — verified | unverified is preserved on every node from its report,
-  is filterable everywhere, and is always visible as a badge. Any-verified-wins on merge is
-  logged per node in `data/corpus_report.md`.
-- **Search** — substring match over title/authors/id/ident, applied within whichever view is active.
+- **Verification** — `verified | unverified`, filterable everywhere, always a visible badge.
+- **Search** — substring over title/authors/id/ident, applied within whichever model is active.
+- **Corpus filter** — narrows every model to one pass.
 
-## Why this set
+## The persistent inspector
 
-The six reports natively use *different* organizing logics: a typed cyclic reading graph
-(swa), a bottom-up prerequisite DAG (simulink), flat tag sorts (emb-c, emb-cpp, emb-ops) and
-a two-branch shelf (emb-arch). The model set above keeps each native logic navigable
-(models 1, 2), adds the two orderings every bibliography benefits from (3, 5), and makes the
-one property unique to a *unified* corpus — cross-pass overlap — a first-class view (4).
-Nothing in the set requires an unstated relation: models 2–5 are pure computations over
-facts, and model 1's edges carry provenance per edge.
+Not a model — the always-present right dock. With nothing selected it shows the **active model's**
+semantic/question/computation (from `relations.views`), the corpus stat block, and the full legend
+(corpora, 12 edge kinds with dash patterns, provenance & honesty markers). With a work selected it
+shows the full citation, corpus memberships, phase-2 reconciled tags, the raw per-report tags
+exactly as each report stated them, and both edge directions with kind + provenance + justification.

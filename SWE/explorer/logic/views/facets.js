@@ -1,86 +1,65 @@
-// views/facets.js — Model 2: classification lattice with live counts + chunked result list.
+// views/facets.js — Model 2: classification lattice (shell). Pure counts from core.facetCount;
+// facet rail + internally-scrolling result list, fitted to the pane.
 window.SWE = window.SWE || {}; SWE.views = SWE.views || {};
 SWE.views.facets = (function () {
   'use strict';
-  const U = SWE.util;
-  const FACETS = [
-    ['branches', 'branch'], ['themes', 'theme'], ['type', 'type'],
-    ['role', 'role'], ['lane', 'ops lane'], ['scope', 'scope (emb-arch)']];
-  const CHUNK = 150;
-  const sel = {};   // local facet selections: facetKey -> value
+  const U = SWE.util, C = SWE.core;
+  const FACETS = [['branches', 'branch'], ['themes', 'theme'], ['type', 'type'], ['role', 'role'], ['lane', 'ops lane'], ['scope', 'scope']];
+  const CHUNK = 160;
 
-  function valuesOf(n, key) {
-    const v = n[key];
-    if (v == null) return [];
-    return Array.isArray(v) ? v : [v];
-  }
-  function passLocal(n, exceptKey) {
-    for (const k in sel) {
-      if (!sel[k] || k === exceptKey) continue;
-      if (!valuesOf(n, k).includes(sel[k])) return false;
-    }
-    return true;
-  }
-  function mount(root) {
-    root.appendChild(U.el('h2', { text: 'Facet browser — corpus × branch × theme × type' }));
-    root.appendChild(U.el('p', { class: 'viewnote', text:
-      'Pure filtering over the PHASE-2 reconciled tags — no inference. Facets a report never asserts are simply ' +
-      'absent for its nodes; UNRESOLVED appears only where a report itself flags a value unknown. Combine with the ' +
-      'global search / verification / corpus filters in the toolbar.' }));
-    const facetHost = U.el('div');
-    const listHost = U.el('div');
-    root.appendChild(facetHost); root.appendChild(listHost);
-    let shown = CHUNK;
+  function mount(root, ctx) {
+    const corpus = ctx.corpus;
+    const sel = {}; let shown = CHUNK;
+
+    const vp = U.el('div', { class: 'vp' });
+    vp.appendChild(U.el('div', { class: 'vp-head' },
+      U.el('h2', { text: 'Facet browser — corpus × branch × theme × type' }),
+      U.el('p', { class: 'note', text: 'Pure filtering over the phase-2 reconciled tags — no inference. Facets a report never asserts are simply absent for its nodes; UNRESOLVED appears only where a report flags a value unknown. Combines with the global search / verification / corpus filters.' })));
+    const rail = U.el('div', { class: 'facet-rail' });
+    const body = U.el('div', { class: 'vp-body' });
+    const results = U.el('div', { class: 'results' });
+    body.appendChild(results); vp.appendChild(rail); vp.appendChild(body); root.appendChild(vp);
 
     function render() {
-      const vis = SWE.search.visibleIds();
-      const base = SWE.corpus.nodes.filter(n => vis.has(n.id));
-      facetHost.innerHTML = '';
+      const vis = C.visibleIds(corpus, SWE.state.get());
+      const base = corpus.nodes.filter((n) => vis.has(n.id));
+      rail.replaceChildren();
       for (const [key, label] of FACETS) {
-        const counts = new Map();
-        for (const n of base) if (passLocal(n, key))
-          for (const v of valuesOf(n, key)) counts.set(v, (counts.get(v) || 0) + 1);
+        const counts = C.facetCount(base, key, sel);
         if (!counts.size) continue;
         const bar = U.el('div', { class: 'facetbar' }, U.el('span', { class: 'lab', text: label }));
         [...counts.entries()].sort((a, b) => b[1] - a[1]).forEach(([v, c]) => {
-          const chip = U.el('button', { class: 'chip plain clickable' + (sel[key] === v ? ' sel' : ''),
-            text: v + ' · ' + c,
-            onclick: () => { sel[key] = sel[key] === v ? null : v; shown = CHUNK; render(); } });
-          if (v === 'UNRESOLVED') chip.classList.add('unres');
+          const chip = U.el('button', { class: 'chip clickable' + (sel[key] === v ? ' sel' : '') + (v === 'UNRESOLVED' ? ' unres' : ''),
+            text: v + ' · ' + c, onclick: () => { sel[key] = sel[key] === v ? null : v; shown = CHUNK; render(); } });
           bar.appendChild(chip);
         });
-        facetHost.appendChild(bar);
+        rail.appendChild(bar);
       }
-      const rows = base.filter(n => passLocal(n, null))
-        .sort((a, b) => a.title.localeCompare(b.title));
-      listHost.innerHTML = '';
-      listHost.appendChild(U.el('p', { class: 'meta', text: rows.length + ' resources match' }));
+      const rows = base.filter((n) => C.passLocal(n, sel, null)).sort((a, b) => a.title.localeCompare(b.title));
+      results.replaceChildren();
+      results.appendChild(U.el('p', { class: 'rescount', text: rows.length + ' resources match' }));
       const ul = U.el('ul', { class: 'rows' });
-      rows.slice(0, shown).forEach(n => {
-        const li = U.el('li', { class: 'row', tabindex: '0', role: 'button',
-          onclick: () => SWE.detail.show(n.id),
-          onkeydown: ev => { if (ev.key === 'Enter') SWE.detail.show(n.id); } });
-        const line1 = U.el('div');
-        line1.appendChild(U.el('span', { class: 't', text: n.title }));
-        U.badges(n).forEach(b => line1.appendChild(b));
-        li.appendChild(line1);
-        const line2 = U.el('div', { class: 'a', text: n.authors + ' · ' + n.year + (n.ident ? ' · ' + n.ident : '') });
-        li.appendChild(line2);
-        const line3 = U.el('div');
-        U.corpusChips(n).forEach(c => line3.appendChild(c));
-        (n.themes || []).slice(0, 4).forEach(t =>
-          line3.appendChild(U.el('span', { class: 'chip plain', text: t })));
-        li.appendChild(line3);
+      const curSel = SWE.state.get().sel;
+      rows.slice(0, shown).forEach((n) => {
+        const li = U.el('li', { class: 'row' + (n.id === curSel ? ' sel' : ''), tabindex: '0', role: 'button', 'data-id': n.id,
+          onclick: () => SWE.state.set({ sel: n.id }), onkeydown: (ev) => { if (ev.key === 'Enter' || ev.key === ' ') { ev.preventDefault(); SWE.state.set({ sel: n.id }); } } });
+        if (n.id === curSel) li.style.outline = '2px solid var(--ink)';
+        const l1 = U.el('div'); l1.appendChild(U.el('span', { class: 't', text: U.shortTitle(n.title, 70) }));
+        U.badges(n).slice(0, 3).forEach((b) => l1.appendChild(b));
+        li.appendChild(l1);
+        li.appendChild(U.el('div', { class: 'a', text: n.authors + ' · ' + n.year + (n.ident ? ' · ' + n.ident : '') }));
+        const l3 = U.el('div'); U.corpusChips(n).forEach((c) => l3.appendChild(c));
+        (n.themes || []).slice(0, 3).forEach((t) => l3.appendChild(U.el('span', { class: 'chip', text: t })));
+        li.appendChild(l3);
         ul.appendChild(li);
       });
-      listHost.appendChild(ul);
-      if (rows.length > shown)
-        listHost.appendChild(U.el('button', { class: 'morebtn',
-          text: 'show ' + Math.min(CHUNK, rows.length - shown) + ' more (of ' + (rows.length - shown) + ')',
-          onclick: () => { shown += CHUNK; render(); } }));
+      results.appendChild(ul);
+      if (rows.length > shown) results.appendChild(U.el('button', { class: 'morebtn',
+        text: 'show ' + Math.min(CHUNK, rows.length - shown) + ' more (of ' + (rows.length - shown) + ')',
+        onclick: () => { shown += CHUNK; render(); } }));
     }
     render();
-    return { applyFilters: render };
+    return { applyFilters: render, onSelect: () => render(), destroy: () => {} };
   }
   return { label: 'Facets', mount };
 })();

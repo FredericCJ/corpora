@@ -3,71 +3,56 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Embedded Software Corpus Explorer — six research passes, one graph</title>
+<meta name="description" content="Single-viewport explorer of a unified embedded-software research corpus: 421 resources, six passes, five relational models.">
+<title>Embedded Software Corpus Explorer — six passes, five models, one viewport</title>
+<!-- Baseline target: Widely available as of 2026-07. Raw HTML/CSS/JS, no framework, no build
+     step at view time; opens directly from file:// (data ships as classic scripts because
+     fetch() of JSON is blocked on file://). See ARCHITECTURE.md. -->
 <link rel="stylesheet" href="styles/tokens.css">
 <link rel="stylesheet" href="styles/app.css">
 </head>
 <body>
 
-<header class="masthead">
-  <div class="wrap">
-    <div class="eyebrow">unified reference corpus · six research passes · compiled july 2026</div>
+<header class="top">
+  <div class="brand">
+    <div class="eyebrow">unified reference corpus · six research passes · compiled 2026</div>
     <h1>Embedded Software Corpus Explorer</h1>
-    <p class="lede">Every resource from the six research reports in <code>SWE/</code> — software-architecture
-    science, embedded architecture &amp; design, embedded C, embedded C++, C/C++ operational use, and
-    large Simulink/MATLAB projects — merged into one fact layer and navigable through five distinct
-    relational models. Verification state is carried from the reports onto every node;
-    <span class="badge unv">unverified</span> and <span class="badge unres">UNRESOLVED</span> are shown, never smoothed over.
-    Typed edges carry provenance: report-stated, derived from report statements, or marked
-    <span class="badge edi">EDITORIAL</span>.</p>
-    <p class="meta" id="meta">loading…</p>
-    <details class="about">
-      <summary>About the data &amp; method</summary>
-      <p>Facts and relations are separate layers: <a href="data/corpus.json">corpus.json</a> (facts),
-      <a href="data/relations.json">relations.json</a> (inference). Build documents:
-      <a href="data/corpus_report.md">corpus_report.md</a> (phase 1 — extraction &amp; merges),
-      <a href="data/adjustments.md">adjustments.md</a> (phase 2 — vocabulary reconciliation),
-      <a href="MODELS.md">MODELS.md</a> (phase 3 — the relational models),
-      <a href="ARCHITECTURE.md">ARCHITECTURE.md</a> (phase 4). Nothing here was authored by hand at
-      the presentation layer; all views are generated from the data modules.</p>
-      <p>Keyboard: <code>1–5</code> switch views · <code>/</code> search · <code>v</code> cycle verification filter · <code>Esc</code> close detail.</p>
-    </details>
+  </div>
+  <nav class="tabs" role="tablist" id="tabs" aria-label="Relational models"></nav>
+  <div class="controls" role="search">
+    <input id="q" type="search" placeholder="search title / author / id…  ( / )" aria-label="Search corpus">
+    <select id="fver" aria-label="Verification filter">
+      <option value="">verification: all</option>
+      <option value="verified">verified only</option>
+      <option value="unverified">unverified only</option>
+    </select>
+    <select id="fcorpus" aria-label="Corpus filter"><option value="">corpus: all</option></select>
+    <button id="reset" type="button" title="Clear filters and selection">reset</button>
   </div>
 </header>
 
-<nav class="toolbar" aria-label="Views and filters">
-  <div class="wrap bar">
-    <div class="tabs" role="tablist" id="tabs"></div>
-    <div class="controls">
-      <input id="q" type="search" placeholder="search title / author / id…" aria-label="Search corpus">
-      <select id="fver" aria-label="Verification filter">
-        <option value="">verification: all</option>
-        <option value="verified">verified only</option>
-        <option value="unverified">unverified only</option>
-      </select>
-      <select id="fcorpus" aria-label="Corpus filter"><option value="">corpus: all</option></select>
-    </div>
-  </div>
-</nav>
+<main class="stage">
+  <div id="view-root" tabindex="-1"></div>
+  <aside id="inspector" class="inspector" aria-label="Inspector"></aside>
+</main>
 
-<main class="wrap" id="view-root" tabindex="-1"></main>
+<noscript>
+  <p style="padding:1.5rem">This explorer renders five relational models with JavaScript. The
+  underlying facts are in <a href="data/corpus.json">data/corpus.json</a> and
+  <a href="data/relations.json">data/relations.json</a>.</p>
+</noscript>
 
-<aside id="drawer" class="drawer" hidden aria-label="Resource detail"></aside>
-
-<footer class="foot">
-  <div class="wrap">
-    Fact layer from the six SWE reports only — no invented titles, authors, years or identifiers.
-    Edges are report-stated, derived (quoted basis), or marked EDITORIAL. Citation rule throughout:
-    title · author/body · year of last publication.
-  </div>
-</footer>
-
+<!-- DATA (generated; classic scripts so the page opens from file://) -->
 <script src="data/corpus.js"></script>
 <script src="data/relations.js"></script>
+<!-- LOGIC: seam + helpers + boundary + state -->
+<script src="logic/log.js"></script>
 <script src="logic/util.js"></script>
+<script src="logic/parse.js"></script>
 <script src="logic/state.js"></script>
-<script src="logic/search.js"></script>
-<script src="logic/detail.js"></script>
+<!-- LOGIC: functional core, then the shells -->
+<script src="logic/core.js"></script>
+<script src="logic/inspector.js"></script>
 <script src="logic/views/graph.js"></script>
 <script src="logic/views/facets.js"></script>
 <script src="logic/views/timeline.js"></script>

@@ -1,55 +1,52 @@
-// views/timeline.js — Model 3: chronological strata (year of last publication; living docs own stratum).
+// views/timeline.js — Model 3: chronology (shell). Strata become columns that fill the pane; each
+// column scrolls internally. Buckets from core.strataBuckets (year of last publication).
 window.SWE = window.SWE || {}; SWE.views = SWE.views || {};
 SWE.views.timeline = (function () {
   'use strict';
-  const U = SWE.util;
-  function stratum(n) {
-    if (n.year === 'living') return 'LIVING';
-    const y = U.yearNum(n);
-    if (y == null) return 'UNRESOLVED';
-    if (y < 1980) return '≤ 1979';
-    return Math.floor(y / 10) * 10 + 's';
-  }
-  const ORDER = ['≤ 1979', '1980s', '1990s', '2000s', '2010s', '2020s', 'LIVING', 'UNRESOLVED'];
-  function mount(root) {
-    root.appendChild(U.el('h2', { text: 'Chronology — year of last publication' }));
-    root.appendChild(U.el('p', { class: 'viewnote', text:
-      'Every report applies the same citation rule: cite the year of last publication. Living, continuously ' +
-      'revised documents (toolchain manuals, vendor docs, MAB guidelines) are a real stratum of this literature, ' +
-      'not a data defect; leads whose year the reports could not pin land in UNRESOLVED.' }));
-    const host = U.el('div', { class: 'strata' });
-    root.appendChild(host);
+  const U = SWE.util, C = SWE.core;
+
+  function mount(root, ctx) {
+    const corpus = ctx.corpus;
+    const vp = U.el('div', { class: 'vp' });
+    vp.appendChild(U.el('div', { class: 'vp-head' },
+      U.el('h2', { text: 'Chronology — year of last publication' }),
+      U.el('p', { class: 'note', text: 'Every report cites the year of last publication. Living, continuously-revised documents (toolchain manuals, vendor docs, MAB guidelines) are a real stratum of this literature, not a defect; leads whose year the reports could not pin land in UNRESOLVED.' })));
+    const body = U.el('div', { class: 'vp-body' });
+    const tl = U.el('div', { class: 'tl' });
+    body.appendChild(tl); vp.appendChild(body); root.appendChild(vp);
+    let chipEls = {};
+
     function render() {
-      const vis = SWE.search.visibleIds();
-      host.innerHTML = '';
-      const buckets = {};
-      for (const n of SWE.corpus.nodes) {
-        if (!vis.has(n.id)) continue;
-        (buckets[stratum(n)] = buckets[stratum(n)] || []).push(n);
-      }
-      for (const s of ORDER) {
-        const list = (buckets[s] || []).sort((a, b) =>
-          (U.yearNum(a) || 0) - (U.yearNum(b) || 0) || a.title.localeCompare(b.title));
-        if (!list.length) continue;
-        const div = U.el('div', { class: 'stratum' });
-        div.appendChild(U.el('div', { class: 'shead',
-          text: s + ' — ' + list.length + ' resources' +
-                (s === 'UNRESOLVED' ? ' (year unknown to the source reports)' : '') }));
+      const vis = C.visibleIds(corpus, SWE.state.get());
+      const buckets = C.strataBuckets(corpus.nodes.filter((n) => vis.has(n.id)));
+      tl.replaceChildren(); chipEls = {};
+      const curSel = SWE.state.get().sel;
+      let any = false;
+      for (const s of C.STRATA) {
+        const list = buckets[s]; if (!list || !list.length) continue;
+        any = true;
+        const col = U.el('div', { class: 'tl-col' });
+        col.appendChild(U.el('div', { class: 'h' }, U.el('b', { text: s }), U.el('span', { text: ' · ' + list.length })));
+        const scroll = U.el('div', { class: 'tl-scroll' });
         for (const n of list) {
-          const chip = U.el('button', { class: 'nodechip', title: n.title + ' — ' + n.authors,
-            onclick: () => SWE.detail.show(n.id) });
-          chip.style.borderLeft = '3px solid ' + U.CORPUS_COLOR[n.corpora[0]];
-          chip.appendChild(U.el('span', { text: U.shortTitle(n.title, 46) }));
+          const chip = U.el('button', { class: 'nodechip' + (n.id === curSel ? ' sel' : ''), 'data-id': n.id, title: n.title + ' — ' + n.authors,
+            onclick: () => SWE.state.set({ sel: n.id }) });
+          chip.style.borderLeftColor = U.corpusStroke(n.corpora[0]);
+          if (n.id === curSel) chip.style.outline = '2px solid var(--ink)';
+          chip.appendChild(U.el('span', { text: U.shortTitle(n.title, 40) }));
           chip.appendChild(U.el('span', { class: 'yy', text: s === 'LIVING' ? 'living' : n.year }));
-          if (n.verification === 'unverified') chip.appendChild(U.el('span', { class: 'badge unv', text: 'unv.' }));
-          div.appendChild(chip);
+          if (n.verification === 'unverified') chip.appendChild(U.el('span', { class: 'badge unv', text: 'unv' }));
+          scroll.appendChild(chip); chipEls[n.id] = chip;
         }
-        host.appendChild(div);
+        col.appendChild(scroll); tl.appendChild(col);
       }
-      if (!host.children.length) host.appendChild(U.el('p', { class: 'empty', text: 'nothing matches the current filters' }));
+      if (!any) tl.appendChild(U.el('p', { class: 'empty', text: 'nothing matches the current filters' }));
+    }
+    function onSelect(sel) {
+      for (const id in chipEls) { const on = id === sel; chipEls[id].classList.toggle('sel', on); chipEls[id].style.outline = on ? '2px solid var(--ink)' : ''; }
     }
     render();
-    return { applyFilters: render };
+    return { applyFilters: render, onSelect, destroy: () => {} };
   }
   return { label: 'Chronology', mount };
 })();

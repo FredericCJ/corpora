@@ -1,86 +1,93 @@
-// app.js — bootstrap: view registry wiring, toolbar, keyboard, hash routing.
+// app.js — bootstrap (the imperative shell's outer edge). Wires the two global failure backstops,
+// parses the data boundary once (fail loud), builds the one console logger, mounts the persistent
+// inspector, and dispatches state changes to the active view. Loaded last.
 (function () {
   'use strict';
   const U = SWE.util, S = SWE.state;
+  const log = SWE.log.consoleLogger('swe', 'debug');
   const VIEW_ORDER = ['graph', 'facets', 'timeline', 'overlap', 'anchors'];
-  let current = null, currentId = null;
 
-  // meta line
-  const nodes = SWE.corpus.nodes, E = SWE.relations.edges;
-  const ver = nodes.filter(n => n.verification === 'verified').length;
-  const multi = nodes.filter(n => n.corpora.length > 1).length;
-  const unres = nodes.filter(n => n.unresolved && n.unresolved.length).length;
-  const edi = E.filter(e => e.src === 'editorial').length;
-  document.getElementById('meta').innerHTML =
-    '<b>' + nodes.length + '</b> resources · <b>6</b> corpora · <b>' + E.length + '</b> typed edges (' +
-    edi + ' editorial) · <b>' + ver + '</b> verified / <b>' + (nodes.length - ver) + '</b> unverified · <b>' +
-    multi + '</b> cross-corpus works · <b>' + unres + '</b> nodes with UNRESOLVED fields';
+  window.addEventListener('error', (ev) => log.error('uncaught error escaped every boundary', { message: ev.message, src: ev.filename, line: ev.lineno }));
+  window.addEventListener('unhandledrejection', (ev) => log.error('unhandled promise rejection', { reason: String(ev.reason) }));
 
-  // corpus filter options
-  const fc = document.getElementById('fcorpus');
-  for (const c in SWE.corpus.corpora)
-    fc.appendChild(U.el('option', { value: c, text: 'corpus: ' + U.CORPUS_SHORT[c] }));
+  const $ = (id) => document.getElementById(id);
 
-  // tabs
-  const tabs = document.getElementById('tabs');
-  VIEW_ORDER.forEach((id, i) => {
-    tabs.appendChild(U.el('button', { role: 'tab', id: 'tab-' + id,
-      'aria-selected': 'false', text: (i + 1) + ' · ' + SWE.views[id].label,
-      onclick: () => S.set({ view: id }) }));
-  });
-  tabs.addEventListener('keydown', ev => {
-    if (ev.key !== 'ArrowRight' && ev.key !== 'ArrowLeft') return;
-    const i = VIEW_ORDER.indexOf(S.get().view);
-    const j = (i + (ev.key === 'ArrowRight' ? 1 : VIEW_ORDER.length - 1)) % VIEW_ORDER.length;
-    S.set({ view: VIEW_ORDER[j] });
-    document.getElementById('tab-' + VIEW_ORDER[j]).focus();
-  });
-
-  function mountView(id) {
-    const root = document.getElementById('view-root');
-    root.innerHTML = '';
-    currentId = id;
-    current = SWE.views[id].mount(root);
-    VIEW_ORDER.forEach(v => document.getElementById('tab-' + v)
-      .setAttribute('aria-selected', v === id ? 'true' : 'false'));
+  function fail(err) {
+    log.error('bootstrap failed', { error: String(err && err.message || err) });
+    const vr = $('view-root'), insp = $('inspector');
+    if (vr) vr.replaceChildren(U.el('div', { class: 'empty', style: 'padding:2rem', text: 'The data failed to load or validate. See the console for the parse error.' }));
+    if (insp) insp.replaceChildren(U.el('h2', { text: 'Load error' }), U.el('p', { class: 'cite', text: String(err && err.message || err) }),
+      U.el('p', { class: 'muted', text: 'Re-run `python build/build.py` to regenerate data/, then reload.' }));
   }
 
-  // toolbar inputs
-  const q = document.getElementById('q'), fv = document.getElementById('fver');
-  let qTimer = null;
-  q.addEventListener('input', () => {
-    clearTimeout(qTimer);
-    qTimer = setTimeout(() => S.set({ q: q.value.trim() }), 220);
-  });
-  fv.addEventListener('change', () => S.set({ ver: fv.value }));
-  fc.addEventListener('change', () => S.set({ corpus: fc.value }));
+  function boot() {
+    const corpus = SWE.parse.parseCorpus(window.SWE && window.SWE.corpus);
+    const ids = new Set(corpus.nodes.map((n) => n.id));
+    const relations = SWE.parse.parseRelations(window.SWE && window.SWE.relations, ids);
+    SWE.core.buildIndex(corpus);
+    log.info('data parsed', { nodes: corpus.nodes.length, edges: relations.edges.length });
 
-  // state reactions
-  S.on((st, changed) => {
-    if (changed.includes('view')) mountView(st.view);
-    else if (['q', 'ver', 'corpus'].some(k => changed.includes(k)) && current && current.applyFilters)
-      current.applyFilters();
-    if (changed.includes('sel') && !st.sel && SWE.detail.isOpen()) SWE.detail.hide();
-  });
+    const ctx = { corpus, relations, log };
 
-  // keyboard
-  document.addEventListener('keydown', ev => {
-    if (ev.target.matches('input,select,textarea')) {
-      if (ev.key === 'Escape') ev.target.blur();
-      return;
+    // corpus filter options
+    const fc = $('fcorpus');
+    for (const c of U.CORPUS_ORDER) fc.appendChild(U.el('option', { value: c, text: 'corpus: ' + U.CORPUS_SHORT[c] }));
+
+    // tabs
+    const tabs = $('tabs');
+    VIEW_ORDER.forEach((id, i) => tabs.appendChild(U.el('button', { role: 'tab', id: 'tab-' + id, 'aria-selected': 'false',
+      text: (i + 1) + ' · ' + SWE.views[id].label, onclick: () => S.set({ view: id }) })));
+    tabs.addEventListener('keydown', (ev) => {
+      if (ev.key !== 'ArrowRight' && ev.key !== 'ArrowLeft') return;
+      const i = VIEW_ORDER.indexOf(S.get().view);
+      const j = (i + (ev.key === 'ArrowRight' ? 1 : VIEW_ORDER.length - 1)) % VIEW_ORDER.length;
+      S.set({ view: VIEW_ORDER[j] }); $('tab-' + VIEW_ORDER[j]).focus();
+    });
+
+    // persistent inspector
+    SWE.inspector.mount($('inspector'), ctx);
+
+    // view lifecycle
+    let current = null;
+    function mountView(id) {
+      if (!VIEW_ORDER.includes(id)) id = 'graph';
+      if (current && current.destroy) current.destroy();
+      const vr = $('view-root'); vr.replaceChildren();
+      current = SWE.views[id].mount(vr, ctx);
+      VIEW_ORDER.forEach((v) => $('tab-' + v).setAttribute('aria-selected', v === id ? 'true' : 'false'));
+      log.debug('view mounted', { view: id });
     }
-    if (ev.key === '/') { ev.preventDefault(); q.focus(); }
-    else if (ev.key === 'Escape' && SWE.detail.isOpen()) SWE.detail.hide();
-    else if (ev.key === 'v') {
-      fv.value = fv.value === '' ? 'verified' : fv.value === 'verified' ? 'unverified' : '';
-      S.set({ ver: fv.value });
-    } else if (/^[1-5]$/.test(ev.key)) S.set({ view: VIEW_ORDER[+ev.key - 1] });
-  });
 
-  // initial render from hash
-  const st = S.get();
-  if (!VIEW_ORDER.includes(st.view)) st.view = 'graph';
-  q.value = st.q; fv.value = st.ver; fc.value = st.corpus;
-  mountView(st.view);
-  if (st.sel) SWE.detail.show(st.sel);
+    // toolbar -> state
+    const q = $('q'), fv = $('fver');
+    let qTimer = null;
+    q.addEventListener('input', () => { clearTimeout(qTimer); qTimer = setTimeout(() => S.set({ q: q.value.trim() }), 200); });
+    fv.addEventListener('change', () => S.set({ ver: fv.value }));
+    fc.addEventListener('change', () => S.set({ corpus: fc.value }));
+    $('reset').addEventListener('click', () => S.set({ q: '', ver: '', corpus: '', sel: null }));
+
+    // state -> toolbar + view dispatch
+    function syncControls(s) { if (q.value !== s.q) q.value = s.q; if (fv.value !== s.ver) fv.value = s.ver; if (fc.value !== s.corpus) fc.value = s.corpus; }
+    S.on((s, changed) => {
+      if (changed.includes('view')) mountView(s.view);
+      if (['q', 'ver', 'corpus'].some((k) => changed.includes(k))) { syncControls(s); if (current && current.applyFilters) current.applyFilters(); }
+      if (changed.includes('sel') && current && current.onSelect) current.onSelect(s.sel);
+    });
+
+    // keyboard
+    document.addEventListener('keydown', (ev) => {
+      if (ev.target.matches('input,select,textarea')) { if (ev.key === 'Escape') ev.target.blur(); return; }
+      if (ev.key === '/') { ev.preventDefault(); q.focus(); q.select(); }
+      else if (ev.key === 'Escape') { if (S.get().sel) S.set({ sel: null }); }
+      else if (ev.key === 'v') { const nx = fv.value === '' ? 'verified' : fv.value === 'verified' ? 'unverified' : ''; S.set({ ver: nx }); }
+      else if (/^[1-5]$/.test(ev.key)) S.set({ view: VIEW_ORDER[+ev.key - 1] });
+    });
+
+    // initial render from hash
+    const s = S.get(); syncControls(s);
+    mountView(s.view);
+    log.info('ready', { view: s.view });
+  }
+
+  try { boot(); } catch (err) { fail(err); }
 })();

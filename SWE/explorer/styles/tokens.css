@@ -1,22 +1,30 @@
-/* Design tokens — presentation layer carries no data */
+/* tokens.css — design tokens only. Presentation carries no data.
+   Academic-paper palette; 6 corpus hues + 12 edge-kind hues carried from the corpus. */
 :root{
-  --paper:#F6F5F0; --panel:#FFFFFF; --ink:#22261F; --mut:#6E7268; --line:#DDDCD4;
-  --accent:#6C3FA0;
-  /* corpus hues */
-  --c-swa:#46549B;      --c-swa-bg:#EBEDF8;
-  --c-arch:#14705A;     --c-arch-bg:#E2F1EA;
-  --c-c:#8F6E1E;        --c-c-bg:#F5EEDA;
-  --c-cpp:#6C3FA0;      --c-cpp-bg:#F1EAFB;
-  --c-ops:#0E7490;      --c-ops-bg:#E6F4F7;
-  --c-sim:#C2551B;      --c-sim-bg:#FBF1E9;
-  /* edge kinds */
-  --k-pre:#8A8E84; --k-ref:#46549B; --k-sub:#6C3FA0; --k-for:#0E7490; --k-sur:#8A8E84;
-  --k-app:#14705A; --k-com:#A2A69C; --k-eva:#B0851E; --k-cri:#B3372F; --k-sup:#7A4A9B;
-  --k-par:#565A50; --k-refs:#4E7A3A;
+  --paper:#F6F5F0; --panel:#FFFFFF; --panel-2:#FBFAF6;
+  --ink:#22261F; --mut:#6E7268; --faint:#9A9E94; --line:#DDDCD4; --line-2:#E9E8E1;
+  --accent:#6C3FA0; --accent-ink:#4A2A72;
+
+  /* corpus hues (stroke) + tints (fill) */
+  --c-swa:#46549B;   --c-swa-bg:#EBEDF8;
+  --c-arch:#14705A;  --c-arch-bg:#E2F1EA;
+  --c-c:#8F6E1E;     --c-c-bg:#F5EEDA;
+  --c-cpp:#6C3FA0;   --c-cpp-bg:#F1EAFB;
+  --c-ops:#0E7490;   --c-ops-bg:#E4F2F6;
+  --c-sim:#C2551B;   --c-sim-bg:#FBF0E8;
+
+  /* edge-kind hues (12) */
+  --k-prerequisite-of:#8A8E84; --k-refines:#46549B; --k-subsumes:#6C3FA0; --k-formalizes:#0E7490;
+  --k-surveys:#8A8E84; --k-applies-method-of:#14705A; --k-companion:#A2A69C; --k-evaluates:#B0851E;
+  --k-critiques:#B3372F; --k-supersedes:#7A4A9B; --k-part-of:#565A50; --k-references:#4E7A3A;
+
   /* status */
-  --ok:#14705A; --warn:#B0851E; --bad:#B3372F;
+  --ok:#14705A; --warn:#B0851E; --bad:#B3372F; --ver:#14705A; --unv:#B3372F;
+
   --serif:Charter,"Bitstream Charter","Iowan Old Style","Sitka Text",Cambria,Georgia,serif;
   --sans:ui-sans-serif,system-ui,"Segoe UI","Helvetica Neue",Arial,sans-serif;
   --mono:ui-monospace,"SF Mono","Cascadia Code",Consolas,monospace;
-  --rad:9px; --rad-lg:13px;
+
+  --rad:8px; --rad-lg:12px; --rad-sm:5px;
+  --shadow:0 1px 2px rgba(30,30,20,.05), 0 8px 24px rgba(30,30,20,.06);
 }
