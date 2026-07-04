@@ -1,0 +1,204 @@
+# Adjustments log — PHASE 2 (tag reconciliation)
+
+Rules: facts only; a gap is filled ONLY when unambiguously derivable from the record/report itself,
+else the field is UNRESOLVED (source says unknown) or absent (source never asserts the facet).
+
+## Vocabulary mappings applied (every application logged by class, not per-node, for readability)
+- TYPE: technical-guide->guide; course/lecture->course; journal->paper (none present after transcription); all others kept.
+- BRANCH: swa A->architecture, B->process, S->evaluation; emb-arch architecture/design kept; emb-c/emb-cpp level design->design branch, arch-realization->architecture branch (per the reports’ own routing rule); emb-ops (all)->operations; simulink architecture/design/management kept.
+- THEME: swa clusters mapped A1..S3 -> named themes; simulink clusters D1..M6 -> named themes; emb-c/emb-cpp/emb-ops themes kept (names normalized); emb-arch themes FILLED from report section headings (gap-fill, logged per node below).
+- ROLE: swa tier flags (star/C/A/pilcrow) -> anchor/core/advanced/survey; simulink target/core/advanced/survey kept; emb-ops KEY flags -> anchor; emb-arch/emb-c/emb-cpp assert no tier -> role absent (NOT UNRESOLVED: never claimed).
+- LANE (emb-ops only): trunk | c-leaf | cpp-leaf kept as a dedicated facet.
+- SCOPE: only emb-arch asserts embedded_relevance; kept for those nodes only.
+- ACCESS: only swa-science asserts OA systematically; kept for those nodes only.
+
+## emb-arch theme gap-fills (derived from the report’s section headings)
+- arinc653: theme=os-platform (from section heading)
+- autosaradaptive: theme=os-platform (from section heading)
+- autosarclassic: theme=os-platform (from section heading)
+- avizienis: theme=safety-critical-dev (from section heading)
+- ball: theme=system-architecture (from section heading)
+- barrycrowley: theme=system-architecture (from section heading)
+- beningodesign: theme=system-architecture (from section heading)
+- beningofw: theme=foundations (from section heading)
+- berger: theme=system-architecture (from section heading)
+- bertolotti: theme=system-architecture (from section heading)
+- broy: theme=domain-architecture (from section heading)
+- burnswellings: theme=scheduling (from section heading)
+- buttazzo: theme=scheduling (from section heading)
+- catsoulis: theme=vendor-platform (from section heading)
+- cloudiotref: theme=domain-architecture (from section heading)
+- cmsis: theme=vendor-platform (from section heading)
+- contiki: theme=os-platform (from section heading)
+- cooling: theme=scheduling (from section heading)
+- do178c: theme=safety-standards (from section heading)
+- douglassagility: theme=design-patterns (from section heading)
+- douglassrtcorpus: theme=design-patterns (from section heading)
+- dsimonprimer: theme=drivers-os (from section heading)
+- dvorak: theme=safety-critical-dev (from section heading)
+- eastadl: theme=domain-architecture (from section heading)
+- ebertjones: theme=empirical-practice (from section heading)
+- ecss: theme=safety-standards (from section heading)
+- embeddedrust: theme=drivers-os (from section heading)
+- en50128: theme=safety-standards (from section heading)
+- espidf: theme=drivers-os (from section heading)
+- fanrt: theme=scheduling (from section heading)
+- fowlerref: theme=design-patterns (from section heading)
+- freertosbook: theme=os-platform (from section heading)
+- fuerst: theme=domain-architecture (from section heading)
+- furber: theme=vendor-platform (from section heading)
+- gajski: theme=system-architecture (from section heading)
+- ganssle: theme=drivers-os (from section heading)
+- gof: theme=design-patterns (from section heading)
+- gomaa: theme=concurrency-design (from section heading)
+- graaf: theme=empirical-practice (from section heading)
+- hallinan: theme=drivers-os (from section heading)
+- hanmer: theme=design-patterns (from section heading)
+- hatleypirbhai: theme=design-patterns (from section heading)
+- heath: theme=system-architecture (from section heading)
+- henzingersifakis: theme=system-architecture (from section heading)
+- hobbs: theme=safety-critical-dev (from section heading)
+- iec61508: theme=safety-standards (from section heading)
+- iec62304: theme=safety-standards (from section heading)
+- iira: theme=domain-architecture (from section heading)
+- iso26262: theme=safety-standards (from section heading)
+- janeliu: theme=scheduling (from section heading)
+- kopetz: theme=system-architecture (from section heading)
+- kopetzbauer: theme=system-architecture (from section heading)
+- l4liedtke: theme=os-platform (from section heading)
+- labrosse: theme=drivers-os (from section heading)
+- lacamera: theme=system-architecture (from section heading)
+- lakoslsc: theme=system-architecture (from section heading)
+- laplante: theme=scheduling (from section heading)
+- ldd3: theme=drivers-os (from section heading)
+- ledin: theme=system-architecture (from section heading)
+- leecps: theme=system-architecture (from section heading)
+- leeseshia: theme=system-architecture (from section heading)
+- levesonesw: theme=safety-critical-dev (from section heading)
+- levesonsafeware: theme=safety-critical-dev (from section heading)
+- liggesmeyer: theme=empirical-practice (from section heading)
+- liulayland: theme=scheduling (from section heading)
+- liyao: theme=scheduling (from section heading)
+- marscode: theme=safety-critical-dev (from section heading)
+- martincleanarch: theme=foundations (from section heading)
+- martincleancode: theme=coding-style (from section heading)
+- marwedel: theme=system-architecture (from section heading)
+- mcconnell: theme=coding-style (from section heading)
+- molloy: theme=drivers-os (from section heading)
+- nesc: theme=os-platform (from section heading)
+- noblesmallmem: theme=memory-management (from section heading)
+- noergaard: theme=system-architecture (from section heading)
+- nordicacademy: theme=drivers-os (from section heading)
+- nygard: theme=design-patterns (from section heading)
+- omgspecs: theme=domain-architecture (from section heading)
+- oshana: theme=system-architecture (from section heading)
+- ousterhout: theme=foundations (from section heading)
+- peckol: theme=system-architecture (from section heading)
+- pont: theme=design-patterns (from section heading)
+- posa2: theme=design-patterns (from section heading)
+- posa3: theme=design-patterns (from section heading)
+- pragprog: theme=coding-style (from section heading)
+- pretschner: theme=domain-architecture (from section heading)
+- protothreads: theme=os-platform (from section heading)
+- px4ardu: theme=domain-architecture (from section heading)
+- qnxguide: theme=os-platform (from section heading)
+- rami40: theme=domain-architecture (from section heading)
+- richardsford: theme=foundations (from section heading)
+- rierson: theme=safety-critical-dev (from section heading)
+- riot: theme=os-platform (from section heading)
+- room: theme=design-patterns (from section heading)
+- ros2design: theme=domain-architecture (from section heading)
+- rushby: theme=safety-critical-dev (from section heading)
+- schaeuffele: theme=domain-architecture (from section heading)
+- sel4: theme=os-platform (from section heading)
+- siewert: theme=system-architecture (from section heading)
+- sloss: theme=vendor-platform (from section heading)
+- staron: theme=domain-architecture (from section heading)
+- storey: theme=safety-critical-dev (from section heading)
+- svincentelli: theme=system-architecture (from section heading)
+- tinyos: theme=system-architecture (from section heading)
+- vahidgivargis: theme=system-architecture (from section heading)
+- vxthreadx: theme=os-platform (from section heading)
+- walls: theme=system-architecture (from section heading)
+- wangrt: theme=scheduling (from section heading)
+- wardmellor: theme=design-patterns (from section heading)
+- white: theme=system-architecture (from section heading)
+- wolf5: theme=system-architecture (from section heading)
+- yaghmour: theme=drivers-os (from section heading)
+- zephyrdocs: theme=os-platform (from section heading)
+- memfaultea: theme UNRESOLVED (grouped bullet outside any thematic section)
+
+## UNRESOLVED inventory (source-flagged unknowns, rendered as such in the UI)
+
+- zimmermann: anchor
+- tangrazavian: anchor, year
+- ganssle: year
+- hatleypirbhai: year
+- wardmellor: year
+- douglassagility: year
+- laplante: year
+- cooling: year
+- liyao: year
+- wangrt: year
+- gajski: year
+- peckol: year
+- berger: year
+- heath: year
+- ball: year
+- furber: year
+- sloss: year
+- catsoulis: year
+- siewert: year
+- bertolotti: year
+- barrycrowley: year
+- walls: year
+- hallinan: year
+- yaghmour: year
+- molloy: year
+- l4liedtke: year
+- svincentelli: year
+- liggesmeyer: year
+- fuerst: year
+- schaeuffele: year
+- levesonesw: year
+- levesonsafeware: year
+- storey: year
+- avizienis: year
+- rushby: year
+- ecss: year
+- posa2: year
+- posa3: year
+- hanmer: year
+- nygard: year
+- richardsford: year
+- martincleancode: year
+- ousterhout: year
+- fowlerref: year
+- lakoslsc: year
+- pragprog: year
+- preschernplop: year
+- tornhill: year
+- gustedt: year
+- regehrub: year
+- nigeljones: year
+- barrbugs: year
+- p2198: year
+- p2338: year
+- p2268: year
+- hutheses: year
+- sakscolumns: year
+- caissetalk: year
+- saksbtb: year
+- eafparm: year
+- an4989: year
+- segger: year
+- maskraygc: year
+- memfaultsize: year
+
+## Notable fact fixes carried from the reports themselves
+- Taylor-Medvidovic-Dashofy: single edition only (swa report verification).
+- Deissenboeck et al.: ICSE 2008, not 2009 (simulink report correction).
+- Fagan 1976: IBM Systems Journal vol. 15, not 38 (emb-c report correction).
+- pi-ADL: SIGSOFT SEN 29(3), not 28(8) (swa report correction).
+- MAB "v6.0" does not exist; v6.0 is a JMAAB version (simulink report correction).
+- Douglass Design Patterns for Embedded Systems in C: emb-arch cites 2011, emb-c cites 2010 — kept 2011 printing note (see conflicts).

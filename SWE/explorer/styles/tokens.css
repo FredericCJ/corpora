@@ -1,0 +1,22 @@
+/* Design tokens — presentation layer carries no data */
+:root{
+  --paper:#F6F5F0; --panel:#FFFFFF; --ink:#22261F; --mut:#6E7268; --line:#DDDCD4;
+  --accent:#6C3FA0;
+  /* corpus hues */
+  --c-swa:#46549B;      --c-swa-bg:#EBEDF8;
+  --c-arch:#14705A;     --c-arch-bg:#E2F1EA;
+  --c-c:#8F6E1E;        --c-c-bg:#F5EEDA;
+  --c-cpp:#6C3FA0;      --c-cpp-bg:#F1EAFB;
+  --c-ops:#0E7490;      --c-ops-bg:#E6F4F7;
+  --c-sim:#C2551B;      --c-sim-bg:#FBF1E9;
+  /* edge kinds */
+  --k-pre:#8A8E84; --k-ref:#46549B; --k-sub:#6C3FA0; --k-for:#0E7490; --k-sur:#8A8E84;
+  --k-app:#14705A; --k-com:#A2A69C; --k-eva:#B0851E; --k-cri:#B3372F; --k-sup:#7A4A9B;
+  --k-par:#565A50; --k-refs:#4E7A3A;
+  /* status */
+  --ok:#14705A; --warn:#B0851E; --bad:#B3372F;
+  --serif:Charter,"Bitstream Charter","Iowan Old Style","Sitka Text",Cambria,Georgia,serif;
+  --sans:ui-sans-serif,system-ui,"Segoe UI","Helvetica Neue",Arial,sans-serif;
+  --mono:ui-monospace,"SF Mono","Cascadia Code",Consolas,monospace;
+  --rad:9px; --rad-lg:13px;
+}
