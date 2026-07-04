@@ -1,0 +1,1777 @@
+{
+ "families": {
+  "linear": "Linear & sequence",
+  "assoc": "Sets, maps & associative",
+  "hash": "Hashing",
+  "approx": "Probabilistic / approximate",
+  "tree": "Trees & search trees",
+  "trie": "Digital trees & text",
+  "heap": "Heaps & priority queues",
+  "spatial": "Spatial & range",
+  "advanced": "Graph, systems & advanced"
+ },
+ "familyOrder": [
+  "linear",
+  "assoc",
+  "hash",
+  "approx",
+  "tree",
+  "trie",
+  "heap",
+  "spatial",
+  "advanced"
+ ],
+ "sources": {
+  "audit": "Audit of ChatGPT's Foundational Source Answers for 17 Data Structures",
+  "topology": "Topology of Data Structures: A Modern-Anchored, Bottom-Up Lineage Graph"
+ },
+ "nodes": [
+  {
+   "id": "array",
+   "name": "Array",
+   "family": "linear",
+   "tier": "root",
+   "year": 1949,
+   "origin": "Manchester Mark 1 index registers / B-lines (Williams, Kilburn, Tootill, Robinson, Newman), patent filed 3 Jun 1949; high-level-language array: Backus et al., FORTRAN, 1957",
+   "verification": "verified",
+   "verdict": "FIX",
+   "reports": [
+    "audit",
+    "topology"
+   ],
+   "flags": [],
+   "note": "Audit FIX: index registers / subscripted variables predate FORTRAN. FORTRAN (1954 spec / 1957 impl) is the root only of the high-level-language array abstraction."
+  },
+  {
+   "id": "dynarray",
+   "name": "Dynamic array / list",
+   "family": "linear",
+   "tier": "root",
+   "year": null,
+   "origin": "No single foundational paper. Knuth, TAOCP Vol.1 §2.2 = canonical reference (synthesis); amortization analysis: Tarjan, SIAM J. Alg. Disc. Meth. 6(2), 1985 (later, non-foundational)",
+   "verification": "flagged",
+   "verdict": "CONFIRM",
+   "reports": [
+    "audit",
+    "topology"
+   ],
+   "flags": [
+    "diffuse-origin"
+   ],
+   "note": "Self-resizing O(1)-amortized-append array has no single origin paper; Tarjan 1985 analyses rather than invents it."
+  },
+  {
+   "id": "linkedlist",
+   "name": "Linked list",
+   "family": "linear",
+   "tier": "root",
+   "year": 1957,
+   "origin": "Newell & Shaw, 'Programming the Logic Theory Machine', WJCC 1957 (IPL; developed 1955-56 with Simon at RAND / Carnegie Tech)",
+   "verification": "verified",
+   "verdict": "CONFIRM",
+   "reports": [
+    "audit",
+    "topology"
+   ],
+   "flags": [],
+   "note": ""
+  },
+  {
+   "id": "stack",
+   "name": "Stack",
+   "family": "linear",
+   "tier": "root",
+   "year": 1960,
+   "origin": "Bauer & Samelson, 'Sequential Formula Translation', CACM 3(2):76-83, 1960 (Operationskeller, 1955; patent 1957). Earliest: Turing ACE reports, 1946; independent: Hamblin 1954/57; Kämmerer",
+   "verification": "verified",
+   "verdict": "ENUMERATE",
+   "reports": [
+    "audit",
+    "topology"
+   ],
+   "flags": [],
+   "note": "Audit ENUMERATE: Bauer & Samelson strongest as the named data structure; Turing (1946) is the earliest LIFO appearance, Hamblin an independent origin."
+  },
+  {
+   "id": "queue",
+   "name": "Queue",
+   "family": "linear",
+   "tier": "root",
+   "year": null,
+   "origin": "No single foundational paper; ancient FIFO concept. Knuth, TAOCP Vol.1 §2.2.1 = canonical reference definition (synthesis, decades from any origin)",
+   "verification": "flagged",
+   "verdict": "FIX",
+   "reports": [
+    "audit",
+    "topology"
+   ],
+   "flags": [
+    "diffuse-origin"
+   ],
+   "note": "Audit FIX/qualify: definitional and diffuse; citing Knuth as the root overstates it."
+  },
+  {
+   "id": "deque",
+   "name": "Deque (double-ended queue)",
+   "family": "linear",
+   "tier": "root",
+   "year": null,
+   "origin": "Term and variants canonically defined by Knuth, TAOCP Vol.1 §2.2.1 (reference, not origin); no distinct earlier single-source origin",
+   "verification": "flagged",
+   "verdict": "FIX",
+   "reports": [
+    "audit",
+    "topology"
+   ],
+   "flags": [
+    "diffuse-origin"
+   ],
+   "note": "Audit FIX/qualify, same reasoning as Queue."
+  },
+  {
+   "id": "set",
+   "name": "Set",
+   "family": "assoc",
+   "tier": "root",
+   "year": 1895,
+   "origin": "Cantor, 'Beiträge zur Begründung der transfiniten Mengenlehre', Math. Annalen 46 (1895) & 49 (1897). Impl: Schwartz, SETL, Courant Institute, 1970 (defensible, not sole)",
+   "verification": "verified",
+   "verdict": "ENUMERATE",
+   "reports": [
+    "audit",
+    "topology"
+   ],
+   "flags": [],
+   "note": "Audit: Cantor confirmed for theory; SETL one defensible implementation option (sets are also realized via hash tables / trees / bit-vectors)."
+  },
+  {
+   "id": "map",
+   "name": "Map / dictionary",
+   "family": "assoc",
+   "tier": "root",
+   "year": 1971,
+   "origin": "Enumerate: SNOBOL4 built-in 'table' (Griswold, Poage & Polonsky, 1971; impl 1972); Lisp association lists (~1960, earlier conceptual key-value); hash table (Dumey 1956) as substrate",
+   "verification": "verified",
+   "verdict": "ENUMERATE",
+   "reports": [
+    "audit",
+    "topology"
+   ],
+   "flags": [],
+   "note": "Audit ENUMERATE: SNOBOL4 defensible for the built-in feature; a-lists earlier conceptually; hash table the implementation substrate."
+  },
+  {
+   "id": "hashtable",
+   "name": "Hash table",
+   "family": "hash",
+   "tier": "root",
+   "year": 1956,
+   "origin": "Dumey, 'Indexing for Rapid Random Access Memory Systems', Computers & Automation 5(12), Dec 1956 (first PUBLIC description). Luhn IBM memo, Jan 1953 (earliest, internal); Peterson, IBM JRD 1957 (coined 'open addressing', not first)",
+   "verification": "verified",
+   "verdict": "FIX",
+   "reports": [
+    "audit",
+    "topology"
+   ],
+   "flags": [],
+   "note": "Audit FIX: Dumey 1956 is the foundational public source; Peterson 1957 is influential but is preceded by Dumey."
+  },
+  {
+   "id": "tree",
+   "name": "Tree",
+   "family": "tree",
+   "tier": "root",
+   "year": 1857,
+   "origin": "Cayley, 'On the Theory of the Analytical Forms called Trees', Philosophical Magazine s.4, 13:172-176, 1857 (coined 'tree'). Impl: Knuth TAOCP Vol.1 §2.3 = reference, not origin",
+   "verification": "verified",
+   "verdict": "CONFIRM",
+   "reports": [
+    "audit",
+    "topology"
+   ],
+   "flags": [],
+   "note": "Audit: Cayley confirmed for theory; von Staudt & Kirchhoff (1847) used trees earlier within proofs. Knuth is a canonical implementation reference, not the origin."
+  },
+  {
+   "id": "binarytree",
+   "name": "Binary tree",
+   "family": "tree",
+   "tier": "root",
+   "year": null,
+   "origin": "Knuth, TAOCP Vol.1 §2.3.1 = canonical reference for representation/traversal (synthesis of late-1950s-early-1960s practice), not a foundational root",
+   "verification": "flagged",
+   "verdict": "FIX",
+   "reports": [
+    "audit",
+    "topology"
+   ],
+   "flags": [
+    "reference-not-origin"
+   ],
+   "note": "Audit FIX/qualify: Knuth is the best single reference but not the origin; the binary tree emerged across multiple works with no clean single root."
+  },
+  {
+   "id": "bst",
+   "name": "Binary search tree",
+   "family": "tree",
+   "tier": "root",
+   "year": 1960,
+   "origin": "Independently ~1960: Windley, Computer Journal 3(2), 1960; Booth & Colin, 1960; Hibbard, JACM 9:13-28, 1962 (implementation root); also Berners-Lee & Wheeler",
+   "verification": "verified",
+   "verdict": "ENUMERATE",
+   "reports": [
+    "audit",
+    "topology"
+   ],
+   "flags": [],
+   "note": "Audit CONFIRM/ENUMERATE: multi-origin 1960 discovery, Hibbard 1962 the algorithmic implementation root."
+  },
+  {
+   "id": "binaryheap",
+   "name": "Binary heap (Heap)",
+   "family": "heap",
+   "tier": "root",
+   "year": 1964,
+   "origin": "Williams, 'Algorithm 232: Heapsort', CACM 7(6):347-348, 1964 (introduced the binary heap); Floyd, 'Algorithm 245: Treesort 3', CACM 7(12):701, 1964 (O(n) bottom-up build)",
+   "verification": "verified",
+   "verdict": "CONFIRM",
+   "reports": [
+    "audit",
+    "topology"
+   ],
+   "flags": [],
+   "note": "Audit CONFIRM: Williams originates the structure, Floyd the efficient construction. The audit's 'Heap' root, unified here with topology's modern 'Binary heap' node."
+  },
+  {
+   "id": "priorityqueue",
+   "name": "Priority queue (ADT)",
+   "family": "heap",
+   "tier": "root",
+   "year": 1964,
+   "origin": "Williams, 'Algorithm 232: Heapsort', CACM 7(6), 1964 — the heap was introduced expressly as a priority-queue mechanism. Crane's 1972 leftist heap is a later, specialised variant",
+   "verification": "verified",
+   "verdict": "FIX",
+   "reports": [
+    "audit",
+    "topology"
+   ],
+   "flags": [
+    "adt-layer"
+   ],
+   "note": "Audit FIX: root is Williams 1964, not Crane 1972. Also topology's [F-NEW] priority-queue-as-ADT (the abstract insert/extract-min interface above the heap)."
+  },
+  {
+   "id": "graph",
+   "name": "Graph",
+   "family": "advanced",
+   "tier": "root",
+   "year": 1736,
+   "origin": "Euler, 'Solutio problematis ad geometriam situs pertinentis' (Seven Bridges of Königsberg), presented 1736, published 1741. Impl: Hopcroft & Tarjan, 'Algorithm 447', CACM 16(6):372-378, 1973",
+   "verification": "verified",
+   "verdict": "CONFIRM",
+   "reports": [
+    "audit",
+    "topology"
+   ],
+   "flags": [
+    "ambiguous-date"
+   ],
+   "note": "Audit CONFIRM with dual-date note: 1736 (presentation) vs 1741 (publication); most historians cite 1736."
+  },
+  {
+   "id": "record",
+   "name": "Record / struct",
+   "family": "linear",
+   "tier": "root",
+   "year": 1965,
+   "origin": "Hoare, 'Record Handling', ALGOL Bulletin No.21:39-69, 1 Nov 1965 (typed record, record class, typed reference). Impl: Wirth & Hoare / ALGOL W, CACM 9(6):413-432, 1966; ALGOL 68 Revised Report, Acta Informatica 5:1-236, 1975",
+   "verification": "verified",
+   "verdict": "FIX",
+   "reports": [
+    "audit",
+    "topology"
+   ],
+   "flags": [],
+   "note": "Audit FIX: root is Hoare 1965, not CODASYL/COBOL 1960 (an earlier hierarchical-record precedent). Correct the ALGOL 68 date to 1975 (1978 = German translation)."
+  },
+  {
+   "id": "string",
+   "name": "String",
+   "family": "trie",
+   "tier": "root",
+   "year": 1964,
+   "origin": "Impl: Farber, Griswold & Polonsky, 'SNOBOL, A String Manipulation Language', JACM 11(1):21-30, 1964. Theory: Chomsky, 'Three Models for the Description of Language', IRE Trans. Inf. Theory 2(3), 1956",
+   "verification": "verified",
+   "verdict": "ENUMERATE",
+   "reports": [
+    "audit",
+    "topology"
+   ],
+   "flags": [],
+   "note": "Audit: SNOBOL confirmed for implementation; Chomsky 1956 a defensible theory anchor but addresses formal languages, not the string data structure directly (category caveat)."
+  },
+  {
+   "id": "bitarray",
+   "name": "Bit array / bitmap",
+   "family": "linear",
+   "tier": "backfill",
+   "year": null,
+   "origin": "Theory: characteristic-vector representation of a subset of a finite universe (set theory made concrete). NO single foundational implementation paper exists",
+   "verification": "flagged",
+   "verdict": "",
+   "reports": [
+    "topology"
+   ],
+   "flags": [
+    "theory-only"
+   ],
+   "note": "topology [F-NEW]: flagged per the no-modern-substitute rule; pervasive from the earliest word-addressed machines."
+  },
+  {
+   "id": "trie",
+   "name": "Trie (digital / prefix tree)",
+   "family": "trie",
+   "tier": "backfill",
+   "year": 1960,
+   "origin": "Fredkin, 'Trie Memory', CACM 3(9):490-499, 1960 (precursor: de la Briandais, 'File searching using variable length keys', WJCC 1959)",
+   "verification": "verified",
+   "verdict": "",
+   "reports": [
+    "topology"
+   ],
+   "flags": [],
+   "note": ""
+  },
+  {
+   "id": "assocarray",
+   "name": "Associative array (ADT)",
+   "family": "assoc",
+   "tier": "backfill",
+   "year": 1960,
+   "origin": "The abstract key→value interface, distinct from map implementation. Roots: Lisp association lists (~1960) and the general dictionary ADT (shares SNOBOL4 roots with Map)",
+   "verification": "verified",
+   "verdict": "",
+   "reports": [
+    "topology"
+   ],
+   "flags": [
+    "adt-layer"
+   ],
+   "note": "topology [F-NEW]: the ADT layer above hash table and search tree."
+  },
+  {
+   "id": "multiset",
+   "name": "Multiset / bag",
+   "family": "assoc",
+   "tier": "backfill",
+   "year": null,
+   "origin": "Theory: multiset theory (Blizard and others; roots in combinatorics). NO single foundational implementation paper exists",
+   "verification": "flagged",
+   "verdict": "",
+   "reports": [
+    "topology"
+   ],
+   "flags": [
+    "theory-only"
+   ],
+   "note": "topology [F-NEW]: flagged; SETL supports tuples/sets but no single impl paper."
+  },
+  {
+   "id": "selfbalancing",
+   "name": "Self-balancing tree (concept)",
+   "family": "tree",
+   "tier": "backfill",
+   "year": 1962,
+   "origin": "The general principle of maintaining logarithmic height under updates via rotations / restructuring. Theory + impl root: Adelson-Velsky & Landis (AVL), 1962 — the first self-balancing BST",
+   "verification": "verified",
+   "verdict": "",
+   "reports": [
+    "topology"
+   ],
+   "flags": [],
+   "note": "topology [F-NEW]: the connective concept from which AVL, red-black, splay, treap, tango and dozens more descend."
+  },
+  {
+   "id": "btree",
+   "name": "B-tree",
+   "family": "tree",
+   "tier": "backfill",
+   "year": 1972,
+   "origin": "Bayer & McCreight, 'Organization and Maintenance of Large Ordered Indexes', Acta Informatica 1(3):173-189, 1972 (first as a Boeing Research Labs tech report, Jul 1970)",
+   "verification": "verified",
+   "verdict": "",
+   "reports": [
+    "topology"
+   ],
+   "flags": [],
+   "note": ""
+  },
+  {
+   "id": "bloomfilter",
+   "name": "Bloom filter",
+   "family": "approx",
+   "tier": "backfill",
+   "year": 1970,
+   "origin": "Bloom, 'Space/Time Trade-offs in Hash Coding with Allowable Errors', CACM 13(7):422-426, 1970 (space-efficient membership with a controlled false-positive rate)",
+   "verification": "verified",
+   "verdict": "",
+   "reports": [
+    "topology"
+   ],
+   "flags": [],
+   "note": ""
+  },
+  {
+   "id": "avl",
+   "name": "AVL tree",
+   "family": "tree",
+   "tier": "modern",
+   "year": 1962,
+   "origin": "Adelson-Velsky & Landis, 'An algorithm for the organization of information', Proc. USSR Acad. Sci. 146:263-266, 1962 (Eng. transl. Soviet Math. Doklady 3:1259-1263)",
+   "verification": "verified",
+   "verdict": "",
+   "reports": [
+    "topology"
+   ],
+   "flags": [],
+   "note": ""
+  },
+  {
+   "id": "redblack",
+   "name": "Red-black tree",
+   "family": "tree",
+   "tier": "modern",
+   "year": 1978,
+   "origin": "Guibas & Sedgewick, 'A Dichromatic Framework for Balanced Trees', FOCS 1978 (derived from Bayer's symmetric binary B-tree)",
+   "verification": "verified",
+   "verdict": "",
+   "reports": [
+    "topology"
+   ],
+   "flags": [],
+   "note": ""
+  },
+  {
+   "id": "symbin",
+   "name": "Symmetric binary B-tree",
+   "family": "tree",
+   "tier": "modern",
+   "year": 1972,
+   "origin": "Bayer, 'Symmetric binary B-Trees: Data structure and maintenance algorithms', Acta Informatica 1(4):290-306, 1972 (direct ancestor of red-black trees)",
+   "verification": "verified",
+   "verdict": "",
+   "reports": [
+    "topology"
+   ],
+   "flags": [],
+   "note": ""
+  },
+  {
+   "id": "llrb",
+   "name": "Left-leaning red-black tree",
+   "family": "tree",
+   "tier": "modern",
+   "year": 2008,
+   "origin": "Sedgewick, 'Left-leaning Red-Black Trees', 2008 (simplified red-black variant)",
+   "verification": "verified",
+   "verdict": "",
+   "reports": [
+    "topology"
+   ],
+   "flags": [],
+   "note": ""
+  },
+  {
+   "id": "splay",
+   "name": "Splay tree",
+   "family": "tree",
+   "tier": "modern",
+   "year": 1985,
+   "origin": "Sleator & Tarjan, 'Self-Adjusting Binary Search Trees', JACM 32(3):652-686, 1985",
+   "verification": "verified",
+   "verdict": "",
+   "reports": [
+    "topology"
+   ],
+   "flags": [],
+   "note": ""
+  },
+  {
+   "id": "treap",
+   "name": "Treap / randomized BST",
+   "family": "tree",
+   "tier": "modern",
+   "year": 1996,
+   "origin": "Seidel & Aragon, 'Randomized Search Trees', Algorithmica 16(4):464-497, 1996 (rediscovers Vuillemin's Cartesian tree)",
+   "verification": "verified",
+   "verdict": "",
+   "reports": [
+    "topology"
+   ],
+   "flags": [
+    "ambiguous-name"
+   ],
+   "note": "'treap' was first used by McCreight (~1980) for a different structure — a known source of naming confusion."
+  },
+  {
+   "id": "cartesian",
+   "name": "Cartesian tree",
+   "family": "tree",
+   "tier": "modern",
+   "year": 1980,
+   "origin": "Vuillemin, 'A Unifying Look at Data Structures', CACM 23(4):229-239, 1980 (BST-on-position and heap-on-value simultaneously)",
+   "verification": "verified",
+   "verdict": "",
+   "reports": [
+    "topology"
+   ],
+   "flags": [],
+   "note": ""
+  },
+  {
+   "id": "weightbalanced",
+   "name": "Weight-balanced tree BB[α]",
+   "family": "tree",
+   "tier": "modern",
+   "year": 1972,
+   "origin": "Nievergelt & Reingold, 'Binary search trees of bounded balance', STOC 1972",
+   "verification": "verified",
+   "verdict": "",
+   "reports": [
+    "topology"
+   ],
+   "flags": [],
+   "note": ""
+  },
+  {
+   "id": "scapegoat",
+   "name": "Scapegoat tree",
+   "family": "tree",
+   "tier": "modern",
+   "year": null,
+   "origin": "Later self-balancing BST variant; origin paper not stated in the source",
+   "verification": "flagged",
+   "verdict": "",
+   "reports": [
+    "topology"
+   ],
+   "flags": [
+    "origin-not-in-report"
+   ],
+   "note": "topology §2.2 groups it as a 'later self-balancing BST variant' without a citation."
+  },
+  {
+   "id": "aatree",
+   "name": "AA tree",
+   "family": "tree",
+   "tier": "modern",
+   "year": null,
+   "origin": "Later self-balancing BST variant; origin paper not stated in the source",
+   "verification": "flagged",
+   "verdict": "",
+   "reports": [
+    "topology"
+   ],
+   "flags": [
+    "origin-not-in-report"
+   ],
+   "note": "topology §2.2 groups it without a citation."
+  },
+  {
+   "id": "wavl",
+   "name": "Rank-balanced (WAVL) tree",
+   "family": "tree",
+   "tier": "modern",
+   "year": null,
+   "origin": "Rank-balanced trees; Haeupler, Sen & Tarjan (venue / year not stated in the source)",
+   "verification": "verified",
+   "verdict": "",
+   "reports": [
+    "topology"
+   ],
+   "flags": [
+    "origin-not-in-report"
+   ],
+   "note": "Named authors given in topology §2.2; venue and year not stated."
+  },
+  {
+   "id": "tango",
+   "name": "Tango tree",
+   "family": "tree",
+   "tier": "modern",
+   "year": 2004,
+   "origin": "Demaine, Harmon, Iacono & Pătrașcu, 'Dynamic Optimality—Almost', FOCS 2004 (journal: SIAM J. Comput. 37(1):240-251, 2007)",
+   "verification": "verified",
+   "verdict": "",
+   "reports": [
+    "topology"
+   ],
+   "flags": [],
+   "note": ""
+  },
+  {
+   "id": "linkcut",
+   "name": "Link-cut tree (dynamic tree / ST-tree)",
+   "family": "tree",
+   "tier": "modern",
+   "year": 1981,
+   "origin": "Sleator & Tarjan, 'A Data Structure for Dynamic Trees', STOC 1981 (published 1983)",
+   "verification": "verified",
+   "verdict": "",
+   "reports": [
+    "topology"
+   ],
+   "flags": [],
+   "note": ""
+  },
+  {
+   "id": "eulertour",
+   "name": "Euler tour tree",
+   "family": "tree",
+   "tier": "modern",
+   "year": 1995,
+   "origin": "Henzinger & King, STOC 1995; simplified by Tarjan, 'Dynamic trees as search trees via Euler tours', Math. Programming 78:169-177, 1997",
+   "verification": "verified",
+   "verdict": "",
+   "reports": [
+    "topology"
+   ],
+   "flags": [],
+   "note": ""
+  },
+  {
+   "id": "tt23",
+   "name": "2-3 tree",
+   "family": "tree",
+   "tier": "modern",
+   "year": 1970,
+   "origin": "Invented by Hopcroft, 1970; first in print in Aho, Hopcroft & Ullman, 1974; Knuth TAOCP Vol.3, 1973 notes a B-tree of order 3 is a 2-3 tree",
+   "verification": "verified",
+   "verdict": "",
+   "reports": [
+    "topology"
+   ],
+   "flags": [],
+   "note": ""
+  },
+  {
+   "id": "tt234",
+   "name": "2-3-4 tree (2-4 tree)",
+   "family": "tree",
+   "tier": "modern",
+   "year": 1972,
+   "origin": "The order-4 B-tree case; equivalent to Bayer's symmetric binary B-tree (1972)",
+   "verification": "verified",
+   "verdict": "",
+   "reports": [
+    "topology"
+   ],
+   "flags": [],
+   "note": ""
+  },
+  {
+   "id": "bplustree",
+   "name": "B+-tree",
+   "family": "tree",
+   "tier": "modern",
+   "year": 1979,
+   "origin": "Described by Knuth (TAOCP Vol.3, 1973) and Comer, 'The Ubiquitous B-tree', ACM Comput. Surv. 11(2):121-137, 1979 (all records in linked leaves)",
+   "verification": "verified",
+   "verdict": "",
+   "reports": [
+    "topology"
+   ],
+   "flags": [],
+   "note": ""
+  },
+  {
+   "id": "fusiontree",
+   "name": "Fusion tree",
+   "family": "tree",
+   "tier": "modern",
+   "year": 1990,
+   "origin": "Fredman & Willard, 'Surpassing the information theoretic bound with fusion trees', STOC 1990 (journal: JCSS 47(3):424-436, 1993)",
+   "verification": "verified",
+   "verdict": "",
+   "reports": [
+    "topology"
+   ],
+   "flags": [],
+   "note": ""
+  },
+  {
+   "id": "cobtree",
+   "name": "Cache-oblivious B-tree",
+   "family": "tree",
+   "tier": "modern",
+   "year": 2000,
+   "origin": "Bender, Demaine & Farach-Colton, 'Cache-Oblivious B-Trees', FOCS 2000 (journal: SIAM J. Comput. 35(2):341-358, 2005)",
+   "verification": "verified",
+   "verdict": "",
+   "reports": [
+    "topology"
+   ],
+   "flags": [],
+   "note": ""
+  },
+  {
+   "id": "radix",
+   "name": "Radix tree / PATRICIA",
+   "family": "trie",
+   "tier": "modern",
+   "year": 1968,
+   "origin": "Morrison, 'PATRICIA — Practical Algorithm to Retrieve Information Coded in Alphanumeric', JACM 15(4):514-534, 1968",
+   "verification": "verified",
+   "verdict": "",
+   "reports": [
+    "topology"
+   ],
+   "flags": [],
+   "note": ""
+  },
+  {
+   "id": "ternary",
+   "name": "Ternary search tree",
+   "family": "trie",
+   "tier": "modern",
+   "year": null,
+   "origin": "Trie variant; origin not stated in the source",
+   "verification": "flagged",
+   "verdict": "",
+   "reports": [
+    "topology"
+   ],
+   "flags": [
+    "origin-not-in-report"
+   ],
+   "note": ""
+  },
+  {
+   "id": "adaptiveradix",
+   "name": "Adaptive radix tree",
+   "family": "trie",
+   "tier": "modern",
+   "year": null,
+   "origin": "Trie variant; origin not stated in the source",
+   "verification": "flagged",
+   "verdict": "",
+   "reports": [
+    "topology"
+   ],
+   "flags": [
+    "origin-not-in-report"
+   ],
+   "note": ""
+  },
+  {
+   "id": "suffixtree",
+   "name": "Suffix tree",
+   "family": "trie",
+   "tier": "modern",
+   "year": 1973,
+   "origin": "Weiner, 'Linear pattern matching algorithms', 14th IEEE Symp. Switching & Automata Theory, 1973 (refined by McCreight 1976 and Ukkonen 1995)",
+   "verification": "verified",
+   "verdict": "",
+   "reports": [
+    "topology"
+   ],
+   "flags": [],
+   "note": ""
+  },
+  {
+   "id": "suffixarray",
+   "name": "Suffix array",
+   "family": "trie",
+   "tier": "modern",
+   "year": 1990,
+   "origin": "Manber & Myers, 1990",
+   "verification": "verified",
+   "verdict": "",
+   "reports": [
+    "topology"
+   ],
+   "flags": [],
+   "note": ""
+  },
+  {
+   "id": "wavelet",
+   "name": "Wavelet tree",
+   "family": "trie",
+   "tier": "modern",
+   "year": 2003,
+   "origin": "Grossi, Gupta & Vitter, 'High-order entropy-compressed text indexes', SODA 2003 (succinct sequence / text index)",
+   "verification": "verified",
+   "verdict": "",
+   "reports": [
+    "topology"
+   ],
+   "flags": [],
+   "note": ""
+  },
+  {
+   "id": "vebtree",
+   "name": "van Emde Boas tree (stratified tree)",
+   "family": "trie",
+   "tier": "modern",
+   "year": 1975,
+   "origin": "van Emde Boas, 'Preserving order in a forest in less than logarithmic time', FOCS 1975 (with Kaas & Zijlstra, Math. Systems Theory 10:99-127, 1976/77) — O(log log u)",
+   "verification": "verified",
+   "verdict": "",
+   "reports": [
+    "topology"
+   ],
+   "flags": [],
+   "note": ""
+  },
+  {
+   "id": "xfast",
+   "name": "x-fast trie",
+   "family": "trie",
+   "tier": "modern",
+   "year": 1983,
+   "origin": "Willard, 'Log-logarithmic worst-case range queries are possible in space Θ(N)', IPL 17(2):81-84, 1983",
+   "verification": "verified",
+   "verdict": "",
+   "reports": [
+    "topology"
+   ],
+   "flags": [],
+   "note": ""
+  },
+  {
+   "id": "yfast",
+   "name": "y-fast trie",
+   "family": "trie",
+   "tier": "modern",
+   "year": 1983,
+   "origin": "Willard, IPL 17(2):81-84, 1983",
+   "verification": "verified",
+   "verdict": "",
+   "reports": [
+    "topology"
+   ],
+   "flags": [],
+   "note": ""
+  },
+  {
+   "id": "kdtree",
+   "name": "k-d tree",
+   "family": "spatial",
+   "tier": "modern",
+   "year": 1975,
+   "origin": "Bentley, 'Multidimensional binary search trees used for associative searching', CACM 18(9):509-517, 1975",
+   "verification": "verified",
+   "verdict": "",
+   "reports": [
+    "topology"
+   ],
+   "flags": [],
+   "note": ""
+  },
+  {
+   "id": "quadtree",
+   "name": "Quadtree",
+   "family": "spatial",
+   "tier": "modern",
+   "year": 1974,
+   "origin": "Finkel & Bentley, 'Quad Trees: A Data Structure for Retrieval on Composite Keys', Acta Informatica 4:1-9, 1974",
+   "verification": "verified",
+   "verdict": "",
+   "reports": [
+    "topology"
+   ],
+   "flags": [],
+   "note": ""
+  },
+  {
+   "id": "octree",
+   "name": "Octree",
+   "family": "spatial",
+   "tier": "modern",
+   "year": null,
+   "origin": "The 3-D analogue of the quadtree; the source gives no separate origin",
+   "verification": "flagged",
+   "verdict": "",
+   "reports": [
+    "topology"
+   ],
+   "flags": [
+    "origin-not-in-report"
+   ],
+   "note": ""
+  },
+  {
+   "id": "rtree",
+   "name": "R-tree",
+   "family": "spatial",
+   "tier": "modern",
+   "year": 1984,
+   "origin": "Guttman, 'R-trees: A Dynamic Index Structure for Spatial Searching', ACM SIGMOD 1984",
+   "verification": "verified",
+   "verdict": "",
+   "reports": [
+    "topology"
+   ],
+   "flags": [],
+   "note": ""
+  },
+  {
+   "id": "rstar",
+   "name": "R*-tree",
+   "family": "spatial",
+   "tier": "modern",
+   "year": 1990,
+   "origin": "Beckmann, Kriegel, Schneider & Seeger, 1990 (R-tree variant)",
+   "verification": "verified",
+   "verdict": "",
+   "reports": [
+    "topology"
+   ],
+   "flags": [],
+   "note": ""
+  },
+  {
+   "id": "rplus",
+   "name": "R+-tree",
+   "family": "spatial",
+   "tier": "modern",
+   "year": 1987,
+   "origin": "Sellis, Roussopoulos & Faloutsos, 1987 (R-tree variant)",
+   "verification": "verified",
+   "verdict": "",
+   "reports": [
+    "topology"
+   ],
+   "flags": [],
+   "note": ""
+  },
+  {
+   "id": "hilbertr",
+   "name": "Hilbert R-tree",
+   "family": "spatial",
+   "tier": "modern",
+   "year": null,
+   "origin": "R-tree variant; origin not stated in the source",
+   "verification": "flagged",
+   "verdict": "",
+   "reports": [
+    "topology"
+   ],
+   "flags": [
+    "origin-not-in-report"
+   ],
+   "note": ""
+  },
+  {
+   "id": "bsptree",
+   "name": "BSP tree (binary space partitioning)",
+   "family": "spatial",
+   "tier": "modern",
+   "year": 1980,
+   "origin": "Fuchs, Kedem & Naylor, 1980",
+   "verification": "verified",
+   "verdict": "",
+   "reports": [
+    "topology"
+   ],
+   "flags": [],
+   "note": ""
+  },
+  {
+   "id": "bvh",
+   "name": "Bounding volume hierarchy (BVH)",
+   "family": "spatial",
+   "tier": "modern",
+   "year": null,
+   "origin": "Spatial hierarchy of bounding volumes for collision detection / ray tracing; no single origin in the source",
+   "verification": "flagged",
+   "verdict": "",
+   "reports": [
+    "topology"
+   ],
+   "flags": [
+    "origin-not-in-report"
+   ],
+   "note": ""
+  },
+  {
+   "id": "segmenttree",
+   "name": "Segment tree",
+   "family": "spatial",
+   "tier": "modern",
+   "year": 1977,
+   "origin": "Bentley, ~1977 (computational-geometry literature); attribution verified-but-soft",
+   "verification": "verified",
+   "verdict": "",
+   "reports": [
+    "topology"
+   ],
+   "flags": [
+    "soft-attribution"
+   ],
+   "note": ""
+  },
+  {
+   "id": "fenwick",
+   "name": "Fenwick tree / binary indexed tree",
+   "family": "spatial",
+   "tier": "modern",
+   "year": 1989,
+   "origin": "Ryabko, 'A fast on-line code', Soviet Math. Doklady 39(3):533-537, 1989 (priority); popularised by Fenwick, Software: P&E 24(3):327-336, 1994",
+   "verification": "verified",
+   "verdict": "",
+   "reports": [
+    "topology"
+   ],
+   "flags": [
+    "dual-priority"
+   ],
+   "note": "Ryabko (1989) has priority; the popular name honours Fenwick (1994). Independent inventions."
+  },
+  {
+   "id": "intervaltree",
+   "name": "Interval tree",
+   "family": "spatial",
+   "tier": "modern",
+   "year": null,
+   "origin": "Geometric query tree; origin not detailed in the source",
+   "verification": "flagged",
+   "verdict": "",
+   "reports": [
+    "topology"
+   ],
+   "flags": [
+    "origin-not-in-report"
+   ],
+   "note": ""
+  },
+  {
+   "id": "rangetree",
+   "name": "Range tree",
+   "family": "spatial",
+   "tier": "modern",
+   "year": null,
+   "origin": "Geometric query tree; origin not detailed in the source",
+   "verification": "flagged",
+   "verdict": "",
+   "reports": [
+    "topology"
+   ],
+   "flags": [
+    "origin-not-in-report"
+   ],
+   "note": ""
+  },
+  {
+   "id": "prioritysearchtree",
+   "name": "Priority search tree",
+   "family": "spatial",
+   "tier": "modern",
+   "year": null,
+   "origin": "McCreight (venue / year not stated in the source)",
+   "verification": "verified",
+   "verdict": "",
+   "reports": [
+    "topology"
+   ],
+   "flags": [
+    "origin-not-in-report"
+   ],
+   "note": ""
+  },
+  {
+   "id": "binomialtree",
+   "name": "Binomial tree",
+   "family": "heap",
+   "tier": "modern",
+   "year": 1978,
+   "origin": "The tree structure that encodes the binomial heap; introduced with Vuillemin's binomial heap (CACM 21(4), 1978)",
+   "verification": "verified",
+   "verdict": "",
+   "reports": [
+    "topology"
+   ],
+   "flags": [
+    "from-edge"
+   ],
+   "note": "Appears in the topology edge list (§3.6) as the encoder of the binomial heap."
+  },
+  {
+   "id": "binomialheap",
+   "name": "Binomial heap",
+   "family": "heap",
+   "tier": "modern",
+   "year": 1978,
+   "origin": "Vuillemin, 'A data structure for manipulating priority queues', CACM 21(4):309-314, 1978",
+   "verification": "verified",
+   "verdict": "",
+   "reports": [
+    "topology"
+   ],
+   "flags": [],
+   "note": ""
+  },
+  {
+   "id": "fibheap",
+   "name": "Fibonacci heap",
+   "family": "heap",
+   "tier": "modern",
+   "year": 1987,
+   "origin": "Fredman & Tarjan, 'Fibonacci heaps and their uses in improved network optimization algorithms', JACM 34(3):596-615, 1987 (developed 1984)",
+   "verification": "verified",
+   "verdict": "",
+   "reports": [
+    "topology"
+   ],
+   "flags": [],
+   "note": ""
+  },
+  {
+   "id": "pairingheap",
+   "name": "Pairing heap",
+   "family": "heap",
+   "tier": "modern",
+   "year": 1986,
+   "origin": "Fredman, Sedgewick, Sleator & Tarjan, 'The pairing heap: A new form of self-adjusting heap', Algorithmica 1(1):111-129, 1986",
+   "verification": "verified",
+   "verdict": "",
+   "reports": [
+    "topology"
+   ],
+   "flags": [],
+   "note": ""
+  },
+  {
+   "id": "softheap",
+   "name": "Soft heap",
+   "family": "heap",
+   "tier": "modern",
+   "year": 2000,
+   "origin": "Chazelle, 'The Soft Heap: An Approximate Priority Queue with Optimal Error Rate', JACM 47(6):1012-1027, 2000",
+   "verification": "verified",
+   "verdict": "",
+   "reports": [
+    "topology"
+   ],
+   "flags": [],
+   "note": ""
+  },
+  {
+   "id": "brodalq",
+   "name": "Brodal queue",
+   "family": "heap",
+   "tier": "modern",
+   "year": 1996,
+   "origin": "Brodal, 1996 — worst-case-optimal meldable priority queue",
+   "verification": "verified",
+   "verdict": "",
+   "reports": [
+    "topology"
+   ],
+   "flags": [],
+   "note": ""
+  },
+  {
+   "id": "leftistheap",
+   "name": "Leftist heap",
+   "family": "heap",
+   "tier": "modern",
+   "year": 1972,
+   "origin": "Crane, 'Linear Lists and Priority Queues as Balanced Binary Trees', Stanford PhD STAN-CS-72-259, 1972 (the mergeable leftist tree / leftist heap)",
+   "verification": "verified",
+   "verdict": [
+    "audit",
+    "topology"
+   ],
+   "reports": [
+    "topology"
+   ],
+   "flags": [],
+   "note": "The audit identifies Crane 1972's leftist heap as a later, specialised mergeable-heap variant (non-foundational to the priority queue in general)."
+  },
+  {
+   "id": "skewheap",
+   "name": "Skew heap",
+   "family": "heap",
+   "tier": "modern",
+   "year": null,
+   "origin": "Further heap variant; origin not stated in the source",
+   "verification": "flagged",
+   "verdict": "",
+   "reports": [
+    "topology"
+   ],
+   "flags": [
+    "origin-not-in-report"
+   ],
+   "note": ""
+  },
+  {
+   "id": "daryheap",
+   "name": "d-ary heap",
+   "family": "heap",
+   "tier": "modern",
+   "year": null,
+   "origin": "Generalisation of the binary heap to d children; origin not stated in the source",
+   "verification": "flagged",
+   "verdict": "",
+   "reports": [
+    "topology"
+   ],
+   "flags": [
+    "origin-not-in-report"
+   ],
+   "note": ""
+  },
+  {
+   "id": "heap23",
+   "name": "2-3 heap",
+   "family": "heap",
+   "tier": "modern",
+   "year": null,
+   "origin": "Further heap variant; origin not stated in the source",
+   "verification": "flagged",
+   "verdict": "",
+   "reports": [
+    "topology"
+   ],
+   "flags": [
+    "origin-not-in-report"
+   ],
+   "note": ""
+  },
+  {
+   "id": "rankpairing",
+   "name": "Rank-pairing heap",
+   "family": "heap",
+   "tier": "modern",
+   "year": null,
+   "origin": "Further heap variant; origin not stated in the source",
+   "verification": "flagged",
+   "verdict": "",
+   "reports": [
+    "topology"
+   ],
+   "flags": [
+    "origin-not-in-report"
+   ],
+   "note": ""
+  },
+  {
+   "id": "funnelheap",
+   "name": "Funnel heap",
+   "family": "heap",
+   "tier": "modern",
+   "year": 2002,
+   "origin": "Brodal & Fagerberg, 2002 — cache-oblivious priority queue",
+   "verification": "verified",
+   "verdict": "",
+   "reports": [
+    "topology"
+   ],
+   "flags": [],
+   "note": ""
+  },
+  {
+   "id": "sepchaining",
+   "name": "Separate chaining",
+   "family": "hash",
+   "tier": "modern",
+   "year": null,
+   "origin": "Classical collision-resolution scheme; chaining is present from the earliest hashing work (Luhn 1953 / Dumey 1956)",
+   "verification": "flagged",
+   "verdict": "",
+   "reports": [
+    "topology"
+   ],
+   "flags": [
+    "origin-not-in-report"
+   ],
+   "note": ""
+  },
+  {
+   "id": "openaddressing",
+   "name": "Open addressing",
+   "family": "hash",
+   "tier": "modern",
+   "year": 1957,
+   "origin": "Classical collision-resolution scheme (linear / quadratic probing, double hashing); term 'open addressing' coined by Peterson, IBM JRD 1957",
+   "verification": "verified",
+   "verdict": [
+    "audit",
+    "topology"
+   ],
+   "reports": [
+    "topology"
+   ],
+   "flags": [],
+   "note": ""
+  },
+  {
+   "id": "cuckoo",
+   "name": "Cuckoo hashing",
+   "family": "hash",
+   "tier": "modern",
+   "year": 2001,
+   "origin": "Pagh & Rodler, 'Cuckoo Hashing', ESA 2001 (journal: J. Algorithms 51(2):122-144, 2004)",
+   "verification": "verified",
+   "verdict": "",
+   "reports": [
+    "topology"
+   ],
+   "flags": [],
+   "note": ""
+  },
+  {
+   "id": "robinhood",
+   "name": "Robin Hood hashing",
+   "family": "hash",
+   "tier": "modern",
+   "year": 1985,
+   "origin": "Celis, Larson & Munro, 'Robin Hood Hashing', FOCS 1985",
+   "verification": "verified",
+   "verdict": "",
+   "reports": [
+    "topology"
+   ],
+   "flags": [],
+   "note": ""
+  },
+  {
+   "id": "hopscotch",
+   "name": "Hopscotch hashing",
+   "family": "hash",
+   "tier": "modern",
+   "year": 2008,
+   "origin": "Herlihy, Shavit & Tzafrir, 'Hopscotch Hashing', DISC 2008",
+   "verification": "verified",
+   "verdict": "",
+   "reports": [
+    "topology"
+   ],
+   "flags": [],
+   "note": ""
+  },
+  {
+   "id": "hamt",
+   "name": "HAMT (hash array mapped trie)",
+   "family": "hash",
+   "tier": "modern",
+   "year": 2001,
+   "origin": "Bagwell, 'Ideal Hash Trees', EPFL tech report, 2001 (building on 'Fast and Space Efficient Trie Searches', 2000)",
+   "verification": "verified",
+   "verdict": "",
+   "reports": [
+    "topology"
+   ],
+   "flags": [],
+   "note": "A genuine hybrid of hash table and trie (see the trie⇄hash-table cycle, C1)."
+  },
+  {
+   "id": "dynperfhash",
+   "name": "Dynamic perfect hashing",
+   "family": "hash",
+   "tier": "modern",
+   "year": 1994,
+   "origin": "Dietzfelbinger, Karlin, Mehlhorn, Meyer auf der Heide, Rohnert & Tarjan, 1994",
+   "verification": "verified",
+   "verdict": "",
+   "reports": [
+    "topology"
+   ],
+   "flags": [],
+   "note": ""
+  },
+  {
+   "id": "fks",
+   "name": "FKS perfect hashing",
+   "family": "hash",
+   "tier": "modern",
+   "year": 1984,
+   "origin": "Fredman, Komlós & Szemerédi, 1984",
+   "verification": "verified",
+   "verdict": "",
+   "reports": [
+    "topology"
+   ],
+   "flags": [],
+   "note": ""
+  },
+  {
+   "id": "countingbloom",
+   "name": "Counting Bloom filter",
+   "family": "approx",
+   "tier": "modern",
+   "year": null,
+   "origin": "Bloom-filter extension; origin not stated in the source",
+   "verification": "flagged",
+   "verdict": "",
+   "reports": [
+    "topology"
+   ],
+   "flags": [
+    "origin-not-in-report"
+   ],
+   "note": ""
+  },
+  {
+   "id": "spectralbloom",
+   "name": "Spectral Bloom filter",
+   "family": "approx",
+   "tier": "modern",
+   "year": null,
+   "origin": "Bloom-filter extension; origin not stated in the source",
+   "verification": "flagged",
+   "verdict": "",
+   "reports": [
+    "topology"
+   ],
+   "flags": [
+    "origin-not-in-report"
+   ],
+   "note": ""
+  },
+  {
+   "id": "bloomier",
+   "name": "Bloomier filter",
+   "family": "approx",
+   "tier": "modern",
+   "year": null,
+   "origin": "Bloom-filter extension; origin not stated in the source",
+   "verification": "flagged",
+   "verdict": "",
+   "reports": [
+    "topology"
+   ],
+   "flags": [
+    "origin-not-in-report"
+   ],
+   "note": ""
+  },
+  {
+   "id": "quotientfilter",
+   "name": "Quotient filter",
+   "family": "approx",
+   "tier": "modern",
+   "year": 2012,
+   "origin": "Bender et al., 2012 — compact hash-based approximate membership",
+   "verification": "verified",
+   "verdict": "",
+   "reports": [
+    "topology"
+   ],
+   "flags": [],
+   "note": ""
+  },
+  {
+   "id": "cuckoofilter",
+   "name": "Cuckoo filter",
+   "family": "approx",
+   "tier": "modern",
+   "year": 2014,
+   "origin": "Fan, Andersen, Kaminsky & Mitzenmacher, 2014",
+   "verification": "verified",
+   "verdict": "",
+   "reports": [
+    "topology"
+   ],
+   "flags": [],
+   "note": ""
+  },
+  {
+   "id": "countminsketch",
+   "name": "Count-min sketch",
+   "family": "approx",
+   "tier": "modern",
+   "year": 2005,
+   "origin": "Cormode & Muthukrishnan, 'An improved data stream summary: The Count-Min Sketch and its applications', J. Algorithms 55(1):58-75, 2005",
+   "verification": "verified",
+   "verdict": "",
+   "reports": [
+    "topology"
+   ],
+   "flags": [],
+   "note": ""
+  },
+  {
+   "id": "hyperloglog",
+   "name": "HyperLogLog",
+   "family": "approx",
+   "tier": "modern",
+   "year": 2007,
+   "origin": "Flajolet, Fusy, Gandouet & Meunier, 'HyperLogLog', AofA 2007 (predecessor: Flajolet & Martin, 1985)",
+   "verification": "verified",
+   "verdict": "",
+   "reports": [
+    "topology"
+   ],
+   "flags": [],
+   "note": ""
+  },
+  {
+   "id": "lsmtree",
+   "name": "LSM-tree (log-structured merge tree)",
+   "family": "advanced",
+   "tier": "modern",
+   "year": 1996,
+   "origin": "O'Neil, Cheng, Gawlick & O'Neil, 'The log-structured merge-tree (LSM-tree)', Acta Informatica 33(4):351-385, 1996 (from a 1991 UMass Boston tech report)",
+   "verification": "verified",
+   "verdict": "",
+   "reports": [
+    "topology"
+   ],
+   "flags": [],
+   "note": ""
+  },
+  {
+   "id": "learnedindex",
+   "name": "Learned index",
+   "family": "advanced",
+   "tier": "modern",
+   "year": 2018,
+   "origin": "Kraska, Beutel, Chi, Dean & Polyzotis, 'The Case for Learned Index Structures', ACM SIGMOD 2018",
+   "verification": "verified",
+   "verdict": "",
+   "reports": [
+    "topology"
+   ],
+   "flags": [],
+   "note": ""
+  },
+  {
+   "id": "merkle",
+   "name": "Merkle tree (hash tree)",
+   "family": "advanced",
+   "tier": "modern",
+   "year": 1979,
+   "origin": "Merkle, Stanford PhD thesis 'Secrecy, Authentication, and Public Key Systems', 1979; definitive paper: 'A Digital Signature Based on a Conventional Encryption Function', CRYPTO '87 (1988)",
+   "verification": "verified",
+   "verdict": "",
+   "reports": [
+    "topology"
+   ],
+   "flags": [
+    "ambiguous-date"
+   ],
+   "note": "Year genuinely ambiguous: 1979 thesis/patent vs 1988 definitive paper."
+  },
+  {
+   "id": "roaring",
+   "name": "Roaring bitmap",
+   "family": "advanced",
+   "tier": "modern",
+   "year": 2016,
+   "origin": "Chambi, Lemire, Kaser & Godin, 'Better bitmap performance with Roaring bitmaps', Software: P&E 46(5):709-719, 2016",
+   "verification": "verified",
+   "verdict": "",
+   "reports": [
+    "topology"
+   ],
+   "flags": [],
+   "note": ""
+  },
+  {
+   "id": "rope",
+   "name": "Rope",
+   "family": "trie",
+   "tier": "modern",
+   "year": 1995,
+   "origin": "Boehm, Atkinson & Plass, 'Ropes: an Alternative to Strings', Software: P&E 25(12):1315-1330, 1995 (balanced tree over string fragments)",
+   "verification": "verified",
+   "verdict": "",
+   "reports": [
+    "topology"
+   ],
+   "flags": [],
+   "note": ""
+  },
+  {
+   "id": "gapbuffer",
+   "name": "Gap buffer",
+   "family": "trie",
+   "tier": "modern",
+   "year": null,
+   "origin": "Folklore text-editor structure (TECO / Emacs, late 1970s); NO origin paper",
+   "verification": "flagged",
+   "verdict": "",
+   "reports": [
+    "topology"
+   ],
+   "flags": [
+    "folklore"
+   ],
+   "note": "topology §7 flags this as conjectural-origin folklore."
+  },
+  {
+   "id": "piecetable",
+   "name": "Piece table",
+   "family": "trie",
+   "tier": "modern",
+   "year": null,
+   "origin": "Text-editor structure with conflicting attribution (Bravo editor, Xerox PARC — Lampson & Simonyi, mid-1970s; also credited to J Strother Moore); NO canonical origin paper",
+   "verification": "flagged",
+   "verdict": "",
+   "reports": [
+    "topology"
+   ],
+   "flags": [
+    "folklore"
+   ],
+   "note": "topology §7 flags this as conjectural-origin folklore."
+  },
+  {
+   "id": "msqueue",
+   "name": "Michael-Scott queue",
+   "family": "linear",
+   "tier": "modern",
+   "year": 1996,
+   "origin": "Michael & Scott, 'Simple, Fast, and Practical Non-Blocking and Blocking Concurrent Queue Algorithms', PODC '96, pp. 267-275, 1996 (lock-free FIFO)",
+   "verification": "verified",
+   "verdict": "",
+   "reports": [
+    "topology"
+   ],
+   "flags": [],
+   "note": ""
+  },
+  {
+   "id": "treiber",
+   "name": "Treiber stack",
+   "family": "linear",
+   "tier": "modern",
+   "year": 1986,
+   "origin": "Treiber, 'Systems Programming: Coping with Parallelism', IBM Almaden tech report RJ 5118, Apr 1986 (lock-free stack)",
+   "verification": "verified",
+   "verdict": "",
+   "reports": [
+    "topology"
+   ],
+   "flags": [],
+   "note": ""
+  },
+  {
+   "id": "skiplist",
+   "name": "Skip list",
+   "family": "linear",
+   "tier": "modern",
+   "year": 1990,
+   "origin": "Pugh, 'Skip lists: a probabilistic alternative to balanced trees', CACM 33(6):668-676, 1990",
+   "verification": "verified",
+   "verdict": "",
+   "reports": [
+    "topology"
+   ],
+   "flags": [],
+   "note": ""
+  },
+  {
+   "id": "ringbuffer",
+   "name": "Ring / circular buffer",
+   "family": "linear",
+   "tier": "modern",
+   "year": null,
+   "origin": "Bounded FIFO over a fixed array; folklore",
+   "verification": "flagged",
+   "verdict": "",
+   "reports": [
+    "topology"
+   ],
+   "flags": [
+    "folklore"
+   ],
+   "note": ""
+  },
+  {
+   "id": "persistent",
+   "name": "Persistent data structures",
+   "family": "advanced",
+   "tier": "modern",
+   "year": 1989,
+   "origin": "Driscoll, Sarnak, Sleator & Tarjan, 'Making Data Structures Persistent', JCSS 38(1):86-124, 1989 (STOC 1986) — fat node / path copying",
+   "verification": "verified",
+   "verdict": "",
+   "reports": [
+    "topology"
+   ],
+   "flags": [],
+   "note": ""
+  },
+  {
+   "id": "fingertree",
+   "name": "Finger tree",
+   "family": "advanced",
+   "tier": "modern",
+   "year": 2006,
+   "origin": "Hinze & Paterson, 'Finger trees: a simple general-purpose data structure', J. Functional Programming 16(2):197-217, 2006",
+   "verification": "verified",
+   "verdict": "",
+   "reports": [
+    "topology"
+   ],
+   "flags": [],
+   "note": ""
+  },
+  {
+   "id": "retroactive",
+   "name": "Retroactive data structures",
+   "family": "advanced",
+   "tier": "modern",
+   "year": 2007,
+   "origin": "Demaine, Iacono & Langerman, 2007",
+   "verification": "verified",
+   "verdict": "",
+   "reports": [
+    "topology"
+   ],
+   "flags": [],
+   "note": ""
+  },
+  {
+   "id": "succinct",
+   "name": "Succinct data structures",
+   "family": "advanced",
+   "tier": "modern",
+   "year": 1989,
+   "origin": "Jacobson, 'Space-efficient Static Trees and Graphs', FOCS 1989",
+   "verification": "verified",
+   "verdict": "",
+   "reports": [
+    "topology"
+   ],
+   "flags": [],
+   "note": ""
+  },
+  {
+   "id": "unionfind",
+   "name": "Union-find / disjoint-set",
+   "family": "assoc",
+   "tier": "modern",
+   "year": 1964,
+   "origin": "Galler & Fisher, 'An improved equivalence algorithm', CACM 1964 (amortized analysis: Hopcroft & Ullman 1973; Tarjan & van Leeuwen 1984)",
+   "verification": "verified",
+   "verdict": "",
+   "reports": [
+    "topology"
+   ],
+   "flags": [],
+   "note": ""
+  },
+  {
+   "id": "cacheobliviousmodel",
+   "name": "Cache-oblivious model",
+   "family": "advanced",
+   "tier": "modern",
+   "year": 1999,
+   "origin": "Frigo, Leiserson, Prokop & Ramachandran, 'Cache-Oblivious Algorithms', FOCS 1999 (a cost model / framework, not a structure — referenced by the edge list)",
+   "verification": "verified",
+   "verdict": "",
+   "reports": [
+    "topology"
+   ],
+   "flags": [
+    "from-edge"
+   ],
+   "note": ""
+  }
+ ]
+}

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="A single-viewport lineage graph of ~110 data structures, built from two research reports.">
+<title>Data-Structure Lineage — one graph, root → modern</title>
+<!-- Baseline target: Widely available as of 2026-07. Raw HTML/CSS/JS, no framework, no build
+     step at view time; opens directly from file:// (data ships as classic scripts because
+     fetch() of JSON is blocked on file://). See ARCHITECTURE.md. -->
+<link rel="stylesheet" href="styles/tokens.css">
+<link rel="stylesheet" href="styles/app.css">
+</head>
+<body>
+
+<header class="top">
+  <div class="brand">
+    <div class="eyebrow">data structures · bottom-up lineage · two research passes</div>
+    <h1>Data-Structure Lineage Graph</h1>
+    <div class="sub" id="meta">loading…</div>
+  </div>
+
+  <div class="controls" role="search">
+    <input id="q" type="search" placeholder="search name / author / origin…  ( / )" aria-label="Search structures">
+    <select id="f-family" aria-label="Filter by family"><option value="">family: all</option></select>
+    <select id="f-ver" aria-label="Filter by verification">
+      <option value="">verification: all</option>
+      <option value="verified">verified only</option>
+      <option value="flagged">flagged only</option>
+    </select>
+    <select id="f-kind" aria-label="Highlight one relation kind"><option value="">relation: all</option></select>
+    <button id="reset" type="button" title="Clear all filters and selection">reset</button>
+  </div>
+
+  <div class="legend" id="legend" aria-label="Edge legend"></div>
+</header>
+
+<main class="stage">
+  <div id="board" class="board" aria-label="Lineage graph"></div>
+  <aside id="inspector" class="inspector" aria-label="Inspector" tabindex="-1"></aside>
+</main>
+
+<noscript>
+  <p style="padding:1.5rem">This explorer renders the lineage graph with JavaScript. The
+  underlying facts are in <a href="data/corpus.json">data/corpus.json</a> and
+  <a href="data/relations.json">data/relations.json</a>.</p>
+</noscript>
+
+<!-- DATA (generated; classic scripts so the page opens from file://) -->
+<script src="data/corpus.js"></script>
+<script src="data/relations.js"></script>
+<!-- LOGIC (functional core + imperative shell) -->
+<script src="logic/log.js"></script>
+<script src="logic/util.js"></script>
+<script src="logic/parse.js"></script>
+<script src="logic/state.js"></script>
+<script src="logic/search.js"></script>
+<script src="logic/graph.js"></script>
+<script src="logic/render.js"></script>
+<script src="logic/detail.js"></script>
+<script src="logic/app.js"></script>
+</body>
+</html>

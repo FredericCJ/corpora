@@ -6,6 +6,12 @@
       "runtimeExecutable": "python",
       "runtimeArgs": ["-m", "http.server", "8971", "--bind", "127.0.0.1"],
       "port": 8971
+    },
+    {
+      "name": "ds-explorer",
+      "runtimeExecutable": "python",
+      "runtimeArgs": ["-m", "http.server", "8099", "--bind", "127.0.0.1", "--directory", "E:/dev/corpora/datastructures/explorer"],
+      "port": 8099
     }
   ]
 }

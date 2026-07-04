@@ -1,0 +1,35 @@
+/* tokens.css — design tokens only. Presentation layer carries no data.
+   Palette continues the reference explorer's "academic paper" aesthetic. */
+:root{
+  /* surfaces & ink */
+  --paper:#F6F5F0; --panel:#FFFFFF; --panel-2:#FBFAF6;
+  --ink:#22261F; --mut:#6E7268; --faint:#9A9E94; --line:#DDDCD4; --line-2:#E9E8E1;
+  --accent:#6C3FA0; --accent-ink:#4A2A72;
+
+  /* family hues (stroke) + tints (fill) — 9 families */
+  --f-linear:#46549B;   --f-linear-bg:#EBEDF8;
+  --f-assoc:#14705A;    --f-assoc-bg:#E2F1EA;
+  --f-hash:#8F6E1E;     --f-hash-bg:#F5EEDA;
+  --f-approx:#0E7490;   --f-approx-bg:#E4F2F6;
+  --f-tree:#6C3FA0;     --f-tree-bg:#F1EAFB;
+  --f-trie:#C2551B;     --f-trie-bg:#FBF0E8;
+  --f-heap:#A5384E;     --f-heap-bg:#FAE8EC;
+  --f-spatial:#5E7A2E;  --f-spatial-bg:#EEF3E1;
+  --f-advanced:#3F5566; --f-advanced-bg:#E8EDF1;
+
+  /* relation-kind hues (root -> modern) */
+  --k-refines:#46549B; --k-specializes:#14705A; --k-generalizes:#0E7490;
+  --k-encodes:#B0851E; --k-hybridizes:#8A3FA0; --k-influences:#8A8E84;
+
+  /* status */
+  --ok:#14705A; --warn:#B0851E; --bad:#B3372F;
+  --ver:#14705A; --flag:#B3372F;
+
+  /* type */
+  --serif:Charter,"Bitstream Charter","Iowan Old Style","Sitka Text",Cambria,Georgia,serif;
+  --sans:ui-sans-serif,system-ui,"Segoe UI","Helvetica Neue",Arial,sans-serif;
+  --mono:ui-monospace,"SF Mono","Cascadia Code",Consolas,monospace;
+
+  --rad:8px; --rad-lg:12px; --rad-sm:5px;
+  --shadow:0 1px 2px rgba(30,30,20,.05), 0 8px 24px rgba(30,30,20,.06);
+}
