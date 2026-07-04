@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "corpora-static",
+      "runtimeExecutable": "python",
+      "runtimeArgs": ["-m", "http.server", "8971", "--bind", "127.0.0.1"],
+      "port": 8971
+    }
+  ]
+}

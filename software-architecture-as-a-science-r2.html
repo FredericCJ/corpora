@@ -1,0 +1,898 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Software Architecture as a Science — Typed Cyclic Reading Graph (rev. 2)</title>
+<style>
+  :root{
+    --paper:#F6F5F0; --panel:#FFFFFF; --ink:#22261F; --mut:#6E7268; --line:#DDDCD4;
+    --ba:#46549B;  --ba-bg:#EBEDF8;
+    --bb:#14705A;  --bb-bg:#E2F1EA;
+    --sh:#8F6E1E;  --sh-bg:#F5EEDA;
+    --target:#6C3FA0;
+    --edge:#A2A69C;
+    --fbk:#B3372F;
+    --auto:#C2551B;
+    --serif:Charter,"Bitstream Charter","Iowan Old Style","Sitka Text",Cambria,Georgia,serif;
+    --sans:ui-sans-serif,system-ui,"Segoe UI","Helvetica Neue",Arial,sans-serif;
+    --mono:ui-monospace,"SF Mono","Cascadia Code",Consolas,monospace;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  @media (prefers-reduced-motion: reduce){ html{scroll-behavior:auto} *{transition:none!important} }
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.65}
+  .wrap{max-width:1160px;margin:0 auto;padding:0 28px}
+  header.page{padding:44px 0 30px;border-bottom:1px solid var(--line)}
+  .eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--mut)}
+  h1{font-family:var(--serif);font-weight:500;font-size:clamp(28px,4vw,42px);line-height:1.15;margin:.35em 0 .3em;max-width:26ch;text-wrap:balance}
+  .lede{color:var(--mut);max-width:72ch;margin:0}
+  .meta{font-family:var(--mono);font-size:12.5px;color:var(--mut);margin-top:18px}
+  .meta b{color:var(--ink);font-weight:600}
+  h2{font-family:var(--serif);font-weight:500;font-size:24px;margin:0 0 6px}
+  h2 .no{font-family:var(--mono);font-size:12px;color:var(--mut);vertical-align:.6em;margin-right:.6em;letter-spacing:.1em}
+  section{padding:44px 0 8px}
+  .subtle{color:var(--mut);font-size:14.5px;max-width:76ch}
+
+  .topnav{position:sticky;top:0;z-index:60;background:var(--paper);border-bottom:1px solid var(--line)}
+  .topnav .wrap{display:flex;flex-wrap:wrap;align-items:center;gap:8px 22px;padding-top:12px;padding-bottom:12px}
+  .tabs{display:flex;gap:8px}
+  .tabs button{font-family:var(--mono);font-size:12.5px;letter-spacing:.02em;color:var(--mut);background:var(--panel);
+    border:1px solid var(--line);border-radius:7px;padding:7px 13px;cursor:pointer;transition:color .15s,border-color .15s}
+  .tabs button:hover{color:var(--ink)}
+  .tabs button:focus-visible{outline:2px solid var(--target);outline-offset:2px}
+  .tabs button.on{color:#fff;background:var(--ink);border-color:var(--ink)}
+
+  .legend{display:flex;flex-wrap:wrap;gap:10px 22px;margin:14px 0 2px;font-size:13.5px}
+  .key{display:flex;align-items:center;gap:8px;color:var(--mut)}
+  .sw{width:22px;height:14px;border-radius:4px;border:1.5px solid;flex:none}
+  .sw.ba{background:var(--ba-bg);border-color:var(--ba)}
+  .sw.bb{background:var(--bb-bg);border-color:var(--bb)}
+  .sw.sh{background:var(--sh-bg);border-color:var(--sh)}
+  .sw.adv{background:#fff;border-color:var(--mut)}
+  .sw.t{background:#fff;border:2px solid var(--target)}
+  .ksw{width:26px;height:0;border-top:2px solid;flex:none}
+  .ksw.d1{border-top-style:dashed}
+  .ksw.d2{border-top-style:dotted;border-top-width:3px}
+
+  .board{background:var(--panel);border:1px solid var(--line);border-radius:14px;margin-top:16px;overflow-x:auto;-webkit-overflow-scrolling:touch;
+         background-image:linear-gradient(var(--paper) 1px,transparent 1px),linear-gradient(90deg,var(--paper) 1px,transparent 1px);
+         background-size:26px 26px}
+  .board svg{display:block;min-width:1740px;width:100%;max-width:2200px;margin:0 auto;height:auto}
+  #board1 svg{min-width:1930px}
+  .hint{font-family:var(--mono);font-size:12px;color:var(--mut);margin-top:10px}
+
+  .edge{fill:none;stroke:var(--edge);stroke-width:1.1;opacity:.34;transition:opacity .18s,stroke-width .18s}
+  .edge.hl{opacity:.95;stroke-width:2.1}
+  .edge.dim{opacity:.05}
+  .k-pre{stroke:#8A8E84}
+  .k-ref{stroke:#46549B}
+  .k-sub{stroke:#6C3FA0}
+  .k-for{stroke:#0E7490}
+  .k-sur{stroke:#8A8E84;stroke-dasharray:2 4}
+  .k-app{stroke:#14705A}
+  .k-com{stroke:#A2A69C;stroke-dasharray:6 4}
+  .k-eva{stroke:#B0851E}
+  .k-fbk{stroke:var(--fbk);stroke-dasharray:7 4;stroke-width:1.5;opacity:.55}
+  .node{cursor:pointer}
+  .node rect{stroke-width:1.1;transition:opacity .18s}
+  .node.dim rect,.node.dim text{opacity:.16}
+  .node text{font-family:var(--sans)}
+  .nt{font-size:13px;font-weight:600;fill:var(--ink)}
+  .ns{font-size:11.5px;fill:var(--mut)}
+  .nr{font-family:var(--mono);font-size:9.5px;fill:var(--mut)}
+  .ng{font-size:10px;fill:var(--auto)}
+  .cat-ba rect{fill:var(--ba-bg);stroke:var(--ba)}
+  .cat-bb rect{fill:var(--bb-bg);stroke:var(--bb)}
+  .cat-sh rect{fill:var(--sh-bg);stroke:var(--sh)}
+  .cat-des rect{fill:var(--bb-bg);stroke:var(--bb)}
+  .cat-arc rect{fill:var(--ba-bg);stroke:var(--ba)}
+  .cat-mgt rect{fill:var(--sh-bg);stroke:var(--sh)}
+  .tier-a rect{fill:#FFFFFF}
+  .node.tgt rect{stroke:var(--target);stroke-width:2}
+  .node.tgt .nt{fill:#3E2662}
+  .band{stroke:none}
+  .band.ba{fill:var(--ba);fill-opacity:.035}
+  .band.bb{fill:var(--bb);fill-opacity:.035}
+  .band.sh{fill:var(--sh);fill-opacity:.05}
+  .lab-band{font-family:var(--mono);font-size:11px;letter-spacing:.12em;fill:#565A50}
+  .lab-cl{font-family:var(--mono);font-size:9.5px;letter-spacing:.09em;fill:#8B8F85}
+  .lab-note{font-family:var(--mono);font-size:11px;fill:#6E7268}
+  .lab-note.hd{fill:#3E2662;font-size:11.5px}
+
+  .fields{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:12px;margin-top:16px}
+  .field{background:var(--panel);border:1px solid var(--line);border-left:3px solid var(--target);border-radius:0 10px 10px 0;padding:13px 15px}
+  .field h3{margin:0 0 4px;font-family:var(--serif);font-weight:500;font-size:16.5px}
+  .field p{margin:0;font-size:13.5px;color:var(--mut)}
+  .field a{color:var(--target);text-decoration:none;font-family:var(--mono);font-size:12px}
+  .field a:hover{text-decoration:underline}
+  .field .tag{font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--mut)}
+  .field.fa{border-left-color:var(--ba)}
+  .field.fb{border-left-color:var(--bb)}
+  .field.fs{border-left-color:var(--sh)}
+
+  .rules{margin:16px 0 0;padding-left:1.2em}
+  .rules li{margin:0 0 12px;max-width:82ch}
+  .rules b{font-weight:600}
+  blockquote.rationale{margin:18px 0 0;padding:16px 22px;background:var(--panel);border:1px solid var(--line);border-left:3px solid var(--bb);
+    border-radius:0 10px 10px 0;font-family:var(--serif);font-size:16.5px;line-height:1.6;max-width:82ch;color:#3A3E35}
+  blockquote.rationale footer{font-family:var(--mono);font-size:11.5px;color:var(--mut);margin-top:10px}
+
+  details{background:var(--panel);border:1px solid var(--line);border-radius:10px;margin:10px 0;padding:0}
+  summary{cursor:pointer;padding:13px 18px;font-family:var(--serif);font-size:17px;font-weight:500;list-style-position:inside}
+  summary::marker{color:var(--target)}
+  details[open] summary{border-bottom:1px solid var(--line)}
+  .elist{margin:0;padding:14px 20px 16px 20px;list-style:none}
+  .elist li{margin:0 0 9px;font-size:14.5px;max-width:96ch}
+  .elist .arrow{color:var(--target);font-weight:600}
+  .elist .ov{color:var(--mut)}
+  .elist .nd{font-family:var(--mono);font-size:11px;color:var(--mut);background:var(--paper);border:1px solid var(--line);border-radius:4px;padding:1px 5px;margin-left:6px;white-space:nowrap}
+  .kt{font-family:var(--mono);font-size:10.5px;border-radius:4px;padding:1px 6px;margin:0 4px;white-space:nowrap;border:1px solid}
+  .kt-pre{color:#565A50;border-color:#C9CCC2;background:#F1F1EB}
+  .kt-ref{color:#46549B;border-color:#C6CCE8;background:#EBEDF8}
+  .kt-sub{color:#6C3FA0;border-color:#D8C9EC;background:#F1EAFB}
+  .kt-for{color:#0E7490;border-color:#BEE0E8;background:#E6F4F7}
+  .kt-sur{color:#565A50;border-color:#C9CCC2;background:#F1F1EB;border-style:dashed}
+  .kt-app{color:#14705A;border-color:#BFE0D2;background:#E2F1EA}
+  .kt-com{color:#6E7268;border-color:#D5D8CE;background:#F4F4EF;border-style:dashed}
+  .kt-eva{color:#8F6E1E;border-color:#E4D4A8;background:#F5EEDA}
+  .kt-fbk{color:#B3372F;border-color:#E7C0BC;background:#FAECEA;border-style:dashed}
+  .cyc{font-family:var(--mono);font-size:10.5px;color:#B3372F;background:#FAECEA;border:1px solid #E7C0BC;border-radius:4px;padding:1px 6px;margin-left:6px;white-space:nowrap}
+
+  ol.refs{padding-left:0;counter-reset:ref;list-style:none;margin-top:14px}
+  ol.refs li{counter-increment:ref;position:relative;padding:9px 0 9px 52px;border-bottom:1px dashed var(--line);max-width:92ch;scroll-margin-top:70px}
+  ol.refs li::before{content:"[" counter(ref) "]";position:absolute;left:0;top:9px;font-family:var(--mono);font-size:12.5px;color:var(--target)}
+  ol.refs li.flash{background:#F1EAFB;border-radius:6px}
+  ol.refs i{font-family:var(--serif)}
+  .oa{font-family:var(--mono);font-size:10.5px;color:#14705A;border:1px solid #BFE0D2;border-radius:4px;padding:1px 5px;margin-left:6px;white-space:nowrap}
+  .oap{font-family:var(--mono);font-size:10.5px;color:#8F6E1E;border:1px solid #E4D4A8;border-radius:4px;padding:1px 5px;margin-left:6px;white-space:nowrap}
+  .pay{font-family:var(--mono);font-size:10.5px;color:#6E7268;border:1px solid #D5D8CE;border-radius:4px;padding:1px 5px;margin-left:6px;white-space:nowrap}
+  .bdl{font-family:var(--mono);font-size:10.5px;color:#B3372F;border:1px solid #E7C0BC;border-radius:4px;padding:1px 5px;margin-left:6px;white-space:nowrap}
+  .cl{font-family:var(--mono);font-size:10.5px;color:var(--mut);background:var(--paper);border:1px solid var(--line);border-radius:4px;padding:1px 6px;margin-right:7px;white-space:nowrap}
+  .aut{font-family:var(--mono);font-size:10.5px;color:var(--auto);border:1px solid #EBCDB8;background:#FBF1E9;border-radius:4px;padding:1px 5px;margin-left:6px;white-space:nowrap}
+
+  footer.pagefoot{padding:40px 0 60px;color:var(--mut);font-size:13px;border-top:1px solid var(--line);margin-top:52px}
+  code{font-family:var(--mono);font-size:.92em}
+  .pg[hidden]{display:none}
+
+  @media (max-width:700px){
+    body{font-size:15px}
+    .wrap{padding:0 18px}
+    header.page{padding:30px 0 22px}
+    section{padding:32px 0 6px}
+    h2{font-size:21px}
+    .legend{gap:8px 16px;font-size:12.5px}
+    .board{border-radius:10px}
+    .hint{font-size:11px}
+    summary{font-size:15.5px;padding:11px 14px}
+    .elist{padding:12px 14px 12px 14px}
+    .elist li{font-size:13.5px}
+    ol.refs li{padding-left:44px}
+    .meta{font-size:11.5px}
+    .tabs button{font-size:11.5px;padding:6px 10px}
+  }
+  @media (min-width:2200px){
+    body{font-size:18px}
+    .wrap{max-width:1440px}
+    .board svg{max-width:2100px}
+    h1{font-size:48px}
+  }
+</style>
+</head>
+<body>
+
+<!-- ============================================================ PAGE 1 -->
+<div id="p1" class="pg">
+
+<header class="page">
+  <div class="wrap">
+    <div class="eyebrow">Typed cyclic reading graph · two branches · rev. 2</div>
+    <h1>Software Architecture as a Science</h1>
+    <p class="lede">A clustered corpus of 77 methodologically rigorous works, organized into two explicitly distinct branches — <b>Branch&nbsp;A: software architecture as artifact and discipline</b> (structures, styles, theory) and <b>Branch&nbsp;B: architecture design as process</b> (decision-making, method, how one arrives at an architecture) — joined by a shared evaluation-and-quality spine. Every edge carries one of nine fixed relation kinds; the graph is deliberately <b>cyclic</b>, with four documented feedback loops drawn in dashed red. Every node carries a full citation (title, author, year of last publication).</p>
+    <p class="meta"><b>77</b> nodes &nbsp;·&nbsp; <b>14</b> clusters &nbsp;·&nbsp; <b>95</b> typed edges &nbsp;·&nbsp; <b>9</b> relation kinds &nbsp;·&nbsp; <b>4</b> documented cycles &nbsp;·&nbsp; compiled July 2026 · rev. 2</p>
+  </div>
+</header>
+
+<section>
+  <div class="wrap">
+    <h2><span class="no">01</span>Scope &amp; reading rules</h2>
+    <p class="subtle">Four rules govern admission and representation. They are stated here explicitly because every downstream choice — node set, edge set, drawing — follows from them.</p>
+    <ul class="rules">
+      <li><b>Science bar.</b> Only resources that treat architecture and its design as a science are admitted: detailed methodologies, formal methods, and evaluation frameworks. Pattern catalogs, best-practice guides, and anecdotal practitioner literature are excluded. Three borderline admissions survive review and are flagged in the references — Rozanski–Woods <a href="#p1-ref-11" style="color:var(--target)">[11]</a>, Weyns <a href="#p1-ref-33" style="color:var(--target)">[33]</a>, and Clements–Northrop <a href="#p1-ref-38" style="color:var(--target)">[38]</a> — admitted as structured reference/consolidation nodes, not as formal theory.</li>
+      <li><b>Two branches, explicitly distinct.</b> Branch A collects work about the <i>artifact and discipline</i>: what an architecture is, how it is described, formalized, verified, and evolved. Branch B collects work about the <i>process</i>: how architectures are designed, decided, rationalized, and how designers actually reason. The shared spine (evaluation, quality models, economics) is what binds them — evaluation assesses artifacts (A) and drives design (B).</li>
+      <li><b>“Model” is read in both senses — and both are populated.</b> (a) <i>Formal and graphical modeling</i>: notations, architecture description languages, viewpoint/view frameworks — clusters A2 (views &amp; description), A3 (ADLs &amp; formal semantics), A4 (model checking). (b) <i>Conceptual and evaluation models</i>: quality-attribute frameworks, architecture evaluation methods, design-rationale models — clusters S1 (evaluation canon), S2 (quality-attribute models), B3 (rationale &amp; architectural knowledge). Neither sense is treated as the default; the corpus deliberately includes resources from both.</li>
+      <li><b>Directed <i>cyclic</i> graph, not a DAG.</b> Resources reference and feed back into one another: a design-process methodology draws on an evaluation model, whose refinement in turn revises the methodology. The relation kind <span class="kt kt-fbk">critiques / feeds-back-into</span> is what makes the graph cyclic; cutting its edges would recover a DAG but lose exactly the intellectual feedback this corpus is designed to represent. Four genuine cycles are documented in §05.</li>
+      <li><b>Citation rule.</b> Every node cites title, author, and year of last publication, edition-verified. Notably: Taylor–Medvidovic–Dashofy has <i>no</i> second edition — the Wiley ©2010 printing is the only one; Bass–Clements–Kazman is cited at its 4th edition (2021); Cervantes–Kazman at its 2nd (2024); ISO/IEC/IEEE 42010 at its 2022 revision; ISO/IEC 25010 at its 2023 revision.</li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2><span class="no">02</span>The graph</h2>
+    <p class="subtle">Hover (or tap) any node to trace its full lineage — because the graph is cyclic, tracing follows feedback loops until they close. Click a node to jump to its citation. Edge color encodes the relation kind; dashed red edges are the cycle-forming <code>critiques / feeds-back-into</code> relation. Edge direction is semantic, not chronological — it follows each relation’s natural reading (a survey points at what it surveys; a refinement points at what it refines). The drawing shows all 95 edges; the catalog in §06 gives each edge’s one-line justification. Long cross-band edges are routed through the gutters between bands rather than beneath node columns.</p>
+    <div class="legend">
+      <span class="key"><span class="sw ba"></span>Branch A — artifact / discipline</span>
+      <span class="key"><span class="sw sh"></span>Shared — evaluation · quality · economics</span>
+      <span class="key"><span class="sw bb"></span>Branch B — design as process</span>
+      <span class="key"><span class="sw adv"></span>White fill — advanced tier</span>
+      <span class="key"><span class="sw t"></span>★ target / canonical anchor</span>
+      <span class="key">¶ — survey / tutorial admitted as first-class node</span>
+    </div>
+    <div class="legend">
+      <span class="key"><span class="ksw" style="border-color:#8A8E84"></span>prerequisite-of</span>
+      <span class="key"><span class="ksw" style="border-color:#46549B"></span>refines</span>
+      <span class="key"><span class="ksw" style="border-color:#6C3FA0"></span>subsumes</span>
+      <span class="key"><span class="ksw" style="border-color:#0E7490"></span>formalizes</span>
+      <span class="key"><span class="ksw d2" style="border-color:#8A8E84"></span>surveys</span>
+      <span class="key"><span class="ksw" style="border-color:#14705A"></span>applies-method-of</span>
+      <span class="key"><span class="ksw d1" style="border-color:#A2A69C"></span>complements</span>
+      <span class="key"><span class="ksw" style="border-color:#B0851E"></span>evaluates / is-evaluated-by</span>
+      <span class="key"><span class="ksw d1" style="border-color:#B3372F"></span>critiques / feeds-back-into (cycle-forming)</span>
+    </div>
+    <div class="board" id="board1">
+      <svg id="dag1" viewBox="0 0 1910 1420" role="img" aria-label="Directed cyclic graph of 77 works on software architecture as a science, in two branches plus a shared spine">
+        <title>Software architecture as a science — typed cyclic reading graph</title>
+        <defs>
+          <marker id="ah1" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5.5" markerHeight="5.5" orient="auto-start-reverse">
+            <path d="M2 1.5L8 5L2 8.5" fill="none" stroke="context-stroke" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+          </marker>
+        </defs>
+        <g id="bands1"></g>
+        <g id="edges1"></g>
+        <g id="nodes1"></g>
+      </svg>
+    </div>
+    <p class="hint">hover / tap — trace lineage (follows cycles) · click — jump to citation · pan horizontally on narrow screens</p>
+  </div>
+</section>
+<section>
+  <div class="wrap">
+    <h2><span class="no">03</span>Revision notes · rev. 2</h2>
+    <p class="subtle">Adjustments made after a scrutiny pass over the first rendering (r1) — graph semantics first, drawing second:</p>
+    <ul class="rules">
+      <li><b>Six edges added (89 → 95),</b> each closing a gap the scrutiny exposed. <i>Evaluating SA</i> <span class="kt kt-app">applies-method-of</span> ATAM — the S1 anchor book was previously linked only to SAIP, not to the method it operationalizes. Taylor–Medvidovic–Dashofy <span class="kt kt-sub">subsumes</span> the ADL classification — a same-author textbook consolidation the r1 graph missed. Applied SA <span class="kt kt-com">complements</span> 4+1 — parallel industrial view frameworks (Siemens four views ∥ Rational 4+1); Applied SA previously had no outgoing edge. Bosch 2000 <span class="kt kt-com">complements</span> Clements–Northrop — parallel product-line programmes, a genuine cross-branch link. ATAM <span class="kt kt-app">applies-method-of</span> ABAS — attribute-based styles supply ATAM’s attribute reasoning; ABAS was previously reachable only via the tactics report. Zimmermann et al. <span class="kt kt-ref">refines</span> Jansen–Bosch — the reusable-decision-model line was survey-only in r1.</li>
+      <li><b>Four long edges re-routed as gutter rails</b> so they no longer run invisibly beneath node columns: Jansen–Bosch → Perry–Wolf (via the Shared/Branch-B gutter), Zannier → Parnas–Clements, the general-model → Kruchten subsumption (via the row-2/3 gap), and Evaluating SA → SAIP.</li>
+      <li><b>In-graph annotations now paint above edges</b> — in r1 the cycle glossary and the “model, two senses” note sat beneath edge paths crossing the center band.</li>
+      <li><b>Connectivity audit passed:</b> every node participates in at least one edge. Remaining sinks are deliberate — Views &amp; Beyond, Weyns, and the technical-debt book are consolidation endpoints, and Rapide/Acme are surveyed leaves of the ADL shelf.</li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2><span class="no">04</span>Branches, clusters, and their anchors</h2>
+    <p class="subtle">Fourteen clusters. Each card names its ★ target/canonical anchors; <span class="tag">¶</span> marks surveys admitted as first-class nodes. Clusters tagged <i>canonical</i> are the shelves everyone reads; the rest exist for comprehensiveness.</p>
+    <div class="fields">
+      <div class="field fa"><h3>A1 · Foundations of the discipline</h3><p><span class="tag">canonical</span> <a href="#p1-ref-1">[1] Perry–Wolf</a> <a href="#p1-ref-2">[2] Shaw–Garlan</a> <a href="#p1-ref-4">[4] Taylor et al.</a> · <a href="#p1-ref-6">[6] Shaw ¶</a> <a href="#p1-ref-7">[7] Garlan ¶</a></p></div>
+      <div class="field fa"><h3>A2 · Views &amp; description frameworks</h3><p><span class="tag">canonical · model, sense (a)</span> <a href="#p1-ref-8">[8] ISO 42010:2022</a> <a href="#p1-ref-9">[9] Views &amp; Beyond</a> <a href="#p1-ref-10">[10] Kruchten</a></p></div>
+      <div class="field fa"><h3>A3 · ADLs &amp; formal semantics</h3><p><span class="tag">model, sense (a)</span> <a href="#p1-ref-15">[15] Medvidovic–Taylor ¶</a> <a href="#p1-ref-16">[16] Allen–Garlan</a> · <a href="#p1-ref-26">[26] Malavolta ¶</a></p></div>
+      <div class="field fa"><h3>A4 · Model checking &amp; verification</h3><p><span class="tag">model, sense (a)</span> <a href="#p1-ref-27">[27] Zhang et al. ¶</a> · mismatch pair <a href="#p1-ref-28">[28]</a><a href="#p1-ref-29">[29]</a> (Cycle 2)</p></div>
+      <div class="field fa"><h3>A5 · Dynamic / self-adaptive</h3><p><a href="#p1-ref-30">[30] Oreizy et al.</a> · <a href="#p1-ref-31">[31] Rainbow</a> <a href="#p1-ref-33">[33] Weyns</a></p></div>
+      <div class="field fa"><h3>A6 · Architecture evolution</h3><p><a href="#p1-ref-34">[34] Breivold et al. ¶</a> <a href="#p1-ref-35">[35] Barnes et al.</a></p></div>
+      <div class="field fa"><h3>A7 · Reference architectures &amp; product lines</h3><p><a href="#p1-ref-36">[36] Angelov et al.</a> <a href="#p1-ref-37">[37] Galster–Avgeriou</a> <a href="#p1-ref-38">[38] Clements–Northrop</a></p></div>
+      <div class="field fb"><h3>B1 · Design-process roots / design science</h3><p><span class="tag">canonical</span> <a href="#p1-ref-39">[39] Parnas ’72</a> <a href="#p1-ref-42">[42] Parnas–Clements</a> · <a href="#p1-ref-43">[43] Simon</a> <a href="#p1-ref-44">[44] Rittel–Webber</a></p></div>
+      <div class="field fb"><h3>B2 · Design methods &amp; the general model</h3><p><span class="tag">canonical</span> <a href="#p1-ref-45">[45] Hofmeister et al. ¶</a> <a href="#p1-ref-46">[46] Cervantes–Kazman (ADD 3.0)</a></p></div>
+      <div class="field fb"><h3>B3 · Design rationale &amp; architectural knowledge</h3><p><span class="tag">model, sense (b)</span> <a href="#p1-ref-50">[50] Kunz–Rittel (IBIS)</a> <a href="#p1-ref-57">[57] Capilla et al. ¶</a> · Cycle 3 lives here</p></div>
+      <div class="field fb"><h3>B4 · Empirical studies of design reasoning</h3><p><a href="#p1-ref-61">[61] Falessi et al. ¶</a> <a href="#p1-ref-62">[62] Zannier et al.</a> <a href="#p1-ref-63">[63] Tang–Razavian</a></p></div>
+      <div class="field fs"><h3>S1 · Evaluation canon</h3><p><span class="tag">canonical · model, sense (b)</span> <a href="#p1-ref-64">[64] Evaluating SA</a> <a href="#p1-ref-65">[65] ATAM</a> <a href="#p1-ref-67">[67] Dobrica–Niemelä ¶</a></p></div>
+      <div class="field fs"><h3>S2 · Quality-attribute models</h3><p><span class="tag">model, sense (b)</span> <a href="#p1-ref-70">[70] ISO 25010:2023</a> <a href="#p1-ref-71">[71] Barbacci et al.</a></p></div>
+      <div class="field fs"><h3>S3 · Economics &amp; technical debt</h3><p><a href="#p1-ref-74">[74] CBAM</a> <a href="#p1-ref-75">[75] Kruchten et al.</a> <a href="#p1-ref-77">[77] RCDA</a></p></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2><span class="no">05</span>The four documented cycles</h2>
+    <p class="subtle">These loops are why the corpus is a directed cyclic graph and not a DAG. Each is drawn in dashed red on the board; if a downstream tool ever requires acyclicity, these are the edges to cut — at the cost of losing the feedback the corpus is designed to represent.</p>
+    <ul class="rules">
+      <li><span class="cyc">CYCLE 1</span> <b>ADL research ↔ standardization ↔ industry needs (Branch A).</b> Medvidovic–Taylor’s classification [15] maps the ADL space → ISO/IEC/IEEE 42010 [8] standardizes description practice → Malavolta et al.’s industry-needs survey [26] critiques both and re-scopes ADL research priorities → the revised standard feeds back into the classification lineage.</li>
+      <li><span class="cyc">CYCLE 2</span> <b>Architectural mismatch, 1995 ↔ 2009 (Branch A).</b> The original diagnosis [28] is a prerequisite of its own 14-year retrospective [29], which re-evaluates whether the problem persists and feeds back into the original framing.</li>
+      <li><span class="cyc">CYCLE 3</span> <b>Rationale → decisions → knowledge management → rationale (Branch B).</b> Jansen–Bosch recast architecture as a set of design decisions [48] → Tang–Jin–Han add traceability and reuse DRL-style rationale capture [55] → the ten-year AKM retrospective [57] surveys the line and feeds back into the decision-centric view.</li>
+      <li><span class="cyc">CYCLE 4</span> <b>Design method ↔ evaluation (Shared).</b> ADD 3.0 [46] applies quality-attribute scenarios and ATAM evaluation [65] as internal steps → refined tactics and scenarios feed back into ATAM practice → which re-enters ADD. This is the corpus’s clearest instance of a design-process methodology drawing on an evaluation model whose refinement revises the methodology.</li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2><span class="no">06</span>Edge catalog — every edge typed and justified</h2>
+    <p class="subtle">The relation vocabulary is a fixed set of nine, applied consistently: <span class="kt kt-pre">prerequisite-of</span><span class="kt kt-ref">refines</span><span class="kt kt-sub">subsumes</span><span class="kt kt-for">formalizes</span><span class="kt kt-sur">surveys</span><span class="kt kt-app">applies-method-of</span><span class="kt kt-com">complements</span><span class="kt kt-eva">evaluates / is-evaluated-by</span><span class="kt kt-fbk">critiques / feeds-back-into</span>. Edges read left to right: <i>source → relation → target</i>.</p>
+
+    <details open>
+      <summary>Branch A — foundations, views &amp; description (A1–A2)</summary>
+      <ul class="elist">
+        <li>Perry–Wolf <span class="kt kt-pre">prerequisite-of</span> Shaw–Garlan — <span class="ov">the elements/form/rationale model underlies the perspectives volume.</span></li>
+        <li>Shaw–Garlan <span class="kt kt-pre">prerequisite-of</span> Taylor–Medvidovic–Dashofy — <span class="ov">the canonical textbook consolidates the perspectives.</span></li>
+        <li>Garlan–Shaw <span class="kt kt-ref">refines</span> Perry–Wolf — <span class="ov">introduces architectural styles as concrete “form.”</span></li>
+        <li>Kruchten <span class="kt kt-ref">refines</span> Perry–Wolf — <span class="ov">operationalizes concerns into 4+1 views.</span></li>
+        <li>ISO/IEC/IEEE 42010:2022 <span class="kt kt-sub">subsumes</span> Kruchten — <span class="ov">the standard generalizes views/viewpoints beyond 4+1.</span></li>
+        <li>Views &amp; Beyond <span class="kt kt-app">applies-method-of</span> ISO 42010 — <span class="ov">instantiates the viewpoint framework for documentation.</span></li>
+        <li>Emery–Hilliard <span class="kt kt-ref">refines</span> ISO 42010 — <span class="ov">formal treatment of architecture frameworks under the standard.</span></li>
+        <li>Rozanski–Woods <span class="kt kt-app">applies-method-of</span> ISO 42010 — <span class="ov">viewpoint/perspective catalog instantiates the standard.</span></li>
+        <li>Medvidovic et al. (UML) <span class="kt kt-com">complements</span> Medvidovic–Taylor — <span class="ov">assesses UML as an architecture-modeling notation against ADL criteria.</span></li>
+        <li>Hofmeister–Nord–Soni <span class="kt kt-com">complements</span> Kruchten — <span class="ov">parallel industrial view frameworks: Siemens four views ∥ Rational 4+1.</span><span class="nd">added r2</span></li>
+        <li>Shaw ’01 <span class="kt kt-com">complements</span> Garlan ’14 — <span class="ov">reflective state-of-field companion pieces bridging both branches.</span></li>
+      </ul>
+    </details>
+
+    <details>
+      <summary>Branch A — ADLs, formal semantics &amp; Cycle 1 (A3)</summary>
+      <ul class="elist">
+        <li>Medvidovic–Taylor <span class="kt kt-sur">surveys</span> Wright · Rapide · Darwin · Acme · Moriconi et al. — <span class="ov">the classification framework catalogs these ADLs (five drawn edges).</span></li>
+        <li>Taylor–Medvidovic–Dashofy <span class="kt kt-sub">subsumes</span> Medvidovic–Taylor — <span class="ov">the textbook absorbs its authors’ ADL classification programme into the discipline’s spine.</span><span class="nd">added r2</span></li>
+        <li>Allen–Garlan (Wright) <span class="kt kt-for">formalizes</span> Perry–Wolf — <span class="ov">CSP semantics formalizes “connecting elements.”</span></li>
+        <li>Abowd–Allen–Garlan <span class="kt kt-for">formalizes</span> Garlan–Shaw — <span class="ov">Z-based formal semantics for architectural styles.</span></li>
+        <li>Moriconi et al. <span class="kt kt-ref">refines</span> Allen–Garlan — <span class="ov">correctness-preserving refinement of formal architectures.</span></li>
+        <li>Oquendo (π-ADL) <span class="kt kt-ref">refines</span> Magee–Kramer (Darwin) — <span class="ov">π-calculus ADL extends Darwin’s dynamic structure.</span></li>
+        <li>Malavolta et al. <span class="kt kt-sur">surveys</span> Feiler–Gluch (AADL) — <span class="ov">the industry-needs survey covers industrial architectural languages including AADL.</span></li>
+        <li>Malavolta et al. <span class="kt kt-fbk">feeds-back-into</span> Medvidovic–Taylor <span class="cyc">CYCLE 1</span> — <span class="ov">industry-needs findings re-scope ADL research priorities.</span></li>
+        <li>Malavolta et al. <span class="kt kt-fbk">feeds-back-into</span> ISO 42010 <span class="cyc">CYCLE 1</span> — <span class="ov">industry findings shape the standard’s ADL requirements.</span></li>
+        <li>ISO 42010 <span class="kt kt-fbk">feeds-back-into</span> Medvidovic–Taylor lineage <span class="cyc">CYCLE 1</span> — <span class="ov">closing the loop.</span></li>
+      </ul>
+    </details>
+
+    <details>
+      <summary>Branch A — verification, dynamics, evolution, product lines (A4–A7)</summary>
+      <ul class="elist">
+        <li>Zhang–Muccini–Li <span class="kt kt-sur">surveys</span> Allen–Garlan · Bernardo–Inverardi — <span class="ov">classifies model-checking techniques over formal architectural models.</span></li>
+        <li>Bernardo–Inverardi <span class="kt kt-pre">prerequisite-of</span> Aldini et al. — <span class="ov">the SFM lecture volume precedes the full process-algebraic design method.</span></li>
+        <li>Aldini et al. <span class="kt kt-app">applies-method-of</span> Allen–Garlan — <span class="ov">process-algebraic design uses the connector-formalization lineage.</span></li>
+        <li>Mismatch ’95 <span class="kt kt-pre">prerequisite-of</span> Mismatch ’09 — <span class="ov">explicit 14-year retrospective.</span></li>
+        <li>Mismatch ’09 <span class="kt kt-fbk">feeds-back-into</span> Mismatch ’95 <span class="cyc">CYCLE 2</span> — <span class="ov">re-evaluates whether the original problem persists.</span></li>
+        <li>Oreizy et al. <span class="kt kt-ref">refines</span> Magee–Kramer (Darwin) — <span class="ov">runtime evolution operationalizes dynamic structure.</span></li>
+        <li>Rainbow <span class="kt kt-app">applies-method-of</span> Oreizy et al. — <span class="ov">self-adaptation builds on architecture-based runtime evolution.</span></li>
+        <li>Kramer–Magee <span class="kt kt-com">complements</span> Rainbow — <span class="ov">parallel self-managed-systems agenda.</span></li>
+        <li>Weyns <span class="kt kt-sub">subsumes</span> Rainbow · Kramer–Magee — <span class="ov">the textbook consolidates self-adaptive systems.</span></li>
+        <li>Breivold et al. <span class="kt kt-sur">surveys</span> Oreizy et al. — <span class="ov">systematic review of evolution research.</span></li>
+        <li>Barnes et al. <span class="kt kt-ref">refines</span> Breivold et al. — <span class="ov">formal evolution-path/style models for themes the review raises.</span></li>
+        <li>Angelov et al. <span class="kt kt-com">complements</span> Clements–Northrop — <span class="ov">reference-architecture analysis parallels product-line practice.</span></li>
+        <li>Galster–Avgeriou <span class="kt kt-ref">refines</span> Angelov et al. — <span class="ov">empirical grounding of reference architectures.</span></li>
+        <li>Bosch ’00 <span class="kt kt-com">complements</span> Clements–Northrop — <span class="ov">parallel product-line architecture programmes: design-method framing (Branch B) ∥ practice-area framing (Branch A). Cross-branch by design.</span><span class="nd">added r2</span></li>
+      </ul>
+    </details>
+
+    <details>
+      <summary>Branch B — design-process roots (B1) and empirical pushback (B4)</summary>
+      <ul class="elist">
+        <li>Parnas ’72 <span class="kt kt-pre">prerequisite-of</span> Parnas ’79 — <span class="ov">information hiding underlies extension/contraction.</span></li>
+        <li>Parnas ’74 <span class="kt kt-com">complements</span> Parnas ’72 — <span class="ov">hierarchical structure clarifies decomposition semantics.</span></li>
+        <li>Parnas–Clements <span class="kt kt-sub">subsumes</span> Parnas ’72 · Parnas ’79 — <span class="ov">synthesizes the decomposition lineage into a process ideal.</span></li>
+        <li>Simon <span class="kt kt-pre">prerequisite-of</span> Parnas–Clements — <span class="ov">sciences-of-the-artificial framing underlies “faking” a rational process.</span></li>
+        <li>Rittel–Webber <span class="kt kt-com">complements</span> Kunz–Rittel — <span class="ov">wicked-problems theory motivates issue-based rationale.</span></li>
+        <li>Zannier et al. <span class="kt kt-fbk">critiques</span> Parnas–Clements — <span class="ov">empirical evidence that real design decision-making is naturalistic, not rational-faked.</span></li>
+        <li>Falessi et al. <span class="kt kt-sur">surveys</span> CBAM · ATAM — <span class="ov">comparative survey of decision-making techniques.</span></li>
+        <li>van Vliet–Tang <span class="kt kt-com">complements</span> Falessi et al. — <span class="ov">decision-making editorial framing complements the technique survey.</span></li>
+        <li>Tang–Razavian studies <span class="kt kt-com">complements</span> van Vliet–Tang — <span class="ov">the empirical reasoning/reflection line behind the decision-making view (anchor paper still to be pinned — see §07).</span></li>
+      </ul>
+    </details>
+
+    <details>
+      <summary>Branch B — rationale, architectural knowledge &amp; Cycle 3 (B3)</summary>
+      <ul class="elist">
+        <li>Kunz–Rittel (IBIS) <span class="kt kt-pre">prerequisite-of</span> QOC · DRL — <span class="ov">IBIS is the ancestor of both design-space analysis and DRL.</span></li>
+        <li>QOC <span class="kt kt-com">complements</span> DRL — <span class="ov">two rationale representations, same HCI special issue.</span></li>
+        <li>Dutoit et al. <span class="kt kt-sub">subsumes</span> QOC · DRL — <span class="ov">the rationale-management volume consolidates rationale models.</span></li>
+        <li>Burge et al. <span class="kt kt-app">applies-method-of</span> Dutoit et al. — <span class="ov">rationale-based SE operationalizes rationale management.</span></li>
+        <li>Tang et al. ’06 <span class="kt kt-sur">surveys</span> QOC · DRL — <span class="ov">survey of architecture design rationale approaches.</span></li>
+        <li>Jansen–Bosch <span class="kt kt-ref">refines</span> Perry–Wolf — <span class="ov">recasts the rationale component of elements/form/rationale as a set of decisions (cross-branch seed of Cycle 3).</span></li>
+        <li>Bosch ’00 <span class="kt kt-pre">prerequisite-of</span> Jansen–Bosch — <span class="ov">design-and-use framing precedes the decisions view.</span></li>
+        <li>Tang–Jin–Han <span class="kt kt-ref">refines</span> Jansen–Bosch — <span class="ov">adds traceability/reasoning to decisions.</span></li>
+        <li>Tang–Jin–Han <span class="kt kt-app">applies-method-of</span> DRL <span class="cyc">CYCLE 3</span> — <span class="ov">the decision-rationale model reuses DRL-style capture.</span></li>
+        <li>Zimmermann et al. <span class="kt kt-ref">refines</span> Jansen–Bosch — <span class="ov">reusable decision models operationalize the decisions view at enterprise scale.</span><span class="nd">added r2</span></li>
+        <li>Capilla et al. <span class="kt kt-sur">surveys</span> Tang–Jin–Han · Zimmermann et al. — <span class="ov">ten-year AKM retrospective.</span></li>
+        <li>Capilla et al. <span class="kt kt-fbk">feeds-back-into</span> Jansen–Bosch <span class="cyc">CYCLE 3</span> — <span class="ov">the retrospective redirects architectural-knowledge research.</span></li>
+        <li>Weinreich–Groher <span class="kt kt-sur">surveys</span> Capilla lineage — <span class="ov">SLR of AK-management activities.</span></li>
+      </ul>
+    </details>
+
+    <details>
+      <summary>Design methods meet evaluation — B2, S1, S2 &amp; Cycle 4</summary>
+      <ul class="elist">
+        <li>Hofmeister et al. ’07 <span class="kt kt-sub">subsumes</span> Bass–Clements–Kazman · Kruchten · Hofmeister–Nord–Soni — <span class="ov">the general design model is derived from five industrial methods.</span></li>
+        <li>Cervantes–Kazman <span class="kt kt-ref">refines</span> Hofmeister et al. — <span class="ov">ADD 3.0 operationalizes the analysis/synthesis/evaluation loop.</span></li>
+        <li>Bass–Clements–Kazman <span class="kt kt-pre">prerequisite-of</span> Cervantes–Kazman — <span class="ov">SAIP supplies quality-attribute scenarios and tactics.</span></li>
+        <li>Cervantes–Kazman <span class="kt kt-app">applies-method-of</span> ATAM <span class="cyc">CYCLE 4</span> — <span class="ov">ADD uses quality-attribute scenarios/evaluation as internal steps.</span></li>
+        <li>Cervantes–Kazman <span class="kt kt-app">applies-method-of</span> Bachmann et al. (tactics) — <span class="ov">tactic catalogs drive design iterations.</span></li>
+        <li>ATAM <span class="kt kt-fbk">feeds-back-into</span> Cervantes–Kazman <span class="cyc">CYCLE 4</span> — <span class="ov">refined tactics/scenarios from evaluation practice re-enter the design method, closing the loop.</span></li>
+        <li>Evaluating SA <span class="kt kt-eva">evaluates</span> Bass–Clements–Kazman — <span class="ov">the evaluation book operationalizes ATAM on SAIP artifacts (reciprocal is-evaluated-by).</span></li>
+        <li>Evaluating SA <span class="kt kt-app">applies-method-of</span> ATAM — <span class="ov">the book’s case studies run the ATAM technical report’s method end to end.</span><span class="nd">added r2</span></li>
+        <li>Bass–Clements–Kazman <span class="kt kt-app">applies-method-of</span> ISO 25010:2023 — <span class="ov">quality-attribute scenarios reference the standardized quality model.</span></li>
+      </ul>
+    </details>
+
+    <details>
+      <summary>Shared spine — evaluation, quality, economics (S1–S3)</summary>
+      <ul class="elist">
+        <li>ATAM <span class="kt kt-ref">refines</span> SAAM — <span class="ov">extends single-attribute SAAM to multi-attribute tradeoffs.</span></li>
+        <li>ATAM <span class="kt kt-app">applies-method-of</span> Barbacci et al. — <span class="ov">uses the SEI quality-attribute characterizations.</span></li>
+        <li>ATAM <span class="kt kt-app">applies-method-of</span> ABAS — <span class="ov">attribute-based styles supply ATAM’s attribute-specific reasoning frameworks.</span><span class="nd">added r2</span></li>
+        <li>Dobrica–Niemelä <span class="kt kt-sur">surveys</span> SAAM · ATAM · ALMA — <span class="ov">evaluation-method survey.</span></li>
+        <li>Babar et al. <span class="kt kt-fbk">critiques</span> Dobrica–Niemelä — <span class="ov">proposes new classification criteria for evaluation methods.</span></li>
+        <li>ALMA <span class="kt kt-app">applies-method-of</span> SAAM — <span class="ov">scenario-based modifiability analysis specializes scenario evaluation.</span></li>
+        <li>Bosch–Molin <span class="kt kt-pre">prerequisite-of</span> ALMA — <span class="ov">evaluation-and-transformation precedes modifiability analysis.</span></li>
+        <li>Bachmann et al. (tactics) <span class="kt kt-ref">refines</span> Klein–Kazman (ABAS) — <span class="ov">tactics derive from attribute-based styles.</span></li>
+        <li>ISO 25010:2023 <span class="kt kt-sub">subsumes</span> Barbacci et al. — <span class="ov">the standardized quality model generalizes the SEI taxonomy.</span></li>
+        <li>CBAM <span class="kt kt-ref">refines</span> ATAM — <span class="ov">adds an economic cost–benefit layer atop ATAM tradeoffs.</span></li>
+        <li>RCDA <span class="kt kt-com">complements</span> CBAM — <span class="ov">risk/cost-driven architecting as an economics discipline.</span></li>
+        <li>Kruchten–Nord–Ozkaya <span class="kt kt-ref">refines</span> Avgeriou et al. (Dagstuhl) — <span class="ov">the book consolidates the technical-debt agenda.</span></li>
+        <li>Avgeriou et al. <span class="kt kt-com">complements</span> RCDA — <span class="ov">debt economics complements risk/cost architecting.</span></li>
+      </ul>
+    </details>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2><span class="no">07</span>References</h2>
+    <p class="subtle">Citation rule applied throughout: title, author, year of last publication (latest verified edition or revision). <span class="oa">open access</span> = official free copy (author-, publisher-, SEI-, or Dagstuhl-hosted); <span class="oap">oa: partial</span> = repository/preprint copy exists but no confirmed rights-clean PDF; <span class="pay">paywalled</span>; <span class="bdl">borderline</span> = admitted despite the science bar, as a structured reference node. Verified in the July 2026 research pass.</p>
+    <ol class="refs" id="refs1">
+      <li id="p1-ref-1"><span class="cl">A1</span>D. E. Perry, A. L. Wolf, “Foundations for the Study of Software Architecture,” <i>ACM SIGSOFT Software Engineering Notes</i> 17(4):40–52, 1992.<span class="oa">open access</span></li>
+      <li id="p1-ref-2"><span class="cl">A1</span>M. Shaw, D. Garlan, <i>Software Architecture: Perspectives on an Emerging Discipline</i>, Prentice Hall, 1996.</li>
+      <li id="p1-ref-3"><span class="cl">A1</span>D. Garlan, M. Shaw, “An Introduction to Software Architecture,” in <i>Advances in Software Engineering and Knowledge Engineering</i>, Vol. 1, World Scientific, 1993.<span class="oa">open access</span> (CMU tech-report version)</li>
+      <li id="p1-ref-4"><span class="cl">A1</span>R. N. Taylor, N. Medvidovic, E. M. Dashofy, <i>Software Architecture: Foundations, Theory, and Practice</i>, Wiley, ©2010. <b>Only edition — no 2nd edition exists</b> (verified against ACM DL, Wiley, bookseller records).</li>
+      <li id="p1-ref-5"><span class="cl">A1</span>L. Bass, P. Clements, R. Kazman, <i>Software Architecture in Practice</i>, 4th ed., Addison-Wesley (SEI Series), 2021.</li>
+      <li id="p1-ref-6"><span class="cl">A1</span>M. Shaw, “The Coming-of-Age of Software Architecture Research,” <i>Proc. ICSE</i>, 2001. Survey ¶.<span class="oa">open access</span></li>
+      <li id="p1-ref-7"><span class="cl">A1</span>D. Garlan, “Software Architecture: a Travelogue,” <i>Proc. FOSE (Future of Software Engineering)</i>, 2014. Survey ¶.<span class="oa">open access</span></li>
+      <li id="p1-ref-8"><span class="cl">A2</span>ISO/IEC/IEEE 42010:2022, <i>Software, systems and enterprise — Architecture description</i>, 2nd ed., published 2022-11-07. Cancels/replaces 42010:2011; “system of interest” → “entity of interest,” “architecture framework” → “architecture description framework.”<span class="pay">paywalled</span></li>
+      <li id="p1-ref-9"><span class="cl">A2</span>P. Clements, F. Bachmann, L. Bass, D. Garlan, J. Ivers, R. Little, P. Merson, R. Nord, J. Stafford, <i>Documenting Software Architectures: Views and Beyond</i>, 2nd ed., Addison-Wesley, 2010.</li>
+      <li id="p1-ref-10"><span class="cl">A2</span>P. Kruchten, “Architectural Blueprints — The ‘4+1’ View Model of Software Architecture,” <i>IEEE Software</i> 12(6):42–50, 1995.<span class="oa">open access</span></li>
+      <li id="p1-ref-11"><span class="cl">A2</span>N. Rozanski, E. Woods, <i>Software Systems Architecture: Working with Stakeholders Using Viewpoints and Perspectives</i>, 2nd ed., Addison-Wesley, 2011.<span class="bdl">borderline</span> admitted as a viewpoint-framework reference, not formal theory</li>
+      <li id="p1-ref-12"><span class="cl">A2</span>C. Hofmeister, R. Nord, D. Soni, <i>Applied Software Architecture</i>, Addison-Wesley, 2000.</li>
+      <li id="p1-ref-13"><span class="cl">A2</span>D. Emery, R. Hilliard, “Every Architecture Description Needs a Framework: Expressing Architecture Frameworks Using ISO/IEC 42010,” <i>Proc. WICSA/ECSA</i>, 2009.<span class="oa">open access</span></li>
+      <li id="p1-ref-14"><span class="cl">A2</span>N. Medvidovic, D. S. Rosenblum, D. F. Redmiles, J. E. Robbins, “Modeling Software Architectures in the Unified Modeling Language,” <i>ACM TOSEM</i> 11(1):2–57, 2002.<span class="oap">oa: partial</span></li>
+      <li id="p1-ref-15"><span class="cl">A3</span>N. Medvidovic, R. N. Taylor, “A Classification and Comparison Framework for Software Architecture Description Languages,” <i>IEEE TSE</i> 26(1):70–93, 2000. Survey ¶.<span class="oa">open access</span></li>
+      <li id="p1-ref-16"><span class="cl">A3</span>R. Allen, D. Garlan, “A Formal Basis for Architectural Connection” (Wright, CSP semantics), <i>ACM TOSEM</i> 6(3):213–249, 1997.<span class="oap">oa: partial</span></li>
+      <li id="p1-ref-17"><span class="cl">A3</span>D. C. Luckham, J. J. Kenney, L. M. Augustin, J. Vera, D. Bryan, W. Mann, “Specification and Analysis of System Architecture Using Rapide,” <i>IEEE TSE</i> 21(4):336–355, 1995.<span class="pay">paywalled</span></li>
+      <li id="p1-ref-18"><span class="cl">A3</span>J. Magee, J. Kramer, “Dynamic Structure in Software Architectures” (Darwin), <i>Proc. FSE-4 / ACM SIGSOFT SEN</i> 21(6):3–14, 1996.<span class="oap">oa: partial</span></li>
+      <li id="p1-ref-19"><span class="cl">A3</span>D. Garlan, R. T. Monroe, D. Wile, “Acme: An Architecture Description Interchange Language,” <i>Proc. CASCON ’97</i>, pp. 169–183, 1997 (reprinted in <i>CASCON First Decade High Impact Papers</i>, 2010).<span class="oa">open access</span></li>
+      <li id="p1-ref-20"><span class="cl">A3</span>M. Moriconi, X. Qian, R. A. Riemenschneider, “Correct Architecture Refinement,” <i>IEEE TSE</i> 21(4):356–372, 1995.<span class="pay">paywalled</span></li>
+      <li id="p1-ref-21"><span class="cl">A3</span>F. Oquendo, “π-ADL: an Architecture Description Language based on the higher-order typed π-calculus for specifying dynamic and mobile software architectures,” <i>ACM SIGSOFT SEN</i> 29(3):1–14, 2004.<span class="oap">oa: partial</span></li>
+      <li id="p1-ref-22"><span class="cl">A3</span>P. H. Feiler, D. P. Gluch, <i>Model-Based Engineering with AADL: An Introduction to the SAE Architecture Analysis &amp; Design Language</i>, Addison-Wesley (SEI Series), 2012.</li>
+      <li id="p1-ref-23"><span class="cl">A3</span>G. D. Abowd, R. Allen, D. Garlan, “Formalizing Style to Understand Descriptions of Software Architecture,” <i>ACM TOSEM</i> 4(4):319–364, 1995.<span class="oa">open access</span> (CMU TR)</li>
+      <li id="p1-ref-24"><span class="cl">A3</span>M. Bernardo, P. Inverardi (eds.), <i>Formal Methods for Software Architectures</i> (SFM 2003), Springer LNCS 2804, 2003.</li>
+      <li id="p1-ref-25"><span class="cl">A3</span>A. Aldini, M. Bernardo, F. Corradini, <i>A Process Algebraic Approach to Software Architecture Design</i>, Springer, 2010.</li>
+      <li id="p1-ref-26"><span class="cl">A3</span>I. Malavolta, P. Lago, H. Muccini, P. Pelliccione, A. Tang, “What Industry Needs from Architectural Languages: A Survey,” <i>IEEE TSE</i> 39(6):869–891, 2013. Survey ¶.<span class="oa">open access</span></li>
+      <li id="p1-ref-27"><span class="cl">A4</span>P. Zhang, H. Muccini, B. Li, “A Classification and Comparison of Model Checking Software Architecture Techniques,” <i>Journal of Systems and Software</i> 83(5):723–744, 2010. Survey ¶.<span class="pay">paywalled</span></li>
+      <li id="p1-ref-28"><span class="cl">A4</span>D. Garlan, R. Allen, J. Ockerbloom, “Architectural Mismatch: Why Reuse Is So Hard,” <i>IEEE Software</i> 12(6):17–26, 1995.<span class="oa">open access</span></li>
+      <li id="p1-ref-29"><span class="cl">A4</span>D. Garlan, R. Allen, J. Ockerbloom, “Architectural Mismatch: Why Reuse Is <i>Still</i> So Hard,” <i>IEEE Software</i> 26(4):66–69, 2009.<span class="oa">open access</span></li>
+      <li id="p1-ref-30"><span class="cl">A5</span>P. Oreizy, N. Medvidovic, R. N. Taylor, “Architecture-Based Runtime Software Evolution,” <i>Proc. ICSE ’98</i>, pp. 177–186, 1998.<span class="oa">open access</span></li>
+      <li id="p1-ref-31"><span class="cl">A5</span>D. Garlan, S.-W. Cheng, A.-C. Huang, B. Schmerl, P. Steenkiste, “Rainbow: Architecture-Based Self-Adaptation with Reusable Infrastructure,” <i>IEEE Computer</i> 37(10):46–54, 2004.<span class="oa">open access</span></li>
+      <li id="p1-ref-32"><span class="cl">A5</span>J. Kramer, J. Magee, “Self-Managed Systems: an Architectural Challenge,” <i>Proc. FOSE</i>, 2007.<span class="oa">open access</span></li>
+      <li id="p1-ref-33"><span class="cl">A5</span>D. Weyns, <i>An Introduction to Self-Adaptive Systems: A Contemporary Software Engineering Perspective</i>, Wiley/IEEE, 2020.<span class="bdl">borderline</span> admitted as an advanced consolidation node</li>
+      <li id="p1-ref-34"><span class="cl">A6</span>H. P. Breivold, I. Crnkovic, M. Larsson, “A Systematic Review of Software Architecture Evolution Research,” <i>Information and Software Technology</i> 54(1):16–40, 2012. Survey ¶.<span class="pay">paywalled</span></li>
+      <li id="p1-ref-35"><span class="cl">A6</span>J. M. Barnes, D. Garlan, B. Schmerl, “Evolution Styles: foundations and models for software architecture evolution,” <i>Software &amp; Systems Modeling</i> 13(2):649–678, 2014.<span class="oa">open access</span></li>
+      <li id="p1-ref-36"><span class="cl">A7</span>S. Angelov, P. Grefen, D. Greefhorst, “A framework for analysis and design of software reference architectures,” <i>Information and Software Technology</i> 54(4):417–431, 2012.<span class="pay">paywalled</span></li>
+      <li id="p1-ref-37"><span class="cl">A7</span>M. Galster, P. Avgeriou, “Empirically-grounded reference architectures: a proposal,” <i>Proc. QoSA/ISARCS</i>, 2011.<span class="oa">open access</span></li>
+      <li id="p1-ref-38"><span class="cl">A7</span>P. Clements, L. Northrop, <i>Software Product Lines: Practices and Patterns</i>, Addison-Wesley, 2001.<span class="bdl">borderline</span> admitted as a product-line reference</li>
+      <li id="p1-ref-39"><span class="cl">B1</span>D. L. Parnas, “On the Criteria To Be Used in Decomposing Systems into Modules,” <i>Communications of the ACM</i> 15(12):1053–1058, 1972.<span class="oa">open access</span></li>
+      <li id="p1-ref-40"><span class="cl">B1</span>D. L. Parnas, “On a ‘Buzzword’: Hierarchical Structure,” <i>Proc. IFIP Congress 74</i>, 1974.<span class="oap">oa: partial</span></li>
+      <li id="p1-ref-41"><span class="cl">B1</span>D. L. Parnas, “Designing Software for Ease of Extension and Contraction,” <i>IEEE TSE</i> SE-5(2):128–138, 1979.<span class="oap">oa: partial</span></li>
+      <li id="p1-ref-42"><span class="cl">B1</span>D. L. Parnas, P. C. Clements, “A Rational Design Process: How and Why to Fake It,” <i>IEEE TSE</i> SE-12(2):251–257, 1986.<span class="oa">open access</span></li>
+      <li id="p1-ref-43"><span class="cl">B1</span>H. A. Simon, <i>The Sciences of the Artificial</i>, 3rd ed., MIT Press, 1996.</li>
+      <li id="p1-ref-44"><span class="cl">B1</span>H. W. J. Rittel, M. M. Webber, “Dilemmas in a General Theory of Planning,” <i>Policy Sciences</i> 4(2):155–169, 1973.<span class="oa">open access</span></li>
+      <li id="p1-ref-45"><span class="cl">B2</span>C. Hofmeister, P. Kruchten, R. L. Nord, H. Obbink, A. Ran, P. America, “A General Model of Software Architecture Design Derived from Five Industrial Approaches,” <i>Journal of Systems and Software</i> 80(1):106–126, 2007. Survey ¶.<span class="oap">oa: partial</span></li>
+      <li id="p1-ref-46"><span class="cl">B2</span>H. Cervantes, R. Kazman, <i>Designing Software Architectures: A Practical Approach</i>, 2nd ed., Addison-Wesley (SEI Series), 2024. Adds API-centric design, deployability, cloud, technical debt; ADD method core unchanged.</li>
+      <li id="p1-ref-47"><span class="cl">B2</span>J. Bosch, <i>Design and Use of Software Architectures: Adopting and Evolving a Product-Line Approach</i>, Addison-Wesley, 2000.</li>
+      <li id="p1-ref-48"><span class="cl">B2</span>A. Jansen, J. Bosch, “Software Architecture as a Set of Architectural Design Decisions,” <i>Proc. WICSA</i>, pp. 109–120, 2005.<span class="oa">open access</span></li>
+      <li id="p1-ref-49"><span class="cl">B2</span>J. Bosch, P. Molin, “Software architecture design: evaluation and transformation,” <i>Proc. IEEE ECBS</i>, 1999.<span class="pay">paywalled</span></li>
+      <li id="p1-ref-50"><span class="cl">B3</span>W. Kunz, H. W. J. Rittel, “Issues as Elements of Information Systems” (IBIS), Working Paper No. 131, IURD, UC Berkeley, 1970.<span class="oa">open access</span></li>
+      <li id="p1-ref-51"><span class="cl">B3</span>A. MacLean, R. M. Young, V. M. E. Bellotti, T. P. Moran, “Questions, Options, and Criteria: Elements of Design Space Analysis” (QOC), <i>Human–Computer Interaction</i> 6(3–4):201–250, 1991.<span class="pay">paywalled</span></li>
+      <li id="p1-ref-52"><span class="cl">B3</span>J. Lee, K.-Y. Lai, “What’s in Design Rationale?” (DRL), <i>Human–Computer Interaction</i> 6(3–4):251–280, 1991.<span class="oap">oa: partial</span></li>
+      <li id="p1-ref-53"><span class="cl">B3</span>A. H. Dutoit, R. McCall, I. Mistrík, B. Paech (eds.), <i>Rationale Management in Software Engineering</i>, Springer, 2006.</li>
+      <li id="p1-ref-54"><span class="cl">B3</span>J. E. Burge, J. M. Carroll, R. McCall, I. Mistrík, <i>Rationale-Based Software Engineering</i>, Springer, 2008.</li>
+      <li id="p1-ref-55"><span class="cl">B3</span>A. Tang, Y. Jin, J. Han, “A rationale-based architecture model for design traceability and reasoning,” <i>Journal of Systems and Software</i> 80(6):918–934, 2007.<span class="oap">oa: partial</span></li>
+      <li id="p1-ref-56"><span class="cl">B3</span>O. Zimmermann et al., “Reusable Architectural Decision Models for Enterprise Application Development,” <i>Proc. QoSA</i>, 2007 — anchor of a line extending through SHARK/ICSE workshops to WICSA 2015; anchor selection provisional (see §08).<span class="oap">oa: partial</span></li>
+      <li id="p1-ref-57"><span class="cl">B3</span>R. Capilla, A. Jansen, A. Tang, P. Avgeriou, M. A. Babar, “10 years of software architecture knowledge management: Practice and future,” <i>Journal of Systems and Software</i> 116:191–205, 2016. Survey ¶.<span class="oa">open access</span></li>
+      <li id="p1-ref-58"><span class="cl">B3</span>R. Weinreich, I. Groher, “Software architecture knowledge management approaches and their support for knowledge management activities: A systematic literature review,” <i>Information and Software Technology</i> 80:265–286, 2016. Survey ¶.<span class="pay">paywalled</span></li>
+      <li id="p1-ref-59"><span class="cl">B3</span>A. Tang, M. A. Babar, I. Gorton, J. Han, “A survey of architecture design rationale,” <i>Journal of Systems and Software</i> 79(12):1792–1804, 2006.<span class="oa">open access</span></li>
+      <li id="p1-ref-60"><span class="cl">B3</span>H. van Vliet, A. Tang, “Decision making in software architecture,” <i>Journal of Systems and Software</i> 117:638–644, 2016.<span class="oap">oa: partial</span></li>
+      <li id="p1-ref-61"><span class="cl">B4</span>D. Falessi, G. Cantone, R. Kazman, P. Kruchten, “Decision-making techniques for software architecture design: A comparative survey,” <i>ACM Computing Surveys</i> 43(4), Art. 33, 2011. Survey ¶.<span class="oap">oa: partial</span></li>
+      <li id="p1-ref-62"><span class="cl">B4</span>C. Zannier, M. Chiasson, F. Maurer, “A model of design decision making based on empirical results of interviews with software designers,” <i>Information and Software Technology</i> 49(6):637–653, 2007.<span class="pay">paywalled</span></li>
+      <li id="p1-ref-63"><span class="cl">B4</span>A. Tang, M. Razavian, et al., empirical studies of software design reasoning and reflection — a cluster of papers; the specific anchor is still to be pinned (see §08).<span class="oap">oa: partial</span></li>
+      <li id="p1-ref-64"><span class="cl">S1</span>P. Clements, R. Kazman, M. Klein, <i>Evaluating Software Architectures: Methods and Case Studies</i>, Addison-Wesley, 2001.</li>
+      <li id="p1-ref-65"><span class="cl">S1</span>R. Kazman, M. Klein, P. Clements, “ATAM: Method for Architecture Evaluation,” SEI Technical Report CMU/SEI-2000-TR-004, 2000.<span class="oa">open access</span></li>
+      <li id="p1-ref-66"><span class="cl">S1</span>R. Kazman, G. Abowd, L. Bass, M. Webb, “SAAM: A Method for Analyzing the Properties of Software Architectures,” <i>Proc. ICSE ’94</i>, 1994.<span class="oa">open access</span></li>
+      <li id="p1-ref-67"><span class="cl">S1</span>L. Dobrica, E. Niemelä, “A Survey on Software Architecture Analysis Methods,” <i>IEEE TSE</i> 28(7):638–653, 2002. Survey ¶.<span class="pay">paywalled</span></li>
+      <li id="p1-ref-68"><span class="cl">S1</span>M. A. Babar, L. Zhu, R. Jeffery, “A Framework for Classifying and Comparing Software Architecture Evaluation Methods,” <i>Proc. ASWEC</i>, pp. 309–318, 2004. Survey ¶.<span class="oap">oa: partial</span></li>
+      <li id="p1-ref-69"><span class="cl">S1</span>P. Bengtsson, N. Lassing, J. Bosch, H. van Vliet, “Architecture-level modifiability analysis (ALMA),” <i>Journal of Systems and Software</i> 69(1–2):129–147, 2004.<span class="pay">paywalled</span></li>
+      <li id="p1-ref-70"><span class="cl">S2</span>ISO/IEC 25010:2023, <i>Systems and software Quality Requirements and Evaluation (SQuaRE) — Product quality model</i>, 2nd ed., published 2023-11-15. Adds Safety; replaces Usability/Portability with Interaction Capability/Flexibility.<span class="pay">paywalled</span></li>
+      <li id="p1-ref-71"><span class="cl">S2</span>M. Barbacci, M. H. Klein, T. A. Longstaff, C. B. Weinstock, “Quality Attributes,” SEI Technical Report CMU/SEI-95-TR-021, 1995.<span class="oa">open access</span></li>
+      <li id="p1-ref-72"><span class="cl">S2</span>M. Klein, R. Kazman, “Attribute-Based Architectural Styles” (ABAS), SEI Technical Report CMU/SEI-99-TR-022, 1999.<span class="oa">open access</span></li>
+      <li id="p1-ref-73"><span class="cl">S2</span>F. Bachmann, L. Bass, M. Klein, “Deriving Architectural Tactics: A Step Toward Methodical Architectural Design,” SEI Technical Report CMU/SEI-2003-TR-004, 2003.<span class="oa">open access</span></li>
+      <li id="p1-ref-74"><span class="cl">S3</span>R. Kazman, J. Asundi, M. Klein, “Quantifying the Costs and Benefits of Architectural Decisions” (CBAM), <i>Proc. ICSE</i>, 2001 (extended in SEI/2002 CBAM work).<span class="oa">open access</span></li>
+      <li id="p1-ref-75"><span class="cl">S3</span>P. Kruchten, R. Nord, I. Ozkaya, <i>Managing Technical Debt: Reducing Friction in Software Development</i>, Addison-Wesley (SEI Series), 2019.</li>
+      <li id="p1-ref-76"><span class="cl">S3</span>P. Avgeriou, P. Kruchten, I. Ozkaya, C. Seaman, “Managing Technical Debt in Software Engineering,” <i>Dagstuhl Reports</i> 6(4):110–138, 2016.<span class="oa">open access</span></li>
+      <li id="p1-ref-77"><span class="cl">S3</span>E. R. Poort, H. van Vliet, “RCDA: Architecting as a risk- and cost management discipline,” <i>Journal of Systems and Software</i> 85(9):1995–2013, 2012.<span class="oa">open access</span></li>
+    </ol>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2><span class="no">08</span>Caveats &amp; verification notes</h2>
+    <ul class="rules">
+      <li><b>Taylor–Medvidovic–Dashofy edition:</b> only one edition exists (Wiley ©2010; some listings print 2009). The hypothesis of a ~2010 second edition is not supported by ACM DL, Wiley’s product page, or bookseller records.</li>
+      <li><b>Borderline admissions:</b> Rozanski–Woods [11], Weyns [33], Clements–Northrop [38] — admitted as reference/consolidation nodes; demote to an appendix if strictness is prioritized.</li>
+      <li><b>π-ADL:</b> correct citation is <i>ACM SIGSOFT SEN</i> 29(3):1–14 (2004); reject stray “28(8)” citations. <b>RCDA:</b> correct is JSS 85(9), 2012; one portal’s “vol. 95” is a typo. <b>Acme:</b> CASCON ’97 pp. 169–183 is authoritative; some indexes show a single-page stub.</li>
+      <li><b>Provisional anchors:</b> Zimmermann reusable-decision-models [56] is a line of papers (QoSA 2007 → WICSA 2015) — pin one anchor before final render; Tang–Razavian empirical reasoning [63] is likewise a cluster awaiting a single anchor. <b>CBAM:</b> the ICSE 2001 paper is the anchor; the fuller SEI/IEEE Software 2002 treatment may be preferred if the most complete version is wanted.</li>
+      <li><b>Open access:</b> “partial” means a repository/preprint copy exists without a confirmed rights-clean PDF. SEI technical reports and the Dagstuhl report are genuinely, officially free. Both standards (42010:2022, 25010:2023) are paywalled — only scope/abstract text is openly readable.</li>
+    </ul>
+  </div>
+</section>
+
+<footer class="pagefoot">
+  <div class="wrap">
+    Branch A (artifact/discipline) and Branch B (design-as-process) kept explicitly distinct; “model” read in both its formal-notation and conceptual-evaluation senses, both populated. Directed <b>cyclic</b> graph over a fixed 9-relation vocabulary; 4 documented cycles drawn dashed red. Citation rule — title, author, year of last publication — applied to all 77 nodes. Compiled July 2026.
+  </div>
+</footer>
+
+</div><!-- /p1 -->
+
+<script>
+(function(){
+'use strict';
+var W=150,H=58,svgNS='http://www.w3.org/2000/svg';
+
+function render(cfg){
+  var gB=document.getElementById(cfg.bandsG),
+      gE=document.getElementById(cfg.edgesG),
+      gN=document.getElementById(cfg.nodesG);
+  var pos={};
+  cfg.nodes.forEach(function(n){
+    var cx=cfg.L[n[1]], top=cfg.rowY(n[2]);
+    pos[n[0]]={cx:cx,top:top,bot:top+H};
+  });
+
+  cfg.bandRects.forEach(function(b){
+    var r=document.createElementNS(svgNS,'rect');
+    r.setAttribute('x',b[0]); r.setAttribute('y',b[1]);
+    r.setAttribute('width',b[2]); r.setAttribute('height',b[3]);
+    r.setAttribute('rx',12); r.setAttribute('class','band '+b[4]);
+    gB.appendChild(r);
+  });
+  cfg.labels.forEach(function(t){
+    var e=document.createElementNS(svgNS,'text');
+    e.setAttribute('x',t[1]); e.setAttribute('y',t[2]);
+    e.setAttribute('class',t[3]);
+    if(t[4]) e.setAttribute('transform','rotate(-90 '+t[1]+' '+t[2]+')');
+    e.textContent=t[0];
+    gN.appendChild(e);            // labels live in the top group: above edges, below nodes
+  });
+
+  var outs={},ins={};
+  cfg.edgeList.forEach(function(e){
+    if(e[3]) return;              // custom-routed edges keep their hand-set endpoints
+    (outs[e[0]]=outs[e[0]]||[]).push(e);
+    (ins[e[1]]=ins[e[1]]||[]).push(e);
+  });
+  var offOut=new Map(),offIn=new Map();
+  Object.keys(outs).forEach(function(k){
+    var list=outs[k]; list.sort(function(a,b){return pos[a[1]].cx-pos[b[1]].cx;});
+    var n=list.length;
+    list.forEach(function(e,i){ offOut.set(e, n===1?0:Math.max(-52,Math.min(52,(i-(n-1)/2)*22))); });
+  });
+  Object.keys(ins).forEach(function(k){
+    var list=ins[k]; list.sort(function(a,b){return pos[a[0]].cx-pos[b[0]].cx;});
+    var n=list.length;
+    list.forEach(function(e,i){ offIn.set(e, n===1?0:Math.max(-56,Math.min(56,(i-(n-1)/2)*16))); });
+  });
+
+  cfg.edgeList.forEach(function(e){
+    var a=pos[e[0]], b=pos[e[1]], d, x1,y1,x2,y2,dy;
+    if(e[3]){                                             // hand-routed gutter rail
+      d=e[3];
+    } else if(b.top>=a.bot+20){                           // target below source
+      x1=a.cx+(offOut.get(e)||0); y1=a.bot;
+      x2=b.cx+(offIn.get(e)||0);  y2=b.top-2;
+      dy=Math.min(46,Math.max(18,(y2-y1)*0.6));
+      d='M'+x1+' '+y1+' C '+x1+' '+(y1+dy)+', '+x2+' '+(y2-dy)+', '+x2+' '+y2;
+    } else if(a.top>=b.bot+20){                            // target above source
+      x1=a.cx+(offOut.get(e)||0); y1=a.top;
+      x2=b.cx+(offIn.get(e)||0);  y2=b.bot+2;
+      dy=Math.min(46,Math.max(18,(y1-y2)*0.6));
+      d='M'+x1+' '+y1+' C '+x1+' '+(y1-dy)+', '+x2+' '+(y2+dy)+', '+x2+' '+y2;
+    } else {                                               // same row: arc up if rightward, down if leftward
+      var dir=b.cx>a.cx?1:-1;
+      x1=a.cx+dir*(W/2); x2=b.cx-dir*(W/2+3);
+      var ym=a.top+H/2, dx=Math.abs(b.cx-a.cx);
+      var lift=(dir>0?-1:1)*Math.min(84,26+dx*0.03);
+      d='M'+x1+' '+ym+' C '+(x1+dir*40)+' '+(ym+lift)+', '+(x2-dir*40)+' '+(ym+lift)+', '+x2+' '+ym;
+    }
+    var p=document.createElementNS(svgNS,'path');
+    p.setAttribute('d',d);
+    var kind=e[2]||'';
+    p.setAttribute('class','edge'+(kind?' k-'+kind:''));
+    if(kind!=='com') p.setAttribute('marker-end','url(#'+cfg.marker+')');
+    p.dataset.f=e[0]; p.dataset.t=e[1];
+    gE.appendChild(p);
+  });
+
+  cfg.nodes.forEach(function(n){
+    var id=n[0],lane=n[1],title=n[3],sub=n[4],cat=n[5],tgt=n[6],tier=n[7],ref=n[8],auto=n[9];
+    var g=document.createElementNS(svgNS,'g');
+    g.setAttribute('class','node cat-'+cat+(tgt?' tgt':'')+(tier==='a'?' tier-a':''));
+    g.dataset.id=id;
+    var x=cfg.L[lane]-W/2, y=pos[id].top;
+    var r=document.createElementNS(svgNS,'rect');
+    r.setAttribute('x',x); r.setAttribute('y',y);
+    r.setAttribute('width',W); r.setAttribute('height',H); r.setAttribute('rx',9);
+    g.appendChild(r);
+    var t1=document.createElementNS(svgNS,'text');
+    t1.setAttribute('x',cfg.L[lane]); t1.setAttribute('y',y+24);
+    t1.setAttribute('text-anchor','middle'); t1.setAttribute('class','nt');
+    t1.textContent=title; g.appendChild(t1);
+    var t2=document.createElementNS(svgNS,'text');
+    t2.setAttribute('x',cfg.L[lane]); t2.setAttribute('y',y+42);
+    t2.setAttribute('text-anchor','middle'); t2.setAttribute('class','ns');
+    t2.textContent=sub; g.appendChild(t2);
+    var t3=document.createElementNS(svgNS,'text');
+    t3.setAttribute('x',x+W-7); t3.setAttribute('y',y+14);
+    t3.setAttribute('text-anchor','end'); t3.setAttribute('class','nr');
+    t3.textContent='['+ref+']'; g.appendChild(t3);
+    if(auto){
+      var t4=document.createElementNS(svgNS,'text');
+      t4.setAttribute('x',x+8); t4.setAttribute('y',y+15);
+      t4.setAttribute('class','ng');
+      t4.textContent='◆'; g.appendChild(t4);
+    }
+    g.addEventListener('mouseenter',function(){highlight(id);});
+    g.addEventListener('mouseleave',clearHl);
+    g.addEventListener('click',function(){
+      var el=document.getElementById(cfg.refPrefix+ref);
+      if(el){ el.scrollIntoView({behavior:'smooth',block:'center'});
+        el.classList.add('flash'); setTimeout(function(){el.classList.remove('flash');},1600); }
+    });
+    gN.appendChild(g);
+  });
+
+  var up={},down={};
+  cfg.edgeList.forEach(function(e){
+    (up[e[1]]=up[e[1]]||[]).push(e[0]);
+    (down[e[0]]=down[e[0]]||[]).push(e[1]);
+  });
+  function closure(id,adj){
+    var s=new Set([id]),q=[id];
+    while(q.length){
+      var c=q.pop();
+      (adj[c]||[]).forEach(function(n){ if(!s.has(n)){s.add(n);q.push(n);} });
+    }
+    return s;
+  }
+  function highlight(id){
+    var keep=new Set();
+    closure(id,up).forEach(function(v){keep.add(v);});
+    closure(id,down).forEach(function(v){keep.add(v);});
+    gN.querySelectorAll('.node').forEach(function(g){g.classList.toggle('dim',!keep.has(g.dataset.id));});
+    gE.querySelectorAll('.edge').forEach(function(p){
+      var inSet=keep.has(p.dataset.f)&&keep.has(p.dataset.t);
+      p.classList.toggle('hl',inSet); p.classList.toggle('dim',!inSet);
+    });
+  }
+  function clearHl(){
+    gN.querySelectorAll('.node').forEach(function(g){g.classList.remove('dim');});
+    gE.querySelectorAll('.edge').forEach(function(p){p.classList.remove('hl','dim');});
+  }
+}
+
+/* ---------------- PAGE 1 · software architecture (cyclic, typed) ---------------- */
+var L1=[104,294,484,674,864,1054,1244,1434,1624,1814];
+
+var N1=[
+  // Branch A — A1
+  ['perrywolf',0,0,'Foundations of SA','Perry–Wolf ’92','ba',1,'c',1,0],
+  ['garlanshaw',1,0,'Intro to SA','Garlan–Shaw ’93','ba',0,'c',3,0],
+  ['shawgarlan',2,0,'Emerging discipline','Shaw–Garlan ’96','ba',1,'c',2,0],
+  ['tmd',3,0,'SA: found. & theory','Taylor et al. ’10','ba',1,'c',4,0],
+  ['shaw01',0,1,'Coming of age ¶','Shaw ’01','ba',0,'a',6,0],
+  ['garlan14',1,1,'Travelogue ¶','Garlan ’14','ba',0,'a',7,0],
+  ['bck',3,1,'SA in Practice 4e','Bass et al. ’21','ba',0,'c',5,0],
+  // A2
+  ['kruchten',0,2,'4+1 view model','Kruchten ’95','ba',0,'c',10,0],
+  ['iso42010',1,2,'ISO 42010:2022','Arch. description std','ba',1,'c',8,0],
+  ['vab',2,2,'Views & Beyond','Clements et al. ’10','ba',1,'c',9,0],
+  ['hofmeister00',3,2,'Applied SA','Hofmeister et al. ’00','ba',0,'c',12,0],
+  ['rozanski',0,3,'Viewpoints & persp.','Rozanski–Woods ’11','ba',0,'c',11,0],
+  ['emeryhilliard',1,3,'Frameworks & 42010','Emery–Hilliard ’09','ba',0,'a',13,0],
+  ['medvidovicuml',2,3,'UML for architecture','Medvidovic et al. ’02','ba',0,'a',14,0],
+  // A3
+  ['medtay',0,4,'ADL classification ¶','Medvidovic–Taylor ’00','ba',1,'c',15,0],
+  ['wright',1,4,'Wright (CSP)','Allen–Garlan ’97','ba',1,'a',16,0],
+  ['rapide',2,4,'Rapide (events)','Luckham et al. ’95','ba',0,'a',17,0],
+  ['darwin',3,4,'Darwin (π-calculus)','Magee–Kramer ’96','ba',0,'a',18,0],
+  ['abowd',0,5,'Formalizing style','Abowd et al. ’95','ba',0,'a',23,0],
+  ['acme',1,5,'Acme interchange','Garlan et al. ’97','ba',0,'a',19,0],
+  ['moriconi',2,5,'Correct refinement','Moriconi et al. ’95','ba',0,'a',20,0],
+  ['piadl',3,5,'π-ADL','Oquendo ’04','ba',0,'a',21,0],
+  ['sfm',0,6,'Formal methods for SA','Bernardo–Inverardi ’03','ba',0,'a',24,0],
+  ['aldini',1,6,'Process-algebraic SA','Aldini et al. ’10','ba',0,'a',25,0],
+  ['aadl',2,6,'AADL','Feiler–Gluch ’12','ba',0,'a',22,0],
+  ['malavolta',3,6,'Industry needs ¶','Malavolta et al. ’13','ba',0,'a',26,0],
+  // A4
+  ['zhang',0,7,'Model checking ¶','Zhang et al. ’10','ba',1,'a',27,0],
+  ['mismatch95',1,7,'Arch. mismatch','Garlan et al. ’95','ba',0,'a',28,0],
+  ['mismatch09',2,7,'Mismatch revisited','Garlan et al. ’09','ba',0,'a',29,0],
+  // A5
+  ['oreizy',0,8,'Runtime evolution','Oreizy et al. ’98','ba',1,'a',30,0],
+  ['rainbow',1,8,'Rainbow','Garlan et al. ’04','ba',0,'a',31,0],
+  ['kramermagee',2,8,'Self-managed systems','Kramer–Magee ’07','ba',0,'a',32,0],
+  ['weyns',3,8,'Self-adaptive systems','Weyns ’20','ba',0,'a',33,0],
+  // A6 · A7
+  ['breivold',0,9,'Evolution SLR ¶','Breivold et al. ’12','ba',1,'a',34,0],
+  ['barnes',1,9,'Evolution styles','Barnes et al. ’14','ba',0,'a',35,0],
+  ['angelov',2,9,'Reference arch.','Angelov et al. ’12','ba',1,'a',36,0],
+  ['galster',3,9,'Empirical grounding','Galster–Avgeriou ’11','ba',0,'a',37,0],
+  ['sple',2,10,'Product lines','Clements–Northrop ’01','ba',0,'c',38,0],
+  // Shared — S2
+  ['barbacci',4,2,'Quality attributes','Barbacci et al. ’95','sh',0,'c',71,0],
+  ['iso25010',5,2,'ISO 25010:2023','Product quality model','sh',1,'c',70,0],
+  ['abas',4,3,'ABAS styles','Klein–Kazman ’99','sh',0,'a',72,0],
+  ['tactics',5,3,'Architectural tactics','Bachmann et al. ’03','sh',0,'a',73,0],
+  // S1
+  ['saam',4,4,'SAAM','Kazman et al. ’94','sh',0,'c',66,0],
+  ['atam',5,4,'ATAM','Kazman et al. ’00','sh',1,'c',65,0],
+  ['esa',4,5,'Evaluating SA','Clements et al. ’01','sh',1,'c',64,0],
+  ['dobrica',5,5,'Analysis methods ¶','Dobrica–Niemelä ’02','sh',1,'c',67,0],
+  ['babar',4,6,'Eval. classification ¶','Babar et al. ’04','sh',0,'a',68,0],
+  ['alma',5,6,'ALMA modifiability','Bengtsson et al. ’04','sh',0,'a',69,0],
+  // S3
+  ['cbam',4,7,'CBAM economics','Kazman et al. ’01','sh',1,'c',74,0],
+  ['rcda',5,7,'RCDA risk & cost','Poort–van Vliet ’12','sh',0,'a',77,0],
+  ['dagstuhl',4,8,'Debt research agenda','Avgeriou et al. ’16','sh',0,'a',76,0],
+  ['techdebt',5,8,'Technical debt','Kruchten et al. ’19','sh',0,'c',75,0],
+  // Branch B — B1
+  ['parnas72',6,0,'Modular decomposition','Parnas ’72','bb',1,'c',39,0],
+  ['parnas74',7,0,'Hierarchical structure','Parnas ’74','bb',0,'c',40,0],
+  ['parnas79',8,0,'Extension/contraction','Parnas ’79','bb',0,'c',41,0],
+  ['rittel',9,0,'Wicked problems','Rittel–Webber ’73','bb',0,'a',44,0],
+  ['simon',6,1,'Design science','Simon ’96','bb',0,'a',43,0],
+  ['parnasclements',7,1,'Faking rationality','Parnas–Clements ’86','bb',1,'c',42,0],
+  // B2
+  ['boschmolin',6,2,'Eval & transformation','Bosch–Molin ’99','bb',0,'a',49,0],
+  ['bosch00',7,2,'Design & use of SA','Bosch ’00','bb',0,'c',47,0],
+  ['gendesign',8,2,'General model ¶','Hofmeister et al. ’07','bb',1,'c',45,0],
+  ['add',9,2,'ADD 3.0','Cervantes–Kazman ’24','bb',1,'c',46,0],
+  ['jansenbosch',7,3,'SA = design decisions','Jansen–Bosch ’05','bb',0,'c',48,0],
+  // B3
+  ['ibis',6,4,'IBIS (issues)','Kunz–Rittel ’70','bb',1,'c',50,0],
+  ['qoc',7,4,'QOC design space','MacLean et al. ’91','bb',0,'c',51,0],
+  ['drl',8,4,'DRL rationale','Lee–Lai ’91','bb',0,'c',52,0],
+  ['tangsurvey',9,4,'Rationale survey','Tang et al. ’06','bb',0,'a',59,0],
+  ['dutoit',6,5,'Rationale management','Dutoit et al. ’06','bb',0,'c',53,0],
+  ['burge',7,5,'Rationale-based SE','Burge et al. ’08','bb',0,'a',54,0],
+  ['tangjinhan',8,5,'AREL rationale model','Tang et al. ’07','bb',0,'a',55,0],
+  ['zimmermann',9,5,'Reusable decisions','Zimmermann et al. ’07','bb',0,'a',56,0],
+  ['capilla',7,6,'AKM: 10 years ¶','Capilla et al. ’16','bb',1,'c',57,0],
+  ['weinreich',8,6,'AKM SLR ¶','Weinreich–Groher ’16','bb',0,'a',58,0],
+  ['vanvliettang',9,6,'Decision making','van Vliet–Tang ’16','bb',0,'a',60,0],
+  // B4
+  ['falessi',6,7,'Decision techniques ¶','Falessi et al. ’11','bb',1,'a',61,0],
+  ['zannier',7,7,'Naturalistic design','Zannier et al. ’07','bb',0,'a',62,0],
+  ['tangrazavian',8,7,'Reasoning studies','Tang–Razavian (TBD)','bb',0,'a',63,0]
+];
+
+var E1=[
+  ['perrywolf','shawgarlan','pre'],
+  ['shawgarlan','tmd','pre'],
+  ['garlanshaw','perrywolf','ref'],
+  ['kruchten','perrywolf','ref'],
+  ['iso42010','kruchten','sub'],
+  ['vab','iso42010','app'],
+  ['emeryhilliard','iso42010','ref'],
+  ['rozanski','iso42010','app'],
+  ['medvidovicuml','medtay','com'],
+  ['shaw01','garlan14','com'],
+  ['medtay','wright','sur'],['medtay','rapide','sur'],['medtay','darwin','sur'],['medtay','acme','sur'],['medtay','moriconi','sur'],
+  ['wright','perrywolf','for'],
+  ['abowd','garlanshaw','for'],
+  ['moriconi','wright','ref'],
+  ['piadl','darwin','ref'],
+  ['malavolta','aadl','sur'],
+  ['malavolta','medtay','fbk'],
+  ['malavolta','iso42010','fbk'],
+  ['iso42010','medtay','fbk'],
+  ['zhang','wright','sur'],['zhang','sfm','sur'],
+  ['sfm','aldini','pre'],
+  ['aldini','wright','app'],
+  ['mismatch95','mismatch09','pre'],
+  ['mismatch09','mismatch95','fbk'],
+  ['oreizy','darwin','ref'],
+  ['rainbow','oreizy','app'],
+  ['kramermagee','rainbow','com'],
+  ['weyns','rainbow','sub'],['weyns','kramermagee','sub'],
+  ['breivold','oreizy','sur'],
+  ['barnes','breivold','ref'],
+  ['angelov','sple','com'],
+  ['galster','angelov','ref'],
+  ['parnas72','parnas79','pre'],
+  ['parnas74','parnas72','com'],
+  ['parnasclements','parnas72','sub'],['parnasclements','parnas79','sub'],
+  ['simon','parnasclements','pre'],
+  ['rittel','ibis','com'],
+  ['zannier','parnasclements','fbk','M1478 952 L1529 922 V284 L1478 256'],
+  ['ibis','qoc','pre'],['ibis','drl','pre'],
+  ['qoc','drl','com'],
+  ['dutoit','qoc','sub'],['dutoit','drl','sub'],
+  ['burge','dutoit','app'],
+  ['tangsurvey','qoc','sur'],['tangsurvey','drl','sur'],
+  ['jansenbosch','perrywolf','ref','M1394 448 L1149 414 V150 L179 130'],
+  ['bosch00','jansenbosch','pre'],
+  ['tangjinhan','jansenbosch','ref'],
+  ['tangjinhan','drl','app'],
+  ['capilla','tangjinhan','sur'],['capilla','zimmermann','sur'],
+  ['capilla','jansenbosch','fbk'],
+  ['weinreich','capilla','sur'],
+  ['vanvliettang','falessi','com'],
+  ['tangrazavian','vanvliettang','com'],
+  ['falessi','cbam','sur'],['falessi','atam','sur'],
+  ['gendesign','bck','sub'],['gendesign','kruchten','sub','M1560 380 L1510 412 H160 V382'],['gendesign','hofmeister00','sub'],
+  ['add','gendesign','ref'],
+  ['add','atam','app'],
+  ['add','tactics','app'],
+  ['atam','add','fbk'],
+  ['bck','add','pre'],
+  ['bck','iso25010','app'],
+  ['esa','bck','eva','M806 700 L769 674 V284 L714 256'],
+  ['esa','atam','app'],
+  ['atam','saam','ref'],
+  ['atam','barbacci','app'],
+  ['atam','abas','app'],
+  ['tactics','abas','ref'],
+  ['dobrica','saam','sur'],['dobrica','atam','sur'],['dobrica','alma','sur'],
+  ['babar','dobrica','fbk'],
+  ['alma','saam','app'],
+  ['boschmolin','alma','pre'],
+  ['cbam','atam','ref'],
+  ['rcda','cbam','com'],
+  ['techdebt','dagstuhl','ref'],
+  ['dagstuhl','rcda','com'],
+  ['iso25010','barbacci','sub'],
+  // added in the rev. 2 scrutiny pass
+  ['tmd','medtay','sub'],
+  ['hofmeister00','kruchten','com'],
+  ['bosch00','sple','com','M1394 380 L1149 424 V1320 L563 1357'],
+  ['zimmermann','jansenbosch','ref']
+];
+
+render({
+  svg:'dag1', bandsG:'bands1', edgesG:'edges1', nodesG:'nodes1', marker:'ah1',
+  refPrefix:'p1-ref-', L:L1,
+  rowY:function(r){return 70+126*r;},
+  nodes:N1, edgeList:E1,
+  bandRects:[[16,24,746,1380,'ba'],[776,24,366,1380,'sh'],[1156,24,746,1380,'bb']],
+  labels:[
+    ['BRANCH A — ARCHITECTURE AS ARTIFACT / DISCIPLINE',29,46,'lab-band'],
+    ['SHARED — EVALUATION · QUALITY · ECONOMICS',789,46,'lab-band'],
+    ['BRANCH B — ARCHITECTURE DESIGN AS PROCESS',1169,46,'lab-band'],
+    ['A1 · FOUNDATIONS OF THE DISCIPLINE',29,61,'lab-cl'],
+    ['A2 · VIEWS & DESCRIPTION FRAMEWORKS',29,313,'lab-cl'],
+    ['A3 · ADLs & FORMAL SEMANTICS',29,565,'lab-cl'],
+    ['A4 · MODEL CHECKING & VERIFICATION',29,943,'lab-cl'],
+    ['A5 · DYNAMIC / SELF-ADAPTIVE',29,1069,'lab-cl'],
+    ['A6 · EVOLUTION',29,1195,'lab-cl'],
+    ['A7 · REFERENCE ARCH. & PRODUCT LINES',409,1195,'lab-cl'],
+    ['S2 · QUALITY-ATTRIBUTE MODELS',789,313,'lab-cl'],
+    ['S1 · EVALUATION CANON',789,565,'lab-cl'],
+    ['S3 · ECONOMICS & TECHNICAL DEBT',789,943,'lab-cl'],
+    ['B1 · DESIGN-PROCESS ROOTS',1169,61,'lab-cl'],
+    ['B2 · DESIGN METHODS & GENERAL MODEL',1169,313,'lab-cl'],
+    ['B3 · RATIONALE & ARCH. KNOWLEDGE',1169,565,'lab-cl'],
+    ['B4 · EMPIRICAL DESIGN REASONING',1169,943,'lab-cl'],
+    ['This graph is deliberately CYCLIC.',789,104,'lab-note hd'],
+    ['Dashed red edges (critiques / feeds-back-',789,126,'lab-note'],
+    ['into) close four documented loops:',789,142,'lab-note'],
+    ['C1  ADLs ↔ ISO 42010 ↔ industry needs',789,166,'lab-note'],
+    ['C2  architectural mismatch ’95 ↔ ’09',789,184,'lab-note'],
+    ['C3  rationale → decisions → AKM → back',789,202,'lab-note'],
+    ['C4  ADD design ↔ ATAM evaluation',789,220,'lab-note'],
+    ['“Model” is read in both senses:',789,252,'lab-note hd'],
+    ['(a) notations, ADLs, viewpoints — A2–A4',789,270,'lab-note'],
+    ['(b) quality, evaluation, rationale — S1–S2, B3',789,288,'lab-note']
+  ]
+});
+
+})();
+</script>
+</body>
+</html>

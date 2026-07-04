@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Large Simulink/MATLAB Projects — Bottom-Up Resource DAG (rev. 2)</title>
+<style>
+  :root{
+    --paper:#F6F5F0; --panel:#FFFFFF; --ink:#22261F; --mut:#6E7268; --line:#DDDCD4;
+    --ba:#46549B;  --ba-bg:#EBEDF8;
+    --bb:#14705A;  --bb-bg:#E2F1EA;
+    --sh:#8F6E1E;  --sh-bg:#F5EEDA;
+    --target:#6C3FA0;
+    --edge:#A2A69C;
+    --fbk:#B3372F;
+    --auto:#C2551B;
+    --serif:Charter,"Bitstream Charter","Iowan Old Style","Sitka Text",Cambria,Georgia,serif;
+    --sans:ui-sans-serif,system-ui,"Segoe UI","Helvetica Neue",Arial,sans-serif;
+    --mono:ui-monospace,"SF Mono","Cascadia Code",Consolas,monospace;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  @media (prefers-reduced-motion: reduce){ html{scroll-behavior:auto} *{transition:none!important} }
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.65}
+  .wrap{max-width:1160px;margin:0 auto;padding:0 28px}
+  header.page{padding:44px 0 30px;border-bottom:1px solid var(--line)}
+  .eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--mut)}
+  h1{font-family:var(--serif);font-weight:500;font-size:clamp(28px,4vw,42px);line-height:1.15;margin:.35em 0 .3em;max-width:26ch;text-wrap:balance}
+  .lede{color:var(--mut);max-width:72ch;margin:0}
+  .meta{font-family:var(--mono);font-size:12.5px;color:var(--mut);margin-top:18px}
+  .meta b{color:var(--ink);font-weight:600}
+  h2{font-family:var(--serif);font-weight:500;font-size:24px;margin:0 0 6px}
+  h2 .no{font-family:var(--mono);font-size:12px;color:var(--mut);vertical-align:.6em;margin-right:.6em;letter-spacing:.1em}
+  section{padding:44px 0 8px}
+  .subtle{color:var(--mut);font-size:14.5px;max-width:76ch}
+
+  .topnav{position:sticky;top:0;z-index:60;background:var(--paper);border-bottom:1px solid var(--line)}
+  .topnav .wrap{display:flex;flex-wrap:wrap;align-items:center;gap:8px 22px;padding-top:12px;padding-bottom:12px}
+  .tabs{display:flex;gap:8px}
+  .tabs button{font-family:var(--mono);font-size:12.5px;letter-spacing:.02em;color:var(--mut);background:var(--panel);
+    border:1px solid var(--line);border-radius:7px;padding:7px 13px;cursor:pointer;transition:color .15s,border-color .15s}
+  .tabs button:hover{color:var(--ink)}
+  .tabs button:focus-visible{outline:2px solid var(--target);outline-offset:2px}
+  .tabs button.on{color:#fff;background:var(--ink);border-color:var(--ink)}
+
+  .legend{display:flex;flex-wrap:wrap;gap:10px 22px;margin:14px 0 2px;font-size:13.5px}
+  .key{display:flex;align-items:center;gap:8px;color:var(--mut)}
+  .sw{width:22px;height:14px;border-radius:4px;border:1.5px solid;flex:none}
+  .sw.ba{background:var(--ba-bg);border-color:var(--ba)}
+  .sw.bb{background:var(--bb-bg);border-color:var(--bb)}
+  .sw.sh{background:var(--sh-bg);border-color:var(--sh)}
+  .sw.adv{background:#fff;border-color:var(--mut)}
+  .sw.t{background:#fff;border:2px solid var(--target)}
+  .ksw{width:26px;height:0;border-top:2px solid;flex:none}
+  .ksw.d1{border-top-style:dashed}
+  .ksw.d2{border-top-style:dotted;border-top-width:3px}
+
+  .board{background:var(--panel);border:1px solid var(--line);border-radius:14px;margin-top:16px;overflow-x:auto;-webkit-overflow-scrolling:touch;
+         background-image:linear-gradient(var(--paper) 1px,transparent 1px),linear-gradient(90deg,var(--paper) 1px,transparent 1px);
+         background-size:26px 26px}
+  .board svg{display:block;min-width:1740px;width:100%;max-width:2200px;margin:0 auto;height:auto}
+  #board1 svg{min-width:1930px}
+  .hint{font-family:var(--mono);font-size:12px;color:var(--mut);margin-top:10px}
+
+  .edge{fill:none;stroke:var(--edge);stroke-width:1.1;opacity:.34;transition:opacity .18s,stroke-width .18s}
+  .edge.hl{opacity:.95;stroke-width:2.1}
+  .edge.dim{opacity:.05}
+  .k-pre{stroke:#8A8E84}
+  .k-ref{stroke:#46549B}
+  .k-sub{stroke:#6C3FA0}
+  .k-for{stroke:#0E7490}
+  .k-sur{stroke:#8A8E84;stroke-dasharray:2 4}
+  .k-app{stroke:#14705A}
+  .k-com{stroke:#A2A69C;stroke-dasharray:6 4}
+  .k-eva{stroke:#B0851E}
+  .k-fbk{stroke:var(--fbk);stroke-dasharray:7 4;stroke-width:1.5;opacity:.55}
+  .node{cursor:pointer}
+  .node rect{stroke-width:1.1;transition:opacity .18s}
+  .node.dim rect,.node.dim text{opacity:.16}
+  .node text{font-family:var(--sans)}
+  .nt{font-size:13px;font-weight:600;fill:var(--ink)}
+  .ns{font-size:11.5px;fill:var(--mut)}
+  .nr{font-family:var(--mono);font-size:9.5px;fill:var(--mut)}
+  .ng{font-size:10px;fill:var(--auto)}
+  .cat-ba rect{fill:var(--ba-bg);stroke:var(--ba)}
+  .cat-bb rect{fill:var(--bb-bg);stroke:var(--bb)}
+  .cat-sh rect{fill:var(--sh-bg);stroke:var(--sh)}
+  .cat-des rect{fill:var(--bb-bg);stroke:var(--bb)}
+  .cat-arc rect{fill:var(--ba-bg);stroke:var(--ba)}
+  .cat-mgt rect{fill:var(--sh-bg);stroke:var(--sh)}
+  .tier-a rect{fill:#FFFFFF}
+  .node.tgt rect{stroke:var(--target);stroke-width:2}
+  .node.tgt .nt{fill:#3E2662}
+  .band{stroke:none}
+  .band.ba{fill:var(--ba);fill-opacity:.035}
+  .band.bb{fill:var(--bb);fill-opacity:.035}
+  .band.sh{fill:var(--sh);fill-opacity:.05}
+  .lab-band{font-family:var(--mono);font-size:11px;letter-spacing:.12em;fill:#565A50}
+  .lab-cl{font-family:var(--mono);font-size:9.5px;letter-spacing:.09em;fill:#8B8F85}
+  .lab-note{font-family:var(--mono);font-size:11px;fill:#6E7268}
+  .lab-note.hd{fill:#3E2662;font-size:11.5px}
+
+  .fields{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:12px;margin-top:16px}
+  .field{background:var(--panel);border:1px solid var(--line);border-left:3px solid var(--target);border-radius:0 10px 10px 0;padding:13px 15px}
+  .field h3{margin:0 0 4px;font-family:var(--serif);font-weight:500;font-size:16.5px}
+  .field p{margin:0;font-size:13.5px;color:var(--mut)}
+  .field a{color:var(--target);text-decoration:none;font-family:var(--mono);font-size:12px}
+  .field a:hover{text-decoration:underline}
+  .field .tag{font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--mut)}
+  .field.fa{border-left-color:var(--ba)}
+  .field.fb{border-left-color:var(--bb)}
+  .field.fs{border-left-color:var(--sh)}
+
+  .rules{margin:16px 0 0;padding-left:1.2em}
+  .rules li{margin:0 0 12px;max-width:82ch}
+  .rules b{font-weight:600}
+  blockquote.rationale{margin:18px 0 0;padding:16px 22px;background:var(--panel);border:1px solid var(--line);border-left:3px solid var(--bb);
+    border-radius:0 10px 10px 0;font-family:var(--serif);font-size:16.5px;line-height:1.6;max-width:82ch;color:#3A3E35}
+  blockquote.rationale footer{font-family:var(--mono);font-size:11.5px;color:var(--mut);margin-top:10px}
+
+  details{background:var(--panel);border:1px solid var(--line);border-radius:10px;margin:10px 0;padding:0}
+  summary{cursor:pointer;padding:13px 18px;font-family:var(--serif);font-size:17px;font-weight:500;list-style-position:inside}
+  summary::marker{color:var(--target)}
+  details[open] summary{border-bottom:1px solid var(--line)}
+  .elist{margin:0;padding:14px 20px 16px 20px;list-style:none}
+  .elist li{margin:0 0 9px;font-size:14.5px;max-width:96ch}
+  .elist .arrow{color:var(--target);font-weight:600}
+  .elist .ov{color:var(--mut)}
+  .elist .nd{font-family:var(--mono);font-size:11px;color:var(--mut);background:var(--paper);border:1px solid var(--line);border-radius:4px;padding:1px 5px;margin-left:6px;white-space:nowrap}
+  .kt{font-family:var(--mono);font-size:10.5px;border-radius:4px;padding:1px 6px;margin:0 4px;white-space:nowrap;border:1px solid}
+  .kt-pre{color:#565A50;border-color:#C9CCC2;background:#F1F1EB}
+  .kt-ref{color:#46549B;border-color:#C6CCE8;background:#EBEDF8}
+  .kt-sub{color:#6C3FA0;border-color:#D8C9EC;background:#F1EAFB}
+  .kt-for{color:#0E7490;border-color:#BEE0E8;background:#E6F4F7}
+  .kt-sur{color:#565A50;border-color:#C9CCC2;background:#F1F1EB;border-style:dashed}
+  .kt-app{color:#14705A;border-color:#BFE0D2;background:#E2F1EA}
+  .kt-com{color:#6E7268;border-color:#D5D8CE;background:#F4F4EF;border-style:dashed}
+  .kt-eva{color:#8F6E1E;border-color:#E4D4A8;background:#F5EEDA}
+  .kt-fbk{color:#B3372F;border-color:#E7C0BC;background:#FAECEA;border-style:dashed}
+  .cyc{font-family:var(--mono);font-size:10.5px;color:#B3372F;background:#FAECEA;border:1px solid #E7C0BC;border-radius:4px;padding:1px 6px;margin-left:6px;white-space:nowrap}
+
+  ol.refs{padding-left:0;counter-reset:ref;list-style:none;margin-top:14px}
+  ol.refs li{counter-increment:ref;position:relative;padding:9px 0 9px 52px;border-bottom:1px dashed var(--line);max-width:92ch;scroll-margin-top:70px}
+  ol.refs li::before{content:"[" counter(ref) "]";position:absolute;left:0;top:9px;font-family:var(--mono);font-size:12.5px;color:var(--target)}
+  ol.refs li.flash{background:#F1EAFB;border-radius:6px}
+  ol.refs i{font-family:var(--serif)}
+  .oa{font-family:var(--mono);font-size:10.5px;color:#14705A;border:1px solid #BFE0D2;border-radius:4px;padding:1px 5px;margin-left:6px;white-space:nowrap}
+  .oap{font-family:var(--mono);font-size:10.5px;color:#8F6E1E;border:1px solid #E4D4A8;border-radius:4px;padding:1px 5px;margin-left:6px;white-space:nowrap}
+  .pay{font-family:var(--mono);font-size:10.5px;color:#6E7268;border:1px solid #D5D8CE;border-radius:4px;padding:1px 5px;margin-left:6px;white-space:nowrap}
+  .bdl{font-family:var(--mono);font-size:10.5px;color:#B3372F;border:1px solid #E7C0BC;border-radius:4px;padding:1px 5px;margin-left:6px;white-space:nowrap}
+  .cl{font-family:var(--mono);font-size:10.5px;color:var(--mut);background:var(--paper);border:1px solid var(--line);border-radius:4px;padding:1px 6px;margin-right:7px;white-space:nowrap}
+  .aut{font-family:var(--mono);font-size:10.5px;color:var(--auto);border:1px solid #EBCDB8;background:#FBF1E9;border-radius:4px;padding:1px 5px;margin-left:6px;white-space:nowrap}
+
+  footer.pagefoot{padding:40px 0 60px;color:var(--mut);font-size:13px;border-top:1px solid var(--line);margin-top:52px}
+  code{font-family:var(--mono);font-size:.92em}
+  .pg[hidden]{display:none}
+
+  @media (max-width:700px){
+    body{font-size:15px}
+    .wrap{padding:0 18px}
+    header.page{padding:30px 0 22px}
+    section{padding:32px 0 6px}
+    h2{font-size:21px}
+    .legend{gap:8px 16px;font-size:12.5px}
+    .board{border-radius:10px}
+    .hint{font-size:11px}
+    summary{font-size:15.5px;padding:11px 14px}
+    .elist{padding:12px 14px 12px 14px}
+    .elist li{font-size:13.5px}
+    ol.refs li{padding-left:44px}
+    .meta{font-size:11.5px}
+    .tabs button{font-size:11.5px;padding:6px 10px}
+  }
+  @media (min-width:2200px){
+    body{font-size:18px}
+    .wrap{max-width:1440px}
+    .board svg{max-width:2100px}
+    h1{font-size:48px}
+  }
+</style>
+</head>
+<body>
+
+<!-- ============================================================ PAGE 2 -->
+<div id="p2" class="pg">
+
+<header class="page">
+  <div class="wrap">
+    <div class="eyebrow">Bottom-up DAG · three branches · roots at the bottom · rev. 2</div>
+    <h1>Architecture, Design &amp; Management of Large Simulink/MATLAB Projects</h1>
+    <p class="lede">A corpus of 53 verified resources in three explicitly distinct branches — <b>Architecture</b>, <b>Design</b>, and <b>Management</b> — mirroring the branch treatment of the companion software-architecture corpus while remaining <b>entirely independent of it</b>: no shared nodes, no cross-references to that corpus or to the control-theory DAG. No rigor filter is applied: the domain’s actual source types are all admitted — MathWorks documentation, MAB/JMAAB guidelines, MISRA AC documents, practitioner articles, conference/technical papers, and vendor guides. The graph is a directed <b>acyclic</b> graph drawn <b>bottom-up</b>: roots are the most atomic, detail-level resources, and every edge points upward toward material that abstracts those details away.</p>
+    <p class="meta"><b>53</b> nodes &nbsp;·&nbsp; <b>3</b> branches + automotive band &nbsp;·&nbsp; <b>65</b> drawn edges &nbsp;·&nbsp; <b>9</b> abstraction levels &nbsp;·&nbsp; roots at bottom, edges point up &nbsp;·&nbsp; compiled July 2026 · rev. 2</p>
+  </div>
+</header>
+
+<section>
+  <div class="wrap">
+    <h2><span class="no">01</span>Why bottom-up — the stated rationale</h2>
+    <blockquote class="rationale">
+      “Reasoning about higher-order abstraction requires first understanding the underlying detail. One cannot meaningfully evaluate a model-governance framework, a componentization strategy, or a program-level Model-Based Design rollout without first understanding the block-level and file-level mechanics it governs. Therefore this corpus is ordered bottom-up: the root nodes are the most atomic, practical, detail-level resources — specific modeling conventions, block-level practices, naming and interface standards, and basic configuration-management mechanics — and every edge points upward from these detail-level prerequisites to the higher-level material that abstracts them away.”
+      <footer>stated basis for the bottom-up ordering — quoted verbatim into the corpus, as required</footer>
+    </blockquote>
+    <ul class="rules" style="margin-top:18px">
+      <li><b>Three branches, one convention.</b> Architecture (componentization → interfaces → system-level structure), Design (style atoms → block patterns → typing → code generation → design quality), and Management (version-control mechanics → CI → traceability → governance → program scale) are kept as distinct bands, consistent with the two-branch discipline of the earlier software-architecture corpus — but the two corpora share nothing: this one contains no general software-architecture or control-theory nodes.</li>
+      <li><b>No science bar.</b> Unlike the companion software-architecture corpus, practitioner-oriented material is first-class here: this is what the domain actually offers, and the MathWorks/MAB/MISRA documents <i>are</i> the primary literature.</li>
+      <li><b>Citation rule.</b> Every node cites title, author (or issuing organization), and year of last publication; “living” marks continuously revised documentation, cited at its current revision (July 2026).</li>
+      <li><b>Automotive specialization band.</b> Automotive (and adjacent aerospace-certification) nodes cut across all three branches; they are marked <span style="color:var(--auto);font-weight:600">◆</span> rather than isolated in a cluster, and the domain-neutral core stays visually primary.</li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2><span class="no">02</span>The graph</h2>
+    <p class="subtle">Roots sit at the <b>bottom</b>; every edge points upward toward abstraction. Hover (or tap) a node to trace everything it rests on (downward closure) and everything that abstracts it (upward closure). Click a node to jump to its citation. The three apexes: <b>MISRA AC SLSF:2023</b> (Design), <b>System Composer / AUTOSAR</b> (Architecture), and <b>Aarenstrup’s <i>Managing Model-Based Design</i></b> flanked by the safety standards and empirical corpora (Management).</p>
+    <div class="legend">
+      <span class="key"><span class="sw bb"></span>Design branch</span>
+      <span class="key"><span class="sw ba"></span>Architecture branch</span>
+      <span class="key"><span class="sw sh"></span>Management branch</span>
+      <span class="key"><span class="sw adv"></span>White fill — advanced tier</span>
+      <span class="key"><span class="sw t"></span>★ target / cluster anchor</span>
+      <span class="key">¶ — survey / overview node</span>
+      <span class="key"><span style="color:var(--auto);font-weight:700">◆</span> automotive / safety-certification band</span>
+    </div>
+    <div class="board" id="board2">
+      <svg id="dag2" viewBox="0 0 1720 1210" role="img" aria-label="Bottom-up directed acyclic graph of 53 resources for large Simulink and MATLAB projects, in three branches">
+        <title>Large Simulink/MATLAB projects — bottom-up resource DAG</title>
+        <defs>
+          <marker id="ah2" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5.5" markerHeight="5.5" orient="auto-start-reverse">
+            <path d="M2 1.5L8 5L2 8.5" fill="none" stroke="context-stroke" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+          </marker>
+        </defs>
+        <g id="bands2"></g>
+        <g id="edges2"></g>
+        <g id="nodes2"></g>
+      </svg>
+    </div>
+    <p class="hint">roots at bottom · edges point upward (detail → abstraction) · hover / tap — trace closures · click — jump to citation</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2><span class="no">03</span>Revision notes · rev. 2</h2>
+    <p class="subtle">Adjustments made after a scrutiny pass over the first rendering (r1):</p>
+    <ul class="rules">
+      <li><b>One edge added (64 → 65): MISRA AC SLSF → ISO 26262-6.</b> ISO 26262-6:2018 expects modeling guidelines for model-based development, and MISRA AC SLSF is the canonical Simulink/Stateflow set — the edge routes the Design apex into the safety lifecycle instead of leaving it a dead end. Drawn as a gutter rail across the board (the one long horizontal in the drawing).</li>
+      <li><b>Three long rails into the Aarenstrup apex re-routed</b> — Simulink Test, the Maintainability Dashboard, and Requirements Toolbox previously ran invisibly beneath entire lane columns; they now travel the gutters between lanes.</li>
+      <li><b>Fan-in spacing widened at the apex:</b> Aarenstrup’s seven incoming edges now land at distinct points on the node’s lower edge.</li>
+      <li><b>Terminal audit:</b> remaining leaves are deliberate — the smells/clones studies top out the Design-quality lineage, and the CI-with-GitLab and DOORS how-tos are endpoint variants of their mechanisms. The in-graph rationale note now paints above edge paths.</li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2><span class="no">04</span>Branches, clusters, and their anchors</h2>
+    <p class="subtle">Fifteen clusters across the three branches. ★ anchors are named on each card; the Design branch holds the most roots, Architecture bridges componentization mechanics up to System Composer/AUTOSAR, and Management spans version-control mechanics up to program-scale MBD and the safety lifecycle.</p>
+    <div class="fields">
+      <div class="field fb"><h3>D1 · Naming, layout &amp; style atoms</h3><p><span class="tag">roots</span> <a href="#p2-ref-1">[1] MAB guidelines</a> <a href="#p2-ref-3">[3] Johnson</a> · <a href="#p2-ref-2">[2] JMAAB ◆</a> <a href="#p2-ref-5">[5] MW coding guidelines</a></p></div>
+      <div class="field fb"><h3>D2 · Block-level &amp; Stateflow patterns</h3><p><a href="#p2-ref-7">[7] MISRA AC SLSF:2023 ◆</a> — the Design apex · <a href="#p2-ref-6">[6] MAB rule sets</a> <a href="#p2-ref-8">[8] MISRA AC GMG ◆</a></p></div>
+      <div class="field fb"><h3>D3 · Data typing &amp; fixed point</h3><p><a href="#p2-ref-9">[9] Fixed-Point Designer</a> <a href="#p2-ref-10">[10] MAB signal rules</a></p></div>
+      <div class="field fb"><h3>D4 · Design for code generation</h3><p><a href="#p2-ref-11">[11] Embedded Coder</a> <a href="#p2-ref-12">[12] dSPACE guidelines ◆</a></p></div>
+      <div class="field fb"><h3>D5 · Design quality: smells, clones</h3><p><a href="#p2-ref-13">[13] Deissenboeck ’08</a> <a href="#p2-ref-15">[15] Gerlitz ’15</a> · <a href="#p2-ref-14">[14] Alalfi ’12</a> <a href="#p2-ref-16">[16] Stephan–Cordy ’15</a></p></div>
+      <div class="field fa"><h3>A1 · Componentization mechanics</h3><p><span class="tag">roots</span> <a href="#p2-ref-17">[17] Component-based modeling</a> <a href="#p2-ref-18">[18] Model reference</a></p></div>
+      <div class="field fa"><h3>A2 · Interfaces &amp; data contracts</h3><p><a href="#p2-ref-19">[19] Bus objects</a> <a href="#p2-ref-20">[20] Data Dictionary</a></p></div>
+      <div class="field fa"><h3>A3 · Model architecture strategies</h3><p><a href="#p2-ref-21">[21] Large-Scale Modeling ¶</a> <a href="#p2-ref-22">[22] Best practices ¶</a> <a href="#p2-ref-23">[23] SAE 2010-01-0938 ◆</a></p></div>
+      <div class="field fa"><h3>A4 · System-level architecture</h3><p><span class="tag">apex</span> <a href="#p2-ref-25">[25] System Composer</a> <a href="#p2-ref-26">[26] AUTOSAR Blockset ◆</a> · bridge <a href="#p2-ref-27">[27] namespaces/OOP</a></p></div>
+      <div class="field fs"><h3>M1 · Version-control mechanics</h3><p><span class="tag">roots</span> <a href="#p2-ref-28">[28] Model Comparison</a> <a href="#p2-ref-29">[29] Three-way merge</a> <a href="#p2-ref-30">[30] Projects</a></p></div>
+      <div class="field fs"><h3>M2 · Verification &amp; CI mechanics</h3><p><a href="#p2-ref-33">[33] CI for verification</a> · <a href="#p2-ref-35">[35] Simulink Test</a> <a href="#p2-ref-37">[37] buildtool R2022b</a> <a href="#p2-ref-38">[38] MATLAB Test R2023a</a></p></div>
+      <div class="field fs"><h3>M3 · Traceability &amp; requirements</h3><p><a href="#p2-ref-40">[40] Requirements Toolbox</a> <a href="#p2-ref-41">[41] DOORS linking</a></p></div>
+      <div class="field fs"><h3>M4 · Quality governance &amp; metrics</h3><p><a href="#p2-ref-42">[42] Simulink Check</a> <a href="#p2-ref-43">[43] Metrics Dashboard</a> <a href="#p2-ref-44">[44] Maintainability Dashboard</a></p></div>
+      <div class="field fs"><h3>M5 · Team- &amp; program-scale (apex)</h3><p><a href="#p2-ref-45">[45] Aarenstrup ¶</a> · empirical band <a href="#p2-ref-46">[46] SLNET ¶</a> <a href="#p2-ref-48">[48] Boll ¶</a> <a href="#p2-ref-49">[49] Replicability</a></p></div>
+      <div class="field fs"><h3>M6 · Safety &amp; certification ◆</h3><p><a href="#p2-ref-50">[50] ISO 26262-6</a> <a href="#p2-ref-51">[51] DO-331</a> · <a href="#p2-ref-52">[52] qualification kits</a> <a href="#p2-ref-53">[53] TargetLink</a></p></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2><span class="no">05</span>Edge catalog — detail → abstraction</h2>
+    <p class="subtle">Every edge reads <i>detail-level prerequisite → higher-level abstraction</i>; the shared content justifying each edge is listed after the dash. Two edges the source corpus lists as prose-only (same-author superset [4]→[3]; the namespaces/OOP bridge [27]→[5]) are drawn here for continuity and flagged <code>prose in source</code>.</p>
+
+    <details open>
+      <summary>Design branch — style atoms up to MISRA and design quality</summary>
+      <ul class="elist">
+        <li>MAB guidelines <span class="arrow">→</span> MAB rule sets (doc) — <span class="ov">naming conventions, diagram appearance, rule lineage into the living documentation.</span></li>
+        <li>JMAAB v5.1/v6.0 <span class="arrow">→</span> MAB rule sets — <span class="ov">JMAAB feeds the MAB rule lineage.</span></li>
+        <li>MAB guidelines <span class="arrow">→</span> MAB signal rules — <span class="ov">signal naming and typing atoms extracted from the guideline set.</span></li>
+        <li>MATLAB Style 2.0 <span class="arrow">→</span> <i>Elements of MATLAB Style</i> — <span class="ov">same author, superset content.</span><span class="nd">prose in source</span></li>
+        <li>Johnson (book) <span class="arrow">→</span> MATLAB Coding Guidelines — <span class="ov">naming, formatting, function design carried into the analyzer-enforced ruleset.</span></li>
+        <li>Namespaces/OOP docs <span class="arrow">→</span> MATLAB Coding Guidelines — <span class="ov">code organization bridge from the Architecture band.</span><span class="nd">prose in source</span></li>
+        <li>MAB rule sets <span class="arrow">→</span> MISRA AC SLSF:2023 — <span class="ov">block/Stateflow style rules, allowable-block criteria hardened for safety-critical design.</span></li>
+        <li>MISRA AC GMG <span class="arrow">→</span> MISRA AC SLSF — <span class="ov">generic modeling-rule subset; required companion.</span></li>
+        <li>MAB signal rules <span class="arrow">→</span> Fixed-Point Designer — <span class="ov">data-typing atoms under quantization.</span></li>
+        <li>Fixed-Point Designer <span class="arrow">→</span> Embedded Coder — <span class="ov">fixed-point types and quantization for target code.</span></li>
+        <li>MAB rule sets <span class="arrow">→</span> Gerlitz (smells) · Deissenboeck (clones) — <span class="ov">readability/complexity criteria the smells and clone detectors operationalize.</span></li>
+        <li>Deissenboeck ’08 <span class="arrow">→</span> Alalfi ’12 <span class="arrow">→</span> Stephan–Cordy ’15 — <span class="ov">clone-detection lineage.</span></li>
+      </ul>
+    </details>
+
+    <details>
+      <summary>Architecture branch — components up to System Composer / AUTOSAR</summary>
+      <ul class="elist">
+        <li>Component-based modeling · Model reference <span class="arrow">→</span> Large-Scale Modeling — <span class="ov">componentization mechanics abstracted into strategy.</span></li>
+        <li>Bus objects <span class="arrow">→</span> Data Dictionary — <span class="ov">interface definition and type consistency, centralized.</span></li>
+        <li>Data Dictionary <span class="arrow">→</span> Large-Scale Modeling — <span class="ov">central interface repository at scale.</span></li>
+        <li>Large-Scale Modeling <span class="arrow">→</span> “Applying Best Practices…” — <span class="ov">componentization at scale, same strategy layer.</span></li>
+        <li>Large-Scale Modeling <span class="arrow">→</span> SAE 2010-01-0938 — <span class="ov">model-reference partitioning strategy for embedded applications.</span></li>
+        <li>Best practices ¶ <span class="arrow">→</span> Large-scale architecture BP · SAE paper <span class="arrow">→</span> System Composer — <span class="ov">component reuse and interfaces lifted into MBSE tooling.</span></li>
+        <li>Large-scale architecture BP <span class="arrow">→</span> System Composer — <span class="ov">the best-practice doc is the on-ramp to the product.</span></li>
+        <li>Bus objects · Data Dictionary <span class="arrow">→</span> System Composer — <span class="ov">interfaces become architecture contracts.</span></li>
+        <li>System Composer <span class="arrow">→</span> AUTOSAR Blockset — <span class="ov">composition/component authoring, ARXML round-trip.</span></li>
+      </ul>
+    </details>
+
+    <details>
+      <summary>Cross-branch — Design/Architecture into Management</summary>
+      <ul class="elist">
+        <li>MAB rule sets <span class="arrow">→</span> Simulink Check — <span class="ov">Model Advisor checks enforce MAB/JMAAB rules.</span></li>
+        <li>Component-based modeling <span class="arrow">→</span> Projects — <span class="ov">SLX-per-component enables clean configuration management.</span></li>
+        <li>Model reference <span class="arrow">→</span> CI for verification — <span class="ov">independent component testing in the pipeline.</span></li>
+        <li>dSPACE guidelines <span class="arrow">→</span> TargetLink — <span class="ov">production code-generation toolchain.</span></li>
+        <li>Embedded Coder <span class="arrow">→</span> Qualification kits — <span class="ov">the code generator is what the kits qualify.</span></li>
+        <li>AUTOSAR Blockset <span class="arrow">→</span> ISO 26262-6 — <span class="ov">automotive production ECU software under the safety lifecycle.</span></li>
+        <li>MISRA AC SLSF <span class="arrow">→</span> ISO 26262-6 — <span class="ov">the safety standard expects modeling guidelines; MISRA AC SLSF is the canonical set for Simulink/Stateflow.</span><span class="nd">added r2</span></li>
+      </ul>
+    </details>
+
+    <details>
+      <summary>Management branch — diff/merge mechanics up to program scale</summary>
+      <ul class="elist">
+        <li>Model Comparison · Three-way merge · Guy on Simulink <span class="arrow">→</span> Projects — <span class="ov">source-control workflow around the project container.</span></li>
+        <li>Projects <span class="arrow">→</span> CI for verification (1) — <span class="ov">the project as CI unit, Git integration.</span></li>
+        <li>Simulink Test · Simulink Coverage <span class="arrow">→</span> CI (1) — <span class="ov">automated requirements-based testing in the pipeline.</span></li>
+        <li>buildtool <span class="arrow">→</span> CI (1) · buildtool · MATLAB Test · Three-way merge · CI (1) <span class="arrow">→</span> Diff/merge in CI/CD — <span class="ov">build/test automation and comparison reports attached to merge requests.</span></li>
+        <li>CI (1) <span class="arrow">→</span> CI with GitLab (2) — <span class="ov">same workflow, different CI host.</span></li>
+        <li>Simulink Check <span class="arrow">→</span> Metrics Dashboard <span class="arrow">→</span> Maintainability Dashboard — <span class="ov">metric collection escalating to governance.</span></li>
+        <li>Requirements Toolbox <span class="arrow">→</span> DOORS linking — <span class="ov">external-tool traceability.</span></li>
+        <li>Requirements Toolbox · Simulink Test <span class="arrow">→</span> Aarenstrup — <span class="ov">traceability and V&amp;V as a managed process.</span></li>
+        <li>Maintainability Dashboard <span class="arrow">→</span> Aarenstrup — <span class="ov">model-quality governance evidence at program scale.</span></li>
+        <li>SLNET · Boll · Chowdhury <span class="arrow">→</span> Replicability study — <span class="ov">corpus lineage.</span></li>
+        <li>SLNET · Boll <span class="arrow">→</span> Aarenstrup — <span class="ov">empirical basis for quality metrics and governance thresholds.</span></li>
+        <li>Simulink Check · Requirements Toolbox · Simulink Test <span class="arrow">→</span> Qualification kits — <span class="ov">qualified V&amp;V evidence.</span></li>
+        <li>Qualification kits <span class="arrow">→</span> ISO 26262-6 · DO-331 — <span class="ov">tool qualification inside the safety workflows.</span></li>
+        <li>dSPACE Model Compare <span class="arrow">→</span> TargetLink <span class="arrow">→</span> ISO 26262-6 — <span class="ov">certified automotive toolchain.</span></li>
+        <li>ISO 26262-6 · DO-331 <span class="arrow">→</span> Aarenstrup — <span class="ov">the safety lifecycle governs program-scale management.</span></li>
+      </ul>
+    </details>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2><span class="no">06</span>References</h2>
+    <p class="subtle">Citation rule: title, author (or issuing organization), year of last publication; “living” documentation is cited at its current revision (July 2026). <span class="oa">free</span> = free/open official copy; <span class="pay">paid</span>; <span class="aut">◆ automotive/safety band</span>.</p>
+    <ol class="refs" id="refs2">
+      <li id="p2-ref-1"><span class="cl">D1</span><i>MAB Control Algorithm Modeling Guidelines</i>, MathWorks Advisory Board (MAB), v5.0 March 2020 (R2020a); renumbered 23.2 (R2023b, Sept 2023), then date-based 24.1/24.2/25.1… (living).<span class="oa">free</span></li>
+      <li id="p2-ref-2"><span class="cl">D1</span><i>JMAAB Control Algorithm Modeling Guidelines</i>, Japan MATLAB Automotive Advisory Board, v5.1 and v6.0 (Model Advisor support R2023b, 2023).<span class="oa">free</span><span class="aut">◆</span></li>
+      <li id="p2-ref-3"><span class="cl">D1</span>R. K. Johnson, <i>The Elements of MATLAB Style</i>, Cambridge University Press, 2010.<span class="pay">paid</span></li>
+      <li id="p2-ref-4"><span class="cl">D1</span>R. Johnson, “MATLAB Style Guidelines 2.0” / “MATLAB Programming Style Guidelines,” MATLAB Central File Exchange, living (retrieved 2026).<span class="oa">free</span></li>
+      <li id="p2-ref-5"><span class="cl">D1</span><i>MATLAB Coding Guidelines</i> (mathworks/MATLAB-Coding-Guidelines, incl. codeAnalyzerConfiguration.json), MathWorks, ~2024–2025, living.<span class="oa">free</span></li>
+      <li id="p2-ref-6"><span class="cl">D2</span><i>MAB Modeling Guidelines documentation sections</i> (Simulink / Stateflow / MATLAB Function rule sets), MathWorks, living.<span class="oa">free</span></li>
+      <li id="p2-ref-7"><span class="cl">D2</span><i>MISRA AC SLSF:2023 — Modelling design and style guidelines for the application of Simulink and Stateflow</i>, MISRA Consortium, 2nd ed., June 2023 (supersedes the 2009 first edition); Amendments 1–4 track R2023b–R2025a, 2023–2025.<span class="pay">paid</span> (amendments free)<span class="aut">◆</span></li>
+      <li id="p2-ref-8"><span class="cl">D2</span><i>MISRA AC GMG:2023 — Generic Modelling Design and Style Guidelines</i>, MISRA Consortium, 2nd ed., June 2023 (supersedes the 2009 first edition).<span class="pay">paid</span><span class="aut">◆</span></li>
+      <li id="p2-ref-9"><span class="cl">D3</span><i>Fixed-Point Designer documentation</i>, MathWorks, living — bit-true target-aware simulation; overflow/precision-loss debugging.<span class="oa">free</span></li>
+      <li id="p2-ref-10"><span class="cl">D3</span><i>Simulink signal naming/typing guidance</i> (MAB signal rules; data-type propagation), MathWorks Advisory Board / MathWorks, living.<span class="oa">free</span></li>
+      <li id="p2-ref-11"><span class="cl">D4</span><i>Embedded Coder documentation &amp; production-code modeling patterns</i>, MathWorks, living.<span class="oa">free</span></li>
+      <li id="p2-ref-12"><span class="cl">D4</span><i>Modeling Guidelines for MATLAB/Simulink/Stateflow and TargetLink</i>, dSPACE GmbH, v1.0 era ~2006, living (~162 pp.; recommends the MAAB/MAB guide alongside).<span class="oa">free</span><span class="aut">◆</span></li>
+      <li id="p2-ref-13"><span class="cl">D5</span>F. Deissenboeck, B. Hummel, E. Jürgens, B. Schätz, S. Wagner, J.-F. Girard, S. Teuchert, “Clone Detection in Automotive Model-Based Development,” <i>Proc. ICSE 2008</i>, pp. 603–612 (some citations mislabel it 2009).<span class="pay">paid</span> (author copies free)</li>
+      <li id="p2-ref-14"><span class="cl">D5</span>M. Alalfi, J. Cordy, T. Dean, M. Stephan, A. Stevenson, “Models are Code Too: Near-miss Clone Detection for Simulink Models,” <i>Proc. ICSM 2012</i>, pp. 295–304.<span class="oa">free</span> (Queen’s U.)</li>
+      <li id="p2-ref-15"><span class="cl">D5</span>T. Gerlitz, Q. M. Tran, C. Dziobek, “Detection and Handling of Model Smells for MATLAB/Simulink Models,” <i>MASE@MoDELS 2015</i> (CEUR Vol-1487), pp. 13–22.<span class="oa">free</span></li>
+      <li id="p2-ref-16"><span class="cl">D5</span>M. Stephan, J. Cordy, “Identification of Simulink Model Antipattern Instances Using Model Clone Detection,” <i>Proc. MODELS 2015</i>, pp. 276–285.<span class="pay">paid</span></li>
+      <li id="p2-ref-17"><span class="cl">A1</span><i>Component-Based Modeling in Simulink / Model Reference behavior and capabilities</i>, MathWorks documentation, living — subsystems vs. libraries vs. model/subsystem reference; parallel and incremental builds.<span class="oa">free</span></li>
+      <li id="p2-ref-18"><span class="cl">A1</span><i>Reference Existing Models &amp; model-reference workflow documentation</i>, MathWorks, living — parallel independent development, isolated verification.<span class="oa">free</span></li>
+      <li id="p2-ref-19"><span class="cl">A2</span><i>Simulink.Bus objects documentation</i> (“Specify Bus Properties with Bus Objects”; “analogous to a structure definition in C”), MathWorks, living.<span class="oa">free</span></li>
+      <li id="p2-ref-20"><span class="cl">A2</span><i>Simulink Data Dictionary documentation</i> (.sldd; Design Data + Architectural Data), MathWorks, introduced R2015a, living.<span class="oa">free</span></li>
+      <li id="p2-ref-21"><span class="cl">A3</span><i>Large-Scale Modeling documentation chapter</i>, MathWorks, living. Survey ¶.<span class="oa">free</span></li>
+      <li id="p2-ref-22"><span class="cl">A3</span>“Applying Best Practices for Building Large Simulink Models,” MathWorks technical article (from the MathWorks Automotive Conference talk), living. Survey ¶.<span class="oa">free</span></li>
+      <li id="p2-ref-23"><span class="cl">A3</span>“Large-Scale Modeling for Embedded Applications,” MathWorks, SAE Technical Paper 2010-01-0938, 2010.<span class="pay">paid</span> (free MathWorks-hosted PDF exists)<span class="aut">◆</span></li>
+      <li id="p2-ref-24"><span class="cl">A3</span><i>Best Practices for Large-Scale Architecture Modeling</i>, System Composer documentation, MathWorks, living.<span class="oa">free</span></li>
+      <li id="p2-ref-25"><span class="cl">A4</span><i>System Composer documentation</i>, MathWorks, living — components, ports, connectors, interfaces; allocations; views; code generation for software/AUTOSAR architectures.<span class="oa">free</span></li>
+      <li id="p2-ref-26"><span class="cl">A4</span><i>AUTOSAR Blockset documentation &amp; Software Architecture Modeling</i> (Classic/Adaptive; ARXML import/export), MathWorks, living.<span class="oa">free</span><span class="aut">◆</span></li>
+      <li id="p2-ref-27"><span class="cl">A·</span><i>MATLAB packages/namespaces, classes/OOP guide, toolbox packaging documentation</i>, MathWorks, living — bridges to cluster D1.<span class="oa">free</span></li>
+      <li id="p2-ref-28"><span class="cl">M1</span><i>Model Comparison documentation</i> (Comparison Tool, <code>visdiff</code>, Three-Way Merge Tool), MathWorks, living.<span class="oa">free</span></li>
+      <li id="p2-ref-29"><span class="cl">M1</span><i>Resolve Conflicts in Project Using Simulink Three-Way Merge / Customize External Source Control</i> (<code>mlDiff</code>, <code>mlMerge</code>, <code>mlAutoMerge</code>; Git/SVN/Perforce), MathWorks, living.<span class="oa">free</span></li>
+      <li id="p2-ref-30"><span class="cl">M1</span><i>MATLAB Projects / Simulink Projects documentation</i> (organization, source-control integration, dependency analysis), MathWorks, living.<span class="oa">free</span></li>
+      <li id="p2-ref-31"><span class="cl">M1</span>“Three-Way Model Merge and Git,” Guy on Simulink (MathWorks blog), 2016.<span class="oa">free</span></li>
+      <li id="p2-ref-32"><span class="cl">M1</span><i>dSPACE Model Compare</i> (diff &amp; merge for Simulink/Stateflow/TargetLink; three-way analysis; CI integration), dSPACE GmbH, living.<span class="oa">free</span> (vendor page)<span class="aut">◆</span></li>
+      <li id="p2-ref-33"><span class="cl">M2</span>“Continuous Integration for Verification of Simulink Models” (Part 1: Jenkins + GitLab + Simulink Test), MathWorks technical article, c. 2020, living; companion repo mathworks/Continuous-Integration-Verification-Simulink-Models.<span class="oa">free</span></li>
+      <li id="p2-ref-34"><span class="cl">M2</span>“Continuous Integration for Verification of Simulink Models Using GitLab” (Part 2), MathWorks technical article, living.<span class="oa">free</span></li>
+      <li id="p2-ref-35"><span class="cl">M2</span><i>Simulink Test documentation incl. Continuous Integration</i> (MATLAB Unit Test plugins; CI-compatible results), MathWorks, living.<span class="oa">free</span></li>
+      <li id="p2-ref-36"><span class="cl">M2</span><i>Simulink Coverage documentation</i> (model coverage incl. MC/DC), MathWorks, living.<span class="oa">free</span></li>
+      <li id="p2-ref-37"><span class="cl">M2</span><i>MATLAB build tool</i> (<code>buildtool</code>), MathWorks, introduced R2022b (2022), living.<span class="oa">free</span></li>
+      <li id="p2-ref-38"><span class="cl">M2</span><i>MATLAB Test</i> (condition/decision/MC-DC coverage of MATLAB code; quality dashboard), MathWorks, released R2023a (March 2023), living.<span class="oa">free</span> (docs)</li>
+      <li id="p2-ref-39"><span class="cl">M2</span><i>Set Up Simulink Diff and Merge in CI/CD Pipeline</i> (auto-merge; comparison reports on GitHub/GitLab merge requests), MathWorks, living.<span class="oa">free</span></li>
+      <li id="p2-ref-40"><span class="cl">M3</span><i>Requirements Toolbox documentation</i> (formerly Simulink Requirements; digital thread across requirements, models, code, tests, dictionaries; Requirements Table), MathWorks, living.<span class="oa">free</span></li>
+      <li id="p2-ref-41"><span class="cl">M3</span><i>Working with IBM DOORS / DOORS Next requirements</i> (surrogate modules, ReqIF, Jama/Polarion), MathWorks documentation, living.<span class="oa">free</span></li>
+      <li id="p2-ref-42"><span class="cl">M4</span><i>Simulink Check documentation</i> (Model Advisor; MAB/JMAAB checks; modeling standards), MathWorks, living.<span class="oa">free</span></li>
+      <li id="p2-ref-43"><span class="cl">M4</span><i>Metrics Dashboard</i> (“size, modeling guideline compliance, and architecture” widgets), MathWorks documentation, living.<span class="oa">free</span></li>
+      <li id="p2-ref-44"><span class="cl">M4</span><i>Model Maintainability Dashboard</i> (project-level metrics across MATLAB code, Simulink models, Stateflow charts; refactoring triggers), MathWorks documentation, living.<span class="oa">free</span></li>
+      <li id="p2-ref-45"><span class="cl">M5</span>R. Aarenstrup, <i>Managing Model-Based Design</i>, The MathWorks, Inc., 2015 (CreateSpace print; free MathWorks-hosted ebook, copyright 2015–2025). Survey ¶.<span class="oa">free</span></li>
+      <li id="p2-ref-46"><span class="cl">M5</span>S. L. Shrestha, S. A. Chowdhury, C. Csallner, “SLNET: A Redistributable Corpus of 3rd-party Simulink Models,” <i>Proc. MSR 2022</i> (arXiv:2203.17112) — 2,837 projects, 9,117 models; “8 times larger than the largest previous corpus.” Survey ¶.<span class="oa">free</span></li>
+      <li id="p2-ref-47"><span class="cl">M5</span>S. A. Chowdhury et al., “A Curated Corpus of Simulink Models for Model-Based Empirical Studies,” <i>SEsCPS@ICSE 2018</i> — 1,000+ freely available models.<span class="pay">paid</span></li>
+      <li id="p2-ref-48"><span class="cl">M5</span>A. Boll, F. Brokhausen, T. Amorim, T. Kehrer, A. Vogelsang, “Characteristics, potentials, and limitations of open-source Simulink projects for empirical research,” <i>Software &amp; Systems Modeling</i> 20:2111–2130, 2021 — 1,734 models from 194 projects. Survey ¶.<span class="oa">free</span></li>
+      <li id="p2-ref-49"><span class="cl">M5</span>S. L. Shrestha, S. A. Chowdhury, C. Csallner, “Replicability Study: Corpora For Understanding Simulink Models &amp; Projects,” 2023 (arXiv:2308.01978).<span class="oa">free</span></li>
+      <li id="p2-ref-50"><span class="cl">M6</span><i>ISO 26262-6:2018 — Road vehicles — Functional safety — Part 6: Product development at the software level</i>, ISO, 2nd ed., 2018 (the revision that added model-based-development guidance).<span class="pay">paid</span><span class="aut">◆</span></li>
+      <li id="p2-ref-51"><span class="cl">M6</span><i>RTCA DO-331 / EUROCAE ED-218 — Model-Based Development and Verification Supplement to DO-178C and DO-278A</i>, RTCA, December 13, 2011.<span class="pay">paid</span><span class="aut">◆ aero</span></li>
+      <li id="p2-ref-52"><span class="cl">M6</span><i>IEC Certification Kit (ISO 26262 &amp; IEC 61508) and DO Qualification Kit (DO-178C/DO-331)</i>, MathWorks tool-qualification products, living.<span class="oa">free</span> (docs)<span class="aut">◆</span></li>
+      <li id="p2-ref-53"><span class="cl">M6</span><i>dSPACE TargetLink</i> — production code generator from Simulink/Stateflow; ISO 26262-, ISO 25119-, IEC 61508-certified; AUTOSAR support, dSPACE GmbH, living.<span class="oa">free</span> (vendor docs)<span class="aut">◆</span></li>
+    </ol>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2><span class="no">07</span>Caveats &amp; verification notes</h2>
+    <ul class="rules">
+      <li><b>MAAB → MAB rename confirmed:</b> renamed at v5.0, March 2020 (“MAAB guidelines revised and reintroduced as the MathWorks Advisory Board (MAB) Modeling Guidelines, Version 5.0, Release 2020a”).</li>
+      <li><b>“MAB v6.0” does not exist</b> in MathWorks’ own numbering — the MAB PDF went 5.0 → 23.2 (R2023b) → date-based 24.x/25.x. “Version 6.0” is a genuine <i>JMAAB</i> version (Model Advisor support R2023b, 2023). Any hypothesized “MAB 6.0 (2022)” is incorrect.</li>
+      <li><b>MISRA AC line:</b> current is SLSF:2023 2nd ed. + Amendments 1–4 (R2023b–R2025a); GMG:2023 is the required companion. MISRA AC TL (TargetLink) and MISRA AC AGC are historical — MISRA no longer maintains code-generator-specific guidelines; flag MISRA AC TL as legacy if ever added.</li>
+      <li><b>Point verifications:</b> Aarenstrup 2015 (The MathWorks; free MathWorks-hosted ebook); SAE 2010-01-0938 confirmed with a free MathWorks-hosted PDF; Deissenboeck is ICSE <i>2008</i> (pp. 603–612), not 2009; buildtool R2022b and MATLAB Test R2023a confirmed.</li>
+      <li><b>Deliberately excluded:</b> Higham &amp; Higham <i>MATLAB Guide</i> and Nicolescu &amp; Mosterman <i>Model-Based Design for Embedded Systems</i> — general works not verified to carry large-project/model-architecture content, and a risk to the corpus’s independence rule.</li>
+      <li><b>Independence maintained:</b> no shared nodes and no cross-references with the companion software-architecture cyclic graph or the earlier control-theory DAG; every node here is Simulink/MATLAB/MBD-specific, or generic tooling <i>as applied to</i> Simulink/MATLAB.</li>
+    </ul>
+  </div>
+</section>
+
+<footer class="pagefoot">
+  <div class="wrap">
+    Three branches — Architecture, Design, Management — treated as distinct bands, consistent with the software-architecture corpus’s branch discipline yet fully independent of it. Directed acyclic graph, bottom-up: roots are atomic detail-level resources; edges point upward toward abstraction, on the stated premise that reasoning about higher-order abstraction requires first understanding the underlying detail. Citation rule — title, author, year of last publication — applied to all 53 nodes. Compiled July 2026.
+  </div>
+</footer>
+
+</div><!-- /p2 -->
+
+<script>
+(function(){
+'use strict';
+var W=150,H=58,svgNS='http://www.w3.org/2000/svg';
+
+function render(cfg){
+  var gB=document.getElementById(cfg.bandsG),
+      gE=document.getElementById(cfg.edgesG),
+      gN=document.getElementById(cfg.nodesG);
+  var pos={};
+  cfg.nodes.forEach(function(n){
+    var cx=cfg.L[n[1]], top=cfg.rowY(n[2]);
+    pos[n[0]]={cx:cx,top:top,bot:top+H};
+  });
+
+  cfg.bandRects.forEach(function(b){
+    var r=document.createElementNS(svgNS,'rect');
+    r.setAttribute('x',b[0]); r.setAttribute('y',b[1]);
+    r.setAttribute('width',b[2]); r.setAttribute('height',b[3]);
+    r.setAttribute('rx',12); r.setAttribute('class','band '+b[4]);
+    gB.appendChild(r);
+  });
+  cfg.labels.forEach(function(t){
+    var e=document.createElementNS(svgNS,'text');
+    e.setAttribute('x',t[1]); e.setAttribute('y',t[2]);
+    e.setAttribute('class',t[3]);
+    if(t[4]) e.setAttribute('transform','rotate(-90 '+t[1]+' '+t[2]+')');
+    e.textContent=t[0];
+    gN.appendChild(e);            // labels live in the top group: above edges, below nodes
+  });
+
+  var outs={},ins={};
+  cfg.edgeList.forEach(function(e){
+    if(e[3]) return;              // custom-routed edges keep their hand-set endpoints
+    (outs[e[0]]=outs[e[0]]||[]).push(e);
+    (ins[e[1]]=ins[e[1]]||[]).push(e);
+  });
+  var offOut=new Map(),offIn=new Map();
+  Object.keys(outs).forEach(function(k){
+    var list=outs[k]; list.sort(function(a,b){return pos[a[1]].cx-pos[b[1]].cx;});
+    var n=list.length;
+    list.forEach(function(e,i){ offOut.set(e, n===1?0:Math.max(-52,Math.min(52,(i-(n-1)/2)*22))); });
+  });
+  Object.keys(ins).forEach(function(k){
+    var list=ins[k]; list.sort(function(a,b){return pos[a[0]].cx-pos[b[0]].cx;});
+    var n=list.length;
+    list.forEach(function(e,i){ offIn.set(e, n===1?0:Math.max(-56,Math.min(56,(i-(n-1)/2)*16))); });
+  });
+
+  cfg.edgeList.forEach(function(e){
+    var a=pos[e[0]], b=pos[e[1]], d, x1,y1,x2,y2,dy;
+    if(e[3]){                                             // hand-routed gutter rail
+      d=e[3];
+    } else if(b.top>=a.bot+20){                           // target below source
+      x1=a.cx+(offOut.get(e)||0); y1=a.bot;
+      x2=b.cx+(offIn.get(e)||0);  y2=b.top-2;
+      dy=Math.min(46,Math.max(18,(y2-y1)*0.6));
+      d='M'+x1+' '+y1+' C '+x1+' '+(y1+dy)+', '+x2+' '+(y2-dy)+', '+x2+' '+y2;
+    } else if(a.top>=b.bot+20){                            // target above source
+      x1=a.cx+(offOut.get(e)||0); y1=a.top;
+      x2=b.cx+(offIn.get(e)||0);  y2=b.bot+2;
+      dy=Math.min(46,Math.max(18,(y1-y2)*0.6));
+      d='M'+x1+' '+y1+' C '+x1+' '+(y1-dy)+', '+x2+' '+(y2+dy)+', '+x2+' '+y2;
+    } else {                                               // same row: arc up if rightward, down if leftward
+      var dir=b.cx>a.cx?1:-1;
+      x1=a.cx+dir*(W/2); x2=b.cx-dir*(W/2+3);
+      var ym=a.top+H/2, dx=Math.abs(b.cx-a.cx);
+      var lift=(dir>0?-1:1)*Math.min(84,26+dx*0.03);
+      d='M'+x1+' '+ym+' C '+(x1+dir*40)+' '+(ym+lift)+', '+(x2-dir*40)+' '+(ym+lift)+', '+x2+' '+ym;
+    }
+    var p=document.createElementNS(svgNS,'path');
+    p.setAttribute('d',d);
+    var kind=e[2]||'';
+    p.setAttribute('class','edge'+(kind?' k-'+kind:''));
+    if(kind!=='com') p.setAttribute('marker-end','url(#'+cfg.marker+')');
+    p.dataset.f=e[0]; p.dataset.t=e[1];
+    gE.appendChild(p);
+  });
+
+  cfg.nodes.forEach(function(n){
+    var id=n[0],lane=n[1],title=n[3],sub=n[4],cat=n[5],tgt=n[6],tier=n[7],ref=n[8],auto=n[9];
+    var g=document.createElementNS(svgNS,'g');
+    g.setAttribute('class','node cat-'+cat+(tgt?' tgt':'')+(tier==='a'?' tier-a':''));
+    g.dataset.id=id;
+    var x=cfg.L[lane]-W/2, y=pos[id].top;
+    var r=document.createElementNS(svgNS,'rect');
+    r.setAttribute('x',x); r.setAttribute('y',y);
+    r.setAttribute('width',W); r.setAttribute('height',H); r.setAttribute('rx',9);
+    g.appendChild(r);
+    var t1=document.createElementNS(svgNS,'text');
+    t1.setAttribute('x',cfg.L[lane]); t1.setAttribute('y',y+24);
+    t1.setAttribute('text-anchor','middle'); t1.setAttribute('class','nt');
+    t1.textContent=title; g.appendChild(t1);
+    var t2=document.createElementNS(svgNS,'text');
+    t2.setAttribute('x',cfg.L[lane]); t2.setAttribute('y',y+42);
+    t2.setAttribute('text-anchor','middle'); t2.setAttribute('class','ns');
+    t2.textContent=sub; g.appendChild(t2);
+    var t3=document.createElementNS(svgNS,'text');
+    t3.setAttribute('x',x+W-7); t3.setAttribute('y',y+14);
+    t3.setAttribute('text-anchor','end'); t3.setAttribute('class','nr');
+    t3.textContent='['+ref+']'; g.appendChild(t3);
+    if(auto){
+      var t4=document.createElementNS(svgNS,'text');
+      t4.setAttribute('x',x+8); t4.setAttribute('y',y+15);
+      t4.setAttribute('class','ng');
+      t4.textContent='◆'; g.appendChild(t4);
+    }
+    g.addEventListener('mouseenter',function(){highlight(id);});
+    g.addEventListener('mouseleave',clearHl);
+    g.addEventListener('click',function(){
+      var el=document.getElementById(cfg.refPrefix+ref);
+      if(el){ el.scrollIntoView({behavior:'smooth',block:'center'});
+        el.classList.add('flash'); setTimeout(function(){el.classList.remove('flash');},1600); }
+    });
+    gN.appendChild(g);
+  });
+
+  var up={},down={};
+  cfg.edgeList.forEach(function(e){
+    (up[e[1]]=up[e[1]]||[]).push(e[0]);
+    (down[e[0]]=down[e[0]]||[]).push(e[1]);
+  });
+  function closure(id,adj){
+    var s=new Set([id]),q=[id];
+    while(q.length){
+      var c=q.pop();
+      (adj[c]||[]).forEach(function(n){ if(!s.has(n)){s.add(n);q.push(n);} });
+    }
+    return s;
+  }
+  function highlight(id){
+    var keep=new Set();
+    closure(id,up).forEach(function(v){keep.add(v);});
+    closure(id,down).forEach(function(v){keep.add(v);});
+    gN.querySelectorAll('.node').forEach(function(g){g.classList.toggle('dim',!keep.has(g.dataset.id));});
+    gE.querySelectorAll('.edge').forEach(function(p){
+      var inSet=keep.has(p.dataset.f)&&keep.has(p.dataset.t);
+      p.classList.toggle('hl',inSet); p.classList.toggle('dim',!inSet);
+    });
+  }
+  function clearHl(){
+    gN.querySelectorAll('.node').forEach(function(g){g.classList.remove('dim');});
+    gE.querySelectorAll('.edge').forEach(function(p){p.classList.remove('hl','dim');});
+  }
+}
+
+/* ---------------- PAGE 2 · Simulink/MATLAB (bottom-up DAG) ---------------- */
+var L2=[104,294,484,674,864,1054,1244,1434,1624];
+
+var N2=[
+  // Design
+  ['mab',0,0,'MAB guidelines','MAB 5.0 ’20 → 25.x','des',1,'c',1,0],
+  ['jmaab',1,0,'JMAAB guidelines','JMAAB 5.1/6.0 ’23','des',0,'c',2,1],
+  ['johnsonguide',2,0,'MATLAB style 2.0','Johnson (living)','des',0,'c',4,0],
+  ['mabdoc',0,1,'MAB rule sets (doc)','MathWorks, living','des',0,'c',6,0],
+  ['signaltyping',1,1,'Signal naming/typing','MAB signal rules','des',0,'c',10,0],
+  ['johnsonbook',2,1,'MATLAB style (book)','Johnson ’10','des',1,'c',3,0],
+  ['misragmg',0,2,'MISRA AC GMG','MISRA ’23','des',0,'c',8,1],
+  ['fixedpoint',1,2,'Fixed-Point Designer','MathWorks, living','des',1,'c',9,0],
+  ['mwcodingguide',2,2,'Coding guidelines','MathWorks ’24–','des',0,'c',5,0],
+  ['misraslsf',0,3,'MISRA AC SLSF','MISRA ’23 + Amd 1–4','des',1,'c',7,1],
+  ['embeddedcoder',1,3,'Embedded Coder','MathWorks, living','des',1,'c',11,0],
+  ['dspaceguide',2,3,'dSPACE guidelines','dSPACE ’06–, living','des',0,'c',12,1],
+  ['gerlitz',0,4,'Model smells','Gerlitz et al. ’15','des',1,'c',15,0],
+  ['deissenboeck',1,4,'Clone detection','Deissenboeck et al. ’08','des',1,'c',13,0],
+  ['alalfi',1,5,'Near-miss clones','Alalfi et al. ’12','des',0,'a',14,0],
+  ['stephancordy',1,6,'Antipattern instances','Stephan–Cordy ’15','des',0,'a',16,0],
+  // Architecture
+  ['compmodel',3,0,'Component modeling','MathWorks, living','arc',1,'c',17,0],
+  ['refmodels',4,0,'Model reference','MathWorks, living','arc',0,'c',18,0],
+  ['busobj',3,1,'Bus objects','MathWorks, living','arc',1,'c',19,0],
+  ['matlabpkg',4,1,'Namespaces & OOP','MathWorks, living','arc',0,'c',27,0],
+  ['datadict',3,2,'Data Dictionary','MathWorks, R2015a–','arc',0,'c',20,0],
+  ['largescale',3,3,'Large-scale modeling ¶','MathWorks, living','arc',1,'c',21,0],
+  ['bestpractices',4,3,'Best practices ¶','MathWorks article','arc',0,'c',22,0],
+  ['syscompbp',3,4,'Large-scale arch. BP','System Composer doc','arc',0,'c',24,0],
+  ['sae2010',4,4,'Large-scale embedded','SAE 2010-01-0938','arc',0,'a',23,1],
+  ['syscomposer',3,5,'System Composer','MathWorks, living','arc',1,'c',25,0],
+  ['autosar',4,6,'AUTOSAR Blockset','MathWorks, living','arc',0,'c',26,1],
+  // Management
+  ['modelcompare',5,0,'Model Comparison','MathWorks, living','mgt',1,'c',28,0],
+  ['mergedocs',6,0,'Three-way merge','MathWorks, living','mgt',0,'c',29,0],
+  ['guyblog',7,0,'Merge + Git blog','Guy on Simulink ’16','mgt',0,'c',31,0],
+  ['dspacecompare',8,0,'dSPACE Model Compare','dSPACE, living','mgt',0,'a',32,1],
+  ['projects',5,1,'MATLAB Projects','MathWorks, living','mgt',0,'c',30,0],
+  ['sltest',6,1,'Simulink Test','MathWorks, living','mgt',0,'c',35,0],
+  ['slcoverage',7,1,'Simulink Coverage','MathWorks, living','mgt',0,'c',36,0],
+  ['buildtool',8,1,'MATLAB build tool','MathWorks, R2022b','mgt',0,'c',37,0],
+  ['cipart1',5,2,'CI for verification 1','MathWorks ’20–','mgt',1,'c',33,0],
+  ['matlabtest',6,2,'MATLAB Test','MathWorks, R2023a','mgt',0,'c',38,0],
+  ['reqtoolbox',8,2,'Requirements Toolbox','MathWorks, living','mgt',1,'c',40,0],
+  ['cipart2',5,3,'CI with GitLab 2','MathWorks, living','mgt',0,'c',34,0],
+  ['slcheck',6,3,'Simulink Check','MathWorks, living','mgt',1,'c',42,0],
+  ['diffmergeci',7,3,'Diff/merge in CI/CD','MathWorks, living','mgt',0,'c',39,0],
+  ['doors',8,3,'DOORS traceability','MathWorks, living','mgt',0,'c',41,0],
+  ['metricsdash',6,4,'Metrics Dashboard','MathWorks, living','mgt',0,'c',43,0],
+  ['targetlink',8,4,'dSPACE TargetLink','dSPACE, living','mgt',0,'c',53,1],
+  ['maintdash',6,5,'Maintainability dash','MathWorks, living','mgt',0,'c',44,0],
+  ['certkits',7,5,'Qualification kits','MathWorks, living','mgt',0,'c',52,1],
+  ['slnet',5,6,'SLNET corpus ¶','Shrestha et al. ’22','mgt',0,'c',46,0],
+  ['boll',6,6,'Open-source study ¶','Boll et al. ’21','mgt',0,'c',48,0],
+  ['chowdhury',7,6,'Curated corpus','Chowdhury et al. ’18','mgt',0,'a',47,0],
+  ['replicability',5,7,'Replicability study','Shrestha et al. ’23','mgt',0,'a',49,0],
+  ['iso26262',7,7,'ISO 26262-6','ISO ’18','mgt',1,'c',50,1],
+  ['do331',8,7,'DO-331 / ED-218','RTCA ’11','mgt',1,'c',51,1],
+  ['aarenstrup',6,8,'Managing MBD ¶','Aarenstrup ’15','mgt',1,'c',45,0]
+];
+
+var E2=[
+  ['mab','mabdoc'],['jmaab','mabdoc'],['mab','signaltyping'],
+  ['johnsonguide','johnsonbook'],['johnsonbook','mwcodingguide'],['matlabpkg','mwcodingguide'],
+  ['mabdoc','misraslsf'],['misragmg','misraslsf'],
+  ['signaltyping','fixedpoint'],['fixedpoint','embeddedcoder'],
+  ['mabdoc','gerlitz'],['mabdoc','deissenboeck'],
+  ['deissenboeck','alalfi'],['alalfi','stephancordy'],
+  ['compmodel','largescale'],['refmodels','largescale'],
+  ['busobj','datadict'],['datadict','largescale'],
+  ['largescale','bestpractices'],['largescale','sae2010'],
+  ['bestpractices','syscompbp'],['sae2010','syscomposer'],['syscompbp','syscomposer'],
+  ['busobj','syscomposer'],['datadict','syscomposer'],
+  ['syscomposer','autosar'],
+  ['mabdoc','slcheck'],
+  ['compmodel','projects'],['refmodels','cipart1'],
+  ['dspaceguide','targetlink'],['dspacecompare','targetlink'],
+  ['embeddedcoder','certkits'],
+  ['autosar','iso26262'],
+  ['modelcompare','projects'],['mergedocs','projects'],['guyblog','projects'],
+  ['projects','cipart1'],['sltest','cipart1'],['slcoverage','cipart1'],['buildtool','cipart1'],
+  ['mergedocs','diffmergeci'],['matlabtest','diffmergeci'],['buildtool','diffmergeci'],['cipart1','diffmergeci'],
+  ['cipart1','cipart2'],
+  ['slcheck','metricsdash'],['metricsdash','maintdash'],
+  ['reqtoolbox','doors'],
+  ['reqtoolbox','aarenstrup',null,'M1590 826 L1529 792 V190 L1312 132'],
+  ['sltest','aarenstrup',null,'M1290 952 L1339 920 V180 L1298 132'],
+  ['maintdash','aarenstrup',null,'M1198 448 L1149 420 V186 L1198 132'],
+  ['slnet','replicability'],['boll','replicability'],['chowdhury','replicability'],
+  ['slnet','aarenstrup'],['boll','aarenstrup'],
+  ['slcheck','certkits'],['reqtoolbox','certkits'],['sltest','certkits'],
+  ['certkits','iso26262'],['certkits','do331'],
+  ['targetlink','iso26262'],
+  ['iso26262','aarenstrup'],['do331','aarenstrup'],
+  // added in the rev. 2 scrutiny pass — routes the Design apex into the safety lifecycle
+  ['misraslsf','iso26262',null,'M144 670 L170 648 H1339 V286 L1408 258']
+];
+
+render({
+  svg:'dag2', bandsG:'bands2', edgesG:'edges2', nodesG:'nodes2', marker:'ah2',
+  refPrefix:'p2-ref-', L:L2,
+  rowY:function(level){return 70+(8-level)*126;},
+  nodes:N2, edgeList:E2,
+  bandRects:[[16,24,556,1128,'bb'],[586,24,366,1128,'ba'],[966,24,746,1128,'sh']],
+  labels:[
+    ['APEX: MISRA AC SLSF · DESIGN-QUALITY STUDIES',29,46,'lab-cl'],
+    ['APEX: SYSTEM COMPOSER / AUTOSAR',599,46,'lab-cl'],
+    ['APEX: MANAGING MBD · SAFETY LIFECYCLE · EMPIRICAL CORPORA',979,46,'lab-cl'],
+    ['DESIGN — STYLE, BLOCKS, TYPING (MOST ROOTS)',29,1174,'lab-band'],
+    ['ARCHITECTURE — COMPONENTS → SYSTEMS',599,1174,'lab-band'],
+    ['MANAGEMENT — CM → CI → GOVERNANCE → PROGRAM',979,1174,'lab-band'],
+    ['ROOTS AT THE BOTTOM.',29,104,'lab-note hd'],
+    ['Reasoning about higher-order abstraction',29,126,'lab-note'],
+    ['requires first understanding the underlying',29,142,'lab-note'],
+    ['detail — hence this DAG is ordered bottom-up',29,158,'lab-note'],
+    ['and every edge points upward.',29,174,'lab-note'],
+    ['detail → abstraction — every edge points upward',12,860,'lab-cl',1]
+  ]
+});
+
+})();
+</script>
+</body>
+</html>

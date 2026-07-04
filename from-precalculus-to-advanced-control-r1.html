@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Unified self-study DAG — Precalculus to Advanced Control</title>
+<style>
+  :root{
+    --paper:#F6F5F0; --panel:#FFFFFF; --ink:#22261F; --mut:#6E7268; --line:#DDDCD4;
+    --math:#46549B;  --math-bg:#EBEDF8;
+    --eng:#14705A;   --eng-bg:#E2F1EA;
+    --found:#8F6E1E; --found-bg:#F5EEDA;
+    --target:#6C3FA0;
+    --edge:#A2A69C;
+    --serif:Charter,"Bitstream Charter","Iowan Old Style","Sitka Text",Cambria,Georgia,serif;
+    --sans:ui-sans-serif,system-ui,"Segoe UI","Helvetica Neue",Arial,sans-serif;
+    --mono:ui-monospace,"SF Mono","Cascadia Code",Consolas,monospace;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  @media (prefers-reduced-motion: reduce){ html{scroll-behavior:auto} *{transition:none!important} }
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.65}
+  .wrap{max-width:1160px;margin:0 auto;padding:0 28px}
+  header{padding:56px 0 30px;border-bottom:1px solid var(--line)}
+  .eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--mut)}
+  h1{font-family:var(--serif);font-weight:500;font-size:clamp(28px,4vw,42px);line-height:1.15;margin:.35em 0 .3em;max-width:24ch}
+  .lede{color:var(--mut);max-width:70ch;margin:0}
+  .meta{font-family:var(--mono);font-size:12.5px;color:var(--mut);margin-top:18px}
+  .meta b{color:var(--ink);font-weight:600}
+  h2{font-family:var(--serif);font-weight:500;font-size:24px;margin:0 0 6px}
+  h2 .no{font-family:var(--mono);font-size:12px;color:var(--mut);vertical-align:.6em;margin-right:.6em;letter-spacing:.1em}
+  section{padding:44px 0 8px}
+  .subtle{color:var(--mut);font-size:14.5px;max-width:76ch}
+
+  .legend{display:flex;flex-wrap:wrap;gap:10px 22px;margin:14px 0 2px;font-size:13.5px}
+  .key{display:flex;align-items:center;gap:8px;color:var(--mut)}
+  .sw{width:22px;height:14px;border-radius:4px;border:1.5px solid;flex:none}
+  .sw.f{background:var(--found-bg);border-color:var(--found)}
+  .sw.m{background:var(--math-bg);border-color:var(--math)}
+  .sw.e{background:var(--eng-bg);border-color:var(--eng)}
+  .sw.adv{background:#fff;border-color:var(--eng)}
+  .sw.t{background:#fff;border:2px solid var(--target)}
+
+  .board{background:var(--panel);border:1px solid var(--line);border-radius:14px;margin-top:16px;overflow-x:auto;-webkit-overflow-scrolling:touch;
+         background-image:linear-gradient(var(--paper) 1px,transparent 1px),linear-gradient(90deg,var(--paper) 1px,transparent 1px);
+         background-size:26px 26px}
+  .board svg{display:block;min-width:1720px;width:100%;max-width:2200px;margin:0 auto;height:auto}
+  .hint{font-family:var(--mono);font-size:12px;color:var(--mut);margin-top:10px}
+
+  .edge{fill:none;stroke:var(--edge);stroke-width:1.1;opacity:.5;transition:opacity .18s,stroke .18s,stroke-width .18s}
+  .edge.hl{stroke:var(--target);stroke-width:2;opacity:.95}
+  .edge.dim{opacity:.06}
+  .node{cursor:pointer}
+  .node rect{stroke-width:1.1;transition:opacity .18s}
+  .node.dim rect,.node.dim text{opacity:.16}
+  .node text{font-family:var(--sans)}
+  .nt{font-size:13px;font-weight:600;fill:var(--ink)}
+  .ns{font-size:11.5px;fill:var(--mut)}
+  .nr{font-family:var(--mono);font-size:9.5px;fill:var(--mut)}
+  .cat-f rect{fill:var(--found-bg);stroke:var(--found)}
+  .cat-m rect{fill:var(--math-bg);stroke:var(--math)}
+  .cat-e rect{fill:var(--eng-bg);stroke:var(--eng)}
+  .tier-a rect{fill:#FFFFFF}
+  .node.tgt rect{stroke:var(--target);stroke-width:2}
+  .node.tgt .nt{fill:#3E2662}
+
+  .fields{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:12px;margin-top:16px}
+  .field{background:var(--panel);border:1px solid var(--line);border-left:3px solid var(--target);border-radius:0 10px 10px 0;padding:13px 15px}
+  .field h3{margin:0 0 4px;font-family:var(--serif);font-weight:500;font-size:16.5px}
+  .field p{margin:0;font-size:13.5px;color:var(--mut)}
+  .field a{color:var(--target);text-decoration:none;font-family:var(--mono);font-size:12px}
+  .field a:hover{text-decoration:underline}
+  .field .tag{font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--mut)}
+
+  .notes{margin:14px 0 0;padding-left:1.2em}
+  .notes li{margin:0 0 10px;max-width:80ch}
+  .notes b{font-weight:600}
+
+  details{background:var(--panel);border:1px solid var(--line);border-radius:10px;margin:10px 0;padding:0}
+  summary{cursor:pointer;padding:13px 18px;font-family:var(--serif);font-size:17px;font-weight:500;list-style-position:inside}
+  summary::marker{color:var(--target)}
+  details[open] summary{border-bottom:1px solid var(--line)}
+  .elist{margin:0;padding:14px 20px 16px 20px;list-style:none}
+  .elist li{margin:0 0 9px;font-size:14.5px;max-width:92ch}
+  .elist .arrow{color:var(--target);font-weight:600}
+  .elist .ov{color:var(--mut)}
+  .elist .nd{font-family:var(--mono);font-size:11px;color:var(--mut);background:var(--paper);border:1px solid var(--line);border-radius:4px;padding:1px 5px;margin-left:6px;white-space:nowrap}
+
+  ol.refs{padding-left:0;counter-reset:ref;list-style:none;margin-top:14px}
+  ol.refs li{counter-increment:ref;position:relative;padding:9px 0 9px 52px;border-bottom:1px dashed var(--line);max-width:88ch;scroll-margin-top:24px}
+  ol.refs li::before{content:"[" counter(ref) "]";position:absolute;left:0;top:9px;font-family:var(--mono);font-size:12.5px;color:var(--target)}
+  ol.refs li.flash{background:#F1EAFB;border-radius:6px}
+  ol.refs i{font-family:var(--serif)}
+  .oa{font-family:var(--mono);font-size:10.5px;color:#14705A;border:1px solid #BFE0D2;border-radius:4px;padding:1px 5px;margin-left:6px;white-space:nowrap}
+  .alts{margin-top:26px}
+  .alts li{padding-left:58px}
+  .alts li::before{content:"[A" counter(ref) "]"}
+  .papers{margin-top:26px}
+  .papers li{padding-left:58px}
+  .papers li::before{content:"[P" counter(ref) "]"}
+  footer{padding:40px 0 60px;color:var(--mut);font-size:13px;border-top:1px solid var(--line);margin-top:52px}
+  code{font-family:var(--mono);font-size:.92em}
+
+  /* large phone (~19.5:9), CSS viewport ≲ 480px */
+  @media (max-width:700px){
+    body{font-size:15px}
+    .wrap{padding:0 18px}
+    header{padding:36px 0 22px}
+    section{padding:32px 0 6px}
+    h2{font-size:21px}
+    .legend{gap:8px 16px;font-size:12.5px}
+    .board{border-radius:10px}
+    .hint{font-size:11px}
+    summary{font-size:15.5px;padding:11px 14px}
+    .elist{padding:12px 14px 12px 14px}
+    .elist li{font-size:13.5px}
+    ol.refs li{padding-left:44px}
+    .alts li,.papers li{padding-left:50px}
+    .meta{font-size:11.5px}
+  }
+  /* 16:9 4K fullscreen desktop */
+  @media (min-width:2200px){
+    body{font-size:18px}
+    .wrap{max-width:1440px}
+    .board svg{max-width:2100px}
+    h1{font-size:48px}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <div class="eyebrow">Unified self-study DAG · rev. 4</div>
+    <h1>From Precalculus to Advanced Control</h1>
+    <p class="lede">A single directed acyclic graph of the literature: one root, two tracks (mathematical and engineering), shared optimization infrastructure, and fourteen target fields — now including predictive, robust, adaptive, sliding-mode, digital, networked, and trajectory layers. Every edge is justified by enumerated subtopic overlap; every node carries a full citation. Tinted nodes are core reading; white nodes are advanced literature; ¶ marks canonical survey or tutorial papers admitted as first-class nodes.</p>
+    <p class="meta"><b>67</b> nodes &nbsp;·&nbsp; <b>14</b> target fields &nbsp;·&nbsp; <b>102</b> drawn edges + prose edges &nbsp;·&nbsp; compiled July 2026</p>
+  </div>
+</header>
+
+<section>
+  <div class="wrap">
+    <h2><span class="no">01</span>The graph</h2>
+    <p class="subtle">Hover (or tap) any node to trace its full lineage — ancestors and descendants light up, everything else recedes. Click a node to jump to its reference. The drawing is a transitive-reduction-style rendering; edges omitted from the drawing are listed in the edge catalog marked <code>not drawn</code>. Long rail-like paths route prerequisite lines through the gaps between lanes.</p>
+    <div class="legend">
+      <span class="key"><span class="sw f"></span>Foundations</span>
+      <span class="key"><span class="sw m"></span>Mathematical track</span>
+      <span class="key"><span class="sw e"></span>Engineering track</span>
+      <span class="key"><span class="sw adv"></span>White fill — advanced tier</span>
+      <span class="key"><span class="sw t"></span>Canonical text of a target field</span>
+      <span class="key">¶ — survey / tutorial paper</span>
+    </div>
+    <div class="board">
+      <svg id="dag" viewBox="0 0 1720 1460" role="img" aria-label="Directed acyclic graph of 67 works from Precalculus to fourteen target fields in control theory">
+        <title>Unified reading DAG</title>
+        <defs>
+          <marker id="ah" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5.5" markerHeight="5.5" orient="auto-start-reverse">
+            <path d="M2 1.5L8 5L2 8.5" fill="none" stroke="context-stroke" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+          </marker>
+        </defs>
+        <g id="edges"></g>
+        <g id="nodes"></g>
+      </svg>
+    </div>
+    <p class="hint">hover / tap — trace lineage · click — jump to reference · pan horizontally on narrow screens</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2><span class="no">02</span>Target fields and their shelves</h2>
+    <div class="fields">
+      <div class="field"><h3>Differential geometry &amp; Lie theory</h3><p><span class="tag">core</span> <a href="#ref-20">[20] Lee</a> <a href="#ref-27">[27] Hall</a></p></div>
+      <div class="field"><h3>Geometric control theory</h3><p><span class="tag">core</span> <a href="#ref-37">[37] Agrachev–Sachkov</a> · <span class="tag">adv</span> <a href="#ref-46">[46] Jurdjevic</a></p></div>
+      <div class="field"><h3>Mathematical control theory</h3><p><span class="tag">core</span> <a href="#ref-29">[29] Sontag</a> · <span class="tag">adv</span> <a href="#ref-38">[38] Zabczyk</a></p></div>
+      <div class="field"><h3>Nonlinear systems &amp; control</h3><p><span class="tag">core</span> <a href="#ref-23">[23] Khalil</a> <a href="#ref-33">[33] Slotine–Li</a> · <span class="tag">adv</span> <a href="#ref-31">[31] Vidyasagar</a></p></div>
+      <div class="field"><h3>Geometric mechanics</h3><p><span class="tag">core</span> <a href="#ref-28">[28] Arnold</a> · <span class="tag">adv</span> <a href="#ref-36">[36] Marsden–Ratiu</a> <a href="#ref-45">[45] Bloch</a></p></div>
+      <div class="field"><h3>Optimal control</h3><p><span class="tag">core</span> <a href="#ref-30">[30] Kirk</a> · <span class="tag">adv</span> <a href="#ref-39">[39] Liberzon</a></p></div>
+      <div class="field"><h3>Estimation &amp; stochastic methods</h3><p><span class="tag">core</span> <a href="#ref-32">[32] Simon</a> — alt. Anderson–Moore [A3]</p></div>
+      <div class="field"><h3>Numerical, digital &amp; sampled-data control</h3><p><span class="tag">core</span> <a href="#ref-17">[17] Trefethen–Bau</a> <a href="#ref-19">[19] Åström–Wittenmark</a> <a href="#ref-25">[25] FPW</a> · <span class="tag">adv</span> <a href="#ref-43">[43] Chen–Francis</a> <a href="#ref-44">[44] Zaccarian–Teel</a></p></div>
+      <div class="field"><h3>Model predictive control</h3><p><span class="tag">core</span> <a href="#ref-54">[54] Rawlings et al.</a> <a href="#ref-55">[55] Borrelli et al.</a> · <span class="tag">adv</span> <a href="#ref-58">[58] Kouvaritakis–Cannon</a> <a href="#ref-59">[59] Grüne–Pannek</a> <a href="#ref-60">[60] Garone ¶</a></p></div>
+      <div class="field"><h3>Robust control (H∞, μ, switching)</h3><p><span class="tag">core</span> <a href="#ref-18">[18] DFT</a> <a href="#ref-40">[40] Zhou–Doyle</a> <a href="#ref-41">[41] Skogestad–P.</a> · <span class="tag">adv</span> <a href="#ref-48">[48] ZDG</a> <a href="#ref-49">[49] Dullerud–Paganini</a> <a href="#ref-47">[47] Liberzon '03</a></p></div>
+      <div class="field"><h3>Adaptive control</h3><p><span class="tag">core</span> <a href="#ref-35">[35] Åström–Wittenmark</a> <a href="#ref-51">[51] Ioannou–Sun</a> · <span class="tag">adv</span> <a href="#ref-56">[56] Krstić et al.</a> <a href="#ref-57">[57] Lavretsky–Wise</a></p></div>
+      <div class="field"><h3>Sliding mode control</h3><p><span class="tag">core</span> <a href="#ref-42">[42] Shtessel et al.</a> · <span class="tag">adv</span> <a href="#ref-50">[50] Utkin–Guldner–Shi</a> — entry via Khalil ch. 14, Slotine–Li ch. 7</p></div>
+      <div class="field"><h3>Networked control systems</h3><p><span class="tag">core</span> <a href="#ref-61">[61] Fridman</a> <a href="#ref-62">[62] Hespanha et al. ¶</a> <a href="#ref-66">[66] Heemels et al. ¶</a> · <span class="tag">adv</span> <a href="#ref-63">[63] Costa et al.</a> <a href="#ref-64">[64] Michiels–Niculescu</a> <a href="#ref-65">[65] Schenato ¶</a> <a href="#ref-67">[67] Krstić</a></p></div>
+      <div class="field"><h3>Trajectory generation &amp; reference management</h3><p><span class="tag">core</span> <a href="#ref-16">[16] Biagiotti–Melchiorri</a> <a href="#ref-52">[52] LaValle</a> · <span class="tag">adv</span> <a href="#ref-53">[53] Betts</a> <a href="#ref-60">[60] Garone ¶</a></p></div>
+    </div>
+    <p class="subtle" style="margin-top:14px">Shared infrastructure (not a field, but prerequisite to three of them): <a href="#ref-8" style="color:var(--target)">[8] Boyd–Vandenberghe</a>, <a href="#ref-26" style="color:var(--target)">[26] Nocedal–Wright</a>, <a href="#ref-34" style="color:var(--target)">[34] Boyd et al., LMIs</a>.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2><span class="no">03</span>Revision notes</h2>
+    <p class="subtle">Adjustments made in this revision (rev. 4), after scrutiny of the expanded selection:</p>
+    <ul class="notes">
+      <li><b>Åström–Wittenmark, <i>Computer-Controlled Systems</i> promoted</b> from alternative [A2] to full core node [19]. It and Franklin–Powell–Workman [25] form the parallel core pair of the digital shelf, mirroring the Calculus ∥ Concepts &amp; Contexts convention.</li>
+      <li><b>Utkin 1992 demoted to reference-only alternative</b> [A7]: canonical but poorly suited to self-study. Shtessel–Edwards–Fridman–Levant [42] is the sliding-mode core; Edwards–Spurgeon becomes alternative [A8]; Utkin–Guldner–Shi [50] carries the applied tier.</li>
+      <li><b>Ioannou–Sun chosen as the adaptive theory core</b> [51] (author-hosted free PDF), with Åström–Wittenmark <i>Adaptive Control</i> [35] as the engineering core. Narendra–Annaswamy and Sastry–Bodson move to alternatives [A9], [A10]; Hovakimyan–Cao L1 to [A11]. Krstić–Kanellakopoulos–Kokotović [56] and Lavretsky–Wise 2nd ed. 2024 [57] form the advanced tier.</li>
+      <li><b>Three shared infrastructure nodes added</b> — Boyd–Vandenberghe [8], Nocedal–Wright [26], Boyd et al. LMIs [34] — because MPC, robust, and networked control all silently assume them. This keeps the DAG honest about prerequisites; the long right-hand rails in the drawing are these dependencies made visible.</li>
+      <li><b>Survey papers admitted as first-class nodes (¶)</b> per instruction: Hespanha et al. NCS survey [62], Heemels et al. event-triggered tutorial [66], Schenato et al. lossy-networks foundations [65], Garone et al. reference governors [60]. Shorter key papers are folded into §05c rather than drawn.</li>
+      <li><b>Borrelli–Bemporad–Morari kept as a separate core node</b> [55] rather than an alternative to Rawlings–Mayne–Diehl [54]: its explicit/hybrid-MPC content is not subsumed.</li>
+      <li><b>μ-synthesis gets no standalone node</b> — it lives inside Zhou–Doyle–Glover [48] and Skogestad–Postlethwaite [41]; dwell-time and average dwell-time switching live in Liberzon [47]. Packard–Doyle and Lin–Antsaklis surveys are listed in §05c.</li>
+      <li><b>Chen–Francis retained despite its reference-only character</b> [43]: it simply is the sampled-data lifting theory; flagged as such.</li>
+      <li><b>Core vs. advanced is now a visual encoding</b> applied retroactively to the original 34 nodes: Vidyasagar, Zabczyk, Liberzon [39], Jurdjevic, Marsden–Ratiu, and Bloch are marked advanced-tier.</li>
+      <li><b>Open-access flags added</b> to the bibliography where an official free copy exists (author- or publisher-hosted), per the July 2026 research pass; verify links before relying on them.</li>
+    </ul>
+    <p class="subtle" style="margin-top:10px">Carried from rev. 3: Hespanha [22] replaces Brockett as the linear-systems node (Brockett → [A1]); Boyce–DiPrima–Meade [6] fills the Laplace/ODE gap on the engineering spine; Luenberger → Kirk added; Lee + Hall designated the Differential Geometry &amp; Lie Theory pair; known seams (Kirk → Liberzon rigor jump; thin Precalculus → Lay / → Hibbeler edges; Abbott → Axler proof-culture edge) kept deliberately and documented.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2><span class="no">04</span>Edge catalog with overlap enumerations</h2>
+    <p class="subtle">Progressiveness rule: each edge lists the subtopics shared by parent and child; a lineage is progressive when every consecutive pair overlaps densely. <code>not drawn</code> edges exist in the DAG but are omitted from the drawing (transitive display reduction or kept as prose to limit clutter).</p>
+
+    <details>
+      <summary>Stage I — Foundations</summary>
+      <ul class="elist">
+        <li>Precalculus <span class="arrow">→</span> Calculus — <span class="ov">functions &amp; transformations; trigonometry; exponentials/logarithms; analytic geometry &amp; conics; sequences as a limits preview.</span></li>
+        <li>Precalculus <span class="arrow">→</span> Calculus: Concepts &amp; Contexts — <span class="ov">same interface; C&amp;C ∥ Calculus are parallel alternatives with near-total mutual overlap.</span></li>
+        <li>Precalculus <span class="arrow">→</span> Linear algebra I (Lay) — <span class="ov">linear systems &amp; elimination; matrix arithmetic; plane vectors; linear models.</span></li>
+        <li>Precalculus <span class="arrow">→</span> Statics &amp; dynamics (Hibbeler) — <span class="ov">vectors &amp; trigonometry; components &amp; dot products; force geometry; simultaneous equations.</span><span class="nd">not drawn — via Calculus</span></li>
+        <li>Calculus <span class="arrow">→</span> Real analysis I (Abbott) — <span class="ov">ε–δ limits; continuity; derivative as limit; Riemann sums → integral; series tests. Same for C&amp;C → Abbott.</span></li>
+        <li>Calculus <span class="arrow">→</span> Hibbeler — <span class="ov">kinematics via derivatives/integrals; vector-valued functions; curvilinear coordinates; work integrals.</span></li>
+        <li>Calculus <span class="arrow">→</span> Engineering ODEs (Boyce–DiPrima–Meade) — <span class="ov">integration technique; power series; first-order models; exponential solutions.</span></li>
+        <li>Calculus <span class="arrow">→</span> Convex optimization (Boyd–Vandenberghe) — <span class="ov">multivariable calculus; gradients &amp; Hessians; Lagrange multipliers → duality.</span></li>
+        <li>Lay <span class="arrow">→</span> Boyd–Vandenberghe — <span class="ov">linear systems &amp; least squares; positive semidefinite matrices; matrix norms; quadratic forms.</span></li>
+        <li>Calculus <span class="arrow">→</span> Taylor — <span class="ov">multivariable differentiation; line integrals; ODE fluency.</span><span class="nd">not drawn — via Hibbeler</span></li>
+        <li>Calculus <span class="arrow">→</span> Trefethen–Bau — <span class="ov">Taylor expansion for error analysis; norms &amp; convergence.</span><span class="nd">not drawn — via Lay</span></li>
+        <li>Calculus / Lay <span class="arrow">→</span> Nocedal–Wright — <span class="ov">Taylor's theorem for line search &amp; trust regions; convergence rates; factorizations.</span><span class="nd">not drawn — via Trefethen–Bau</span></li>
+        <li>Lay <span class="arrow">→</span> Linear algebra II (Axler) — <span class="ov">systems &amp; independence; vector spaces; linear maps as matrices; eigen-theory; orthogonality — re-derived abstractly, determinant-free.</span></li>
+        <li>Lay <span class="arrow">→</span> Feedback control (Franklin) — <span class="ov">state-space ẋ = Ax + Bu; eigenvalues as poles; rank conditions; similarity transformations.</span></li>
+        <li>Lay <span class="arrow">→</span> Trefethen–Bau — <span class="ov">LU/QR; least squares; eigenproblems; orthogonality — Lay computes, Trefethen–Bau conditions and stabilizes.</span></li>
+        <li>Lay <span class="arrow">→</span> Nocedal–Wright — <span class="ov">drawn as the lane-I rail: linear algebra of KKT systems; least squares; sparsity.</span></li>
+      </ul>
+    </details>
+
+    <details>
+      <summary>Stage II — Analysis &amp; algebra trunk</summary>
+      <ul class="elist">
+        <li>Abbott <span class="arrow">→</span> Rudin PMA — <span class="ov">sequences/series; (uniform) continuity; Riemann integration; uniform convergence; compactness on ℝ.</span></li>
+        <li>Abbott <span class="arrow">→</span> Axler — <span class="ov">proof craft; ℝ/ℂ fields; suprema in norms; polynomial approximation. Weakest trunk edge, kept deliberately.</span></li>
+        <li>Rudin PMA <span class="arrow">→</span> Munkres — <span class="ov">metric spaces; compactness &amp; connectedness; topological continuity; Baire-style arguments.</span></li>
+        <li>Rudin PMA <span class="arrow">→</span> Rudin RCA — <span class="ov">Riemann → Lebesgue; limit interchange; completeness; power series → holomorphy.</span></li>
+        <li>Rudin PMA <span class="arrow">→</span> HSD — <span class="ov">multivariable differentials; contraction mapping / Picard–Lindelöf; norms on ℝⁿ; uniform convergence for flows.</span></li>
+        <li>Rudin PMA <span class="arrow">→</span> Khalil — <span class="ov">comparison lemma; Gronwall inequalities; Barbălat; norms.</span><span class="nd">not drawn — via HSD</span></li>
+        <li>Rudin PMA <span class="arrow">→</span> Liberzon [39] — <span class="ov">ε–δ analysis; function-space convergence; existence arguments.</span><span class="nd">not drawn</span></li>
+        <li>Axler <span class="arrow">→</span> HSD — <span class="ov">spectral/Jordan structure of e^{tA}; diagonalization; invariant ↔ stable/unstable subspaces; operator norms.</span></li>
+        <li>Axler <span class="arrow">→</span> Lee — <span class="ov">tangent-space linear algebra; dual spaces &amp; 1-forms; multilinear/tensor algebra.</span></li>
+        <li>Axler <span class="arrow">→</span> Hespanha — <span class="ov">canonical forms; rank; quadratic forms → Lyapunov equations &amp; Gramians; eigenstructure.</span></li>
+        <li>Axler <span class="arrow">→</span> Luenberger — <span class="ov">inner products; orthogonal projection; adjoints; least squares.</span></li>
+        <li>Axler <span class="arrow">→</span> Hall — <span class="ov">matrix groups; matrix exponential; complexification; representations.</span><span class="nd">not drawn — via Lee</span></li>
+        <li>Rudin RCA <span class="arrow">→</span> Luenberger — <span class="ov">Banach/Hilbert; Lᵖ; duality &amp; Hahn–Banach; projections.</span></li>
+        <li>Rudin RCA <span class="arrow">→</span> Sontag — <span class="ov">measurable / L<sup>∞</sup> controls; Carathéodory ODEs; Lᵖ signals.</span><span class="nd">not drawn — via Luenberger</span></li>
+        <li>Rudin RCA <span class="arrow">→</span> Papoulis — <span class="ov">measure-theoretic probability underpinnings; Lᵖ convergence modes; integration.</span></li>
+        <li>Rudin RCA <span class="arrow">→</span> Zhou–Doyle–Glover — <span class="ov">Hardy spaces H₂/H∞; inner–outer factorization; operator norms.</span><span class="nd">not drawn — prose</span></li>
+      </ul>
+    </details>
+
+    <details>
+      <summary>Stage III — Dynamics, geometry, systems</summary>
+      <ul class="elist">
+        <li>HSD <span class="arrow">→</span> Hespanha — <span class="ov">ẋ = Ax via matrix exponential; linear phase portraits &amp; stability; forced systems.</span></li>
+        <li>HSD <span class="arrow">→</span> Khalil — <span class="ov">equilibria &amp; linearization; phase plane; limit cycles; flow stability.</span></li>
+        <li>HSD <span class="arrow">→</span> Vidyasagar — <span class="ov">existence/uniqueness; linearization; periodic solutions.</span></li>
+        <li>HSD <span class="arrow">→</span> Arnold — <span class="ov">Hamiltonian planar systems; periodic orbits; stability; phase portraits.</span></li>
+        <li>Munkres <span class="arrow">→</span> Lee — <span class="ov">topological/quotient/product spaces; paracompactness; covering spaces.</span></li>
+        <li>Lee <span class="arrow">→</span> Hall — <span class="ov">manifolds &amp; maps; tangent spaces; flows &amp; Lie brackets; Lie subgroups.</span></li>
+        <li>Lee <span class="arrow">→</span> Arnold — <span class="ov">(co)tangent bundles; differential forms; flows; Lie derivative.</span></li>
+        <li>Lee <span class="arrow">→</span> Agrachev–Sachkov — <span class="ov">vector fields &amp; flows; brackets; Frobenius/distributions; orbits.</span></li>
+        <li>Lee <span class="arrow">→</span> Marsden–Ratiu — <span class="ov">manifolds; forms; Lie derivative.</span><span class="nd">not drawn — via Arnold/Hall</span></li>
+        <li>Luenberger <span class="arrow">→</span> Sontag — <span class="ov">DP &amp; maximum-principle machinery; Hilbert least squares → LQ; duality.</span></li>
+        <li>Luenberger <span class="arrow">→</span> Kirk — <span class="ov">variational calculus in normed spaces; constrained optimization; gradient conditions.</span></li>
+        <li>Hespanha <span class="arrow">→</span> Sontag — <span class="ov">controllability/observability; realization; stabilization; LQR.</span></li>
+        <li>Hespanha <span class="arrow">→</span> Kirk — <span class="ov">LQR; Riccati; controllability; state feedback.</span></li>
+        <li>Hespanha <span class="arrow">→</span> Agrachev–Sachkov — <span class="ov">Kalman rank → Lie-algebra rank condition; state-space formalism.</span></li>
+        <li>Hespanha <span class="arrow">→</span> Simon — <span class="ov">observability Gramians; observers; duality with LQR.</span></li>
+        <li>Hespanha <span class="arrow">→</span> Boyd et al. LMIs — <span class="ov">Lyapunov equations/inequalities; Riccati ↔ LMI; stability certificates.</span></li>
+        <li>Boyd–Vandenberghe <span class="arrow">→</span> LMIs — <span class="ov">semidefinite programming; duality; interior-point solvability.</span></li>
+        <li>Hall <span class="arrow">→</span> Marsden–Ratiu — <span class="ov">adjoint/coadjoint actions; coadjoint orbits ↔ Lie–Poisson; exp map.</span></li>
+        <li>Hall <span class="arrow">→</span> Jurdjevic — <span class="ov">Lie groups as state spaces; left-invariant systems; exponential coordinates.</span></li>
+        <li>Trefethen–Bau <span class="arrow">→</span> Nocedal–Wright — <span class="ov">QR/SVD in least squares; conditioning &amp; stability of KKT solves; Krylov methods.</span></li>
+      </ul>
+    </details>
+
+    <details>
+      <summary>Stage IV — Engineering spine</summary>
+      <ul class="elist">
+        <li>Hibbeler <span class="arrow">→</span> Franklin — <span class="ov">Newton–Euler modeling; FBD → equations of motion; mass–spring–damper plants; mechanism kinematics.</span></li>
+        <li>Hibbeler <span class="arrow">→</span> Taylor — <span class="ov">particle &amp; rigid-body dynamics; energy/momentum methods; oscillations; rotating frames.</span></li>
+        <li>BDM <span class="arrow">→</span> Franklin — <span class="ov">linear constant-coefficient ODEs; Laplace transforms &amp; transfer functions; step/impulse response; resonance.</span></li>
+        <li>BDM <span class="arrow">→</span> Papoulis — <span class="ov">transforms; linear system response; convolution; series methods.</span></li>
+        <li>BDM <span class="arrow">→</span> Åström–Wittenmark CCS — <span class="ov">differential ↔ difference equations; transforms; discretization of linear dynamics.</span></li>
+        <li>Taylor <span class="arrow">→</span> Arnold — <span class="ov">Lagrangian &amp; variational principles; conservation laws; Euler rigid body; normal modes. The engineering-track merge into geometric mechanics.</span></li>
+        <li>Franklin <span class="arrow">→</span> Kirk — <span class="ov">state-space models; specs → cost functionals; LQR; feedback structures.</span></li>
+        <li>Franklin <span class="arrow">→</span> Slotine–Li — <span class="ov">linear design baseline; tracking &amp; robustness specs; actuator models.</span></li>
+        <li>Franklin <span class="arrow">→</span> Simon — <span class="ov">observers (Luenberger observer → Kalman filter); state-space models; discretization.</span></li>
+        <li>Franklin <span class="arrow">→</span> FPW Digital Control — <span class="ov">the same authors' program re-derived under sampling: z-transforms, discrete equivalents, quantization.</span></li>
+        <li>Franklin <span class="arrow">→</span> Åström–Wittenmark CCS — <span class="ov">transfer-function &amp; state-space design; sampling; z-plane pole placement.</span></li>
+        <li>Franklin <span class="arrow">→</span> DFT (Doyle–Francis–Tannenbaum) — <span class="ov">loop shaping; sensitivity &amp; complementary sensitivity; stability margins → formal H∞ statement.</span></li>
+        <li>Franklin <span class="arrow">→</span> Biagiotti–Melchiorri — <span class="ov">servo loops consuming references; feedforward; motion profiles as reference inputs.</span></li>
+        <li>Franklin <span class="arrow">→</span> Åström–Wittenmark Adaptive — <span class="ov">pole placement &amp; self-tuning loops; digital implementation; gain scheduling.</span></li>
+        <li>Papoulis <span class="arrow">→</span> ÅW Adaptive — <span class="ov">recursive least squares; stochastic models; identification.</span></li>
+        <li>Papoulis <span class="arrow">→</span> Simon — <span class="ov">random vectors &amp; covariance; Gaussian processes; MMSE &amp; conditional expectation.</span></li>
+        <li>Trefethen–Bau <span class="arrow">→</span> FPW — <span class="ov">numerically robust pole placement; Riccati/Lyapunov solvers; discretization conditioning.</span></li>
+      </ul>
+    </details>
+
+    <details>
+      <summary>Stage V — Terminal seams of the original eight fields</summary>
+      <ul class="elist">
+        <li>Khalil <span class="arrow">→</span> Vidyasagar — <span class="ov">Lyapunov direct/converse; I/O &amp; L-stability, passivity; absolute stability; comparison principles.</span></li>
+        <li>Khalil <span class="arrow">→</span> Slotine–Li — <span class="ov">Lyapunov design; feedback linearization; sliding mode; passivity.</span></li>
+        <li>Sontag <span class="arrow">→</span> Zabczyk — <span class="ov">controllability/observability; stabilization; realization — extended toward infinite dimension.</span></li>
+        <li>Sontag <span class="arrow">→</span> Liberzon [39] — <span class="ov">admissible controls; existence of optimal controls; maximum principle.</span></li>
+        <li>Kirk <span class="arrow">→</span> Liberzon [39] — <span class="ov">calculus of variations; PMP; HJB; LQR &amp; bang-bang — Liberzon proves what Kirk motivates.</span></li>
+        <li>Arnold <span class="arrow">→</span> Marsden–Ratiu — <span class="ov">symplectic manifolds &amp; Hamiltonian flows; Legendre transform; Noether → momentum maps.</span></li>
+        <li>Marsden–Ratiu <span class="arrow">→</span> Bloch — <span class="ov">symmetry &amp; reduction; momentum maps; constrained variational principles.</span></li>
+        <li>Agrachev–Sachkov <span class="arrow">→</span> Jurdjevic — <span class="ov">orbit theorem / Chow–Rashevskii; bracket-generating conditions; PMP on manifolds.</span></li>
+        <li>Agrachev–Sachkov <span class="arrow">→</span> Bloch — <span class="ov">nonholonomic distributions; bracket conditions; mechanical controllability.</span></li>
+      </ul>
+    </details>
+
+    <details open>
+      <summary>Stage VI — Robust &amp; switched control (new)</summary>
+      <ul class="elist">
+        <li>DFT <span class="arrow">→</span> Zhou–Doyle Essentials — <span class="ov">SISO H∞ → MIMO; coprime factorization; model uncertainty descriptions; small-gain.</span></li>
+        <li>Hespanha <span class="arrow">→</span> Zhou–Doyle — <span class="ov">state-space realizations; Riccati machinery for H₂/H∞; balanced truncation.</span></li>
+        <li>DFT <span class="arrow">→</span> Skogestad–Postlethwaite — <span class="ov">loop shaping scaled to MIMO; singular values; uncertainty weights; performance limits.</span> (Hespanha state-space: <span class="nd">prose</span>)</li>
+        <li>Zhou–Doyle <span class="arrow">→</span> Zhou–Doyle–Glover — <span class="ov">the same program at research depth: Hardy spaces, LFTs, μ-synthesis, full H∞ synthesis proofs.</span> (RCA: <span class="nd">prose</span>)</li>
+        <li>Zhou–Doyle <span class="arrow">→</span> Dullerud–Paganini — <span class="ov">robustness re-posed as convex feasibility; IQC flavor; LMI synthesis.</span> (LMIs [34]: <span class="nd">prose</span>)</li>
+        <li>Khalil <span class="arrow">→</span> Liberzon, Switching [47] — <span class="ov">multiple Lyapunov functions; dwell-time &amp; average dwell-time; stability under arbitrary/constrained switching.</span> (Hespanha: <span class="nd">prose</span>)</li>
+      </ul>
+    </details>
+
+    <details open>
+      <summary>Stage VII — Adaptive &amp; sliding mode (new)</summary>
+      <ul class="elist">
+        <li>Khalil <span class="arrow">→</span> Ioannou–Sun — <span class="ov">Lyapunov redesign; Barbălat's lemma; passivity; robustness modifications (σ-mod, e-mod).</span> (Hespanha: <span class="nd">prose</span>)</li>
+        <li>Ioannou–Sun <span class="arrow">→</span> Krstić–Kanellakopoulos–Kokotović — <span class="ov">parameter adaptation laws → backstepping with tuning functions; Lyapunov constructions; overparametrization removal.</span></li>
+        <li>Ioannou–Sun <span class="arrow">→</span> Lavretsky–Wise — <span class="ov">MRAC theory → aerospace-grade robust MRAC; projection operators; verification &amp; certification concerns.</span></li>
+        <li>Khalil <span class="arrow">→</span> Shtessel et al. — <span class="ov">Lyapunov &amp; finite-time stability; discontinuous right-hand sides (Filippov); Khalil ch. 14 as the on-ramp.</span></li>
+        <li>Slotine–Li <span class="arrow">→</span> Shtessel et al. — <span class="ov">sliding surfaces; equivalent control; chattering &amp; boundary layers (Slotine–Li ch. 7).</span></li>
+        <li>Shtessel et al. <span class="arrow">→</span> Utkin–Guldner–Shi — <span class="ov">HOSM/super-twisting theory → drives, power converters, mechatronic case studies.</span></li>
+      </ul>
+    </details>
+
+    <details open>
+      <summary>Stage VIII — Predictive control &amp; trajectory layer (new)</summary>
+      <ul class="elist">
+        <li>Kirk <span class="arrow">→</span> Rawlings–Mayne–Diehl — <span class="ov">receding-horizon optimal control; DP/HJB intuition; terminal cost &amp; terminal constraint sets.</span></li>
+        <li>Boyd–Vandenberghe <span class="arrow">→</span> RMD — <span class="ov">constrained QP/NLP; KKT conditions; duality inside MPC solvers.</span> (Hespanha LQR limit, Khalil Lyapunov proofs: <span class="nd">prose</span>)</li>
+        <li>Boyd–Vandenberghe <span class="arrow">→</span> Borrelli–Bemporad–Morari — <span class="ov">multiparametric programming; polyhedral computation; explicit MPC.</span> (Hespanha: <span class="nd">prose</span>)</li>
+        <li>RMD <span class="arrow">→</span> Kouvaritakis–Cannon — <span class="ov">tube MPC; stochastic constraints; recursive feasibility under uncertainty.</span></li>
+        <li>RMD <span class="arrow">→</span> Grüne–Pannek — <span class="ov">NMPC stability without terminal constraints; suboptimality estimates.</span> (Khalil: <span class="nd">prose</span>)</li>
+        <li>RMD <span class="arrow">→</span> Garone et al. ¶ — <span class="ov">constraint admissibility &amp; invariant sets → reference and command governors layered on stabilized loops.</span></li>
+        <li>Franklin <span class="arrow">→</span> Biagiotti–Melchiorri — <span class="ov">see Stage IV; the trajectory-profiles core sits directly on the servo layer.</span></li>
+        <li>Munkres <span class="arrow">→</span> LaValle — <span class="ov">configuration-space topology; connectedness; quotient constructions.</span> (Lee manifolds, Papoulis probabilistic planning: <span class="nd">prose</span>)</li>
+        <li>Kirk <span class="arrow">→</span> Betts — <span class="ov">optimal control problem formulations; transversality; costates ↔ NLP multipliers.</span></li>
+        <li>Nocedal–Wright <span class="arrow">→</span> Betts — <span class="ov">SQP &amp; interior-point methods; sparsity exploitation; mesh refinement in direct transcription.</span></li>
+      </ul>
+    </details>
+
+    <details open>
+      <summary>Stage IX — Digital, sampled-data &amp; anti-windup (new)</summary>
+      <ul class="elist">
+        <li>Åström–Wittenmark CCS <span class="arrow">→</span> Chen–Francis — <span class="ov">sampled-data lifting; intersample behavior; H₂/H∞ sampled-data synthesis.</span> (RCA operator theory: <span class="nd">prose</span>)</li>
+        <li>LMIs [34] <span class="arrow">→</span> Zaccarian–Teel — <span class="ov">anti-windup as LMI synthesis; sector-bounded saturation; regional guarantees.</span> (Franklin saturation practice, CCS implementation: <span class="nd">prose</span>)</li>
+        <li>CCS ∥ FPW — <span class="ov">parallel core pair of the digital shelf: sampling, z-domain design, quantization, implementation; take either, skim the other.</span><span class="nd">convention, not an edge</span></li>
+      </ul>
+    </details>
+
+    <details open>
+      <summary>Stage X — Networked control &amp; delay systems (new)</summary>
+      <ul class="elist">
+        <li>Khalil <span class="arrow">→</span> Fridman — <span class="ov">Lyapunov–Krasovskii &amp; Razumikhin; stability of functional differential equations; ISS flavor.</span></li>
+        <li>LMIs [34] <span class="arrow">→</span> Fridman — <span class="ov">delay-dependent LMIs; descriptor method; robustness certificates.</span></li>
+        <li>CCS <span class="arrow">→</span> Hespanha et al. ¶ — <span class="ov">sampled-data loops → network-induced sampling: jitter, variable delay, dropouts, quantization.</span> (Hespanha [22], same author: <span class="nd">prose</span>)</li>
+        <li>Hespanha et al. ¶ <span class="arrow">→</span> Heemels et al. ¶ — <span class="ov">emulation-based design → event- and self-triggered control; ISS triggering conditions; minimum inter-event times.</span></li>
+        <li>Hespanha et al. ¶ <span class="arrow">→</span> Schenato et al. ¶ — <span class="ov">TCP/UDP-like information patterns; separation results; optimal control over lossy links.</span></li>
+        <li>Simon <span class="arrow">→</span> Schenato et al. ¶ — <span class="ov">Kalman filtering → intermittent observations; Riccati recursions with packet loss (Sinopoli threshold).</span></li>
+        <li>Fridman <span class="arrow">→</span> Michiels–Niculescu — <span class="ov">LKF certificates → spectral/eigenvalue methods; numerical continuation for delay systems.</span> (Trefethen–Bau numerics: <span class="nd">prose</span>)</li>
+        <li>Papoulis <span class="arrow">→</span> Costa–Fragoso–Marques — <span class="ov">Markov chains; conditional expectation; mean-square stability of Markov jump linear systems.</span> (Hespanha, LMIs: <span class="nd">prose</span>)</li>
+        <li>KKK <span class="arrow">→</span> Krstić '09 — <span class="ov">backstepping → PDE/transport representation of delays; predictor feedback for input delay.</span></li>
+        <li>Fridman <span class="arrow">→</span> Krstić '09 — <span class="ov">delay modeling; stability under input delay; compensation vs. robustness trade.</span></li>
+      </ul>
+    </details>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2><span class="no">05</span>References</h2>
+    <p class="subtle"><span class="oa">open access</span> marks works whose authors or publishers host an official free copy (verified in the July 2026 research pass; re-verify links before relying on them).</p>
+    <ol class="refs" id="refs">
+      <li id="ref-1">J. Stewart, L. Redlin, S. Watson, <i>Precalculus: Mathematics for Calculus</i>, 8th ed., Cengage, 2024.</li>
+      <li id="ref-2">J. Stewart, S. Kokoska, <i>Calculus: Concepts and Contexts</i>, 5th ed., Cengage, 2023. Parallel alternative to [3].</li>
+      <li id="ref-3">J. Stewart, D. Clegg, S. Watson, <i>Calculus</i>, 9th ed., Cengage, 2021.</li>
+      <li id="ref-4">D. C. Lay, S. R. Lay, J. J. McDonald, <i>Linear Algebra and Its Applications</i>, 6th ed., Pearson, 2021.</li>
+      <li id="ref-5">S. Abbott, <i>Understanding Analysis</i>, 2nd ed., Springer, 2015.</li>
+      <li id="ref-6">W. E. Boyce, R. C. DiPrima, D. B. Meade, <i>Elementary Differential Equations and Boundary Value Problems</i>, 12th ed., Wiley, 2021.</li>
+      <li id="ref-7">R. C. Hibbeler, <i>Engineering Mechanics: Statics &amp; Dynamics</i>, 16th ed., Pearson (current edition; copyright year absent from Pearson's public catalog — 15th ed. was © 2022).</li>
+      <li id="ref-8">S. Boyd, L. Vandenberghe, <i>Convex Optimization</i>, Cambridge University Press, 2004.<span class="oa">open access</span></li>
+      <li id="ref-9">W. Rudin, <i>Principles of Mathematical Analysis</i>, 3rd ed., McGraw-Hill, 1976.</li>
+      <li id="ref-10">S. Axler, <i>Linear Algebra Done Right</i>, 4th ed., Springer, 2024.<span class="oa">open access</span></li>
+      <li id="ref-11">J. R. Taylor, <i>Classical Mechanics</i>, University Science Books, 2005.</li>
+      <li id="ref-12">G. F. Franklin, J. D. Powell, A. Emami-Naeini, <i>Feedback Control of Dynamic Systems</i>, 8th ed., Pearson, 2019.</li>
+      <li id="ref-13">J. R. Munkres, <i>Topology</i>, 2nd ed., Prentice Hall, 2000.</li>
+      <li id="ref-14">W. Rudin, <i>Real and Complex Analysis</i>, 3rd ed., McGraw-Hill, 1987.</li>
+      <li id="ref-15">M. W. Hirsch, S. Smale, R. L. Devaney, <i>Differential Equations, Dynamical Systems, and an Introduction to Chaos</i>, 3rd ed., Academic Press, 2013.</li>
+      <li id="ref-16">L. Biagiotti, C. Melchiorri, <i>Trajectory Planning for Automatic Machines and Robots</i>, Springer, 2008.</li>
+      <li id="ref-17">L. N. Trefethen, D. Bau III, <i>Numerical Linear Algebra</i>, SIAM, 1997 (25th-anniversary edition, 2022).</li>
+      <li id="ref-18">J. C. Doyle, B. A. Francis, A. R. Tannenbaum, <i>Feedback Control Theory</i>, Macmillan, 1992 (Dover, 2009).<span class="oa">open access</span></li>
+      <li id="ref-19">K. J. Åström, B. Wittenmark, <i>Computer-Controlled Systems: Theory and Design</i>, 3rd ed., Prentice Hall, 1997 (Dover, 2011). Promoted from alternative — see §03.</li>
+      <li id="ref-20">J. M. Lee, <i>Introduction to Smooth Manifolds</i>, 2nd ed., Springer GTM 218, 2012.</li>
+      <li id="ref-21">D. G. Luenberger, <i>Optimization by Vector Space Methods</i>, Wiley, 1969.</li>
+      <li id="ref-22">J. P. Hespanha, <i>Linear Systems Theory</i>, 2nd ed., Princeton University Press, 2018.</li>
+      <li id="ref-23">H. K. Khalil, <i>Nonlinear Systems</i>, 3rd ed., Prentice Hall, 2002.</li>
+      <li id="ref-24">A. Papoulis, S. U. Pillai, <i>Probability, Random Variables and Stochastic Processes</i>, 4th ed., McGraw-Hill, 2002.</li>
+      <li id="ref-25">G. F. Franklin, J. D. Powell, M. L. Workman, <i>Digital Control of Dynamic Systems</i>, 3rd ed., Addison-Wesley (Ellis-Kagle reprint), 1998.</li>
+      <li id="ref-26">J. Nocedal, S. J. Wright, <i>Numerical Optimization</i>, 2nd ed., Springer, 2006.</li>
+      <li id="ref-27">B. C. Hall, <i>Lie Groups, Lie Algebras, and Representations</i>, 2nd ed., Springer GTM 222, 2015.</li>
+      <li id="ref-28">V. I. Arnold, <i>Mathematical Methods of Classical Mechanics</i>, 2nd ed., Springer GTM 60, 1989.</li>
+      <li id="ref-29">E. D. Sontag, <i>Mathematical Control Theory: Deterministic Finite Dimensional Systems</i>, 2nd ed., Springer, 1998.</li>
+      <li id="ref-30">D. E. Kirk, <i>Optimal Control Theory: An Introduction</i>, Prentice Hall, 1970 (Dover, 2004).</li>
+      <li id="ref-31">M. Vidyasagar, <i>Nonlinear Systems Analysis</i>, 2nd ed., SIAM Classics, 2002.</li>
+      <li id="ref-32">D. Simon, <i>Optimal State Estimation: Kalman, H∞, and Nonlinear Approaches</i>, Wiley, 2006.</li>
+      <li id="ref-33">J.-J. E. Slotine, W. Li, <i>Applied Nonlinear Control</i>, Prentice Hall, 1991.</li>
+      <li id="ref-34">S. Boyd, L. El Ghaoui, E. Feron, V. Balakrishnan, <i>Linear Matrix Inequalities in System and Control Theory</i>, SIAM, 1994.<span class="oa">open access</span></li>
+      <li id="ref-35">K. J. Åström, B. Wittenmark, <i>Adaptive Control</i>, 2nd ed., Addison-Wesley, 1995 (Dover, 2008).</li>
+      <li id="ref-36">J. E. Marsden, T. S. Ratiu, <i>Introduction to Mechanics and Symmetry</i>, 2nd ed., Springer TAM 17, 1999.</li>
+      <li id="ref-37">A. A. Agrachev, Y. L. Sachkov, <i>Control Theory from the Geometric Viewpoint</i>, Springer, 2004.</li>
+      <li id="ref-38">J. Zabczyk, <i>Mathematical Control Theory: An Introduction</i>, 2nd ed., Birkhäuser, 2020.</li>
+      <li id="ref-39">D. Liberzon, <i>Calculus of Variations and Optimal Control Theory: A Concise Introduction</i>, Princeton University Press, 2012.</li>
+      <li id="ref-40">K. Zhou, J. C. Doyle, <i>Essentials of Robust Control</i>, Prentice Hall, 1998.</li>
+      <li id="ref-41">S. Skogestad, I. Postlethwaite, <i>Multivariable Feedback Control: Analysis and Design</i>, 2nd ed., Wiley, 2005 (author-hosted copy reported).</li>
+      <li id="ref-42">Y. Shtessel, C. Edwards, L. Fridman, A. Levant, <i>Sliding Mode Control and Observation</i>, Birkhäuser, 2014.</li>
+      <li id="ref-43">T. Chen, B. A. Francis, <i>Optimal Sampled-Data Control Systems</i>, Springer, 1995. Reference-character monograph, retained deliberately — see §03.<span class="oa">open access</span></li>
+      <li id="ref-44">L. Zaccarian, A. R. Teel, <i>Modern Anti-windup Synthesis: Control Augmentation for Actuator Saturation</i>, Princeton University Press, 2011.</li>
+      <li id="ref-45">A. M. Bloch, <i>Nonholonomic Mechanics and Control</i>, 2nd ed., Springer, 2015.</li>
+      <li id="ref-46">V. Jurdjevic, <i>Geometric Control Theory</i>, Cambridge University Press, 1997.</li>
+      <li id="ref-47">D. Liberzon, <i>Switching in Systems and Control</i>, Birkhäuser, 2003. Dwell-time and average dwell-time live here.</li>
+      <li id="ref-48">K. Zhou, J. C. Doyle, K. Glover, <i>Robust and Optimal Control</i>, Prentice Hall, 1996.</li>
+      <li id="ref-49">G. E. Dullerud, F. Paganini, <i>A Course in Robust Control Theory: A Convex Approach</i>, Springer, 2000 (corrected printing 2005).</li>
+      <li id="ref-50">V. Utkin, J. Guldner, J. Shi, <i>Sliding Mode Control in Electro-Mechanical Systems</i>, 2nd ed., CRC Press, 2009.</li>
+      <li id="ref-51">P. A. Ioannou, J. Sun, <i>Robust Adaptive Control</i>, Prentice Hall, 1996 (Dover, 2012).<span class="oa">open access</span></li>
+      <li id="ref-52">S. M. LaValle, <i>Planning Algorithms</i>, Cambridge University Press, 2006.<span class="oa">open access</span></li>
+      <li id="ref-53">J. T. Betts, <i>Practical Methods for Optimal Control Using Nonlinear Programming</i>, 3rd ed., SIAM, 2020.</li>
+      <li id="ref-54">J. B. Rawlings, D. Q. Mayne, M. Diehl, <i>Model Predictive Control: Theory, Computation, and Design</i>, 2nd ed., Nob Hill Publishing, 2017 (paperback printing 2020).<span class="oa">open access</span></li>
+      <li id="ref-55">F. Borrelli, A. Bemporad, M. Morari, <i>Predictive Control for Linear and Hybrid Systems</i>, Cambridge University Press, 2017 (author-hosted draft).<span class="oa">open access</span></li>
+      <li id="ref-56">M. Krstić, I. Kanellakopoulos, P. V. Kokotović, <i>Nonlinear and Adaptive Control Design</i>, Wiley, 1995.</li>
+      <li id="ref-57">E. Lavretsky, K. A. Wise, <i>Robust and Adaptive Control: With Aerospace Applications</i>, 2nd ed., Springer, 2024.</li>
+      <li id="ref-58">B. Kouvaritakis, M. Cannon, <i>Model Predictive Control: Classical, Robust and Stochastic</i>, Springer, 2016.</li>
+      <li id="ref-59">L. Grüne, J. Pannek, <i>Nonlinear Model Predictive Control: Theory and Algorithms</i>, 2nd ed., Springer, 2017.</li>
+      <li id="ref-60">E. Garone, S. Di Cairano, I. Kolmanovsky, "Reference and command governors for systems with constraints: A survey on theory and applications," <i>Automatica</i> 75, 2017. Survey ¶.</li>
+      <li id="ref-61">E. Fridman, <i>Introduction to Time-Delay Systems: Analysis and Control</i>, Birkhäuser, 2014.</li>
+      <li id="ref-62">J. P. Hespanha, P. Naghshtabrizi, Y. Xu, "A survey of recent results in networked control systems," <i>Proceedings of the IEEE</i> 95(1), 2007. Survey ¶ (author-hosted preprint).</li>
+      <li id="ref-63">O. L. V. Costa, M. D. Fragoso, R. P. Marques, <i>Discrete-Time Markov Jump Linear Systems</i>, Springer, 2005.</li>
+      <li id="ref-64">W. Michiels, S.-I. Niculescu, <i>Stability, Control, and Computation for Time-Delay Systems: An Eigenvalue-Based Approach</i>, 2nd ed., SIAM, 2014.</li>
+      <li id="ref-65">L. Schenato, B. Sinopoli, M. Franceschetti, K. Poolla, S. Sastry, "Foundations of control and estimation over lossy networks," <i>Proceedings of the IEEE</i> 95(1), 2007. Survey ¶.</li>
+      <li id="ref-66">W. P. M. H. Heemels, K. H. Johansson, P. Tabuada, "An introduction to event-triggered and self-triggered control," <i>IEEE Conf. on Decision and Control</i>, 2012. Tutorial ¶.</li>
+      <li id="ref-67">M. Krstić, <i>Delay Compensation for Nonlinear, Adaptive, and PDE Systems</i>, Birkhäuser, 2009.</li>
+    </ol>
+
+    <h2 class="alts" style="font-size:20px"><span class="no">05b</span>Alternatives &amp; bridges</h2>
+    <ol class="refs alts">
+      <li>R. W. Brockett, <i>Finite Dimensional Linear Systems</i>, Wiley, 1970 (SIAM Classics, 2015). Classic alternative to [22].</li>
+      <li>K. J. Åström, R. M. Murray, <i>Feedback Systems: An Introduction for Scientists and Engineers</i>, 2nd ed., Princeton, 2021. Free official PDF; alternative entry to [12].</li>
+      <li>B. D. O. Anderson, J. B. Moore, <i>Optimal Filtering</i>, Prentice Hall, 1979 (Dover, 2005). Companion to [32].</li>
+      <li>G. Grimmett, D. Stirzaker, <i>Probability and Random Processes</i>, 4th ed., Oxford, 2020. Math-track alternative to [24].</li>
+      <li>A. Isidori, <i>Nonlinear Control Systems</i>, 3rd ed., Springer, 1995. Bridge from Khalil/Slotine–Li toward Agrachev–Sachkov.</li>
+      <li>M. Green, D. J. N. Limebeer, <i>Linear Robust Control</i>, Prentice Hall, 1995 (Dover, 2012). Alternative to [48].</li>
+      <li>V. I. Utkin, <i>Sliding Modes in Control and Optimization</i>, Springer, 1992. Demoted to reference-only — see §03.</li>
+      <li>C. Edwards, S. K. Spurgeon, <i>Sliding Mode Control: Theory and Applications</i>, Taylor &amp; Francis, 1998. Alternative to [42].</li>
+      <li>K. S. Narendra, A. M. Annaswamy, <i>Stable Adaptive Systems</i>, Prentice Hall, 1989 (Dover, 2005). Alternative to [51].</li>
+      <li>S. Sastry, M. Bodson, <i>Adaptive Control: Stability, Convergence and Robustness</i>, Prentice Hall, 1989 (Dover, 2011; free from authors). Alternative to [51].</li>
+      <li>N. Hovakimyan, C. Cao, <i>L1 Adaptive Control Theory</i>, SIAM, 2010. Specialized advanced alternative on the adaptive shelf.</li>
+      <li>J. M. Maciejowski, <i>Predictive Control with Constraints</i>, Prentice Hall, 2002. Gentler alternative entry to [54].</li>
+      <li>E. F. Camacho, C. Bordons, <i>Model Predictive Control</i>, 2nd ed., Springer, 2007. Applied alternative on the MPC shelf.</li>
+      <li>G. C. Goodwin, S. F. Graebe, M. E. Salgado, <i>Control System Design</i>, Prentice Hall, 2001. Broad design alternative on the digital shelf.</li>
+      <li>H. Kopetz, <i>Real-Time Systems: Design Principles for Distributed Embedded Applications</i>, 2nd ed., Springer, 2011. Systems-side companion to the networked shelf (time-triggered architecture).</li>
+      <li>D. P. Bertsekas, <i>Dynamic Programming and Optimal Control</i>, Vol. I 4th ed. 2017, Vol. II 4th ed. 2012, Athena Scientific. Advanced DP alternative beside [30]/[39].</li>
+    </ol>
+
+    <h2 class="papers" style="font-size:20px"><span class="no">05c</span>Key papers folded into shelves (not drawn as nodes)</h2>
+    <ol class="refs papers">
+      <li>D. Q. Mayne, J. B. Rawlings, C. V. Rao, P. O. M. Scokaert, "Constrained model predictive control: Stability and optimality," <i>Automatica</i> 36, 2000. The MPC stability canon; subsumed by [54].</li>
+      <li>A. Packard, J. Doyle, "The complex structured singular value," <i>Automatica</i> 29, 1993. μ-analysis; read beside [48].</li>
+      <li>H. Lin, P. J. Antsaklis, "Stability and stabilizability of switched linear systems: A survey of recent results," <i>IEEE Trans. Automatic Control</i> 54, 2009. Beside [47].</li>
+      <li>P. Tabuada, "Event-triggered real-time scheduling of stabilizing control tasks," <i>IEEE Trans. Automatic Control</i> 52, 2007. Beside [66].</li>
+      <li>B. Sinopoli et al., "Kalman filtering with intermittent observations," <i>IEEE Trans. Automatic Control</i> 49, 2004. Beside [65].</li>
+      <li>W. Zhang, M. S. Branicky, S. M. Phillips, "Stability of networked control systems," <i>IEEE Control Systems Magazine</i> 21, 2001. Gentle on-ramp to [62].</li>
+      <li>M. Kelly, "An introduction to trajectory optimization: How to do your own direct collocation," <i>SIAM Review</i> 59, 2017. On-ramp to [53].</li>
+      <li>W. Singhose, "Command shaping for flexible systems: A review of the first 50 years," <i>Int. J. Precision Engineering</i> 10, 2009. Input shaping, beside [16].</li>
+      <li>D. A. Bristow, M. Tharayil, A. G. Alleyne, "A survey of iterative learning control," <i>IEEE Control Systems Magazine</i> 26, 2006. ILC, beside [19]/[25].</li>
+      <li>L. Levant, "Higher-order sliding modes, differentiation and output-feedback control," <i>Int. J. Control</i> 76, 2003. HOSM, subsumed by [42].</li>
+    </ol>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    Rooted at Stewart–Redlin–Watson; the original Abbott root is node [5]. Drawing convention: transitive-reduction-style rendering; full edge set in §04. Overlap-as-progressiveness and full-citation rules applied throughout. Core = tinted, advanced = white, ¶ = survey/tutorial paper. Compiled July 2026, rev. 4.
+  </div>
+</footer>
+
+<script>
+(function(){
+  const L=[104,294,484,674,864,1054,1244,1434,1624];               // lane centers A..I
+  const R=[24,136,248,360,472,584,696,808,920,1032,1144,1256,1368]; // row tops r0..r12
+  const W=150,H=58;
+
+  // id, lane, row, title, subtitle, cat(f/m/e), target?, tier(c/a), ref#
+  const N=[
+    ['precalc',3,0,'Precalculus','Stewart et al. \u201924','f',0,'c',1],
+    ['cc',1,1,'Calculus: C&C','Stewart\u2013Kokoska \u201923','f',0,'c',2],
+    ['calc',3,1,'Calculus','Stewart et al. \u201921','f',0,'c',3],
+    ['lay',5,1,'Linear algebra I','Lay et al. \u201921','f',0,'c',4],
+    ['abbott',2,2,'Real analysis I','Abbott \u201915','m',0,'c',5],
+    ['bdm',4,2,'Engineering ODEs','Boyce\u2013DiPrima \u201921','e',0,'c',6],
+    ['hibbeler',6,2,'Statics & dynamics','Hibbeler 16e','e',0,'c',7],
+    ['bv',7,2,'Convex optimization','Boyd\u2013Vandenberghe \u201904','m',0,'c',8],
+    ['pma',1,3,'Real analysis II','Rudin \u201976','m',0,'c',9],
+    ['axler',3,3,'Linear algebra II','Axler \u201924','m',0,'c',10],
+    ['taylor',4,3,'Lagrangian mechanics','Taylor \u201905','e',0,'c',11],
+    ['franklin',5,3,'Feedback control','Franklin et al. \u201919','e',0,'c',12],
+    ['munkres',0,4,'Topology','Munkres \u201900','m',0,'c',13],
+    ['rca',1,4,'Measure & complex','Rudin \u201987','m',0,'c',14],
+    ['hsd',2,4,'ODEs & dynamics','Hirsch et al. \u201913','m',0,'c',15],
+    ['bm',3,4,'Trajectory profiles','Biagiotti\u2013Melch. \u201908','e',1,'c',16],
+    ['trefethen',4,4,'Numerical lin. alg.','Trefethen\u2013Bau \u201997','e',1,'c',17],
+    ['dft',5,4,'Robust control intro','Doyle et al. \u201992','e',1,'c',18],
+    ['ccs',6,4,'Computer control','\u00C5str\u00F6m\u2013Witt. \u201997','e',1,'c',19],
+    ['lee',0,5,'Smooth manifolds','Lee \u201912','m',1,'c',20],
+    ['luen',1,5,'Optimization','Luenberger \u201969','m',0,'c',21],
+    ['hespanha',2,5,'Linear systems','Hespanha \u201918','m',0,'c',22],
+    ['khalil',4,5,'Nonlinear systems I','Khalil \u201902','m',1,'c',23],
+    ['papoulis',5,5,'Prob. & stochastics','Papoulis\u2013Pillai \u201902','e',0,'c',24],
+    ['dcds',6,5,'Digital control','Franklin et al. \u201998','e',1,'c',25],
+    ['nw',8,5,'Numerical optim.','Nocedal\u2013Wright \u201906','m',0,'c',26],
+    ['hall',0,6,'Lie groups','Hall \u201915','m',1,'c',27],
+    ['arnold',1,6,'Classical mechanics','Arnold \u201989','m',1,'c',28],
+    ['sontag',2,6,'Mathematical control','Sontag \u201998','m',1,'c',29],
+    ['kirk',3,6,'Optimal control I','Kirk \u201970','e',1,'c',30],
+    ['vidya',4,6,'Nonlinear systems II','Vidyasagar \u201902','m',1,'a',31],
+    ['simon',5,6,'State estimation','Simon \u201906','e',1,'c',32],
+    ['slotine',6,6,'Nonlinear control','Slotine\u2013Li \u201991','e',1,'c',33],
+    ['lmi',7,6,'LMIs in control','Boyd et al. \u201994','m',0,'a',34],
+    ['awa',8,6,'Adaptive control','\u00C5str\u00F6m\u2013Witt. \u201995','e',1,'c',35],
+    ['marsden',0,7,'Mechanics & symmetry','Marsden\u2013Ratiu \u201999','m',1,'a',36],
+    ['agrachev',1,7,'Geometric control I','Agrachev\u2013Sachkov \u201904','m',1,'c',37],
+    ['zabczyk',2,7,'Math. control II','Zabczyk \u201920','m',1,'a',38],
+    ['liberzon',3,7,'Optimal control II','Liberzon \u201912','m',1,'a',39],
+    ['zde',4,7,'Robust control','Zhou\u2013Doyle \u201998','e',1,'c',40],
+    ['sp',5,7,'Multivariable control','Skogestad\u2013Postl. \u201905','e',1,'c',41],
+    ['sefl',6,7,'Sliding mode','Shtessel et al. \u201914','e',1,'c',42],
+    ['cf',7,7,'Sampled-data control','Chen\u2013Francis \u201995','e',0,'a',43],
+    ['zt',8,7,'Anti-windup','Zaccarian\u2013Teel \u201911','e',0,'a',44],
+    ['bloch',0,8,'Nonholonomic mech.','Bloch \u201915','m',1,'a',45],
+    ['jurdjevic',1,8,'Geometric control II','Jurdjevic \u201997','m',1,'a',46],
+    ['swi',2,8,'Switched systems','Liberzon \u201903','m',1,'a',47],
+    ['zdg',4,8,'Robust & optimal','Zhou\u2013Doyle\u2013Glover \u201996','e',1,'a',48],
+    ['dp',5,8,'Robust via convexity','Dullerud\u2013Paganini \u201900','e',0,'a',49],
+    ['ugs',6,8,'SMC in mechatronics','Utkin\u2013Guldner\u2013Shi \u201909','e',0,'a',50],
+    ['is',7,8,'Robust adaptive','Ioannou\u2013Sun \u201996','e',1,'c',51],
+    ['lav',0,9,'Planning algorithms','LaValle \u201906','e',1,'c',52],
+    ['betts',2,9,'Trajectory optim.','Betts \u201920','e',1,'a',53],
+    ['rmd',3,9,'Model predictive ctrl','Rawlings et al. \u201917','e',1,'c',54],
+    ['bbm',4,9,'MPC: linear & hybrid','Borrelli et al. \u201917','e',0,'c',55],
+    ['kkk',6,9,'Backstepping','Krsti\u0107 et al. \u201995','e',1,'a',56],
+    ['lw',8,9,'Aerospace adaptive','Lavretsky\u2013Wise \u201924','e',0,'a',57],
+    ['kc',3,10,'Robust & stoch. MPC','Kouvaritakis\u2013C. \u201916','e',0,'a',58],
+    ['gp',4,10,'Nonlinear MPC','Gr\u00FCne\u2013Pannek \u201917','e',0,'a',59],
+    ['gov',5,10,'Reference governors \u00B6','Garone et al. \u201917','e',1,'a',60],
+    ['frid',4,11,'Time-delay systems','Fridman \u201914','e',1,'c',61],
+    ['hnx',6,11,'Networked control \u00B6','Hespanha et al. \u201907','e',1,'c',62],
+    ['cfm',3,12,'Markov jump systems','Costa et al. \u201905','e',0,'a',63],
+    ['mn',4,12,'Delay eigen-methods','Michiels\u2013Nicul. \u201914','e',0,'a',64],
+    ['sch',5,12,'Lossy networks \u00B6','Schenato et al. \u201907','e',0,'a',65],
+    ['etc',6,12,'Event-triggered \u00B6','Heemels et al. \u201912','e',1,'c',66],
+    ['krs',7,12,'Predictor feedback','Krsti\u0107 \u201909','e',0,'a',67],
+  ];
+  const pos={}; N.forEach(n=>pos[n[0]]={cx:L[n[1]],top:R[n[2]],bot:R[n[2]]+H});
+
+  // edges: [from, to, optional custom path]
+  const E=[
+    // foundations
+    ['precalc','cc'],['precalc','calc'],['precalc','lay'],
+    ['calc','abbott'],['cc','abbott'],['calc','hibbeler'],['calc','bdm'],
+    ['calc','bv'],['lay','bv'],
+    ['lay','axler','M1084 194 V344 H700 V358'],
+    ['lay','franklin'],
+    ['lay','trefethen','M1024 194 V332 H769 V464 L806 470'],
+    ['lay','nw','M1112 194 L1600 252 V582'],
+    ['abbott','pma'],['abbott','axler'],
+    ['hibbeler','franklin'],['hibbeler','taylor'],
+    ['bdm','franklin'],
+    ['bdm','papoulis','M902 306 L953 330 V560 L1030 582'],
+    ['bdm','ccs','M930 306 C 1230 330, 1282 380, 1282 470'],
+    // trunk
+    ['pma','munkres'],['pma','rca'],['pma','hsd'],
+    ['axler','hsd'],
+    ['axler','lee','M636 418 V449 H199 V566 L140 582'],
+    ['axler','luen','M636 418 V449 H379 V566 L330 582'],
+    ['axler','hespanha','M660 418 V441 H579 V566 L534 582'],
+    ['taylor','arnold','M834 418 V458 H399 V668 L316 694'],
+    ['franklin','kirk','M986 418 V446 H947 V664 L710 694'],
+    ['franklin','simon','M1010 418 V452 H961 V660 L1016 694'],
+    ['franklin','slotine','M1106 418 V446 H1153 V664 L1230 694'],
+    ['franklin','dcds','M1090 418 V452 H1137 V560 L1206 582'],
+    ['franklin','dft'],['franklin','ccs'],['franklin','bm'],
+    ['franklin','awa','M1122 418 L1420 448 V670 L1560 694'],
+    ['munkres','lee'],['rca','luen'],['rca','papoulis'],
+    ['hsd','hespanha'],['hsd','khalil'],['hsd','vidya'],
+    ['hsd','arnold','M450 530 L389 556 V668 L270 694'],
+    ['trefethen','dcds'],['trefethen','nw'],
+    ['lee','hall'],['lee','arnold'],
+    ['lee','agrachev','M150 642 L199 668 V780 L266 806'],
+    ['luen','sontag'],['luen','kirk'],
+    ['hespanha','sontag'],['hespanha','kirk'],
+    ['hespanha','agrachev','M446 642 C 389 700, 389 758, 336 806'],
+    ['hespanha','simon'],['hespanha','lmi'],
+    ['bv','lmi','M1396 306 V694'],
+    ['khalil','vidya'],['khalil','slotine'],
+    ['papoulis','simon'],['papoulis','awa'],
+    ['hall','marsden'],
+    ['hall','jurdjevic','M150 754 L207 782 V892 L266 918'],
+    ['arnold','marsden'],
+    ['sontag','zabczyk'],['sontag','liberzon'],
+    ['kirk','liberzon'],
+    ['agrachev','jurdjevic'],['agrachev','bloch'],
+    ['marsden','bloch'],
+    // robust & switched
+    ['dft','zde','M1016 530 L757 560 V780 L826 806'],
+    ['hespanha','zde','M540 642 L765 672 V780 L845 806'],
+    ['dft','sp','M1092 530 L1145 556 V780 L1090 806'],
+    ['zde','zdg'],['zde','dp'],
+    ['khalil','swi','M820 642 L579 668 V890 L508 918'],
+    // adaptive & sliding
+    ['khalil','is','M910 642 L1343 690 V898 L1400 918'],
+    ['is','kkk'],['is','lw'],
+    ['khalil','sefl','M905 642 L1327 668 V780 L1288 806'],
+    ['slotine','sefl'],
+    ['sefl','ugs'],
+    // predictive & trajectory
+    ['kirk','rmd','M700 754 L773 782 V1008 L700 1030'],
+    ['bv','rmd','M1434 306 V640 L1529 668 V1005 L740 1030'],
+    ['bv','bbm','M1434 306 V640 L1529 668 V1005 L888 1030'],
+    ['rmd','kc'],['rmd','gp'],['rmd','gov'],
+    ['munkres','lav','M60 530 L14 556 V1006 L80 1030'],
+    ['kirk','betts','M640 754 L587 780 V1006 L520 1030'],
+    ['nw','betts','M1580 642 L1523 670 V1012 L545 1030'],
+    // digital advanced
+    ['ccs','cf','M1266 530 L1337 556 V780 L1394 806'],
+    ['lmi','zt'],
+    // networked & delay
+    ['khalil','frid','M880 642 L969 670 V1230 L900 1254'],
+    ['lmi','frid','M1400 754 L1351 782 V1228 L935 1254'],
+    ['ccs','hnx','M1266 530 L1337 556 V1230 L1264 1254'],
+    ['hnx','etc'],['hnx','sch'],
+    ['simon','sch','M1096 754 L1161 780 V1340 L1090 1364'],
+    ['frid','mn'],
+    ['papoulis','cfm','M1006 642 L781 690 V1340 L700 1364'],
+    ['kkk','krs','M1300 1090 L1434 1120 V1366'],
+    ['frid','krs','M935 1314 L1400 1366'],
+  ];
+
+  // fan-out offsets for default edges
+  const outs={},ins={};
+  E.forEach(e=>{ if(e[2])return; (outs[e[0]]=outs[e[0]]||[]).push(e); (ins[e[1]]=ins[e[1]]||[]).push(e); });
+  function spread(list,keyFn,max){
+    list.sort((a,b)=>keyFn(a)-keyFn(b));
+    const n=list.length;
+    return list.map((e,i)=> n===1?0:Math.max(-max,Math.min(max,(i-(n-1)/2)*24)));
+  }
+  const offOut=new Map(),offIn=new Map();
+  Object.values(outs).forEach(list=>{ const o=spread(list,e=>pos[e[1]].cx,52); list.forEach((e,i)=>offOut.set(e,o[i])); });
+  Object.values(ins).forEach(list=>{ const o=spread(list,e=>pos[e[0]].cx,42); list.forEach((e,i)=>offIn.set(e,o[i])); });
+
+  const svgNS='http://www.w3.org/2000/svg';
+  const gE=document.getElementById('edges'), gN=document.getElementById('nodes');
+
+  E.forEach(e=>{
+    const p=document.createElementNS(svgNS,'path');
+    let d;
+    if(e[2]) d=e[2];
+    else{
+      const a=pos[e[0]],b=pos[e[1]];
+      const x1=a.cx+(offOut.get(e)||0), y1=a.bot;
+      const x2=b.cx+(offIn.get(e)||0),  y2=b.top-2;
+      const dy=Math.min(46,Math.max(18,(y2-y1)*0.6));
+      d=`M${x1} ${y1} C ${x1} ${y1+dy}, ${x2} ${y2-dy}, ${x2} ${y2}`;
+    }
+    p.setAttribute('d',d);
+    p.setAttribute('class','edge');
+    p.setAttribute('marker-end','url(#ah)');
+    p.dataset.f=e[0]; p.dataset.t=e[1];
+    gE.appendChild(p);
+  });
+
+  N.forEach(n=>{
+    const [id,lane,row,title,sub,cat,tgt,tier,ref]=n;
+    const g=document.createElementNS(svgNS,'g');
+    g.setAttribute('class','node cat-'+cat+(tgt?' tgt':'')+(tier==='a'?' tier-a':''));
+    g.dataset.id=id;
+    const x=L[lane]-W/2, y=R[row];
+    const r=document.createElementNS(svgNS,'rect');
+    r.setAttribute('x',x); r.setAttribute('y',y);
+    r.setAttribute('width',W); r.setAttribute('height',H); r.setAttribute('rx',9);
+    g.appendChild(r);
+    const t1=document.createElementNS(svgNS,'text');
+    t1.setAttribute('x',L[lane]); t1.setAttribute('y',y+24);
+    t1.setAttribute('text-anchor','middle'); t1.setAttribute('class','nt');
+    t1.textContent=title; g.appendChild(t1);
+    const t2=document.createElementNS(svgNS,'text');
+    t2.setAttribute('x',L[lane]); t2.setAttribute('y',y+42);
+    t2.setAttribute('text-anchor','middle'); t2.setAttribute('class','ns');
+    t2.textContent=sub; g.appendChild(t2);
+    const t3=document.createElementNS(svgNS,'text');
+    t3.setAttribute('x',x+W-7); t3.setAttribute('y',y+14);
+    t3.setAttribute('text-anchor','end'); t3.setAttribute('class','nr');
+    t3.textContent='['+ref+']'; g.appendChild(t3);
+    g.addEventListener('mouseenter',()=>highlight(id));
+    g.addEventListener('mouseleave',clear);
+    g.addEventListener('click',()=>{
+      const el=document.getElementById('ref-'+ref);
+      if(el){ el.scrollIntoView({behavior:'smooth',block:'center'});
+        el.classList.add('flash'); setTimeout(()=>el.classList.remove('flash'),1600); }
+    });
+    gN.appendChild(g);
+  });
+
+  // lineage tracing
+  const up={},down={};
+  E.forEach(e=>{ (up[e[1]]=up[e[1]]||[]).push(e[0]); (down[e[0]]=down[e[0]]||[]).push(e[1]); });
+  function closure(id,adj){ const s=new Set([id]),q=[id];
+    while(q.length){ const c=q.pop(); (adj[c]||[]).forEach(n=>{ if(!s.has(n)){s.add(n);q.push(n);} }); } return s; }
+  function highlight(id){
+    const keep=new Set([...closure(id,up),...closure(id,down)]);
+    gN.querySelectorAll('.node').forEach(g=>g.classList.toggle('dim',!keep.has(g.dataset.id)));
+    gE.querySelectorAll('.edge').forEach(p=>{
+      const inSet=keep.has(p.dataset.f)&&keep.has(p.dataset.t);
+      p.classList.toggle('hl',inSet); p.classList.toggle('dim',!inSet);
+    });
+  }
+  function clear(){
+    gN.querySelectorAll('.node').forEach(g=>g.classList.remove('dim'));
+    gE.querySelectorAll('.edge').forEach(p=>p.classList.remove('hl','dim'));
+  }
+})();
+</script>
+</body>
+</html>
