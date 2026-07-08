@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Single-viewport explorer of a book-anchored calculus → analysis curriculum DAG: 27 texts, 9 tiers, 46 evidence-tagged prerequisite edges, five relational models.">
+<title>Calculus → Analysis Curriculum Explorer — nine tiers, five models, one viewport</title>
+<!-- Baseline target: Widely available as of 2026-07. Raw HTML/CSS/JS, no framework, no build
+     step at view time; opens directly from file:// (data ships as classic scripts because
+     fetch() of JSON is blocked on file://). See ARCHITECTURE.md. -->
+<link rel="stylesheet" href="styles/tokens.css">
+<link rel="stylesheet" href="styles/app.css">
+</head>
+<body>
+
+<header class="top">
+  <div class="brand">
+    <div class="eyebrow">book-anchored progressive curriculum · algebra → sobolev/pde · compiled 2026-07</div>
+    <h1>Calculus → Analysis Curriculum Explorer</h1>
+  </div>
+  <nav class="tabs" role="tablist" id="tabs" aria-label="Relational models"></nav>
+  <div class="controls" role="search">
+    <input id="q" type="search" placeholder="search title / author / id…  ( / )" aria-label="Search corpus">
+    <select id="frigor" aria-label="Rigor filter"><option value="">rigor: all</option></select>
+    <select id="ftier" aria-label="Tier filter"><option value="">tier: all</option></select>
+    <button id="reset" type="button" title="Clear filters and selection">reset</button>
+  </div>
+</header>
+
+<main class="stage">
+  <div id="view-root" tabindex="-1"></div>
+  <aside id="inspector" class="inspector" aria-label="Inspector"></aside>
+</main>
+
+<noscript>
+  <p style="padding:1.5rem">This explorer renders five relational models with JavaScript. The
+  underlying facts are in <a href="data/corpus.json">data/corpus.json</a> and
+  <a href="data/relations.json">data/relations.json</a>; the structural verification log is
+  <a href="data/corpus_report.md">data/corpus_report.md</a>.</p>
+</noscript>
+
+<!-- DATA (generated; classic scripts so the page opens from file://) -->
+<script src="data/corpus.js"></script>
+<script src="data/relations.js"></script>
+<!-- LOGIC: seam + helpers + boundary + state -->
+<script src="logic/log.js"></script>
+<script src="logic/util.js"></script>
+<script src="logic/parse.js"></script>
+<script src="logic/state.js"></script>
+<!-- LOGIC: functional core, then the shells -->
+<script src="logic/core.js"></script>
+<script src="logic/inspector.js"></script>
+<script src="logic/views/graph.js"></script>
+<script src="logic/views/tiers.js"></script>
+<script src="logic/views/lineage.js"></script>
+<script src="logic/views/parallel.js"></script>
+<script src="logic/views/gate.js"></script>
+<script src="logic/app.js"></script>
+</body>
+</html>

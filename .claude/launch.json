@@ -18,6 +18,12 @@
       "runtimeExecutable": "python",
       "runtimeArgs": ["-m", "http.server", "8098", "--bind", "127.0.0.1", "--directory", "E:/dev/corpora/SWE/explorer"],
       "port": 8098
+    },
+    {
+      "name": "calc-explorer",
+      "runtimeExecutable": "python",
+      "runtimeArgs": ["-m", "http.server", "8097", "--bind", "127.0.0.1", "--directory", "E:/dev/corpora/calculus/explorer"],
+      "port": 8097
     }
   ]
 }

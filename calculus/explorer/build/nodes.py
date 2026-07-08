@@ -1,0 +1,204 @@
+# -*- coding: utf-8 -*-
+"""Fact records hand-transcribed from calc-analysis.md — the ONLY place the report text is read.
+Sources inside the report: §1 tier scheme, §2 node catalogue, §5 quality-gate ledger (per-node
+notes), §8 open register, §9 bibliography, TL;DR. Every node in the report is carried, including
+the one the quality gate dropped (N18) — honesty over smoothing."""
+
+SOURCE_DOC = 'calc-analysis.md'
+ACCESS_DATE = '8 July 2026'
+COMPILED = '2026-07'
+
+TLDR = [
+    'A verified 26-node DAG runs from algebra readiness (Miller/O’Neill/Hyde) to research-level '
+    'graduate sinks (Stein–Shakarchi Functional Analysis; Brezis Functional Analysis, Sobolev '
+    'Spaces and PDE), extending well past both Rudin texts.',
+    'Rudin Principles (Tier 5) and Rudin Real and Complex (Tier 6) are interior nodes; the graph '
+    'continues into measure theory, functional analysis, operator/distribution theory and Sobolev/PDE.',
+    'The single largest structural gap is the leap into proof; a dedicated transition text (Velleman) '
+    'plus a gentle first-analysis tier (Ross/Abbott/Spivak) closes it with high seam overlap.',
+]
+
+# §1 — tier scheme (derived from stated prerequisites, series placement, and reviews)
+TIERS = [
+    dict(tier=0, name='Algebra & precalculus readiness',
+         focus='Real numbers, factoring, functions, trig, logs.', rigor='computational'),
+    dict(tier=1, name='Computational single-variable calculus',
+         focus='Limits, derivatives, integrals, series.', rigor='computational'),
+    dict(tier=2, name='Rigorous/advanced calculus with linear algebra',
+         focus='Proofs of calculus theorems, vector calculus, intro linear algebra.', rigor='mixed→proof'),
+    dict(tier=3, name='Transition to proof',
+         focus='Logic, sets, relations, induction.', rigor='proof-based, no analysis content'),
+    dict(tier=4, name='Introductory rigorous analysis + abstract linear algebra',
+         focus='Rigorous single-variable analysis; limits/continuity via ε-δ; abstract vector spaces.',
+         rigor='proof-based'),
+    dict(tier=5, name='Undergraduate real analysis & advanced multivariable analysis',
+         focus='Metric spaces, uniform convergence, multivariable/differential forms.', rigor='proof-based'),
+    dict(tier=6, name='Graduate real & complex analysis',
+         focus='Lebesgue measure/integration, Lᵖ, elementary functional analysis, complex function theory.',
+         rigor='proof-based, high maturity'),
+    dict(tier=7, name='Advanced graduate analysis',
+         focus='Abstract measure, point-set topology, functional analysis, distributions.', rigor='research-adjacent'),
+    dict(tier=8, name='Research-level sinks',
+         focus='Functional analysis with probability/several complex variables/oscillatory integrals; '
+               'Sobolev spaces and PDE.', rigor='research-level'),
+]
+
+# §2 node catalogue + §9 bibliography. flags: source | sink | sink-adjacent | terminal-leaf | supporting.
+# status: kept | dropped (§5). verification: every row in the catalogue is [VERIFIED].
+NODES = [
+    dict(id='N01', title='Intermediate Algebra', authors="Miller, O'Neill, Hyde", edition='6th', year='2022',
+         publisher='McGraw Hill', tier=0, rigor='computational', role='Algebra-readiness source node',
+         flags=['source'], status='kept', verification='verified', isbn='9781260728231', access=None,
+         note='Only algebra-readiness source in the graph; minimal-prerequisite entry point.',
+         bib="Miller, J., O'Neill, M., Hyde, N. Intermediate Algebra, 6th ed., 2022, McGraw Hill (ISBN 9781260728231)."),
+    dict(id='N02', title='Precalculus: Mathematics for Calculus', authors='Stewart, Redlin, Watson', edition='7th',
+         year='2016', publisher='Cengage', tier=0, rigor='computational', role='Functions/trig bridge into calculus',
+         flags=[], status='kept', verification='verified', isbn='9781305071759', access=None, note='',
+         bib='Stewart, J., Redlin, L., Watson, S. Precalculus: Mathematics for Calculus, 7th ed., 2016, Cengage (ISBN 9781305071759).'),
+    dict(id='N03', title='Fast Start Differential Calculus', authors='Ashlock', edition='1st', year='2019',
+         publisher='Morgan & Claypool', tier=1, rigor='computational', role='Fast on-ramp: derivatives',
+         flags=[], status='kept', verification='verified', isbn=None, access=None,
+         note='Concise Fast Start volume; judgment edges into Apostol reflect lower depth than Stewart — '
+              'may need supplementary problem sets before Apostol (report caveat).',
+         bib='Ashlock, D. Fast Start Differential Calculus, 2019, Morgan & Claypool.'),
+    dict(id='N04', title='Fast Start Integral Calculus', authors='Ashlock', edition='1st', year='2019',
+         publisher='Morgan & Claypool', tier=1, rigor='computational', role='Fast on-ramp: integrals',
+         flags=[], status='kept', verification='verified', isbn=None, access=None,
+         note='Concise Fast Start volume; judgment edges into Apostol reflect lower depth than Stewart — '
+              'may need supplementary problem sets before Apostol (report caveat).',
+         bib='Ashlock, D. Fast Start Integral Calculus, 2019, Morgan & Claypool.'),
+    dict(id='N05', title='Fast Start Advanced Calculus', authors='Ashlock', edition='1st', year='2019',
+         publisher='Morgan & Claypool', tier=1, rigor='computational', role='Fast on-ramp: multivariable/series',
+         flags=[], status='kept', verification='verified', isbn=None, access=None,
+         note='Concise Fast Start volume; judgment edges into Apostol reflect lower depth than Stewart — '
+              'may need supplementary problem sets before Apostol (report caveat).',
+         bib='Ashlock, D. Fast Start Advanced Calculus, 2019, Morgan & Claypool.'),
+    dict(id='N06', title='Calculus', authors='Stewart, Clegg, Watson', edition='9th', year='2020 (©2021)',
+         publisher='Cengage', tier=1, rigor='computational', role='Standard single/multivariable calculus',
+         flags=[], status='kept', verification='verified', isbn='9781337624183', access=None,
+         note='Dated 2020 with a 2021 copyright (catalog-page fact; can shift with reprints).',
+         bib='Stewart, J., Clegg, D., Watson, S. Calculus, 9th ed., 2020 (©2021), Cengage (ISBN 9781337624183).'),
+    dict(id='N07', title='Calculus: Concepts and Contexts', authors='Stewart, Kokoska', edition='5th', year='©2023',
+         publisher='Cengage', tier=1, rigor='computational', role='Concepts-first calculus (Stewart sibling)',
+         flags=[], status='kept', verification='verified', isbn='9780357632499', access=None,
+         note='The only formerly-unverified item; now confirmed as 5th ed., ©2023 (Cengage).',
+         bib='Stewart, J., Kokoska, S. Calculus: Concepts and Contexts, 5th ed., ©2023, Cengage (ISBN 9780357632499).'),
+    dict(id='N08', title='Calculus, Vols. 1–2', authors='Apostol', edition='2nd',
+         year='1967 (Vol 1) / 1969 (Vol 2)', publisher='Wiley', tier=2, rigor='proof-based',
+         role='Rigorous calculus + intro linear algebra', flags=[], status='kept', verification='verified',
+         isbn='0-471-00005-1 (Vol 1) / 9780471000075 (Vol 2)', access=None,
+         note='Apostol’s 1st editions were issued by Blaisdell/Ginn (1961–62); Wiley published the 2nd '
+              'editions — Volume 1 in 1967 (adding two linear-algebra chapters) and Volume 2 in 1969.',
+         bib='Apostol, T. M. Calculus, Vol. 1 (one-variable calculus with intro to linear algebra) 2nd ed., 1967; '
+             'Vol. 2 2nd ed., 1969, Wiley (Vol 1 ISBN 0-471-00005-1; Vol 2 ISBN 9780471000075).'),
+    dict(id='N18', title='Advanced Calculus', authors='Woods (F. S.)', edition='new ed.', year='1934 (1st 1926)',
+         publisher='Ginn', tier=2, rigor='mixed', role='Classic advanced calculus (dropped)',
+         flags=[], status='dropped', verification='verified', isbn=None, access=None,
+         note='Verified but dropped by the quality gate; retained in bibliography only. A 1934 “New edition” '
+              '(Ginn; LC QA303.W885 1934) exists beyond the 1926 first edition — both catalogued, no unresolved '
+              'bibliographic uncertainty remains.',
+         bib='Woods, F. S. Advanced Calculus, 1926 (new ed. 1934), Ginn [dropped by quality gate].'),
+    dict(id='N09', title='How to Prove It', authors='Velleman', edition='3rd', year='2019',
+         publisher='Cambridge', tier=3, rigor='proof-based', role='Transition-to-proof bridge',
+         flags=[], status='kept', verification='verified', isbn='9781108424189', access=None,
+         note='Closes the single largest structural gap in the graph — the leap into proof.',
+         bib='Velleman, D. J. How to Prove It: A Structured Approach, 3rd ed., 2019, Cambridge (ISBN 9781108424189).'),
+    dict(id='N10', title='Calculus', authors='Spivak', edition='4th', year='2008',
+         publisher='Publish or Perish', tier=4, rigor='proof-based', role='Rigorous single-variable calculus',
+         flags=[], status='kept', verification='verified', isbn='9780914098911', access=None,
+         note='Proof-first (Parts I–V culminating in real-number construction).',
+         bib='Spivak, M. Calculus, 4th ed., 2008, Publish or Perish (ISBN 9780914098911).'),
+    dict(id='N11', title='Elementary Analysis: The Theory of Calculus', authors='Ross (López, 2nd ed.)',
+         edition='2nd', year='2013', publisher='Springer', tier=4, rigor='proof-based',
+         role='Gentlest first real analysis', flags=[], status='kept', verification='verified',
+         isbn='9781461462705', access=None, note='',
+         bib='Ross, K. A. (with López, J. M.) Elementary Analysis: The Theory of Calculus, 2nd ed., 2013, '
+             'Springer (ISBN 9781461462705).'),
+    dict(id='N12', title='Understanding Analysis', authors='Abbott', edition='2nd', year='2015',
+         publisher='Springer', tier=4, rigor='proof-based', role='Motivated single-variable real analysis',
+         flags=[], status='kept', verification='verified', isbn='9781493927111', access=None, note='',
+         bib='Abbott, S. Understanding Analysis, 2nd ed., 2015, Springer (ISBN 9781493927111).'),
+    dict(id='N13', title='Linear Algebra Done Right', authors='Axler', edition='4th', year='2024',
+         publisher='Springer', tier=4, rigor='proof-based', role='Abstract linear algebra (supporting; open-access)',
+         flags=['supporting'], status='kept', verification='verified',
+         isbn='9783031410253 (print) / 9783031410260 (eBook)', access='open',
+         note='Open access (CC BY-NC). The 4th ed. carries a 2024 copyright; some retail pages list 2023 '
+              '(print release) — catalog-page fact.',
+         bib='Axler, S. Linear Algebra Done Right, 4th ed., 2024, Springer (print ISBN 9783031410253; '
+             'eBook 9783031410260; open access, CC BY-NC).'),
+    dict(id='N14', title='Principles of Mathematical Analysis', authors='Rudin', edition='3rd', year='1976',
+         publisher='McGraw-Hill', tier=5, rigor='proof-based', role='Canonical undergraduate real analysis',
+         flags=[], status='kept', verification='verified', isbn='9780070542358', access=None,
+         note='Interior node, not a sink — the graph continues well past it.',
+         bib='Rudin, W. Principles of Mathematical Analysis, 3rd ed., 1976, McGraw-Hill (ISBN 9780070542358).'),
+    dict(id='N15', title='Real Mathematical Analysis', authors='Pugh', edition='2nd', year='2015',
+         publisher='Springer', tier=5, rigor='proof-based', role='Picture-driven undergraduate analysis (Rudin sibling)',
+         flags=[], status='kept', verification='verified', isbn='9783319177700', access=None,
+         note='Adds pictures + a Lebesgue preview relative to Rudin PMA.',
+         bib='Pugh, C. C. Real Mathematical Analysis, 2nd ed., 2015, Springer (ISBN 9783319177700).'),
+    dict(id='N16', title='Vector Calculus, Linear Algebra, and Differential Forms', authors='Hubbard & Hubbard',
+         edition='5th', year='2015', publisher='Matrix Editions', tier=5, rigor='mixed→proof',
+         role='Multivariable analysis + forms (supporting)', flags=['supporting'], status='kept',
+         verification='verified', isbn='9780971576681', access=None, note='',
+         bib='Hubbard, J. H., Hubbard, B. B. Vector Calculus, Linear Algebra, and Differential Forms: '
+             'A Unified Approach, 5th ed., 2015, Matrix Editions (ISBN 9780971576681).'),
+    dict(id='N17', title='Advanced Calculus', authors='Loomis & Sternberg', edition='rev.', year='1990',
+         publisher='Jones & Bartlett', tier=5, rigor='proof-based',
+         role='Analysis on vector spaces/manifolds (supporting)', flags=['supporting'], status='kept',
+         verification='verified', isbn='0867201223', access=None,
+         note='Maturity bridge to graduate analysis.',
+         bib='Loomis, L. H., Sternberg, S. Advanced Calculus, rev. ed., 1990, Jones & Bartlett (ISBN 0867201223).'),
+    dict(id='N19', title='Real and Complex Analysis', authors='Rudin', edition='3rd', year='1987',
+         publisher='McGraw-Hill', tier=6, rigor='proof-based', role='Unified graduate real+complex',
+         flags=[], status='kept', verification='verified', isbn='9780070542341', access=None,
+         note='Interior graduate node (not sink); additionally covers complex within PS-6.',
+         bib='Rudin, W. Real and Complex Analysis, 3rd ed., 1987, McGraw-Hill (ISBN 9780070542341).'),
+    dict(id='N20', title='Real Analysis: Measure Theory, Integration, Hilbert Spaces', authors='Stein & Shakarchi',
+         edition='1st', year='2005', publisher='Princeton', tier=6, rigor='proof-based',
+         role='Graduate measure theory (Princeton III)', flags=[], status='kept', verification='verified',
+         isbn='9780691113869', access=None, note='Integrated Princeton Lectures series volume III.',
+         bib='Stein, E. M., Shakarchi, R. Real Analysis: Measure Theory, Integration, and Hilbert Spaces, 2005, '
+             'Princeton (ISBN 9780691113869).'),
+    dict(id='N24', title='Real Analysis', authors='Royden & Fitzpatrick', edition='4th', year='2010',
+         publisher='Pearson', tier=6, rigor='proof-based', role='Classic graduate measure/integration',
+         flags=[], status='kept', verification='verified', isbn='9780131437470', access=None, note='',
+         bib='Royden, H. L., Fitzpatrick, P. M. Real Analysis, 4th ed., 2010, Pearson (ISBN 9780131437470).'),
+    dict(id='N21', title='Complex Analysis', authors='Stein & Shakarchi', edition='1st', year='2003',
+         publisher='Princeton', tier=6, rigor='proof-based', role='Graduate complex analysis (Princeton II)',
+         flags=['terminal-leaf'], status='kept', verification='verified', isbn=None, access=None,
+         note='Terminal leaf of the complex lineage — a parallel graduate specialization, not a step toward '
+              'the functional-analysis sinks (report caveat).',
+         bib='Stein, E. M., Shakarchi, R. Complex Analysis, 2003, Princeton.'),
+    dict(id='N22', title='Complex Analysis', authors='Ahlfors', edition='3rd', year='1979',
+         publisher='McGraw-Hill', tier=6, rigor='proof-based', role='Canonical graduate complex analysis',
+         flags=['terminal-leaf'], status='kept', verification='verified', isbn=None, access=None,
+         note='Terminal leaf of the complex lineage — a parallel graduate specialization, not a step toward '
+              'the functional-analysis sinks (report caveat).',
+         bib='Ahlfors, L. V. Complex Analysis, 3rd ed., 1979, McGraw-Hill.'),
+    dict(id='N23', title='Functions of One Complex Variable I', authors='Conway', edition='2nd', year='1978',
+         publisher='Springer', tier=6, rigor='proof-based', role='Graduate complex analysis (GTM 11)',
+         flags=['terminal-leaf'], status='kept', verification='verified', isbn=None, access=None,
+         note='Terminal leaf of the complex lineage — a parallel graduate specialization, not a step toward '
+              'the functional-analysis sinks (report caveat). GTM 11.',
+         bib='Conway, J. B. Functions of One Complex Variable I, 2nd ed., 1978, Springer (GTM 11).'),
+    dict(id='N25', title='Real Analysis: Modern Techniques and Their Applications', authors='Folland',
+         edition='2nd', year='1999', publisher='Wiley', tier=7, rigor='proof-based',
+         role='Abstract measure + functional analysis', flags=['sink-adjacent'], status='kept',
+         verification='verified', isbn='9780471317166', access=None,
+         note='SINK-adjacent: the last interior node before the research-level sinks.',
+         bib='Folland, G. B. Real Analysis: Modern Techniques and Their Applications, 2nd ed., 1999, Wiley '
+             '(ISBN 9780471317166).'),
+    dict(id='N26', title='Functional Analysis: Introduction to Further Topics', authors='Stein & Shakarchi',
+         edition='1st', year='2011', publisher='Princeton', tier=8, rigor='proof-based',
+         role='Research-level sink (Princeton IV)', flags=['sink'], status='kept', verification='verified',
+         isbn='9780691113876', access=None,
+         note='Distributions, probability, several complex variables, oscillatory integrals.',
+         bib='Stein, E. M., Shakarchi, R. Functional Analysis: Introduction to Further Topics in Analysis, 2011, '
+             'Princeton (ISBN 9780691113876).'),
+    dict(id='N27', title='Functional Analysis, Sobolev Spaces and PDE', authors='Brezis', edition='1st (Eng.)',
+         year='2011', publisher='Springer', tier=8, rigor='proof-based', role='Research-level sink (Sobolev/PDE)',
+         flags=['sink'], status='kept', verification='verified', isbn='9780387709130', access=None,
+         note='A genuine graduate sink: functional analysis, Sobolev spaces, PDE.',
+         bib='Brezis, H. Functional Analysis, Sobolev Spaces and Partial Differential Equations, 2011, Springer '
+             '(ISBN 9780387709130).'),
+]

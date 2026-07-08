@@ -1,0 +1,33 @@
+/* tokens.css — design tokens only. Presentation carries no data.
+   Academic-paper palette; the 9 tier hues run computational-warm → research-violet so a node's
+   colour alone encodes curriculum depth. Evidence hues carry the report's epistemic tags. */
+:root{
+  --paper:#F6F5F0; --panel:#FFFFFF; --panel-2:#FBFAF6;
+  --ink:#22261F; --mut:#6E7268; --faint:#9A9E94; --line:#DDDCD4; --line-2:#E9E8E1;
+  --accent:#6C3FA0; --accent-ink:#4A2A72;
+
+  /* tier hues (stroke) + tints (fill): T0 algebra … T8 research sinks */
+  --t0:#8F6E1E; --t0-bg:#F5EEDA;
+  --t1:#7C7A20; --t1-bg:#F1F0D8;
+  --t2:#4E7A3A; --t2-bg:#E8F1E0;
+  --t3:#14705A; --t3-bg:#E2F1EA;
+  --t4:#0E7490; --t4-bg:#E4F2F6;
+  --t5:#3A62A8; --t5-bg:#E8EDF8;
+  --t6:#46549B; --t6-bg:#EBEDF8;
+  --t7:#6C3FA0; --t7-bg:#F1EAFB;
+  --t8:#8C2D7E; --t8-bg:#F7E9F4;
+
+  /* evidence hues — the report's epistemic tags */
+  --ev:#565A50;                     /* EVIDENCED: solid, ink-family */
+  --jd:#B0851E; --jd-bg:#F8F1DD;    /* JUDGMENT: dashed, amber */
+
+  /* status */
+  --ok:#14705A; --bad:#B3372F; --kept:#14705A; --dropped:#B3372F;
+
+  --serif:Charter,"Bitstream Charter","Iowan Old Style","Sitka Text",Cambria,Georgia,serif;
+  --sans:ui-sans-serif,system-ui,"Segoe UI","Helvetica Neue",Arial,sans-serif;
+  --mono:ui-monospace,"SF Mono","Cascadia Code",Consolas,monospace;
+
+  --rad:8px; --rad-lg:12px; --rad-sm:5px;
+  --shadow:0 1px 2px rgba(30,30,20,.05), 0 8px 24px rgba(30,30,20,.06);
+}
