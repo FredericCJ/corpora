@@ -169,11 +169,16 @@
    {
     "corpus": "gen",
     "no": 16,
-    "title": "Unverified / to confirm"
+    "title": "Multi-station task & resource scheduling — co-design of network, tasks & resources (METHOD layer)"
    },
    {
     "corpus": "gen",
     "no": 17,
+    "title": "Unverified / to confirm"
+   },
+   {
+    "corpus": "gen",
+    "no": 18,
     "title": "Coverage summary"
    }
   ],
@@ -216,11 +221,16 @@
    {
     "corpus": "mat",
     "no": 8,
-    "title": "Unverified / to confirm"
+    "title": "Multi-station task & resource scheduling models"
    },
    {
     "corpus": "mat",
     "no": 9,
+    "title": "Unverified / to confirm"
+   },
+   {
+    "corpus": "mat",
+    "no": 10,
     "title": "Coverage summary"
    }
   ]
@@ -5132,6 +5142,582 @@
    "overlapFlags": []
   },
   {
+   "id": "g159",
+   "corpus": [
+    "gen"
+   ],
+   "item": {
+    "gen": "159"
+   },
+   "section": 16,
+   "title": "A Survey of Recent Results in Networked Control Systems",
+   "cite": "J. P. Hespanha, P. Naghshtabrizi, Y. Xu, 2007. Proceedings of the IEEE 95(1):138–162. DOI 10.1109/JPROC.2006.887288.",
+   "note": "METHOD: foundational taxonomy of network-induced delay, packet loss, and sampling in feedback loops; frames the joint network+control model a multi-station scheduled-task simulation instantiates.",
+   "subfield": [
+    "modeling-approaches"
+   ],
+   "paradigm": [],
+   "type": [
+    "survey/review"
+   ],
+   "stratum": null,
+   "recency": "foundational",
+   "recencyRaw": "foundational",
+   "verification": "verified-web",
+   "verRaw": "verified[WEB]",
+   "year": 2007,
+   "living": false,
+   "quarantined": false,
+   "idents": [
+    "10.1109/JPROC.2006.887288"
+   ],
+   "overlapFlags": []
+  },
+  {
+   "id": "g160",
+   "corpus": [
+    "gen"
+   ],
+   "item": {
+    "gen": "160"
+   },
+   "section": 16,
+   "title": "Network-Induced Constraints in Networked Control Systems — A Survey",
+   "cite": "L. Zhang, H. Gao, O. Kaynak, 2013. IEEE Transactions on Industrial Informatics 9(1):403–416. DOI 10.1109/TII.2012.2219540.",
+   "note": "METHOD: catalogs the delay/dropout/quantization/scheduling constraints a per-station scheduler must contend with over a shared medium.",
+   "subfield": [
+    "modeling-approaches"
+   ],
+   "paradigm": [],
+   "type": [
+    "survey/review"
+   ],
+   "stratum": null,
+   "recency": "foundational",
+   "recencyRaw": "foundational",
+   "verification": "verified-web",
+   "verRaw": "verified[WEB]",
+   "year": 2013,
+   "living": false,
+   "quarantined": false,
+   "idents": [
+    "10.1109/TII.2012.2219540"
+   ],
+   "overlapFlags": []
+  },
+  {
+   "id": "g161",
+   "corpus": [
+    "gen"
+   ],
+   "item": {
+    "gen": "161"
+   },
+   "section": 16,
+   "title": "Networked Control System: Overview and Research Trends",
+   "cite": "R. A. Gupta, M.-Y. Chow, 2010. IEEE Transactions on Industrial Electronics 57(7):2527–2535. DOI 10.1109/TIE.2009.2035462.",
+   "note": "METHOD: overview including network resource allocation and scheduling in real-time NCS.",
+   "subfield": [
+    "modeling-approaches"
+   ],
+   "paradigm": [],
+   "type": [
+    "survey/review"
+   ],
+   "stratum": null,
+   "recency": "foundational",
+   "recencyRaw": "foundational",
+   "verification": "verified-web",
+   "verRaw": "verified[WEB]",
+   "year": 2010,
+   "living": false,
+   "quarantined": false,
+   "idents": [
+    "10.1109/TIE.2009.2035462"
+   ],
+   "overlapFlags": []
+  },
+  {
+   "id": "g162",
+   "corpus": [
+    "gen"
+   ],
+   "item": {
+    "gen": "162"
+   },
+   "section": 16,
+   "title": "Survey on Recent Advances in Networked Control Systems",
+   "cite": "X.-M. Zhang, Q.-L. Han, X. Yu, 2016. IEEE Transactions on Industrial Informatics 12(5):1740–1752. DOI 10.1109/TII.2015.2506545.",
+   "note": "METHOD: modern survey emphasizing event-triggered sampling and communication-constraint co-design — the bridge from classic NCS to the scheduling co-design branch.",
+   "subfield": [
+    "modeling-approaches"
+   ],
+   "paradigm": [],
+   "type": [
+    "survey/review"
+   ],
+   "stratum": null,
+   "recency": "contemporary",
+   "recencyRaw": "contemporary",
+   "verification": "verified-web",
+   "verRaw": "verified[WEB]",
+   "year": 2016,
+   "living": false,
+   "quarantined": false,
+   "idents": [
+    "10.1109/TII.2015.2506545"
+   ],
+   "overlapFlags": []
+  },
+  {
+   "id": "g163",
+   "corpus": [
+    "gen"
+   ],
+   "item": {
+    "gen": "163"
+   },
+   "section": 16,
+   "title": "Event-Triggered Real-Time Scheduling of Stabilizing Control Tasks",
+   "cite": "P. Tabuada, 2007. IEEE Transactions on Automatic Control 52(9):1680–1685. DOI 10.1109/TAC.2007.904277.",
+   "note": "METHOD: seminal Lyapunov-based event-triggering rule linking control stability to task-release timing — the theoretical bridge between a station's scheduler and its control loop.",
+   "subfield": [
+    "modeling-approaches"
+   ],
+   "paradigm": [],
+   "type": [
+    "paper"
+   ],
+   "stratum": null,
+   "recency": "foundational",
+   "recencyRaw": "foundational",
+   "verification": "verified-web",
+   "verRaw": "verified[WEB]",
+   "year": 2007,
+   "living": false,
+   "quarantined": false,
+   "idents": [
+    "10.1109/TAC.2007.904277"
+   ],
+   "overlapFlags": []
+  },
+  {
+   "id": "g164",
+   "corpus": [
+    "gen"
+   ],
+   "item": {
+    "gen": "164"
+   },
+   "section": 16,
+   "title": "An Introduction to Event-Triggered and Self-Triggered Control",
+   "cite": "W. P. M. H. Heemels, K. H. Johansson, P. Tabuada, 2012. Proc. 51st IEEE Conference on Decision and Control (CDC), pp. 3270–3285. DOI 10.1109/CDC.2012.6425820.",
+   "note": "METHOD: canonical tutorial contrasting event- vs self-triggered sampling — governs when a station releases a control task rather than running it periodically.",
+   "subfield": [
+    "modeling-approaches"
+   ],
+   "paradigm": [],
+   "type": [
+    "survey/review"
+   ],
+   "stratum": null,
+   "recency": "foundational",
+   "recencyRaw": "foundational",
+   "verification": "verified-web",
+   "verRaw": "verified[WEB]",
+   "year": 2012,
+   "living": false,
+   "quarantined": false,
+   "idents": [
+    "10.1109/CDC.2012.6425820"
+   ],
+   "overlapFlags": []
+  },
+  {
+   "id": "g165",
+   "corpus": [
+    "gen"
+   ],
+   "item": {
+    "gen": "165"
+   },
+   "section": 16,
+   "title": "A Simple Event-Based PID Controller",
+   "cite": "K.-E. Årzén, 1999. Proc. 14th IFAC World Congress, Beijing.",
+   "note": "METHOD: origin of event-based sampling for control and the practical seed of the event/self-triggered branch (pre-DOI IFAC; identifier not grounded this session — re-verify before downstream citation).",
+   "subfield": [
+    "modeling-approaches"
+   ],
+   "paradigm": [],
+   "type": [
+    "paper"
+   ],
+   "stratum": null,
+   "recency": "foundational",
+   "recencyRaw": "foundational",
+   "verification": "verified-train",
+   "verRaw": "verified[TRAIN]",
+   "year": 1999,
+   "living": false,
+   "quarantined": false,
+   "idents": [],
+   "overlapFlags": []
+  },
+  {
+   "id": "g166",
+   "corpus": [
+    "gen"
+   ],
+   "item": {
+    "gen": "166"
+   },
+   "section": 16,
+   "title": "Scheduling Algorithms for Multiprogramming in a Hard-Real-Time Environment",
+   "cite": "C. L. Liu, J. W. Layland, 1973. Journal of the ACM 20(1):46–61. DOI 10.1145/321738.321743.",
+   "note": "METHOD: origin of rate-monotonic and earliest-deadline-first scheduling and the utilization bound — the core schedulability math for a per-station task set.",
+   "subfield": [
+    "other(systems)"
+   ],
+   "paradigm": [],
+   "type": [
+    "paper"
+   ],
+   "stratum": null,
+   "recency": "foundational",
+   "recencyRaw": "foundational",
+   "verification": "verified-web",
+   "verRaw": "verified[WEB]",
+   "year": 1973,
+   "living": false,
+   "quarantined": false,
+   "idents": [
+    "10.1145/321738.321743"
+   ],
+   "overlapFlags": []
+  },
+  {
+   "id": "g167",
+   "corpus": [
+    "gen"
+   ],
+   "item": {
+    "gen": "167"
+   },
+   "section": 16,
+   "title": "Real-Time Scheduling Theory: A Historical Perspective",
+   "cite": "L. Sha, T. Abdelzaher, K.-E. Årzén, A. Cervin, T. Baker, A. Burns, G. Buttazzo, M. Caccamo, J. Lehoczky, A. K. Mok, 2004. Real-Time Systems 28(2–3):101–155. DOI 10.1023/B:TIME.0000045315.61234.1e.",
+   "note": "METHOD: consolidated map of priority assignment, resource-sharing protocols, and response-time analysis — the schedulability canon for the station layer.",
+   "subfield": [
+    "other(systems)"
+   ],
+   "paradigm": [],
+   "type": [
+    "survey/review"
+   ],
+   "stratum": null,
+   "recency": "foundational",
+   "recencyRaw": "foundational",
+   "verification": "verified-web",
+   "verRaw": "verified[WEB]",
+   "year": 2004,
+   "living": false,
+   "quarantined": false,
+   "idents": [
+    "10.1023/B:TIME.0000045315.61234.1e"
+   ],
+   "overlapFlags": []
+  },
+  {
+   "id": "g168",
+   "corpus": [
+    "gen"
+   ],
+   "item": {
+    "gen": "168"
+   },
+   "section": 16,
+   "title": "Hard Real-Time Computing Systems: Predictable Scheduling Algorithms and Applications, 3rd ed.",
+   "cite": "G. C. Buttazzo, 2011. Springer (Real-Time Systems Series). ISBN 978-1-4614-0675-4. DOI 10.1007/978-1-4614-0676-1.",
+   "note": "METHOD: reference text for periodic/aperiodic scheduling, resource-access protocols, and overload handling — implementation-level basis for a station scheduler model.",
+   "subfield": [
+    "other(systems)"
+   ],
+   "paradigm": [],
+   "type": [
+    "book"
+   ],
+   "stratum": null,
+   "recency": "foundational",
+   "recencyRaw": "foundational",
+   "verification": "verified-web",
+   "verRaw": "verified[WEB]",
+   "year": 2011,
+   "living": false,
+   "quarantined": false,
+   "idents": [
+    "10.1007/978-1-4614-0676-1",
+    "978-1-4614-0675-4"
+   ],
+   "overlapFlags": []
+  },
+  {
+   "id": "g169",
+   "corpus": [
+    "gen"
+   ],
+   "item": {
+    "gen": "169"
+   },
+   "section": 16,
+   "title": "Multiprocessor Scheduling for Real-Time Systems",
+   "cite": "S. Baruah, M. Bertogna, G. Buttazzo, 2015. Springer (Embedded Systems Series). ISBN 978-3-319-08695-8. DOI 10.1007/978-3-319-08696-5.",
+   "note": "METHOD: partitioned/global multiprocessor schedulability — extends station scheduling to the multi-core, multi-resource contention of the SoC-Blockset/SimEvents case.",
+   "subfield": [
+    "other(systems)"
+   ],
+   "paradigm": [],
+   "type": [
+    "book"
+   ],
+   "stratum": null,
+   "recency": "contemporary",
+   "recencyRaw": "contemporary",
+   "verification": "verified-web",
+   "verRaw": "verified[WEB]",
+   "year": 2015,
+   "living": false,
+   "quarantined": false,
+   "idents": [
+    "10.1007/978-3-319-08696-5",
+    "978-3-319-08695-8"
+   ],
+   "overlapFlags": []
+  },
+  {
+   "id": "g170",
+   "corpus": [
+    "gen"
+   ],
+   "item": {
+    "gen": "170"
+   },
+   "section": 16,
+   "title": "Feedback–Feedforward Scheduling of Control Tasks",
+   "cite": "A. Cervin, J. Eker, B. Bernhardsson, K.-E. Årzén, 2002. Real-Time Systems 23(1–2):25–53. DOI 10.1023/A:1015394302429.",
+   "note": "METHOD: core feedback-scheduling algorithm that adapts control-task sampling periods from execution-time feedback and workload feedforward — dynamic scheduling of a station's control tasks.",
+   "subfield": [
+    "modeling-approaches"
+   ],
+   "paradigm": [],
+   "type": [
+    "paper"
+   ],
+   "stratum": null,
+   "recency": "foundational",
+   "recencyRaw": "foundational",
+   "verification": "verified-web",
+   "verRaw": "verified[WEB]",
+   "year": 2002,
+   "living": false,
+   "quarantined": false,
+   "idents": [
+    "10.1023/A:1015394302429"
+   ],
+   "overlapFlags": []
+  },
+  {
+   "id": "g171",
+   "corpus": [
+    "gen"
+   ],
+   "item": {
+    "gen": "171"
+   },
+   "section": 16,
+   "title": "A Feedback Scheduler for Real-Time Controller Tasks",
+   "cite": "J. Eker, P. Hagander, K.-E. Årzén, 2000. Control Engineering Practice 8(12):1369–1378. DOI 10.1016/S0967-0661(00)00086-1.",
+   "note": "METHOD: origin of the feedback scheduler that reallocates CPU across control loops by the sampling-interval/performance trade-off — the scheduling policy TrueTime station models exercise.",
+   "subfield": [
+    "modeling-approaches"
+   ],
+   "paradigm": [],
+   "type": [
+    "paper"
+   ],
+   "stratum": null,
+   "recency": "foundational",
+   "recencyRaw": "foundational",
+   "verification": "verified-web",
+   "verRaw": "verified[WEB]",
+   "year": 2000,
+   "living": false,
+   "quarantined": false,
+   "idents": [
+    "10.1016/S0967-0661(00"
+   ],
+   "overlapFlags": []
+  },
+  {
+   "id": "g172",
+   "corpus": [
+    "gen"
+   ],
+   "item": {
+    "gen": "172"
+   },
+   "section": 16,
+   "title": "Control and Embedded Computing: Survey of Research Directions",
+   "cite": "K.-E. Årzén, A. Cervin, 2005. Proc. 16th IFAC World Congress (IFAC Proceedings Volumes 38(1)):191–202. ISBN 0-08-045108-X.",
+   "note": "METHOD: the Lund school's own agenda-setting survey of control/scheduling co-design (ISBN only; no DOI located).",
+   "subfield": [
+    "modeling-approaches"
+   ],
+   "paradigm": [],
+   "type": [
+    "survey/review"
+   ],
+   "stratum": null,
+   "recency": "foundational",
+   "recencyRaw": "foundational",
+   "verification": "verified-web",
+   "verRaw": "verified[WEB]",
+   "year": 2005,
+   "living": false,
+   "quarantined": false,
+   "idents": [
+    "0-08-045108-"
+   ],
+   "overlapFlags": []
+  },
+  {
+   "id": "g173",
+   "corpus": [
+    "gen"
+   ],
+   "item": {
+    "gen": "173"
+   },
+   "section": 16,
+   "title": "Real-Time Calculus for Scheduling Hard Real-Time Systems",
+   "cite": "L. Thiele, S. Chakraborty, M. Naedele, 2000. Proc. IEEE ISCAS 2000, vol. 4, pp. 101–104. DOI 10.1109/ISCAS.2000.858698.",
+   "note": "METHOD: founding paper of Real-Time Calculus — arrival/service curves for compositional worst-case analysis of coupled network + scheduling; the deterministic-analysis sibling of network calculus (cf. items 26–28).",
+   "subfield": [
+    "performance-evaluation"
+   ],
+   "paradigm": [],
+   "type": [
+    "paper"
+   ],
+   "stratum": null,
+   "recency": "foundational",
+   "recencyRaw": "foundational",
+   "verification": "verified-web",
+   "verRaw": "verified[WEB]",
+   "year": 2000,
+   "living": false,
+   "quarantined": false,
+   "idents": [
+    "10.1109/ISCAS.2000.858698"
+   ],
+   "overlapFlags": []
+  },
+  {
+   "id": "g174",
+   "corpus": [
+    "gen"
+   ],
+   "item": {
+    "gen": "174"
+   },
+   "section": 16,
+   "title": "System-Level Performance Analysis — the SymTA/S Approach",
+   "cite": "R. Henia, A. Hamann, M. Jersak, R. Racu, K. Richter, R. Ernst, 2005. IEE Proceedings — Computers and Digital Techniques 152(2):148–166. DOI 10.1049/ip-cdt:20045088.",
+   "note": "METHOD: compositional event-model-propagation analysis of distributed HW/SW timing — the non-MATLAB analytical engine paralleling Real-Time Calculus (item 173).",
+   "subfield": [
+    "performance-evaluation"
+   ],
+   "paradigm": [],
+   "type": [
+    "paper"
+   ],
+   "stratum": null,
+   "recency": "foundational",
+   "recencyRaw": "foundational",
+   "verification": "verified-web",
+   "verRaw": "verified[WEB]",
+   "year": 2005,
+   "living": false,
+   "quarantined": false,
+   "idents": [
+    "10.1049/ip-cdt:20045088"
+   ],
+   "overlapFlags": []
+  },
+  {
+   "id": "g175",
+   "corpus": [
+    "gen"
+   ],
+   "item": {
+    "gen": "175"
+   },
+   "section": 16,
+   "title": "Weakly Hard Real-Time Model for Control Systems: A Survey",
+   "cite": "K. Salamun, I. Pavić, H. Džapo, I. Čuljak, 2023. Sensors 23(10):4652. DOI 10.3390/s23104652.",
+   "note": "METHOD: modern survey of deadline-miss-tolerant (m,K) scheduling-and-control co-design — the weakly-hard branch downstream of the Lund school, for when a station's control tasks may skip deadlines under contention.",
+   "subfield": [
+    "modeling-approaches"
+   ],
+   "paradigm": [],
+   "type": [
+    "survey/review"
+   ],
+   "stratum": null,
+   "recency": "current",
+   "recencyRaw": "current",
+   "verification": "verified-web",
+   "verRaw": "verified[WEB]",
+   "year": 2023,
+   "living": false,
+   "quarantined": false,
+   "idents": [
+    "10.3390/s23104652"
+   ],
+   "overlapFlags": []
+  },
+  {
+   "id": "g176",
+   "corpus": [
+    "gen"
+   ],
+   "item": {
+    "gen": "176"
+   },
+   "section": 16,
+   "title": "Step Revision in Hybrid Co-Simulation with FMI",
+   "cite": "F. Cremona, M. Lohstroh, D. Broman, M. Di Natale, E. A. Lee, S. Tripakis, 2016. Proc. ACM/IEEE MEMOCODE 2016, pp. 173–183. DOI 10.1109/MEMCOD.2016.7797762.",
+   "note": "METHOD: FMI co-simulation step-size/rollback semantics — the correctness backbone for coupling a Simulink control master to an external network/scheduler FMU (the basis of the T-Res and ns-3-FMI bridges in the MATLAB corpus).",
+   "subfield": [
+    "simulation-methodology"
+   ],
+   "paradigm": [],
+   "type": [
+    "paper"
+   ],
+   "stratum": null,
+   "recency": "contemporary",
+   "recencyRaw": "contemporary",
+   "verification": "verified-web",
+   "verRaw": "verified[WEB]",
+   "year": 2016,
+   "living": false,
+   "quarantined": false,
+   "idents": [
+    "10.1109/MEMCOD.2016.7797762"
+   ],
+   "overlapFlags": []
+  },
+  {
    "id": "gU1",
    "corpus": [
     "gen"
@@ -5139,7 +5725,7 @@
    "item": {
     "gen": "U1"
    },
-   "section": 16,
+   "section": 17,
    "title": "Security of e-Systems and Computer Networks",
    "cite": "N. Boudriga, M. S. Obaidat (order uncertain), c. 2007. Cambridge UP.",
    "note": "Plausible editor-lineage security text linking to anchor Part 6.",
@@ -5169,7 +5755,7 @@
    "item": {
     "gen": "U2"
    },
-   "section": 16,
+   "section": 17,
    "title": "Smart Cities and Homes: Key Enabling Technologies",
    "cite": "M. S. Obaidat, P. Nicopolitidis (eds.), c. 2016. Morgan Kaufmann.",
    "note": "Plausible same-publisher, same-editors successor volume.",
@@ -5199,7 +5785,7 @@
    "item": {
     "gen": "U3"
    },
-   "section": 16,
+   "section": 17,
    "title": "m3: Accurate Flow-Level Performance Estimation using Machine Learning",
    "cite": "(MIT/Harvard-affiliated authors?), c. 2024. ACM SIGCOMM 2024 (reported).",
    "note": "Recalled as the flow-level successor in the MimicNet/DeepQueueNet line; title/venue need confirmation.",
@@ -5229,7 +5815,7 @@
    "item": {
     "gen": "U4"
    },
-   "section": 16,
+   "section": 17,
    "title": "The Art of Computer Systems Performance Analysis, 2nd ed.",
    "cite": "R. Jain, c. 2015. Wiley.",
    "note": "A 2nd edition may exist; only the 1991 edition is confirmed knowledge.",
@@ -5259,7 +5845,7 @@
    "item": {
     "gen": "U5"
    },
-   "section": 16,
+   "section": 17,
    "title": "Shadow v2 paper (\"Co-opting Linux processes for high-performance network simulation\")",
    "cite": "R. Jansen, J. Newsome, R. Wails, c. 2022. USENIX ATC (reported).",
    "note": "Title/venue recalled with moderate confidence.",
@@ -5289,7 +5875,7 @@
    "item": {
     "gen": "U6"
    },
-   "section": 16,
+   "section": 17,
    "title": "ns.py (Python discrete-event network simulator)",
    "cite": "TL Lab/U. Toronto lineage?, c. 2022. GitHub.",
    "note": "Recalled Python DES network library; existence plausible, provenance unconfirmed.",
@@ -5319,7 +5905,7 @@
    "item": {
     "gen": "U7"
    },
-   "section": 16,
+   "section": 17,
    "title": "OMNEST",
    "cite": "OpenSim Ltd., ongoing.",
    "note": "Commercial edition of OMNeT++; near-certain to exist but not confirmed this session.",
@@ -5349,7 +5935,7 @@
    "item": {
     "gen": "U8"
    },
-   "section": 16,
+   "section": 17,
    "title": "FogNetSim++",
    "cite": "(Qayyum et al.?), c. 2018, IEEE Access.",
    "note": "Named in the 2025 edge survey (existence effectively confirmed by mention); full citation ungrounded.",
@@ -5379,7 +5965,7 @@
    "item": {
     "gen": "U9"
    },
-   "section": 16,
+   "section": 17,
    "title": "PureEdgeSim",
    "cite": "C. Mechalikh et al., c. 2019–2021.",
    "note": "Same status as U8: named in surveys, full citation to pin.",
@@ -5409,7 +5995,7 @@
    "item": {
     "gen": "U10"
    },
-   "section": 16,
+   "section": 17,
    "title": "SatEdgeSim / IoTSim-Edge / IoTSim-Osmosis / faas-sim",
    "cite": "various, 2019–2023.",
    "note": "Batch: all named in arXiv:2505.09995 (existence supported); individual canonical citations to extract from that survey.",
@@ -5439,7 +6025,7 @@
    "item": {
     "gen": "U11"
    },
-   "section": 16,
+   "section": 17,
    "title": "Handbook of Dynamic System Modeling",
    "cite": "P. A. Fishwick (ed.), c. 2007. CRC.",
    "note": "Plausible comparable handbook; recalled with moderate confidence.",
@@ -5469,7 +6055,7 @@
    "item": {
     "gen": "U12"
    },
-   "section": 16,
+   "section": 17,
    "title": "\"Fluid-flow / hybrid network simulation\" survey",
    "cite": "unknown.",
    "note": "Known technique family (fluid models for TCP, hybrid packet/fluid); no specific consolidated survey grounded this session. Flagged as a recall gap, not a fabricated entry.",
@@ -5499,7 +6085,7 @@
    "item": {
     "gen": "U13"
    },
-   "section": 16,
+   "section": 17,
    "title": "RFC number for the IRTF NMRG Network Digital Twin architecture",
    "cite": "see item 91.",
    "note": "Draft confirmed; final RFC number/publication [VERIFY-LIVE].",
@@ -5529,7 +6115,7 @@
    "item": {
     "gen": "U14"
    },
-   "section": 16,
+   "section": 17,
    "title": "Cadmium (DEVS simulator, Carleton/ARSLab)",
    "cite": "G. Wainer group, c. 2019–.",
    "note": "Tool near-certainly exists; canonical citation ungrounded this session.",
@@ -5559,7 +6145,7 @@
    "item": {
     "gen": "U15"
    },
-   "section": 16,
+   "section": 17,
    "title": "\"Simulating Data Flows of Very Large Scale Intelligent Transportation Systems\"",
    "cite": "N. Tangirala, C. Sommer, A. Knoll, 2024. SIGSIM-PADS 2024, DOI 10.1145/3615979.3656062.",
    "note": "Seen once in citation metadata; promote after one more source.",
@@ -5581,6 +6167,96 @@
    "idents": [
     "10.1145/3615979.3656062"
    ],
+   "overlapFlags": []
+  },
+  {
+   "id": "gU16",
+   "corpus": [
+    "gen"
+   ],
+   "item": {
+    "gen": "U16"
+   },
+   "section": 17,
+   "title": "An Introduction to Control and Scheduling Co-design",
+   "cite": "K.-E. Årzén, A. Cervin, J. Eker, L. Sha, 2000. Proc. 39th IEEE Conference on Decision and Control (CDC).",
+   "note": "METHOD: the paper that named the control/scheduling co-design agenda; existence is high-confidence but no identifier was grounded this session — confirm DOI/pages before citing.",
+   "subfield": [
+    "modeling-approaches"
+   ],
+   "paradigm": [],
+   "type": [
+    "paper"
+   ],
+   "stratum": null,
+   "recency": "foundational",
+   "recencyRaw": "foundational",
+   "verification": "unverified",
+   "verRaw": "unverified",
+   "year": 2000,
+   "living": false,
+   "quarantined": true,
+   "idents": [],
+   "overlapFlags": []
+  },
+  {
+   "id": "gU17",
+   "corpus": [
+    "gen"
+   ],
+   "item": {
+    "gen": "U17"
+   },
+   "section": 17,
+   "title": "The Control Server: A Computational Model for Real-Time Control Tasks",
+   "cite": "A. Cervin, J. Eker, c. 2003. Proc. 15th Euromicro Conference on Real-Time Systems (ECRTS).",
+   "note": "METHOD: reservation-based server abstraction for control tasks (the control-server behind TrueTime's scheduling); venue/identifier to confirm.",
+   "subfield": [
+    "modeling-approaches"
+   ],
+   "paradigm": [],
+   "type": [
+    "paper"
+   ],
+   "stratum": null,
+   "recency": "foundational",
+   "recencyRaw": "foundational",
+   "verification": "unverified",
+   "verRaw": "unverified",
+   "year": 2003,
+   "living": false,
+   "quarantined": true,
+   "idents": [],
+   "overlapFlags": []
+  },
+  {
+   "id": "gU18",
+   "corpus": [
+    "gen"
+   ],
+   "item": {
+    "gen": "U18"
+   },
+   "section": 17,
+   "title": "A Review of Co-Design Approaches and Tools for Control of Cyber-Physical Systems",
+   "cite": "N. Md Yusof, R. Mamat, et al., 2024. Applications of Modelling and Simulation 8:110–120.",
+   "note": "METHOD: recent review positioning TrueTime among CPS control/scheduling co-design tools (a forward-citation find); open-access venue, no DOI located — single-source, promote after corroboration.",
+   "subfield": [
+    "modeling-approaches"
+   ],
+   "paradigm": [],
+   "type": [
+    "survey/review"
+   ],
+   "stratum": null,
+   "recency": "current",
+   "recencyRaw": "current",
+   "verification": "verified-web",
+   "verRaw": "verified[WEB]-single-source",
+   "year": 2024,
+   "living": false,
+   "quarantined": true,
+   "idents": [],
    "overlapFlags": []
   },
   {
@@ -7272,6 +7948,574 @@
    "overlapFlags": []
   },
   {
+   "id": "m62",
+   "corpus": [
+    "mat"
+   ],
+   "item": {
+    "mat": "62"
+   },
+   "section": 8,
+   "title": "SoC Blockset — product documentation",
+   "cite": "MathWorks, current release observed 2026. https://www.mathworks.com/products/soc.html.",
+   "note": "METHOD: builds Simulink models of a processing \"station\" — Arm cores running software tasks together with hardware logic, DDR memory with DMA arbitration, and AXI interconnect timing/throughput — the vendor stack in which a station's scheduled tasks contend for compute and memory.",
+   "subfield": [],
+   "paradigm": [
+    "discrete-event"
+   ],
+   "type": [],
+   "stratum": "mathworks-official",
+   "recency": "current",
+   "recencyRaw": "current",
+   "verification": "verified-web",
+   "verRaw": "verified[WEB]",
+   "year": null,
+   "living": true,
+   "quarantined": false,
+   "idents": [],
+   "overlapFlags": []
+  },
+  {
+   "id": "m63",
+   "corpus": [
+    "mat"
+   ],
+   "item": {
+    "mat": "63"
+   },
+   "section": 8,
+   "title": "Shipped example: Task Execution (SoC Blockset)",
+   "cite": "MathWorks, current. https://www.mathworks.com/help/soc/ug/task-execution.html.",
+   "note": "EXAMPLE: the Task Manager block schedules timer- and event-driven tasks with period, priority (1–99), per-core assignment, and stochastic duration, and simulates preemption, task overruns and drops, and concurrent multicore execution (see also the Multicore Execution and Core Visualization page) — the canonical per-station \"tasks under a scheduler\" primitive.",
+   "subfield": [],
+   "paradigm": [
+    "discrete-event"
+   ],
+   "type": [],
+   "stratum": "mathworks-official",
+   "recency": "current",
+   "recencyRaw": "current",
+   "verification": "verified-web",
+   "verRaw": "verified[WEB]",
+   "year": null,
+   "living": true,
+   "quarantined": false,
+   "idents": [],
+   "overlapFlags": []
+  },
+  {
+   "id": "m64",
+   "corpus": [
+    "mat"
+   ],
+   "item": {
+    "mat": "64"
+   },
+   "section": 8,
+   "title": "Shipped example: Streaming Data from Hardware to Software (SoC Blockset)",
+   "cite": "MathWorks, current. https://www.mathworks.com/help/soc/ug/hwsw-stream.html.",
+   "note": "METHOD: sizes an AXI4-Stream to DDR frame-buffer datapath to meet throughput/latency budgets with a bounded drop rate — the on-chip \"medium\" analog: interconnect/memory timing, buffering delay, and loss between producer and consumer stations.",
+   "subfield": [],
+   "paradigm": [
+    "discrete-event"
+   ],
+   "type": [],
+   "stratum": "mathworks-official",
+   "recency": "current",
+   "recencyRaw": "current",
+   "verification": "verified-web",
+   "verRaw": "verified[WEB]",
+   "year": null,
+   "living": true,
+   "quarantined": false,
+   "idents": [],
+   "overlapFlags": []
+  },
+  {
+   "id": "m65",
+   "corpus": [
+    "mat"
+   ],
+   "item": {
+    "mat": "65"
+   },
+   "section": 8,
+   "title": "Shipped example: Simulate Scheduler of a Multicore Control System (SimEvents)",
+   "cite": "MathWorks, current. https://www.mathworks.com/help/simevents/ug/simulate-scheduler-of-a-multicore-control-system.html.",
+   "note": "EXAMPLE: two closed control loops whose tasks are SimEvents entities carrying priority attributes, dispatched from a priority-sorted OS task queue onto a multi-core CPU server, with a mutex-protected shared resource (disk I/O) — the shipped model closest to the target capability (per-station scheduled tasks + resource contention + control).",
+   "subfield": [],
+   "paradigm": [
+    "discrete-event"
+   ],
+   "type": [],
+   "stratum": "mathworks-official",
+   "recency": "current",
+   "recencyRaw": "current",
+   "verification": "verified-web",
+   "verRaw": "verified[WEB]",
+   "year": null,
+   "living": true,
+   "quarantined": false,
+   "idents": [],
+   "overlapFlags": []
+  },
+  {
+   "id": "m66",
+   "corpus": [
+    "mat"
+   ],
+   "item": {
+    "mat": "66"
+   },
+   "section": 8,
+   "title": "Shipped example: Develop Custom Scheduler of a Multicore Control System (SimEvents)",
+   "cite": "MathWorks, current. https://www.mathworks.com/help/simevents/ug/develop-custom-scheduler-of-a-multicore-control-system.html.",
+   "note": "EXAMPLE: authors a custom scheduling policy (priority vs round-robin) as a MATLAB Discrete-Event System block, with tasks split into ordered subtask segments carrying data dependencies across one or two cores — the extensibility hook for a bespoke station scheduler.",
+   "subfield": [],
+   "paradigm": [
+    "discrete-event"
+   ],
+   "type": [],
+   "stratum": "mathworks-official",
+   "recency": "current",
+   "recencyRaw": "current",
+   "verification": "verified-web",
+   "verRaw": "verified[WEB]",
+   "year": null,
+   "living": true,
+   "quarantined": false,
+   "idents": [],
+   "overlapFlags": []
+  },
+  {
+   "id": "m67",
+   "corpus": [
+    "mat"
+   ],
+   "item": {
+    "mat": "67"
+   },
+   "section": 8,
+   "title": "Simulating a Multicore Scheduler of Real-Time Control Systems in Simulink",
+   "cite": "W. Li, R. Mani, P. J. Mosterman, T. Hübscher-Younger, 2016. Proc. Summer Computer Simulation Conference (SummerSim/SCSC 2016), SCS. ACM 10.5555/3015574.3015585.",
+   "note": "BOTH: the MathWorks team's peer-reviewed write-up of the shipped SimEvents multicore-scheduler model — the method paper behind the Simulate Scheduler of a Multicore Control System example.",
+   "subfield": [],
+   "paradigm": [
+    "discrete-event"
+   ],
+   "type": [],
+   "stratum": "peer-reviewed",
+   "recency": "contemporary",
+   "recencyRaw": "contemporary",
+   "verification": "verified-web",
+   "verRaw": "verified[WEB]",
+   "year": 2016,
+   "living": false,
+   "quarantined": false,
+   "idents": [
+    "10.5555/3015574.3015585"
+   ],
+   "overlapFlags": []
+  },
+  {
+   "id": "m68",
+   "corpus": [
+    "mat"
+   ],
+   "item": {
+    "mat": "68"
+   },
+   "section": 8,
+   "title": "Shipped example: Resource Scheduling Using MATLAB Discrete-Event System and Data Store Memory Blocks (SimEvents)",
+   "cite": "MathWorks, current. https://www.mathworks.com/help/simevents/ug/resource-scheduling-using-matlab-discrete-event-system-and-data-store-memory-blocks.html.",
+   "note": "EXAMPLE: a custom, state-dependent resource-allocation policy in which competing entity classes read shared Data Store Memory to arbitrate a limited Resource Pool — a template for contention-aware station scheduling.",
+   "subfield": [],
+   "paradigm": [
+    "discrete-event"
+   ],
+   "type": [],
+   "stratum": "mathworks-official",
+   "recency": "current",
+   "recencyRaw": "current",
+   "verification": "verified-web",
+   "verRaw": "verified[WEB]",
+   "year": null,
+   "living": true,
+   "quarantined": false,
+   "idents": [],
+   "overlapFlags": []
+  },
+  {
+   "id": "m69",
+   "corpus": [
+    "mat"
+   ],
+   "item": {
+    "mat": "69"
+   },
+   "section": 8,
+   "title": "Shipped example: Job Scheduling and Resource Estimation for a Manufacturing Plant (SimEvents)",
+   "cite": "MathWorks, current. https://www.mathworks.com/help/simevents/ug/job-scheduling-and-resource-estimation-for-a-manufacturing-plant.html.",
+   "note": "EXAMPLE: compares job-scheduling strategies (shortest-job-first variants) with Resource Pool/Acquirer/Releaser worker pools and estimates capacity from utilization; the companion Distributing Multi-Class Jobs to Service Stations example routes multi-class jobs across parallel service stations — the resource-server-pool and multi-station-routing half of the model.",
+   "subfield": [],
+   "paradigm": [
+    "discrete-event"
+   ],
+   "type": [],
+   "stratum": "mathworks-official",
+   "recency": "current",
+   "recencyRaw": "current",
+   "verification": "verified-web",
+   "verRaw": "verified[WEB]",
+   "year": null,
+   "living": true,
+   "quarantined": false,
+   "idents": [],
+   "overlapFlags": []
+  },
+  {
+   "id": "m70",
+   "corpus": [
+    "mat"
+   ],
+   "item": {
+    "mat": "70"
+   },
+   "section": 8,
+   "title": "Simulink task-scheduling infrastructure: Using the Schedule Editor",
+   "cite": "MathWorks, current. https://www.mathworks.com/help/simulink/ug/schedule-editor-overview.html.",
+   "note": "METHOD: defines partition execution order and priority for both simulation and generated code; with Embedded Coder's rate-monotonic multitasking (faster rate to higher priority, preempting slower rates) and Simulink Real-Time concurrent execution across multicore targets, this is the deployment path from a modeled station scheduler to running code.",
+   "subfield": [],
+   "paradigm": [
+    "discrete-event"
+   ],
+   "type": [],
+   "stratum": "mathworks-official",
+   "recency": "current",
+   "recencyRaw": "current",
+   "verification": "verified-web",
+   "verRaw": "verified[WEB]",
+   "year": null,
+   "living": true,
+   "quarantined": false,
+   "idents": [],
+   "overlapFlags": []
+  },
+  {
+   "id": "m71",
+   "corpus": [
+    "mat"
+   ],
+   "item": {
+    "mat": "71"
+   },
+   "section": 8,
+   "title": "Shipped example: NR FDD Scheduling Performance Evaluation (5G Toolbox)",
+   "cite": "MathWorks, current. https://www.mathworks.com/help/5g/ug/nr-fdd-scheduling-performance-evaluation.html.",
+   "note": "EXAMPLE: evaluates round-robin, proportional-fair, and best-CQI MAC schedulers across multiple UE nodes on a gNB with logical-channel prioritization, reporting throughput, spectral efficiency, and BLER — a multi-station network whose shared radio resource is allocated by a scheduler, quantified.",
+   "subfield": [],
+   "paradigm": [
+    "wireless-system-level"
+   ],
+   "type": [],
+   "stratum": "mathworks-official",
+   "recency": "current",
+   "recencyRaw": "current",
+   "verification": "verified-web",
+   "verRaw": "verified[WEB]",
+   "year": null,
+   "living": true,
+   "quarantined": false,
+   "idents": [],
+   "overlapFlags": []
+  },
+  {
+   "id": "m72",
+   "corpus": [
+    "mat"
+   ],
+   "item": {
+    "mat": "72"
+   },
+   "section": 8,
+   "title": "Shipped example: Use Custom Scheduler in 5G System-Level Simulation (5G Toolbox)",
+   "cite": "MathWorks, current. https://www.mathworks.com/help/5g/ug/nr-plug-custom-scheduler-in-system-level-simulation.html.",
+   "note": "EXAMPLE: plugs a user subclass of nrScheduler into a multinode nrGNB/nrUE system-level simulation and measures throughput/fairness KPIs — the network-scale MAC-scheduler extensibility path (cf. the WLAN OFDMA multinode example already at item 23).",
+   "subfield": [],
+   "paradigm": [
+    "wireless-system-level"
+   ],
+   "type": [],
+   "stratum": "mathworks-official",
+   "recency": "current",
+   "recencyRaw": "current",
+   "verification": "verified-web",
+   "verRaw": "verified[WEB]",
+   "year": null,
+   "living": true,
+   "quarantined": false,
+   "idents": [],
+   "overlapFlags": []
+  },
+  {
+   "id": "m73",
+   "corpus": [
+    "mat"
+   ],
+   "item": {
+    "mat": "73"
+   },
+   "section": 8,
+   "title": "Shipped example: ALOHA and CSMA/CA Packetized Wireless Networks (Communications Toolbox + Stateflow)",
+   "cite": "MathWorks, current. https://www.mathworks.com/help/comm/ug/aloha-and-csma-ca-packetized-wireless-networks.html.",
+   "note": "EXAMPLE: a three-node PHY/MAC model with carrier sensing, inter-frame spacing, contention window, and binary-exponential backoff built in Simulink + Stateflow — a runnable multi-station Stateflow MAC/contention model, the medium-access half of the target capability.",
+   "subfield": [],
+   "paradigm": [
+    "discrete-event"
+   ],
+   "type": [],
+   "stratum": "mathworks-official",
+   "recency": "current",
+   "recencyRaw": "current",
+   "verification": "verified-web",
+   "verRaw": "verified[WEB]",
+   "year": null,
+   "living": true,
+   "quarantined": false,
+   "idents": [],
+   "overlapFlags": []
+  },
+  {
+   "id": "m74",
+   "corpus": [
+    "mat"
+   ],
+   "item": {
+    "mat": "74"
+   },
+   "section": 8,
+   "title": "TrueTime 2.0 — tool distribution and reference manual",
+   "cite": "A. Cervin, D. Henriksson, M. Ohlin, 2016. Dept. of Automatic Control, Lund University. https://www.control.lth.se/truetime/.",
+   "note": "BOTH: the current TrueTime release — a preemptive real-time kernel (RM/EDF and user-defined policies) plus wired (Ethernet/CAN/TDMA/FDMA/Round-Robin/Switched-Ethernet/FlexRay/PROFINET) and wireless (802.11b, 802.15.4) network blocks co-simulated with continuous plant dynamics in Simulink; the reference implementation of the multi-station scheduled-task-over-network model (updates the tool behind items 41–42).",
+   "subfield": [],
+   "paradigm": [
+    "co-simulation-interop"
+   ],
+   "type": [],
+   "stratum": "community",
+   "recency": "contemporary",
+   "recencyRaw": "contemporary",
+   "verification": "verified-web",
+   "verRaw": "verified[WEB]",
+   "year": 2016,
+   "living": false,
+   "quarantined": false,
+   "idents": [],
+   "overlapFlags": []
+  },
+  {
+   "id": "m75",
+   "corpus": [
+    "mat"
+   ],
+   "item": {
+    "mat": "75"
+   },
+   "section": 8,
+   "title": "Integrated Control and Real-Time Scheduling",
+   "cite": "A. Cervin, 2003. PhD thesis, Dept. of Automatic Control, Lund Institute of Technology (LTH). ISRN LUTFD2/TFRT--1065--SE.",
+   "note": "METHOD: the foundational thesis in which TrueTime and the control server were developed; establishes feedback scheduling and control/scheduling co-design as one joint problem.",
+   "subfield": [],
+   "paradigm": [
+    "co-simulation-interop"
+   ],
+   "type": [],
+   "stratum": "thesis",
+   "recency": "foundational",
+   "recencyRaw": "foundational",
+   "verification": "verified-web",
+   "verRaw": "verified[WEB]",
+   "year": 2003,
+   "living": false,
+   "quarantined": false,
+   "idents": [],
+   "overlapFlags": []
+  },
+  {
+   "id": "m76",
+   "corpus": [
+    "mat"
+   ],
+   "item": {
+    "mat": "76"
+   },
+   "section": 8,
+   "title": "Resource-Constrained Embedded Control and Computing Systems",
+   "cite": "D. Henriksson, 2006. PhD thesis, Dept. of Automatic Control, Lund University (LTH).",
+   "note": "METHOD: by a co-author of the TrueTime kernel/network engine; treats control under CPU and network resource constraints — the theory beneath the station-scheduling simulation.",
+   "subfield": [],
+   "paradigm": [
+    "co-simulation-interop"
+   ],
+   "type": [],
+   "stratum": "thesis",
+   "recency": "foundational",
+   "recencyRaw": "foundational",
+   "verification": "verified-web",
+   "verRaw": "verified[WEB]",
+   "year": 2006,
+   "living": false,
+   "quarantined": false,
+   "idents": [],
+   "overlapFlags": []
+  },
+  {
+   "id": "m77",
+   "corpus": [
+    "mat"
+   ],
+   "item": {
+    "mat": "77"
+   },
+   "section": 8,
+   "title": "tres_bundle — runnable T-Res co-simulation library (RT scheduling + network + control in Simulink)",
+   "cite": "M. Morelli; based on F. Cremona, M. Morelli, M. Di Natale, \"TRES: A Modular Representation of Schedulers, Tasks, and Messages to Control Simulations in Simulink\", ACM SAC 2015, pp. 1940–1947. DOI 10.1145/2695664.2695876. Repo: https://github.com/m-morelli/tres_bundle.",
+   "note": "BOTH: couples a per-node task scheduler (RTsim) and a network simulator (OMNeT++) to Simulink via S-functions; the canonical T-Res citation — resolves quarantine item U3 and grounds the tool named at item 47.",
+   "subfield": [],
+   "paradigm": [
+    "co-simulation-interop"
+   ],
+   "type": [],
+   "stratum": "peer-reviewed",
+   "recency": "contemporary",
+   "recencyRaw": "contemporary",
+   "verification": "verified-web",
+   "verRaw": "verified[WEB]",
+   "year": 2015,
+   "living": false,
+   "quarantined": false,
+   "idents": [
+    "10.1145/2695664.2695876"
+   ],
+   "overlapFlags": []
+  },
+  {
+   "id": "m78",
+   "corpus": [
+    "mat"
+   ],
+   "item": {
+    "mat": "78"
+   },
+   "section": 8,
+   "title": "A SimEvents Model for the Analysis of Scheduling and Memory Access Delays in Multicores",
+   "cite": "C. Brandberg, M. Di Natale, 2018. Proc. 13th IEEE Int'l Symposium on Industrial Embedded Systems (SIES 2018), pp. 1–10 (IEEE Xplore doc 8442094). Code: MATLAB File Exchange #66173.",
+   "note": "BOTH: SimEvents used for resource-constrained multicore scheduling with local/global memory-access delays (periodic/sporadic tasks, AUTOSAR implicit/explicit and LET, a Bosch automotive benchmark) — a runnable model pairing task scheduling with memory contention.",
+   "subfield": [],
+   "paradigm": [
+    "discrete-event"
+   ],
+   "type": [],
+   "stratum": "peer-reviewed",
+   "recency": "contemporary",
+   "recencyRaw": "contemporary",
+   "verification": "verified-web",
+   "verRaw": "verified[WEB]",
+   "year": 2018,
+   "living": false,
+   "quarantined": false,
+   "idents": [],
+   "overlapFlags": []
+  },
+  {
+   "id": "m79",
+   "corpus": [
+    "mat"
+   ],
+   "item": {
+    "mat": "79"
+   },
+   "section": 8,
+   "title": "Simulating execution time variations in MATLAB/Simulink",
+   "cite": "A. Naderlinger, 2017. Proc. Winter Simulation Conference (WSC 2017), pp. 1491–1502. ACM 10.5555/3242181.3242302.",
+   "note": "METHOD: injects execution-time, preemption, and scheduling-delay effects into software-in-the-loop Simulink control simulations (see also the same author's timing-aware preemptive-scheduling blocks, DATE 2017) — a lighter-weight alternative to T-Res for per-task timing (index-confirmed, not primary-fetched — re-verify identifiers).",
+   "subfield": [],
+   "paradigm": [
+    "co-simulation-interop"
+   ],
+   "type": [],
+   "stratum": "peer-reviewed",
+   "recency": "contemporary",
+   "recencyRaw": "contemporary",
+   "verification": "verified-train",
+   "verRaw": "verified[TRAIN]",
+   "year": 2017,
+   "living": false,
+   "quarantined": false,
+   "idents": [
+    "10.5555/3242181.3242302"
+   ],
+   "overlapFlags": []
+  },
+  {
+   "id": "m80",
+   "corpus": [
+    "mat"
+   ],
+   "item": {
+    "mat": "80"
+   },
+   "section": 8,
+   "title": "ns3-fmi-export — FMI co-simulation bridge exporting ns-3 as an FMU",
+   "cite": "ERIGrid project, current (v1.1, 2021). https://github.com/ERIGrid/ns3-fmi-export.",
+   "note": "EXAMPLE: wraps an ns-3 network scenario as an FMI-compliant subordinate so a Simulink/FMI master (running plant + scheduler) can co-simulate against packet-level ns-3 — a concrete, loadable Simulink-to-ns-3 bridge beyond the classic TrueTime/PiccSIM/NMLab co-simulators (items 41–45).",
+   "subfield": [],
+   "paradigm": [
+    "co-simulation-interop"
+   ],
+   "type": [],
+   "stratum": "community",
+   "recency": "current",
+   "recencyRaw": "current",
+   "verification": "verified-web",
+   "verRaw": "verified[WEB]",
+   "year": 2021,
+   "living": false,
+   "quarantined": false,
+   "idents": [],
+   "overlapFlags": []
+  },
+  {
+   "id": "m81",
+   "corpus": [
+    "mat"
+   ],
+   "item": {
+    "mat": "81"
+   },
+   "section": 8,
+   "title": "RTC (Real-Time Calculus) Toolbox — Modular Performance Analysis with Real-Time Calculus",
+   "cite": "E. Wandeler, L. Thiele, c. 2006. ETH Zürich (Computer Engineering and Networks Lab, TIK). https://www.mpa.ethz.ch/Rtctoolbox.",
+   "note": "METHOD: a free MATLAB toolbox implementing min-plus/max-plus Real-Time Calculus operators over arrival/service curves for worst-case delay/backlog analysis of coupled scheduling + network resources — the analytical (non-DES) counterpart to SimEvents/TrueTime. [GEN-CORPUS overlap: item 173] — primary ETH site TLS certificate had expired at access time, so tagged verified[TRAIN] pending a live primary fetch; the underlying method is grounded at item 173.",
+   "subfield": [],
+   "paradigm": [
+    "analytical-control-fluid"
+   ],
+   "type": [],
+   "stratum": "community",
+   "recency": "foundational",
+   "recencyRaw": "foundational",
+   "verification": "verified-train",
+   "verRaw": "verified[TRAIN]",
+   "year": 2006,
+   "living": false,
+   "quarantined": false,
+   "idents": [],
+   "overlapFlags": [
+    "[GEN-CORPUS overlap: item 173]"
+   ]
+  },
+  {
    "id": "mU1",
    "corpus": [
     "mat"
@@ -7279,7 +8523,7 @@
    "item": {
     "mat": "U1"
    },
-   "section": 8,
+   "section": 9,
    "title": "PiccSIM canonical author list & venue",
    "cite": "recalled as Kohtamäki/Pohjola/Brand/Eriksson, Aalto (TKK); toolchain paper c. 2009 (possibly ETFA/WFCS family).",
    "note": "Existence verified (item 43); precise citation fields not.",
@@ -7307,7 +8551,7 @@
    "item": {
     "mat": "U2"
    },
-   "section": 8,
+   "section": 9,
    "title": "Hartman thesis on MATLAB↔ns-2 NCS co-simulation",
    "cite": "J. Hartman(?), M.Sc./Ph.D. thesis, c. mid-2000s (referenced inside the NMLab paper).",
    "note": "Thesis-stratum representative; needs retrieval via NMLab's reference list.",
@@ -7335,7 +8579,7 @@
    "item": {
     "mat": "U3"
    },
-   "section": 8,
+   "section": 9,
    "title": "T-Res full citation",
    "cite": "F. Cremona, M. Morelli, M. Di Natale, \"TRES: A Modular Representation of Schedulers, Tasks, and Messages to Control Simulations in Simulink\"(?), ACM SAC 2015(?).",
    "note": "Tool named in verified sources; exact title/venue recalled with only moderate confidence.",
@@ -7363,7 +8607,7 @@
    "item": {
     "mat": "U4"
    },
-   "section": 8,
+   "section": 9,
    "title": "5G K-Simulator / 5G K-SimSys (KAIST/ETRI Korean 5G simulator program)",
    "cite": "c. 2018–2020.",
    "note": "Named in comparative literature (general corpus); whether its system-level component is MATLAB-based is unconfirmed — verify before tagging into this corpus.",
@@ -7391,7 +8635,7 @@
    "item": {
     "mat": "U5"
    },
-   "section": 8,
+   "section": 9,
    "title": "JitterTime canonical venue",
    "cite": "A. Cervin, likely ACM/IEEE ICCPS or ECRTS-family, c. 2019.",
    "note": "Toolbox + paper existence confirmed via citing text; venue/year to pin.",
@@ -7419,7 +8663,7 @@
    "item": {
     "mat": "U6"
    },
-   "section": 8,
+   "section": 9,
    "title": "MATLAB File Exchange community TCP/AQM Simulink fluid-model implementations",
    "cite": "various contributors, ongoing.",
    "note": "Class is known to exist; no specific entry was individually verified this session, so no named item is asserted.",
@@ -7447,7 +8691,7 @@
    "item": {
     "mat": "U7"
    },
-   "section": 8,
+   "section": 9,
    "title": "\"LTE System Level Simulator\" independent MATLAB implementations beyond Vienna (item 55)",
    "cite": "various.",
    "note": "The Vienna citation neighborhood indicates several; enumerate via item 49's citing literature.",
@@ -7475,7 +8719,7 @@
    "item": {
     "mat": "U8"
    },
-   "section": 8,
+   "section": 9,
    "title": "MathWorks white paper(s) on wireless network simulation / digital-twin positioning",
    "cite": "MathWorks, c. 2023–2026.",
    "note": "Likely to exist in the webinar/white-paper stratum; only the webinar (item 31) and workshop (item 24) were individually grounded.",

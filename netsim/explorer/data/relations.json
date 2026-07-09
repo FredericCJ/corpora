@@ -48,6 +48,30 @@
    "quote": "items 73"
   },
   {
+   "s": "g173",
+   "t": "g26",
+   "kind": "mentions",
+   "quote": "items 26–28"
+  },
+  {
+   "s": "g173",
+   "t": "g27",
+   "kind": "mentions",
+   "quote": "items 26–28"
+  },
+  {
+   "s": "g173",
+   "t": "g28",
+   "kind": "mentions",
+   "quote": "items 26–28"
+  },
+  {
+   "s": "g174",
+   "t": "g173",
+   "kind": "mentions",
+   "quote": "item 173"
+  },
+  {
    "s": "gU10",
    "t": "g125",
    "kind": "named-in",
@@ -82,6 +106,72 @@
    "t": "g110",
    "kind": "overlaps",
    "quote": "[GEN-CORPUS overlap: item 110]"
+  },
+  {
+   "s": "m72",
+   "t": "m23",
+   "kind": "mentions",
+   "quote": "item 23"
+  },
+  {
+   "s": "m74",
+   "t": "m41",
+   "kind": "mentions",
+   "quote": "items 41–42"
+  },
+  {
+   "s": "m74",
+   "t": "m42",
+   "kind": "mentions",
+   "quote": "items 41–42"
+  },
+  {
+   "s": "m77",
+   "t": "m47",
+   "kind": "mentions",
+   "quote": "item 47"
+  },
+  {
+   "s": "m80",
+   "t": "m41",
+   "kind": "mentions",
+   "quote": "items 41–45"
+  },
+  {
+   "s": "m80",
+   "t": "m42",
+   "kind": "mentions",
+   "quote": "items 41–45"
+  },
+  {
+   "s": "m80",
+   "t": "m43",
+   "kind": "mentions",
+   "quote": "items 41–45"
+  },
+  {
+   "s": "m80",
+   "t": "m44",
+   "kind": "mentions",
+   "quote": "items 41–45"
+  },
+  {
+   "s": "m80",
+   "t": "m45",
+   "kind": "mentions",
+   "quote": "items 41–45"
+  },
+  {
+   "s": "m81",
+   "t": "g173",
+   "kind": "overlaps",
+   "quote": "[GEN-CORPUS overlap: item 173]"
+  },
+  {
+   "s": "m81",
+   "t": "g173",
+   "kind": "mentions",
+   "quote": "item 173"
   },
   {
    "s": "mU1",
@@ -199,6 +289,10 @@
     {
      "no": 12,
      "relation": "expansion of \"systems\" scope"
+    },
+    {
+     "no": 16,
+     "relation": "joint network + per-station task/resource scheduling; systems-scope expansion"
     }
    ],
    "verdict": null
@@ -221,7 +315,7 @@
    "part": "quarantine",
    "sections": [
     {
-     "no": 16,
+     "no": 17,
      "relation": "unverified / to confirm"
     }
    ],
@@ -233,10 +327,12 @@
    "Routes swept (live, 2026-07-09): anchor verification + citing works; editor lineage (Obaidat/Boudriga confirmed); network digital twins (dense 2021–2026 harvest incl. ITU-T/IETF standards track); ML/GNN/surrogate simulation (RouteNet family, MimicNet/DeepQueueNet/SplitSim line); 5G/6G simulators (Simu5G, 5G-LENA, Sionna, comparative surveys); cloud/edge simulators (CloudSim lineage + 2025 convergence survey); PADS (Fujimoto 1990→2016→current engines); network calculus & TSN analysis; P4/emulation fidelity; security M&S (cyber ranges, RL agents, datasets). Foundational canon (queueing, DEVS, DES methodology, credibility literature, core simulator papers) is supplied from high-confidence training knowledge and tagged `verified[TRAIN]` — identifiers there should be spot-checked before downstream citation, per the manifest discipline.",
    "Where recall likely thins: (a) hybrid fluid/packet simulation and rare-event simulation for networks (U12 — technique known, consolidated current survey not located); (b) NTN/satellite-specific simulators beyond SatEdgeSim/ISTN mentions (the 6G-simulator survey, item 107, is the best pivot); (c) formal-methods-adjacent modeling (probabilistic model checking of protocols — PRISM/Storm were deliberately not expanded; add if the \"systems boundary\" fork resolves broad); (d) WSC/MASCOTS per-paper sweep — treated as venue nodes rather than enumerated; (e) commercial tooling (Riverbed, NetSim, EXata) only lightly covered.",
    "What has clearly moved on since the 2015 anchor: simulation tooling (ns-2 → ns-3/OMNeT++-INET ecosystems with dedicated annual venues); an entirely new subfield of network digital twins with ITU-T/IETF standardization; ML-surrogate and differentiable simulation as a credible substitute/accelerator for packet-level DES; GPU-native, ML-integrated wireless simulation (Sionna) displacing MATLAB link-level tools; emulation (container-based, virtual-time-corrected) as a co-equal methodology rather than an afterthought; and reproducibility/artifact norms institutionalized since ~2020. The anchor's Part 2 (performance evaluation) is the most durable — the queueing/NC analytical core is intact, with TSN/deterministic networking as its most active current application. Its Part 4 (simulation methodology) and Part 5 (wireless evaluation) are the most superseded.",
-   "Open forks preserved: systems-boundary items (gem5, SST, BookSim, SimGrid, CODES, AstraSim) collected and tagged `other(systems)`/`cloud-datacenter` for later boundary-drawing; anchor chapters not yet decomposed into nodes (two chapters confirmed independently citable via item 2); citation-neighborhood held at 1-hop with 2-hop candidates implicit in the survey-type entries."
+   "Open forks preserved: systems-boundary items (gem5, SST, BookSim, SimGrid, CODES, AstraSim) collected and tagged `other(systems)`/`cloud-datacenter` for later boundary-drawing; anchor chapters not yet decomposed into nodes (two chapters confirmed independently citable via item 2); citation-neighborhood held at 1-hop with 2-hop candidates implicit in the survey-type entries.",
+   "Scheduling expansion (2026-07-09 wave, §16). Crawling out from the anchor's DES/queueing core and the MATLAB TrueTime/SimEvents seeds assembled the task/resource-scheduling method spine: networked-control-systems surveys (Hespanha; Zhang/Gao/Kaynak; Gupta/Chow; Zhang/Han/Yu), event/self-triggered control (Tabuada; Heemels/Johansson/Tabuada; Årzén), the real-time schedulability canon (Liu & Layland; Sha et al.; Buttazzo; Baruah/Bertogna/Buttazzo), control/scheduling co-design (Cervin/Eker/Bernhardsson/Årzén feedback scheduling; Eker/Hagander/Årzén; Årzén & Cervin; the weakly-hard survey), compositional worst-case analysis (Real-Time Calculus; SymTA/S), and FMI co-simulation semantics. Every NCS and schedulability identifier here was Crossref-confirmed live this session, so the section is unusually well-grounded for a foundational-canon sweep. Recall thinned on the pre-DOI IFAC event-based-control papers (Årzén 1999, kept verified[TRAIN]; the CDC-2000 co-design introduction and the ECRTS Control Server quarantined at U16–U17 for want of a grounded identifier); probabilistic model-checking of schedulers (PRISM/UPPAAL) was deliberately left as an unexpanded systems-boundary fork."
   ],
   "mat": [
-   "All six paradigms were swept live. Coverage is strongest and most self-sufficient in two places: (a) the MathWorks-official stratum for wireless system-level simulation — the 2023–2026 stack (wirelessNetworkSimulator core + 5G/WLAN/Bluetooth/Satellite toolboxes + Wireless Network Toolbox packaging) is fully documented by vendor pages, and the key anti-fabrication finding is the packaging migration (File Exchange add-on → in-product/dedicated toolbox), which any downstream citation must respect; and (b) the co-simulation/NCS paradigm, where a mature, independent, peer-reviewed lineage exists (TrueTime → Jitterbug/JitterTime, PiccSIM, NMLab, Simulink↔OPNET, WirelessHART co-sim) — this is the paradigm most relevant to control-over-network problems and is almost entirely non-vendor literature. The academic-simulators paradigm is dominated by one family (Vienna LTE/5G, fully grounded incl. its Springer monograph) plus GTEC and satellite-networking studies that use SatCom Toolbox as the system-of-record. Recall thins in: independent peer-reviewed evaluations of the new (2023+) MathWorks network-simulation stack (the tooling is young; third-party calibration/validation studies against 3GPP/IEEE references were not found this session and may barely exist yet — a genuine gap, not a search failure); the thesis stratum (one unverified representative); and File Exchange beyond the vendor's own add-on. The discrete-event (SimEvents) paradigm shows the inverse profile of §2: vendor documentation is stable and older, while the peer-reviewed record is concentrated in one research lineage (MathWorks + Cassandras/Boston University, WSC/WODES/DEDS 2006–2019) oriented to CPS/ITS rather than classical packet networks — consistent with the framing that MATLAB/Simulink is a minority tool whose network-M&S value is paradigm-specific (hybrid control+network, coexistence, standards-based wireless KPIs, satellite scenarios) rather than general-purpose packet simulation."
+   "All six paradigms were swept live. Coverage is strongest and most self-sufficient in two places: (a) the MathWorks-official stratum for wireless system-level simulation — the 2023–2026 stack (wirelessNetworkSimulator core + 5G/WLAN/Bluetooth/Satellite toolboxes + Wireless Network Toolbox packaging) is fully documented by vendor pages, and the key anti-fabrication finding is the packaging migration (File Exchange add-on → in-product/dedicated toolbox), which any downstream citation must respect; and (b) the co-simulation/NCS paradigm, where a mature, independent, peer-reviewed lineage exists (TrueTime → Jitterbug/JitterTime, PiccSIM, NMLab, Simulink↔OPNET, WirelessHART co-sim) — this is the paradigm most relevant to control-over-network problems and is almost entirely non-vendor literature. The academic-simulators paradigm is dominated by one family (Vienna LTE/5G, fully grounded incl. its Springer monograph) plus GTEC and satellite-networking studies that use SatCom Toolbox as the system-of-record. Recall thins in: independent peer-reviewed evaluations of the new (2023+) MathWorks network-simulation stack (the tooling is young; third-party calibration/validation studies against 3GPP/IEEE references were not found this session and may barely exist yet — a genuine gap, not a search failure); the thesis stratum (one unverified representative); and File Exchange beyond the vendor's own add-on. The discrete-event (SimEvents) paradigm shows the inverse profile of §2: vendor documentation is stable and older, while the peer-reviewed record is concentrated in one research lineage (MathWorks + Cassandras/Boston University, WSC/WODES/DEDS 2006–2019) oriented to CPS/ITS rather than classical packet networks — consistent with the framing that MATLAB/Simulink is a minority tool whose network-M&S value is paradigm-specific (hybrid control+network, coexistence, standards-based wireless KPIs, satellite scenarios) rather than general-purpose packet simulation.",
+   "Scheduling expansion (2026-07-09 wave, §8). Added the MATLAB/Simulink stack for multi-station task-and-resource scheduling. Two vendor stacks were grounded first-hand: SoC Blockset (Task Manager block — timer/event-driven tasks with period, priority, per-core mapping, preemption, and overrun/drop policy) and SimEvents (the Simulate/Develop-Custom-Scheduler-of-a-Multicore-Control-System examples — tasks as priority-sorted entities on a multi-core server with mutex-protected shared resources, the closest shipped analog to the target capability), plus network-scale MAC schedulers (5G NR round-robin/proportional-fair/best-CQI and a custom nrScheduler; the Stateflow ALOHA/CSMA-CA multinode model). The non-vendor lineage is dominated by the Lund co-design school (TrueTime 2.0 kernel+network co-simulation; the Cervin and Henriksson theses) and the Sant'Anna real-time-task-in-Simulink line (T-Res/tres_bundle, whose citation resolves U3; Brandberg & Di Natale's SimEvents multicore+memory model), with the RTC Toolbox as the MATLAB analytical (worst-case) counterpart and ns3-fmi-export as a concrete Simulink/FMI-to-ns-3 bridge. JitterTime's venue is now pinned (IEEE ETFA 2019, DOI 10.1109/ETFA.2019.8869221; toolbox at github.com/ControlLTH/JitterTime), resolving U5. Recall thinned on File Exchange breadth (only the vendor plus two academic models grounded); Naderlinger's Simulink timing-block papers (WSC/DATE 2017) were index-confirmed but not primary-fetched (kept verified[TRAIN]); the RTC Toolbox's own ETH page presented an expired TLS certificate at access time (tool kept verified[TRAIN]); and independent validation of the young SoC-Blockset/SimEvents scheduler stack against real RTOS traces remains essentially absent — a genuine gap, not a search failure."
   ]
  },
  "verificationLegend": {

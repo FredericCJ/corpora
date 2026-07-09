@@ -2,7 +2,7 @@
   "name": "netsim-corpus-explorer",
   "version": "1.0.0",
   "private": true,
-  "description": "Single-viewport explorer of a unified network-M&S corpus (240 entries, two research passes, five relational models). Raw HTML/CSS/JS, no framework, no build step at view time.",
+  "description": "Single-viewport explorer of a unified network-M&S corpus (281 entries, two research passes, five relational models). Raw HTML/CSS/JS, no framework, no build step at view time.",
   "type": "module",
   "scripts": {
     "build": "python build/build.py",

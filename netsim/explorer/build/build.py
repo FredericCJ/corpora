@@ -80,7 +80,8 @@ GEN_SECTION_MAP = {
     13: ('p1', 'expansion axis: anchor Part 1 + post-2015 shift'),
     14: ('p6', 'expansion axis: anchor Part 6'),
     15: ('meta', "recall multipliers — sweep these, don't cite as single works"),
-    16: ('quarantine', 'unverified / to confirm'),
+    16: ('beyond', 'joint network + per-station task/resource scheduling; systems-scope expansion'),
+    17: ('quarantine', 'unverified / to confirm'),
 }
 SUBFIELDS = ['protocols-services', 'performance-evaluation', 'modeling-approaches',
              'simulation-methodology', 'next-gen-wireless', 'security', 'digital-twin',
@@ -217,16 +218,16 @@ mat_n = [e for e in mat_entries if not e['item'].startswith('U')]
 mat_u = [e for e in mat_entries if e['item'].startswith('U')]
 log(f'- GEN: {len(gen_n)} numbered entries + {len(gen_u)} quarantined across {len(gen_sections)} sections.')
 log(f'- MAT: {len(mat_n)} numbered entries + {len(mat_u)} quarantined across {len(mat_sections)} sections.')
-if len(gen_n) != 158 or len(gen_u) != 15:
-    fail(f'GEN counts changed: expected 158+15, got {len(gen_n)}+{len(gen_u)} — reconcile with the report')
-if len(mat_n) != 61 or len(mat_u) != 8:
-    fail(f'MAT counts changed: expected 61+8, got {len(mat_n)}+{len(mat_u)}')
+if len(gen_n) != 176 or len(gen_u) != 18:
+    fail(f'GEN counts changed: expected 176+18, got {len(gen_n)}+{len(gen_u)} — reconcile with the report')
+if len(mat_n) != 81 or len(mat_u) != 8:
+    fail(f'MAT counts changed: expected 81+8, got {len(mat_n)}+{len(mat_u)}')
 seq = [int(e['item']) for e in gen_n]
-if seq != sorted(seq) or seq != list(range(1, 159)):
-    fail('GEN numbering is not the contiguous 1..158 sequence')
-if [int(e['item']) for e in mat_n] != list(range(1, 62)):
-    fail('MAT numbering is not the contiguous 1..61 sequence')
-log('- numbering contiguous in both reports (GEN 1..158, MAT 1..61).')
+if seq != sorted(seq) or seq != list(range(1, 177)):
+    fail('GEN numbering is not the contiguous 1..176 sequence')
+if [int(e['item']) for e in mat_n] != list(range(1, 82)):
+    fail('MAT numbering is not the contiguous 1..81 sequence')
+log('- numbering contiguous in both reports (GEN 1..176, MAT 1..81).')
 log('')
 
 # ─────────────────────────── PHASE 2 — normalize + resolve ───────────────────────────
@@ -262,7 +263,7 @@ for e in gen_entries + mat_entries:
         fail(f'{corpus} {e["item"]}: unparseable recency {rec_raw!r}')
     if ver_qual:
         qualifiers.append(f'{corpus}{e["item"]}: verification qualifier “{ver_qual}”')
-    quarantined = (corpus == 'gen' and e['section'] == 16) or (corpus == 'mat' and e['section'] == 8)
+    quarantined = (corpus == 'gen' and e['section'] == 17) or (corpus == 'mat' and e['section'] == 9)
     year, living = extract_year(e['cite'], e['title'])
     overlap_flags = re.findall(r'\[GEN-CORPUS[^\]]*\]', e['cite'] + ' ' + e['note'])
     nodes.append(dict(
@@ -352,12 +353,12 @@ log('')
 # ─────────────────────────── PHASE 3 — structural verification ───────────────────────────
 log('## PHASE 3 — structural verification')
 for sec in gen_sections:
-    if sec['no'] not in GEN_SECTION_MAP and sec['no'] <= 16:
+    if sec['no'] not in GEN_SECTION_MAP and sec['no'] <= 17:
         fail(f'GEN section {sec["no"]} missing from the anchor map')
 vc = collections.Counter(n['verification'] for n in nodes)
 qc = sum(1 for n in nodes if n['quarantined'])
 log(f"- verification split: {vc['verified-web']} verified[WEB] / {vc['verified-train']} verified[TRAIN] "
-    f"/ {vc['unverified']} unverified; {qc} entries live in the quarantine sections (§16 GEN / §8 MAT).")
+    f"/ {vc['unverified']} unverified; {qc} entries live in the quarantine sections (§17 GEN / §9 MAT).")
 bad_q = [n['id'] for n in nodes if n['quarantined'] and n['verification'] != 'unverified'
          and 'single-source' not in n['verRaw'] and 'unverified' not in n['verRaw']]
 if bad_q:
