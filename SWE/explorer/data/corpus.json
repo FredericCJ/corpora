@@ -6,7 +6,8 @@
   "emb-c": "Embedded C design",
   "emb-cpp": "Embedded C++ design",
   "emb-ops": "Embedded C/C++ operational use",
-  "simulink": "Large Simulink/MATLAB projects"
+  "simulink": "Large Simulink/MATLAB projects",
+  "swe-process": "Engineering process & workflow"
  },
  "nodes": [
   {
@@ -43,7 +44,8 @@
    "lane": null,
    "scope": null,
    "access": "open",
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "shawgarlan96",
@@ -83,7 +85,8 @@
    "lane": null,
    "scope": null,
    "access": "paywalled",
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "garlanshaw93",
@@ -118,7 +121,8 @@
    "lane": null,
    "scope": null,
    "access": "open",
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "tmd",
@@ -158,7 +162,8 @@
    "lane": null,
    "scope": null,
    "access": "paywalled",
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "bck",
@@ -199,7 +204,8 @@
    "lane": null,
    "scope": "general",
    "access": "paywalled",
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "shaw01",
@@ -235,7 +241,8 @@
    "lane": null,
    "scope": null,
    "access": "open",
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "garlan14",
@@ -271,7 +278,8 @@
    "lane": null,
    "scope": null,
    "access": "open",
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "iso42010",
@@ -313,7 +321,8 @@
    "lane": null,
    "scope": "general",
    "access": "paywalled",
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "vab",
@@ -353,7 +362,8 @@
    "lane": null,
    "scope": null,
    "access": "paywalled",
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "kruchten",
@@ -392,7 +402,8 @@
    "lane": null,
    "scope": null,
    "access": "open",
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "rozanski",
@@ -431,7 +442,8 @@
    "lane": null,
    "scope": null,
    "access": "paywalled",
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "hofmeister00",
@@ -466,7 +478,8 @@
    "lane": null,
    "scope": null,
    "access": "paywalled",
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "emeryhilliard",
@@ -501,7 +514,8 @@
    "lane": null,
    "scope": null,
    "access": "open",
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "medvidovicuml",
@@ -536,7 +550,8 @@
    "lane": null,
    "scope": null,
    "access": "partial",
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "medtay",
@@ -573,7 +588,8 @@
    "lane": null,
    "scope": null,
    "access": "open",
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "wright",
@@ -609,7 +625,8 @@
    "lane": null,
    "scope": null,
    "access": "partial",
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "rapide",
@@ -644,7 +661,8 @@
    "lane": null,
    "scope": null,
    "access": "paywalled",
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "darwin",
@@ -679,7 +697,8 @@
    "lane": null,
    "scope": null,
    "access": "partial",
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "acme",
@@ -714,7 +733,8 @@
    "lane": null,
    "scope": null,
    "access": "open",
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "moriconi",
@@ -749,7 +769,8 @@
    "lane": null,
    "scope": null,
    "access": "paywalled",
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "piadl",
@@ -784,7 +805,8 @@
    "lane": null,
    "scope": null,
    "access": "partial",
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "feilergluch",
@@ -825,7 +847,8 @@
    "lane": null,
    "scope": "embedded-specific",
    "access": "paywalled",
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "abowd",
@@ -860,7 +883,8 @@
    "lane": null,
    "scope": null,
    "access": "open",
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "sfm",
@@ -895,7 +919,8 @@
    "lane": null,
    "scope": null,
    "access": "paywalled",
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "aldini",
@@ -930,7 +955,8 @@
    "lane": null,
    "scope": null,
    "access": "paywalled",
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "malavolta",
@@ -966,7 +992,8 @@
    "lane": null,
    "scope": null,
    "access": "open",
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "zhang",
@@ -1003,7 +1030,8 @@
    "lane": null,
    "scope": null,
    "access": "paywalled",
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "mismatch95",
@@ -1038,7 +1066,8 @@
    "lane": null,
    "scope": null,
    "access": "open",
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "mismatch09",
@@ -1073,7 +1102,8 @@
    "lane": null,
    "scope": null,
    "access": "open",
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "oreizy",
@@ -1109,7 +1139,8 @@
    "lane": null,
    "scope": null,
    "access": "open",
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "rainbow",
@@ -1144,7 +1175,8 @@
    "lane": null,
    "scope": null,
    "access": "open",
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "kramermagee",
@@ -1179,7 +1211,8 @@
    "lane": null,
    "scope": null,
    "access": "open",
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "weyns",
@@ -1214,7 +1247,8 @@
    "lane": null,
    "scope": null,
    "access": "paywalled",
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "breivold",
@@ -1251,7 +1285,8 @@
    "lane": null,
    "scope": null,
    "access": "paywalled",
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "barnes",
@@ -1286,7 +1321,8 @@
    "lane": null,
    "scope": null,
    "access": "open",
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "angelov",
@@ -1322,7 +1358,8 @@
    "lane": null,
    "scope": null,
    "access": "paywalled",
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "galster",
@@ -1357,7 +1394,8 @@
    "lane": null,
    "scope": null,
    "access": "open",
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "sple",
@@ -1392,7 +1430,8 @@
    "lane": null,
    "scope": null,
    "access": "paywalled",
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "parnas72",
@@ -1405,6 +1444,7 @@
    "unresolved": [],
    "corpora": [
     "swa-science",
+    "swe-process",
     "emb-arch",
     "emb-c"
    ],
@@ -1414,6 +1454,11 @@
      "branch": "B",
      "tier": "tc",
      "oa": "yes"
+    },
+    "swe-process": {
+     "area": "org-build",
+     "lang": "agnostic",
+     "role": "anchor"
     },
     "emb-arch": {
      "lead": true
@@ -1427,7 +1472,8 @@
     "process"
    ],
    "themes": [
-    "design-science"
+    "design-science",
+    "org-build"
    ],
    "role": [
     "anchor",
@@ -1436,7 +1482,8 @@
    "lane": null,
    "scope": null,
    "access": "open",
-   "automotive": false
+   "automotive": false,
+   "lang": "agnostic"
   },
   {
    "id": "parnas74",
@@ -1471,7 +1518,8 @@
    "lane": null,
    "scope": null,
    "access": "partial",
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "parnas79",
@@ -1506,7 +1554,8 @@
    "lane": null,
    "scope": null,
    "access": "partial",
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "parnasclements",
@@ -1518,7 +1567,8 @@
    "ident": "IEEE TSE SE-12(2):251-257",
    "unresolved": [],
    "corpora": [
-    "swa-science"
+    "swa-science",
+    "swe-process"
    ],
    "per": {
     "swa-science": {
@@ -1526,6 +1576,11 @@
      "branch": "B",
      "tier": "tc",
      "oa": "yes"
+    },
+    "swe-process": {
+     "area": "documentation",
+     "lang": "agnostic",
+     "role": "anchor"
     }
    },
    "type": "paper",
@@ -1533,7 +1588,8 @@
     "process"
    ],
    "themes": [
-    "design-science"
+    "design-science",
+    "documentation"
    ],
    "role": [
     "anchor",
@@ -1542,7 +1598,8 @@
    "lane": null,
    "scope": null,
    "access": "open",
-   "automotive": false
+   "automotive": false,
+   "lang": "agnostic"
   },
   {
    "id": "simon96",
@@ -1577,7 +1634,8 @@
    "lane": null,
    "scope": null,
    "access": "paywalled",
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "rittelwebber",
@@ -1612,7 +1670,8 @@
    "lane": null,
    "scope": null,
    "access": "open",
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "gendesign",
@@ -1649,7 +1708,8 @@
    "lane": null,
    "scope": null,
    "access": "partial",
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "cervanteskazman",
@@ -1685,7 +1745,8 @@
    "lane": null,
    "scope": null,
    "access": "paywalled",
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "bosch00",
@@ -1720,7 +1781,8 @@
    "lane": null,
    "scope": null,
    "access": "paywalled",
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "jansenbosch",
@@ -1755,7 +1817,8 @@
    "lane": null,
    "scope": null,
    "access": "open",
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "boschmolin",
@@ -1790,7 +1853,8 @@
    "lane": null,
    "scope": null,
    "access": "paywalled",
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "ibis",
@@ -1826,7 +1890,8 @@
    "lane": null,
    "scope": null,
    "access": "open",
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "qoc",
@@ -1861,7 +1926,8 @@
    "lane": null,
    "scope": null,
    "access": "paywalled",
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "drl",
@@ -1896,7 +1962,8 @@
    "lane": null,
    "scope": null,
    "access": "partial",
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "dutoit",
@@ -1931,7 +1998,8 @@
    "lane": null,
    "scope": null,
    "access": "paywalled",
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "burge",
@@ -1966,7 +2034,8 @@
    "lane": null,
    "scope": null,
    "access": "paywalled",
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "tangjinhan",
@@ -2001,7 +2070,8 @@
    "lane": null,
    "scope": null,
    "access": "partial",
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "zimmermann",
@@ -2038,7 +2108,8 @@
    "lane": null,
    "scope": null,
    "access": "partial",
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "capilla",
@@ -2075,7 +2146,8 @@
    "lane": null,
    "scope": null,
    "access": "open",
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "weinreich",
@@ -2111,7 +2183,8 @@
    "lane": null,
    "scope": null,
    "access": "paywalled",
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "tangsurvey06",
@@ -2146,7 +2219,8 @@
    "lane": null,
    "scope": null,
    "access": "open",
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "vanvliettang",
@@ -2181,7 +2255,8 @@
    "lane": null,
    "scope": null,
    "access": "partial",
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "falessi",
@@ -2218,7 +2293,8 @@
    "lane": null,
    "scope": null,
    "access": "partial",
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "zannier",
@@ -2253,7 +2329,8 @@
    "lane": null,
    "scope": null,
    "access": "paywalled",
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "tangrazavian",
@@ -2291,7 +2368,8 @@
    "lane": null,
    "scope": null,
    "access": "partial",
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "esa",
@@ -2327,7 +2405,8 @@
    "lane": null,
    "scope": null,
    "access": "paywalled",
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "atam",
@@ -2363,7 +2442,8 @@
    "lane": null,
    "scope": null,
    "access": "open",
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "saam",
@@ -2398,7 +2478,8 @@
    "lane": null,
    "scope": null,
    "access": "open",
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "dobrica",
@@ -2435,7 +2516,8 @@
    "lane": null,
    "scope": null,
    "access": "paywalled",
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "babar04",
@@ -2471,7 +2553,8 @@
    "lane": null,
    "scope": null,
    "access": "partial",
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "alma",
@@ -2506,7 +2589,8 @@
    "lane": null,
    "scope": null,
    "access": "paywalled",
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "iso25010",
@@ -2542,7 +2626,8 @@
    "lane": null,
    "scope": null,
    "access": "paywalled",
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "barbacci",
@@ -2577,7 +2662,8 @@
    "lane": null,
    "scope": null,
    "access": "open",
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "abas",
@@ -2612,7 +2698,8 @@
    "lane": null,
    "scope": null,
    "access": "open",
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "tactics",
@@ -2647,7 +2734,8 @@
    "lane": null,
    "scope": null,
    "access": "open",
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "cbam",
@@ -2683,7 +2771,8 @@
    "lane": null,
    "scope": null,
    "access": "open",
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "techdebt19",
@@ -2718,7 +2807,8 @@
    "lane": null,
    "scope": null,
    "access": "paywalled",
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "dagstuhl16",
@@ -2753,7 +2843,8 @@
    "lane": null,
    "scope": null,
    "access": "open",
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "rcda",
@@ -2788,7 +2879,8 @@
    "lane": null,
    "scope": null,
    "access": "open",
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "kopetz",
@@ -2820,7 +2912,8 @@
    "lane": null,
    "scope": "embedded-specific",
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "leeseshia",
@@ -2852,7 +2945,8 @@
    "lane": null,
    "scope": "embedded-specific",
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "marwedel",
@@ -2884,7 +2978,8 @@
    "lane": null,
    "scope": "embedded-specific",
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "wolf5",
@@ -2916,7 +3011,8 @@
    "lane": null,
    "scope": "embedded-specific",
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "noergaard",
@@ -2948,7 +3044,8 @@
    "lane": null,
    "scope": "embedded-specific",
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "lacamera",
@@ -2984,7 +3081,8 @@
    "lane": null,
    "scope": "embedded-specific",
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "ledin",
@@ -3016,7 +3114,8 @@
    "lane": null,
    "scope": "embedded-specific",
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "oshana",
@@ -3048,7 +3147,8 @@
    "lane": null,
    "scope": "embedded-specific",
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "beningodesign",
@@ -3084,7 +3184,8 @@
    "lane": null,
    "scope": "embedded-specific",
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "beningofw",
@@ -3120,7 +3221,8 @@
    "lane": null,
    "scope": "embedded-specific",
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "white",
@@ -3160,7 +3262,8 @@
    "lane": null,
    "scope": "embedded-specific",
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "staron",
@@ -3192,7 +3295,8 @@
    "lane": null,
    "scope": "embedded-specific",
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "buttazzo",
@@ -3224,7 +3328,8 @@
    "lane": null,
    "scope": "embedded-specific",
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "burnswellings",
@@ -3256,7 +3361,8 @@
    "lane": null,
    "scope": "embedded-specific",
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "liulayland",
@@ -3288,7 +3394,8 @@
    "lane": null,
    "scope": "embedded-specific",
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "iso26262",
@@ -3320,7 +3427,8 @@
    "lane": null,
    "scope": "embedded-specific",
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "do178c",
@@ -3352,7 +3460,8 @@
    "lane": null,
    "scope": "embedded-specific",
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "iec61508",
@@ -3384,7 +3493,8 @@
    "lane": null,
    "scope": "embedded-specific",
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "iec62304",
@@ -3416,7 +3526,8 @@
    "lane": null,
    "scope": "embedded-specific",
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "en50128",
@@ -3448,7 +3559,8 @@
    "lane": null,
    "scope": "embedded-specific",
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "arinc653",
@@ -3480,7 +3592,8 @@
    "lane": null,
    "scope": "embedded-specific",
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "autosarclassic",
@@ -3512,7 +3625,8 @@
    "lane": null,
    "scope": "embedded-specific",
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "autosaradaptive",
@@ -3544,7 +3658,8 @@
    "lane": null,
    "scope": "embedded-specific",
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "tinyos",
@@ -3576,7 +3691,8 @@
    "lane": null,
    "scope": "embedded-specific",
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "samekbook",
@@ -3618,7 +3734,8 @@
    "lane": null,
    "scope": "embedded-specific",
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "samekcourse",
@@ -3665,7 +3782,8 @@
    "lane": "trunk",
    "scope": "embedded-specific",
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "douglasspatternsc",
@@ -3702,7 +3820,8 @@
    "lane": null,
    "scope": "embedded-specific",
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "douglassrtcorpus",
@@ -3734,7 +3853,8 @@
    "lane": null,
    "scope": "embedded-specific",
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "barrc",
@@ -3747,7 +3867,8 @@
    "unresolved": [],
    "corpora": [
     "emb-arch",
-    "emb-c"
+    "emb-c",
+    "swe-process"
    ],
    "per": {
     "emb-arch": {
@@ -3758,20 +3879,30 @@
     "emb-c": {
      "theme": "coding-style",
      "level": "design"
+    },
+    "swe-process": {
+     "area": "standards",
+     "lang": "c",
+     "role": "core"
     }
    },
    "type": "standard",
    "branches": [
-    "design"
+    "design",
+    "process"
    ],
    "themes": [
-    "coding-style"
+    "coding-style",
+    "standards"
    ],
-   "role": [],
+   "role": [
+    "core"
+   ],
    "lane": null,
    "scope": "embedded-specific",
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": "c"
   },
   {
    "id": "barrmassa",
@@ -3812,7 +3943,8 @@
    "lane": "trunk",
    "scope": "embedded-specific",
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "misrac",
@@ -3825,7 +3957,8 @@
    "unresolved": [],
    "corpora": [
     "emb-arch",
-    "emb-c"
+    "emb-c",
+    "swe-process"
    ],
    "per": {
     "emb-arch": {
@@ -3836,20 +3969,30 @@
     "emb-c": {
      "theme": "coding-style",
      "level": "design"
+    },
+    "swe-process": {
+     "area": "standards",
+     "lang": "c",
+     "role": "anchor"
     }
    },
    "type": "standard",
    "branches": [
-    "design"
+    "design",
+    "process"
    ],
    "themes": [
-    "coding-style"
+    "coding-style",
+    "standards"
    ],
-   "role": [],
+   "role": [
+    "anchor"
+   ],
    "lane": null,
    "scope": "embedded-specific",
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": "c"
   },
   {
    "id": "misracpp2008",
@@ -3862,7 +4005,8 @@
    "unresolved": [],
    "corpora": [
     "emb-arch",
-    "emb-cpp"
+    "emb-cpp",
+    "swe-process"
    ],
    "per": {
     "emb-arch": {
@@ -3873,6 +4017,9 @@
     "emb-cpp": {
      "theme": "feature-subsetting",
      "level": "design"
+    },
+    "swe-process": {
+     "lead": true
     }
    },
    "type": "standard",
@@ -3886,7 +4033,8 @@
    "lane": null,
    "scope": "embedded-specific",
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "misracpp2023",
@@ -3899,7 +4047,8 @@
    "unresolved": [],
    "corpora": [
     "emb-arch",
-    "emb-cpp"
+    "emb-cpp",
+    "swe-process"
    ],
    "per": {
     "emb-arch": {
@@ -3910,20 +4059,30 @@
     "emb-cpp": {
      "theme": "feature-subsetting",
      "level": "design"
+    },
+    "swe-process": {
+     "area": "standards",
+     "lang": "cpp",
+     "role": "core"
     }
    },
    "type": "standard",
    "branches": [
-    "design"
+    "design",
+    "process"
    ],
    "themes": [
-    "feature-subsetting"
+    "feature-subsetting",
+    "standards"
    ],
-   "role": [],
+   "role": [
+    "core"
+   ],
    "lane": null,
    "scope": "embedded-specific",
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": "cpp"
   },
   {
    "id": "holzmannp10",
@@ -3960,7 +4119,8 @@
    "lane": null,
    "scope": "embedded-specific",
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "grenningtdd",
@@ -4002,7 +4162,8 @@
    "lane": null,
    "scope": "embedded-specific",
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "koopmanbess",
@@ -4039,7 +4200,8 @@
    "lane": null,
    "scope": "embedded-specific",
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "gomaa",
@@ -4071,7 +4233,8 @@
    "lane": null,
    "scope": "embedded-specific",
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "noblesmallmem",
@@ -4107,7 +4270,8 @@
    "lane": null,
    "scope": "embedded-specific",
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "hobbs",
@@ -4139,7 +4303,8 @@
    "lane": null,
    "scope": "embedded-specific",
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "rierson",
@@ -4171,7 +4336,8 @@
    "lane": null,
    "scope": "embedded-specific",
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "ldd3",
@@ -4203,7 +4369,8 @@
    "lane": null,
    "scope": "embedded-applicable",
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "simmonds",
@@ -4242,7 +4409,8 @@
    "lane": "trunk",
    "scope": "embedded-specific",
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "yiu",
@@ -4285,7 +4453,8 @@
    "lane": null,
    "scope": "embedded-specific",
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "cmsis",
@@ -4317,7 +4486,8 @@
    "lane": null,
    "scope": "embedded-specific",
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "mcconnell",
@@ -4329,27 +4499,38 @@
    "ident": "Microsoft Press, ISBN 978-0-7356-1967-8",
    "unresolved": [],
    "corpora": [
-    "emb-arch"
+    "emb-arch",
+    "swe-process"
    ],
    "per": {
     "emb-arch": {
      "branch": "design",
      "embedded_relevance": "general",
      "hw_sw_boundary": "no"
+    },
+    "swe-process": {
+     "area": "standards",
+     "lang": "agnostic",
+     "role": "anchor"
     }
    },
    "type": "book",
    "branches": [
-    "design"
+    "design",
+    "process"
    ],
    "themes": [
-    "coding-style"
+    "coding-style",
+    "standards"
    ],
-   "role": [],
+   "role": [
+    "anchor"
+   ],
    "lane": null,
    "scope": "general",
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": "agnostic"
   },
   {
    "id": "gof",
@@ -4381,7 +4562,8 @@
    "lane": null,
    "scope": "general",
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "pont",
@@ -4413,7 +4595,8 @@
    "lane": null,
    "scope": "embedded-specific",
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "labrosse",
@@ -4445,7 +4628,8 @@
    "lane": null,
    "scope": "embedded-specific",
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "dsimonprimer",
@@ -4477,7 +4661,8 @@
    "lane": null,
    "scope": "embedded-specific",
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "ganssle",
@@ -4511,7 +4696,8 @@
    "lane": null,
    "scope": "embedded-specific",
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "room",
@@ -4543,7 +4729,8 @@
    "lane": null,
    "scope": "embedded-specific",
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "hatleypirbhai",
@@ -4577,7 +4764,8 @@
    "lane": null,
    "scope": "embedded-specific",
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "wardmellor",
@@ -4611,7 +4799,8 @@
    "lane": null,
    "scope": "embedded-specific",
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "douglassagility",
@@ -4645,7 +4834,8 @@
    "lane": null,
    "scope": "embedded-specific",
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "laplante",
@@ -4679,7 +4869,8 @@
    "lane": null,
    "scope": "embedded-specific",
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "janeliu",
@@ -4711,7 +4902,8 @@
    "lane": null,
    "scope": "embedded-specific",
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "cooling",
@@ -4745,7 +4937,8 @@
    "lane": null,
    "scope": "embedded-specific",
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "liyao",
@@ -4779,7 +4972,8 @@
    "lane": null,
    "scope": "embedded-specific",
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "fanrt",
@@ -4811,7 +5005,8 @@
    "lane": null,
    "scope": "embedded-specific",
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "wangrt",
@@ -4845,7 +5040,8 @@
    "lane": null,
    "scope": "embedded-specific",
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "vahidgivargis",
@@ -4877,7 +5073,8 @@
    "lane": null,
    "scope": "embedded-specific",
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "gajski",
@@ -4911,7 +5108,8 @@
    "lane": null,
    "scope": "embedded-specific",
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "peckol",
@@ -4945,7 +5143,8 @@
    "lane": null,
    "scope": "embedded-specific",
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "berger",
@@ -4979,7 +5178,8 @@
    "lane": null,
    "scope": "embedded-specific",
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "heath",
@@ -5013,7 +5213,8 @@
    "lane": null,
    "scope": "embedded-specific",
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "ball",
@@ -5047,7 +5248,8 @@
    "lane": null,
    "scope": "embedded-specific",
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "furber",
@@ -5081,7 +5283,8 @@
    "lane": null,
    "scope": "embedded-specific",
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "sloss",
@@ -5115,7 +5318,8 @@
    "lane": null,
    "scope": "embedded-specific",
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "catsoulis",
@@ -5149,7 +5353,8 @@
    "lane": null,
    "scope": "embedded-specific",
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "siewert",
@@ -5183,7 +5388,8 @@
    "lane": null,
    "scope": "embedded-specific",
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "bertolotti",
@@ -5217,7 +5423,8 @@
    "lane": null,
    "scope": "embedded-specific",
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "barrycrowley",
@@ -5251,7 +5458,8 @@
    "lane": null,
    "scope": "embedded-specific",
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "walls",
@@ -5285,7 +5493,8 @@
    "lane": null,
    "scope": "embedded-specific",
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "hallinan",
@@ -5319,7 +5528,8 @@
    "lane": null,
    "scope": "embedded-specific",
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "yaghmour",
@@ -5353,7 +5563,8 @@
    "lane": null,
    "scope": "embedded-specific",
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "bootlin",
@@ -5392,7 +5603,8 @@
    "lane": "trunk",
    "scope": "embedded-specific",
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "molloy",
@@ -5426,7 +5638,8 @@
    "lane": null,
    "scope": "embedded-specific",
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "freertosbook",
@@ -5458,7 +5671,8 @@
    "lane": null,
    "scope": "embedded-specific",
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "zephyrdocs",
@@ -5490,7 +5704,8 @@
    "lane": null,
    "scope": "embedded-specific",
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "qnxguide",
@@ -5522,7 +5737,8 @@
    "lane": null,
    "scope": "embedded-specific",
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "vxthreadx",
@@ -5554,7 +5770,8 @@
    "lane": null,
    "scope": "embedded-specific",
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "embeddedrust",
@@ -5586,7 +5803,8 @@
    "lane": null,
    "scope": "embedded-specific",
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "espidf",
@@ -5618,7 +5836,8 @@
    "lane": null,
    "scope": "embedded-specific",
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "nordicacademy",
@@ -5650,7 +5869,8 @@
    "lane": null,
    "scope": "embedded-specific",
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "sel4",
@@ -5682,7 +5902,8 @@
    "lane": null,
    "scope": "embedded-specific",
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "l4liedtke",
@@ -5716,7 +5937,8 @@
    "lane": null,
    "scope": "embedded-specific",
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "contiki",
@@ -5748,7 +5970,8 @@
    "lane": null,
    "scope": "embedded-specific",
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "protothreads",
@@ -5780,7 +6003,8 @@
    "lane": null,
    "scope": "embedded-specific",
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "nesc",
@@ -5812,7 +6036,8 @@
    "lane": null,
    "scope": "embedded-specific",
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "riot",
@@ -5844,7 +6069,8 @@
    "lane": null,
    "scope": "embedded-specific",
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "kopetzbauer",
@@ -5876,7 +6102,8 @@
    "lane": null,
    "scope": "embedded-specific",
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "henzingersifakis",
@@ -5908,7 +6135,8 @@
    "lane": null,
    "scope": "embedded-specific",
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "leecps",
@@ -5940,7 +6168,8 @@
    "lane": null,
    "scope": "embedded-specific",
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "svincentelli",
@@ -5974,7 +6203,8 @@
    "lane": null,
    "scope": "embedded-specific",
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "graaf",
@@ -6006,7 +6236,8 @@
    "lane": null,
    "scope": "embedded-specific",
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "ebertjones",
@@ -6038,7 +6269,8 @@
    "lane": null,
    "scope": "embedded-specific",
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "liggesmeyer",
@@ -6072,7 +6304,8 @@
    "lane": null,
    "scope": "embedded-specific",
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "broy",
@@ -6104,7 +6337,8 @@
    "lane": null,
    "scope": "embedded-specific",
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "pretschner",
@@ -6136,7 +6370,8 @@
    "lane": null,
    "scope": "embedded-specific",
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "fuerst",
@@ -6170,7 +6405,8 @@
    "lane": null,
    "scope": "embedded-specific",
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "schaeuffele",
@@ -6204,7 +6440,8 @@
    "lane": null,
    "scope": "embedded-specific",
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "levesonesw",
@@ -6238,7 +6475,8 @@
    "lane": null,
    "scope": "embedded-applicable",
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "levesonsafeware",
@@ -6272,7 +6510,8 @@
    "lane": null,
    "scope": "embedded-applicable",
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "storey",
@@ -6306,7 +6545,8 @@
    "lane": null,
    "scope": "embedded-applicable",
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "avizienis",
@@ -6340,7 +6580,8 @@
    "lane": null,
    "scope": "embedded-applicable",
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "rushby",
@@ -6374,7 +6615,8 @@
    "lane": null,
    "scope": "embedded-applicable",
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "dvorak",
@@ -6406,7 +6648,8 @@
    "lane": null,
    "scope": "embedded-specific",
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "marscode",
@@ -6438,7 +6681,8 @@
    "lane": null,
    "scope": "embedded-specific",
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "ecss",
@@ -6472,7 +6716,8 @@
    "lane": null,
    "scope": "embedded-specific",
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "posa2",
@@ -6506,7 +6751,8 @@
    "lane": null,
    "scope": "embedded-applicable",
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "posa3",
@@ -6540,7 +6786,8 @@
    "lane": null,
    "scope": "embedded-applicable",
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "hanmer",
@@ -6574,7 +6821,8 @@
    "lane": null,
    "scope": "embedded-applicable",
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "nygard",
@@ -6608,7 +6856,8 @@
    "lane": null,
    "scope": "embedded-applicable",
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "richardsford",
@@ -6642,7 +6891,8 @@
    "lane": null,
    "scope": "general",
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "martincleanarch",
@@ -6655,6 +6905,7 @@
    "unresolved": [],
    "corpora": [
     "emb-arch",
+    "swe-process",
     "emb-c"
    ],
    "per": {
@@ -6663,22 +6914,32 @@
      "embedded_relevance": "general",
      "hw_sw_boundary": "no"
     },
+    "swe-process": {
+     "area": "org-build",
+     "lang": "agnostic",
+     "role": "core"
+    },
     "emb-c": {
      "lead": true
     }
    },
    "type": "book",
    "branches": [
-    "architecture"
+    "architecture",
+    "process"
    ],
    "themes": [
-    "foundations"
+    "foundations",
+    "org-build"
    ],
-   "role": [],
+   "role": [
+    "core"
+   ],
    "lane": null,
    "scope": "general",
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": "agnostic"
   },
   {
    "id": "martincleancode",
@@ -6692,27 +6953,38 @@
     "year"
    ],
    "corpora": [
-    "emb-arch"
+    "emb-arch",
+    "swe-process"
    ],
    "per": {
     "emb-arch": {
      "branch": "design",
      "embedded_relevance": "general",
      "hw_sw_boundary": "no"
+    },
+    "swe-process": {
+     "area": "standards",
+     "lang": "agnostic",
+     "role": "anchor"
     }
    },
    "type": "book",
    "branches": [
-    "design"
+    "design",
+    "process"
    ],
    "themes": [
-    "coding-style"
+    "coding-style",
+    "standards"
    ],
-   "role": [],
+   "role": [
+    "anchor"
+   ],
    "lane": null,
    "scope": "general",
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": "agnostic"
   },
   {
    "id": "ousterhout",
@@ -6746,7 +7018,8 @@
    "lane": null,
    "scope": "general",
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "fowlerref",
@@ -6780,7 +7053,8 @@
    "lane": null,
    "scope": "general",
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "lakoslsc",
@@ -6795,6 +7069,7 @@
    ],
    "corpora": [
     "emb-arch",
+    "swe-process",
     "emb-c"
    ],
    "per": {
@@ -6803,22 +7078,32 @@
      "embedded_relevance": "general",
      "hw_sw_boundary": "no"
     },
+    "swe-process": {
+     "area": "org-build",
+     "lang": "cpp",
+     "role": "anchor"
+    },
     "emb-c": {
      "lead": true
     }
    },
    "type": "book",
    "branches": [
-    "design"
+    "design",
+    "process"
    ],
    "themes": [
+    "org-build",
     "system-architecture"
    ],
-   "role": [],
+   "role": [
+    "anchor"
+   ],
    "lane": null,
    "scope": "general",
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": "cpp"
   },
   {
    "id": "pragprog",
@@ -6852,7 +7137,8 @@
    "lane": null,
    "scope": "general",
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "omgspecs",
@@ -6884,7 +7170,8 @@
    "lane": null,
    "scope": "embedded-applicable",
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "eastadl",
@@ -6916,7 +7203,8 @@
    "lane": null,
    "scope": "embedded-applicable",
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "ros2design",
@@ -6948,7 +7236,8 @@
    "lane": null,
    "scope": "embedded-applicable",
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "cloudiotref",
@@ -6980,7 +7269,8 @@
    "lane": null,
    "scope": "embedded-applicable",
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "iira",
@@ -7012,7 +7302,8 @@
    "lane": null,
    "scope": "embedded-applicable",
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "rami40",
@@ -7044,7 +7335,8 @@
    "lane": null,
    "scope": "embedded-applicable",
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "px4ardu",
@@ -7076,7 +7368,8 @@
    "lane": null,
    "scope": "embedded-applicable",
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "memfaultea",
@@ -7108,7 +7401,8 @@
    "lane": null,
    "scope": "embedded-applicable",
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "kandr",
@@ -7139,7 +7433,8 @@
    "lane": null,
    "scope": null,
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "kernelstyle",
@@ -7151,26 +7446,37 @@
    "ident": "Documentation/process/coding-style.rst",
    "unresolved": [],
    "corpora": [
-    "emb-c"
+    "emb-c",
+    "swe-process"
    ],
    "per": {
     "emb-c": {
      "theme": "coding-style",
      "level": "design"
+    },
+    "swe-process": {
+     "area": "standards",
+     "lang": "c",
+     "role": "core"
     }
    },
    "type": "tooling-doc",
    "branches": [
-    "design"
+    "design",
+    "process"
    ],
    "themes": [
-    "coding-style"
+    "coding-style",
+    "standards"
    ],
-   "role": [],
+   "role": [
+    "core"
+   ],
    "lane": null,
    "scope": null,
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": "c"
   },
   {
    "id": "misracompliance",
@@ -7201,7 +7507,8 @@
    "lane": null,
    "scope": null,
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "certc",
@@ -7213,26 +7520,37 @@
    "ident": "Addison-Wesley, ISBN 978-0321984043",
    "unresolved": [],
    "corpora": [
-    "emb-c"
+    "emb-c",
+    "swe-process"
    ],
    "per": {
     "emb-c": {
      "theme": "safety-caveats",
      "level": "design"
+    },
+    "swe-process": {
+     "area": "standards",
+     "lang": "c",
+     "role": "core"
     }
    },
    "type": "standard",
    "branches": [
-    "design"
+    "design",
+    "process"
    ],
    "themes": [
-    "safety-caveats"
+    "safety-caveats",
+    "standards"
    ],
-   "role": [],
+   "role": [
+    "core"
+   ],
    "lane": null,
    "scope": null,
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": "c"
   },
   {
    "id": "seacordsecure",
@@ -7263,7 +7581,8 @@
    "lane": null,
    "scope": null,
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "hatton95",
@@ -7294,7 +7613,8 @@
    "lane": null,
    "scope": null,
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "seacordeffc",
@@ -7325,7 +7645,8 @@
    "lane": null,
    "scope": null,
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "dietzintoverflow",
@@ -7356,7 +7677,8 @@
    "lane": null,
    "scope": null,
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "jplstd",
@@ -7369,6 +7691,7 @@
    "unresolved": [],
    "corpora": [
     "emb-c",
+    "swe-process",
     "emb-arch"
    ],
    "per": {
@@ -7376,22 +7699,32 @@
      "theme": "safety-caveats",
      "level": "design"
     },
+    "swe-process": {
+     "area": "standards",
+     "lang": "c",
+     "role": "core"
+    },
     "emb-arch": {
      "lead": true
     }
    },
    "type": "standard",
    "branches": [
-    "design"
+    "design",
+    "process"
    ],
    "themes": [
-    "safety-caveats"
+    "safety-caveats",
+    "standards"
    ],
-   "role": [],
+   "role": [
+    "core"
+   ],
    "lane": null,
    "scope": null,
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": "c"
   },
   {
    "id": "framac",
@@ -7422,7 +7755,8 @@
    "lane": null,
    "scope": null,
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "doxygen",
@@ -7435,7 +7769,8 @@
    "unresolved": [],
    "corpora": [
     "emb-c",
-    "emb-cpp"
+    "emb-cpp",
+    "swe-process"
    ],
    "per": {
     "emb-c": {
@@ -7445,20 +7780,29 @@
     "emb-cpp": {
      "theme": "documentation",
      "level": "design"
+    },
+    "swe-process": {
+     "area": "documentation",
+     "lang": "multi",
+     "role": "anchor"
     }
    },
    "type": "tooling-doc",
    "branches": [
-    "design"
+    "design",
+    "process"
    ],
    "themes": [
     "documentation"
    ],
-   "role": [],
+   "role": [
+    "anchor"
+   ],
    "lane": null,
    "scope": null,
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": "multi"
   },
   {
    "id": "breathe",
@@ -7470,12 +7814,16 @@
    "ident": "breathe-doc.org",
    "unresolved": [],
    "corpora": [
-    "emb-c"
+    "emb-c",
+    "swe-process"
    ],
    "per": {
     "emb-c": {
      "theme": "documentation",
      "level": "design"
+    },
+    "swe-process": {
+     "lead": true
     }
    },
    "type": "tooling-doc",
@@ -7489,7 +7837,8 @@
    "lane": null,
    "scope": null,
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "exhale",
@@ -7501,12 +7850,16 @@
    "ident": "github.com/svenevs/exhale",
    "unresolved": [],
    "corpora": [
-    "emb-c"
+    "emb-c",
+    "swe-process"
    ],
    "per": {
     "emb-c": {
      "theme": "documentation",
      "level": "design"
+    },
+    "swe-process": {
+     "lead": true
     }
    },
    "type": "tooling-doc",
@@ -7520,7 +7873,8 @@
    "lane": null,
    "scope": null,
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "hawkmoth",
@@ -7532,12 +7886,16 @@
    "ident": "github.com/jnikula/hawkmoth",
    "unresolved": [],
    "corpora": [
-    "emb-c"
+    "emb-c",
+    "swe-process"
    ],
    "per": {
     "emb-c": {
      "theme": "documentation",
      "level": "design"
+    },
+    "swe-process": {
+     "lead": true
     }
    },
    "type": "tooling-doc",
@@ -7551,7 +7909,8 @@
    "lane": null,
    "scope": null,
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "gtkdoc",
@@ -7563,12 +7922,16 @@
    "ident": "gitlab.gnome.org/GNOME/gtk-doc",
    "unresolved": [],
    "corpora": [
-    "emb-c"
+    "emb-c",
+    "swe-process"
    ],
    "per": {
     "emb-c": {
      "theme": "documentation",
      "level": "design"
+    },
+    "swe-process": {
+     "lead": true
     }
    },
    "type": "tooling-doc",
@@ -7582,7 +7945,8 @@
    "lane": null,
    "scope": null,
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "kerneldoc",
@@ -7613,7 +7977,8 @@
    "lane": null,
    "scope": null,
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "naturaldocs",
@@ -7644,7 +8009,8 @@
    "lane": null,
    "scope": null,
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "knuthlit",
@@ -7675,7 +8041,8 @@
    "lane": null,
    "scope": null,
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "unity",
@@ -7706,7 +8073,8 @@
    "lane": null,
    "scope": null,
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "cmock",
@@ -7737,7 +8105,8 @@
    "lane": null,
    "scope": null,
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "ceedling",
@@ -7768,7 +8137,8 @@
    "lane": null,
    "scope": null,
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "mcdcchilenski",
@@ -7804,7 +8174,8 @@
    "lane": null,
    "scope": null,
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "mcdcnasa",
@@ -7840,7 +8211,8 @@
    "lane": null,
    "scope": null,
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "bacchellibird",
@@ -7852,26 +8224,37 @@
    "ident": "ICSE 2013 pp.712-721, DOI 10.1109/ICSE.2013.6606617",
    "unresolved": [],
    "corpora": [
-    "emb-c"
+    "emb-c",
+    "swe-process"
    ],
    "per": {
     "emb-c": {
      "theme": "collaboration",
      "level": "design"
+    },
+    "swe-process": {
+     "area": "vcs-review",
+     "lang": "agnostic",
+     "role": "core"
     }
    },
    "type": "paper",
    "branches": [
-    "design"
+    "design",
+    "process"
    ],
    "themes": [
-    "collaboration"
+    "collaboration",
+    "vcs-review"
    ],
-   "role": [],
+   "role": [
+    "core"
+   ],
    "lane": null,
    "scope": null,
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": "agnostic"
   },
   {
    "id": "sadowskigoogle",
@@ -7883,26 +8266,37 @@
    "ident": "ICSE-SEIP 2018, DOI 10.1145/3183519.3183525",
    "unresolved": [],
    "corpora": [
-    "emb-c"
+    "emb-c",
+    "swe-process"
    ],
    "per": {
     "emb-c": {
      "theme": "collaboration",
      "level": "design"
+    },
+    "swe-process": {
+     "area": "vcs-review",
+     "lang": "agnostic",
+     "role": "core"
     }
    },
    "type": "paper",
    "branches": [
-    "design"
+    "design",
+    "process"
    ],
    "themes": [
-    "collaboration"
+    "collaboration",
+    "vcs-review"
    ],
-   "role": [],
+   "role": [
+    "core"
+   ],
    "lane": null,
    "scope": null,
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": "agnostic"
   },
   {
    "id": "fagan",
@@ -7914,26 +8308,37 @@
    "ident": "IBM Systems Journal 15(3):182-211",
    "unresolved": [],
    "corpora": [
-    "emb-c"
+    "emb-c",
+    "swe-process"
    ],
    "per": {
     "emb-c": {
      "theme": "collaboration",
      "level": "design"
+    },
+    "swe-process": {
+     "area": "vcs-review",
+     "lang": "agnostic",
+     "role": "anchor"
     }
    },
    "type": "paper",
    "branches": [
-    "design"
+    "design",
+    "process"
    ],
    "themes": [
-    "collaboration"
+    "collaboration",
+    "vcs-review"
    ],
-   "role": [],
+   "role": [
+    "anchor"
+   ],
    "lane": null,
    "scope": null,
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": "agnostic"
   },
   {
    "id": "wiegers",
@@ -7945,26 +8350,37 @@
    "ident": "Addison-Wesley, ISBN 978-0201734850",
    "unresolved": [],
    "corpora": [
-    "emb-c"
+    "emb-c",
+    "swe-process"
    ],
    "per": {
     "emb-c": {
      "theme": "collaboration",
      "level": "design"
+    },
+    "swe-process": {
+     "area": "vcs-review",
+     "lang": "agnostic",
+     "role": "core"
     }
    },
    "type": "book",
    "branches": [
-    "design"
+    "design",
+    "process"
    ],
    "themes": [
-    "collaboration"
+    "collaboration",
+    "vcs-review"
    ],
-   "role": [],
+   "role": [
+    "core"
+   ],
    "lane": null,
    "scope": null,
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": "agnostic"
   },
   {
    "id": "drepperlibs",
@@ -7999,7 +8415,8 @@
    "lane": null,
    "scope": null,
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "blanchette",
@@ -8030,7 +8447,8 @@
    "lane": null,
    "scope": null,
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "bloch",
@@ -8061,7 +8479,8 @@
    "lane": null,
    "scope": null,
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "clangformat",
@@ -8097,7 +8516,8 @@
    "lane": null,
    "scope": null,
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "clangtidy",
@@ -8134,7 +8554,8 @@
    "lane": null,
    "scope": null,
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "uncrustify",
@@ -8146,26 +8567,37 @@
    "ident": "github.com/uncrustify/uncrustify",
    "unresolved": [],
    "corpora": [
-    "emb-c"
+    "emb-c",
+    "swe-process"
    ],
    "per": {
     "emb-c": {
      "theme": "collaboration",
      "level": "design"
+    },
+    "swe-process": {
+     "area": "standards",
+     "lang": "multi",
+     "role": "core"
     }
    },
    "type": "tooling-doc",
    "branches": [
-    "design"
+    "design",
+    "process"
    ],
    "themes": [
-    "collaboration"
+    "collaboration",
+    "standards"
    ],
-   "role": [],
+   "role": [
+    "core"
+   ],
    "lane": null,
    "scope": null,
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": "multi"
   },
   {
    "id": "editorconfig",
@@ -8196,7 +8628,8 @@
    "lane": null,
    "scope": null,
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "precommit",
@@ -8208,26 +8641,37 @@
    "ident": "pre-commit.com",
    "unresolved": [],
    "corpora": [
-    "emb-c"
+    "emb-c",
+    "swe-process"
    ],
    "per": {
     "emb-c": {
      "theme": "collaboration",
      "level": "design"
+    },
+    "swe-process": {
+     "area": "ci-cd",
+     "lang": "multi",
+     "role": "core"
     }
    },
    "type": "tooling-doc",
    "branches": [
-    "design"
+    "design",
+    "process"
    ],
    "themes": [
+    "ci-cd",
     "collaboration"
    ],
-   "role": [],
+   "role": [
+    "core"
+   ],
    "lane": null,
    "scope": null,
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": "multi"
   },
   {
    "id": "boogerdmoonen",
@@ -8239,26 +8683,37 @@
    "ident": "ICSM 2008; 2009",
    "unresolved": [],
    "corpora": [
-    "emb-c"
+    "emb-c",
+    "swe-process"
    ],
    "per": {
     "emb-c": {
      "theme": "collaboration",
      "level": "design"
+    },
+    "swe-process": {
+     "area": "standards",
+     "lang": "c",
+     "role": "survey"
     }
    },
    "type": "paper",
    "branches": [
-    "design"
+    "design",
+    "process"
    ],
    "themes": [
-    "collaboration"
+    "collaboration",
+    "standards"
    ],
-   "role": [],
+   "role": [
+    "survey"
+   ],
    "lane": null,
    "scope": null,
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": "c"
   },
   {
    "id": "hattonsubset",
@@ -8289,7 +8744,8 @@
    "lane": null,
    "scope": null,
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "preschern",
@@ -8320,7 +8776,8 @@
    "lane": null,
    "scope": null,
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "hanson",
@@ -8351,7 +8808,8 @@
    "lane": null,
    "scope": null,
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "schreiner",
@@ -8382,7 +8840,8 @@
    "lane": null,
    "scope": null,
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "qpc",
@@ -8413,7 +8872,8 @@
    "lane": null,
    "scope": null,
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "preschernplop",
@@ -8446,7 +8906,8 @@
    "lane": null,
    "scope": null,
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "tornhill",
@@ -8479,7 +8940,8 @@
    "lane": null,
    "scope": null,
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "gustedt",
@@ -8512,7 +8974,8 @@
    "lane": null,
    "scope": null,
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "lattnerub",
@@ -8543,7 +9006,8 @@
    "lane": null,
    "scope": null,
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "regehrub",
@@ -8576,7 +9040,8 @@
    "lane": null,
    "scope": null,
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "eideregehr",
@@ -8607,7 +9072,8 @@
    "lane": null,
    "scope": null,
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "osstyleguides",
@@ -8619,12 +9085,16 @@
    "ident": "",
    "unresolved": [],
    "corpora": [
-    "emb-c"
+    "emb-c",
+    "swe-process"
    ],
    "per": {
     "emb-c": {
      "theme": "collaboration",
      "level": "design"
+    },
+    "swe-process": {
+     "lead": true
     }
    },
    "type": "tooling-doc",
@@ -8638,7 +9108,8 @@
    "lane": null,
    "scope": null,
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "sqlitetesting",
@@ -8669,7 +9140,8 @@
    "lane": null,
    "scope": null,
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "nigeljones",
@@ -8702,7 +9174,8 @@
    "lane": null,
    "scope": null,
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "barrbugs",
@@ -8735,7 +9208,8 @@
    "lane": null,
    "scope": null,
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "kormanyos",
@@ -8776,7 +9250,8 @@
    "lane": "cpp-leaf",
    "scope": null,
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "posch",
@@ -8807,7 +9282,8 @@
    "lane": null,
    "scope": null,
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "viarheichyk",
@@ -8838,7 +9314,8 @@
    "lane": null,
    "scope": null,
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "amos",
@@ -8869,7 +9346,8 @@
    "lane": null,
    "scope": null,
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "stroustruptour",
@@ -8900,7 +9378,8 @@
    "lane": null,
    "scope": null,
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "meyerseffmod",
@@ -8935,7 +9414,8 @@
    "lane": null,
    "scope": null,
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "meyerseffcpp",
@@ -8970,7 +9450,8 @@
    "lane": null,
    "scope": null,
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "meyersembedded",
@@ -9001,7 +9482,8 @@
    "lane": null,
    "scope": null,
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "pigweedcpp",
@@ -9032,7 +9514,8 @@
    "lane": null,
    "scope": null,
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "googlestyle",
@@ -9044,26 +9527,37 @@
    "ident": "",
    "unresolved": [],
    "corpora": [
-    "emb-cpp"
+    "emb-cpp",
+    "swe-process"
    ],
    "per": {
     "emb-cpp": {
      "theme": "coding-style",
      "level": "design"
+    },
+    "swe-process": {
+     "area": "standards",
+     "lang": "cpp",
+     "role": "core"
     }
    },
    "type": "tooling-doc",
    "branches": [
-    "design"
+    "design",
+    "process"
    ],
    "themes": [
-    "coding-style"
+    "coding-style",
+    "standards"
    ],
-   "role": [],
+   "role": [
+    "core"
+   ],
    "lane": null,
    "scope": null,
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": "cpp"
   },
   {
    "id": "tr18015",
@@ -9094,7 +9588,8 @@
    "lane": null,
    "scope": null,
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "renwick",
@@ -9125,7 +9620,8 @@
    "lane": null,
    "scope": null,
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "p0709",
@@ -9156,7 +9652,8 @@
    "lane": null,
    "scope": null,
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "p2232",
@@ -9187,7 +9684,8 @@
    "lane": null,
    "scope": null,
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "p1028",
@@ -9218,7 +9716,8 @@
    "lane": null,
    "scope": null,
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "etl",
@@ -9249,7 +9748,8 @@
    "lane": null,
    "scope": null,
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "eastl",
@@ -9280,7 +9780,8 @@
    "lane": null,
    "scope": null,
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "boostoutcome",
@@ -9311,7 +9812,8 @@
    "lane": null,
    "scope": null,
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "bloaty",
@@ -9352,7 +9854,8 @@
    "lane": "trunk",
    "scope": null,
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "pwbloat",
@@ -9383,7 +9886,8 @@
    "lane": null,
    "scope": null,
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "autosarcpp14",
@@ -9395,26 +9899,37 @@
    "ident": "",
    "unresolved": [],
    "corpora": [
-    "emb-cpp"
+    "emb-cpp",
+    "swe-process"
    ],
    "per": {
     "emb-cpp": {
      "theme": "feature-subsetting",
      "level": "design"
+    },
+    "swe-process": {
+     "area": "standards",
+     "lang": "cpp",
+     "role": "core"
     }
    },
    "type": "standard",
    "branches": [
-    "design"
+    "design",
+    "process"
    ],
    "themes": [
-    "feature-subsetting"
+    "feature-subsetting",
+    "standards"
    ],
-   "role": [],
+   "role": [
+    "core"
+   ],
    "lane": null,
    "scope": null,
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": "cpp"
   },
   {
    "id": "jsfav",
@@ -9426,12 +9941,16 @@
    "ident": "",
    "unresolved": [],
    "corpora": [
-    "emb-cpp"
+    "emb-cpp",
+    "swe-process"
    ],
    "per": {
     "emb-cpp": {
      "theme": "feature-subsetting",
      "level": "design"
+    },
+    "swe-process": {
+     "lead": true
     }
    },
    "type": "standard",
@@ -9445,7 +9964,8 @@
    "lane": null,
    "scope": null,
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "hicpp",
@@ -9457,12 +9977,16 @@
    "ident": "",
    "unresolved": [],
    "corpora": [
-    "emb-cpp"
+    "emb-cpp",
+    "swe-process"
    ],
    "per": {
     "emb-cpp": {
      "theme": "feature-subsetting",
      "level": "design"
+    },
+    "swe-process": {
+     "lead": true
     }
    },
    "type": "standard",
@@ -9476,7 +10000,8 @@
    "lane": null,
    "scope": null,
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "certcpp",
@@ -9488,26 +10013,37 @@
    "ident": "",
    "unresolved": [],
    "corpora": [
-    "emb-cpp"
+    "emb-cpp",
+    "swe-process"
    ],
    "per": {
     "emb-cpp": {
      "theme": "feature-subsetting",
      "level": "design"
+    },
+    "swe-process": {
+     "area": "standards",
+     "lang": "cpp",
+     "role": "core"
     }
    },
    "type": "standard",
    "branches": [
-    "design"
+    "design",
+    "process"
    ],
    "themes": [
-    "feature-subsetting"
+    "feature-subsetting",
+    "standards"
    ],
-   "role": [],
+   "role": [
+    "core"
+   ],
    "lane": null,
    "scope": null,
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": "cpp"
   },
   {
    "id": "ecpp",
@@ -9538,7 +10074,8 @@
    "lane": null,
    "scope": null,
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "coreguidelines",
@@ -9550,26 +10087,37 @@
    "ident": "",
    "unresolved": [],
    "corpora": [
-    "emb-cpp"
+    "emb-cpp",
+    "swe-process"
    ],
    "per": {
     "emb-cpp": {
      "theme": "feature-subsetting",
      "level": "design"
+    },
+    "swe-process": {
+     "area": "standards",
+     "lang": "cpp",
+     "role": "anchor"
     }
    },
    "type": "tooling-doc",
    "branches": [
-    "design"
+    "design",
+    "process"
    ],
    "themes": [
-    "feature-subsetting"
+    "feature-subsetting",
+    "standards"
    ],
-   "role": [],
+   "role": [
+    "anchor"
+   ],
    "lane": null,
    "scope": null,
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": "cpp"
   },
   {
    "id": "do332",
@@ -9600,7 +10148,8 @@
    "lane": null,
    "scope": null,
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "p0829",
@@ -9631,7 +10180,8 @@
    "lane": null,
    "scope": null,
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "p1105",
@@ -9662,7 +10212,8 @@
    "lane": null,
    "scope": null,
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "p2198",
@@ -9695,7 +10246,8 @@
    "lane": null,
    "scope": null,
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "p2338",
@@ -9728,7 +10280,8 @@
    "lane": null,
    "scope": null,
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "p2268",
@@ -9761,7 +10314,8 @@
    "lane": null,
    "scope": null,
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "p0568",
@@ -9792,7 +10346,8 @@
    "lane": null,
    "scope": null,
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "p2739",
@@ -9823,7 +10378,8 @@
    "lane": null,
    "scope": null,
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "p2816",
@@ -9854,7 +10410,8 @@
    "lane": null,
    "scope": null,
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "p3081",
@@ -9885,7 +10442,8 @@
    "lane": null,
    "scope": null,
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "pigweedrefdoc",
@@ -9916,7 +10474,8 @@
    "lane": null,
    "scope": null,
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "cpputest",
@@ -9947,7 +10506,8 @@
    "lane": null,
    "scope": null,
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "googletest",
@@ -9978,7 +10538,8 @@
    "lane": null,
    "scope": null,
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "catch2",
@@ -10009,7 +10570,8 @@
    "lane": null,
    "scope": null,
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "doctest",
@@ -10040,7 +10602,8 @@
    "lane": null,
    "scope": null,
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "trompeloeil",
@@ -10071,7 +10634,8 @@
    "lane": null,
    "scope": null,
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "pwunittest",
@@ -10102,7 +10666,8 @@
    "lane": null,
    "scope": null,
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "cppcheck",
@@ -10133,7 +10698,8 @@
    "lane": null,
    "scope": null,
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "pigweedsdk",
@@ -10164,7 +10730,8 @@
    "lane": null,
    "scope": null,
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "cmake",
@@ -10177,7 +10744,8 @@
    "unresolved": [],
    "corpora": [
     "emb-cpp",
-    "emb-ops"
+    "emb-ops",
+    "swe-process"
    ],
    "per": {
     "emb-cpp": {
@@ -10188,22 +10756,32 @@
      "tier": "trunk",
      "theme": "toolchain",
      "key": ""
+    },
+    "swe-process": {
+     "area": "org-build",
+     "lang": "cpp",
+     "role": "core"
     }
    },
    "type": "tooling-doc",
    "branches": [
     "design",
-    "operations"
+    "operations",
+    "process"
    ],
    "themes": [
     "collaboration",
+    "org-build",
     "toolchain"
    ],
-   "role": [],
+   "role": [
+    "core"
+   ],
    "lane": "trunk",
    "scope": null,
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": "cpp"
   },
   {
    "id": "gsl",
@@ -10234,7 +10812,8 @@
    "lane": null,
    "scope": null,
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "iglberger",
@@ -10265,7 +10844,8 @@
    "lane": null,
    "scope": null,
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "lakosemcs",
@@ -10296,7 +10876,8 @@
    "lane": null,
    "scope": null,
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "qpcpp",
@@ -10327,7 +10908,8 @@
    "lane": null,
    "scope": null,
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "kvasir",
@@ -10358,7 +10940,8 @@
    "lane": null,
    "scope": null,
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "holmestalk",
@@ -10389,7 +10972,8 @@
    "lane": null,
    "scope": null,
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "vanooijentalk",
@@ -10420,7 +11004,8 @@
    "lane": null,
    "scope": null,
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "hwlib",
@@ -10451,7 +11036,8 @@
    "lane": null,
    "scope": null,
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "kensmith",
@@ -10482,7 +11068,8 @@
    "lane": null,
    "scope": null,
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "hauserblog",
@@ -10513,7 +11100,8 @@
    "lane": null,
    "scope": null,
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "modm",
@@ -10544,7 +11132,8 @@
    "lane": null,
    "scope": null,
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "carnieregisters",
@@ -10575,7 +11164,8 @@
    "lane": null,
    "scope": null,
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "carniebigfour",
@@ -10606,7 +11196,8 @@
    "lane": null,
    "scope": null,
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "boostsml",
@@ -10637,7 +11228,8 @@
    "lane": null,
    "scope": null,
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "jusiaktalks",
@@ -10668,7 +11260,8 @@
    "lane": null,
    "scope": null,
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "godbolt",
@@ -10709,7 +11302,8 @@
    "lane": "trunk",
    "scope": null,
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "turnerc64",
@@ -10740,7 +11334,8 @@
    "lane": null,
    "scope": null,
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "commercialtools",
@@ -10771,7 +11366,8 @@
    "lane": null,
    "scope": null,
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "hutheses",
@@ -10804,7 +11400,8 @@
    "lane": null,
    "scope": null,
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "sakscolumns",
@@ -10841,7 +11438,8 @@
    "lane": null,
    "scope": null,
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "caissetalk",
@@ -10874,7 +11472,8 @@
    "lane": null,
    "scope": null,
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "saksbtb",
@@ -10907,7 +11506,8 @@
    "lane": null,
    "scope": null,
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "gccmanual",
@@ -10943,7 +11543,8 @@
    "lane": "trunk",
    "scope": null,
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "clangdocs",
@@ -10977,7 +11578,8 @@
    "lane": "trunk",
    "scope": null,
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "picolibc",
@@ -11011,7 +11613,8 @@
    "lane": "c-leaf",
    "scope": null,
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "abiaa",
@@ -11046,7 +11649,8 @@
    "lane": "trunk",
    "scope": null,
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "crosstoolng",
@@ -11078,7 +11682,8 @@
    "lane": "trunk",
    "scope": null,
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "thinlto",
@@ -11112,7 +11717,8 @@
    "lane": "trunk",
    "scope": null,
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "thinltoblog",
@@ -11146,7 +11752,8 @@
    "lane": "trunk",
    "scope": null,
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "csmith",
@@ -11180,7 +11787,8 @@
    "lane": "trunk",
    "scope": null,
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "gdbmanual",
@@ -11214,7 +11822,8 @@
    "lane": "trunk",
    "scope": null,
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "openocd",
@@ -11248,7 +11857,8 @@
    "lane": "trunk",
    "scope": null,
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "hardfaultblog",
@@ -11282,7 +11892,8 @@
    "lane": "trunk",
    "scope": null,
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "binutilsblog",
@@ -11314,7 +11925,8 @@
    "lane": "trunk",
    "scope": null,
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "semihosting",
@@ -11346,7 +11958,8 @@
    "lane": "c-leaf",
    "scope": null,
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "ld",
@@ -11380,7 +11993,8 @@
    "lane": "trunk",
    "scope": null,
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "lld",
@@ -11412,7 +12026,8 @@
    "lane": "trunk",
    "scope": null,
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "itaniumabi",
@@ -11446,7 +12061,8 @@
    "lane": "cpp-leaf",
    "scope": null,
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "aapcs",
@@ -11480,7 +12096,8 @@
    "lane": "trunk",
    "scope": null,
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "ehabi32",
@@ -11514,7 +12131,8 @@
    "lane": "cpp-leaf",
    "scope": null,
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "elfspec",
@@ -11548,7 +12166,8 @@
    "lane": "trunk",
    "scope": null,
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "dwarf5",
@@ -11580,7 +12199,8 @@
    "lane": "trunk",
    "scope": null,
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "levine",
@@ -11614,7 +12234,8 @@
    "lane": "trunk",
    "scope": null,
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "stevanovic",
@@ -11648,7 +12269,8 @@
    "lane": "trunk",
    "scope": null,
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "lippman",
@@ -11682,7 +12304,8 @@
    "lane": "cpp-leaf",
    "scope": null,
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "zerotomain",
@@ -11716,7 +12339,8 @@
    "lane": "trunk",
    "scope": null,
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "taylorlinkers",
@@ -11750,7 +12374,8 @@
    "lane": "trunk",
    "scope": null,
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "maskray",
@@ -11784,7 +12409,8 @@
    "lane": "trunk",
    "scope": null,
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "dlmalloc",
@@ -11818,7 +12444,8 @@
    "lane": "trunk",
    "scope": null,
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "tlsf",
@@ -11852,7 +12479,8 @@
    "lane": "trunk",
    "scope": null,
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "freertosheap",
@@ -11884,7 +12512,8 @@
    "lane": "trunk",
    "scope": null,
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "puncover",
@@ -11916,7 +12545,8 @@
    "lane": "trunk",
    "scope": null,
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "llvmeh",
@@ -11950,7 +12580,8 @@
    "lane": "cpp-leaf",
    "scope": null,
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "eafparm",
@@ -11984,7 +12615,8 @@
    "lane": "trunk",
    "scope": null,
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "an4989",
@@ -12018,7 +12650,8 @@
    "lane": "trunk",
    "scope": null,
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "segger",
@@ -12052,7 +12685,8 @@
    "lane": "trunk",
    "scope": null,
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "maskraygc",
@@ -12086,7 +12720,8 @@
    "lane": "trunk",
    "scope": null,
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "memfaultsize",
@@ -12120,7 +12755,8 @@
    "lane": "trunk",
    "scope": null,
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "probetools",
@@ -12152,7 +12788,8 @@
    "lane": "trunk",
    "scope": null,
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "zephyrlinker",
@@ -12184,7 +12821,8 @@
    "lane": "trunk",
    "scope": null,
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "gnuinternals",
@@ -12216,7 +12854,8 @@
    "lane": "trunk",
    "scope": null,
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "lldbdocs",
@@ -12248,7 +12887,8 @@
    "lane": "trunk",
    "scope": null,
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "newlib",
@@ -12280,7 +12920,8 @@
    "lane": "c-leaf",
    "scope": null,
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "dreppermem",
@@ -12312,7 +12953,8 @@
    "lane": "trunk",
    "scope": null,
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "wilsonsurvey",
@@ -12344,7 +12986,8 @@
    "lane": "trunk",
    "scope": null,
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "csapp",
@@ -12376,7 +13019,8 @@
    "lane": "trunk",
    "scope": null,
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "mab",
@@ -12388,7 +13032,8 @@
    "ident": "",
    "unresolved": [],
    "corpora": [
-    "simulink"
+    "simulink",
+    "swe-process"
    ],
    "per": {
     "simulink": {
@@ -12396,14 +13041,21 @@
      "cluster": "D1",
      "role": "target;core",
      "automotive": 0
+    },
+    "swe-process": {
+     "area": "standards",
+     "lang": "matlab",
+     "role": "core"
     }
    },
    "type": "standard",
    "branches": [
-    "design"
+    "design",
+    "process"
    ],
    "themes": [
-    "modeling-style"
+    "modeling-style",
+    "standards"
    ],
    "role": [
     "anchor",
@@ -12412,7 +13064,8 @@
    "lane": null,
    "scope": null,
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": "matlab"
   },
   {
    "id": "jmaab",
@@ -12424,7 +13077,8 @@
    "ident": "",
    "unresolved": [],
    "corpora": [
-    "simulink"
+    "simulink",
+    "swe-process"
    ],
    "per": {
     "simulink": {
@@ -12432,14 +13086,21 @@
      "cluster": "D1",
      "role": "core",
      "automotive": 1
+    },
+    "swe-process": {
+     "area": "standards",
+     "lang": "matlab",
+     "role": "core"
     }
    },
    "type": "standard",
    "branches": [
-    "design"
+    "design",
+    "process"
    ],
    "themes": [
-    "modeling-style"
+    "modeling-style",
+    "standards"
    ],
    "role": [
     "core"
@@ -12447,7 +13108,8 @@
    "lane": null,
    "scope": null,
    "access": null,
-   "automotive": true
+   "automotive": true,
+   "lang": "matlab"
   },
   {
    "id": "johnsonbook",
@@ -12459,7 +13121,8 @@
    "ident": "Cambridge UP, ISBN 978-0-521-73258-1",
    "unresolved": [],
    "corpora": [
-    "simulink"
+    "simulink",
+    "swe-process"
    ],
    "per": {
     "simulink": {
@@ -12467,14 +13130,21 @@
      "cluster": "D1",
      "role": "target",
      "automotive": 0
+    },
+    "swe-process": {
+     "area": "standards",
+     "lang": "matlab",
+     "role": "anchor"
     }
    },
    "type": "book",
    "branches": [
-    "design"
+    "design",
+    "process"
    ],
    "themes": [
-    "modeling-style"
+    "modeling-style",
+    "standards"
    ],
    "role": [
     "anchor"
@@ -12482,7 +13152,8 @@
    "lane": null,
    "scope": null,
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": "matlab"
   },
   {
    "id": "johnsonguide",
@@ -12494,7 +13165,8 @@
    "ident": "",
    "unresolved": [],
    "corpora": [
-    "simulink"
+    "simulink",
+    "swe-process"
    ],
    "per": {
     "simulink": {
@@ -12502,6 +13174,9 @@
      "cluster": "D1",
      "role": "core",
      "automotive": 0
+    },
+    "swe-process": {
+     "lead": true
     }
    },
    "type": "guide",
@@ -12517,7 +13192,8 @@
    "lane": null,
    "scope": null,
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "mwcodingguide",
@@ -12529,7 +13205,8 @@
    "ident": "GitHub",
    "unresolved": [],
    "corpora": [
-    "simulink"
+    "simulink",
+    "swe-process"
    ],
    "per": {
     "simulink": {
@@ -12537,6 +13214,9 @@
      "cluster": "D1",
      "role": "core",
      "automotive": 0
+    },
+    "swe-process": {
+     "lead": true
     }
    },
    "type": "tooling-doc",
@@ -12552,7 +13232,8 @@
    "lane": null,
    "scope": null,
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "mabdoc",
@@ -12587,7 +13268,8 @@
    "lane": null,
    "scope": null,
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "misraslsf",
@@ -12622,7 +13304,8 @@
    "lane": null,
    "scope": null,
    "access": null,
-   "automotive": true
+   "automotive": true,
+   "lang": null
   },
   {
    "id": "misragmg",
@@ -12657,7 +13340,8 @@
    "lane": null,
    "scope": null,
    "access": null,
-   "automotive": true
+   "automotive": true,
+   "lang": null
   },
   {
    "id": "fixedpoint",
@@ -12692,7 +13376,8 @@
    "lane": null,
    "scope": null,
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "signaltyping",
@@ -12727,7 +13412,8 @@
    "lane": null,
    "scope": null,
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "embeddedcoder",
@@ -12762,7 +13448,8 @@
    "lane": null,
    "scope": null,
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "dspaceguide",
@@ -12797,7 +13484,8 @@
    "lane": null,
    "scope": null,
    "access": null,
-   "automotive": true
+   "automotive": true,
+   "lang": null
   },
   {
    "id": "deissenboeck",
@@ -12832,7 +13520,8 @@
    "lane": null,
    "scope": null,
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "alalfi",
@@ -12867,7 +13556,8 @@
    "lane": null,
    "scope": null,
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "gerlitz",
@@ -12902,7 +13592,8 @@
    "lane": null,
    "scope": null,
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "stephancordy",
@@ -12937,7 +13628,8 @@
    "lane": null,
    "scope": null,
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "compmodel",
@@ -12972,7 +13664,8 @@
    "lane": null,
    "scope": null,
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "refmodels",
@@ -13007,7 +13700,8 @@
    "lane": null,
    "scope": null,
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "busobj",
@@ -13042,7 +13736,8 @@
    "lane": null,
    "scope": null,
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "datadict",
@@ -13077,7 +13772,8 @@
    "lane": null,
    "scope": null,
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "largescale",
@@ -13113,7 +13809,8 @@
    "lane": null,
    "scope": null,
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "bestpractices",
@@ -13148,7 +13845,8 @@
    "lane": null,
    "scope": null,
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "sae2010",
@@ -13183,7 +13881,8 @@
    "lane": null,
    "scope": null,
    "access": null,
-   "automotive": true
+   "automotive": true,
+   "lang": null
   },
   {
    "id": "syscompbp",
@@ -13218,7 +13917,8 @@
    "lane": null,
    "scope": null,
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "syscomposer",
@@ -13253,7 +13953,8 @@
    "lane": null,
    "scope": null,
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "autosarblockset",
@@ -13288,7 +13989,8 @@
    "lane": null,
    "scope": null,
    "access": null,
-   "automotive": true
+   "automotive": true,
+   "lang": null
   },
   {
    "id": "matlabpkg",
@@ -13300,7 +14002,8 @@
    "ident": "",
    "unresolved": [],
    "corpora": [
-    "simulink"
+    "simulink",
+    "swe-process"
    ],
    "per": {
     "simulink": {
@@ -13308,14 +14011,21 @@
      "cluster": "A-shared",
      "role": "core",
      "automotive": 0
+    },
+    "swe-process": {
+     "area": "org-build",
+     "lang": "matlab",
+     "role": "core"
     }
    },
    "type": "official-doc",
    "branches": [
-    "architecture"
+    "architecture",
+    "process"
    ],
    "themes": [
-    "code-architecture"
+    "code-architecture",
+    "org-build"
    ],
    "role": [
     "core"
@@ -13323,7 +14033,8 @@
    "lane": null,
    "scope": null,
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": "matlab"
   },
   {
    "id": "modelcompare",
@@ -13335,7 +14046,8 @@
    "ident": "",
    "unresolved": [],
    "corpora": [
-    "simulink"
+    "simulink",
+    "swe-process"
    ],
    "per": {
     "simulink": {
@@ -13343,13 +14055,20 @@
      "cluster": "M1",
      "role": "target",
      "automotive": 0
+    },
+    "swe-process": {
+     "area": "vcs-review",
+     "lang": "matlab",
+     "role": "anchor"
     }
    },
    "type": "official-doc",
    "branches": [
-    "management"
+    "management",
+    "process"
    ],
    "themes": [
+    "vcs-review",
     "version-control"
    ],
    "role": [
@@ -13358,7 +14077,8 @@
    "lane": null,
    "scope": null,
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": "matlab"
   },
   {
    "id": "mergedocs",
@@ -13370,7 +14090,8 @@
    "ident": "",
    "unresolved": [],
    "corpora": [
-    "simulink"
+    "simulink",
+    "swe-process"
    ],
    "per": {
     "simulink": {
@@ -13378,13 +14099,20 @@
      "cluster": "M1",
      "role": "core",
      "automotive": 0
+    },
+    "swe-process": {
+     "area": "vcs-review",
+     "lang": "matlab",
+     "role": "core"
     }
    },
    "type": "official-doc",
    "branches": [
-    "management"
+    "management",
+    "process"
    ],
    "themes": [
+    "vcs-review",
     "version-control"
    ],
    "role": [
@@ -13393,7 +14121,8 @@
    "lane": null,
    "scope": null,
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": "matlab"
   },
   {
    "id": "projects",
@@ -13405,7 +14134,8 @@
    "ident": "",
    "unresolved": [],
    "corpora": [
-    "simulink"
+    "simulink",
+    "swe-process"
    ],
    "per": {
     "simulink": {
@@ -13413,13 +14143,20 @@
      "cluster": "M1",
      "role": "core",
      "automotive": 0
+    },
+    "swe-process": {
+     "area": "org-build",
+     "lang": "matlab",
+     "role": "core"
     }
    },
    "type": "official-doc",
    "branches": [
-    "management"
+    "management",
+    "process"
    ],
    "themes": [
+    "org-build",
     "version-control"
    ],
    "role": [
@@ -13428,7 +14165,8 @@
    "lane": null,
    "scope": null,
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": "matlab"
   },
   {
    "id": "guyblog",
@@ -13440,7 +14178,8 @@
    "ident": "",
    "unresolved": [],
    "corpora": [
-    "simulink"
+    "simulink",
+    "swe-process"
    ],
    "per": {
     "simulink": {
@@ -13448,6 +14187,9 @@
      "cluster": "M1",
      "role": "core",
      "automotive": 0
+    },
+    "swe-process": {
+     "lead": true
     }
    },
    "type": "blog",
@@ -13463,7 +14205,8 @@
    "lane": null,
    "scope": null,
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "dspacecompare",
@@ -13498,7 +14241,8 @@
    "lane": null,
    "scope": null,
    "access": null,
-   "automotive": true
+   "automotive": true,
+   "lang": null
   },
   {
    "id": "cipart1",
@@ -13510,7 +14254,8 @@
    "ident": "",
    "unresolved": [],
    "corpora": [
-    "simulink"
+    "simulink",
+    "swe-process"
    ],
    "per": {
     "simulink": {
@@ -13518,13 +14263,20 @@
      "cluster": "M2",
      "role": "target",
      "automotive": 0
+    },
+    "swe-process": {
+     "area": "ci-cd",
+     "lang": "matlab",
+     "role": "anchor"
     }
    },
    "type": "guide",
    "branches": [
-    "management"
+    "management",
+    "process"
    ],
    "themes": [
+    "ci-cd",
     "ci-verification"
    ],
    "role": [
@@ -13533,7 +14285,8 @@
    "lane": null,
    "scope": null,
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": "matlab"
   },
   {
    "id": "cipart2",
@@ -13545,7 +14298,8 @@
    "ident": "",
    "unresolved": [],
    "corpora": [
-    "simulink"
+    "simulink",
+    "swe-process"
    ],
    "per": {
     "simulink": {
@@ -13553,13 +14307,20 @@
      "cluster": "M2",
      "role": "core",
      "automotive": 0
+    },
+    "swe-process": {
+     "area": "ci-cd",
+     "lang": "matlab",
+     "role": "core"
     }
    },
    "type": "guide",
    "branches": [
-    "management"
+    "management",
+    "process"
    ],
    "themes": [
+    "ci-cd",
     "ci-verification"
    ],
    "role": [
@@ -13568,7 +14329,8 @@
    "lane": null,
    "scope": null,
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": "matlab"
   },
   {
    "id": "sltest",
@@ -13580,7 +14342,8 @@
    "ident": "",
    "unresolved": [],
    "corpora": [
-    "simulink"
+    "simulink",
+    "swe-process"
    ],
    "per": {
     "simulink": {
@@ -13588,6 +14351,9 @@
      "cluster": "M2",
      "role": "core",
      "automotive": 0
+    },
+    "swe-process": {
+     "lead": true
     }
    },
    "type": "official-doc",
@@ -13603,7 +14369,8 @@
    "lane": null,
    "scope": null,
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "slcoverage",
@@ -13638,7 +14405,8 @@
    "lane": null,
    "scope": null,
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "buildtool",
@@ -13650,7 +14418,8 @@
    "ident": "",
    "unresolved": [],
    "corpora": [
-    "simulink"
+    "simulink",
+    "swe-process"
    ],
    "per": {
     "simulink": {
@@ -13658,13 +14427,20 @@
      "cluster": "M2",
      "role": "core",
      "automotive": 0
+    },
+    "swe-process": {
+     "area": "ci-cd",
+     "lang": "matlab",
+     "role": "core"
     }
    },
    "type": "official-doc",
    "branches": [
-    "management"
+    "management",
+    "process"
    ],
    "themes": [
+    "ci-cd",
     "ci-verification"
    ],
    "role": [
@@ -13673,7 +14449,8 @@
    "lane": null,
    "scope": null,
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": "matlab"
   },
   {
    "id": "matlabtest",
@@ -13685,7 +14462,8 @@
    "ident": "",
    "unresolved": [],
    "corpora": [
-    "simulink"
+    "simulink",
+    "swe-process"
    ],
    "per": {
     "simulink": {
@@ -13693,13 +14471,20 @@
      "cluster": "M2",
      "role": "core",
      "automotive": 0
+    },
+    "swe-process": {
+     "area": "ci-cd",
+     "lang": "matlab",
+     "role": "core"
     }
    },
    "type": "official-doc",
    "branches": [
-    "management"
+    "management",
+    "process"
    ],
    "themes": [
+    "ci-cd",
     "ci-verification"
    ],
    "role": [
@@ -13708,7 +14493,8 @@
    "lane": null,
    "scope": null,
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": "matlab"
   },
   {
    "id": "diffmergeci",
@@ -13743,7 +14529,8 @@
    "lane": null,
    "scope": null,
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "reqtoolbox",
@@ -13778,7 +14565,8 @@
    "lane": null,
    "scope": null,
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "doors",
@@ -13813,7 +14601,8 @@
    "lane": null,
    "scope": null,
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "slcheck",
@@ -13848,7 +14637,8 @@
    "lane": null,
    "scope": null,
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "metricsdash",
@@ -13883,7 +14673,8 @@
    "lane": null,
    "scope": null,
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "maintdash",
@@ -13918,7 +14709,8 @@
    "lane": null,
    "scope": null,
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "aarenstrup",
@@ -13954,7 +14746,8 @@
    "lane": null,
    "scope": null,
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "slnet",
@@ -13989,7 +14782,8 @@
    "lane": null,
    "scope": null,
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "chowdhury",
@@ -14024,7 +14818,8 @@
    "lane": null,
    "scope": null,
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "boll",
@@ -14059,7 +14854,8 @@
    "lane": null,
    "scope": null,
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "replicability",
@@ -14094,7 +14890,8 @@
    "lane": null,
    "scope": null,
    "access": null,
-   "automotive": false
+   "automotive": false,
+   "lang": null
   },
   {
    "id": "iso26262p6",
@@ -14129,7 +14926,8 @@
    "lane": null,
    "scope": null,
    "access": null,
-   "automotive": true
+   "automotive": true,
+   "lang": null
   },
   {
    "id": "do331",
@@ -14164,7 +14962,8 @@
    "lane": null,
    "scope": null,
    "access": null,
-   "automotive": true
+   "automotive": true,
+   "lang": null
   },
   {
    "id": "certkits",
@@ -14199,7 +14998,8 @@
    "lane": null,
    "scope": null,
    "access": null,
-   "automotive": true
+   "automotive": true,
+   "lang": null
   },
   {
    "id": "targetlink",
@@ -14234,7 +15034,1655 @@
    "lane": null,
    "scope": null,
    "access": null,
-   "automotive": true
+   "automotive": true,
+   "lang": null
+  },
+  {
+   "id": "pep8",
+   "title": "Style Guide for Python Code (PEP 8)",
+   "authors": "G. van Rossum, B. Warsaw & A. Coghlan",
+   "year": "living",
+   "verification": "verified",
+   "note": "De-facto canonical Python style standard; Active/Process PEP that evolves with the language.",
+   "ident": "PEP 8; peps.python.org/pep-0008/",
+   "unresolved": [],
+   "corpora": [
+    "swe-process"
+   ],
+   "per": {
+    "swe-process": {
+     "area": "standards",
+     "lang": "python",
+     "role": "anchor"
+    }
+   },
+   "type": "standard",
+   "branches": [
+    "process"
+   ],
+   "themes": [
+    "standards"
+   ],
+   "role": [
+    "anchor"
+   ],
+   "lane": null,
+   "scope": null,
+   "access": null,
+   "automotive": false,
+   "lang": "python"
+  },
+  {
+   "id": "pep20",
+   "title": "The Zen of Python (PEP 20)",
+   "authors": "T. Peters",
+   "year": "living",
+   "verification": "verified",
+   "note": "19 aphorisms encoding the design philosophy behind Python style.",
+   "ident": "PEP 20; peps.python.org/pep-0020/",
+   "unresolved": [],
+   "corpora": [
+    "swe-process"
+   ],
+   "per": {
+    "swe-process": {
+     "area": "standards",
+     "lang": "python",
+     "role": "core"
+    }
+   },
+   "type": "standard",
+   "branches": [
+    "process"
+   ],
+   "themes": [
+    "standards"
+   ],
+   "role": [
+    "core"
+   ],
+   "lane": null,
+   "scope": null,
+   "access": null,
+   "automotive": false,
+   "lang": "python"
+  },
+  {
+   "id": "pep257",
+   "title": "Docstring Conventions (PEP 257)",
+   "authors": "D. Goodger & G. van Rossum",
+   "year": "living",
+   "verification": "verified",
+   "note": "The documentation-string standard; docs-layer counterpart to PEP 8.",
+   "ident": "PEP 257; peps.python.org/pep-0257/",
+   "unresolved": [],
+   "corpora": [
+    "swe-process"
+   ],
+   "per": {
+    "swe-process": {
+     "area": "standards",
+     "lang": "python",
+     "role": "core"
+    }
+   },
+   "type": "standard",
+   "branches": [
+    "process"
+   ],
+   "themes": [
+    "standards"
+   ],
+   "role": [
+    "core"
+   ],
+   "lane": null,
+   "scope": null,
+   "access": null,
+   "automotive": false,
+   "lang": "python"
+  },
+  {
+   "id": "black",
+   "title": "Black — The Uncompromising Code Formatter",
+   "authors": "Python Software Foundation",
+   "year": "living",
+   "verification": "verified",
+   "note": "Dominant opinionated auto-formatter; operationalizes PEP 8.",
+   "ident": "black.readthedocs.io",
+   "unresolved": [],
+   "corpora": [
+    "swe-process"
+   ],
+   "per": {
+    "swe-process": {
+     "area": "standards",
+     "lang": "python",
+     "role": "core"
+    }
+   },
+   "type": "tooling-doc",
+   "branches": [
+    "process"
+   ],
+   "themes": [
+    "standards"
+   ],
+   "role": [
+    "core"
+   ],
+   "lane": null,
+   "scope": null,
+   "access": null,
+   "automotive": false,
+   "lang": "python"
+  },
+  {
+   "id": "ruff",
+   "title": "Ruff — an extremely fast Python linter and formatter",
+   "authors": "Astral",
+   "year": "living",
+   "verification": "verified",
+   "note": "Rust-based; consolidates Flake8/isort/pydocstyle/pyupgrade (+Black); current-generation Python toolchain.",
+   "ident": "docs.astral.sh/ruff",
+   "unresolved": [],
+   "corpora": [
+    "swe-process"
+   ],
+   "per": {
+    "swe-process": {
+     "area": "standards",
+     "lang": "python",
+     "role": "core"
+    }
+   },
+   "type": "tooling-doc",
+   "branches": [
+    "process"
+   ],
+   "themes": [
+    "standards"
+   ],
+   "role": [
+    "core"
+   ],
+   "lane": null,
+   "scope": null,
+   "access": null,
+   "automotive": false,
+   "lang": "python"
+  },
+  {
+   "id": "pylint",
+   "title": "Pylint",
+   "authors": "pylint-dev",
+   "year": "living",
+   "verification": "verified",
+   "note": "Deep static analyser (errors+style+smells) via astroid inference.",
+   "ident": "pylint.readthedocs.io",
+   "unresolved": [],
+   "corpora": [
+    "swe-process"
+   ],
+   "per": {
+    "swe-process": {
+     "area": "standards",
+     "lang": "python",
+     "role": "core"
+    }
+   },
+   "type": "tooling-doc",
+   "branches": [
+    "process"
+   ],
+   "themes": [
+    "standards"
+   ],
+   "role": [
+    "core"
+   ],
+   "lane": null,
+   "scope": null,
+   "access": null,
+   "automotive": false,
+   "lang": "python"
+  },
+  {
+   "id": "checkcode",
+   "title": "checkcode / Code Analyzer (formerly mlint)",
+   "authors": "MathWorks",
+   "year": "living",
+   "verification": "verified",
+   "note": "Living MATLAB static-analysis/style enforcer; codeIssues is its successor API.",
+   "ident": "mathworks.com/help/matlab/ref/checkcode.html",
+   "unresolved": [],
+   "corpora": [
+    "swe-process"
+   ],
+   "per": {
+    "swe-process": {
+     "area": "standards",
+     "lang": "matlab",
+     "role": "core"
+    }
+   },
+   "type": "tooling-doc",
+   "branches": [
+    "process"
+   ],
+   "themes": [
+    "standards"
+   ],
+   "role": [
+    "core"
+   ],
+   "lane": null,
+   "scope": null,
+   "access": null,
+   "automotive": false,
+   "lang": "matlab"
+  },
+  {
+   "id": "pep8eyetracking",
+   "title": "Assessing Python Style Guides: An Eye-Tracking Study with Novice Developers",
+   "authors": "P. Roberto, R. Gheyi, J.A. Silva da Costa & M. Ribeiro",
+   "year": "2024",
+   "verification": "verified",
+   "note": "Controlled eye-tracking experiment on four PEP 8 guidelines; mixed benefit — rare Python-specific style-effectiveness evidence.",
+   "ident": "arXiv:2408.14566",
+   "unresolved": [],
+   "corpora": [
+    "swe-process"
+   ],
+   "per": {
+    "swe-process": {
+     "area": "standards",
+     "lang": "python",
+     "role": "advanced"
+    }
+   },
+   "type": "paper",
+   "branches": [
+    "process"
+   ],
+   "themes": [
+    "standards"
+   ],
+   "role": [
+    "advanced"
+   ],
+   "lane": null,
+   "scope": null,
+   "access": null,
+   "automotive": false,
+   "lang": "python"
+  },
+  {
+   "id": "diataxis",
+   "title": "Diátaxis — a systematic framework for technical documentation",
+   "authors": "D. Procida",
+   "year": "living",
+   "verification": "verified",
+   "note": "Structures docs by user need: tutorials / how-to / reference / explanation. The documentation anchor.",
+   "ident": "diataxis.fr",
+   "unresolved": [],
+   "corpora": [
+    "swe-process"
+   ],
+   "per": {
+    "swe-process": {
+     "area": "documentation",
+     "lang": "agnostic",
+     "role": "anchor"
+    }
+   },
+   "type": "guide",
+   "branches": [
+    "process"
+   ],
+   "themes": [
+    "documentation"
+   ],
+   "role": [
+    "anchor"
+   ],
+   "lane": null,
+   "scope": null,
+   "access": null,
+   "automotive": false,
+   "lang": "agnostic"
+  },
+  {
+   "id": "ettermtw",
+   "title": "Modern Technical Writing",
+   "authors": "A. Etter",
+   "year": "2016",
+   "verification": "verified",
+   "note": "Seminal concise statement of docs-as-code (lightweight markup, static generators, docs in version control/CI). Companion: Gentle, Docs Like Code (2022, ISBN 978-1-387-53149-3).",
+   "ident": "ASIN B01A2QL9SS",
+   "unresolved": [],
+   "corpora": [
+    "swe-process"
+   ],
+   "per": {
+    "swe-process": {
+     "area": "documentation",
+     "lang": "agnostic",
+     "role": "anchor"
+    }
+   },
+   "type": "book",
+   "branches": [
+    "process"
+   ],
+   "themes": [
+    "documentation"
+   ],
+   "role": [
+    "anchor"
+   ],
+   "lane": null,
+   "scope": null,
+   "access": null,
+   "automotive": false,
+   "lang": "agnostic"
+  },
+  {
+   "id": "arc42",
+   "title": "arc42 — architecture documentation template",
+   "authors": "G. Starke & P. Hruschka",
+   "year": "living",
+   "verification": "verified",
+   "note": "The canonical fill-in architecture-doc template.",
+   "ident": "arc42.org",
+   "unresolved": [],
+   "corpora": [
+    "swe-process"
+   ],
+   "per": {
+    "swe-process": {
+     "area": "documentation",
+     "lang": "agnostic",
+     "role": "core"
+    }
+   },
+   "type": "guide",
+   "branches": [
+    "process"
+   ],
+   "themes": [
+    "documentation"
+   ],
+   "role": [
+    "core"
+   ],
+   "lane": null,
+   "scope": null,
+   "access": null,
+   "automotive": false,
+   "lang": "agnostic"
+  },
+  {
+   "id": "c4model",
+   "title": "The C4 model for visualising software architecture",
+   "authors": "S. Brown",
+   "year": "living",
+   "verification": "verified",
+   "note": "De-facto standard for architecture diagramming at layered abstraction (Context/Containers/Components/Code).",
+   "ident": "c4model.com",
+   "unresolved": [],
+   "corpora": [
+    "swe-process"
+   ],
+   "per": {
+    "swe-process": {
+     "area": "documentation",
+     "lang": "agnostic",
+     "role": "anchor"
+    }
+   },
+   "type": "guide",
+   "branches": [
+    "process"
+   ],
+   "themes": [
+    "documentation"
+   ],
+   "role": [
+    "anchor"
+   ],
+   "lane": null,
+   "scope": null,
+   "access": null,
+   "automotive": false,
+   "lang": "agnostic"
+  },
+  {
+   "id": "nygardadr",
+   "title": "Documenting Architecture Decisions",
+   "authors": "M. Nygard",
+   "year": "2011",
+   "verification": "verified",
+   "note": "Origin of Architecture Decision Records (Title/Context/Decision/Status/Consequences). Living ecosystem: MADR at adr.github.io/madr. Distinct from the Nygard book (id=nygard) already in corpus.",
+   "ident": "cognitect.com/blog/2011/11/15/documenting-architecture-decisions",
+   "unresolved": [],
+   "corpora": [
+    "swe-process"
+   ],
+   "per": {
+    "swe-process": {
+     "area": "documentation",
+     "lang": "agnostic",
+     "role": "anchor"
+    }
+   },
+   "type": "blog",
+   "branches": [
+    "process"
+   ],
+   "themes": [
+    "documentation"
+   ],
+   "role": [
+    "anchor"
+   ],
+   "lane": null,
+   "scope": null,
+   "access": null,
+   "automotive": false,
+   "lang": "agnostic"
+  },
+  {
+   "id": "sphinx",
+   "title": "Sphinx documentation generator",
+   "authors": "Sphinx team",
+   "year": "living",
+   "verification": "verified",
+   "note": "Keystone doc toolchain (reST/MyST → HTML/PDF/ePub); Python-born hub that C/C++ Breathe/Exhale/Hawkmoth plug into.",
+   "ident": "sphinx-doc.org",
+   "unresolved": [],
+   "corpora": [
+    "swe-process"
+   ],
+   "per": {
+    "swe-process": {
+     "area": "documentation",
+     "lang": "multi",
+     "role": "core"
+    }
+   },
+   "type": "tooling-doc",
+   "branches": [
+    "process"
+   ],
+   "themes": [
+    "documentation"
+   ],
+   "role": [
+    "core"
+   ],
+   "lane": null,
+   "scope": null,
+   "access": null,
+   "automotive": false,
+   "lang": "multi"
+  },
+  {
+   "id": "matlabpublish",
+   "title": "MATLAB Live Scripts & the publish workflow",
+   "authors": "MathWorks",
+   "year": "living",
+   "verification": "verified",
+   "note": "Vendor-native literate/publishable MATLAB docs (.mlx Live Editor; publish markup → HTML/PDF/LaTeX). The substantive MATLAB doc practice.",
+   "ident": "mathworks.com/help/matlab/live-scripts-and-functions.html",
+   "unresolved": [],
+   "corpora": [
+    "swe-process"
+   ],
+   "per": {
+    "swe-process": {
+     "area": "documentation",
+     "lang": "matlab",
+     "role": "core"
+    }
+   },
+   "type": "official-doc",
+   "branches": [
+    "process"
+   ],
+   "themes": [
+    "documentation"
+   ],
+   "role": [
+    "core"
+   ],
+   "lane": null,
+   "scope": null,
+   "access": null,
+   "automotive": false,
+   "lang": "matlab"
+  },
+  {
+   "id": "progit",
+   "title": "Pro Git, 2nd ed.",
+   "authors": "S. Chacon & B. Straub",
+   "year": "2014",
+   "verification": "verified",
+   "note": "The canonical Git reference; living, community-corrected online edition.",
+   "ident": "ISBN 978-1-4842-0076-6; git-scm.com/book",
+   "unresolved": [],
+   "corpora": [
+    "swe-process"
+   ],
+   "per": {
+    "swe-process": {
+     "area": "vcs-review",
+     "lang": "agnostic",
+     "role": "anchor"
+    }
+   },
+   "type": "book",
+   "branches": [
+    "process"
+   ],
+   "themes": [
+    "vcs-review"
+   ],
+   "role": [
+    "anchor"
+   ],
+   "lane": null,
+   "scope": null,
+   "access": null,
+   "automotive": false,
+   "lang": "agnostic"
+  },
+  {
+   "id": "gitflow",
+   "title": "A successful Git branching model (git-flow)",
+   "authors": "V. Driessen",
+   "year": "2010",
+   "verification": "verified",
+   "note": "Canonical heavyweight branching model; its 2020 note self-defers to GitHub flow for continuous delivery.",
+   "ident": "nvie.com/posts/a-successful-git-branching-model/",
+   "unresolved": [],
+   "corpora": [
+    "swe-process"
+   ],
+   "per": {
+    "swe-process": {
+     "area": "vcs-review",
+     "lang": "agnostic",
+     "role": "anchor"
+    }
+   },
+   "type": "blog",
+   "branches": [
+    "process"
+   ],
+   "themes": [
+    "vcs-review"
+   ],
+   "role": [
+    "anchor"
+   ],
+   "lane": null,
+   "scope": null,
+   "access": null,
+   "automotive": false,
+   "lang": "agnostic"
+  },
+  {
+   "id": "trunkbased",
+   "title": "Trunk-Based Development",
+   "authors": "P. Hammant et al.",
+   "year": "living",
+   "verification": "verified",
+   "note": "Single-branch model; explicitly critiques git-flow and long-lived branches. The CD-era counter-model.",
+   "ident": "trunkbaseddevelopment.com",
+   "unresolved": [],
+   "corpora": [
+    "swe-process"
+   ],
+   "per": {
+    "swe-process": {
+     "area": "vcs-review",
+     "lang": "agnostic",
+     "role": "core"
+    }
+   },
+   "type": "guide",
+   "branches": [
+    "process"
+   ],
+   "themes": [
+    "vcs-review"
+   ],
+   "role": [
+    "core"
+   ],
+   "lane": null,
+   "scope": null,
+   "access": null,
+   "automotive": false,
+   "lang": "agnostic"
+  },
+  {
+   "id": "githubflow",
+   "title": "GitHub flow",
+   "authors": "GitHub",
+   "year": "living",
+   "verification": "verified",
+   "note": "Lightweight PR-centric single-main workflow.",
+   "ident": "docs.github.com",
+   "unresolved": [],
+   "corpora": [
+    "swe-process"
+   ],
+   "per": {
+    "swe-process": {
+     "area": "vcs-review",
+     "lang": "agnostic",
+     "role": "core"
+    }
+   },
+   "type": "official-doc",
+   "branches": [
+    "process"
+   ],
+   "themes": [
+    "vcs-review"
+   ],
+   "role": [
+    "core"
+   ],
+   "lane": null,
+   "scope": null,
+   "access": null,
+   "automotive": false,
+   "lang": "agnostic"
+  },
+  {
+   "id": "gitlabflow",
+   "title": "GitLab flow",
+   "authors": "GitLab",
+   "year": "living",
+   "verification": "verified",
+   "note": "Environment-branch variant integrating feature development with issue tracking and CD.",
+   "ident": "about.gitlab.com/topics/version-control/what-is-gitlab-flow/",
+   "unresolved": [],
+   "corpora": [
+    "swe-process"
+   ],
+   "per": {
+    "swe-process": {
+     "area": "vcs-review",
+     "lang": "agnostic",
+     "role": "core"
+    }
+   },
+   "type": "official-doc",
+   "branches": [
+    "process"
+   ],
+   "themes": [
+    "vcs-review"
+   ],
+   "role": [
+    "core"
+   ],
+   "lane": null,
+   "scope": null,
+   "access": null,
+   "automotive": false,
+   "lang": "agnostic"
+  },
+  {
+   "id": "convcommits",
+   "title": "Conventional Commits (v1.0.0)",
+   "authors": "Conventional Commits community",
+   "year": "living",
+   "verification": "verified",
+   "note": "Commit-message convention that dovetails with SemVer to mechanize release versioning.",
+   "ident": "conventionalcommits.org",
+   "unresolved": [],
+   "corpora": [
+    "swe-process"
+   ],
+   "per": {
+    "swe-process": {
+     "area": "vcs-review",
+     "lang": "agnostic",
+     "role": "core"
+    }
+   },
+   "type": "standard",
+   "branches": [
+    "process"
+   ],
+   "themes": [
+    "vcs-review"
+   ],
+   "role": [
+    "core"
+   ],
+   "lane": null,
+   "scope": null,
+   "access": null,
+   "automotive": false,
+   "lang": "agnostic"
+  },
+  {
+   "id": "semver",
+   "title": "Semantic Versioning (SemVer 2.0.0)",
+   "authors": "T. Preston-Werner",
+   "year": "living",
+   "verification": "verified",
+   "note": "MAJOR.MINOR.PATCH versioning contract release tooling targets.",
+   "ident": "semver.org",
+   "unresolved": [],
+   "corpora": [
+    "swe-process"
+   ],
+   "per": {
+    "swe-process": {
+     "area": "vcs-review",
+     "lang": "agnostic",
+     "role": "anchor"
+    }
+   },
+   "type": "standard",
+   "branches": [
+    "process"
+   ],
+   "themes": [
+    "vcs-review"
+   ],
+   "role": [
+    "anchor"
+   ],
+   "lane": null,
+   "scope": null,
+   "access": null,
+   "automotive": false,
+   "lang": "agnostic"
+  },
+  {
+   "id": "potvinmonorepo",
+   "title": "Why Google Stores Billions of Lines of Code in a Single Repository",
+   "authors": "R. Potvin & J. Levenberg",
+   "year": "2016",
+   "verification": "verified",
+   "note": "The definitive monorepo industry case; contrasts monorepo vs multi-repo, allied with trunk-based development.",
+   "ident": "DOI 10.1145/2854146; CACM 59(7):78-87",
+   "unresolved": [],
+   "corpora": [
+    "swe-process"
+   ],
+   "per": {
+    "swe-process": {
+     "area": "vcs-review",
+     "lang": "agnostic",
+     "role": "survey"
+    }
+   },
+   "type": "paper",
+   "branches": [
+    "process"
+   ],
+   "themes": [
+    "vcs-review"
+   ],
+   "role": [
+    "survey"
+   ],
+   "lane": null,
+   "scope": null,
+   "access": null,
+   "automotive": false,
+   "lang": "agnostic"
+  },
+  {
+   "id": "rigbybird",
+   "title": "Convergent Contemporary Software Peer Review Practices",
+   "authors": "P.C. Rigby & C. Bird",
+   "year": "2013",
+   "verification": "verified",
+   "note": "Cross-project synthesis showing modern lightweight review converged across OSS + industry.",
+   "ident": "DOI 10.1145/2491411.2491444",
+   "unresolved": [],
+   "corpora": [
+    "swe-process"
+   ],
+   "per": {
+    "swe-process": {
+     "area": "vcs-review",
+     "lang": "agnostic",
+     "role": "survey"
+    }
+   },
+   "type": "paper",
+   "branches": [
+    "process"
+   ],
+   "themes": [
+    "vcs-review"
+   ],
+   "role": [
+    "survey"
+   ],
+   "lane": null,
+   "scope": null,
+   "access": null,
+   "automotive": false,
+   "lang": "agnostic"
+  },
+  {
+   "id": "googleeng",
+   "title": "Code Review Developer Guide (Google eng-practices)",
+   "authors": "Google",
+   "year": "living",
+   "verification": "verified",
+   "note": "The de-facto industry review practice guide (reviewer + author guides).",
+   "ident": "google.github.io/eng-practices/review/",
+   "unresolved": [],
+   "corpora": [
+    "swe-process"
+   ],
+   "per": {
+    "swe-process": {
+     "area": "vcs-review",
+     "lang": "agnostic",
+     "role": "core"
+    }
+   },
+   "type": "guide",
+   "branches": [
+    "process"
+   ],
+   "themes": [
+    "vcs-review"
+   ],
+   "role": [
+    "core"
+   ],
+   "lane": null,
+   "scope": null,
+   "access": null,
+   "automotive": false,
+   "lang": "agnostic"
+  },
+  {
+   "id": "cohenreview",
+   "title": "Best Kept Secrets of Peer Code Review",
+   "authors": "J. Cohen (ed.) et al.",
+   "year": "2006",
+   "verification": "verified",
+   "note": "The SmartBear/Cisco review study; bridges Fagan inspection to modern tool-assisted review.",
+   "ident": "ISBN 978-1-59916-067-2",
+   "unresolved": [],
+   "corpora": [
+    "swe-process"
+   ],
+   "per": {
+    "swe-process": {
+     "area": "vcs-review",
+     "lang": "agnostic",
+     "role": "core"
+    }
+   },
+   "type": "book",
+   "branches": [
+    "process"
+   ],
+   "themes": [
+    "vcs-review"
+   ],
+   "role": [
+    "core"
+   ],
+   "lane": null,
+   "scope": null,
+   "access": null,
+   "automotive": false,
+   "lang": "agnostic"
+  },
+  {
+   "id": "fowlerci",
+   "title": "Continuous Integration",
+   "authors": "M. Fowler",
+   "year": "living",
+   "verification": "verified",
+   "note": "Foundational definition of CI as a practice (2000; rewritten 2006; rev. 2024).",
+   "ident": "martinfowler.com/articles/continuousIntegration.html",
+   "unresolved": [],
+   "corpora": [
+    "swe-process"
+   ],
+   "per": {
+    "swe-process": {
+     "area": "ci-cd",
+     "lang": "agnostic",
+     "role": "anchor"
+    }
+   },
+   "type": "guide",
+   "branches": [
+    "process"
+   ],
+   "themes": [
+    "ci-cd"
+   ],
+   "role": [
+    "anchor"
+   ],
+   "lane": null,
+   "scope": null,
+   "access": null,
+   "automotive": false,
+   "lang": "agnostic"
+  },
+  {
+   "id": "contdeliv",
+   "title": "Continuous Delivery",
+   "authors": "J. Humble & D. Farley",
+   "year": "2010",
+   "verification": "verified",
+   "note": "Canonical CD text extending CI to the full deployment pipeline.",
+   "ident": "ISBN 978-0-321-60191-9",
+   "unresolved": [],
+   "corpora": [
+    "swe-process"
+   ],
+   "per": {
+    "swe-process": {
+     "area": "ci-cd",
+     "lang": "agnostic",
+     "role": "anchor"
+    }
+   },
+   "type": "book",
+   "branches": [
+    "process"
+   ],
+   "themes": [
+    "ci-cd"
+   ],
+   "role": [
+    "anchor"
+   ],
+   "lane": null,
+   "scope": null,
+   "access": null,
+   "automotive": false,
+   "lang": "agnostic"
+  },
+  {
+   "id": "accelerate",
+   "title": "Accelerate: The Science of Lean Software and DevOps",
+   "authors": "N. Forsgren, J. Humble & G. Kim",
+   "year": "2018",
+   "verification": "verified",
+   "note": "Statistically evaluates which delivery practices (CI, CD, trunk-based) predict performance; the empirical spine.",
+   "ident": "ISBN 978-1-942788-33-1",
+   "unresolved": [],
+   "corpora": [
+    "swe-process"
+   ],
+   "per": {
+    "swe-process": {
+     "area": "ci-cd",
+     "lang": "agnostic",
+     "role": "core"
+    }
+   },
+   "type": "book",
+   "branches": [
+    "process"
+   ],
+   "themes": [
+    "ci-cd"
+   ],
+   "role": [
+    "core"
+   ],
+   "lane": null,
+   "scope": null,
+   "access": null,
+   "automotive": false,
+   "lang": "agnostic"
+  },
+  {
+   "id": "dora",
+   "title": "DORA — DevOps Research and Assessment / State of DevOps",
+   "authors": "DORA (Google Cloud)",
+   "year": "living",
+   "verification": "verified",
+   "note": "The living research program and Four Keys metrics; Accelerate is its 2018 synthesis.",
+   "ident": "dora.dev",
+   "unresolved": [],
+   "corpora": [
+    "swe-process"
+   ],
+   "per": {
+    "swe-process": {
+     "area": "ci-cd",
+     "lang": "agnostic",
+     "role": "core"
+    }
+   },
+   "type": "report",
+   "branches": [
+    "process"
+   ],
+   "themes": [
+    "ci-cd"
+   ],
+   "role": [
+    "core"
+   ],
+   "lane": null,
+   "scope": null,
+   "access": null,
+   "automotive": false,
+   "lang": "agnostic"
+  },
+  {
+   "id": "gitlabci",
+   "title": "GitLab CI/CD documentation",
+   "authors": "GitLab",
+   "year": "living",
+   "verification": "verified",
+   "note": "Living reference for a concrete CI/CD engine (.gitlab-ci.yml); companion platform GitHub Actions (docs.github.com/actions).",
+   "ident": "docs.gitlab.com/ci/",
+   "unresolved": [],
+   "corpora": [
+    "swe-process"
+   ],
+   "per": {
+    "swe-process": {
+     "area": "ci-cd",
+     "lang": "multi",
+     "role": "core"
+    }
+   },
+   "type": "tooling-doc",
+   "branches": [
+    "process"
+   ],
+   "themes": [
+    "ci-cd"
+   ],
+   "role": [
+    "core"
+   ],
+   "lane": null,
+   "scope": null,
+   "access": null,
+   "automotive": false,
+   "lang": "multi"
+  },
+  {
+   "id": "matlabci",
+   "title": "Continuous Integration (CI) for MATLAB and Simulink",
+   "authors": "MathWorks",
+   "year": "living",
+   "verification": "verified",
+   "note": "Umbrella MATLAB-CI hub (Jenkins/GitLab/GitHub Actions/Azure) over the corpus Simulink-CI items.",
+   "ident": "mathworks.com/solutions/continuous-integration.html",
+   "unresolved": [],
+   "corpora": [
+    "swe-process"
+   ],
+   "per": {
+    "swe-process": {
+     "area": "ci-cd",
+     "lang": "matlab",
+     "role": "anchor"
+    }
+   },
+   "type": "official-doc",
+   "branches": [
+    "process"
+   ],
+   "themes": [
+    "ci-cd"
+   ],
+   "role": [
+    "anchor"
+   ],
+   "lane": null,
+   "scope": null,
+   "access": null,
+   "automotive": false,
+   "lang": "matlab"
+  },
+  {
+   "id": "lakosvol1",
+   "title": "Large-Scale C++ Volume I: Process and Architecture",
+   "authors": "J. Lakos",
+   "year": "2019",
+   "verification": "verified",
+   "note": "Definitive modern C++ physical design (components/packages/package-groups); 2019 successor to the 1996 book (id=lakoslsc).",
+   "ident": "ISBN 978-0-201-71706-8",
+   "unresolved": [],
+   "corpora": [
+    "swe-process"
+   ],
+   "per": {
+    "swe-process": {
+     "area": "org-build",
+     "lang": "cpp",
+     "role": "anchor"
+    }
+   },
+   "type": "book",
+   "branches": [
+    "process"
+   ],
+   "themes": [
+    "org-build"
+   ],
+   "role": [
+    "anchor"
+   ],
+   "lane": null,
+   "scope": null,
+   "access": null,
+   "automotive": false,
+   "lang": "cpp"
+  },
+  {
+   "id": "pitchfork",
+   "title": "The Pitchfork Layout (PFL)",
+   "authors": "C. Pike (vector-of-bool)",
+   "year": "living",
+   "verification": "verified",
+   "note": "De-facto community C/C++ directory layout (src/ include/ tests/). Sibling proposal: WG21 P1204R0 Canonical Project Structure (Kolpackov 2018).",
+   "ident": "github.com/vector-of-bool/pitchfork",
+   "unresolved": [],
+   "corpora": [
+    "swe-process"
+   ],
+   "per": {
+    "swe-process": {
+     "area": "org-build",
+     "lang": "cpp",
+     "role": "core"
+    }
+   },
+   "type": "guide",
+   "branches": [
+    "process"
+   ],
+   "themes": [
+    "org-build"
+   ],
+   "role": [
+    "core"
+   ],
+   "lane": null,
+   "scope": null,
+   "access": null,
+   "automotive": false,
+   "lang": "cpp"
+  },
+  {
+   "id": "profcmake",
+   "title": "Professional CMake: A Practical Guide",
+   "authors": "C. Scott",
+   "year": "living",
+   "verification": "verified",
+   "note": "Comprehensive, continuously re-editioned CMake practitioner reference. Free complement: Schreiner, An Introduction to Modern CMake.",
+   "ident": "crascit.com/professional-cmake/",
+   "unresolved": [],
+   "corpora": [
+    "swe-process"
+   ],
+   "per": {
+    "swe-process": {
+     "area": "org-build",
+     "lang": "cpp",
+     "role": "core"
+    }
+   },
+   "type": "book",
+   "branches": [
+    "process"
+   ],
+   "themes": [
+    "org-build"
+   ],
+   "role": [
+    "core"
+   ],
+   "lane": null,
+   "scope": null,
+   "access": null,
+   "automotive": false,
+   "lang": "cpp"
+  },
+  {
+   "id": "pypackaging",
+   "title": "Python Packaging User Guide",
+   "authors": "PyPA",
+   "year": "living",
+   "verification": "verified",
+   "note": "Authoritative living hub for Python project structure/packaging; parent of src-vs-flat layout guidance and the pyproject PEPs.",
+   "ident": "packaging.python.org",
+   "unresolved": [],
+   "corpora": [
+    "swe-process"
+   ],
+   "per": {
+    "swe-process": {
+     "area": "org-build",
+     "lang": "python",
+     "role": "anchor"
+    }
+   },
+   "type": "official-doc",
+   "branches": [
+    "process"
+   ],
+   "themes": [
+    "org-build"
+   ],
+   "role": [
+    "anchor"
+   ],
+   "lane": null,
+   "scope": null,
+   "access": null,
+   "automotive": false,
+   "lang": "python"
+  },
+  {
+   "id": "pep517",
+   "title": "PEP 517 — A build-system independent format for source trees",
+   "authors": "N.J. Smith & T. Kluyver",
+   "year": "2015",
+   "verification": "verified",
+   "note": "Build-backend hook API decoupling frontends from backends.",
+   "ident": "PEP 517; peps.python.org/pep-0517/",
+   "unresolved": [],
+   "corpora": [
+    "swe-process"
+   ],
+   "per": {
+    "swe-process": {
+     "area": "org-build",
+     "lang": "python",
+     "role": "core"
+    }
+   },
+   "type": "standard",
+   "branches": [
+    "process"
+   ],
+   "themes": [
+    "org-build"
+   ],
+   "role": [
+    "core"
+   ],
+   "lane": null,
+   "scope": null,
+   "access": null,
+   "automotive": false,
+   "lang": "python"
+  },
+  {
+   "id": "pep518",
+   "title": "PEP 518 — Specifying Minimum Build System Requirements",
+   "authors": "B. Cannon, N.J. Smith & D. Stufft",
+   "year": "2016",
+   "verification": "verified",
+   "note": "Introduces pyproject.toml and [build-system].requires; the root of declarative Python builds.",
+   "ident": "PEP 518; peps.python.org/pep-0518/",
+   "unresolved": [],
+   "corpora": [
+    "swe-process"
+   ],
+   "per": {
+    "swe-process": {
+     "area": "org-build",
+     "lang": "python",
+     "role": "anchor"
+    }
+   },
+   "type": "standard",
+   "branches": [
+    "process"
+   ],
+   "themes": [
+    "org-build"
+   ],
+   "role": [
+    "anchor"
+   ],
+   "lane": null,
+   "scope": null,
+   "access": null,
+   "automotive": false,
+   "lang": "python"
+  },
+  {
+   "id": "pep621",
+   "title": "PEP 621 — Storing project metadata in pyproject.toml",
+   "authors": "B. Cannon et al.",
+   "year": "2020",
+   "verification": "verified",
+   "note": "Standardizes the [project] metadata table across build backends.",
+   "ident": "PEP 621; peps.python.org/pep-0621/",
+   "unresolved": [],
+   "corpora": [
+    "swe-process"
+   ],
+   "per": {
+    "swe-process": {
+     "area": "org-build",
+     "lang": "python",
+     "role": "core"
+    }
+   },
+   "type": "standard",
+   "branches": [
+    "process"
+   ],
+   "themes": [
+    "org-build"
+   ],
+   "role": [
+    "core"
+   ],
+   "lane": null,
+   "scope": null,
+   "access": null,
+   "automotive": false,
+   "lang": "python"
+  },
+  {
+   "id": "ieee828",
+   "title": "IEEE 828-2012 — Configuration Management in Systems and Software Engineering",
+   "authors": "IEEE",
+   "year": "2012",
+   "verification": "verified",
+   "note": "Formal process backbone under build/release: CI identification, change control, status accounting, release engineering.",
+   "ident": "IEEE 828-2012; ISBN 978-0-7381-7134-0",
+   "unresolved": [],
+   "corpora": [
+    "swe-process"
+   ],
+   "per": {
+    "swe-process": {
+     "area": "org-build",
+     "lang": "agnostic",
+     "role": "anchor"
+    }
+   },
+   "type": "standard",
+   "branches": [
+    "process"
+   ],
+   "themes": [
+    "org-build"
+   ],
+   "role": [
+    "anchor"
+   ],
+   "lane": null,
+   "scope": null,
+   "access": null,
+   "automotive": false,
+   "lang": "agnostic"
+  },
+  {
+   "id": "swebok",
+   "title": "Guide to the Software Engineering Body of Knowledge (SWEBOK v4.0)",
+   "authors": "H. Washizaki (ed.)",
+   "year": "2024",
+   "verification": "verified",
+   "note": "Consensus field map (18 knowledge areas; v4.0 adds Software Architecture/Operations/Security). The surveying spine.",
+   "ident": "SWEBOK v4.0; IEEE Computer Society",
+   "unresolved": [],
+   "corpora": [
+    "swe-process"
+   ],
+   "per": {
+    "swe-process": {
+     "area": "process",
+     "lang": "agnostic",
+     "role": "anchor"
+    }
+   },
+   "type": "guide",
+   "branches": [
+    "process"
+   ],
+   "themes": [
+    "process"
+   ],
+   "role": [
+    "anchor"
+   ],
+   "lane": null,
+   "scope": null,
+   "access": null,
+   "automotive": false,
+   "lang": "agnostic"
+  },
+  {
+   "id": "iso12207",
+   "title": "ISO/IEC/IEEE 12207:2017 — Software life cycle processes",
+   "authors": "ISO/IEC/IEEE",
+   "year": "2017",
+   "verification": "verified",
+   "note": "Common framework of software life-cycle processes (acquisition to retirement).",
+   "ident": "ISO/IEC/IEEE 12207:2017; iso.org/standard/63712.html",
+   "unresolved": [],
+   "corpora": [
+    "swe-process"
+   ],
+   "per": {
+    "swe-process": {
+     "area": "process",
+     "lang": "agnostic",
+     "role": "core"
+    }
+   },
+   "type": "standard",
+   "branches": [
+    "process"
+   ],
+   "themes": [
+    "process"
+   ],
+   "role": [
+    "core"
+   ],
+   "lane": null,
+   "scope": null,
+   "access": null,
+   "automotive": false,
+   "lang": "agnostic"
+  },
+  {
+   "id": "agilemanifesto",
+   "title": "Manifesto for Agile Software Development",
+   "authors": "Beck, Fowler, Cunningham, Martin, Schwaber, Sutherland et al. (17 signatories)",
+   "year": "2001",
+   "verification": "verified",
+   "note": "The four values that reframed process priorities; root of the agile lineage.",
+   "ident": "agilemanifesto.org",
+   "unresolved": [],
+   "corpora": [
+    "swe-process"
+   ],
+   "per": {
+    "swe-process": {
+     "area": "process",
+     "lang": "agnostic",
+     "role": "anchor"
+    }
+   },
+   "type": "other",
+   "branches": [
+    "process"
+   ],
+   "themes": [
+    "process"
+   ],
+   "role": [
+    "anchor"
+   ],
+   "lane": null,
+   "scope": null,
+   "access": null,
+   "automotive": false,
+   "lang": "agnostic"
+  },
+  {
+   "id": "xpexplained",
+   "title": "Extreme Programming Explained: Embrace Change, 2nd ed.",
+   "authors": "K. Beck & C. Andres",
+   "year": "2004",
+   "verification": "verified",
+   "note": "The engineering-practice-heavy agile method (CI, TDD, pairing) closest to this corpus practice focus.",
+   "ident": "ISBN 978-0-321-27865-4",
+   "unresolved": [],
+   "corpora": [
+    "swe-process"
+   ],
+   "per": {
+    "swe-process": {
+     "area": "process",
+     "lang": "agnostic",
+     "role": "core"
+    }
+   },
+   "type": "book",
+   "branches": [
+    "process"
+   ],
+   "themes": [
+    "process"
+   ],
+   "role": [
+    "core"
+   ],
+   "lane": null,
+   "scope": null,
+   "access": null,
+   "automotive": false,
+   "lang": "agnostic"
+  },
+  {
+   "id": "scrumguide",
+   "title": "The Scrum Guide",
+   "authors": "K. Schwaber & J. Sutherland",
+   "year": "living",
+   "verification": "verified",
+   "note": "The canonical, immutable definition of the dominant agile framework (2020; CC BY-SA).",
+   "ident": "scrumguides.org",
+   "unresolved": [],
+   "corpora": [
+    "swe-process"
+   ],
+   "per": {
+    "swe-process": {
+     "area": "process",
+     "lang": "agnostic",
+     "role": "core"
+    }
+   },
+   "type": "guide",
+   "branches": [
+    "process"
+   ],
+   "themes": [
+    "process"
+   ],
+   "role": [
+    "core"
+   ],
+   "lane": null,
+   "scope": null,
+   "access": null,
+   "automotive": false,
+   "lang": "agnostic"
+  },
+  {
+   "id": "humphreypsp",
+   "title": "Introduction to the Personal Software Process",
+   "authors": "W.S. Humphrey",
+   "year": "1997",
+   "verification": "verified",
+   "note": "Individual-discipline process (PSP); team counterpart Introduction to the TSP (1999). The plan-based/measurement periphery.",
+   "ident": "ISBN 978-0-201-54809-9",
+   "unresolved": [],
+   "corpora": [
+    "swe-process"
+   ],
+   "per": {
+    "swe-process": {
+     "area": "process",
+     "lang": "agnostic",
+     "role": "advanced"
+    }
+   },
+   "type": "book",
+   "branches": [
+    "process"
+   ],
+   "themes": [
+    "process"
+   ],
+   "role": [
+    "advanced"
+   ],
+   "lane": null,
+   "scope": null,
+   "access": null,
+   "automotive": false,
+   "lang": "agnostic"
+  },
+  {
+   "id": "smitconventions",
+   "title": "Maintainability and Source Code Conventions: An Analysis of Open Source Projects",
+   "authors": "M. Smit, B. Gergel, H.J. Hoover & E. Stroulia",
+   "year": "2011",
+   "verification": "unverified",
+   "note": "Coding-convention effectiveness study (adherence metric; 71 conventions; four Java projects). Extends the effectiveness cell beyond C/Python.",
+   "ident": "Univ. of Alberta TR11-06",
+   "unresolved": [
+    "report-number"
+   ],
+   "corpora": [
+    "swe-process"
+   ],
+   "per": {
+    "swe-process": {
+     "area": "standards",
+     "lang": "agnostic",
+     "role": "survey"
+    }
+   },
+   "type": "report",
+   "branches": [
+    "process"
+   ],
+   "themes": [
+    "standards"
+   ],
+   "role": [
+    "survey"
+   ],
+   "lane": null,
+   "scope": null,
+   "access": null,
+   "automotive": false,
+   "lang": "agnostic"
   }
  ]
 }

@@ -4,7 +4,7 @@ window.SWE = window.SWE || {};
 SWE.inspector = (function () {
   'use strict';
   const U = SWE.util;
-  const PROV = { 'report:swa': 'report · swa', 'report:sim': 'report · sim', 'derived': 'derived', 'editorial': 'EDITORIAL' };
+  const PROV = { 'report:swa': 'report · swa', 'report:sim': 'report · sim', 'report:proc': 'report · proc', 'derived': 'derived', 'editorial': 'EDITORIAL' };
 
   /** @param {HTMLElement} host @param {{corpus:any,relations:any,log?:any}} ctx */
   function mount(host, ctx) {
@@ -54,7 +54,7 @@ SWE.inspector = (function () {
       host.appendChild(U.el('div', { class: 'sec', text: 'reconciled tags (phase 2)' }));
       const dl = U.el('dl', { class: 'dl' });
       const add = (k, v) => { if (v && v.length) { dl.appendChild(U.el('dt', { text: k })); dl.appendChild(U.el('dd', { text: Array.isArray(v) ? v.join(', ') : v })); } };
-      add('type', n.type); add('branches', n.branches); add('themes', n.themes); add('scope', n.scope);
+      add('type', n.type); add('branches', n.branches); add('themes', n.themes); add('language', n.lang); add('scope', n.scope);
       host.appendChild(dl);
 
       host.appendChild(U.el('div', { class: 'sec', text: 'raw tags as each report stated them' }));
@@ -142,7 +142,7 @@ SWE.inspector = (function () {
         U.el('span', { class: 'kbd', text: 'Esc' }), ' close'));
 
       const foot = U.el('p', { class: 'foot-note' });
-      foot.appendChild(document.createTextNode('Six research passes, one fact layer. Method: '));
+      foot.appendChild(document.createTextNode('Seven research passes, one fact layer. Method: '));
       foot.appendChild(U.el('a', { href: 'MODELS.md', text: 'MODELS.md' }));
       foot.appendChild(document.createTextNode(' · '));
       foot.appendChild(U.el('a', { href: 'ARCHITECTURE.md', text: 'ARCHITECTURE.md' }));

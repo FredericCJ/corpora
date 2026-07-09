@@ -17,7 +17,8 @@
   "report:swa": 86,
   "report:sim": 57,
   "derived": 50,
-  "editorial": 11
+  "editorial": 19,
+  "report:proc": 49
  },
  "edges": [
   {
@@ -1650,6 +1651,462 @@
    "kind": "companion",
    "src": "editorial",
    "note": "Same body: platform standard and its C++ coding guidelines",
+   "cycle": ""
+  },
+  {
+   "s": "black",
+   "t": "pep8",
+   "kind": "applies-method-of",
+   "src": "report:proc",
+   "note": "Black auto-formats to PEP 8",
+   "cycle": ""
+  },
+  {
+   "s": "ruff",
+   "t": "pep8",
+   "kind": "applies-method-of",
+   "src": "report:proc",
+   "note": "Ruff lints/formats to PEP 8 (subsumes Flake8/isort/pydocstyle)",
+   "cycle": ""
+  },
+  {
+   "s": "pylint",
+   "t": "pep8",
+   "kind": "applies-method-of",
+   "src": "report:proc",
+   "note": "Pylint checks PEP 8 plus deeper static analysis",
+   "cycle": ""
+  },
+  {
+   "s": "pep8",
+   "t": "pep20",
+   "kind": "references",
+   "src": "report:proc",
+   "note": "PEP 8 invokes the Zen of Python (PEP 20) as its rationale",
+   "cycle": ""
+  },
+  {
+   "s": "pep257",
+   "t": "pep8",
+   "kind": "companion",
+   "src": "report:proc",
+   "note": "docstring conventions complement the style guide",
+   "cycle": ""
+  },
+  {
+   "s": "pep8eyetracking",
+   "t": "pep8",
+   "kind": "evaluates",
+   "src": "report:proc",
+   "note": "eye-tracking study empirically evaluates four PEP 8 guidelines",
+   "cycle": ""
+  },
+  {
+   "s": "smitconventions",
+   "t": "boogerdmoonen",
+   "kind": "companion",
+   "src": "editorial",
+   "note": "parallel coding-standard effectiveness studies (Java vs MISRA C)",
+   "cycle": ""
+  },
+  {
+   "s": "checkcode",
+   "t": "johnsonbook",
+   "kind": "companion",
+   "src": "editorial",
+   "note": "MATLAB Code Analyzer enforces the MATLAB style canon",
+   "cycle": ""
+  },
+  {
+   "s": "coreguidelines",
+   "t": "misracpp2023",
+   "kind": "companion",
+   "src": "report:proc",
+   "note": "parallel modern C++ guideline efforts; MISRA C++:2023 draws on the Core Guidelines lineage",
+   "cycle": ""
+  },
+  {
+   "s": "c4model",
+   "t": "arc42",
+   "kind": "companion",
+   "src": "report:proc",
+   "note": "diagramming (C4) complements the prose template (arc42)",
+   "cycle": ""
+  },
+  {
+   "s": "nygardadr",
+   "t": "c4model",
+   "kind": "companion",
+   "src": "report:proc",
+   "note": "decision records complement architecture diagrams",
+   "cycle": ""
+  },
+  {
+   "s": "diataxis",
+   "t": "ettermtw",
+   "kind": "companion",
+   "src": "report:proc",
+   "note": "doc structure (Diátaxis) complements the docs-as-code workflow",
+   "cycle": ""
+  },
+  {
+   "s": "parnasclements",
+   "t": "nygardadr",
+   "kind": "prerequisite-of",
+   "src": "report:proc",
+   "note": "\"fake a rational process, then document it\" underlies Architecture Decision Records",
+   "cycle": ""
+  },
+  {
+   "s": "sphinx",
+   "t": "doxygen",
+   "kind": "companion",
+   "src": "editorial",
+   "note": "parallel documentation toolchains, bridged by Breathe/Exhale",
+   "cycle": ""
+  },
+  {
+   "s": "matlabpublish",
+   "t": "sphinx",
+   "kind": "companion",
+   "src": "editorial",
+   "note": "vendor-native literate MATLAB docs vs the agnostic Sphinx toolchain",
+   "cycle": ""
+  },
+  {
+   "s": "progit",
+   "t": "gitflow",
+   "kind": "prerequisite-of",
+   "src": "report:proc",
+   "note": "Git fundamentals precede any branching model",
+   "cycle": ""
+  },
+  {
+   "s": "progit",
+   "t": "githubflow",
+   "kind": "prerequisite-of",
+   "src": "report:proc",
+   "note": "Git fundamentals precede the workflow",
+   "cycle": ""
+  },
+  {
+   "s": "progit",
+   "t": "trunkbased",
+   "kind": "prerequisite-of",
+   "src": "report:proc",
+   "note": "Git fundamentals precede the workflow",
+   "cycle": ""
+  },
+  {
+   "s": "trunkbased",
+   "t": "gitflow",
+   "kind": "critiques",
+   "src": "report:proc",
+   "note": "\"do Trunk-Based Development instead of GitFlow… multiple long-running branches\"",
+   "cycle": ""
+  },
+  {
+   "s": "githubflow",
+   "t": "gitflow",
+   "kind": "critiques",
+   "src": "report:proc",
+   "note": "git-flow's 2020 note defers to GitHub flow for continuous delivery",
+   "cycle": ""
+  },
+  {
+   "s": "gitlabflow",
+   "t": "gitflow",
+   "kind": "critiques",
+   "src": "report:proc",
+   "note": "positions itself as a simpler alternative to git-flow",
+   "cycle": ""
+  },
+  {
+   "s": "convcommits",
+   "t": "semver",
+   "kind": "companion",
+   "src": "report:proc",
+   "note": "\"dovetails with SemVer\" — commit messages drive versioning",
+   "cycle": ""
+  },
+  {
+   "s": "potvinmonorepo",
+   "t": "trunkbased",
+   "kind": "companion",
+   "src": "report:proc",
+   "note": "Google practices monorepo and trunk-based development together",
+   "cycle": ""
+  },
+  {
+   "s": "wiegers",
+   "t": "fagan",
+   "kind": "refines",
+   "src": "report:proc",
+   "note": "practical peer review generalizes formal Fagan inspection",
+   "cycle": ""
+  },
+  {
+   "s": "cohenreview",
+   "t": "fagan",
+   "kind": "refines",
+   "src": "report:proc",
+   "note": "tool-assisted lightweight review evolves from formal inspection",
+   "cycle": ""
+  },
+  {
+   "s": "bacchellibird",
+   "t": "fagan",
+   "kind": "critiques",
+   "src": "editorial",
+   "note": "modern code review empirically departs from Fagan-inspection assumptions",
+   "cycle": ""
+  },
+  {
+   "s": "rigbybird",
+   "t": "bacchellibird",
+   "kind": "companion",
+   "src": "report:proc",
+   "note": "parallel 2013 studies of convergent modern review practice",
+   "cycle": ""
+  },
+  {
+   "s": "googleeng",
+   "t": "sadowskigoogle",
+   "kind": "applies-method-of",
+   "src": "editorial",
+   "note": "the practice guide operationalizes what the Google study measures",
+   "cycle": ""
+  },
+  {
+   "s": "contdeliv",
+   "t": "fowlerci",
+   "kind": "refines",
+   "src": "report:proc",
+   "note": "Continuous Delivery extends CI to the full deployment pipeline",
+   "cycle": ""
+  },
+  {
+   "s": "accelerate",
+   "t": "contdeliv",
+   "kind": "evaluates",
+   "src": "report:proc",
+   "note": "statistically validates Continuous Delivery as a performance predictor",
+   "cycle": ""
+  },
+  {
+   "s": "accelerate",
+   "t": "fowlerci",
+   "kind": "evaluates",
+   "src": "report:proc",
+   "note": "statistically validates Continuous Integration practice",
+   "cycle": ""
+  },
+  {
+   "s": "dora",
+   "t": "accelerate",
+   "kind": "companion",
+   "src": "report:proc",
+   "note": "the living research program behind the 2018 book synthesis",
+   "cycle": ""
+  },
+  {
+   "s": "gitlabci",
+   "t": "fowlerci",
+   "kind": "applies-method-of",
+   "src": "report:proc",
+   "note": "a concrete CI/CD engine implementing the practice",
+   "cycle": ""
+  },
+  {
+   "s": "cipart1",
+   "t": "matlabci",
+   "kind": "part-of",
+   "src": "report:proc",
+   "note": "Simulink CI article under the MATLAB CI umbrella",
+   "cycle": ""
+  },
+  {
+   "s": "cipart2",
+   "t": "matlabci",
+   "kind": "part-of",
+   "src": "report:proc",
+   "note": "Simulink-on-GitLab CI article under the MATLAB CI umbrella",
+   "cycle": ""
+  },
+  {
+   "s": "sltest",
+   "t": "matlabci",
+   "kind": "part-of",
+   "src": "report:proc",
+   "note": "Simulink Test in CI under the MATLAB CI umbrella",
+   "cycle": ""
+  },
+  {
+   "s": "buildtool",
+   "t": "matlabci",
+   "kind": "part-of",
+   "src": "report:proc",
+   "note": "MATLAB buildtool under the MATLAB CI umbrella",
+   "cycle": ""
+  },
+  {
+   "s": "matlabtest",
+   "t": "matlabci",
+   "kind": "part-of",
+   "src": "report:proc",
+   "note": "MATLAB Test under the MATLAB CI umbrella",
+   "cycle": ""
+  },
+  {
+   "s": "cipart2",
+   "t": "gitlabci",
+   "kind": "references",
+   "src": "report:proc",
+   "note": "the article title is \"…Using GitLab\"",
+   "cycle": ""
+  },
+  {
+   "s": "cipart1",
+   "t": "fowlerci",
+   "kind": "applies-method-of",
+   "src": "report:proc",
+   "note": "Simulink model verification applies the CI practice",
+   "cycle": ""
+  },
+  {
+   "s": "lakoslsc",
+   "t": "lakosvol1",
+   "kind": "prerequisite-of",
+   "src": "report:proc",
+   "note": "the 1996 book precedes the 2019 Volume I",
+   "cycle": ""
+  },
+  {
+   "s": "parnas72",
+   "t": "lakosvol1",
+   "kind": "prerequisite-of",
+   "src": "report:proc",
+   "note": "information hiding underlies C++ physical design",
+   "cycle": ""
+  },
+  {
+   "s": "parnas72",
+   "t": "martincleanarch",
+   "kind": "prerequisite-of",
+   "src": "report:proc",
+   "note": "module criteria underlie clean-architecture component boundaries",
+   "cycle": ""
+  },
+  {
+   "s": "pitchfork",
+   "t": "profcmake",
+   "kind": "companion",
+   "src": "report:proc",
+   "note": "project layout paired with build-system tooling",
+   "cycle": ""
+  },
+  {
+   "s": "pitchfork",
+   "t": "cmake",
+   "kind": "companion",
+   "src": "editorial",
+   "note": "the layout convention paired with the CMake build system",
+   "cycle": ""
+  },
+  {
+   "s": "pep517",
+   "t": "pep518",
+   "kind": "companion",
+   "src": "report:proc",
+   "note": "the build-backend interface paired with build-requirements declaration",
+   "cycle": ""
+  },
+  {
+   "s": "pep621",
+   "t": "pep518",
+   "kind": "refines",
+   "src": "report:proc",
+   "note": "adds the [project] metadata table to pyproject.toml",
+   "cycle": ""
+  },
+  {
+   "s": "pypackaging",
+   "t": "pep517",
+   "kind": "references",
+   "src": "report:proc",
+   "note": "the guide consolidates the build-system PEP toolchain",
+   "cycle": ""
+  },
+  {
+   "s": "pypackaging",
+   "t": "pep518",
+   "kind": "references",
+   "src": "report:proc",
+   "note": "the guide consolidates the build-system PEP toolchain",
+   "cycle": ""
+  },
+  {
+   "s": "pypackaging",
+   "t": "pep621",
+   "kind": "references",
+   "src": "report:proc",
+   "note": "the guide consolidates the metadata PEP",
+   "cycle": ""
+  },
+  {
+   "s": "swebok",
+   "t": "iso12207",
+   "kind": "surveys",
+   "src": "report:proc",
+   "note": "SWEBOK's knowledge areas map onto the 12207 life-cycle processes",
+   "cycle": ""
+  },
+  {
+   "s": "swebok",
+   "t": "ieee828",
+   "kind": "surveys",
+   "src": "report:proc",
+   "note": "the Configuration Management knowledge area references SCM standards",
+   "cycle": ""
+  },
+  {
+   "s": "swebok",
+   "t": "agilemanifesto",
+   "kind": "surveys",
+   "src": "report:proc",
+   "note": "SWEBOK v4 integrates agile across knowledge areas",
+   "cycle": ""
+  },
+  {
+   "s": "swebok",
+   "t": "contdeliv",
+   "kind": "surveys",
+   "src": "report:proc",
+   "note": "the Operations/DevOps material in SWEBOK v4",
+   "cycle": ""
+  },
+  {
+   "s": "scrumguide",
+   "t": "agilemanifesto",
+   "kind": "refines",
+   "src": "report:proc",
+   "note": "Scrum operationalizes the agile values",
+   "cycle": ""
+  },
+  {
+   "s": "xpexplained",
+   "t": "agilemanifesto",
+   "kind": "refines",
+   "src": "report:proc",
+   "note": "XP operationalizes the agile values",
+   "cycle": ""
+  },
+  {
+   "s": "xpexplained",
+   "t": "humphreypsp",
+   "kind": "critiques",
+   "src": "editorial",
+   "note": "agile/XP reacts against heavyweight plan-based process discipline",
    "cycle": ""
   }
  ],

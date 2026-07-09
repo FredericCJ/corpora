@@ -83,6 +83,7 @@ h2,h3,h4{margin:0}
 .cc-cpp{color:var(--c-cpp);border-color:var(--c-cpp);background:var(--c-cpp-bg)}
 .cc-ops{color:var(--c-ops);border-color:var(--c-ops);background:var(--c-ops-bg)}
 .cc-sim{color:var(--c-sim);border-color:var(--c-sim);background:var(--c-sim-bg)}
+.cc-proc{color:var(--c-proc);border-color:var(--c-proc);background:var(--c-proc-bg)}
 
 .results{position:absolute;inset:0;overflow:auto;padding:.5rem .9rem 1.2rem}
 .rescount{font-family:var(--mono);font-size:.66rem;color:var(--mut);margin:.1rem 0 .4rem}

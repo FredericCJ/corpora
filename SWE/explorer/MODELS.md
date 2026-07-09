@@ -1,6 +1,6 @@
 # MODELS.md — the relational models (INFERENCE layer)
 
-Five navigation semantics over one fact layer. `data/corpus.json` holds only what the six reports
+Five navigation semantics over one fact layer. `data/corpus.json` holds only what the seven reports
 assert; everything here is computed **on top of** those facts, and every typed edge carries a
 provenance tag. The models are unchanged from the original design — the single-viewport rebuild
 changed how each is *rendered* (noted per model), not what it *means*. The pure computations live
@@ -16,17 +16,19 @@ Corpora unified (superseding directive: everything in `E:\dev\corpora\SWE`):
 | emb-cpp | Design of Embedded Software Written in C++ |
 | emb-ops | Operational Use of C and C++ in Embedded Contexts |
 | simulink | Architecture, Design & Management of Large Simulink/MATLAB Projects |
+| swe-process | Engineering Process & Workflow: standards, documentation, versioning, review, delivery, project organization |
 
 ## Edge provenance discipline (anti-fabrication)
 
 - `report:swa` — an entry of the swa-science report's numbered Typed Edge List (edge number in the note).
 - `report:sim` — an entry of the simulink report's DAG (directed detail → abstraction ⇒ `prerequisite-of`).
+- `report:proc` — a relation stated in the swe-process (pass 7) report (branching critiques, CI/CD evaluation, modularity prerequisites, framework surveys).
 - `derived` — mechanically derivable from an explicit report sentence (the quoted basis is in the note).
 - `editorial` — my reasoned judgment, never presented as report fact; rendered **EDITORIAL** with a distinct dotted edge in the graph.
 
-Census: 204 edges = 86 `report:swa` + 57 `report:sim` + 50 `derived` + 11 `editorial`. Kind
-vocabulary (12): `prerequisite-of, refines, formalizes, surveys, applies-method-of, companion,
-subsumes, evaluates, critiques, supersedes, part-of, references`.
+Census: 261 edges = 86 `report:swa` + 57 `report:sim` + 50 `derived` + 19 `editorial` +
+49 `report:proc`. Kind vocabulary (12, unchanged): `prerequisite-of, refines, formalizes, surveys,
+applies-method-of, companion, subsumes, evaluates, critiques, supersedes, part-of, references`.
 
 ## Model 1 — Reading graph (`graph`)
 

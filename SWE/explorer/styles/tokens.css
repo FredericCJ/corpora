@@ -12,6 +12,7 @@
   --c-cpp:#6C3FA0;   --c-cpp-bg:#F1EAFB;
   --c-ops:#0E7490;   --c-ops-bg:#E4F2F6;
   --c-sim:#C2551B;   --c-sim-bg:#FBF0E8;
+  --c-proc:#B23A6D;  --c-proc-bg:#F8E8F0;
 
   /* edge-kind hues (12) */
   --k-prerequisite-of:#8A8E84; --k-refines:#46549B; --k-subsumes:#6C3FA0; --k-formalizes:#0E7490;

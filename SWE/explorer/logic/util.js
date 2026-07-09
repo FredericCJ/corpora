@@ -32,10 +32,10 @@ SWE.util = (function () {
     return n;
   }
 
-  const CORPUS_ORDER = ['swa-science', 'emb-arch', 'emb-c', 'emb-cpp', 'emb-ops', 'simulink'];
-  const CORPUS_CLS = { 'swa-science': 'cc-swa', 'emb-arch': 'cc-arch', 'emb-c': 'cc-c', 'emb-cpp': 'cc-cpp', 'emb-ops': 'cc-ops', 'simulink': 'cc-sim' };
-  const CORPUS_SHORT = { 'swa-science': 'swa', 'emb-arch': 'arch', 'emb-c': 'c', 'emb-cpp': 'c++', 'emb-ops': 'ops', 'simulink': 'simulink' };
-  const CORPUS_KEY = { 'swa-science': 'swa', 'emb-arch': 'arch', 'emb-c': 'c', 'emb-cpp': 'cpp', 'emb-ops': 'ops', 'simulink': 'sim' };
+  const CORPUS_ORDER = ['swa-science', 'emb-arch', 'emb-c', 'emb-cpp', 'emb-ops', 'simulink', 'swe-process'];
+  const CORPUS_CLS = { 'swa-science': 'cc-swa', 'emb-arch': 'cc-arch', 'emb-c': 'cc-c', 'emb-cpp': 'cc-cpp', 'emb-ops': 'cc-ops', 'simulink': 'cc-sim', 'swe-process': 'cc-proc' };
+  const CORPUS_SHORT = { 'swa-science': 'swa', 'emb-arch': 'arch', 'emb-c': 'c', 'emb-cpp': 'c++', 'emb-ops': 'ops', 'simulink': 'simulink', 'swe-process': 'proc' };
+  const CORPUS_KEY = { 'swa-science': 'swa', 'emb-arch': 'arch', 'emb-c': 'c', 'emb-cpp': 'cpp', 'emb-ops': 'ops', 'simulink': 'sim', 'swe-process': 'proc' };
   const corpusFill = (c) => `var(--c-${CORPUS_KEY[c]}-bg)`;
   const corpusStroke = (c) => `var(--c-${CORPUS_KEY[c]})`;
   const kindColor = (k) => `var(--k-${k})`;

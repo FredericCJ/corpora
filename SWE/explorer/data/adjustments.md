@@ -11,6 +11,7 @@ else the field is UNRESOLVED (source says unknown) or absent (source never asser
 - LANE (emb-ops only): trunk | c-leaf | cpp-leaf kept as a dedicated facet.
 - SCOPE: only emb-arch asserts embedded_relevance; kept for those nodes only.
 - ACCESS: only swa-science asserts OA systematically; kept for those nodes only.
+- SWE-PROCESS (pass 7, added 2026-07): area -> theme (standards|documentation|vcs-review|ci-cd|org-build|process); branch fixed to "process" for the whole pass (joins swa-science B->process); role (anchor|core|advanced|survey) kept; NEW facet LANG (agnostic|matlab|python|c|cpp|multi) introduced by this pass to make the language-transposition filterable — set only for swe-process nodes, absent (never UNRESOLVED) for the other six corpora, exactly like the emb-ops LANE facet.
 
 ## emb-arch theme gap-fills (derived from the report’s section headings)
 - arinc653: theme=os-platform (from section heading)
@@ -194,6 +195,7 @@ else the field is UNRESOLVED (source says unknown) or absent (source never asser
 - segger: year
 - maskraygc: year
 - memfaultsize: year
+- smitconventions: report-number
 
 ## Notable fact fixes carried from the reports themselves
 - Taylor-Medvidovic-Dashofy: single edition only (swa report verification).

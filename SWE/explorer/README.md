@@ -1,10 +1,13 @@
 # Embedded Software Corpus Explorer
 
-A single-page, single-viewport explorer of a **unified embedded-software research corpus** — six
+A single-page, single-viewport explorer of a **unified embedded-software research corpus** — seven
 research passes merged into one fact layer and navigable through **five relational models**.
 
-- **421 resources · 6 corpora · 204 typed edges** (86 swa + 57 sim + 50 derived + 11 editorial) ·
-  308 verified / 113 unverified · 44 cross-corpus works · 84 nodes with UNRESOLVED fields.
+- **468 resources · 7 corpora · 261 typed edges** (86 swa + 57 sim + 50 derived + 19 editorial + 49 proc) ·
+  354 verified / 114 unverified · 82 cross-corpus works · 65 nodes with UNRESOLVED fields.
+- Pass 7 (`swe-process` — Engineering process & workflow) adds 47 new nodes + 48 memberships across
+  standards / documentation / vcs-review / ci-cd / org-build / process, on a new `language` facet
+  (agnostic · matlab · python · c · cpp · multi). See `../swe_process_corpus_v1_0.md`.
 - Rebuilt in the style + rule set of `web_manifests/` (raw HTML/CSS/JS, no framework, no build
   step at view time) for **one 16:9 4K / 27" display, fullscreen, landscape** — a single viewport
   with no page scroll.

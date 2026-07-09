@@ -4,7 +4,7 @@ window.SWE = window.SWE || {}; SWE.views = SWE.views || {};
 SWE.views.facets = (function () {
   'use strict';
   const U = SWE.util, C = SWE.core;
-  const FACETS = [['branches', 'branch'], ['themes', 'theme'], ['type', 'type'], ['role', 'role'], ['lane', 'ops lane'], ['scope', 'scope']];
+  const FACETS = [['branches', 'branch'], ['themes', 'theme'], ['lang', 'language'], ['type', 'type'], ['role', 'role'], ['lane', 'ops lane'], ['scope', 'scope']];
   const CHUNK = 160;
 
   function mount(root, ctx) {

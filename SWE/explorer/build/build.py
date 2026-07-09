@@ -11,9 +11,10 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 DATA = os.path.normpath(os.path.join(HERE, '..', 'data'))
 os.makedirs(DATA, exist_ok=True)
 
-import records_sa, records_arch, records_c, records_cpp, records_ops, records_sim
+import records_sa, records_arch, records_c, records_cpp, records_ops, records_sim, records_proc
 SOURCES = [('swa-science', records_sa.R), ('emb-arch', records_arch.R), ('emb-c', records_c.R),
-           ('emb-cpp', records_cpp.R), ('emb-ops', records_ops.R), ('simulink', records_sim.R)]
+           ('emb-cpp', records_cpp.R), ('emb-ops', records_ops.R), ('simulink', records_sim.R),
+           ('swe-process', records_proc.R)]
 CORPUS_LABELS = {
     'swa-science': 'Software architecture as a science',
     'emb-arch': 'Embedded architecture & design',
@@ -21,6 +22,7 @@ CORPUS_LABELS = {
     'emb-cpp': 'Embedded C++ design',
     'emb-ops': 'Embedded C/C++ operational use',
     'simulink': 'Large Simulink/MATLAB projects',
+    'swe-process': 'Engineering process & workflow',
 }
 # Lead-memberships: reports list these works as (unverified) leads that merge into a node
 # already carried verified by another corpus. (id, corpus-that-listed-the-lead, note)
@@ -45,6 +47,20 @@ MERGE_MEMBERSHIP = [
     ('sakscolumns','emb-c','embedded.com column lead in emb-c (also emb-cpp lead)'),
     ('lakoslsc','emb-c','physical-design-roots lead in emb-c'),
     ('martincleanarch','emb-c','lead in emb-c'),
+    # swe-process (pass 7) lead memberships: works the process pass references but does not
+    # give a full tagged entry (its home corpus carries the citation). Reframed under R1-R6.
+    ('misracpp2008','swe-process','R1 standards lead (superseded by MISRA C++:2023)'),
+    ('johnsonguide','swe-process','R1 MATLAB-style lead (Elements of MATLAB Style carries it)'),
+    ('mwcodingguide','swe-process','R1 MATLAB coding-guidelines lead'),
+    ('osstyleguides','swe-process','R1 OSS project style-guides lead (Zephyr/FreeRTOS/NuttX/ESP-IDF)'),
+    ('breathe','swe-process','R2 documentation-tooling lead (Doxygen-XML to Sphinx bridge)'),
+    ('exhale','swe-process','R2 documentation-tooling lead (C/C++ API docs via Sphinx)'),
+    ('hawkmoth','swe-process','R2 documentation-tooling lead (Sphinx C autodoc)'),
+    ('gtkdoc','swe-process','R2 documentation-tooling lead (GNOME C API docs)'),
+    ('guyblog','swe-process','R3 MATLAB VCS lead (three-way model merge + Git)'),
+    ('sltest','swe-process','R4 MATLAB CI lead (Simulink Test in CI)'),
+    ('hicpp','swe-process','R1 C++ standards lead (High Integrity C++)'),
+    ('jsfav','swe-process','R1 C++ standards lead (JSF Air Vehicle C++)'),
 ]
 merge_log, conflict_log = [], []
 
@@ -91,7 +107,7 @@ ver_count = collections.Counter(n['verification'] for n in nodes.values())
 with open(os.path.join(DATA, 'corpus.json'), 'w', encoding='utf-8') as f:
     json.dump(dict(phase=1, nodes=list(nodes.values())), f, indent=1, ensure_ascii=False)
 
-rep = ['# Corpus report — PHASE 1 (scrutiny of the six SWE reports)', '',
+rep = ['# Corpus report — PHASE 1 (scrutiny of the seven SWE reports)', '',
        f'Raw records transcribed: **{raw_total}** -> merged into **{len(nodes)}** unique nodes.',
        f'Verification: {ver_count["verified"]} verified / {ver_count["unverified"]} unverified (state preserved from reports; any-verified wins on merge).', '',
        '## Nodes per corpus (after merge; a node may belong to several)']
@@ -161,7 +177,11 @@ adj += ['- TYPE: technical-guide->guide; course/lecture->course; journal->paper 
         'emb-ops KEY flags -> anchor; emb-arch/emb-c/emb-cpp assert no tier -> role absent (NOT UNRESOLVED: never claimed).',
         '- LANE (emb-ops only): trunk | c-leaf | cpp-leaf kept as a dedicated facet.',
         '- SCOPE: only emb-arch asserts embedded_relevance; kept for those nodes only.',
-        '- ACCESS: only swa-science asserts OA systematically; kept for those nodes only.', '']
+        '- ACCESS: only swa-science asserts OA systematically; kept for those nodes only.',
+        '- SWE-PROCESS (pass 7, added 2026-07): area -> theme (standards|documentation|vcs-review|ci-cd|org-build|process); '
+        'branch fixed to "process" for the whole pass (joins swa-science B->process); role (anchor|core|advanced|survey) kept; '
+        'NEW facet LANG (agnostic|matlab|python|c|cpp|multi) introduced by this pass to make the language-transposition filterable — '
+        'set only for swe-process nodes, absent (never UNRESOLVED) for the other six corpora, exactly like the emb-ops LANE facet.', '']
 adj.append('## emb-arch theme gap-fills (derived from the report’s section headings)')
 for i, th in sorted(ARCH_THEME.items()):
     adj.append(f'- {i}: theme={th} (from section heading)')
@@ -169,7 +189,7 @@ adj.append('- memfaultea: theme UNRESOLVED (grouped bullet outside any thematic 
 adj.append('')
 
 for nd in nodes.values():
-    branches, themes, role, lane, scope, access, auto = set(), set(), set(), None, None, None, False
+    branches, themes, role, lane, scope, access, auto, lang = set(), set(), set(), None, None, None, False, None
     for c, raw in nd['per'].items():
         if raw.get('lead'): continue
         if c == 'swa-science':
@@ -197,10 +217,14 @@ for nd in nodes.values():
             for rr in raw['role'].split(';'):
                 role.add({'target':'anchor'}.get(rr, rr))
             if raw.get('automotive'): auto = True
+        elif c == 'swe-process':
+            branches.add('process'); themes.add(raw['area']); lang = raw['lang']
+            for rr in raw['role'].split(';'):
+                if rr: role.add(rr)
     nd['type'] = TYPE_MAP[nd['rtype']]
     nd['branches'] = sorted(branches); nd['themes'] = sorted(themes)
     nd['role'] = sorted(role); nd['lane'] = lane; nd['scope'] = scope
-    nd['access'] = access; nd['automotive'] = auto
+    nd['access'] = access; nd['automotive'] = auto; nd['lang'] = lang
     if nd['year'] == 'UNRESOLVED' and 'year' not in nd['unresolved']:
         nd['unresolved'].append('year')
     del nd['rtype']

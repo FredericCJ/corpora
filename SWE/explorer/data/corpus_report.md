@@ -1,7 +1,7 @@
-# Corpus report — PHASE 1 (scrutiny of the six SWE reports)
+# Corpus report — PHASE 1 (scrutiny of the seven SWE reports)
 
-Raw records transcribed: **451** -> merged into **421** unique nodes.
-Verification: 308 verified / 113 unverified (state preserved from reports; any-verified wins on merge).
+Raw records transcribed: **534** -> merged into **468** unique nodes.
+Verification: 354 verified / 114 unverified (state preserved from reports; any-verified wins on merge).
 
 ## Nodes per corpus (after merge; a node may belong to several)
 - swa-science — Software architecture as a science: 77
@@ -10,15 +10,25 @@ Verification: 308 verified / 113 unverified (state preserved from reports; any-v
 - emb-cpp — Embedded C++ design: 80
 - emb-ops — Embedded C/C++ operational use: 53
 - simulink — Large Simulink/MATLAB projects: 53
+- swe-process — Engineering process & workflow: 95
 
-## Cross-corpus works: 44 nodes appear in >=2 corpora
+## Cross-corpus works: 82 nodes appear in >=2 corpora
 
-- parnas72 (swa-science, emb-arch, emb-c): On the Criteria To Be Used in Decomposing Systems into Modules
+- parnas72 (swa-science, swe-process, emb-arch, emb-c): On the Criteria To Be Used in Decomposing Systems into Modules
 - white (emb-arch, emb-cpp, emb-c): Making Embedded Systems: Design Patterns for Great Software
 - samekbook (emb-arch, emb-c, emb-cpp): Practical UML Statecharts in C/C++: Event-Driven Programming for Embedded Systems, 2nd ed.
 - samekcourse (emb-arch, emb-c, emb-ops): Modern Embedded Systems Programming video course + QP framework docs
+- barrc (emb-arch, emb-c, swe-process): Embedded C Coding Standard (BARR-C:2018)
+- misrac (emb-arch, emb-c, swe-process): MISRA C (C:2012 3rd ed. 2013; +AMD1-3; consolidated C:2023; C:2025)
+- misracpp2008 (emb-arch, emb-cpp, swe-process): MISRA C++:2008
+- misracpp2023 (emb-arch, emb-cpp, swe-process): MISRA C++:2023
 - grenningtdd (emb-arch, emb-c, emb-cpp): Test-Driven Development for Embedded C
 - yiu (emb-arch, emb-c, emb-cpp): The Definitive Guide to ARM Cortex-M3 and Cortex-M4 Processors, 3rd ed.
+- martincleanarch (emb-arch, swe-process, emb-c): Clean Architecture
+- lakoslsc (emb-arch, swe-process, emb-c): Large-Scale C++ Software Design
+- jplstd (emb-c, swe-process, emb-arch): JPL Institutional Coding Standard for the C Programming Language
+- doxygen (emb-c, emb-cpp, swe-process): Doxygen (manual, current)
+- cmake (emb-cpp, emb-ops, swe-process): CMake documentation / build organization for embedded C++
 - shawgarlan96 (swa-science, emb-arch): Software Architecture: Perspectives on an Emerging Discipline
 - tmd (swa-science, emb-arch): Software Architecture: Foundations, Theory, and Practice
 - bck (swa-science, emb-arch): Software Architecture in Practice, 4th ed.
@@ -27,36 +37,65 @@ Verification: 308 verified / 113 unverified (state preserved from reports; any-v
 - kruchten (swa-science, emb-arch): Architectural Blueprints — The 4+1 View Model of Software Architecture
 - rozanski (swa-science, emb-arch): Software Systems Architecture: Working with Stakeholders Using Viewpoints and Perspectives
 - feilergluch (swa-science, emb-arch): Model-Based Engineering with AADL: An Introduction to the SAE Architecture Analysis & Desi
+- parnasclements (swa-science, swe-process): A Rational Design Process: How and Why to Fake It
 - lacamera (emb-arch, emb-cpp): Embedded Systems Architecture
 - beningodesign (emb-arch, emb-c): Embedded Software Design: A Practical Approach to Architecture, Processes, and Coding Tech
 - beningofw (emb-arch, emb-c): Reusable Firmware Development: A Practical Approach to APIs, HALs and Drivers
 - douglasspatternsc (emb-arch, emb-c): Design Patterns for Embedded Systems in C: An Embedded Software Engineering Toolkit
-- barrc (emb-arch, emb-c): Embedded C Coding Standard (BARR-C:2018)
 - barrmassa (emb-arch, emb-ops): Programming Embedded Systems: With C and GNU Development Tools, 2nd ed.
-- misrac (emb-arch, emb-c): MISRA C (C:2012 3rd ed. 2013; +AMD1-3; consolidated C:2023; C:2025)
-- misracpp2008 (emb-arch, emb-cpp): MISRA C++:2008
-- misracpp2023 (emb-arch, emb-cpp): MISRA C++:2023
 - holzmannp10 (emb-arch, emb-c): The Power of Ten: Rules for Developing Safety-Critical Code
 - koopmanbess (emb-arch, emb-c): Better Embedded System Software
 - noblesmallmem (emb-arch, emb-c): Small Memory Software: Patterns for Systems with Limited Memory
 - simmonds (emb-arch, emb-ops): Mastering Embedded Linux Programming, 3rd ed.
+- mcconnell (emb-arch, swe-process): Code Complete, 2nd ed.
 - bootlin (emb-arch, emb-ops): Bootlin embedded-Linux training slides
-- martincleanarch (emb-arch, emb-c): Clean Architecture
-- lakoslsc (emb-arch, emb-c): Large-Scale C++ Software Design
-- jplstd (emb-c, emb-arch): JPL Institutional Coding Standard for the C Programming Language
-- doxygen (emb-c, emb-cpp): Doxygen (manual, current)
+- martincleancode (emb-arch, swe-process): Clean Code
+- kernelstyle (emb-c, swe-process): Linux kernel coding style
+- certc (emb-c, swe-process): The CERT C Coding Standard, 2nd ed. (98 Rules)
+- breathe (emb-c, swe-process): Breathe (Doxygen-XML to Sphinx bridge)
+- exhale (emb-c, swe-process): Exhale (automatic C/C++ API docs via Doxygen + Sphinx + Breathe)
+- hawkmoth (emb-c, swe-process): Hawkmoth (Sphinx C/C++ autodoc via Clang)
+- gtkdoc (emb-c, swe-process): GTK-Doc (GNOME C API documentation tool)
 - mcdcchilenski (emb-c, emb-cpp): Applicability of Modified Condition/Decision Coverage to Software Testing
 - mcdcnasa (emb-c, emb-cpp): A Practical Tutorial on Modified Condition/Decision Coverage
+- bacchellibird (emb-c, swe-process): Expectations, Outcomes, and Challenges of Modern Code Review
+- sadowskigoogle (emb-c, swe-process): Modern Code Review: A Case Study at Google
+- fagan (emb-c, swe-process): Design and Code Inspections to Reduce Errors in Program Development
+- wiegers (emb-c, swe-process): Peer Reviews in Software: A Practical Guide
 - drepperlibs (emb-c, emb-ops): How To Write Shared Libraries
 - clangformat (emb-c, emb-cpp): clang-format
 - clangtidy (emb-c, emb-cpp): clang-tidy
+- uncrustify (emb-c, swe-process): Uncrustify (source beautifier)
+- precommit (emb-c, swe-process): pre-commit (hook framework)
+- boogerdmoonen (emb-c, swe-process): Assessing the Value of Coding Standards: An Empirical Study / Evaluating the Relation Betw
+- osstyleguides (emb-c, swe-process): Zephyr / FreeRTOS / Apache NuttX / ESP-IDF coding guidelines; ARM CMSIS API conventions
 - kormanyos (emb-cpp, emb-ops): Real-Time C++: Efficient Object-Oriented and Template Microcontroller Programming, 4th ed.
 - meyerseffmod (emb-cpp, emb-arch): Effective Modern C++
 - meyerseffcpp (emb-cpp, emb-arch): Effective C++, 3rd ed.
+- googlestyle (emb-cpp, swe-process): Google C++ Style Guide
 - bloaty (emb-cpp, emb-ops): Bloaty McBloatface binary-size profiler
-- cmake (emb-cpp, emb-ops): CMake documentation / build organization for embedded C++
+- autosarcpp14 (emb-cpp, swe-process): Guidelines for the use of the C++14 language in critical and safety-related systems (AUTOS
+- jsfav (emb-cpp, swe-process): JSF Air Vehicle C++ Coding Standards
+- hicpp (emb-cpp, swe-process): High Integrity C++ Coding Standard v4.0
+- certcpp (emb-cpp, swe-process): SEI CERT C++ Coding Standard (2016 Edition)
+- coreguidelines (emb-cpp, swe-process): C++ Core Guidelines
 - godbolt (emb-cpp, emb-ops): What Has My Compiler Done for Me Lately? + Compiler Explorer
 - sakscolumns (emb-cpp, emb-c): Dan Saks embedded.com columns on memory-mapped devices in C and C++
+- mab (simulink, swe-process): MAB Control Algorithm Modeling Guidelines
+- jmaab (simulink, swe-process): JMAAB Control Algorithm Modeling Guidelines, v5.1 / v6.0
+- johnsonbook (simulink, swe-process): The Elements of MATLAB Style
+- johnsonguide (simulink, swe-process): MATLAB Style Guidelines 2.0 / MATLAB Programming Style Guidelines
+- mwcodingguide (simulink, swe-process): MATLAB Coding Guidelines (mathworks/MATLAB-Coding-Guidelines)
+- matlabpkg (simulink, swe-process): MATLAB packages/namespaces, classes/OOP guide, toolbox packaging docs
+- modelcompare (simulink, swe-process): Model Comparison docs (Comparison Tool, visdiff, Three-Way Merge Tool)
+- mergedocs (simulink, swe-process): Resolve Conflicts Using Simulink Three-Way Merge / Customize External Source Control
+- projects (simulink, swe-process): Simulink Projects / MATLAB Projects docs
+- guyblog (simulink, swe-process): Three-Way Model Merge and Git
+- cipart1 (simulink, swe-process): Continuous Integration for Verification of Simulink Models (Part 1)
+- cipart2 (simulink, swe-process): Continuous Integration for Verification of Simulink Models Using GitLab (Part 2)
+- sltest (simulink, swe-process): Simulink Test docs + Continuous Integration
+- buildtool (simulink, swe-process): MATLAB build tool (buildtool)
+- matlabtest (simulink, swe-process): MATLAB Test
 
 ## Merges & promotions performed
 
@@ -90,6 +129,42 @@ Verification: 308 verified / 113 unverified (state preserved from reports; any-v
 - bloaty: merged emb-ops record into existing node (emb-cpp)
 - bootlin: merged emb-ops record into existing node (emb-arch)
 - cmake: merged emb-ops record into existing node (emb-cpp)
+- misrac: merged swe-process record into existing node (emb-arch+emb-c)
+- misracpp2023: merged swe-process record into existing node (emb-arch+emb-cpp)
+- autosarcpp14: merged swe-process record into existing node (emb-cpp)
+- barrc: merged swe-process record into existing node (emb-arch+emb-c)
+- certc: merged swe-process record into existing node (emb-c)
+- certcpp: merged swe-process record into existing node (emb-cpp)
+- coreguidelines: merged swe-process record into existing node (emb-cpp)
+- googlestyle: merged swe-process record into existing node (emb-cpp)
+- kernelstyle: merged swe-process record into existing node (emb-c)
+- jplstd: merged swe-process record into existing node (emb-c)
+- boogerdmoonen: merged swe-process record into existing node (emb-c)
+- martincleancode: merged swe-process record into existing node (emb-arch)
+- mcconnell: merged swe-process record into existing node (emb-arch)
+- johnsonbook: merged swe-process record into existing node (simulink)
+- mab: merged swe-process record into existing node (simulink)
+- jmaab: merged swe-process record into existing node (simulink)
+- uncrustify: merged swe-process record into existing node (emb-c)
+- doxygen: merged swe-process record into existing node (emb-c+emb-cpp)
+- parnasclements: merged swe-process record into existing node (swa-science)
+- fagan: merged swe-process record into existing node (emb-c)
+- wiegers: merged swe-process record into existing node (emb-c)
+- bacchellibird: merged swe-process record into existing node (emb-c)
+- sadowskigoogle: merged swe-process record into existing node (emb-c)
+- modelcompare: merged swe-process record into existing node (simulink)
+- mergedocs: merged swe-process record into existing node (simulink)
+- cipart1: merged swe-process record into existing node (simulink)
+- cipart2: merged swe-process record into existing node (simulink)
+- precommit: merged swe-process record into existing node (emb-c)
+- buildtool: merged swe-process record into existing node (simulink)
+- matlabtest: merged swe-process record into existing node (simulink)
+- parnas72: merged swe-process record into existing node (swa-science)
+- lakoslsc: merged swe-process record into existing node (emb-arch)
+- martincleanarch: merged swe-process record into existing node (emb-arch)
+- cmake: merged swe-process record into existing node (emb-cpp+emb-ops)
+- matlabpkg: merged swe-process record into existing node (simulink)
+- projects: merged swe-process record into existing node (simulink)
 - shawgarlan96: +emb-arch membership — general-classics lead in emb-arch (unverified there; verified by swa-science)
 - tmd: +emb-arch membership — general-classics lead in emb-arch
 - kruchten: +emb-arch membership — general-classics lead in emb-arch
@@ -110,6 +185,18 @@ Verification: 308 verified / 113 unverified (state preserved from reports; any-v
 - sakscolumns: +emb-c membership — embedded.com column lead in emb-c (also emb-cpp lead)
 - lakoslsc: +emb-c membership — physical-design-roots lead in emb-c
 - martincleanarch: +emb-c membership — lead in emb-c
+- misracpp2008: +swe-process membership — R1 standards lead (superseded by MISRA C++:2023)
+- johnsonguide: +swe-process membership — R1 MATLAB-style lead (Elements of MATLAB Style carries it)
+- mwcodingguide: +swe-process membership — R1 MATLAB coding-guidelines lead
+- osstyleguides: +swe-process membership — R1 OSS project style-guides lead (Zephyr/FreeRTOS/NuttX/ESP-IDF)
+- breathe: +swe-process membership — R2 documentation-tooling lead (Doxygen-XML to Sphinx bridge)
+- exhale: +swe-process membership — R2 documentation-tooling lead (C/C++ API docs via Sphinx)
+- hawkmoth: +swe-process membership — R2 documentation-tooling lead (Sphinx C autodoc)
+- gtkdoc: +swe-process membership — R2 documentation-tooling lead (GNOME C API docs)
+- guyblog: +swe-process membership — R3 MATLAB VCS lead (three-way model merge + Git)
+- sltest: +swe-process membership — R4 MATLAB CI lead (Simulink Test in CI)
+- hicpp: +swe-process membership — R1 C++ standards lead (High Integrity C++)
+- jsfav: +swe-process membership — R1 C++ standards lead (JSF Air Vehicle C++)
 
 ## Conflicts / discrepancies
 
