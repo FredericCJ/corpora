@@ -1,0 +1,92 @@
+// app.js — bootstrap (the imperative shell's outer edge). Wires the two global failure backstops,
+// parses the data boundary once (fail loud), builds the one console logger, mounts the persistent
+// inspector, and dispatches state changes to the active view. Loaded last.
+(function () {
+  'use strict';
+  const U = NET.util, S = NET.state;
+  const log = NET.log.consoleLogger('net', 'debug');
+  const VIEW_ORDER = ['anchor', 'facets', 'timeline', 'matlab', 'triage'];
+  const VER_CYCLE = ['', 'verified-web', 'verified-train', 'unverified'];
+  const CORPUS_CYCLE = ['', 'gen', 'mat'];
+
+  window.addEventListener('error', (ev) => log.error('uncaught error escaped every boundary', { message: ev.message, src: ev.filename, line: ev.lineno }));
+  window.addEventListener('unhandledrejection', (ev) => log.error('unhandled promise rejection', { reason: String(ev.reason) }));
+
+  const $ = (id) => document.getElementById(id);
+
+  function fail(err) {
+    log.error('bootstrap failed', { error: String(err && err.message || err) });
+    const vr = $('view-root'), insp = $('inspector');
+    if (vr) vr.replaceChildren(U.el('div', { class: 'empty', style: 'padding:2rem', text: 'The data failed to load or validate. See the console for the parse error.' }));
+    if (insp) insp.replaceChildren(U.el('h2', { text: 'Load error' }), U.el('p', { text: String(err && err.message || err) }),
+      U.el('p', { class: 'muted', text: 'Re-run `python build/build.py` to regenerate data/, then reload.' }));
+  }
+
+  function boot() {
+    const corpus = NET.parse.parseCorpus(window.NET && NET.corpus);
+    const ids = new Set(corpus.nodes.map((n) => n.id));
+    const relations = NET.parse.parseRelations(window.NET && NET.relations, ids);
+    NET.core.buildIndex(corpus);
+    log.info('data parsed', { nodes: corpus.nodes.length, edges: relations.edges.length });
+
+    const ctx = { corpus, relations, log };
+
+    // tabs
+    const tabs = $('tabs');
+    VIEW_ORDER.forEach((id, i) => tabs.appendChild(U.el('button', { role: 'tab', id: 'tab-' + id, 'aria-selected': 'false',
+      text: (i + 1) + ' · ' + NET.views[id].label, onclick: () => S.set({ view: id }) })));
+    tabs.addEventListener('keydown', (ev) => {
+      if (ev.key !== 'ArrowRight' && ev.key !== 'ArrowLeft') return;
+      const i = VIEW_ORDER.indexOf(S.get().view);
+      const j = (i + (ev.key === 'ArrowRight' ? 1 : VIEW_ORDER.length - 1)) % VIEW_ORDER.length;
+      S.set({ view: VIEW_ORDER[j] }); $('tab-' + VIEW_ORDER[j]).focus();
+    });
+
+    // persistent inspector
+    NET.inspector.mount($('inspector'), ctx);
+
+    // view lifecycle
+    let current = null;
+    function mountView(id) {
+      if (!VIEW_ORDER.includes(id)) id = 'anchor';
+      if (current && current.destroy) current.destroy();
+      const vr = $('view-root'); vr.replaceChildren();
+      current = NET.views[id].mount(vr, ctx);
+      VIEW_ORDER.forEach((v) => $('tab-' + v).setAttribute('aria-selected', v === id ? 'true' : 'false'));
+      log.debug('view mounted', { view: id });
+    }
+
+    // toolbar -> state
+    const q = $('q'), fv = $('fver'), fc = $('fcorpus');
+    let qTimer = null;
+    q.addEventListener('input', () => { clearTimeout(qTimer); qTimer = setTimeout(() => S.set({ q: q.value.trim() }), 200); });
+    fv.addEventListener('change', () => S.set({ ver: fv.value }));
+    fc.addEventListener('change', () => S.set({ corpus: fc.value }));
+    $('reset').addEventListener('click', () => S.set({ q: '', ver: '', corpus: '', sel: null }));
+
+    // state -> toolbar + view dispatch
+    function syncControls(s) { if (q.value !== s.q) q.value = s.q; if (fv.value !== s.ver) fv.value = s.ver; if (fc.value !== s.corpus) fc.value = s.corpus; }
+    S.on((s, changed) => {
+      if (changed.includes('view')) mountView(s.view);
+      if (['q', 'ver', 'corpus'].some((k) => changed.includes(k))) { syncControls(s); if (current && current.applyFilters) current.applyFilters(); }
+      if (changed.includes('sel') && current && current.onSelect) current.onSelect(s.sel);
+    });
+
+    // keyboard
+    document.addEventListener('keydown', (ev) => {
+      if (ev.target instanceof Element && ev.target.matches('input,select,textarea')) { if (ev.key === 'Escape') ev.target.blur(); return; }
+      if (ev.key === '/') { ev.preventDefault(); q.focus(); q.select(); }
+      else if (ev.key === 'Escape') { if (S.get().sel) S.set({ sel: null }); }
+      else if (ev.key === 'v') { const i = VER_CYCLE.indexOf(S.get().ver); S.set({ ver: VER_CYCLE[(i + 1) % VER_CYCLE.length] }); }
+      else if (ev.key === 'c') { const i = CORPUS_CYCLE.indexOf(S.get().corpus); S.set({ corpus: CORPUS_CYCLE[(i + 1) % CORPUS_CYCLE.length] }); }
+      else if (/^[1-5]$/.test(ev.key)) S.set({ view: VIEW_ORDER[+ev.key - 1] });
+    });
+
+    // initial render from hash
+    const s = S.get(); syncControls(s);
+    mountView(s.view);
+    log.info('ready', { view: s.view });
+  }
+
+  try { boot(); } catch (err) { fail(err); }
+})();

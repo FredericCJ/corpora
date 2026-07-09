@@ -1,0 +1,25 @@
+{
+  "name": "netsim-corpus-explorer",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Single-viewport explorer of a unified network-M&S corpus (240 entries, two research passes, five relational models). Raw HTML/CSS/JS, no framework, no build step at view time.",
+  "type": "module",
+  "scripts": {
+    "build": "python build/build.py",
+    "serve": "python -m http.server 8096 --directory .",
+    "check": "tsc --noEmit -p tsconfig.json",
+    "test": "vitest run",
+    "test:browser": "vitest run --browser"
+  },
+  "devDependencies": {
+    "typescript": "6.0.4",
+    "vitest": "4.1.9",
+    "@vitest/browser-playwright": "4.1.9",
+    "@vitest/coverage-v8": "4.1.9",
+    "playwright": "1.60.0",
+    "fast-check": "3.23.2"
+  },
+  "comments": {
+    "toolchain": "Versions pinned to the mid-2026 baseline (web_platform_baseline_manifest §7). These run in CI, not the browser — the shipped app has zero runtime dependencies. Node was unavailable in the authoring environment, so `check`/`test` are the committed contract, not a verified run (see README)."
+  }
+}

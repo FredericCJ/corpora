@@ -2,17 +2,17 @@
 // One mutation entry point (`set`); unidirectional flow: event -> set -> notify -> render. The
 // DOM is never read back as a source of truth. Full state round-trips through location.hash, so
 // any screen (view + filters + selection) is a shareable URL even on file://.
-window.CALC = window.CALC || {};
-CALC.state = (function () {
+window.NET = window.NET || {};
+NET.state = (function () {
   'use strict';
   /**
    * @typedef {object} State
-   * @property {string} view 'graph'|'tiers'|'lineage'|'parallel'|'gate'
-   * @property {string} q @property {string} rigor @property {string} tier @property {string|null} sel
+   * @property {string} view 'anchor'|'facets'|'timeline'|'matlab'|'triage'
+   * @property {string} q @property {string} ver @property {string} corpus @property {string|null} sel
    */
-  const KEYS = ['view', 'q', 'rigor', 'tier', 'sel'];
+  const KEYS = ['view', 'q', 'ver', 'corpus', 'sel'];
   /** @type {State} */
-  const s = { view: 'graph', q: '', rigor: '', tier: '', sel: null };
+  const s = { view: 'anchor', q: '', ver: '', corpus: '', sel: null };
   /** @type {Array<(s:State,changed:string[])=>void>} */
   const subs = [];
 
@@ -23,7 +23,7 @@ CALC.state = (function () {
   }
   function fromHash() {
     const p = new URLSearchParams(location.hash.slice(1));
-    for (const k of KEYS) s[k] = p.has(k) ? p.get(k) : (k === 'sel' ? null : (k === 'view' ? 'graph' : ''));
+    for (const k of KEYS) s[k] = p.has(k) ? p.get(k) : (k === 'sel' ? null : (k === 'view' ? 'anchor' : ''));
   }
   function emit(changed) { for (const fn of subs) fn(s, changed); }
 

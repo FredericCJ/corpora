@@ -1,0 +1,49 @@
+/* tokens.css — design tokens only. Presentation carries no data.
+   Academic-paper palette; 13 subfield hues (GEN corpus) + 6 paradigm hues (MAT corpus) + the
+   three-grade verification hues that carry the reports' citation discipline. */
+:root{
+  --paper:#F6F5F0; --panel:#FFFFFF; --panel-2:#FBFAF6;
+  --ink:#22261F; --mut:#6E7268; --faint:#9A9E94; --line:#DDDCD4; --line-2:#E9E8E1;
+  --accent:#6C3FA0; --accent-ink:#4A2A72;
+
+  /* corpus hues */
+  --c-gen:#46549B; --c-gen-bg:#EBEDF8;
+  --c-mat:#C2551B; --c-mat-bg:#FBF0E8;
+
+  /* GEN subfield hues (stroke) + tints (fill) */
+  --s-ps:#4E7A3A;   --s-ps-bg:#E8F1E0;   /* protocols-services */
+  --s-pe:#46549B;   --s-pe-bg:#EBEDF8;   /* performance-evaluation */
+  --s-ma:#6C3FA0;   --s-ma-bg:#F1EAFB;   /* modeling-approaches */
+  --s-sm:#0E7490;   --s-sm-bg:#E4F2F6;   /* simulation-methodology */
+  --s-ngw:#C2551B;  --s-ngw-bg:#FBF0E8;  /* next-gen-wireless */
+  --s-sec:#B3372F;  --s-sec-bg:#FAECEA;  /* security */
+  --s-dt:#8C2D7E;   --s-dt-bg:#F7E9F4;   /* digital-twin */
+  --s-ml:#B0851E;   --s-ml-bg:#F8F1DD;   /* ml-for-simulation */
+  --s-cd:#14705A;   --s-cd-bg:#E2F1EA;   /* cloud-datacenter */
+  --s-sdn:#7C7A20;  --s-sdn-bg:#F1F0D8;  /* sdn-nfv-p4 */
+  --s-pads:#3A62A8; --s-pads-bg:#E8EDF8; /* parallel-distributed-sim */
+  --s-emu:#8F6E1E;  --s-emu-bg:#F5EEDA;  /* emulation-tooling */
+  --s-oth:#6E7268;  --s-oth-bg:#EFEFE9;  /* other / other(systems) */
+
+  /* MAT paradigm hues */
+  --p-de:#0E7490;   --p-de-bg:#E4F2F6;   /* discrete-event */
+  --p-wsl:#C2551B;  --p-wsl-bg:#FBF0E8;  /* wireless-system-level */
+  --p-phy:#B0851E;  --p-phy-bg:#F8F1DD;  /* link-phy-level */
+  --p-acf:#46549B;  --p-acf-bg:#EBEDF8;  /* analytical-control-fluid */
+  --p-csi:#14705A;  --p-csi-bg:#E2F1EA;  /* co-simulation-interop */
+  --p-acad:#6C3FA0; --p-acad-bg:#F1EAFB; /* academic-simulators */
+
+  /* verification discipline */
+  --v-web:#14705A;   --v-web-bg:#E9F4EE;
+  --v-train:#B0851E; --v-train-bg:#F8F1DD;
+  --v-unv:#B3372F;   --v-unv-bg:#FAECEA;
+
+  --ok:#14705A; --bad:#B3372F;
+
+  --serif:Charter,"Bitstream Charter","Iowan Old Style","Sitka Text",Cambria,Georgia,serif;
+  --sans:ui-sans-serif,system-ui,"Segoe UI","Helvetica Neue",Arial,sans-serif;
+  --mono:ui-monospace,"SF Mono","Cascadia Code",Consolas,monospace;
+
+  --rad:8px; --rad-lg:12px; --rad-sm:5px;
+  --shadow:0 1px 2px rgba(30,30,20,.05), 0 8px 24px rgba(30,30,20,.06);
+}

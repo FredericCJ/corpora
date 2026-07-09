@@ -1,0 +1,279 @@
+{
+ "kinds": [
+  "overlaps",
+  "mentions",
+  "named-in"
+ ],
+ "edges": [
+  {
+   "s": "g141",
+   "t": "g62",
+   "kind": "mentions",
+   "quote": "item 62"
+  },
+  {
+   "s": "g151",
+   "t": "g62",
+   "kind": "mentions",
+   "quote": "item 62"
+  },
+  {
+   "s": "g152",
+   "t": "g62",
+   "kind": "mentions",
+   "quote": "items 62"
+  },
+  {
+   "s": "g153",
+   "t": "g103",
+   "kind": "mentions",
+   "quote": "items 103–104"
+  },
+  {
+   "s": "g153",
+   "t": "g104",
+   "kind": "mentions",
+   "quote": "items 103–104"
+  },
+  {
+   "s": "g156",
+   "t": "g44",
+   "kind": "mentions",
+   "quote": "item 44"
+  },
+  {
+   "s": "g158",
+   "t": "g73",
+   "kind": "mentions",
+   "quote": "items 73"
+  },
+  {
+   "s": "gU10",
+   "t": "g125",
+   "kind": "named-in",
+   "quote": "arXiv:2505.09995"
+  },
+  {
+   "s": "gU13",
+   "t": "g91",
+   "kind": "mentions",
+   "quote": "item 91"
+  },
+  {
+   "s": "m34",
+   "t": "g106",
+   "kind": "overlaps",
+   "quote": "[GEN-CORPUS overlap: mentioned in item 106's references]"
+  },
+  {
+   "s": "m49",
+   "t": "g110",
+   "kind": "overlaps",
+   "quote": "[GEN-CORPUS overlap: item 110 family]"
+  },
+  {
+   "s": "m52",
+   "t": "g110",
+   "kind": "overlaps",
+   "quote": "[GEN-CORPUS overlap: item 110]"
+  },
+  {
+   "s": "m53",
+   "t": "g110",
+   "kind": "overlaps",
+   "quote": "[GEN-CORPUS overlap: item 110]"
+  },
+  {
+   "s": "mU1",
+   "t": "m43",
+   "kind": "mentions",
+   "quote": "item 43"
+  },
+  {
+   "s": "mU7",
+   "t": "m49",
+   "kind": "mentions",
+   "quote": "item 49"
+  },
+  {
+   "s": "mU8",
+   "t": "m31",
+   "kind": "mentions",
+   "quote": "item 31"
+  },
+  {
+   "s": "mU8",
+   "t": "m24",
+   "kind": "mentions",
+   "quote": "item 24"
+  }
+ ],
+ "anchorMap": [
+  {
+   "part": "p1",
+   "sections": [
+    {
+     "no": 13,
+     "relation": "expansion axis: anchor Part 1 + post-2015 shift"
+    }
+   ],
+   "verdict": null
+  },
+  {
+   "part": "p2",
+   "sections": [
+    {
+     "no": 3,
+     "relation": "expansion axis: anchor Part 2"
+    },
+    {
+     "no": 4,
+     "relation": "modern analytical frontier"
+    }
+   ],
+   "verdict": "Most durable — \"the queueing/NC analytical core is intact, with TSN/deterministic networking as its most active current application.\""
+  },
+  {
+   "part": "p3",
+   "sections": [
+    {
+     "no": 2,
+     "relation": "expansion axis: anchor Part 3"
+    }
+   ],
+   "verdict": null
+  },
+  {
+   "part": "p4",
+   "sections": [
+    {
+     "no": 5,
+     "relation": "expansion axis: anchor Part 4"
+    },
+    {
+     "no": 6,
+     "relation": "supersedes the anchor's ns-2 era"
+    },
+    {
+     "no": 7,
+     "relation": "emulation vs simulation frontier"
+    },
+    {
+     "no": 8,
+     "relation": "PADS at scale"
+    }
+   ],
+   "verdict": "Among the most superseded — \"simulation tooling (ns-2 → ns-3/OMNeT++-INET ecosystems with dedicated annual venues)\"; emulation now \"a co-equal methodology rather than an afterthought.\""
+  },
+  {
+   "part": "p5",
+   "sections": [
+    {
+     "no": 11,
+     "relation": "expansion axis: anchor Part 5"
+    }
+   ],
+   "verdict": "Among the most superseded — \"GPU-native, ML-integrated wireless simulation (Sionna) displacing MATLAB link-level tools.\""
+  },
+  {
+   "part": "p6",
+   "sections": [
+    {
+     "no": 14,
+     "relation": "expansion axis: anchor Part 6"
+    }
+   ],
+   "verdict": null
+  },
+  {
+   "part": "beyond",
+   "sections": [
+    {
+     "no": 9,
+     "relation": "did not exist at anchor time"
+    },
+    {
+     "no": 10,
+     "relation": "entire subfield post-dates anchor"
+    },
+    {
+     "no": 12,
+     "relation": "expansion of \"systems\" scope"
+    }
+   ],
+   "verdict": null
+  },
+  {
+   "part": "meta",
+   "sections": [
+    {
+     "no": 1,
+     "relation": "anchor citation neighborhood & editor lineage (PEOPLE route)"
+    },
+    {
+     "no": 15,
+     "relation": "recall multipliers — sweep these, don't cite as single works"
+    }
+   ],
+   "verdict": null
+  },
+  {
+   "part": "quarantine",
+   "sections": [
+    {
+     "no": 16,
+     "relation": "unverified / to confirm"
+    }
+   ],
+   "verdict": null
+  }
+ ],
+ "coverage": {
+  "gen": [
+   "Routes swept (live, 2026-07-09): anchor verification + citing works; editor lineage (Obaidat/Boudriga confirmed); network digital twins (dense 2021–2026 harvest incl. ITU-T/IETF standards track); ML/GNN/surrogate simulation (RouteNet family, MimicNet/DeepQueueNet/SplitSim line); 5G/6G simulators (Simu5G, 5G-LENA, Sionna, comparative surveys); cloud/edge simulators (CloudSim lineage + 2025 convergence survey); PADS (Fujimoto 1990→2016→current engines); network calculus & TSN analysis; P4/emulation fidelity; security M&S (cyber ranges, RL agents, datasets). Foundational canon (queueing, DEVS, DES methodology, credibility literature, core simulator papers) is supplied from high-confidence training knowledge and tagged `verified[TRAIN]` — identifiers there should be spot-checked before downstream citation, per the manifest discipline.",
+   "Where recall likely thins: (a) hybrid fluid/packet simulation and rare-event simulation for networks (U12 — technique known, consolidated current survey not located); (b) NTN/satellite-specific simulators beyond SatEdgeSim/ISTN mentions (the 6G-simulator survey, item 107, is the best pivot); (c) formal-methods-adjacent modeling (probabilistic model checking of protocols — PRISM/Storm were deliberately not expanded; add if the \"systems boundary\" fork resolves broad); (d) WSC/MASCOTS per-paper sweep — treated as venue nodes rather than enumerated; (e) commercial tooling (Riverbed, NetSim, EXata) only lightly covered.",
+   "What has clearly moved on since the 2015 anchor: simulation tooling (ns-2 → ns-3/OMNeT++-INET ecosystems with dedicated annual venues); an entirely new subfield of network digital twins with ITU-T/IETF standardization; ML-surrogate and differentiable simulation as a credible substitute/accelerator for packet-level DES; GPU-native, ML-integrated wireless simulation (Sionna) displacing MATLAB link-level tools; emulation (container-based, virtual-time-corrected) as a co-equal methodology rather than an afterthought; and reproducibility/artifact norms institutionalized since ~2020. The anchor's Part 2 (performance evaluation) is the most durable — the queueing/NC analytical core is intact, with TSN/deterministic networking as its most active current application. Its Part 4 (simulation methodology) and Part 5 (wireless evaluation) are the most superseded.",
+   "Open forks preserved: systems-boundary items (gem5, SST, BookSim, SimGrid, CODES, AstraSim) collected and tagged `other(systems)`/`cloud-datacenter` for later boundary-drawing; anchor chapters not yet decomposed into nodes (two chapters confirmed independently citable via item 2); citation-neighborhood held at 1-hop with 2-hop candidates implicit in the survey-type entries."
+  ],
+  "mat": [
+   "All six paradigms were swept live. Coverage is strongest and most self-sufficient in two places: (a) the MathWorks-official stratum for wireless system-level simulation — the 2023–2026 stack (wirelessNetworkSimulator core + 5G/WLAN/Bluetooth/Satellite toolboxes + Wireless Network Toolbox packaging) is fully documented by vendor pages, and the key anti-fabrication finding is the packaging migration (File Exchange add-on → in-product/dedicated toolbox), which any downstream citation must respect; and (b) the co-simulation/NCS paradigm, where a mature, independent, peer-reviewed lineage exists (TrueTime → Jitterbug/JitterTime, PiccSIM, NMLab, Simulink↔OPNET, WirelessHART co-sim) — this is the paradigm most relevant to control-over-network problems and is almost entirely non-vendor literature. The academic-simulators paradigm is dominated by one family (Vienna LTE/5G, fully grounded incl. its Springer monograph) plus GTEC and satellite-networking studies that use SatCom Toolbox as the system-of-record. Recall thins in: independent peer-reviewed evaluations of the new (2023+) MathWorks network-simulation stack (the tooling is young; third-party calibration/validation studies against 3GPP/IEEE references were not found this session and may barely exist yet — a genuine gap, not a search failure); the thesis stratum (one unverified representative); and File Exchange beyond the vendor's own add-on. The discrete-event (SimEvents) paradigm shows the inverse profile of §2: vendor documentation is stable and older, while the peer-reviewed record is concentrated in one research lineage (MathWorks + Cassandras/Boston University, WSC/WODES/DEDS 2006–2019) oriented to CPS/ITS rather than classical packet networks — consistent with the framing that MATLAB/Simulink is a minority tool whose network-M&S value is paradigm-specific (hybrid control+network, coexistence, standards-based wireless KPIs, satellite scenarios) rather than general-purpose packet simulation."
+  ]
+ },
+ "verificationLegend": {
+  "verified-web": "confirmed live on 2026-07-09 via search/primary source",
+  "verified-train": "high-confidence training-derived knowledge of existence — re-verify identifiers before downstream citation",
+  "unverified": "plausible but unconfirmed; quarantined — do not cite downstream without live verification"
+ },
+ "views": {
+  "anchor": {
+   "label": "Anchor map",
+   "semantic": "The 2015 anchor volume’s six parts mapped against the corpus routes that expand, supersede, or post-date them — the GEN report’s own organizing scheme.",
+   "question": "What happened to each part of the 2015 book — and what exists now that it could not contain?",
+   "computed": "Columns are the six anchor parts plus “beyond the anchor” and the meta routes; section cards carry the headers’ own relation phrases; part verdicts quote the coverage summary. Membership only — no inferred relations."
+  },
+  "facets": {
+   "label": "Facets",
+   "semantic": "The tag lattice both reports enforce scope with: subfield/paradigm × type/stratum × recency × section.",
+   "question": "What exists about X, and how much of it can I actually cite?",
+   "computed": "Pure filtering over parsed tags; counts computed live. Combines with the global search / verification / corpus filters."
+  },
+  "timeline": {
+   "label": "Chronology",
+   "semantic": "Publication strata around the 2015 anchor datum; living documentation and tools form their own stratum.",
+   "question": "What is pre-anchor canon, what is post-anchor frontier, what is maintained?",
+   "computed": "Year parsed from each citation string (c.-years take the first year; ranges take the start); continuous/maintained docs detected as LIVING; unparseable years fall back to the entry’s own recency tag, labelled as such."
+  },
+  "matlab": {
+   "label": "MATLAB lens",
+   "semantic": "The tool-family intersection corpus: MATLAB/Simulink actually applied to network/system M&S, organized by its six paradigms.",
+   "question": "Where is MATLAB/Simulink a real network-M&S vehicle — and where is it a minority tool?",
+   "computed": "Paradigm columns with stratum-coded cards; cross-corpus overlaps link into the general corpus; the load-bearing packaging-migration note is carried verbatim."
+  },
+  "triage": {
+   "label": "Triage",
+   "semantic": "The reports’ verification discipline: verified[WEB] vs verified[TRAIN] vs the unverified quarantine, plus coverage self-assessment.",
+   "question": "What may I cite downstream as-is, what must I re-verify, what is quarantined — and where does recall thin?",
+   "computed": "Verification split computed from tags; quarantine cards carried verbatim with their “to confirm” notes; coverage summaries quoted whole."
+  }
+ }
+}
