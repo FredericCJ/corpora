@@ -7,12 +7,13 @@ NET.state = (function () {
   'use strict';
   /**
    * @typedef {object} State
-   * @property {string} view 'anchor'|'facets'|'timeline'|'matlab'|'triage'
+   * @property {string} view 'anchor'|'graph'|'facets'|'timeline'|'matlab'|'triage'
+   * @property {string} ov overlay id for the graph view ('' = didactic)
    * @property {string} q @property {string} ver @property {string} corpus @property {string|null} sel
    */
-  const KEYS = ['view', 'q', 'ver', 'corpus', 'sel'];
+  const KEYS = ['view', 'ov', 'q', 'ver', 'corpus', 'sel'];
   /** @type {State} */
-  const s = { view: 'anchor', q: '', ver: '', corpus: '', sel: null };
+  const s = { view: 'anchor', ov: '', q: '', ver: '', corpus: '', sel: null };
   /** @type {Array<(s:State,changed:string[])=>void>} */
   const subs = [];
 
@@ -24,6 +25,7 @@ NET.state = (function () {
   function fromHash() {
     const p = new URLSearchParams(location.hash.slice(1));
     for (const k of KEYS) s[k] = p.has(k) ? p.get(k) : (k === 'sel' ? null : (k === 'view' ? 'anchor' : ''));
+    if (s.view !== 'graph') s.ov = s.ov || '';
   }
   function emit(changed) { for (const fn of subs) fn(s, changed); }
 

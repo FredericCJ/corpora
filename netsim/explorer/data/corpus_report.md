@@ -19,6 +19,11 @@ Sources parsed directly (no hand transcription): `MS_networks_systems_corpus_v1_
 - multi-paradigm MAT entries (split of “+/→” tags): ['m29', 'm34'].
 - all edge endpoints resolve; merged aliases rewritten.
 
+## PHASE 3.5 — editorial overlays
+- didactic: 61 members / 60 edges — ACYCLIC (Kahn over all members), level-monotone; per level: d0:4, d1:7, d2:8, d3:16, d4:13, d5:13; same-level edges: m19→m2, m19→m24, m7→m2, g19→g18, g9→g5, m3→m73, m5→m74, g166→g168, m62→m63, m65→m66, m18→m16, m73→m16, g35→g36, g36→g38, g167→g170, g171→g170, g170→m39, g163→g164, g26→g173, g173→m81, g176→m80, g64→g66, g74→g78, g66→g87.
+- specialization: 65 members / 56 edges — ACYCLIC (Kahn over all members), level-monotone; per level: s0:11, s1:18, s2:16, s3:20; same-level edges: g171→g170, m39→m40, g162→g175, g159→g162, m37→m38, g36→g38, g41→m80.
+- provenance stamped on both overlays: 'EDITORIAL overlay — maintainer-curated 2026-07-10; not stated in the source reports. Every edge carries its rationale; treat as reading guidance, not corpus fact.'
+
 ## PHASE 4 — emission
 - coverage summaries carried verbatim: GEN 5 blocks, MAT 2 block(s).
 - wrote data/corpus.json + data/corpus.js

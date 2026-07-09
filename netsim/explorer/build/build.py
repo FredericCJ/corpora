@@ -21,6 +21,9 @@ os.makedirs(DATA, exist_ok=True)
 GEN_MD = os.path.join(ROOT, 'MS_networks_systems_corpus_v1_0.md')
 MAT_MD = os.path.join(ROOT, 'MATLAB_Simulink_network_MS_corpus_v1_0.md')
 
+sys.path.insert(0, HERE)
+import overlays as OV  # EDITORIAL overlay layer (maintainer-curated; validated in PHASE 3.5)
+
 report = []
 def log(line=''):
     report.append(line)
@@ -128,6 +131,15 @@ VIEWS = {
                             'and where does recall thin?',
                    computed='Verification split computed from tags; quarantine cards carried verbatim with their '
                             '“to confirm” notes; coverage summaries quoted whole.'),
+    'graph': dict(label='Overlays',
+                  semantic='EDITORIAL typed-relation overlays over a curated subset: a didactic ground-up '
+                           'reading order, and theory→applied transitive-specialization chains. Maintainer '
+                           'judgment, not report fact — every edge carries its rationale.',
+                  question='In what order do I read — and how does each theory become a runnable '
+                           'multi-station model?',
+                  computed='Levels/stages are hand-assigned in build/overlays.py; within-band order is a pure '
+                           'barycenter pass; acyclicity and level-monotonicity are machine-checked at build '
+                           'time; hover traces the transitive closure along overlay edges.'),
 }
 
 # ─────────────────────────── PHASE 1 — parse the reports ───────────────────────────
@@ -376,6 +388,65 @@ for e in edges:
 log('- all edge endpoints resolve; merged aliases rewritten.')
 log('')
 
+# ─────────────────── PHASE 3.5 — EDITORIAL overlays (validated, never inferred) ───────────────────
+log('## PHASE 3.5 — editorial overlays')
+overlays_out = []
+for ov in OV.OVERLAYS:
+    level_ix = {lv['key']: i for i, lv in enumerate(ov['levels'])}
+    members = ov['members']
+    for nid, lv in members.items():
+        if nid not in byid:
+            fail(f"overlay {ov['id']}: member {nid} is not a corpus node (check post-merge ids)")
+        if lv not in level_ix:
+            fail(f"overlay {ov['id']}: member {nid} has unknown level {lv}")
+        if byid[nid]['quarantined']:
+            fail(f"overlay {ov['id']}: member {nid} is quarantined — overlays may not launder "
+                 'unverified entries into reading maps')
+    indeg = {nid: 0 for nid in members}
+    down = collections.defaultdict(list)
+    seen_pairs = set()
+    same_level = []
+    for s, t, why in ov['edges']:
+        if s not in members or t not in members:
+            fail(f"overlay {ov['id']}: edge {s}->{t} endpoint not a member")
+        if (s, t) in seen_pairs:
+            fail(f"overlay {ov['id']}: duplicate edge {s}->{t}")
+        seen_pairs.add((s, t))
+        if not why:
+            fail(f"overlay {ov['id']}: edge {s}->{t} missing its rationale")
+        if level_ix[members[s]] > level_ix[members[t]]:
+            fail(f"overlay {ov['id']}: edge {s}->{t} points to an EARLIER level")
+        if members[s] == members[t]:
+            same_level.append(f'{s}→{t}')
+        indeg[t] += 1
+        down[s].append(t)
+    queue = sorted([n for n, d in indeg.items() if d == 0])
+    topo, indeg2 = [], dict(indeg)
+    while queue:
+        cur = queue.pop(0)
+        topo.append(cur)
+        for nxt in sorted(down[cur]):
+            indeg2[nxt] -= 1
+            if indeg2[nxt] == 0:
+                queue.append(nxt)
+        queue.sort()
+    if len(topo) != len(members):
+        fail(f"overlay {ov['id']}: CYCLE — topological sort placed only {len(topo)}/{len(members)} members")
+    orphans = [n for n in members if not down[n] and indeg[n] == 0]
+    if orphans:
+        fail(f"overlay {ov['id']}: members with no edges at all: {orphans}")
+    per_level = collections.Counter(members.values())
+    log(f"- {ov['id']}: {len(members)} members / {len(ov['edges'])} edges — ACYCLIC (Kahn over all "
+        f"members), level-monotone; per level: "
+        + ', '.join(f"{lv['key']}:{per_level.get(lv['key'], 0)}" for lv in ov['levels'])
+        + (f"; same-level edges: {', '.join(same_level)}" if same_level else '') + '.')
+    overlays_out.append(dict(id=ov['id'], label=ov['label'], edgeKind=ov['edgeKind'],
+                             semantic=ov['semantic'], question=ov['question'], levels=ov['levels'],
+                             members=members,
+                             edges=[dict(s=s, t=t, why=why) for s, t, why in ov['edges']]))
+log(f'- provenance stamped on both overlays: {OV.PROVENANCE!r}')
+log('')
+
 # ─────────────────────────── PHASE 4 — emission ───────────────────────────
 log('## PHASE 4 — emission')
 # coverage summaries: carried as verbatim paragraph blocks
@@ -424,6 +495,8 @@ relations_obj = dict(
                     verdict=PART_VERDICTS.get(p))
                for p in ['p1', 'p2', 'p3', 'p4', 'p5', 'p6', 'beyond', 'meta', 'quarantine']],
     coverage=dict(gen=gen_cov, mat=mat_cov),
+    overlays=overlays_out,
+    overlayProvenance=OV.PROVENANCE,
     verificationLegend={
         'verified-web': 'confirmed live on 2026-07-09 via search/primary source',
         'verified-train': 'high-confidence training-derived knowledge of existence — re-verify '

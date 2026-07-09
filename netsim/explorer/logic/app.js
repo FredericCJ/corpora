@@ -5,7 +5,7 @@
   'use strict';
   const U = NET.util, S = NET.state;
   const log = NET.log.consoleLogger('net', 'debug');
-  const VIEW_ORDER = ['anchor', 'facets', 'timeline', 'matlab', 'triage'];
+  const VIEW_ORDER = ['anchor', 'graph', 'facets', 'timeline', 'matlab', 'triage'];
   const VER_CYCLE = ['', 'verified-web', 'verified-train', 'unverified'];
   const CORPUS_CYCLE = ['', 'gen', 'mat'];
 
@@ -68,6 +68,7 @@
     function syncControls(s) { if (q.value !== s.q) q.value = s.q; if (fv.value !== s.ver) fv.value = s.ver; if (fc.value !== s.corpus) fc.value = s.corpus; }
     S.on((s, changed) => {
       if (changed.includes('view')) mountView(s.view);
+      else if (changed.includes('ov') && current && current.onOverlay) current.onOverlay();
       if (['q', 'ver', 'corpus'].some((k) => changed.includes(k))) { syncControls(s); if (current && current.applyFilters) current.applyFilters(); }
       if (changed.includes('sel') && current && current.onSelect) current.onSelect(s.sel);
     });
@@ -79,7 +80,12 @@
       else if (ev.key === 'Escape') { if (S.get().sel) S.set({ sel: null }); }
       else if (ev.key === 'v') { const i = VER_CYCLE.indexOf(S.get().ver); S.set({ ver: VER_CYCLE[(i + 1) % VER_CYCLE.length] }); }
       else if (ev.key === 'c') { const i = CORPUS_CYCLE.indexOf(S.get().corpus); S.set({ corpus: CORPUS_CYCLE[(i + 1) % CORPUS_CYCLE.length] }); }
-      else if (/^[1-5]$/.test(ev.key)) S.set({ view: VIEW_ORDER[+ev.key - 1] });
+      else if (ev.key === 'o') {
+        const s = S.get();
+        if (s.view !== 'graph') S.set({ view: 'graph' });
+        else S.set({ ov: (s.ov || 'didactic') === 'didactic' ? 'specialization' : 'didactic' });
+      }
+      else if (/^[1-6]$/.test(ev.key)) S.set({ view: VIEW_ORDER[+ev.key - 1] });
     });
 
     // initial render from hash

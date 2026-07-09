@@ -30,6 +30,12 @@
       "runtimeExecutable": "python",
       "runtimeArgs": ["-m", "http.server", "8096", "--bind", "127.0.0.1", "--directory", "E:/dev/corpora/netsim/explorer"],
       "port": 8096
+    },
+    {
+      "name": "netsim-explorer-b",
+      "runtimeExecutable": "python",
+      "runtimeArgs": ["-m", "http.server", "8095", "--bind", "127.0.0.1", "--directory", "E:/dev/corpora/netsim/explorer"],
+      "port": 8095
     }
   ]
 }

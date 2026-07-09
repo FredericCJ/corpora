@@ -1,7 +1,7 @@
 # Network M&S Corpus Explorer
 
 A single-page, single-viewport explorer of a **unified network modeling-and-simulation corpus** —
-two research passes merged into one fact layer and navigable through **five relational models**.
+two research passes merged into one fact layer and navigable through **six relational models**.
 
 - **240 entries + the 2015 anchor volume** · GEN corpus 158 + 15 quarantined
   (`MS_networks_systems_corpus_v1_0.md`) · MAT corpus 61 + 8 quarantined
@@ -11,18 +11,23 @@ two research passes merged into one fact layer and navigable through **five rela
   at view time) for **one 16:9 4K / 27" display, fullscreen, landscape** — a single viewport with
   no page scroll.
 
-## The five models
+## The six models
 
 1. **Anchor map** — the anchor's six parts vs the routes that expand, supersede, or post-date
    them, relation phrases quoted from the section headers; part verdicts quote the coverage
    summary ("Part 2 most durable; Parts 4–5 most superseded").
-2. **Facets** — the tag lattice both reports enforce scope with: corpus × subfield/paradigm ×
+2. **Overlays (EDITORIAL)** — two maintainer-curated typed-relation graphs over a curated
+   subset: **Didactic — ground up** (D0 first contact → D5 frontier; edges = read-before) and
+   **Theory → applied** (THEORY → METHODOLOGY → TOOLS → APPLIED specialization chains). Every
+   edge is dashed, provenance-stamped, and carries its rationale; hover traces the transitive
+   closure. Build-validated: no quarantined members, acyclic, level-monotone.
+3. **Facets** — the tag lattice both reports enforce scope with: corpus × subfield/paradigm ×
    type/stratum × recency, with live counts.
-3. **Chronology** — strata around the 2015 anchor datum; continuously-maintained docs/tools are
+4. **Chronology** — strata around the 2015 anchor datum; continuously-maintained docs/tools are
    their own LIVING stratum; undated entries wear their report-stated recency tag.
-4. **MATLAB lens** — the intersection corpus by its six paradigms, stratum-coded, with the
+5. **MATLAB lens** — the intersection corpus by its six paradigms, stratum-coded, with the
    load-bearing packaging-migration note as a persistent banner.
-5. **Triage** — the verification discipline made first-class: the three-grade split with the
+6. **Triage** — the verification discipline made first-class: the three-grade split with the
    legend verbatim, the quarantine sections as cards, and the coverage self-assessments whole.
 
 A persistent inspector dock shows the active model's method + full legend, or — when you select an
@@ -36,8 +41,8 @@ entry — its citation verbatim, tags, route, relevance note, derived references
 
 ## Use it
 
-- **Tabs `1–5`** switch models · **`/`** search · **`v`** cycles verification · **`c`** cycles
-  corpus · **`Esc`** clears.
+- **Tabs `1–6`** switch models · **`o`** jumps to / toggles the overlay · **`/`** search ·
+  **`v`** cycles verification · **`c`** cycles corpus · **`Esc`** clears.
 - Click any entry anywhere for its full record; the **verification** and **corpus** selectors
   filter every model at once; state round-trips through the URL hash.
 

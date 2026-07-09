@@ -1,6 +1,6 @@
-# MODELS.md — the five relational models
+# MODELS.md — the six relational models
 
-One fact layer (`data/corpus.json`), one inference layer (`data/relations.json`), five ways to
+One fact layer (`data/corpus.json`), one inference layer (`data/relations.json`), six ways to
 stand in it. Every model states its **semantic**, its **question**, and its **computation** (what
 the app derives vs what it merely carries). The governing rule: the reports collect under
 *collect-don't-exclude* with scope enforced by tags — so the app **filters and arranges**, it
@@ -70,6 +70,31 @@ its grounding quote in the inspector.
 - **Computed.** The three-grade split (counts live; legend verbatim). Carried verbatim: every
   quarantine entry with its "to confirm" note, and the coverage summaries whole — routes swept,
   where recall thins, what has moved on since the anchor, open forks.
+
+## Model 6 — Overlays (`views/graph.js`) — EDITORIAL
+
+- **Semantic.** Two maintainer-curated typed-relation overlays over a curated subset (not a
+  re-tagging of all 281 entries): **Didactic — ground up** (levels D0 "first contact" → D5
+  "frontier & scale"; an edge means *read s before t*) and **Theory → applied** (stages THEORY →
+  METHODOLOGY → FRAMEWORKS & TOOLS → APPLIED; an edge means *t specializes s toward
+  application*, transitive chains encouraged, stage-skipping allowed where lineage is direct).
+- **Question.** In what order do I read — and how does each theory become a runnable
+  multi-station model?
+- **Provenance.** This model is a **different epistemic class from the other five**: the
+  relations are NOT stated in the reports. They are deliberate editorial judgment
+  (`build/overlays.py`, authored 2026-07-10 at the maintainer's request), in the same class as
+  the SWE explorer's EDITORIAL edges. Every edge carries a one-line rationale (hover any edge or
+  open the entry's inspector detail); the provenance banner renders in the view head; edges are
+  always dashed. The build machine-checks what judgment cannot be allowed to break: members must
+  be corpus nodes, **quarantined entries are banned** (overlays may not launder unverified
+  material into reading maps), edges must be level-monotone and acyclic (Kahn), every member
+  must carry at least one edge, and every edge must carry a rationale.
+- **Computed.** Levels/stages and edges are carried from `overlays.py`; within-band order is a
+  pure barycenter pass (`core.overlayLayout` — presentation, not meaning); hover traces the
+  transitive closure along overlay edges; the global search/verification/corpus filters dim
+  non-matching members. The scheduling goal is deliberately on the main line of both overlays
+  (Liu & Layland → Buttazzo → TrueTime; SimEvents → multicore-scheduler examples; SoC Blockset
+  task execution; wirelessNetworkSimulator → MAC-scheduler evaluations).
 
 ## The inspector
 

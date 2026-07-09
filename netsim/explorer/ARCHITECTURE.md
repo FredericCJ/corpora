@@ -108,9 +108,14 @@ serialized current state rather than with a mute flag — no phantom re-emits, n
 - **Baseline target: Widely available as of 2026-07.** Language floor ES2022.
 - **Parse-the-report build** — the entry format is regular enough that transcription would only
   add drift; the reports stay authoritative, and a report edit + rebuild flows through.
-- **No node-link graph view** — the corpora state no edge list; drawing one would fabricate
-  structure. The anchor map (parts × routes × entries) is the structural centerpiece instead, and
-  the 17 derived reference edges surface in the inspector only.
+- **No *inferred* node-link graph** — the corpora state no edge list; extracting one would
+  fabricate structure. The anchor map (parts × routes × entries) is the report-grounded
+  structural view, and derived reference edges surface in the inspector only. **Amendment
+  (2026-07-10):** at the maintainer's request the explorer now ships two **explicitly EDITORIAL
+  overlay graphs** (didactic reading order; theory→applied specialization) — hand-curated in
+  `build/overlays.py`, validated (membership, no quarantined nodes, acyclicity, level
+  monotonicity, rationale on every edge), provenance-stamped in the UI, and rendered dashed.
+  Editorial judgment is allowed; unlabelled inference still is not. See MODELS.md Model 6.
 - **Conservative merging** — two identity merges, both double-grounded; everything else stays
   separate with typed `overlaps` edges. Collect-don't-exclude is the reports' own rule.
 - **Verification is a global filter, not just a badge** — the three-grade discipline is the

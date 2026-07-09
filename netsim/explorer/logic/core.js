@@ -103,6 +103,72 @@ NET.core = (function () {
     return b;
   }
 
+  // ── editorial overlays: adjacency + banded barycenter layout ─────────────────────────
+  function overlayAdjacency(overlay) {
+    const up = {}, down = {};
+    for (const e of overlay.edges) { (down[e.s] = down[e.s] || []).push(e.t); (up[e.t] = up[e.t] || []).push(e.s); }
+    return { up, down };
+  }
+  function closure(id, adj) {
+    const seen = new Set([id]), st = [id];
+    while (st.length) { const c = st.pop(); for (const x of adj[c] || []) if (!seen.has(x)) { seen.add(x); st.push(x); } }
+    return seen;
+  }
+
+  // Levels are horizontal bands top→bottom; within a band, a grid of ≤MAXC columns whose order
+  // comes from three barycenter sweeps over the overlay edges. Fixed natural size; the SVG
+  // scales it via viewBox — built once, no resize recomputation.
+  const ONW = 168, ONH = 52, OGX = 14, OGY = 14, OBGAP = 46, OGUT = 196, OMARG = 26, OPAD = 14, MAXC = 7;
+
+  /** @returns {{positions:Record<string,{x:number,y:number}>, bands:any[], width:number,
+   *            height:number, box:{NW:number,NH:number}}} */
+  function overlayLayout(overlay) {
+    const adj = overlayAdjacency(overlay);
+    const order = {};
+    for (const lv of overlay.levels) order[lv.key] = [];
+    for (const id in overlay.members) order[overlay.members[id]].push(id);
+    const keys = overlay.levels.map((lv) => lv.key);
+
+    const grid = (n) => { const c = Math.min(MAXC, Math.max(1, n)); return { cols: c, rows: Math.ceil(n / c) }; };
+    const cx = {};
+    function placeRow(k) {
+      const g = grid(order[k].length);
+      order[k].forEach((id, i) => { cx[id] = (i % g.cols) * (ONW + OGX) + ONW / 2; });
+      return g.cols * (ONW + OGX) - OGX;
+    }
+    function sortRow(k, nb) {
+      const val = {};
+      for (const id of order[k]) {
+        const xs = (nb[id] || []).filter((x) => cx[x] !== undefined).map((x) => cx[x]);
+        val[id] = xs.length ? xs.reduce((a, b) => a + b, 0) / xs.length : cx[id];
+      }
+      order[k] = order[k].slice().sort((a, b) => (val[a] - val[b]) || a.localeCompare(b));
+    }
+    const widths = {};
+    for (const k of keys) widths[k] = placeRow(k);
+    for (const k of keys.slice(1)) { sortRow(k, adj.up); widths[k] = placeRow(k); }
+    for (const k of keys.slice(0, -1).reverse()) { sortRow(k, adj.down); widths[k] = placeRow(k); }
+    for (const k of keys.slice(1)) { sortRow(k, adj.up); widths[k] = placeRow(k); }
+
+    const maxW = Math.max.apply(null, keys.map((k) => widths[k]));
+    const positions = {}, bands = [];
+    let y = OMARG;
+    for (const lv of overlay.levels) {
+      const k = lv.key, g = grid(order[k].length);
+      const bandH = g.rows * (ONH + OGY) - OGY + 2 * OPAD;
+      const off = OGUT + (maxW - widths[k]) / 2;
+      order[k].forEach((id, i) => {
+        positions[id] = { x: off + (i % g.cols) * (ONW + OGX),
+                          y: y + OPAD + Math.floor(i / g.cols) * (ONH + OGY) };
+      });
+      bands.push({ key: k, label: lv.label, note: lv.note, count: order[k].length,
+                   x: 10, y, w: OGUT + maxW + OMARG - 10, h: bandH });
+      y += bandH + OBGAP;
+    }
+    return { positions, bands, width: OGUT + maxW + 2 * OMARG, height: y - OBGAP + OMARG,
+             box: { NW: ONW, NH: ONH } };
+  }
+
   // ── triage split ─────────────────────────────────────────────────────────────────────
   function triage(nodes) {
     const by = { 'verified-web': [], 'verified-train': [], 'unverified': [] };
@@ -130,5 +196,6 @@ NET.core = (function () {
   }
 
   return { buildIndex, visibleIds, valuesOf, passLocal, facetCount,
-           STRATA, stratumOf, strataBuckets, anchorColumns, paradigmBuckets, triage, stats };
+           STRATA, stratumOf, strataBuckets, anchorColumns, paradigmBuckets,
+           overlayAdjacency, closure, overlayLayout, triage, stats };
 })();

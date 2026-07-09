@@ -23,6 +23,13 @@ NET.util = (function () {
     for (const c of kids) if (c != null) n.appendChild(typeof c === 'string' ? document.createTextNode(c) : c);
     return n;
   }
+  const SVGNS = 'http://www.w3.org/2000/svg';
+  function svg(tag, attrs, ...kids) {
+    const n = document.createElementNS(SVGNS, tag);
+    if (attrs) for (const k in attrs) if (attrs[k] != null) n.setAttribute(k, String(attrs[k]));
+    for (const c of kids) if (c != null) n.appendChild(c);
+    return n;
+  }
 
   const SUBF_KEY = { 'protocols-services': 'ps', 'performance-evaluation': 'pe', 'modeling-approaches': 'ma',
     'simulation-methodology': 'sm', 'next-gen-wireless': 'ngw', 'security': 'sec', 'digital-twin': 'dt',
@@ -44,6 +51,23 @@ NET.util = (function () {
   const VER_SHORT = { 'verified-web': 'verified[WEB]', 'verified-train': 'verified[TRAIN]', 'unverified': 'unverified' };
 
   function shortTitle(t, max) { t = String(t); return t.length > max ? t.slice(0, max - 1) + '…' : t; }
+
+  /** Greedy word-wrap into ≤maxLines of ~budget chars; final line ellipsised. */
+  function wrapText(text, budget, maxLines) {
+    const words = String(text).split(/\s+/); const lines = []; let cur = '';
+    for (const w of words) {
+      const cand = cur ? cur + ' ' + w : w;
+      if (cand.length > budget && cur) { lines.push(cur); cur = w; if (lines.length === maxLines - 1) break; }
+      else cur = cand;
+    }
+    if (cur && lines.length < maxLines) lines.push(cur);
+    const used = lines.join(' ').length;
+    if (lines.length && used < String(text).length) {
+      let tail = lines[lines.length - 1];
+      lines[lines.length - 1] = tail.length > budget ? tail.slice(0, budget - 1) + '…' : tail + '…';
+    }
+    return lines.length ? lines : [String(text)];
+  }
 
   /** Corpus membership chips with the entry's per-report item number. */
   function corpusChips(node) {
@@ -71,7 +95,7 @@ NET.util = (function () {
     return c;
   }
 
-  return { InvariantError, invariant, assertNever, el,
+  return { InvariantError, invariant, assertNever, el, svg,
            SUBF_KEY, PAR_KEY, subfStroke, subfFill, parStroke, parFill, hueStroke, hueFill,
-           VER_CLS, VER_SHORT, shortTitle, corpusChips, badges, idChip };
+           VER_CLS, VER_SHORT, shortTitle, wrapText, corpusChips, badges, idChip };
 })();

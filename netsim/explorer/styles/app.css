@@ -72,6 +72,35 @@ h2,h3,h4{margin:0}
 .nodechip.hidden{display:none}
 .nodechip.quar{border-style:dashed}
 
+/* ── overlay graph board (editorial DAGs) ── */
+.ovrow{display:flex;align-items:baseline;gap:.8rem;flex-wrap:wrap}
+.ovsw{display:inline-flex;gap:.3rem}
+.ovbtn{font-family:var(--mono);font-size:.66rem;color:var(--mut);background:var(--panel);
+  border:1px solid var(--line);border-radius:var(--rad-sm);padding:.18rem .5rem;cursor:pointer}
+.ovbtn:hover{color:var(--ink);border-color:var(--faint)}
+.ovbtn[aria-pressed="true"]{color:#fff;background:var(--accent);border-color:var(--accent)}
+.board{position:absolute;inset:0;background:var(--panel);
+  background-image:linear-gradient(var(--panel-2) 1px,transparent 1px),linear-gradient(90deg,var(--panel-2) 1px,transparent 1px);
+  background-size:2.2rem 2.2rem}
+.board svg{position:absolute;inset:0;width:100%;height:100%;display:block}
+.row-label .tno{font-family:var(--mono);font-weight:700;fill:var(--mut);letter-spacing:.06em}
+.row-label .tnm{font-family:var(--sans);fill:var(--faint)}
+.gnode{cursor:pointer}
+.gnode rect{stroke-width:1.2}
+.gnode.train rect{stroke-dasharray:4 3}
+.gnode text{font-family:var(--sans);pointer-events:none}
+.gnode .nm{font-weight:600;fill:var(--ink)}
+.gnode .yr{font-family:var(--mono);fill:var(--mut)}
+.gnode.dim{opacity:.13}
+.gnode.off{opacity:.07}
+.gnode.sel rect{stroke:var(--ink);stroke-width:3}
+.gnode:focus-visible rect{stroke:var(--accent);stroke-width:3}
+.gedge{fill:none;stroke:var(--ov-edge);stroke-width:1.1;stroke-dasharray:7 4;opacity:.3;
+  transition:opacity .13s,stroke-width .13s}
+.gedge.hl{opacity:.97;stroke-width:2.4;stroke:var(--accent)}
+.gedge.dim{opacity:.04}
+.gedge.off{opacity:.02}
+
 /* ── facets rail + results (SWE fashion) ── */
 .facet-rail{flex:none;max-height:36%;overflow:auto;padding:.5rem .9rem;border-bottom:1px solid var(--line-2)}
 .facetbar{display:flex;flex-wrap:wrap;gap:.25rem .3rem;align-items:baseline;margin:.15rem 0}

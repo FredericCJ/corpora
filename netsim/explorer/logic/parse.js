@@ -62,6 +62,17 @@ NET.parse = (function () {
     arr(r.anchorMap, 'relations.anchorMap');
     if (!isObj(r.coverage) || !isObj(r.views) || !isObj(r.verificationLegend))
       throw new ValidationError('relations.coverage/views/verificationLegend missing');
+    str(r.overlayProvenance, 'relations.overlayProvenance');
+    for (const ov of arr(r.overlays, 'relations.overlays')) {
+      str(ov.id, 'overlay.id'); arr(ov.levels, `overlay ${ov.id}.levels`);
+      if (!isObj(ov.members)) throw new ValidationError(`overlay ${ov.id}: members missing`);
+      for (const m in ov.members) if (!ids.has(m)) throw new ValidationError(`overlay ${ov.id}: member ${m} not a node`);
+      for (const e of arr(ov.edges, `overlay ${ov.id}.edges`)) {
+        if (!(e.s in ov.members) || !(e.t in ov.members))
+          throw new ValidationError(`overlay ${ov.id}: edge ${e.s}->${e.t} endpoint not a member`);
+        str(e.why, `overlay ${ov.id} edge ${e.s}->${e.t}.why`);
+      }
+    }
     return /** @type {Relations} */ (r);
   }
   return { ValidationError, parseCorpus, parseRelations };

@@ -38,6 +38,9 @@
   --v-train:#B0851E; --v-train-bg:#F8F1DD;
   --v-unv:#B3372F;   --v-unv-bg:#FAECEA;
 
+  /* editorial overlay edges (maintainer judgment — always dashed) */
+  --ov-edge:#565A50;
+
   --ok:#14705A; --bad:#B3372F;
 
   --serif:Charter,"Bitstream Charter","Iowan Old Style","Sitka Text",Cambria,Georgia,serif;

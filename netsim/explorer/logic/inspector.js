@@ -60,6 +60,27 @@ NET.inspector = (function () {
         if (n.matTwin && n.matTwin.note) host.appendChild(U.el('p', { class: 'muted', text: 'MAT twin note: ' + n.matTwin.note }));
       }
 
+      for (const ov of relations.overlays) {
+        if (!(id in ov.members)) continue;
+        const lv = ov.levels.find((l) => l.key === ov.members[id]);
+        host.appendChild(U.el('div', { class: 'sec', text: 'overlay — ' + ov.label + ' (EDITORIAL)' }));
+        host.appendChild(U.el('p', { class: 'muted',
+          text: ov.members[id].toUpperCase() + ' · ' + (lv ? lv.label : '') + '. ' + (lv ? lv.note : '') }));
+        for (const e of ov.edges) {
+          if (e.s !== id && e.t !== id) continue;
+          const dir = e.s === id ? 'out' : 'in';
+          const other = byId[dir === 'out' ? e.t : e.s];
+          const row = U.el('div', { class: 'edge' });
+          row.appendChild(U.el('span', { class: 'badge plain', text: dir === 'out' ? ov.edgeKind : '⇠ ' + ov.edgeKind }));
+          row.appendChild(document.createTextNode(' '));
+          row.appendChild(U.el('span', { class: 'lnk', text: other.id + ' ' + U.shortTitle(other.title, 56),
+            tabindex: '0', role: 'link', onclick: () => NET.state.set({ sel: other.id }),
+            onkeydown: (ev) => { if (ev.key === 'Enter' || ev.key === ' ') { ev.preventDefault(); NET.state.set({ sel: other.id }); } } }));
+          row.appendChild(U.el('span', { class: 'ov', text: 'rationale: ' + e.why }));
+          host.appendChild(row);
+        }
+      }
+
       host.appendChild(U.el('div', { class: 'sec', text: 'cite downstream?' }));
       host.appendChild(U.el('p', { class: 'muted', text: relations.verificationLegend[n.verification] +
         (n.quarantined ? ' — this entry sits in the report’s quarantine section.' : '') }));
@@ -139,7 +160,8 @@ NET.inspector = (function () {
 
       host.appendChild(U.el('div', { class: 'sec', text: 'keyboard' }));
       host.appendChild(U.el('p', { class: 'muted' },
-        U.el('span', { class: 'kbd', text: '1–5' }), ' views · ',
+        U.el('span', { class: 'kbd', text: '1–6' }), ' views · ',
+        U.el('span', { class: 'kbd', text: 'o' }), ' overlay · ',
         U.el('span', { class: 'kbd', text: '/' }), ' search · ',
         U.el('span', { class: 'kbd', text: 'v' }), ' verification · ',
         U.el('span', { class: 'kbd', text: 'c' }), ' corpus · ',
