@@ -1,0 +1,168 @@
+{
+  "scout": "gap-anchors-fixes",
+  "elements": [
+    {
+      "id": "composed-method",
+      "name": "Composed Method",
+      "aka": [],
+      "kind": "code-structure",
+      "what": "Structure a method as a short sequence of calls to other intention-named methods, all at a single level of abstraction.",
+      "problem": "Long methods that mix abstraction levels are hard to read, reuse, and override; dividing behavior into small, identically-leveled named steps yields composable, self-documenting units.",
+      "named_in": "Beck, Smalltalk Best Practice Patterns (Prentice Hall, 1997), 'Composed Method'",
+      "named_in_corpus_id": null,
+      "tags": ["smalltalk-origin", "language-neutral"],
+      "borderline": "sits near practice territory (method-writing guidance), kept: a named pattern in a canonical pattern catalog describing a concrete code construct",
+      "confidence": "established"
+    },
+    {
+      "id": "method-object",
+      "name": "Method Object",
+      "aka": ["Replace Method with Method Object (Fowler, Refactoring)", "worker object"],
+      "kind": "code-structure",
+      "what": "Reify a complex method as its own class: parameters and local variables become instance variables, the body becomes small methods on the new object.",
+      "problem": "A method whose many temporaries and parameters resist decomposition can be split freely once its working state lives in a dedicated object.",
+      "named_in": "Beck, Smalltalk Best Practice Patterns (1997), 'Method Object'; Fowler, Refactoring (1999) names the move 'Replace Method with Method Object'",
+      "named_in_corpus_id": "fowlerref",
+      "tags": ["smalltalk-origin", "refactoring-target"],
+      "borderline": null,
+      "confidence": "established"
+    },
+    {
+      "id": "exceptional-value",
+      "name": "Exceptional Value",
+      "aka": ["exceptional value object"],
+      "kind": "error-handling",
+      "what": "A distinguished value object representing missing or invalid input that flows through the domain model, absorbing or rejecting messages instead of raising errors.",
+      "problem": "Real-world input contains blanks and illegible entries; letting a typed placeholder value propagate keeps exceptional-case handling concentrated near the UI instead of scattered through business logic, while still recording that the input was bad.",
+      "named_in": "Cunningham, The CHECKS Pattern Language of Information Integrity (PLoP 1994; c2.com/ppr/checks.html)",
+      "named_in_corpus_id": null,
+      "tags": ["information-integrity"],
+      "borderline": "adjacent to null-object and special-case (both indexed); kept as the CHECKS-named propagate-through-computation mechanism the mission explicitly seeds",
+      "confidence": "established"
+    },
+    {
+      "id": "units-of-measure-types",
+      "name": "Units-of-Measure Types",
+      "aka": ["units of measure (F#)", "dimension types", "dimensional analysis in the type system", "static unit checking"],
+      "kind": "functional-type-idioms",
+      "what": "Encode physical units and dimensions as type-level annotations so the compiler checks unit correctness and infers result units through arithmetic, with no runtime cost.",
+      "problem": "Mixing quantities of different units (feet vs meters, ms vs s) compiles silently with raw numerics; type-level units turn unit mistakes into type errors.",
+      "named_in": "Kennedy, Types for Units-of-Measure: Theory and Practice (CEFP 2009, LNCS 6299); Kennedy, Programming Languages and Dimensions (Cambridge TR 391, 1996); shipped in F# 2.0",
+      "named_in_corpus_id": null,
+      "tags": ["fsharp", "type-level", "covers-anchor:semantic-data-types"],
+      "borderline": null,
+      "confidence": "established"
+    },
+    {
+      "id": "disruptor",
+      "name": "Disruptor",
+      "aka": ["LMAX Disruptor", "ring buffer with sequence barriers", "mechanical-sympathy ring buffer"],
+      "kind": "data-flow-buffering",
+      "what": "A pre-allocated ring buffer where producers and consumers coordinate through monotonic sequence counters and sequence barriers instead of locks, supporting dependency graphs of consumers over the same entries.",
+      "problem": "Bounded queues concentrate contention on head and tail and add latency per pipeline stage; sequence-gated access to a shared ring gives orders-of-magnitude lower latency and lets multiple consumers process entries in dependency order without copying.",
+      "named_in": "Thompson, Farley, Barker, Gee, Stewart — Disruptor: High Performance Alternative to Bounded Queues for Exchanging Data Between Concurrent Threads (LMAX technical paper, 2011)",
+      "named_in_corpus_id": null,
+      "tags": ["java-origin", "low-latency", "lock-free"],
+      "borderline": null,
+      "confidence": "established"
+    },
+    {
+      "id": "operational-transformation",
+      "name": "Operational Transformation",
+      "aka": ["OT", "dOPT (original algorithm)"],
+      "kind": "synchronization-coordination",
+      "what": "Keep concurrently edited replicas consistent by transforming each incoming operation against the concurrent operations already applied locally, preserving intention and causality without locking.",
+      "problem": "Optimistic concurrent editing of shared data (collaborative text editors) requires every replica to converge to the same state while staying responsive; transforming operations reorders their effects instead of blocking users.",
+      "named_in": "Ellis & Gibbs, Concurrency Control in Groupware Systems (ACM SIGMOD 1989, pp. 399-407)",
+      "named_in_corpus_id": null,
+      "tags": ["collaborative-editing", "alternative-to:conflict-free-replicated-data-type-crdt"],
+      "borderline": null,
+      "confidence": "established"
+    },
+    {
+      "id": "functional-options",
+      "name": "Functional Options",
+      "aka": ["functional options pattern", "self-referential functions as options", "option functions"],
+      "kind": "construction-api",
+      "what": "A constructor takes a variadic list of option functions, each of which mutates the value being configured; options are first-class values that can be composed, defaulted, and added without breaking callers.",
+      "problem": "Constructors with many optional parameters degenerate into config structs or telescoping overloads; closures-as-options keep the zero-option case clean and the API forward-compatible.",
+      "named_in": "Pike, Self-referential functions and the design of options (commandcenter blog, 2014); Cheney, Functional options for friendly APIs (dave.cheney.net / dotGo, 2014)",
+      "named_in_corpus_id": null,
+      "tags": ["go"],
+      "borderline": null,
+      "confidence": "established"
+    },
+    {
+      "id": "structured-concurrency",
+      "name": "Structured Concurrency",
+      "aka": ["nursery pattern", "task scope", "scoped concurrency", "concurrency scopes"],
+      "kind": "execution-concurrency",
+      "what": "Concurrent tasks may only be spawned inside a lexical scope (nursery / task scope) that cannot be exited until all child tasks complete, so errors and cancellation propagate through a tree of scopes.",
+      "problem": "Fire-and-forget spawning (go statement, detached threads) breaks local reasoning, error propagation, and cancellation; binding task lifetimes to block structure restores them, analogous to structured programming's elimination of goto.",
+      "named_in": "Smith, Notes on structured concurrency, or: Go statement considered harmful (vorpus.org, 2018); Trio nursery documentation; JEP 453: Structured Concurrency (JDK 21)",
+      "named_in_corpus_id": null,
+      "tags": ["python-trio", "kotlin-coroutines", "java", "swift-concurrency"],
+      "borderline": null,
+      "confidence": "established"
+    },
+    {
+      "id": "feature-flag",
+      "name": "Feature Flag",
+      "aka": ["feature toggle", "feature switch", "toggle point + toggle router (implementation elements)", "release/ops/experiment/permission toggles (categories)"],
+      "kind": "code-structure",
+      "what": "Toggle points in code consult a toggle router that decides from configuration or request context which of two codepaths runs, changing system behavior without changing code.",
+      "problem": "Shipping incomplete work on trunk, dark launches, A/B experiments, kill switches, and per-user permissions all need latent codepaths selectable at runtime or deploy time rather than at merge time.",
+      "named_in": "Hodgson, Feature Toggles (aka Feature Flags), martinfowler.com (2017); Fowler, FeatureToggle bliki (2010)",
+      "named_in_corpus_id": null,
+      "tags": ["release-engineering-adjacent"],
+      "borderline": "the delivery-process side (trunk-based development, flag hygiene) is practice territory and excluded; kept for the in-program toggle-point / toggle-router mechanism Hodgson catalogs",
+      "confidence": "established"
+    },
+    {
+      "id": "template-engine",
+      "name": "Template Engine",
+      "aka": ["template processor", "text templating", "templating engine", "Template View (P of EAA web specialization)"],
+      "kind": "parsing-text",
+      "what": "Produce output text by interpolating data-model values and evaluating restricted directives (conditionals, loops, includes) inside a template document that fixes the static structure of the output.",
+      "problem": "Generating HTML, code, or reports by string concatenation entangles logic with presentation; a template engine separates the output's static shape from the data that fills it, ideally enforcing strict model-view separation.",
+      "named_in": "Parr, Enforcing Strict Model-View Separation in Template Engines (WWW 2004, StringTemplate); Fowler, Patterns of Enterprise Application Architecture (2002) names the web form 'Template View'",
+      "named_in_corpus_id": null,
+      "tags": ["web", "codegen"],
+      "borderline": null,
+      "confidence": "established"
+    },
+    {
+      "id": "dictionary-encoding",
+      "name": "Dictionary Encoding",
+      "aka": ["dictionary compression", "domain encoding", "dictionary encoding with patching (variant)"],
+      "kind": "data-representation",
+      "what": "Replace repeated wide values in a column with small fixed-width integer codes indexing a dictionary of the distinct values; operators can often work directly on the codes.",
+      "problem": "Low-cardinality columns waste space and memory bandwidth storing the same strings repeatedly; integer codes compress the data and make scans and comparisons cheaper, especially in columnar layouts.",
+      "named_in": "Abadi, Boncz, Harizopoulos, Idreos, Madden — The Design and Implementation of Modern Column-Oriented Database Systems (Foundations and Trends in Databases 5(3), 2013)",
+      "named_in_corpus_id": null,
+      "tags": ["databases", "columnar"],
+      "borderline": null,
+      "confidence": "established"
+    }
+  ],
+  "parked_architecture": [],
+  "excluded_notable": [
+    {
+      "name": "Semantic Data Types (mission anchor phrase)",
+      "why": "No published source names this exact phrase as a design element (searched, including White's Making Embedded Systems). The mechanism is covered by newtype + value-object + quantity + Whole Value (already an aka of newtype, verified live in Cunningham's CHECKS at c2.com/ppr/checks.html), now extended by the new units-of-measure-types entry. Anchor considered covered."
+    },
+    {
+      "name": "Asynchronous Programming Models (mission anchor phrase)",
+      "why": "Umbrella term, not one mechanism. Covered in the index by async-await-model, coroutine, future-promise, event-loop, proactor, green-threads, protothread, continuation-passing-style. Anchor considered covered; nothing added."
+    },
+    {
+      "name": "Binding Properties (charter seed, attributed to Grand 1998)",
+      "why": "Attribution did not verify live: Wikipedia's 'Binding properties pattern' credits Victor Porton, not Grand, and searches of Grand's Patterns in Java vol 1 contents did not surface it. The mechanism (synchronize properties across objects via change observers) is the indexed data-binding element (aka already includes 'property binding'). Recommend adding 'Binding Properties' and 'bound properties (JavaBeans API spec 1.01, 1997)' to data-binding's aka rather than creating a duplicate."
+    },
+    {
+      "name": "Whole Value (Cunningham CHECKS)",
+      "why": "Verified live (c2.com/ppr/checks.html) but already folded into the index as an aka of newtype; kept folded per the dedup rule. Integrator may prefer promoting it to a standalone element since it is the closest published name for the 'semantic data types' anchor; if promoted, remove it from newtype's aka."
+    }
+  ],
+  "notes": "Charter resolution. (1) 'semantic data types' anchor: the exact phrase is not an established element name in any source found (checked White's Making Embedded Systems via search; only unrelated semantic-web literature uses the phrase). Coverage story: newtype, value-object, quantity, smart-data already indexed; Whole Value (Cunningham, CHECKS, PLoP 1994 - live-verified) is folded as newtype aka; added units-of-measure-types (Kennedy) as the missing type-level member of the family. (2) 'asynchronous programming models' anchor: already covered by async-await-model (index line 16) plus coroutine/future-promise/event-loop/proactor et al; nothing added. (3) Seeds: 10 of 11 verified and added (Composed Method, Method Object, Exceptional Value, Disruptor, Operational Transformation, Functional Options, Structured Concurrency, Feature Flag, Template Engine, Dictionary Encoding); Binding Properties deliberately rejected as a duplicate of data-binding with an unverifiable Grand attribution (see excluded_notable). All naming sources confirmed by live search/fetch this session; CHECKS page loaded in full. named_in_corpus_id used only for fowlerref (Fowler, Refactoring) on method-object; Beck SBPP, CHECKS, LMAX paper, Ellis&Gibbs 1989, Kennedy, Parr WWW2004, Abadi et al 2013, Hodgson 2017, Smith 2018 are NOT in work_ids.tsv - flag for Phase 2 as new nodes. INDEX ERRORS SPOTTED: (a) 'adapter' lists 'Decorator' as an aka, and GoF Decorator appears nowhere else in the index - Decorator is a distinct GoF pattern and is effectively MISSING; recommend splitting it out. (b) 'factory-method' lists 'Prototype, clone' as aka, and GoF Prototype appears nowhere else - also a distinct GoF pattern, effectively MISSING; recommend splitting. Those two were not added here (outside charter, and technically present 'under an alias'), but they are the two highest-priority fixes this hunt surfaced. Minor: 'special-case' and the new exceptional-value should get a cross-reference note at integration; 'data-binding' aka should absorb 'Binding Properties' and 'bound properties (JavaBeans)'."
+}

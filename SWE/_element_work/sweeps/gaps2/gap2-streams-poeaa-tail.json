@@ -1,0 +1,70 @@
+{
+  "scout": "gap2-streams-poeaa-tail",
+  "elements": [
+    {
+      "id": "stream-trigger",
+      "name": "Trigger (Stream Processing)",
+      "aka": "triggers, watermark trigger, processing-time trigger, repeated/composite triggers, early/on-time/late firings (panes), accumulation mode (discarding/accumulating/retracting, companion policy)",
+      "kind": "data-flow-buffering",
+      "what": "A declarative mechanism that decides WHEN the accumulated contents of a window are materialized and emitted, driven by signals such as watermark passage, processing time, element count, or composites of these.",
+      "problem": "Windowing says where in event time data is grouped and the watermark says when input is believed complete, but neither says when to emit results; a trigger decouples output timing from input completeness, enabling early speculative results and late corrections instead of a single emit-at-watermark policy.",
+      "named_in": "The Dataflow Model (Akidau et al., PVLDB 8(12), 2015, sec. 2.3); modern canonical treatment: Streaming Systems (Akidau, Chernyak, Lax, 2018) and the Apache Beam programming guide (sec. 9 'Triggers', verified live 2026-07-10)",
+      "tags": "streaming; databases; distributed-adjacent but implementable inside a single stream operator/engine component; complements stream-windowing and event-time-watermark (distinct mechanism: output timing, not grouping or completeness)"
+    },
+    {
+      "id": "semantic-model",
+      "name": "Semantic Model",
+      "aka": "—",
+      "kind": "parsing-text",
+      "what": "The in-memory model that a DSL parse populates and that the rest of the system executes against, kept deliberately separate from the parser and from any syntax tree.",
+      "problem": "Binding behavior directly to parsing (or to the syntax tree) entangles language processing with domain logic; a separate semantic model lets the same model be populated by multiple syntaxes, tested without parsing, and evolved independently of the grammar.",
+      "named_in": "Fowler, Domain-Specific Languages (Addison-Wesley, 2010), ch. 11; martinfowler.com/dslCatalog ('The model that's populated by a DSL', verified live 2026-07-10)",
+      "tags": "DSL processing; pairs with abstract-syntax-tree (the syntax-side representation) and embedded-domain-specific-language"
+    },
+    {
+      "id": "expression-builder",
+      "name": "Expression Builder",
+      "aka": "—",
+      "kind": "construction-api",
+      "what": "An object, or family of objects, that provides a fluent interface layered over a normal command-query API, translating chained expression-style calls into calls on the underlying objects.",
+      "problem": "Putting fluent methods directly on domain objects pollutes their command-query API and couples them to one DSL syntax; a separate builder layer isolates the fluent facade so the domain API stays conventional and multiple fluent syntaxes can coexist.",
+      "named_in": "Fowler, Domain-Specific Languages (Addison-Wesley, 2010), ch. 32; martinfowler.com/dslCatalog ('An object, or family of objects, that provides a fluent interface over a normal command-query API', verified live 2026-07-10)",
+      "tags": "internal DSLs; distinct from fluent-interface (the style) — this is the dedicated builder object that carries the style; composes with builder and method chaining"
+    }
+  ],
+  "parked_architecture": [
+    {
+      "name": "Distributed Snapshot / Checkpoint Barrier (Chandy-Lamport; Flink Asynchronous Barrier Snapshotting)",
+      "named_in": "Chandy & Lamport, 'Distributed Snapshots: Determining Global States of Distributed Systems' (ACM TOCS 3(1), 1985); Carbone et al., 'Lightweight Asynchronous Snapshots for Distributed Dataflows' (2015, Flink ABS)",
+      "rationale": "Fails altitude upward: a protocol for capturing a consistent global state across the processes and channels of a distributed dataflow — barrier markers flow between workers over network channels. It is a system-level coordination protocol, not a mechanism implementable inside one program or component; the in-engine feel of Flink's barriers does not change that the mechanism's subject is inter-process global state. Phase 3 candidate (fault-tolerance / exactly-once tactics)."
+    },
+    {
+      "name": "Session State placement trio: Client Session State / Server Session State / Database Session State (PoEAA)",
+      "named_in": "Fowler, Patterns of Enterprise Application Architecture (2002), ch. 17 (Session State patterns)",
+      "rationale": "Fails altitude upward: the three patterns are alternatives in a WHERE-does-session-state-live decision across tiers (client, app server, database) — a distribution/topology and statefulness decision about system structure, not an in-component mechanism. PoEAA itself frames them as a choice about server affinity, clustering, and failover. The in-process mechanisms they decompose into are already cataloged (abstract-session, security-session, serialized-lob, memento). Phase 3 candidates (state-placement / session-management architecture decisions)."
+    }
+  ],
+  "excluded_notable": [
+    {
+      "name": "Allowed Lateness",
+      "named_in": "The Dataflow Model (PVLDB 2015); Apache Beam programming guide sec. 8.4 'Watermarks and late data' (verified live 2026-07-10)",
+      "reason": "Checked and rejected as a standalone element: a policy parameter (how long past the watermark window state is retained so late data can still fire late panes), not an independent mechanism — it exists only relative to windowing, watermark, and trigger. Folded: recorded as companion policy in the new stream-trigger entry; also fits as an aka/note on event-time-watermark."
+    },
+    {
+      "name": "Value Holder (PoEAA lazy-load variant)",
+      "named_in": "Fowler, PoEAA (2002), Lazy Load pattern",
+      "reason": "Already covered: 'value holder' is listed in the aka of the existing proxy entry (which absorbed Lazy Load/ghost/virtual proxy). No new element."
+    },
+    {
+      "name": "Record Set (PoEAA)",
+      "named_in": "Fowler, PoEAA (2002)",
+      "reason": "Already in the index as record-set (data-representation). No new element."
+    },
+    {
+      "name": "Pane accumulation modes (Discarding / Accumulating / Accumulating & Retracting)",
+      "named_in": "The Dataflow Model (PVLDB 2015), sec. 2.3",
+      "reason": "Checked and rejected as standalone: refinement-relationship policy for successive trigger firings of the same window; meaningless without triggers. Folded into stream-trigger aka."
+    }
+  ],
+  "notes": "Final-saturation gap hunt over two residual veins. (a) Streams: of the Dataflow Model's remaining named mechanisms only Trigger stands as a distinct element (output timing, vs windowing=grouping and watermark=completeness); allowed lateness and accumulation modes are dependent policies, folded and recorded. Chandy-Lamport/Flink-ABS snapshotting judged system-level and parked for Phase 3. (b) Fowler tail: PoEAA session-state trio parked upward (tier-placement decision); Value Holder and Record Set already covered by the index; the two established chapter-level DSL-book mechanisms absent from the index (Semantic Model, Expression Builder) were verified live on martinfowler.com/dslCatalog and added. Incidental observation while verifying the DSL catalog: most of its altitude-passing entries are already in the index under their canonical homes (parser-combinator, recursive-descent-parser, symbol-table, generation-gap, notification, method chaining under fluent-interface); Parser Generator is a tool category rather than an in-program mechanism and was not pursued. Yield 3 new / 2 parked / 4 rejected — consistent with saturation. No named_in corpus ids used: work_ids.tsv carries neither PoEAA, the Fowler DSL book, nor the Dataflow paper (only fowlerci/fowlerref for Fowler); all three are Phase 2 new-node candidates."
+}

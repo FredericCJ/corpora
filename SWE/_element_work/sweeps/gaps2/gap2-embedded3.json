@@ -1,0 +1,112 @@
+{
+  "scout": "gap2-embedded3",
+  "elements": [
+    {
+      "id": "system-tick",
+      "name": "System Tick",
+      "aka": "tick interrupt, RTOS tick, SysTick, kernel tick, tick counter, tick time base, jiffies (Linux)",
+      "kind": "scheduling-time",
+      "what": "A periodic timer interrupt increments a monotonic tick counter that serves as the system's software time base, driving timekeeping, timeouts, and scheduler preemption decisions.",
+      "problem": "Bare-metal and RTOS code needs a cheap, uniform notion of elapsed time without dedicating a hardware timer per consumer; a single periodic tick gives every timeout, delay, software timer, and time-slice decision one shared clock.",
+      "named_in": "white",
+      "named_in_detail": "White, Making Embedded Systems 2nd ed. (2024), ch. 5 'Interrupts', section 'System Tick' (verified live from book ToC this session); also the FreeRTOS 'tick interrupt' and ARM Cortex-M SysTick vocabulary.",
+      "tags": "embedded, rtos, bare-metal; the mechanism tickless-idle (already cataloged) suppresses and schedulers like the TTC scheduler consume — the tick time base itself was the missing element"
+    },
+    {
+      "id": "core-dump",
+      "name": "Core Dump",
+      "aka": "crash dump, coredump capture, minidump, postmortem dump, fault dump, crash log with register/stack snapshot",
+      "kind": "error-handling",
+      "what": "On a fatal fault, a handler serializes the program's execution state (registers, stack, selected memory regions, fault status) to persistent storage or a host channel for postmortem analysis.",
+      "problem": "Crashes in the field or in hard-to-reproduce conditions leave no debugger attached; capturing machine state at the moment of failure lets developers diagnose the fault after the fact instead of losing it to a silent reset.",
+      "named_in": "white",
+      "named_in_detail": "White, Making Embedded Systems 2nd ed. (2024), ch. 9 'Getting into Trouble', sections 'Creating a Core Dump' / 'Using the Core Dump' (verified live from book ToC this session); 'core dump' is decades-established Unix vocabulary, and embedded fleet tooling (Memfault) centers on it.",
+      "tags": "embedded, debugging, borderline — diagnostics/tooling-adjacent mechanism (hosted OSes provide it as a facility), included because embedded systems design it in explicitly as a hard-fault-handler mechanism, same altitude as the cataloged stack-painting-watermarking"
+    }
+  ],
+  "parked_architecture": [
+    {
+      "name": "Chained Processors",
+      "reason": "White 2e ch. 13: a low-power coprocessor gates a high-power main processor; system-level processor partitioning, fails the altitude test upward.",
+      "source": "white"
+    }
+  ],
+  "excluded_notable": [
+    {
+      "candidate": "Command-response protocol over serial links",
+      "verdict": "no separate element",
+      "reason": "White 2e ch. 3 names 'Command and Response' at section level, but the mechanism is request-reply (already cataloged, aka request-response) realized over a serial link; the implementation side is covered by command + function-pointer-dispatch-table. Editorial suggestion: add 'command-response' to request-reply's aka."
+    },
+    {
+      "candidate": "Debug command interpreter / serial CLI shell (command table)",
+      "verdict": "covered by composition",
+      "reason": "White 2e ch. 3 'Command Pattern': a table of {name, function pointer, help} dispatching console commands; she names it with the GoF Command name, and the table is the cataloged function-pointer-dispatch-table. No independent catalog-grade name found beyond the reused GoF name."
+    },
+    {
+      "candidate": "Interrupt priority grouping / nesting discipline",
+      "verdict": "covered / too low-level",
+      "reason": "Nesting is cataloged as nested-interrupt-handling (aka interrupt nesting, preemptive interrupt priorities); NVIC priority-group configuration is a vendor register-setup detail below the design band."
+    },
+    {
+      "candidate": "RTOS priority-based preemptive scheduling",
+      "verdict": "duplicate",
+      "reason": "Cataloged as static-priority-scheduling (aka fixed-priority preemptive scheduling), with round-robin-scheduling and dynamic-priority-scheduling covering the neighboring disciplines."
+    },
+    {
+      "candidate": "Main-loop watchdog kick placement (pet from main loop, never from a timer ISR)",
+      "verdict": "practice",
+      "reason": "Koopman BESS ch. 29's core guideline ('timers turned off or kicked from a hardware timer' is the red flag); it is a usage rule for the cataloged watchdog element, whose aka already carries kicking/petting."
+    },
+    {
+      "candidate": "Reset cause handling (act on power-on vs watchdog vs brown-out reset at boot)",
+      "verdict": "no established element-level name",
+      "reason": "Koopman BESS ch. 30 ('Insufficient attention to system reset') discusses it as a concern, not a named pattern; reading the reset-cause register is boot-time practice, and the recovery mechanisms are cataloged (watchdog, restart, brown-out-handling, safe-state). Omitted rather than invent a name."
+    },
+    {
+      "candidate": "Standard driver interface (open/close/read/write/ioctl)",
+      "verdict": "fold into existing",
+      "reason": "White 2e ch. 2 'Driver Interface: Open, Close, Read, Write, IOCTL' is the API-shape idiom of the cataloged device-driver element (Unix driver model); recommend as aka on device-driver rather than a second element."
+    },
+    {
+      "candidate": "Pulse-width modulation (PWM)",
+      "verdict": "below the band",
+      "reason": "White 2e ch. 4: hardware signal-generation technique; the software involvement is timer configuration, and fully-software PWM is bit-banging (cataloged). Not a software design element."
+    },
+    {
+      "candidate": "Key matrix scanning",
+      "verdict": "below the band",
+      "reason": "White 2e ch. 8 'Key Matrices': row/column wiring plus a small scan loop; predominantly a circuit technique (sibling of segmented displays in the same chapter)."
+    },
+    {
+      "candidate": "Flash file system (littlefs / SPIFFS)",
+      "verdict": "component, not element",
+      "reason": "White 2e ch. 8 'Little File Systems': a subsystem-scale artifact; its constituent mechanisms are already cataloged (flash-translation-layer, flash-wear-leveling, eeprom-emulation-in-flash)."
+    },
+    {
+      "candidate": "Moving-average / exponential-smoothing (EWMA) / median smoothing filters",
+      "verdict": "declined under the zoo rule",
+      "reason": "White 2e ch. 12 covers averaging for sensor data; EWMA and median filters are established DSP mechanisms and genuinely absent, but admitting one opens the DSP filter zoo (FIR/IIR/Kalman/complementary) with no single canonical element to stand for it. Flagged for editorial decision rather than added at the strictness peak — the strongest residual candidate this hunter rejected."
+    },
+    {
+      "candidate": "Race-to-sleep / DVFS / peripheral clock gating",
+      "verdict": "power-management strategy, hardware-coupled",
+      "reason": "White 2e ch. 13: strategies for using hardware power modes; the cataloged software mechanism in this space is tickless-idle. No implementable in-program mechanism distinct from configuring hardware."
+    },
+    {
+      "candidate": "Trapezoidal motion profile; quadrature encoder decoding",
+      "verdict": "domain algorithm zoo",
+      "reason": "White 2e ch. 14: motor-control-domain algorithms; pid-controller is the cataloged representative control-loop element. Adding these opens the motion-control algorithm enumeration."
+    },
+    {
+      "candidate": "Version field in protocol/firmware ('Version!')",
+      "verdict": "fold into existing",
+      "reason": "White 2e ch. 10: versioning messages and images; covered between magic-number-file-signature (aka format identifier) and schema-evolution-via-field-tags; EIP's Format Indicator is the same territory."
+    },
+    {
+      "candidate": "Staged rollout / fallback lifeboat firmware update",
+      "verdict": "covered / process",
+      "reason": "White 2e ch. 10: fallback/golden-image is already an aka of a-b-firmware-image-update; staged rollout is fleet operations, not an in-program mechanism."
+    }
+  ],
+  "notes": "FINAL saturation round, embedded residuals. Real ToC sweeps performed: (1) White, Making Embedded Systems 2nd ed. 2024 — full 428-page PDF outline extracted (all 14 chapters, every section heading reviewed); (2) Koopman, Better Embedded System Software — the author's own 29-topic contents deck loaded live (koopman.us was down over HTTPS; the semanticscholar mirror of his BESS overview slides decompressed locally); BESS is ~90% process-level (plans, requirements, reviews, style), and its technical chapters (statecharts, real-time scheduling, mutexes, error logs, watchdog, reset) are all covered by existing entries. Yield: 2 additions from White (system-tick — the tick time base, which existing entries only reference as aka fragments of schedulers built on it; core-dump — borderline-tagged diagnostics mechanism), 1 parked (chained processors), 15 candidates checked and rejected with rationale, including all four charter judgment calls (command-response = request-reply duplicate; priority grouping = covered/low-level; RTOS preemptive scheduling = static-priority-scheduling duplicate; watchdog kick placement = practice). The vein is effectively dry: the only remaining defensible territory is the DSP smoothing-filter family, deliberately declined under the algorithm-zoo rule and flagged for editorial decision. This near-zero yield is the saturation signal."
+}

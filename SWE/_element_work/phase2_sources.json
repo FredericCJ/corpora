@@ -1,0 +1,4436 @@
+{
+ "memberships": {
+  "gof": [
+   "abstract-factory",
+   "adapter",
+   "bridge",
+   "builder",
+   "chain-of-responsibility",
+   "command",
+   "composite",
+   "decorator",
+   "facade",
+   "factory-method",
+   "flyweight",
+   "interpreter",
+   "iterator",
+   "mediator",
+   "memento",
+   "observer",
+   "prototype",
+   "proxy",
+   "singleton",
+   "state",
+   "strategy",
+   "template-method",
+   "undo-redo-command-stack",
+   "visitor"
+  ],
+  "preschern": [
+   "aggregate-instance",
+   "allocation-wrapper",
+   "callee-allocates",
+   "caller-owned-buffer",
+   "cleanup-record",
+   "dedicated-ownership",
+   "escaping-ifdef-hell",
+   "function-control",
+   "guard-clause",
+   "include-guard",
+   "lazy-cleanup",
+   "log-errors",
+   "out-parameters",
+   "pointer-check",
+   "pool-allocation",
+   "return-status-code",
+   "samurai-principle",
+   "software-module-with-global-state",
+   "special-return-value",
+   "stack-first",
+   "stateless-software-module",
+   "static-allocation"
+  ],
+  "douglasspatternsc": [
+   "critical-region",
+   "cyclic-executive",
+   "debouncing",
+   "decomposed-and-state",
+   "dual-channel",
+   "guarded-call",
+   "hardware-adapter",
+   "hardware-proxy",
+   "interrupt-service-routine",
+   "message-queue",
+   "multiple-event-receptor",
+   "one-s-complement-data-storage",
+   "ordered-locking",
+   "polling",
+   "protected-single-channel",
+   "rendezvous",
+   "simultaneous-locking",
+   "single-event-receptor",
+   "smart-data",
+   "state-transition-table",
+   "static-priority-scheduling"
+  ],
+  "noblesmallmem": [
+   "captain-oates",
+   "compaction",
+   "compression",
+   "copy-on-write",
+   "data-files",
+   "embedded-pointer",
+   "hooks",
+   "memory-discard",
+   "memory-limit",
+   "multiple-representations",
+   "packed-data",
+   "paging",
+   "pool-allocation",
+   "read-only-memory",
+   "resource-files",
+   "sharing",
+   "static-allocation",
+   "variable-allocation"
+  ],
+  "posa2": [
+   "acceptor-connector",
+   "active-object",
+   "asynchronous-completion-token",
+   "component-configurator",
+   "double-checked-locking",
+   "extension-interface",
+   "half-sync-half-async",
+   "interceptor",
+   "leader-followers",
+   "monitor-object",
+   "proactor",
+   "reactor",
+   "scoped-locking",
+   "strategized-locking",
+   "thread-safe-interface",
+   "thread-specific-storage",
+   "wrapper-facade"
+  ],
+  "hanmer": [
+   "acknowledgement",
+   "checkpointing",
+   "complete-parameter-checking",
+   "correcting-audits",
+   "cyclic-redundancy-check",
+   "deferrable-work",
+   "error-handler",
+   "escalation",
+   "fresh-work-before-stale",
+   "heartbeat",
+   "leaky-bucket-counter",
+   "marked-data",
+   "quarantine",
+   "restart",
+   "riding-over-transients",
+   "roll-forward",
+   "rollback"
+  ],
+  "douglassrtcorpus": [
+   "dynamic-priority-scheduling",
+   "fixed-sized-buffer",
+   "garbage-collection",
+   "pool-allocation",
+   "priority-ceiling-protocol",
+   "round-robin-scheduling",
+   "sanity-check",
+   "shared-memory-communication",
+   "smart-pointer",
+   "static-allocation",
+   "watchdog"
+  ],
+  "posa3": [
+   "caching",
+   "coordinator",
+   "eager-acquisition",
+   "evictor",
+   "leasing",
+   "lookup",
+   "partial-acquisition",
+   "pooling",
+   "proxy",
+   "resource-lifecycle-manager"
+  ],
+  "nygard": [
+   "backpressure",
+   "bulkhead",
+   "circuit-breaker",
+   "fail-fast",
+   "governor",
+   "handshaking",
+   "let-it-crash",
+   "load-shedding",
+   "steady-state",
+   "timeout"
+  ],
+  "samekbook": [
+   "deferred-event",
+   "finite-state-machine",
+   "hierarchical-state-machine",
+   "orthogonal-component",
+   "reminder",
+   "run-to-completion-event-processing",
+   "transition-to-history",
+   "ultimate-hook"
+  ],
+  "freertosbook": [
+   "direct-to-task-notification",
+   "event-flags-group",
+   "idle-task-hook",
+   "software-timer",
+   "stack-painting-watermarking",
+   "stream-buffer",
+   "tickless-idle"
+  ],
+  "hanson": [
+   "callback-with-context-pointer",
+   "memory-arena",
+   "opaque-pointer",
+   "sanity-check",
+   "setjmp-longjmp-error-handling"
+  ],
+  "pont": [
+   "cyclic-executive",
+   "loop-timeout",
+   "multi-state-task",
+   "super-loop",
+   "time-triggered-co-operative-scheduler"
+  ],
+  "ldd3": [
+   "container-of",
+   "deferred-interrupt-processing",
+   "device-driver",
+   "scatter-gather-dma"
+  ],
+  "iglberger": [
+   "curiously-recurring-template-pattern-crtp",
+   "small-buffer-optimization",
+   "type-erasure",
+   "value-semantics"
+  ],
+  "schreiner": [
+   "callback",
+   "object-orientation-in-c",
+   "oo-in-c-via-explicit-vtable"
+  ],
+  "white": [
+   "direct-memory-access-dma-transfer",
+   "ring-buffer",
+   "watchdog"
+  ],
+  "fowlerref": [
+   "guard-clause",
+   "method-object"
+  ],
+  "preschernplop": [
+   "organizing-files-in-modular-c-programs",
+   "return-status-code"
+  ],
+  "labrosse": [
+   "fixed-point-arithmetic",
+   "mailbox"
+  ],
+  "grenningtdd": [
+   "dependency-injection",
+   "null-object"
+  ],
+  "yiu": [
+   "interrupt-vector-table",
+   "nested-interrupt-handling"
+  ],
+  "carnieregisters": [
+   "tag-dispatching",
+   "traits-class"
+  ],
+  "carniebigfour": [
+   "raii-resource-acquisition-is-initialization",
+   "rule-of-three-five-zero"
+  ],
+  "liulayland": [
+   "dynamic-priority-scheduling",
+   "static-priority-scheduling"
+  ],
+  "pigweedsdk": [
+   "facade-backend-module-pattern"
+  ],
+  "beningofw": [
+   "hardware-abstraction-layer"
+  ],
+  "tornhill": [
+   "opaque-pointer"
+  ],
+  "etl": [
+   "fixed-capacity-container"
+  ],
+  "memfaultea": [
+   "a-b-firmware-image-update"
+  ],
+  "zerotomain": [
+   "bootloader-jump-handoff"
+  ],
+  "barrc": [
+   "interrupt-service-routine"
+  ],
+  "tr18015": [
+   "iohw-h-standard-hardware-i-o-interface"
+  ],
+  "sakscolumns": [
+   "memory-mapped-register-access"
+  ],
+  "meyersembedded": [
+   "memory-mapped-register-access"
+  ],
+  "kensmith": [
+   "typesafe-register-access-via-c-templates"
+  ],
+  "kernelstyle": [
+   "goto-cleanup"
+  ],
+  "p1028": [
+   "result-type"
+  ],
+  "iso26262": [
+   "safe-state"
+  ],
+  "dreppermem": [
+   "false-sharing-avoidance-via-cache-line-padding"
+  ],
+  "protothreads": [
+   "protothread"
+  ],
+  "vanooijentalk": [
+   "curiously-recurring-template-pattern-crtp"
+  ],
+  "kandr": [
+   "function-pointer-dispatch-table"
+  ],
+  "dlmalloc": [
+   "boundary-tags"
+  ],
+  "eastl": [
+   "custom-allocator"
+  ],
+  "wilsonsurvey": [
+   "free-list"
+  ],
+  "levine": [
+   "memory-overlay"
+  ],
+  "ld": [
+   "memory-overlay"
+  ],
+  "coreguidelines": [
+   "rule-of-three-five-zero"
+  ],
+  "tlsf": [
+   "two-level-segregated-fit-allocator-tlsf"
+  ],
+  "seacordsecure": [
+   "canonicalization-before-validation"
+  ],
+  "iec61508": [
+   "program-sequence-monitoring"
+  ],
+  "mcconnell": [
+   "sanity-check"
+  ],
+  "certc": [
+   "secure-zeroization"
+  ],
+  "koopmanbess": [
+   "watchdog"
+  ],
+  "dsimonprimer": [
+   "interrupt-masking-critical-section"
+  ]
+ },
+ "new_work_candidates": [
+  {
+   "key": "patterns of enterprise application architecture",
+   "citations": [
+    "Patterns of Enterprise Application Architecture - Martin Fowler (2002)"
+   ],
+   "naming_for": [
+    "active-record",
+    "association-table-mapping",
+    "class-table-inheritance",
+    "coarse-grained-lock",
+    "concrete-table-inheritance",
+    "data-mapper",
+    "data-transfer-object",
+    "dependent-mapping",
+    "embedded-value",
+    "foreign-key-mapping",
+    "gateway",
+    "identity-field",
+    "identity-map",
+    "implicit-lock",
+    "inheritance-mappers",
+    "layer-supertype",
+    "mapper",
+    "metadata-mapping",
+    "money",
+    "optimistic-offline-lock",
+    "pessimistic-offline-lock",
+    "plugin",
+    "query-object",
+    "record-set",
+    "registry",
+    "repository",
+    "row-data-gateway",
+    "separated-interface",
+    "serialized-lob",
+    "service-stub",
+    "single-table-inheritance",
+    "special-case",
+    "table-data-gateway",
+    "unit-of-work",
+    "value-object"
+   ],
+   "also_source_for": [
+    "proxy"
+   ]
+  },
+  {
+   "key": "enterprise integration patterns",
+   "citations": [
+    "Enterprise Integration Patterns - Hohpe & Woolf (2003)",
+    "Enterprise Integration Patterns - Hohpe, Woolf (2003)"
+   ],
+   "naming_for": [
+    "aggregator",
+    "claim-check",
+    "competing-consumers",
+    "content-based-router",
+    "correlation-identifier",
+    "dead-letter-channel",
+    "event-driven-consumer",
+    "idempotent-receiver",
+    "message",
+    "message-dispatcher",
+    "message-expiration",
+    "message-filter",
+    "polling-consumer",
+    "publish-subscribe-channel",
+    "request-reply",
+    "resequencer",
+    "return-address",
+    "scatter-gather",
+    "selective-consumer",
+    "splitter",
+    "wire-tap"
+   ],
+   "also_source_for": [
+    "message-queue"
+   ]
+  },
+  {
+   "key": "game programming patterns",
+   "citations": [
+    "Game Programming Patterns - Robert Nystrom (2014)"
+   ],
+   "naming_for": [
+    "bytecode",
+    "component",
+    "data-locality",
+    "dirty-flag",
+    "double-buffer",
+    "game-loop",
+    "spatial-partition",
+    "subclass-sandbox",
+    "type-object",
+    "update-method"
+   ],
+   "also_source_for": [
+    "message-queue",
+    "pooling"
+   ]
+  },
+  {
+   "key": "patternoriented software architecture vol 4 a pattern language for dis",
+   "citations": [
+    "Pattern-Oriented Software Architecture Vol. 4: A Pattern Language for Distributed Computing - Buschmann, Henney, Schmidt"
+   ],
+   "naming_for": [
+    "batch-method",
+    "collections-for-states",
+    "combined-method",
+    "context-object",
+    "copied-value",
+    "enumeration-method",
+    "immutable-value",
+    "introspective-interface",
+    "lifecycle-callback",
+    "methods-for-states"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "introduction to algorithms",
+   "citations": [
+    "Introduction to Algorithms - Cormen, Leiserson, Rivest, Stein (2009)"
+   ],
+   "naming_for": [
+    "adjacency-list-adjacency-matrix",
+    "binary-search-tree",
+    "disjoint-set-union-find",
+    "dynamic-array",
+    "hash-table",
+    "interval-tree",
+    "linked-list",
+    "queue-fifo",
+    "stack"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "java concurrency in practice",
+   "citations": [
+    "Java Concurrency in Practice - Goetz et al. (2006)",
+    "Java Concurrency in Practice - Goetz, Peierls, Bloch, Bowbeer, Holmes, Lea (2006)"
+   ],
+   "naming_for": [
+    "executor",
+    "latch",
+    "lock-striping",
+    "reentrant-lock",
+    "safe-publication",
+    "thread-confinement",
+    "thread-pool"
+   ],
+   "also_source_for": [
+    "copy-on-write"
+   ]
+  },
+  {
+   "key": "patternoriented software architecture vol 1 a system of patterns",
+   "citations": [
+    "Pattern-Oriented Software Architecture Vol. 1: A System of Patterns - Buschmann, Meunier, Rohnert, Sommerlad, Stal (1996"
+   ],
+   "naming_for": [
+    "client-dispatcher-server",
+    "command-processor",
+    "forwarder-receiver",
+    "master-slave",
+    "view-handler",
+    "whole-part"
+   ],
+   "also_source_for": [
+    "observer"
+   ]
+  },
+  {
+   "key": "patterns for parallel programming",
+   "citations": [
+    "Patterns for Parallel Programming - Mattson, Sanders, Massingill (2004)"
+   ],
+   "naming_for": [
+    "fork-join",
+    "loop-parallelism",
+    "pipeline-parallelism",
+    "spmd"
+   ],
+   "also_source_for": [
+    "master-slave",
+    "rendezvous"
+   ]
+  },
+  {
+   "key": "more c idioms",
+   "citations": [
+    "More C++ Idioms - Wikibooks (living)",
+    "More C++ Idioms - Wikibooks (living); 'The Empty Member C++ Optimization' - Nathan Myers, Dr. Dobb's (1997)",
+    "More C++ Idioms - Wikibooks (living); classical C++ FAQ (Cline) entry",
+    "More C++ Idioms - Wikibooks (living); popularized by the C++ FAQ (Cline) and Effective C++ (Meyers)",
+    "More C++ Idioms - Wikibooks (living); the general mechanism is classical OS vocabulary (fork COW pages)"
+   ],
+   "naming_for": [
+    "construct-on-first-use",
+    "empty-base-optimization-ebo",
+    "named-parameter-idiom",
+    "nifty-counter"
+   ],
+   "also_source_for": [
+    "copy-on-write"
+   ]
+  },
+  {
+   "key": "effective java",
+   "citations": [
+    "Effective Java - Joshua Bloch (1st ed. 2001, Item 21)",
+    "Effective Java - Joshua Bloch (2001)",
+    "Effective Java - Joshua Bloch (2001; 3rd ed. 2018, Item 1)",
+    "Effective Java - Joshua Bloch (2001; 3rd ed. Item 50)",
+    "Effective Java - Joshua Bloch (2018, 3rd ed.), Item 90",
+    "Effective Java - Joshua Bloch (3rd ed., Item 41)",
+    "Effective Java - Joshua Bloch (3rd ed., Item 90)"
+   ],
+   "naming_for": [
+    "defensive-copy",
+    "marker-interface",
+    "serialization-proxy",
+    "static-factory-method",
+    "type-safe-enum"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "patterns in java volume 1 a catalog of reusable design patterns illust",
+   "citations": [
+    "Patterns in Java, Volume 1: A Catalog of Reusable Design Patterns Illustrated with UML - Grand (1998)"
+   ],
+   "naming_for": [
+    "balking",
+    "guarded-suspension",
+    "scheduler",
+    "two-phase-termination"
+   ],
+   "also_source_for": [
+    "immutable-value"
+   ]
+  },
+  {
+   "key": "compilers principles techniques and tools dragon book",
+   "citations": [
+    "Compilers: Principles, Techniques, and Tools (Dragon Book) - Aho, Lam, Sethi, Ullman (2006, 2nd ed.)"
+   ],
+   "naming_for": [
+    "abstract-syntax-tree",
+    "lexer",
+    "panic-mode-error-recovery",
+    "recursive-descent-parser",
+    "symbol-table"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "readthrough writethrough writebehind and refreshahead caching",
+   "citations": [
+    "Read-Through, Write-Through, Write-Behind, and Refresh-Ahead Caching - Oracle Coherence Developer's Guide (2009)"
+   ],
+   "naming_for": [
+    "read-through-cache",
+    "refresh-ahead-cache",
+    "write-behind-cache",
+    "write-through-cache"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "advanced c programming styles and idioms",
+   "citations": [
+    "Advanced C++: Programming Styles and Idioms - James O. Coplien (1992)",
+    "Advanced C++: Programming Styles and Idioms - James O. Coplien (1992) (as Handle/Body; 'pimpl' popularized by Herb Sutte",
+    "Advanced C++: Programming Styles and Idioms - James O. Coplien (1992; 'functor')"
+   ],
+   "naming_for": [
+    "envelope-letter",
+    "function-object"
+   ],
+   "also_source_for": [
+    "bridge",
+    "reference-counting"
+   ]
+  },
+  {
+   "key": "xunit test patterns refactoring test code",
+   "citations": [
+    "xUnit Test Patterns: Refactoring Test Code - Gerard Meszaros (2007)",
+    "xUnit Test Patterns: Refactoring Test Code — Gerard Meszaros (2007)"
+   ],
+   "naming_for": [
+    "humble-object",
+    "test-double",
+    "test-fixture"
+   ],
+   "also_source_for": [
+    "null-object"
+   ]
+  },
+  {
+   "key": "transaction processing concepts and techniques",
+   "citations": [
+    "Transaction Processing: Concepts and Techniques - Gray & Reuter (1992)"
+   ],
+   "naming_for": [
+    "deadlock-detection",
+    "group-commit",
+    "lock-escalation",
+    "write-ahead-log"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "the art of multiprocessor programming",
+   "citations": [
+    "The Art of Multiprocessor Programming - Herlihy & Shavit (2008)"
+   ],
+   "naming_for": [
+    "aba-mitigation-via-tagged-pointer",
+    "test-and-test-and-set-lock"
+   ],
+   "also_source_for": [
+    "compare-and-swap-loop",
+    "reference-counting"
+   ]
+  },
+  {
+   "key": "computer networks",
+   "citations": [
+    "Computer Networks - Andrew S. Tanenbaum (1981; 5th ed. 2011), framing",
+    "Computer Networks - Andrew S. Tanenbaum (1981; 5th ed. 2011), traffic shaping",
+    "Computer Networks - Tanenbaum, Wetherall (2011, 5th ed.); mechanism defined in ISO/IEC 13239 (HDLC)"
+   ],
+   "naming_for": [
+    "bit-stuffing"
+   ],
+   "also_source_for": [
+    "byte-stuffing",
+    "leaky-bucket",
+    "token-bucket"
+   ]
+  },
+  {
+   "key": "database internals",
+   "citations": [
+    "Database Internals - Petrov (2019)"
+   ],
+   "naming_for": [
+    "cache-eviction-policy",
+    "copy-on-write-b-tree",
+    "slotted-page-layout"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "domaindriven design tackling complexity in the heart of software",
+   "citations": [
+    "Domain-Driven Design: Tackling Complexity in the Heart of Software - Eric Evans (2003)"
+   ],
+   "naming_for": [
+    "aggregate",
+    "domain-service",
+    "entity"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "designing dataintensive applications",
+   "citations": [
+    "Designing Data-Intensive Applications - Kleppmann (2017)",
+    "Designing Data-Intensive Applications - Martin Kleppmann (2017), ch. 4 'Encoding and Evolution'"
+   ],
+   "naming_for": [
+    "fencing-token",
+    "schema-evolution-via-field-tags",
+    "secondary-index"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "cunningham the checks pattern language of information integrity plop 1",
+   "citations": [
+    "Cunningham, 'The CHECKS Pattern Language of Information Integrity' (PLoP 1994; c2.com/ppr/checks.html, loaded live)",
+    "Cunningham, The CHECKS Pattern Language of Information Integrity (PLoP 1994; c2.com/ppr/checks.html)"
+   ],
+   "naming_for": [
+    "deferred-validation",
+    "exceptional-value",
+    "meaningless-behavior"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "crafting interpreters",
+   "citations": [
+    "Crafting Interpreters - Robert Nystrom (2021)"
+   ],
+   "naming_for": [
+    "bytecode-virtual-machine",
+    "tree-walking-interpreter"
+   ],
+   "also_source_for": [
+    "sharing"
+   ]
+  },
+  {
+   "key": "the garbage collection handbook",
+   "citations": [
+    "The Garbage Collection Handbook - Jones, Hosking & Moss (2011)",
+    "The Garbage Collection Handbook — Jones, Hosking, Moss (2011)"
+   ],
+   "naming_for": [
+    "gc-read-barrier",
+    "weak-reference"
+   ],
+   "also_source_for": [
+    "garbage-collection"
+   ]
+  },
+  {
+   "key": "protocol buffers encoding documentation",
+   "citations": [
+    "Protocol Buffers Encoding documentation - Google (living)",
+    "Protocol Buffers Encoding documentation - Google (living); LEB128 defined in the DWARF Debugging Information Format stan",
+    "Protocol Buffers Encoding documentation - Google (living; 'length prefixes' / LEN wire type)"
+   ],
+   "naming_for": [
+    "length-prefix-framing",
+    "varint",
+    "zigzag-encoding"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "beck smalltalk best practice patterns 1997",
+   "citations": [
+    "Beck, Smalltalk Best Practice Patterns (1997)"
+   ],
+   "naming_for": [
+    "pluggable-selector"
+   ],
+   "also_source_for": [
+    "composed-method"
+   ]
+  },
+  {
+   "key": "cooperating sequential processes",
+   "citations": [
+    "Cooperating Sequential Processes - Dijkstra (1965)"
+   ],
+   "naming_for": [
+    "producer-consumer",
+    "semaphore"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "explicit interface and object manager two patterns from a pattern lang",
+   "citations": [
+    "Explicit Interface and Object Manager: Two Patterns from a Pattern Language for Distributed Computing - Buschmann, Henne"
+   ],
+   "naming_for": [
+    "explicit-interface",
+    "object-manager"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "advanced programming in the unix environment",
+   "citations": [
+    "Advanced Programming in the UNIX Environment - W. Richard Stevens (1992), 'Memory-Mapped I/O'",
+    "Advanced Programming in the UNIX Environment - W. Richard Stevens (1992), fork and copy-on-write"
+   ],
+   "naming_for": [
+    "memory-mapped-file-i-o"
+   ],
+   "also_source_for": [
+    "copy-on-write"
+   ]
+  },
+  {
+   "key": "the rust programming language",
+   "citations": [
+    "The Rust Programming Language - Klabnik & Nichols ('RefCell<T> and the Interior Mutability Pattern')",
+    "The Rust Programming Language - Klabnik & Nichols (2019), 'Using the Newtype Pattern'"
+   ],
+   "naming_for": [
+    "interior-mutability"
+   ],
+   "also_source_for": [
+    "newtype"
+   ]
+  },
+  {
+   "key": "analysis patterns reusable object models",
+   "citations": [
+    "Analysis Patterns: Reusable Object Models - Martin Fowler (1996)"
+   ],
+   "naming_for": [
+    "quantity",
+    "range"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "realtime rendering",
+   "citations": [
+    "Real-Time Rendering - Akenine-Moller, Haines, Hoffman (2008, 3rd ed.)",
+    "Real-Time Rendering - Akenine-Moller, Haines, Hoffman (2018)"
+   ],
+   "naming_for": [
+    "bounding-volume-hierarchy",
+    "scene-graph"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "release it design and deploy productionready software",
+   "citations": [
+    "Release It!: Design and Deploy Production-Ready Software - Michael T. Nygard (2007); also Azure Cloud Design Patterns"
+   ],
+   "naming_for": [],
+   "also_source_for": [
+    "bulkhead",
+    "circuit-breaker"
+   ]
+  },
+  {
+   "key": "white",
+   "citations": [
+    "white"
+   ],
+   "naming_for": [
+    "core-dump",
+    "system-tick"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "site reliability engineering how google runs production systems",
+   "citations": [
+    "Site Reliability Engineering: How Google Runs Production Systems - Beyer, Jones, Petoff, Murphy eds. (2016)"
+   ],
+   "naming_for": [
+    "deadline-propagation",
+    "retry-budget"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "mccool robison reinders structured parallel programming patterns for e",
+   "citations": [
+    "McCool, Robison, Reinders, Structured Parallel Programming: Patterns for Efficient Computation (2012)",
+    "McCool, Robison, Reinders, Structured Parallel Programming: Patterns for Efficient Computation (2012), stencil chapter"
+   ],
+   "naming_for": [
+    "parallel-reduction",
+    "stencil"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "modern c design",
+   "citations": [
+    "Modern C++ Design - Andrei Alexandrescu (2001)"
+   ],
+   "naming_for": [
+    "policy-based-design",
+    "typelist"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "smalltalk best practice patterns",
+   "citations": [
+    "Smalltalk Best Practice Patterns - Kent Beck (1997)"
+   ],
+   "naming_for": [
+    "collecting-parameter",
+    "execute-around-method"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "yoder barcalow plop 1997 schumacher et al security patterns wiley 2006",
+   "citations": [
+    "Yoder & Barcalow (PLoP 1997); Schumacher et al., Security Patterns (Wiley 2006)",
+    "Yoder & Barcalow (PLoP 1997); Schumacher et al., Security Patterns (Wiley 2006, 'Security Session')"
+   ],
+   "naming_for": [
+    "check-point",
+    "security-session"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "a guide to debouncing",
+   "citations": [
+    "A Guide to Debouncing - Ganssle (2004)",
+    "A Guide to Debouncing - Jack Ganssle (2004)"
+   ],
+   "naming_for": [],
+   "also_source_for": [
+    "debouncing"
+   ]
+  },
+  {
+   "key": "underscorejs documentation",
+   "citations": [
+    "Underscore.js documentation - _.debounce",
+    "Underscore.js documentation - _.throttle"
+   ],
+   "naming_for": [],
+   "also_source_for": [
+    "debouncing",
+    "throttle"
+   ]
+  },
+  {
+   "key": "itut x690",
+   "citations": [
+    "ITU-T X.690 - ASN.1 Basic Encoding Rules (BER/CER/DER); Type-length-value - Wikipedia",
+    "ITU-T X.690 - Distinguished Encoding Rules (DER); RFC 8785 - JSON Canonicalization Scheme (2020)"
+   ],
+   "naming_for": [
+    "canonical-serialization",
+    "type-length-value-encoding"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "bernier latency compensating methods in clientserver ingame protocol d",
+   "citations": [
+    "Bernier, 'Latency Compensating Methods in Client/Server In-game Protocol Design and Optimization' (GDC 2001, Valve); Gam",
+    "Bernier, 'Latency Compensating Methods in Client/Server In-game Protocol Design and Optimization', GDC 2001 (Valve); Gam",
+    "Bernier, 'Latency Compensating Methods in Client/Server In-game Protocol Design and Optimization', GDC 2001 (Valve); Val"
+   ],
+   "naming_for": [
+    "client-side-prediction",
+    "lag-compensation"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "monitors an operating system structuring concept",
+   "citations": [
+    "Monitors: An Operating System Structuring Concept - Hoare (1974)"
+   ],
+   "naming_for": [
+    "condition-variable"
+   ],
+   "also_source_for": [
+    "monitor-object"
+   ]
+  },
+  {
+   "key": "algorithms for scalable synchronization on sharedmemory multiprocessor",
+   "citations": [
+    "Algorithms for Scalable Synchronization on Shared-Memory Multiprocessors - Mellor-Crummey & Scott (1991)"
+   ],
+   "naming_for": [
+    "mcs-queue-lock",
+    "ticket-lock"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "priority inheritance protocols an approach to realtime synchronization",
+   "citations": [
+    "Priority Inheritance Protocols: An Approach to Real-Time Synchronization - Sha, Rajkumar & Lehoczky (1990)",
+    "Priority Inheritance Protocols: An Approach to Real-Time Synchronization - Sha, Rajkumar & Lehoczky (IEEE Trans. Compute"
+   ],
+   "naming_for": [
+    "priority-inheritance-protocol"
+   ],
+   "also_source_for": [
+    "priority-ceiling-protocol"
+   ]
+  },
+  {
+   "key": "architecture of a database system",
+   "citations": [
+    "Architecture of a Database System - Hellerstein, Stonebraker & Hamilton (2007)"
+   ],
+   "naming_for": [
+    "buffer-pool"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "cloud design patterns",
+   "citations": [
+    "Cloud Design Patterns - Microsoft Azure Architecture Center",
+    "Cloud Design Patterns - Microsoft patterns & practices (2014)"
+   ],
+   "naming_for": [
+    "cache-aside"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "vattani chierichetti lowenstein optimal probabilistic cache stampede p",
+   "citations": [
+    "Vattani, Chierichetti, Lowenstein, 'Optimal Probabilistic Cache Stampede Prevention', PVLDB 8(8), 2015; request-coalesci"
+   ],
+   "naming_for": [
+    "cache-stampede-protection"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "deutsch schiffman efficient implementation of the smalltalk80 system p",
+   "citations": [
+    "Deutsch & Schiffman, 'Efficient Implementation of the Smalltalk-80 System' (POPL 1984); Hölzle, Chambers & Ungar, 'Optim"
+   ],
+   "naming_for": [
+    "inline-caching"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "lookup table",
+   "citations": [
+    "Lookup table - Wikipedia"
+   ],
+   "naming_for": [
+    "lookup-table"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "evaluation techniques for storage hierarchies",
+   "citations": [
+    "Evaluation Techniques for Storage Hierarchies - Mattson, Gecsei, Slutz, Traiger (1970)"
+   ],
+   "naming_for": [
+    "lru-cache"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "memo functions and machine learning",
+   "citations": [
+    "'Memo' Functions and Machine Learning - Donald Michie (Nature, 1968)",
+    "Memo functions and machine learning - Donald Michie (Nature, 1968)"
+   ],
+   "naming_for": [
+    "memoization"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "rfc 2308 negative caching of dns queries dns ncache m andrews 1998 gen",
+   "citations": [
+    "RFC 2308, 'Negative Caching of DNS Queries (DNS NCACHE)' (M. Andrews, 1998); general form in OS name caches (Linux dentr"
+   ],
+   "naming_for": [
+    "negative-caching"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "computer architecture a quantitative approach",
+   "citations": [
+    "Computer Architecture: A Quantitative Approach - Hennessy & Patterson (1990)"
+   ],
+   "naming_for": [
+    "prefetching"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "beck smalltalk best practice patterns prentice hall 1997 composed meth",
+   "citations": [
+    "Beck, Smalltalk Best Practice Patterns (Prentice Hall, 1997), 'Composed Method'"
+   ],
+   "naming_for": [
+    "composed-method"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "hodgson feature toggles aka feature flags martinfowlercom 2017 verifie",
+   "citations": [
+    "Hodgson, 'Feature Toggles (aka Feature Flags)', martinfowler.com, 2017 (verified live; names toggle point, toggle router"
+   ],
+   "naming_for": [
+    "feature-flag"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "hodgson feature toggles aka feature flags martinfowlercom 2017 fowler ",
+   "citations": [
+    "Hodgson, Feature Toggles (aka Feature Flags), martinfowler.com (2017); Fowler, FeatureToggle bliki (2010)"
+   ],
+   "naming_for": [],
+   "also_source_for": [
+    "feature-flag"
+   ]
+  },
+  {
+   "key": "vlissides generation gap pattern hatching design patterns applied 1998",
+   "citations": [
+    "Vlissides, 'Generation Gap', Pattern Hatching: Design Patterns Applied (1998; earlier C++ Report 1996)"
+   ],
+   "naming_for": [
+    "generation-gap"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "erlangotp system documentation code replacement currentold code semant",
+   "citations": [
+    "Erlang/OTP System Documentation, 'Code Replacement' (current/old code semantics; verified live); Hicks & Nettles, 'Dynam"
+   ],
+   "naming_for": [
+    "hot-code-reload"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "the new c x macros",
+   "citations": [
+    "The New C: X Macros - Randy Meyers, C/C++ Users Journal (2001)"
+   ],
+   "naming_for": [
+    "x-macro"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "bit banging",
+   "citations": [
+    "Bit banging - Wikipedia"
+   ],
+   "naming_for": [
+    "bit-banging"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "communicating sequential processes",
+   "citations": [
+    "Communicating Sequential Processes - Hoare (1978)"
+   ],
+   "naming_for": [
+    "csp-channel"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "domaindriven design reference",
+   "citations": [
+    "Domain-Driven Design Reference - Eric Evans (2015)"
+   ],
+   "naming_for": [
+    "domain-event"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "event aggregator martinfowlercom eaadev",
+   "citations": [
+    "Event Aggregator (martinfowler.com eaaDev) - Martin Fowler (2004)"
+   ],
+   "naming_for": [
+    "event-aggregator"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "event aggregator",
+   "citations": [
+    "Event Aggregator - Martin Fowler, Further Enterprise Application Architecture development (eaaDev, 2004)"
+   ],
+   "naming_for": [],
+   "also_source_for": [
+    "event-aggregator"
+   ]
+  },
+  {
+   "key": "event delegation",
+   "citations": [
+    "Event delegation - javascript.info (The Modern JavaScript Tutorial)"
+   ],
+   "naming_for": [
+    "event-delegation"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "halfobject protocol",
+   "citations": [
+    "Half-Object + Protocol - Gerard Meszaros, in Pattern Languages of Program Design (1995)"
+   ],
+   "naming_for": [
+    "half-object-plus-protocol"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "the tail at scale",
+   "citations": [
+    "The Tail at Scale - Dean, Barroso (2013)"
+   ],
+   "naming_for": [
+    "hedged-request"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "morse interest management in largescale distributed simulations uc irv",
+   "citations": [
+    "Morse, 'Interest Management in Large-Scale Distributed Simulations', UC Irvine ICS TR 96-27, 1996; HLA (IEEE 1516) Data "
+   ],
+   "naming_for": [
+    "interest-management"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "rfc 896 congestion control in iptcp internetworks",
+   "citations": [
+    "RFC 896: Congestion Control in IP/TCP Internetworks - John Nagle (1984)"
+   ],
+   "naming_for": [
+    "nagle-s-algorithm"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "reactivex documentation",
+   "citations": [
+    "ReactiveX documentation - Introduction/Observable (reactivex.io)"
+   ],
+   "naming_for": [
+    "observable-streams"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "implementing remote procedure calls",
+   "citations": [
+    "Implementing Remote Procedure Calls - Birrell & Nelson (1984)"
+   ],
+   "naming_for": [
+    "remote-procedure-call"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "signals slots",
+   "citations": [
+    "Signals & Slots - Qt Documentation - The Qt Company"
+   ],
+   "naming_for": [
+    "signals-and-slots"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "tcpip illustrated vol 1 the protocols",
+   "citations": [
+    "TCP/IP Illustrated, Vol. 1: The Protocols - W. Richard Stevens (1994)"
+   ],
+   "naming_for": [
+    "sliding-window-flow-control"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "inversion of control containers and the dependency injection pattern",
+   "citations": [
+    "Inversion of Control Containers and the Dependency Injection pattern - Fowler (2004)"
+   ],
+   "naming_for": [
+    "dependency-injection"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "objectoriented software construction",
+   "citations": [
+    "Object-Oriented Software Construction - Meyer (1988)"
+   ],
+   "naming_for": [
+    "design-by-contract"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "building domainspecific embedded languages",
+   "citations": [
+    "Building Domain-Specific Embedded Languages - Paul Hudak (ACM Computing Surveys, 1996)"
+   ],
+   "naming_for": [
+    "embedded-domain-specific-language"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "fowler domainspecific languages addisonwesley 2010 ch 32 martinfowlerc",
+   "citations": [
+    "Fowler, Domain-Specific Languages (Addison-Wesley, 2010), ch. 32; martinfowler.com/dslCatalog ('An object, or family of "
+   ],
+   "naming_for": [
+    "expression-builder"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "fluentinterface martinfowlercom bliki",
+   "citations": [
+    "FluentInterface, martinfowler.com bliki - Martin Fowler & Eric Evans (2005)"
+   ],
+   "naming_for": [
+    "fluent-interface"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "fluentinterface",
+   "citations": [
+    "FluentInterface - Martin Fowler (bliki, 2005, with Eric Evans)"
+   ],
+   "naming_for": [],
+   "also_source_for": [
+    "fluent-interface"
+   ]
+  },
+  {
+   "key": "pike selfreferential functions and the design of options commandcenter",
+   "citations": [
+    "Pike, Self-referential functions and the design of options (commandcenter blog, 2014); Cheney, Functional options for fr"
+   ],
+   "naming_for": [
+    "functional-options"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "dave cheney functional options for friendly apis 20141017 rob pike sel",
+   "citations": [
+    "Dave Cheney, 'Functional options for friendly APIs' (2014-10-17); Rob Pike, 'Self-referential functions and the design o"
+   ],
+   "naming_for": [],
+   "also_source_for": [
+    "functional-options"
+   ]
+  },
+  {
+   "key": "immediate mode computer graphics",
+   "citations": [
+    "Immediate mode (computer graphics) - Wikipedia; Immediate-Mode Graphical User Interfaces - Casey Muratori (2005)"
+   ],
+   "naming_for": [
+    "immediate-mode-gui"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "baeumer riehle product trader plopd3 1997 riehleorg paper page and plo",
+   "citations": [
+    "Baeumer & Riehle, 'Product Trader', PLoPD3 (1997) (riehle.org paper page and PLoPD3 ToC loaded live)"
+   ],
+   "naming_for": [
+    "product-trader"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "retained mode",
+   "citations": [
+    "Retained mode - Wikipedia"
+   ],
+   "naming_for": [
+    "retained-mode-gui"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "core j2ee patterns best practices and design strategies",
+   "citations": [
+    "Core J2EE Patterns: Best Practices and Design Strategies - Alur, Crupi, Malks (2001)"
+   ],
+   "naming_for": [
+    "service-locator"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "core j2ee patterns",
+   "citations": [
+    "Core J2EE Patterns - Deepak Alur, John Crupi, Dan Malks (2001); analyzed vs DI in Fowler (2004)"
+   ],
+   "naming_for": [],
+   "also_source_for": [
+    "service-locator"
+   ]
+  },
+  {
+   "key": "smart constructors",
+   "citations": [
+    "Smart constructors - Haskell wiki (haskell.org)"
+   ],
+   "naming_for": [
+    "smart-constructor"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "kung morris creditbased flow control for atm networks ieee network 199",
+   "citations": [
+    "Kung & Morris, 'Credit-Based Flow Control for ATM Networks', IEEE Network (1995); Meszaros, capacity pattern language, P"
+   ],
+   "naming_for": [
+    "credit-based-flow-control"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "thompson farley barker gee stewart",
+   "citations": [
+    "Thompson, Farley, Barker, Gee, Stewart — Disruptor: High Performance Alternative to Bounded Queues for Exchanging Data B"
+   ],
+   "naming_for": [
+    "disruptor"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "matthias wloka batch batch batch what does it really mean gdc 2003 nvi",
+   "citations": [
+    "Matthias Wloka, 'Batch, Batch, Batch: What Does It Really Mean?', GDC 2003 (NVIDIA); Unity Manual, 'Draw call batching' "
+   ],
+   "naming_for": [
+    "draw-call-batching"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "pointer events level 2",
+   "citations": [
+    "Pointer Events Level 2 - W3C Recommendation (coalesced events / getCoalescedEvents)"
+   ],
+   "naming_for": [
+    "event-coalescing"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "akidau et al the dataflow model pvldb 812 2015 verified live also akid",
+   "citations": [
+    "Akidau et al., 'The Dataflow Model' (PVLDB 8(12), 2015; verified live); also Akidau, Chernyak & Lax, Streaming Systems ("
+   ],
+   "naming_for": [
+    "event-time-watermark"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "functional reactive animation",
+   "citations": [
+    "Functional Reactive Animation - Conal Elliott, Paul Hudak (ICFP 1997)",
+    "Functional Reactive Animation - Elliott & Hudak (ICFP, 1997)"
+   ],
+   "naming_for": [
+    "functional-reactive-programming"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "understanding jitter in packet voice networks",
+   "citations": [
+    "Understanding Jitter in Packet Voice Networks - Cisco (live technical doc)"
+   ],
+   "naming_for": [
+    "jitter-buffer"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "ping pong buffers",
+   "citations": [
+    "Ping Pong Buffers - Embedded.fm (White, 2017); Microchip DMA 'Ping-Pong Mode' documentation"
+   ],
+   "naming_for": [
+    "ping-pong-buffer"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "a survey on reactive programming",
+   "citations": [
+    "A Survey on Reactive Programming - Bainomugisha, Carreton, Van Cutsem, Mostinckx, De Meuter (ACM Computing Surveys, 2013"
+   ],
+   "naming_for": [
+    "reactive-programming"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "odonnell framegraph extensible rendering architecture in frostbite gdc",
+   "citations": [
+    "O'Donnell, 'FrameGraph: Extensible Rendering Architecture in Frostbite', GDC 2017"
+   ],
+   "naming_for": [
+    "render-graph"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "unix network programming vol 1",
+   "citations": [
+    "UNIX Network Programming, Vol. 1 - W. Richard Stevens (1990; 3rd ed. 2003), readv/writev"
+   ],
+   "naming_for": [],
+   "also_source_for": [
+    "scatter-gather-dma"
+   ]
+  },
+  {
+   "key": "system design interview",
+   "citations": [
+    "System Design Interview - An Insider's Guide - Xu (2020)"
+   ],
+   "naming_for": [
+    "sliding-window-rate-limiting"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "snapshot interpolation",
+   "citations": [
+    "Snapshot Interpolation - Glenn Fiedler (Gaffer On Games, 2015)"
+   ],
+   "naming_for": [
+    "snapshot-interpolation"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "proving the correctness of multiprocess programs",
+   "citations": [
+    "Proving the Correctness of Multiprocess Programs - Leslie Lamport (1977)"
+   ],
+   "naming_for": [
+    "spsc-lock-free-ring-buffer"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "the dataflow model akidau et al pvldb 812 2015 sec 23 modern canonical",
+   "citations": [
+    "The Dataflow Model (Akidau et al., PVLDB 8(12), 2015, sec. 2.3); modern canonical treatment: Streaming Systems (Akidau, "
+   ],
+   "naming_for": [
+    "stream-trigger"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "akidau et al the dataflow model pvldb 2015 formal windowing model veri",
+   "citations": [
+    "Akidau et al., 'The Dataflow Model' (PVLDB 2015; formal windowing model, verified live); window constructs also in CQL ("
+   ],
+   "naming_for": [
+    "stream-windowing"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "react documentation",
+   "citations": [
+    "React documentation - Automatic Batching (React 18); Vue.js Guide - Reactivity in Depth (Async Update Queue)"
+   ],
+   "naming_for": [
+    "update-batching"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "monetdbx100 hyperpipelining query execution",
+   "citations": [
+    "MonetDB/X100: Hyper-Pipelining Query Execution - Boncz, Zukowski & Nes (2005)"
+   ],
+   "naming_for": [
+    "vectorized-execution"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "volcano",
+   "citations": [
+    "Volcano - An Extensible and Parallel Query Evaluation System - Graefe (1994)"
+   ],
+   "naming_for": [
+    "volcano-iterator-model"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "zerocopy",
+   "citations": [
+    "Zero-copy - Wikipedia"
+   ],
+   "naming_for": [
+    "zero-copy-i-o"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "cstore a columnoriented dbms",
+   "citations": [
+    "C-Store: A Column-oriented DBMS - Stonebraker et al. (2005)"
+   ],
+   "naming_for": [
+    "column-oriented-storage"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "the comparand pattern cheap identity testing using dedicated values pl",
+   "citations": [
+    "'The Comparand Pattern: Cheap Identity Testing Using Dedicated Values', PLoPD5 ch. 8 (2006) (Library of Congress ToC loa"
+   ],
+   "naming_for": [
+    "comparand"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "abadi boncz harizopoulos idreos madden",
+   "citations": [
+    "Abadi, Boncz, Harizopoulos, Idreos, Madden — The Design and Implementation of Modern Column-Oriented Database Systems (F"
+   ],
+   "naming_for": [
+    "dictionary-encoding"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "evolve your hierarchy refactoring game entities with components",
+   "citations": [
+    "Evolve Your Hierarchy: Refactoring Game Entities with Components - Mick West (2007)"
+   ],
+   "naming_for": [
+    "entity-component-system"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "error detecting and error correcting codes",
+   "citations": [
+    "Error Detecting and Error Correcting Codes - Hamming (1950)"
+   ],
+   "naming_for": [
+    "error-correcting-codes"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "chambers ungar lee an efficient implementation of self a dynamicallyty",
+   "citations": [
+    "Chambers, Ungar & Lee, 'An Efficient Implementation of SELF, a Dynamically-Typed Object-Oriented Language Based on Proto"
+   ],
+   "naming_for": [
+    "hidden-class"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "level of detail for 3d graphics",
+   "citations": [
+    "Level of Detail for 3D Graphics - Luebke, Reddy, Cohen, Varshney, Watson, Huebner (2003)"
+   ],
+   "naming_for": [
+    "level-of-detail"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "rust design patterns rustunofficial living keywordlevel origin in hask",
+   "citations": [
+    "Rust Design Patterns (rust-unofficial, living); keyword-level origin in Haskell (newtype)"
+   ],
+   "naming_for": [
+    "newtype"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "ailamaki dewitt hill skounakis",
+   "citations": [
+    "Ailamaki, DeWitt, Hill, Skounakis — Weaving Relations for Cache Performance, VLDB 2001"
+   ],
+   "naming_for": [
+    "pax-page-layout"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "wilson kakkad pointer swizzling at page fault time 1992 moss working w",
+   "citations": [
+    "Wilson & Kakkad, 'Pointer Swizzling at Page Fault Time' (1992); Moss, 'Working with Persistent Objects: To Swizzle or No"
+   ],
+   "naming_for": [
+    "pointer-swizzling"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "gudeman representing type information in dynamically typed languages u",
+   "citations": [
+    "Gudeman, 'Representing Type Information in Dynamically Typed Languages', Univ. of Arizona TR 93-27, 1993 (canonical surv"
+   ],
+   "naming_for": [
+    "pointer-tagging"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "noble basic relationship patterns plopd4 2000 also boyd business patte",
+   "citations": [
+    "Noble, 'Basic Relationship Patterns', PLoPD4 (2000); also Boyd, 'Business Patterns of Association Objects', PLoPD3 (1997"
+   ],
+   "naming_for": [
+    "relationship-object"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "types and programming languages",
+   "citations": [
+    "Types and Programming Languages - Benjamin C. Pierce (2002)"
+   ],
+   "naming_for": [
+    "tagged-union"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "carlson estepp fowler temporal patterns plopd4 2000 toc loaded live li",
+   "citations": [
+    "Carlson, Estepp & Fowler, 'Temporal Patterns', PLoPD4 (2000) (ToC loaded live); living treatment: Fowler's eaaDev tempor"
+   ],
+   "naming_for": [
+    "temporal-property"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "nvidia sdk white paper improve batching using texture atlases wp013870",
+   "citations": [
+    "NVIDIA SDK White Paper 'Improve Batching Using Texture Atlases' (WP-01387-001, 2004); Ivan-Assen Ivanov, 'Practical Text"
+   ],
+   "naming_for": [
+    "texture-atlas"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "reconciliation",
+   "citations": [
+    "Reconciliation - React documentation - Meta"
+   ],
+   "naming_for": [
+    "virtual-dom"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "organization and maintenance of large ordered indexes",
+   "citations": [
+    "Organization and Maintenance of Large Ordered Indexes - Bayer & McCreight (1972)"
+   ],
+   "naming_for": [
+    "b-tree"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "algorithm 232 heapsort",
+   "citations": [
+    "Algorithm 232: Heapsort - J. W. J. Williams (1964)"
+   ],
+   "naming_for": [
+    "binary-heap-priority-queue"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "programming pearls",
+   "citations": [
+    "Programming Pearls - Jon Bentley (1986)"
+   ],
+   "naming_for": [
+    "bitmap-bitset"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "oneil",
+   "citations": [
+    "O'Neil — Model 204 Architecture and Performance, HPTS 1987; O'Neil & Quass — Improved Query Performance with Variant Ind"
+   ],
+   "naming_for": [
+    "bitmap-index"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "spacetime tradeoffs in hash coding with allowable errors",
+   "citations": [
+    "Space/Time Trade-offs in Hash Coding with Allowable Errors - Burton H. Bloom (1970)"
+   ],
+   "naming_for": [
+    "bloom-filter"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "conflictfree replicated data types",
+   "citations": [
+    "Conflict-free Replicated Data Types - Shapiro, Preguica, Baquero, Zawirski (2011)"
+   ],
+   "naming_for": [
+    "conflict-free-replicated-data-type-crdt"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "consistent hashing and random trees distributed caching protocols for ",
+   "citations": [
+    "Consistent Hashing and Random Trees: Distributed Caching Protocols for Relieving Hot Spots on the World Wide Web - Karge"
+   ],
+   "naming_for": [
+    "consistent-hashing"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "an improved data stream summary the countmin sketch and its applicatio",
+   "citations": [
+    "An Improved Data Stream Summary: The Count-Min Sketch and its Applications - Cormode & Muthukrishnan (2005)"
+   ],
+   "naming_for": [
+    "count-min-sketch"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "the art of computer programming vol 1 fundamental algorithms",
+   "citations": [
+    "The Art of Computer Programming, Vol. 1: Fundamental Algorithms - Donald Knuth (1968)"
+   ],
+   "naming_for": [
+    "deque"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "boostintrusive library documentation",
+   "citations": [
+    "Boost.Intrusive library documentation - Ion Gaztanaga, Olaf Krzikalla"
+   ],
+   "naming_for": [],
+   "also_source_for": [
+    "embedded-pointer"
+   ]
+  },
+  {
+   "key": "effective stl",
+   "citations": [
+    "Effective STL - Scott Meyers (2001)"
+   ],
+   "naming_for": [
+    "erase-remove"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "a new data structure for cumulative frequency tables",
+   "citations": [
+    "A New Data Structure for Cumulative Frequency Tables - Peter Fenwick (1994)"
+   ],
+   "naming_for": [
+    "fenwick-tree"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "the craft of text editing",
+   "citations": [
+    "The Craft of Text Editing - Craig A. Finseth (1991)"
+   ],
+   "naming_for": [
+    "gap-buffer"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "ideal hash trees",
+   "citations": [
+    "Ideal Hash Trees - Phil Bagwell (2001)"
+   ],
+   "naming_for": [
+    "hash-array-mapped-trie-hamt"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "hyperloglog the analysis of a nearoptimal cardinality estimation algor",
+   "citations": [
+    "HyperLogLog: the analysis of a near-optimal cardinality estimation algorithm - Flajolet, Fusy, Gandouet, Meunier (2007)"
+   ],
+   "naming_for": [
+    "hyperloglog"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "introduction to information retrieval",
+   "citations": [
+    "Introduction to Information Retrieval - Manning, Raghavan, Schutze (2008)"
+   ],
+   "naming_for": [
+    "inverted-index"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "multidimensional binary search trees used for associative searching",
+   "citations": [
+    "Multidimensional Binary Search Trees Used for Associative Searching - Jon Bentley (1975)"
+   ],
+   "naming_for": [
+    "k-d-tree"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "simple fast and practical nonblocking and blocking concurrent queue al",
+   "citations": [
+    "Simple, Fast, and Practical Non-Blocking and Blocking Concurrent Queue Algorithms - Michael & Scott (1996)"
+   ],
+   "naming_for": [
+    "lock-free-fifo-queue-michael-scott"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "systems programming coping with parallelism ibm research report rj 511",
+   "citations": [
+    "Systems Programming: Coping with Parallelism (IBM Research Report RJ 5118) - R. K. Treiber (1986)"
+   ],
+   "naming_for": [
+    "lock-free-stack-treiber"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "the logstructured mergetree lsmtree",
+   "citations": [
+    "The Log-Structured Merge-Tree (LSM-Tree) - O'Neil, Cheng, Gawlick & O'Neil (1996)",
+    "The Log-Structured Merge-Tree (LSM-Tree) - O'Neil, Cheng, Gawlick, O'Neil (1996)"
+   ],
+   "naming_for": [
+    "lsm-tree"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "a digital signature based on a conventional encryption function",
+   "citations": [
+    "A Digital Signature Based on a Conventional Encryption Function - Ralph Merkle (1987)"
+   ],
+   "naming_for": [
+    "merkle-tree"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "on the resemblance and containment of documents",
+   "citations": [
+    "On the Resemblance and Containment of Documents - Andrei Broder (1997)"
+   ],
+   "naming_for": [
+    "minhash"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "snook simplified 3d movement and pathfinding using navigation meshes g",
+   "citations": [
+    "Snook, 'Simplified 3D Movement and Pathfinding Using Navigation Meshes', Game Programming Gems, 2000"
+   ],
+   "naming_for": [
+    "navigation-mesh"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "making data structures persistent",
+   "citations": [
+    "Making Data Structures Persistent - Driscoll, Sarnak, Sleator, Tarjan (JCSS, 1989)"
+   ],
+   "naming_for": [
+    "persistent-data-structure"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "data structures for text sequences",
+   "citations": [
+    "Data Structures for Text Sequences - Charles Crowley (1998)"
+   ],
+   "naming_for": [
+    "piece-table"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "quad trees a data structure for retrieval on composite keys",
+   "citations": [
+    "Quad Trees: A Data Structure for Retrieval on Composite Keys - Finkel & Bentley (1974)"
+   ],
+   "naming_for": [
+    "quadtree-octree"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "rtrees a dynamic index structure for spatial searching",
+   "citations": [
+    "R-Trees: A Dynamic Index Structure for Spatial Searching - Antonin Guttman (1984)"
+   ],
+   "naming_for": [
+    "r-tree"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "ropes an alternative to strings",
+   "citations": [
+    "Ropes: an Alternative to Strings - Boehm, Atkinson, Plass (1995)"
+   ],
+   "naming_for": [
+    "rope"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "computational geometry algorithms and applications",
+   "citations": [
+    "Computational Geometry: Algorithms and Applications - de Berg, Cheong, van Kreveld, Overmars (2008)"
+   ],
+   "naming_for": [
+    "segment-tree"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "skip lists a probabilistic alternative to balanced trees",
+   "citations": [
+    "Skip Lists: A Probabilistic Alternative to Balanced Trees - William Pugh (1990)"
+   ],
+   "naming_for": [
+    "skip-list"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "slotmap container in c wg21 p0661",
+   "citations": [
+    "slot_map Container in C++ (WG21 P0661) - Allan Deutsch (2017)"
+   ],
+   "naming_for": [
+    "slot-map"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "an efficient representation for sparse sets",
+   "citations": [
+    "An Efficient Representation for Sparse Sets - Briggs & Torczon (1993)"
+   ],
+   "naming_for": [
+    "sparse-set"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "suffix arrays a new method for online string searches",
+   "citations": [
+    "Suffix Arrays: A New Method for On-Line String Searches - Manber & Myers (1990)"
+   ],
+   "naming_for": [
+    "suffix-array"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "computing extremely accurate quantiles using tdigests",
+   "citations": [
+    "Computing Extremely Accurate Quantiles Using t-Digests - Dunning & Ertl (2019)"
+   ],
+   "naming_for": [
+    "t-digest"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "trie memory",
+   "citations": [
+    "Trie Memory - Edward Fredkin (1960)"
+   ],
+   "naming_for": [
+    "trie"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "optimized spatial hashing for collision detection of deformable object",
+   "citations": [
+    "Optimized Spatial Hashing for Collision Detection of Deformable Objects - Teschner et al. (2003)"
+   ],
+   "naming_for": [
+    "uniform-spatial-hash-grid"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "the zipper",
+   "citations": [
+    "The Zipper - Gérard Huet (Journal of Functional Programming, 1997)"
+   ],
+   "naming_for": [
+    "zipper"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "moerkotte",
+   "citations": [
+    "Moerkotte — Small Materialized Aggregates: A Light Weight Index Structure for Data Warehousing, VLDB 1998 (naming source"
+   ],
+   "naming_for": [
+    "zone-map"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "linux kernel development 3rd ed",
+   "citations": [
+    "Linux Kernel Development, 3rd ed. - Robert Love (2010), ch. 'Bottom Halves and Deferring Work'"
+   ],
+   "naming_for": [],
+   "also_source_for": [
+    "deferred-interrupt-processing"
+   ]
+  },
+  {
+   "key": "an4031",
+   "citations": [
+    "AN4031 - Using the STM32F2, STM32F4 and STM32F7 Series DMA controller (STMicroelectronics)"
+   ],
+   "naming_for": [],
+   "also_source_for": [
+    "direct-memory-access-dma-transfer"
+   ]
+  },
+  {
+   "key": "strm hgglund pid controllers theory design and tuning isa 1995 wescott",
+   "citations": [
+    "Åström & Hägglund, PID Controllers: Theory, Design, and Tuning (ISA, 1995); Wescott, 'PID Without a PhD' (Embedded Syste"
+   ],
+   "naming_for": [
+    "pid-controller"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "polling computer science",
+   "citations": [
+    "Polling (computer science) - Wikipedia"
+   ],
+   "naming_for": [],
+   "also_source_for": [
+    "polling"
+   ]
+  },
+  {
+   "key": "shadow register",
+   "citations": [
+    "Shadow Register - ScienceDirect Topics (Elsevier embedded-systems references); PIC/AVR vendor documentation"
+   ],
+   "naming_for": [
+    "shadow-register"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "avr180 external brownout protection",
+   "citations": [
+    "AVR180: External Brown-out Protection - Atmel/Microchip application note"
+   ],
+   "naming_for": [
+    "brown-out-handling"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "builtin selftest",
+   "citations": [
+    "Built-in self-test - Wikipedia"
+   ],
+   "naming_for": [
+    "built-in-self-test"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "exceptional c",
+   "citations": [
+    "Exceptional C++ - Herb Sutter (1999)"
+   ],
+   "naming_for": [
+    "copy-and-swap"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "a painless guide to crc error detection algorithms",
+   "citations": [
+    "A Painless Guide to CRC Error Detection Algorithms - Ross Williams (1993)"
+   ],
+   "naming_for": [],
+   "also_source_for": [
+    "cyclic-redundancy-check"
+   ]
+  },
+  {
+   "key": "harrison patterns for logging diagnostic messages plopd3 1997 canonica",
+   "citations": [
+    "Harrison, 'Patterns for Logging Diagnostic Messages', PLoPD3 (1997); canonical living form: log4j/logback/SLF4J MDC/NDC "
+   ],
+   "naming_for": [
+    "diagnostic-context"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "harrison patterns for logging diagnostic messages plopd3 1997 plopd3 t",
+   "citations": [
+    "Harrison, 'Patterns for Logging Diagnostic Messages', PLoPD3 (1997) (PLoPD3 ToC loaded live); living realizations: log4j"
+   ],
+   "naming_for": [
+    "diagnostic-logger"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "reactive design patterns",
+   "citations": [
+    "Reactive Design Patterns - Kuhn, Hanafee, Allen (2017)"
+   ],
+   "naming_for": [
+    "error-kernel"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "rfc 8305 happy eyeballs version 2 better connectivity using concurrenc",
+   "citations": [
+    "RFC 8305: Happy Eyeballs Version 2: Better Connectivity Using Concurrency - Schinazi & Pauly (2017)"
+   ],
+   "naming_for": [
+    "happy-eyeballs"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "the nversion approach to faulttolerant software",
+   "citations": [
+    "The N-Version Approach to Fault-Tolerant Software - Avizienis (1985)"
+   ],
+   "naming_for": [
+    "n-version-programming"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "notification",
+   "citations": [
+    "Notification - Martin Fowler, Further Enterprise Application Architecture development (eaaDev)"
+   ],
+   "naming_for": [
+    "notification"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "railway oriented programming",
+   "citations": [
+    "Railway Oriented Programming - Scott Wlaschin (fsharpforfunandprofit.com / NDC, 2014)"
+   ],
+   "naming_for": [
+    "railway-oriented-programming"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "system structure for software fault tolerance",
+   "citations": [
+    "System Structure for Software Fault Tolerance - Randell (1975)"
+   ],
+   "naming_for": [
+    "recovery-blocks"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "timeouts retries and backoff with jitter",
+   "citations": [
+    "Timeouts, Retries, and Backoff with Jitter - Brooker, AWS Builders' Library (2019)"
+   ],
+   "naming_for": [
+    "retry-with-exponential-backoff-and-jitter"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "the art of computer programming vol 3 sorting and searching",
+   "citations": [
+    "The Art of Computer Programming Vol. 3: Sorting and Searching - Donald Knuth (1973); also Code Complete 2nd ed. - McConn"
+   ],
+   "naming_for": [
+    "sentinel-value"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "software rejuvenation analysis module and applications",
+   "citations": [
+    "Software Rejuvenation: Analysis, Module and Applications - Huang, Kintala, Kolettis, Fulton (1995)"
+   ],
+   "naming_for": [
+    "software-rejuvenation"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "otp design principles erlangotp documentation",
+   "citations": [
+    "OTP Design Principles (Erlang/OTP documentation) - Ericsson (living)"
+   ],
+   "naming_for": [
+    "supervisor"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "a universal modular actor formalism for artificial intelligence",
+   "citations": [
+    "A Universal Modular ACTOR Formalism for Artificial Intelligence - Hewitt, Bishop, Steiger (1973)"
+   ],
+   "naming_for": [],
+   "also_source_for": [
+    "active-object"
+   ]
+  },
+  {
+   "key": "the f asynchronous programming model",
+   "citations": [
+    "The F# Asynchronous Programming Model - Syme, Petricek, Lomov (2011)"
+   ],
+   "naming_for": [
+    "async-await-model"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "sameer ajmani go concurrency patterns context go blog 20140729 microso",
+   "citations": [
+    "Sameer Ajmani, 'Go Concurrency Patterns: Context' (Go blog, 2014-07-29); Microsoft Learn, 'Cancellation in Managed Threa"
+   ],
+   "naming_for": [
+    "cancellation-token"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "design of a separable transitiondiagram compiler",
+   "citations": [
+    "Design of a Separable Transition-Diagram Compiler - Conway (1963)"
+   ],
+   "naming_for": [
+    "coroutine"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "hoelzle chambers ungar debugging optimized code with dynamic deoptimiz",
+   "citations": [
+    "Hoelzle, Chambers & Ungar, 'Debugging Optimized Code with Dynamic Deoptimization', PLDI 1992 (verified live via selflang"
+   ],
+   "naming_for": [
+    "deoptimization"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "event loop",
+   "citations": [
+    "Event loop - Wikipedia"
+   ],
+   "naming_for": [
+    "event-loop"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "mckenney selecting locking designs for parallel programs plopd2 1996",
+   "citations": [
+    "McKenney, 'Selecting Locking Designs for Parallel Programs', PLoPD2 (1996) — Parallel Fastpath (verified via rdrop.com p"
+   ],
+   "naming_for": [
+    "fast-path"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "promises linguistic support for efficient asynchronous procedure calls",
+   "citations": [
+    "Promises: Linguistic Support for Efficient Asynchronous Procedure Calls - Liskov, Shrira (1988)"
+   ],
+   "naming_for": [
+    "future-promise"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "green thread",
+   "citations": [
+    "Green thread - Wikipedia"
+   ],
+   "naming_for": [
+    "green-threads"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "gregory game engine architecture 3rd ed job systems chapter gyrling pa",
+   "citations": [
+    "Gregory, Game Engine Architecture, 3rd ed. (job systems chapter); Gyrling, 'Parallelizing the Naughty Dog Engine Using F"
+   ],
+   "naming_for": [
+    "job-system"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "restartable sequences",
+   "citations": [
+    "Restartable sequences - LWN.net (2015)"
+   ],
+   "naming_for": [
+    "restartable-sequences"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "smith notes on structured concurrency or go statement considered harmf",
+   "citations": [
+    "Smith, Notes on structured concurrency, or: Go statement considered harmful (vorpus.org, 2018); Trio nursery documentati"
+   ],
+   "naming_for": [
+    "structured-concurrency"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "nathaniel j smith notes on structured concurrency or go statement cons",
+   "citations": [
+    "Nathaniel J. Smith, 'Notes on structured concurrency, or: Go statement considered harmful' (2018-04-25); Roman Elizarov,"
+   ],
+   "naming_for": [],
+   "also_source_for": [
+    "structured-concurrency"
+   ]
+  },
+  {
+   "key": "is parallel programming hard and if so what can you do about it",
+   "citations": [
+    "Is Parallel Programming Hard, And, If So, What Can You Do About It? - Paul E. McKenney (perfbook)"
+   ],
+   "naming_for": [],
+   "also_source_for": [
+    "thread-specific-storage"
+   ]
+  },
+  {
+   "key": "threaded code",
+   "citations": [
+    "Threaded Code - James R. Bell, Communications of the ACM (1973)"
+   ],
+   "naming_for": [
+    "threaded-code"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "trampolined style",
+   "citations": [
+    "Trampolined Style - Ganz, Friedman, Wand (ICFP, 1999)"
+   ],
+   "naming_for": [
+    "trampoline"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "collection pipeline martinfowlercom",
+   "citations": [
+    "Collection Pipeline, martinfowler.com - Martin Fowler (2015)"
+   ],
+   "naming_for": [
+    "collection-pipeline"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "collection pipeline",
+   "citations": [
+    "Collection Pipeline - Martin Fowler (martinfowler.com, 2014)"
+   ],
+   "naming_for": [],
+   "also_source_for": [
+    "collection-pipeline"
+   ]
+  },
+  {
+   "key": "compiling with continuations",
+   "citations": [
+    "Compiling with Continuations - Andrew W. Appel (1992)"
+   ],
+   "naming_for": [
+    "continuation-passing-style"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "standard fp vocabulary wikipedia curryingpartial application reg brait",
+   "citations": [
+    "Standard FP vocabulary: Wikipedia 'Currying'/'Partial application'; Reg Braithwaite, JavaScript Allongé; Python stdlib f"
+   ],
+   "naming_for": [
+    "currying-partial-application"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "definitional interpreters for higherorder programming languages",
+   "citations": [
+    "Definitional Interpreters for Higher-Order Programming Languages - John C. Reynolds (1972)"
+   ],
+   "naming_for": [
+    "defunctionalization"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "handlers of algebraic effects",
+   "citations": [
+    "Handlers of Algebraic Effects - Plotkin & Pretnar (ESOP, 2009)"
+   ],
+   "naming_for": [
+    "effect-handler"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "expression templates",
+   "citations": [
+    "Expression Templates - Todd Veldhuizen, C++ Report (1995)"
+   ],
+   "naming_for": [
+    "expression-templates"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "data types la carte",
+   "citations": [
+    "Data Types à la Carte - Wouter Swierstra (JFP, 2008)"
+   ],
+   "naming_for": [
+    "free-monad"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "functional core imperative shell",
+   "citations": [
+    "Functional Core, Imperative Shell - Gary Bernhardt (Destroy All Software screencast, 2012)"
+   ],
+   "naming_for": [
+    "functional-core-imperative-shell"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "combinators for bidirectional tree transformations",
+   "citations": [
+    "Combinators for Bidirectional Tree Transformations - Foster, Greenwald, Moore, Pierce, Schmitt (TOPLAS, 2007)"
+   ],
+   "naming_for": [
+    "lens"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "learning javascript design patterns",
+   "citations": [
+    "Learning JavaScript Design Patterns - Addy Osmani (2012); popularized by Crockford"
+   ],
+   "naming_for": [
+    "module-pattern"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "notions of computation and monads",
+   "citations": [
+    "Notions of Computation and Monads - Eugenio Moggi (1991)"
+   ],
+   "naming_for": [
+    "monad"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "haskell 98 language and libraries report",
+   "citations": [
+    "Haskell 98 Language and Libraries Report - Simon Peyton Jones, ed. (2003)"
+   ],
+   "naming_for": [
+    "option-type"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "domain specific embedded compilers",
+   "citations": [
+    "Domain Specific Embedded Compilers - Leijen & Meijer (DSL '99, 1999)"
+   ],
+   "naming_for": [
+    "phantom-type"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "rust api guidelines csealed living",
+   "citations": [
+    "Rust API Guidelines (C-SEALED, living)"
+   ],
+   "naming_for": [
+    "sealed-trait"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "c templates the complete guide",
+   "citations": [
+    "C++ Templates: The Complete Guide - Vandevoorde & Josuttis (2002; acronym coined here)"
+   ],
+   "naming_for": [
+    "sfinae"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "finally tagless partially evaluated",
+   "citations": [
+    "Finally Tagless, Partially Evaluated - Carette, Kiselyov, Shan (JFP, 2009)"
+   ],
+   "naming_for": [
+    "tagless-final"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "thunks a way of compiling procedure statements with some comments on p",
+   "citations": [
+    "Thunks: A Way of Compiling Procedure Statements with Some Comments on Procedure Declarations - P. Z. Ingerman (CACM, 196"
+   ],
+   "naming_for": [
+    "thunk"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "traits a new and useful template technique",
+   "citations": [
+    "Traits: a new and useful template technique - Myers (C++ Report, 1995)"
+   ],
+   "naming_for": [
+    "traits-class"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "typestate a programming language concept for enhancing software reliab",
+   "citations": [
+    "Typestate: A Programming Language Concept for Enhancing Software Reliability - Strom & Yemini (IEEE TSE, 1986)",
+    "Typestate: A Programming Language Concept for Enhancing Software Reliability - Strom & Yemini, IEEE TSE (1986); Rust rea"
+   ],
+   "naming_for": [
+    "typestate"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "kennedy types for unitsofmeasure theory and practice cefp 2009 lncs 62",
+   "citations": [
+    "Kennedy, Types for Units-of-Measure: Theory and Practice (CEFP 2009, LNCS 6299); Kennedy, Programming Languages and Dime"
+   ],
+   "naming_for": [
+    "units-of-measure-types"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "knuth the art of computer programming vol 2 seminumerical algorithms s",
+   "citations": [
+    "Knuth, The Art of Computer Programming Vol. 2: Seminumerical Algorithms, sec. 4.3 'Multiple-Precision Arithmetic'"
+   ],
+   "naming_for": [
+    "arbitrary-precision-arithmetic"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "isoiec 98992024 c23 stdckdinth checked integer arithmetic macros gcc i",
+   "citations": [
+    "ISO/IEC 9899:2024 (C23) <stdckdint.h> checked integer arithmetic macros; GCC integer overflow builtins; Rust std checked"
+   ],
+   "naming_for": [
+    "checked-arithmetic"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "bruce dawson comparing floating point numbers 2012 edition randomascii",
+   "citations": [
+    "Bruce Dawson, 'Comparing Floating Point Numbers, 2012 Edition' (randomascii.wordpress.com, 2012); ULP framing also in Kn"
+   ],
+   "naming_for": [
+    "epsilon-ulp-float-comparison"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "ramon e moore interval analysis prenticehall 1966 standardized as ieee",
+   "citations": [
+    "Ramon E. Moore, 'Interval Analysis' (Prentice-Hall, 1966); standardized as IEEE 1788-2015"
+   ],
+   "naming_for": [
+    "interval-arithmetic"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "goldberg what every computer scientist should know about floatingpoint",
+   "citations": [
+    "Goldberg, 'What Every Computer Scientist Should Know About Floating-Point Arithmetic' (ACM Computing Surveys 1991; 'Kaha"
+   ],
+   "naming_for": [
+    "kahan-summation"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "knuth the art of computer programming vol 2 seminumerical algorithms c",
+   "citations": [
+    "Knuth, The Art of Computer Programming Vol. 2: Seminumerical Algorithms, ch. 3 'Random Numbers'"
+   ],
+   "naming_for": [
+    "pseudorandom-number-generator"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "saturation arithmetic",
+   "citations": [
+    "Saturation arithmetic - Wikipedia"
+   ],
+   "naming_for": [
+    "saturation-arithmetic"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "rfc 1982 serial number arithmetic",
+   "citations": [
+    "RFC 1982: Serial Number Arithmetic - Elz, Bush (1996)"
+   ],
+   "naming_for": [
+    "serial-number-arithmetic"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "pryce abstract session an object structural pattern plopd4 2000 plopd4",
+   "citations": [
+    "Pryce, 'Abstract Session: An Object Structural Pattern', PLoPD4 (2000) (PLoPD4 ToC loaded live; c2 AbstractSessionPatter"
+   ],
+   "naming_for": [
+    "abstract-session"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "acyclic visitor",
+   "citations": [
+    "Acyclic Visitor - Robert C. Martin, in Pattern Languages of Program Design 3 (1998)"
+   ],
+   "naming_for": [
+    "acyclic-visitor"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "riehle bureaucracy plopd3 1997 plopd3 toc loaded live",
+   "citations": [
+    "Riehle, 'Bureaucracy', PLoPD3 (1997) (PLoPD3 ToC loaded live)"
+   ],
+   "naming_for": [
+    "bureaucracy"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "curiously recurring template patterns",
+   "citations": [
+    "Curiously Recurring Template Patterns - Coplien (C++ Report, 1995)"
+   ],
+   "naming_for": [
+    "curiously-recurring-template-pattern-crtp"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "using prototypical objects to implement shared behavior in objectorien",
+   "citations": [
+    "Using Prototypical Objects to Implement Shared Behavior in Object-Oriented Systems - Henry Lieberman (OOPSLA 1986); disc"
+   ],
+   "naming_for": [
+    "delegation"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "a simple technique for handling multiple polymorphism",
+   "citations": [
+    "A Simple Technique for Handling Multiple Polymorphism - Daniel H. H. Ingalls (OOPSLA 1986); mechanism underlying GoF Vis"
+   ],
+   "naming_for": [
+    "double-dispatch"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "extension object",
+   "citations": [
+    "Extension Object - Erich Gamma, in Pattern Languages of Program Design 3 (1998)"
+   ],
+   "naming_for": [
+    "extension-object"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "external polymorphism",
+   "citations": [
+    "External Polymorphism - Cleeland, Schmidt & Harrison (PLoP 1996)"
+   ],
+   "naming_for": [
+    "external-polymorphism"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "meta patterns",
+   "citations": [
+    "Meta Patterns - A Means for Capturing the Essentials of Reusable Object-Oriented Design - Wolfgang Pree (ECOOP 1994); 'h"
+   ],
+   "naming_for": [
+    "hook-method"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "isoiec 9075",
+   "citations": [
+    "ISO/IEC 9075 - Database Language SQL"
+   ],
+   "naming_for": [],
+   "also_source_for": [
+    "iterator"
+   ]
+  },
+  {
+   "key": "mixinbased inheritance",
+   "citations": [
+    "Mixin-Based Inheritance - Gilad Bracha & William Cook (OOPSLA 1990; term from Lisp Flavors, Moon 1986)"
+   ],
+   "naming_for": [
+    "mixin"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "agile software development principles patterns and practices",
+   "citations": [
+    "Agile Software Development: Principles, Patterns, and Practices - Robert C. Martin (2002); originally Ball & Crawford"
+   ],
+   "naming_for": [
+    "monostate"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "multiton pattern",
+   "citations": [
+    "Multiton pattern - Wikipedia (software design pattern list, creational)"
+   ],
+   "naming_for": [
+    "multiton"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "virtuality",
+   "citations": [
+    "Virtuality - Herb Sutter, C/C++ Users Journal (2001)"
+   ],
+   "naming_for": [
+    "non-virtual-interface-nvi"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "null object",
+   "citations": [
+    "Null Object - Bobby Woolf, in Pattern Languages of Program Design 3 (1998; PLoP 1996)"
+   ],
+   "naming_for": [
+    "null-object"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "woolf the object recursion pattern plopd4 2000 plopd4 toc loaded live",
+   "citations": [
+    "Woolf, 'The Object Recursion Pattern', PLoPD4 (2000) (PLoPD4 ToC loaded live)"
+   ],
+   "naming_for": [
+    "object-recursion"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "private class data",
+   "citations": [
+    "Private Class Data - SourceMaking design patterns catalog (structural)"
+   ],
+   "naming_for": [
+    "private-class-data"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "lazy initialization",
+   "citations": [
+    "Lazy initialization - Wikipedia (software design pattern list, creational); discussed in GoF Singleton implementation"
+   ],
+   "naming_for": [],
+   "also_source_for": [
+    "proxy"
+   ]
+  },
+  {
+   "key": "the role object pattern",
+   "citations": [
+    "The Role Object Pattern - Dirk Baeumer, Dirk Riehle, Wolf Siberski, Martina Wulf (PLoP 1997)"
+   ],
+   "naming_for": [
+    "role-object"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "servant design pattern",
+   "citations": [
+    "Servant (design pattern) - Wikipedia (software design pattern list, behavioral)"
+   ],
+   "naming_for": [
+    "servant"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "specifications",
+   "citations": [
+    "Specifications - Eric Evans & Martin Fowler (1997)",
+    "Specifications - Eric Evans, Martin Fowler (PLoP 1997 workshop paper)"
+   ],
+   "naming_for": [
+    "specification"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "wallingford sponsorselector a pattern language for choosing the best r",
+   "citations": [
+    "Wallingford, 'Sponsor-Selector: A Pattern Language for Choosing the Best Resource', PLoPD3 (1997) (cs.uni.edu/~wallingf/"
+   ],
+   "naming_for": [
+    "sponsor-selector"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "twin",
+   "citations": [
+    "Twin - A Design Pattern for Modelling Multiple Inheritance - Hannes Moessenboeck (Johannes Kepler University Linz)"
+   ],
+   "naming_for": [
+    "twin"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "the type object pattern",
+   "citations": [
+    "The Type Object Pattern - Ralph Johnson, Bobby Woolf, in Pattern Languages of Program Design 3 (1998); modern treatment "
+   ],
+   "naming_for": [],
+   "also_source_for": [
+    "type-object"
+   ]
+  },
+  {
+   "key": "escape sequence",
+   "citations": [
+    "Escape sequence - Wikipedia; escape sequences defined in ISO/IEC 9899 (C standard)"
+   ],
+   "naming_for": [
+    "escape-sequence"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "simple api for xml",
+   "citations": [
+    "Simple API for XML - Wikipedia (SAX, Megginson et al. 1998)"
+   ],
+   "naming_for": [
+    "event-driven-parsing"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "aho sethi ullman compilers principles techniques and tools the dragon ",
+   "citations": [
+    "Aho, Sethi, Ullman, Compilers: Principles, Techniques, and Tools (the Dragon Book), ch. 4"
+   ],
+   "naming_for": [
+    "lr-parser"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "thomas reps maximalmunch tokenization in linear time acm toplas 202 19",
+   "citations": [
+    "Thomas Reps, \"'Maximal-Munch' Tokenization in Linear Time\", ACM TOPLAS 20(2), 1998; the longest-match rule also stated i"
+   ],
+   "naming_for": [
+    "maximal-munch"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "packrat parsing simple powerful lazy linear time",
+   "citations": [
+    "Packrat Parsing: Simple, Powerful, Lazy, Linear Time - Bryan Ford (2002)"
+   ],
+   "naming_for": [
+    "packrat-parsing"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "monadic parser combinators",
+   "citations": [
+    "Monadic Parser Combinators - Hutton & Meijer (1996)",
+    "Monadic Parser Combinators - Hutton, Meijer (1996)"
+   ],
+   "naming_for": [
+    "parser-combinator"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "top down operator precedence",
+   "citations": [
+    "Top Down Operator Precedence - Vaughan Pratt (1973)"
+   ],
+   "naming_for": [
+    "pratt-parser"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "prettyprinting",
+   "citations": [
+    "Prettyprinting - Derek C. Oppen, ACM TOPLAS (1980)"
+   ],
+   "naming_for": [
+    "pretty-printer"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "readevalprint loop",
+   "citations": [
+    "Read-eval-print loop - Wikipedia (term from the Lisp tradition)"
+   ],
+   "naming_for": [
+    "read-eval-print-loop"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "regular expression search algorithm",
+   "citations": [
+    "Regular Expression Search Algorithm - Ken Thompson, Communications of the ACM (1968)"
+   ],
+   "naming_for": [
+    "regular-expressions"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "eelco visser scannerless generalizedlr parsing univ of amsterdam tech ",
+   "citations": [
+    "Eelco Visser, 'Scannerless Generalized-LR Parsing', Univ. of Amsterdam tech report P9707, 1997; term scannerless coined "
+   ],
+   "naming_for": [
+    "scannerless-parsing"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "fowler domainspecific languages addisonwesley 2010 ch 11 martinfowlerc",
+   "citations": [
+    "Fowler, Domain-Specific Languages (Addison-Wesley, 2010), ch. 11; martinfowler.com/dslCatalog ('The model that's populat"
+   ],
+   "naming_for": [
+    "semantic-model"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "ew dijkstra making a translator for algol 60 mathematisch centrum repo",
+   "citations": [
+    "E.W. Dijkstra, 'Making a Translator for ALGOL 60' / Mathematisch Centrum report MR 34/61 (1961); the railway shunting-ya"
+   ],
+   "naming_for": [
+    "shunting-yard-algorithm"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "parr enforcing strict modelview separation in template engines www 200",
+   "citations": [
+    "Parr, Enforcing Strict Model-View Separation in Template Engines (WWW 2004, StringTemplate); Fowler, Patterns of Enterpr"
+   ],
+   "naming_for": [
+    "template-engine"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "parr",
+   "citations": [
+    "Parr — Enforcing Strict Model-View Separation in Template Engines, WWW 2004 (StringTemplate)"
+   ],
+   "naming_for": [],
+   "also_source_for": [
+    "template-engine"
+   ]
+  },
+  {
+   "key": "quinlan dorward venti a new approach to archival storage usenix fast 2",
+   "citations": [
+    "Quinlan & Dorward, 'Venti: A New Approach to Archival Storage', USENIX FAST 2002 (verified live); canonical modern reali"
+   ],
+   "naming_for": [
+    "content-addressable-storage"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "an2594",
+   "citations": [
+    "AN2594 - EEPROM emulation in STM32F10x microcontrollers (STMicroelectronics)"
+   ],
+   "naming_for": [
+    "eeprom-emulation-in-flash"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "event sourcing martinfowlercom further enterprise application architec",
+   "citations": [
+    "Event Sourcing, martinfowler.com (Further Enterprise Application Architecture development) - Martin Fowler (2005)"
+   ],
+   "naming_for": [
+    "event-sourcing"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "intel understanding the flash translation layer ftl specification ap68",
+   "citations": [
+    "Intel 'Understanding the Flash Translation Layer (FTL) Specification' (AP-684, 1998); Chung et al., 'A survey of Flash T"
+   ],
+   "naming_for": [
+    "flash-translation-layer"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "wear leveling",
+   "citations": [
+    "Wear leveling - Wikipedia; AN798 EEPROM Emulation with Wear-Leveling (Silicon Labs)"
+   ],
+   "naming_for": [
+    "flash-wear-leveling"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "rosenblum ousterhout",
+   "citations": [
+    "Rosenblum & Ousterhout — The Design and Implementation of a Log-Structured File System, SOSP 1991 / ACM TOCS 1992"
+   ],
+   "naming_for": [
+    "log-structured-storage"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "fowler bliki memoryimage 31 aug 2011 loaded live",
+   "citations": [
+    "Fowler, bliki 'MemoryImage' (31 Aug 2011; loaded live — cites Prevayler/'system prevalence' and the LMAX architecture as"
+   ],
+   "naming_for": [
+    "memory-image"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "physical integrity in a large segmented database",
+   "citations": [
+    "Physical Integrity in a Large Segmented Database - Lorie (1977)"
+   ],
+   "naming_for": [
+    "shadow-paging"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "apache cassandra documentation tombstones verified live kleppmann desi",
+   "citations": [
+    "Apache Cassandra documentation, 'Tombstones' (verified live); Kleppmann, Designing Data-Intensive Applications (log comp"
+   ],
+   "naming_for": [
+    "tombstone"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "gregory game engine architecture resource management streaming unreal ",
+   "citations": [
+    "Gregory, Game Engine Architecture (resource management / streaming); Unreal Engine documentation, 'Level Streaming'"
+   ],
+   "naming_for": [
+    "asset-streaming"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "the art of computer programming vol 1",
+   "citations": [
+    "The Art of Computer Programming, Vol. 1 - Donald E. Knuth (1968), sec. 2.5 'Dynamic Storage Allocation'"
+   ],
+   "naming_for": [
+    "buddy-memory-allocation"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "framework design guidelines",
+   "citations": [
+    "Framework Design Guidelines - Cwalina & Abrams (2005); Effective Java Item 9 (try-with-resources)"
+   ],
+   "naming_for": [
+    "dispose-pattern"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "practical lockfreedom ucamcltr579",
+   "citations": [
+    "Practical Lock-Freedom (UCAM-CL-TR-579) - Keir Fraser (2004)"
+   ],
+   "naming_for": [
+    "epoch-based-reclamation"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "jones hosking moss the garbage collection handbook the art of automati",
+   "citations": [
+    "Jones, Hosking & Moss, 'The Garbage Collection Handbook: The Art of Automatic Memory Management' (2011), sect. 11.8 'Wri"
+   ],
+   "naming_for": [
+    "gc-write-barrier"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "hazard pointers safe memory reclamation for lockfree objects",
+   "citations": [
+    "Hazard Pointers: Safe Memory Reclamation for Lock-Free Objects - Maged M. Michael (2004)"
+   ],
+   "naming_for": [
+    "hazard-pointers"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "leases an efficient faulttolerant mechanism for distributed file cache",
+   "citations": [
+    "Leases: An Efficient Fault-Tolerant Mechanism for Distributed File Cache Consistency - Gray, Cheriton (1989)"
+   ],
+   "naming_for": [],
+   "also_source_for": [
+    "leasing"
+   ]
+  },
+  {
+   "key": "optimizing performance controls ui virtualization",
+   "citations": [
+    "Optimizing Performance: Controls (UI Virtualization) - WPF documentation - Microsoft"
+   ],
+   "naming_for": [
+    "list-virtualization"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "the design and evolution of c",
+   "citations": [
+    "The Design and Evolution of C++ - Stroustrup (1994)"
+   ],
+   "naming_for": [
+    "raii-resource-acquisition-is-initialization"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "a method for overlapping and erasure of lists",
+   "citations": [
+    "A Method for Overlapping and Erasure of Lists - George E. Collins (1960)"
+   ],
+   "naming_for": [
+    "reference-counting"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "genericprogramming change the way you write exceptionsafe code",
+   "citations": [
+    "Generic<Programming>: Change the Way You Write Exception-Safe Code - Forever - Andrei Alexandrescu & Petru Marginean, Dr"
+   ],
+   "naming_for": [
+    "scope-guard"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "the slab allocator an objectcaching kernel memory allocator",
+   "citations": [
+    "The Slab Allocator: An Object-Caching Kernel Memory Allocator - Jeff Bonwick (1994)"
+   ],
+   "naming_for": [
+    "slab-allocator"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "lampson protection 1971 access matrix saltzer schroeder 1975 standard ",
+   "citations": [
+    "Lampson, Protection (1971, access matrix); Saltzer & Schroeder (1975); standard OS textbooks"
+   ],
+   "naming_for": [
+    "access-control-list"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "owasp input validation cheat sheet steel nagappan lai core security pa",
+   "citations": [
+    "OWASP Input Validation Cheat Sheet; Steel, Nagappan & Lai, Core Security Patterns (2005)"
+   ],
+   "naming_for": [
+    "allowlist-input-validation"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "fowler audit log martinfowlercom eaadev steel nagappan lai core securi",
+   "citations": [
+    "Fowler, Audit Log (martinfowler.com eaaDev); Steel, Nagappan & Lai, Core Security Patterns (2005, 'Secure Logger'); Schn"
+   ],
+   "naming_for": [
+    "audit-log"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "fowler temporal patterns with carlson estepp plopd4 2000 living treatm",
+   "citations": [
+    "Fowler, 'Temporal Patterns' (with Carlson & Estepp), PLoPD4 (2000); living treatment: Fowler eaaDev 'Audit Log'"
+   ],
+   "naming_for": [],
+   "also_source_for": [
+    "audit-log"
+   ]
+  },
+  {
+   "key": "rfc 5116 an interface and algorithms for authenticated encryption 2008",
+   "citations": [
+    "RFC 5116 (An Interface and Algorithms for Authenticated Encryption, 2008); Rogaway AEAD literature"
+   ],
+   "naming_for": [
+    "authenticated-encryption"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "dennis van horn programming semantics for multiprogrammed computations",
+   "citations": [
+    "Dennis & Van Horn, Programming Semantics for Multiprogrammed Computations (CACM 1966); Miller, Robust Composition (2006,"
+   ],
+   "naming_for": [
+    "capability"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "bearssl constanttime crypto",
+   "citations": [
+    "BearSSL: Constant-Time Crypto - Pornin (living)"
+   ],
+   "naming_for": [
+    "constant-time-comparison"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "menezes van oorschot vanstone handbook of applied cryptography 1996 ch",
+   "citations": [
+    "Menezes, van Oorschot & Vanstone, Handbook of Applied Cryptography (1996, ch. 9); FIPS 180 (Secure Hash Standard)"
+   ],
+   "naming_for": [
+    "cryptographic-hash-function"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "nist sp 80090a drbg rfc 4086 randomness requirements for security",
+   "citations": [
+    "NIST SP 800-90A (DRBG); RFC 4086 (Randomness Requirements for Security)"
+   ],
+   "naming_for": [
+    "csprng"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "yoder barcalow plop 1997 schumacher et al wiley 2006",
+   "citations": [
+    "Yoder & Barcalow (PLoP 1997); Schumacher et al. (Wiley 2006)"
+   ],
+   "naming_for": [
+    "full-view-with-errors"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "creating guard pages",
+   "citations": [
+    "Creating Guard Pages - Microsoft Win32 documentation (live)"
+   ],
+   "naming_for": [
+    "guard-page"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "owasp html sanitization guidance xss prevention cheat sheet owasp java",
+   "citations": [
+    "OWASP HTML Sanitization guidance (XSS Prevention Cheat Sheet); OWASP Java HTML Sanitizer; WHATWG HTML Sanitizer API (dra"
+   ],
+   "naming_for": [
+    "html-sanitization"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "yoder barcalow plop 1997 schumacher et al wiley 2006 limited access",
+   "citations": [
+    "Yoder & Barcalow (PLoP 1997); Schumacher et al. (Wiley 2006, 'Limited Access')"
+   ],
+   "naming_for": [
+    "limited-view"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "linux kernel configpagepoisoning and slabpoisoning documentation verif",
+   "citations": [
+    "Linux kernel CONFIG_PAGE_POISONING and slab-poisoning documentation (verified live); also AddressSanitizer shadow-poison"
+   ],
+   "naming_for": [
+    "memory-poisoning"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "rfc 2104 hmac 1997 handbook of applied cryptography ch 9",
+   "citations": [
+    "RFC 2104 (HMAC, 1997); Handbook of Applied Cryptography ch. 9"
+   ],
+   "naming_for": [
+    "message-authentication-code"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "rfc 4949 internet security glossary handbook of applied cryptography c",
+   "citations": [
+    "RFC 4949 (Internet Security Glossary); Handbook of Applied Cryptography ch. 10"
+   ],
+   "naming_for": [
+    "nonce"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "owasp query parameterization cheat sheet owasp top 10 injection guidan",
+   "citations": [
+    "OWASP Query Parameterization Cheat Sheet / OWASP Top 10 injection guidance; every major database API"
+   ],
+   "naming_for": [
+    "parameterized-query"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "oracle solaris developers guide to security privilege bracketing viega",
+   "citations": [
+    "Oracle Solaris Developer's Guide to Security ('privilege bracketing'); Viega & Messier, Secure Programming Cookbook for "
+   ],
+   "naming_for": [
+    "privilege-bracketing"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "provos friedl honeyman preventing privilege escalation 12th usenix sec",
+   "citations": [
+    "Provos, Friedl, Honeyman, 'Preventing Privilege Escalation', 12th USENIX Security Symposium 2003 (verified live)"
+   ],
+   "naming_for": [
+    "privilege-separation"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "anderson computer security technology planning study 1972 schumacher e",
+   "citations": [
+    "Anderson, Computer Security Technology Planning Study (1972); Schumacher et al., Security Patterns (Wiley 2006, 'Referen"
+   ],
+   "naming_for": [
+    "reference-monitor"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "ferraiolo kuhn rolebased access controls nist 1992 ansi incits 359 yod",
+   "citations": [
+    "Ferraiolo & Kuhn, Role-Based Access Controls (NIST, 1992); ANSI INCITS 359; Yoder & Barcalow 'Roles' (PLoP 1997); Schuma"
+   ],
+   "naming_for": [
+    "role-based-access-control"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "morris thompson password security a case history cacm 1979 introduces ",
+   "citations": [
+    "Morris & Thompson, Password Security: A Case History (CACM 1979, introduces salt); OWASP Password Storage Cheat Sheet"
+   ],
+   "naming_for": [
+    "salted-password-hashing"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "yoder barcalow plop 1997",
+   "citations": [
+    "Yoder & Barcalow (PLoP 1997)"
+   ],
+   "naming_for": [
+    "secure-access-layer"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "uefi specification secure boot android verified boot documentation emb",
+   "citations": [
+    "UEFI Specification (Secure Boot); Android Verified Boot documentation; embedded bootloader literature (e.g. MCUboot docu"
+   ],
+   "naming_for": [
+    "secure-boot-image-verification"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "yoder barcalow architectural patterns for enabling application securit",
+   "citations": [
+    "Yoder & Barcalow, Architectural Patterns for Enabling Application Security (PLoP 1997); Schumacher et al., Security Patt"
+   ],
+   "naming_for": [
+    "single-access-point"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "stackguard automatic adaptive detection and prevention of bufferoverfl",
+   "citations": [
+    "StackGuard: Automatic Adaptive Detection and Prevention of Buffer-Overflow Attacks - Cowan et al. (1998)"
+   ],
+   "naming_for": [
+    "stack-canary"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "owasp crosssite request forgery prevention cheat sheet synchronizer to",
+   "citations": [
+    "OWASP Cross-Site Request Forgery Prevention Cheat Sheet ('Synchronizer Token Pattern')"
+   ],
+   "naming_for": [
+    "synchronizer-token"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "perl perlsec taint mode ruby safe taint historical schwartz christians",
+   "citations": [
+    "Perl perlsec (taint mode); Ruby $SAFE taint (historical); Schwartz & Christiansen Perl literature; dynamic taint analysi"
+   ],
+   "naming_for": [
+    "taint-checking"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "the cyclic executive model and ada",
+   "citations": [
+    "The Cyclic Executive Model and Ada - Baker & Shaw (Real-Time Systems, 1989)"
+   ],
+   "naming_for": [],
+   "also_source_for": [
+    "cyclic-executive"
+   ]
+  },
+  {
+   "key": "fix your timestep",
+   "citations": [
+    "Fix Your Timestep! - Glenn Fiedler (Gaffer On Games, 2004)"
+   ],
+   "naming_for": [
+    "fixed-timestep"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "interrupt coalescing",
+   "citations": [
+    "Interrupt coalescing - Wikipedia (live)"
+   ],
+   "naming_for": [
+    "interrupt-coalescing"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "new directions in communications or which way to the information age",
+   "citations": [
+    "New Directions in Communications (or Which Way to the Information Age?) - Turner (1986)"
+   ],
+   "naming_for": [
+    "leaky-bucket"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "meeting realtime constraints using sandwich delays",
+   "citations": [
+    "Meeting Real-Time Constraints Using 'Sandwich Delays' - Pont, Kurian & Bautista (EuroPLoP 2006)"
+   ],
+   "naming_for": [
+    "sandwich-delay"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "autosar specification of operating system schedule tables osekvdx time",
+   "citations": [
+    "AUTOSAR Specification of Operating System (schedule tables); OSEK/VDX time-triggered OS"
+   ],
+   "naming_for": [
+    "schedule-table"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "debouncing and throttling explained through examples",
+   "citations": [
+    "Debouncing and Throttling Explained Through Examples - Corbacho, CSS-Tricks (2016)"
+   ],
+   "naming_for": [
+    "throttle"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "rfc 791 internet protocol",
+   "citations": [
+    "RFC 791: Internet Protocol - Postel (1981)"
+   ],
+   "naming_for": [
+    "time-to-live-ttl"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "hashed and hierarchical timing wheels data structures for the efficien",
+   "citations": [
+    "Hashed and Hierarchical Timing Wheels: Data Structures for the Efficient Implementation of a Timer Facility - Varghese, "
+   ],
+   "naming_for": [
+    "timer-wheel"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "computer networks 3rd ed",
+   "citations": [
+    "Computer Networks, 3rd ed. - Tanenbaum (1996)"
+   ],
+   "naming_for": [
+    "token-bucket"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "scheduling multithreaded computations by work stealing",
+   "citations": [
+    "Scheduling Multithreaded Computations by Work Stealing - Blumofe, Leiserson (1999)"
+   ],
+   "naming_for": [
+    "work-stealing"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "rfc 4648",
+   "citations": [
+    "RFC 4648 - The Base16, Base32, and Base64 Data Encodings (2006)"
+   ],
+   "naming_for": [
+    "binary-to-text-encoding"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "rfc 1055",
+   "citations": [
+    "RFC 1055 - Nonstandard for Transmission of IP Datagrams over Serial Lines: SLIP - Romkey (1988)"
+   ],
+   "naming_for": [
+    "byte-stuffing"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "rfc 9112",
+   "citations": [
+    "RFC 9112 - HTTP/1.1 (2022), sec. 7.1 'Chunked Transfer Coding'"
+   ],
+   "naming_for": [
+    "chunked-transfer-encoding"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "consistent overhead byte stuffing",
+   "citations": [
+    "Consistent Overhead Byte Stuffing - Cheshire & Baker (IEEE/ACM Transactions on Networking, 1999)",
+    "Consistent Overhead Byte Stuffing - Cheshire, Baker, IEEE/ACM Transactions on Networking (1999)"
+   ],
+   "naming_for": [
+    "consistent-overhead-byte-stuffing"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "rfc 3229",
+   "citations": [
+    "RFC 3229 - Delta Encoding in HTTP (2002); Delta encoding - Wikipedia"
+   ],
+   "naming_for": [
+    "delta-encoding"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "magic number programming",
+   "citations": [
+    "Magic number (programming) - Wikipedia; List of file signatures - Wikipedia"
+   ],
+   "naming_for": [
+    "magic-number-file-signature"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "rfc 791",
+   "citations": [
+    "RFC 791 - Internet Protocol, Appendix B: Data Transmission Order (1981)"
+   ],
+   "naming_for": [
+    "network-byte-order-handling"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "rfc 3986",
+   "citations": [
+    "RFC 3986 - Uniform Resource Identifier (URI): Generic Syntax (2005), sec. 2.1"
+   ],
+   "naming_for": [
+    "percent-encoding"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "runlength encoding",
+   "citations": [
+    "Run-length encoding - Wikipedia (technique published by Robinson and Cherry, 1967)"
+   ],
+   "naming_for": [
+    "run-length-encoding"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "serializer",
+   "citations": [
+    "Serializer - Dirk Riehle, Wolf Siberski, Dirk Baeumer, Daniel Megert, Heinz Zuellighoven, in Pattern Languages of Progra"
+   ],
+   "naming_for": [
+    "serializer"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "syncword",
+   "citations": [
+    "Syncword - Wikipedia"
+   ],
+   "naming_for": [
+    "sync-word"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "fowler bliki tolerantreader 9 may 2011 loaded live",
+   "citations": [
+    "Fowler, bliki 'TolerantReader' (9 May 2011; loaded live — notes Rob Daigneau published the full pattern in Service Desig"
+   ],
+   "naming_for": [
+    "tolerant-reader"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "isla handling complexity in the halo 2 ai gdc 2005 champandard dunstan",
+   "citations": [
+    "Isla, 'Handling Complexity in the Halo 2 AI', GDC 2005; Champandard & Dunstan, 'The Behavior Tree Starter Kit', Game AI "
+   ],
+   "naming_for": [
+    "behavior-tree"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "data binding overview",
+   "citations": [
+    "Data Binding Overview - WPF documentation - Microsoft"
+   ],
+   "naming_for": [
+    "data-binding"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "aronson dead reckoning latency hiding for networked games gamasutra 19",
+   "citations": [
+    "Aronson, 'Dead Reckoning: Latency Hiding for Networked Games', Gamasutra 1997; IEEE 1278.1 (DIS) dead reckoning algorith"
+   ],
+   "naming_for": [
+    "dead-reckoning"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "fiedler deterministic lockstep gafferongamescom verified live bettner ",
+   "citations": [
+    "Fiedler, 'Deterministic Lockstep' (gafferongames.com; verified live); Bettner & Terrano, '1500 Archers on a 28.8: Networ"
+   ],
+   "naming_for": [
+    "deterministic-lockstep"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "bettner terrano 1500 archers on a 288 network programming in age of em",
+   "citations": [
+    "Bettner & Terrano, '1500 Archers on a 28.8: Network Programming in Age of Empires and Beyond', GDC 2001; Fiedler, 'Deter"
+   ],
+   "naming_for": [],
+   "also_source_for": [
+    "deterministic-lockstep"
+   ]
+  },
+  {
+   "key": "angularjs developer guide",
+   "citations": [
+    "AngularJS Developer Guide - Scopes ($digest / dirty checking)"
+   ],
+   "naming_for": [
+    "dirty-checking"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "michael abrashs graphics programming black book",
+   "citations": [
+    "Michael Abrash's Graphics Programming Black Book - Michael Abrash (1997), ch. 45 'Dog Hair and Dirty Rectangles'"
+   ],
+   "naming_for": [
+    "dirty-rectangles"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "graphics programming black book",
+   "citations": [
+    "Graphics Programming Black Book - Michael Abrash (1997)"
+   ],
+   "naming_for": [],
+   "also_source_for": [
+    "dirty-rectangles"
+   ]
+  },
+  {
+   "key": "serverside rendering ssr",
+   "citations": [
+    "Server-Side Rendering (SSR) - Vue.js documentation (Client Hydration)"
+   ],
+   "naming_for": [
+    "hydration"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "patterns in java volume 1",
+   "citations": [
+    "Patterns in Java, Volume 1 - Mark Grand (1998)"
+   ],
+   "naming_for": [],
+   "also_source_for": [
+    "immutable-value"
+   ]
+  },
+  {
+   "key": "immutable",
+   "citations": [
+    "Immutable - Mark Grand, Patterns in Java Vol. 1 (1998); reinforced in Effective Java - Bloch (2001) and Java Concurrency"
+   ],
+   "naming_for": [],
+   "also_source_for": [
+    "immutable-value"
+   ]
+  },
+  {
+   "key": "apollo client documentation",
+   "citations": [
+    "Apollo Client documentation - Optimistic mutation results"
+   ],
+   "naming_for": [
+    "optimistic-ui-update"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "javascript signals standard proposal",
+   "citations": [
+    "JavaScript Signals standard proposal - TC39 (proposal-signals)"
+   ],
+   "naming_for": [
+    "reactive-signals"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "cannon fight the lag the trick behind ggpos lowlatency netcode game de",
+   "citations": [
+    "Cannon, 'Fight the Lag! The Trick Behind GGPO's Low-Latency Netcode', Game Developer Magazine, Sept 2012 (republished as"
+   ],
+   "naming_for": [
+    "rollback-netcode"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "fowler bliki rulesengine 7 jan 2009 loaded live",
+   "citations": [
+    "Fowler, bliki 'RulesEngine' (7 Jan 2009; loaded live — 'you can build a simple rules engine yourself', production rules,"
+   ],
+   "naming_for": [
+    "rules-engine"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "acquire and release semantics",
+   "citations": [
+    "Acquire and Release Semantics - Jeff Preshing (2012)"
+   ],
+   "naming_for": [
+    "acquire-release-ordering"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "waitfree synchronization",
+   "citations": [
+    "Wait-Free Synchronization - Herlihy (1991)"
+   ],
+   "naming_for": [
+    "compare-and-swap-loop"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "solution of a problem in concurrent programming control",
+   "citations": [
+    "Solution of a Problem in Concurrent Programming Control - Dijkstra (1965)"
+   ],
+   "naming_for": [],
+   "also_source_for": [
+    "critical-region"
+   ]
+  },
+  {
+   "key": "synchronization with eventcounts and sequencers",
+   "citations": [
+    "Synchronization with Eventcounts and Sequencers - Reed & Kanodia (1979)"
+   ],
+   "naming_for": [
+    "eventcount"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "flat combining and the synchronizationparallelism tradeoff",
+   "citations": [
+    "Flat Combining and the Synchronization-Parallelism Tradeoff - Hendler, Incze, Shavit & Tzafrir (2010)"
+   ],
+   "naming_for": [
+    "flat-combining"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "fuss futexes and furwocks fast userlevel locking in linux",
+   "citations": [
+    "Fuss, Futexes and Furwocks: Fast Userlevel Locking in Linux - Franke, Russell & Kirkwood (2002)"
+   ],
+   "naming_for": [
+    "futex"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "lamport time clocks and the ordering of events in a distributed system",
+   "citations": [
+    "Lamport, 'Time, Clocks, and the Ordering of Events in a Distributed System', CACM 1978"
+   ],
+   "naming_for": [
+    "logical-clock"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "linux kernel memorybarrierstxt",
+   "citations": [
+    "Linux kernel memory-barriers.txt - McKenney, Howells et al. (Linux kernel documentation)"
+   ],
+   "naming_for": [
+    "memory-barrier"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "granularity of locks and degrees of consistency in a shared data base",
+   "citations": [
+    "Granularity of Locks and Degrees of Consistency in a Shared Data Base - Gray, Lorie, Putzolu & Traiger (1976)"
+   ],
+   "naming_for": [
+    "multi-granularity-locking"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "multiversion concurrency control",
+   "citations": [
+    "Multiversion Concurrency Control - Theory and Algorithms - Bernstein & Goodman (1983)"
+   ],
+   "naming_for": [
+    "multiversion-concurrency-control"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "ellis gibbs concurrency control in groupware systems acm sigmod 1989 p",
+   "citations": [
+    "Ellis & Gibbs, Concurrency Control in Groupware Systems (ACM SIGMOD 1989, pp. 399-407)"
+   ],
+   "naming_for": [
+    "operational-transformation"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "on optimistic methods for concurrency control",
+   "citations": [
+    "On Optimistic Methods for Concurrency Control - Kung & Robinson (1981)"
+   ],
+   "naming_for": [
+    "optimistic-concurrency-control"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "readcopy update using execution history to solve concurrency problems",
+   "citations": [
+    "Read-Copy Update: Using Execution History to Solve Concurrency Problems - McKenney & Slingwine (1998)",
+    "Read-Copy Update: Using Execution History to Solve Concurrency Problems - McKenney, Slingwine (1998)"
+   ],
+   "naming_for": [
+    "read-copy-update"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "concurrent control with readers and writers",
+   "citations": [
+    "Concurrent Control with 'Readers' and 'Writers' - Courtois, Heymans, Parnas (1971)"
+   ],
+   "naming_for": [
+    "readers-writer-lock"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "reference manual for the ada programming language",
+   "citations": [
+    "Reference Manual for the Ada Programming Language - ANSI/MIL-STD-1815A (1983)"
+   ],
+   "naming_for": [],
+   "also_source_for": [
+    "rendezvous"
+   ]
+  },
+  {
+   "key": "openjdk hotspot glossary of terms openjdkorg verified live this sessio",
+   "citations": [
+    "OpenJDK, 'HotSpot Glossary of Terms' (openjdk.org, verified live this session); mechanism analyzed in Agesen, 'GC Points"
+   ],
+   "naming_for": [
+    "safepoint"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "the linux programming interface",
+   "citations": [
+    "The Linux Programming Interface - Michael Kerrisk (2010), sec. 63.5.2 'The Self-Pipe Trick'"
+   ],
+   "naming_for": [
+    "self-pipe-trick"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "sequence counters and sequential locks",
+   "citations": [
+    "Sequence counters and sequential locks - Linux kernel documentation (locking/seqlock.rst)"
+   ],
+   "naming_for": [
+    "sequence-lock"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "a critique of ansi sql isolation levels",
+   "citations": [
+    "A Critique of ANSI SQL Isolation Levels - Berenson, Bernstein, Gray, Melton, O'Neil & O'Neil (1995)"
+   ],
+   "naming_for": [
+    "snapshot-isolation"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "software transactional memory",
+   "citations": [
+    "Software Transactional Memory - Shavit & Touitou (1995)",
+    "Software Transactional Memory - Shavit, Touitou (1995)"
+   ],
+   "naming_for": [
+    "software-transactional-memory"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "the performance of spin lock alternatives for sharedmemory multiproces",
+   "citations": [
+    "The Performance of Spin Lock Alternatives for Shared-Memory Multiprocessors - Anderson (1990)"
+   ],
+   "naming_for": [
+    "spinlock"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "concurrency control in distributed database systems",
+   "citations": [
+    "Concurrency Control in Distributed Database Systems - Bernstein & Goodman (1981)"
+   ],
+   "naming_for": [
+    "timestamp-ordering-concurrency-control"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "the notions of consistency and predicate locks in a database system",
+   "citations": [
+    "The Notions of Consistency and Predicate Locks in a Database System - Eswaran, Gray, Lorie & Traiger (1976)"
+   ],
+   "naming_for": [
+    "two-phase-locking"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "meszaros xunit test patterns 2007 xunitpatternscom four phase test ver",
+   "citations": [
+    "Meszaros, xUnit Test Patterns (2007); xunitpatterns.com 'Four Phase Test' (verified live)"
+   ],
+   "naming_for": [
+    "four-phase-test"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "feathers working effectively with legacy code 2004 characterization te",
+   "citations": [
+    "Feathers, Working Effectively with Legacy Code (2004; 'characterization test'); ApprovalTests / approvaltests.com; 'snap"
+   ],
+   "naming_for": [
+    "golden-master-testing"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "objectmother easing test object creation in xp",
+   "citations": [
+    "ObjectMother: Easing Test Object Creation in XP - Peter Schuh, Stephanie Punke (XP Universe 2001); name coined on a Thou"
+   ],
+   "naming_for": [
+    "object-mother"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "fowler bliki pageobject 10 sep 2013 loaded live",
+   "citations": [
+    "Fowler, bliki 'PageObject' (10 Sep 2013; loaded live — states it was first described as Window Driver at eaaDev and popu"
+   ],
+   "naming_for": [
+    "page-object"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "gerard meszaros xunit test patterns refactoring test code 2007",
+   "citations": [
+    "Gerard Meszaros, xUnit Test Patterns: Refactoring Test Code (2007) — 'Parameterized Test' (with 'Data-Driven Test' as th"
+   ],
+   "naming_for": [
+    "parameterized-test"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "claessen hughes quickcheck a lightweight tool for random testing of ha",
+   "citations": [
+    "Claessen & Hughes, 'QuickCheck: A Lightweight Tool for Random Testing of Haskell Programs' (ICFP 2000)"
+   ],
+   "naming_for": [
+    "property-based-testing"
+   ],
+   "also_source_for": []
+  },
+  {
+   "key": "test data builders an alternative to the object mother pattern",
+   "citations": [
+    "Test Data Builders: an alternative to the Object Mother pattern - Nat Pryce (2007); also in Growing Object-Oriented Soft"
+   ],
+   "naming_for": [
+    "test-data-builder"
+   ],
+   "also_source_for": []
+  }
+ ]
+}

@@ -1,0 +1,910 @@
+{
+ "route": "r7",
+ "elements": [
+  {
+   "id": "composed-method",
+   "name": "Composed Method",
+   "kind": "code-structure",
+   "named_in": "Beck, Smalltalk Best Practice Patterns (Prentice Hall, 1997), 'Composed Method'",
+   "named_in_corpus_id": null,
+   "other_sources": [
+    "Beck, Smalltalk Best Practice Patterns (1997)"
+   ],
+   "tags": [
+    "smalltalk-origin",
+    "language-neutral",
+    "borderline"
+   ]
+  },
+  {
+   "id": "escaping-ifdef-hell",
+   "name": "Escaping #ifdef Hell",
+   "kind": "code-structure",
+   "named_in": "Fluent C: Principles, Practices, and Patterns - Preschern (2022)",
+   "named_in_corpus_id": "preschern",
+   "other_sources": [],
+   "tags": [
+    "c",
+    "embedded",
+    "borderline"
+   ]
+  },
+  {
+   "id": "feature-flag",
+   "name": "Feature Flag",
+   "kind": "code-structure",
+   "named_in": "Hodgson, 'Feature Toggles (aka Feature Flags)', martinfowler.com, 2017 (verified live; names toggle point, toggle router, toggle configuration)",
+   "named_in_corpus_id": null,
+   "other_sources": [
+    "Hodgson, Feature Toggles (aka Feature Flags), martinfowler.com (2017); Fowler, FeatureTogg"
+   ],
+   "tags": [
+    "configuration",
+    "deployment",
+    "web",
+    "services"
+   ]
+  },
+  {
+   "id": "generation-gap",
+   "name": "Generation Gap",
+   "kind": "code-structure",
+   "named_in": "Vlissides, 'Generation Gap', Pattern Hatching: Design Patterns Applied (1998; earlier C++ Report 1996)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "code-generation",
+    "still standard in GUI builders / ORM / protocol-compiler output"
+   ]
+  },
+  {
+   "id": "hot-code-reload",
+   "name": "Hot Code Reload",
+   "kind": "code-structure",
+   "named_in": "Erlang/OTP System Documentation, 'Code Replacement' (current/old code semantics; verified live); Hicks & Nettles, 'Dynamic Software Updating' (ACM TOPLAS 2005)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "language runtimes",
+    "high-availability systems",
+    "development tooling",
+    "Erlang"
+   ]
+  },
+  {
+   "id": "include-guard",
+   "name": "Include Guard",
+   "kind": "code-structure",
+   "named_in": "Fluent C - Christopher Preschern (2022); also More C++ Idioms (Wikibooks)",
+   "named_in_corpus_id": "preschern",
+   "other_sources": [],
+   "tags": [
+    "c",
+    "c++",
+    "borderline"
+   ]
+  },
+  {
+   "id": "method-object",
+   "name": "Method Object",
+   "kind": "code-structure",
+   "named_in": "Beck, Smalltalk Best Practice Patterns (1997), 'Method Object'; Fowler, Refactoring (1999) names the move 'Replace Method with Method Object'",
+   "named_in_corpus_id": "fowlerref",
+   "other_sources": [
+    "Beck, Smalltalk Best Practice Patterns (1997); named as a refactoring target in Fowler, Re"
+   ],
+   "tags": [
+    "smalltalk-origin",
+    "refactoring-target"
+   ]
+  },
+  {
+   "id": "organizing-files-in-modular-c-programs",
+   "name": "Organizing Files in Modular C Programs",
+   "kind": "code-structure",
+   "named_in": "Patterns for Organizing Files in Modular C Programs - Preschern (EuroPLoP 2020)",
+   "named_in_corpus_id": "preschernplop",
+   "other_sources": [],
+   "tags": [
+    "c",
+    "borderline"
+   ]
+  },
+  {
+   "id": "software-module-with-global-state",
+   "name": "Software-Module with Global State",
+   "kind": "code-structure",
+   "named_in": "Fluent C ch. 5, 'Data Lifetime and Ownership' (Preschern 2022); also Preschern, 'C Patterns on Data Lifetime and Ownership' (PLoP paper)",
+   "named_in_corpus_id": "preschern",
+   "other_sources": [],
+   "tags": [
+    "c",
+    "borderline"
+   ]
+  },
+  {
+   "id": "stateless-software-module",
+   "name": "Stateless Software-Module",
+   "kind": "code-structure",
+   "named_in": "Fluent C ch. 5, 'Data Lifetime and Ownership' (Preschern 2022); also Preschern, 'C Patterns on Data Lifetime and Ownership' (PLoP paper)",
+   "named_in_corpus_id": "preschern",
+   "other_sources": [],
+   "tags": [
+    "c",
+    "borderline"
+   ]
+  },
+  {
+   "id": "x-macro",
+   "name": "X-Macro",
+   "kind": "code-structure",
+   "named_in": "The New C: X Macros - Randy Meyers, C/C++ Users Journal (2001)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "c",
+    "embedded"
+   ]
+  },
+  {
+   "id": "adjacency-list-adjacency-matrix",
+   "name": "Adjacency List / Adjacency Matrix",
+   "kind": "data-representation",
+   "named_in": "Introduction to Algorithms - Cormen, Leiserson, Rivest, Stein (2009)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "graphs",
+    "borderline"
+   ]
+  },
+  {
+   "id": "bytecode",
+   "name": "Bytecode",
+   "kind": "data-representation",
+   "named_in": "Game Programming Patterns - Robert Nystrom (2014)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "games",
+    "scripting"
+   ]
+  },
+  {
+   "id": "column-oriented-storage",
+   "name": "Column-Oriented Storage",
+   "kind": "data-representation",
+   "named_in": "C-Store: A Column-oriented DBMS - Stonebraker et al. (2005)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "db",
+    "storage-engine",
+    "analytics"
+   ]
+  },
+  {
+   "id": "comparand",
+   "name": "Comparand",
+   "kind": "data-representation",
+   "named_in": "'The Comparand Pattern: Cheap Identity Testing Using Dedicated Values', PLoPD5 ch. 8 (2006) (Library of Congress ToC loaded live)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "identity",
+    "related to interning (sharing, in index) but distinct mechanism",
+    "borderline"
+   ]
+  },
+  {
+   "id": "compression",
+   "name": "Compression",
+   "kind": "data-representation",
+   "named_in": "Small Memory Software: Patterns for Systems with Limited Memory - Noble & Weir (2000)",
+   "named_in_corpus_id": "noblesmallmem",
+   "other_sources": [],
+   "tags": [
+    "embedded",
+    "memory"
+   ]
+  },
+  {
+   "id": "container-of",
+   "name": "container_of",
+   "kind": "data-representation",
+   "named_in": "Linux Device Drivers, 3rd ed. - Corbet, Rubini & Kroah-Hartman (2005)",
+   "named_in_corpus_id": "ldd3",
+   "other_sources": [],
+   "tags": [
+    "c",
+    "linux",
+    "embedded"
+   ]
+  },
+  {
+   "id": "data-locality",
+   "name": "Data Locality",
+   "kind": "data-representation",
+   "named_in": "Game Programming Patterns - Robert Nystrom (2014)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "games",
+    "performance",
+    "cache"
+   ]
+  },
+  {
+   "id": "data-transfer-object",
+   "name": "Data Transfer Object",
+   "kind": "data-representation",
+   "named_in": "Patterns of Enterprise Application Architecture - Martin Fowler (2002)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "enterprise",
+    "distribution"
+   ]
+  },
+  {
+   "id": "dictionary-encoding",
+   "name": "Dictionary Encoding",
+   "kind": "data-representation",
+   "named_in": "Abadi, Boncz, Harizopoulos, Idreos, Madden — The Design and Implementation of Modern Column-Oriented Database Systems (Foundations and Trends in Databases 5(3), 2013)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "databases",
+    "columnar"
+   ]
+  },
+  {
+   "id": "empty-base-optimization-ebo",
+   "name": "Empty Base Optimization (EBO)",
+   "kind": "data-representation",
+   "named_in": "More C++ Idioms - Wikibooks (living); 'The Empty Member C++ Optimization' - Nathan Myers, Dr. Dobb's (1997)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "c++",
+    "borderline"
+   ]
+  },
+  {
+   "id": "entity",
+   "name": "Entity",
+   "kind": "data-representation",
+   "named_in": "Domain-Driven Design: Tackling Complexity in the Heart of Software - Eric Evans (2003)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "ddd",
+    "domain-modeling"
+   ]
+  },
+  {
+   "id": "entity-component-system",
+   "name": "Entity Component System",
+   "kind": "data-representation",
+   "named_in": "Evolve Your Hierarchy: Refactoring Game Entities with Components - Mick West (2007)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "games",
+    "performance",
+    "borderline"
+   ]
+  },
+  {
+   "id": "error-correcting-codes",
+   "name": "Error-Correcting Codes",
+   "kind": "data-representation",
+   "named_in": "Error Detecting and Error Correcting Codes - Hamming (1950)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "embedded",
+    "storage",
+    "networking"
+   ]
+  },
+  {
+   "id": "hidden-class",
+   "name": "Hidden Class",
+   "kind": "data-representation",
+   "named_in": "Chambers, Ungar & Lee, 'An Efficient Implementation of SELF, a Dynamically-Typed Object-Oriented Language Based on Prototypes', OOPSLA 1989 (names 'maps'; verified live this session); 'hidden class' is the V8 documentation term",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "virtual machines",
+    "language runtimes",
+    "dynamic languages",
+    "JavaScript engines"
+   ]
+  },
+  {
+   "id": "level-of-detail",
+   "name": "Level of Detail",
+   "kind": "data-representation",
+   "named_in": "Level of Detail for 3D Graphics - Luebke, Reddy, Cohen, Varshney, Watson, Huebner (2003)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "games",
+    "graphics",
+    "performance",
+    "borderline"
+   ]
+  },
+  {
+   "id": "multiple-representations",
+   "name": "Multiple Representations",
+   "kind": "data-representation",
+   "named_in": "Small Memory Software: Patterns for Systems with Limited Memory - Noble & Weir (2000)",
+   "named_in_corpus_id": "noblesmallmem",
+   "other_sources": [],
+   "tags": [
+    "embedded",
+    "memory"
+   ]
+  },
+  {
+   "id": "newtype",
+   "name": "Newtype",
+   "kind": "data-representation",
+   "named_in": "Rust Design Patterns (rust-unofficial, living); keyword-level origin in Haskell (newtype)",
+   "named_in_corpus_id": null,
+   "other_sources": [
+    "The Rust Programming Language - Klabnik & Nichols (2019), 'Using the Newtype Pattern'"
+   ],
+   "tags": [
+    "rust",
+    "haskell",
+    "c++",
+    "fp"
+   ]
+  },
+  {
+   "id": "opaque-pointer",
+   "name": "Opaque Pointer",
+   "kind": "data-representation",
+   "named_in": "C Interfaces and Implementations - David R. Hanson (1996)",
+   "named_in_corpus_id": "hanson",
+   "other_sources": [
+    "Patterns in C - Adam Tornhill (2015; earlier EuroPLoP 2005 paper)",
+    "C Interfaces and Implementations - Hanson (1996); named First-Class ADT in Patterns in C -"
+   ],
+   "tags": [
+    "c",
+    "embedded"
+   ]
+  },
+  {
+   "id": "packed-data",
+   "name": "Packed Data",
+   "kind": "data-representation",
+   "named_in": "Small Memory Software: Patterns for Systems with Limited Memory - Noble & Weir (2000)",
+   "named_in_corpus_id": "noblesmallmem",
+   "other_sources": [],
+   "tags": [
+    "embedded",
+    "memory"
+   ]
+  },
+  {
+   "id": "pax-page-layout",
+   "name": "PAX Page Layout",
+   "kind": "data-representation",
+   "named_in": "Ailamaki, DeWitt, Hill, Skounakis — Weaving Relations for Cache Performance, VLDB 2001",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "db",
+    "storage-engine",
+    "cache-conscious"
+   ]
+  },
+  {
+   "id": "pointer-swizzling",
+   "name": "Pointer Swizzling",
+   "kind": "data-representation",
+   "named_in": "Wilson & Kakkad, 'Pointer Swizzling at Page Fault Time' (1992); Moss, 'Working with Persistent Objects: To Swizzle or Not to Swizzle' (IEEE TSE, 1992)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "databases",
+    "persistence",
+    "object stores",
+    "memory-mapped data"
+   ]
+  },
+  {
+   "id": "pointer-tagging",
+   "name": "Pointer Tagging",
+   "kind": "data-representation",
+   "named_in": "Gudeman, 'Representing Type Information in Dynamically Typed Languages', Univ. of Arizona TR 93-27, 1993 (canonical survey; verified via live search this session)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "interpreters",
+    "virtual machines",
+    "language runtimes",
+    "borderline"
+   ]
+  },
+  {
+   "id": "quantity",
+   "name": "Quantity",
+   "kind": "data-representation",
+   "named_in": "Analysis Patterns: Reusable Object Models - Martin Fowler (1996)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "domain-modeling",
+    "borderline"
+   ]
+  },
+  {
+   "id": "range",
+   "name": "Range",
+   "kind": "data-representation",
+   "named_in": "Analysis Patterns: Reusable Object Models - Martin Fowler (1996)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "domain-modeling",
+    "borderline"
+   ]
+  },
+  {
+   "id": "record-set",
+   "name": "Record Set",
+   "kind": "data-representation",
+   "named_in": "Patterns of Enterprise Application Architecture - Martin Fowler (2002)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "enterprise"
+   ]
+  },
+  {
+   "id": "relationship-object",
+   "name": "Relationship Object",
+   "kind": "data-representation",
+   "named_in": "Noble, 'Basic Relationship Patterns', PLoPD4 (2000); also Boyd, 'Business Patterns of Association Objects', PLoPD3 (1997) (both ToCs loaded live)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "domain-modeling",
+    "in-memory counterpart of association-table-mapping (index)"
+   ]
+  },
+  {
+   "id": "slotted-page-layout",
+   "name": "Slotted Page Layout",
+   "kind": "data-representation",
+   "named_in": "Database Internals - Petrov (2019)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "db",
+    "storage-engine"
+   ]
+  },
+  {
+   "id": "tagged-union",
+   "name": "Tagged Union",
+   "kind": "data-representation",
+   "named_in": "Types and Programming Languages - Benjamin C. Pierce (2002)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "fp",
+    "c",
+    "rust",
+    "fsharp",
+    "scala",
+    "haskell"
+   ]
+  },
+  {
+   "id": "temporal-property",
+   "name": "Temporal Property",
+   "kind": "data-representation",
+   "named_in": "Carlson, Estepp & Fowler, 'Temporal Patterns', PLoPD4 (2000) (ToC loaded live); living treatment: Fowler's eaaDev temporal patterns (Temporal Property, Temporal Object, Snapshot, Effectivity)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "domain-modeling",
+    "time"
+   ]
+  },
+  {
+   "id": "texture-atlas",
+   "name": "Texture Atlas",
+   "kind": "data-representation",
+   "named_in": "NVIDIA SDK White Paper 'Improve Batching Using Texture Atlases' (WP-01387-001, 2004); Ivan-Assen Ivanov, 'Practical Texture Atlases', Gamasutra/Game Developer, 2006",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": "games;"
+  },
+  {
+   "id": "type-safe-enum",
+   "name": "Type-Safe Enum",
+   "kind": "data-representation",
+   "named_in": "Effective Java - Joshua Bloch (1st ed. 2001, Item 21)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "java",
+    "c++"
+   ]
+  },
+  {
+   "id": "value-object",
+   "name": "Value Object",
+   "kind": "data-representation",
+   "named_in": "Patterns of Enterprise Application Architecture - Martin Fowler (2002)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "enterprise",
+    "ddd"
+   ]
+  },
+  {
+   "id": "virtual-dom",
+   "name": "Virtual DOM",
+   "kind": "data-representation",
+   "named_in": "Reconciliation - React documentation - Meta",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "ui",
+    "js"
+   ]
+  },
+  {
+   "id": "collection-pipeline",
+   "name": "Collection Pipeline",
+   "kind": "functional-type-idioms",
+   "named_in": "Collection Pipeline, martinfowler.com - Martin Fowler (2015)",
+   "named_in_corpus_id": null,
+   "other_sources": [
+    "Collection Pipeline - Martin Fowler (martinfowler.com, 2014)"
+   ],
+   "tags": [
+    "functional",
+    "fp",
+    "java",
+    "csharp",
+    "javascript"
+   ]
+  },
+  {
+   "id": "continuation-passing-style",
+   "name": "Continuation-Passing Style",
+   "kind": "functional-type-idioms",
+   "named_in": "Compiling with Continuations - Andrew W. Appel (1992)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "fp",
+    "scheme",
+    "javascript"
+   ]
+  },
+  {
+   "id": "copied-value",
+   "name": "Copied Value",
+   "kind": "functional-type-idioms",
+   "named_in": "Pattern-Oriented Software Architecture Vol. 4: A Pattern Language for Distributed Computing - Buschmann, Henney, Schmidt (2007)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "value-semantics"
+   ]
+  },
+  {
+   "id": "currying-partial-application",
+   "name": "Currying / Partial Application",
+   "kind": "functional-type-idioms",
+   "named_in": "Standard FP vocabulary: Wikipedia 'Currying'/'Partial application'; Reg Braithwaite, JavaScript Allongé; Python stdlib functools.partial documentation",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "javascript",
+    "python",
+    "functional",
+    "cross-language",
+    "borderline"
+   ]
+  },
+  {
+   "id": "defunctionalization",
+   "name": "Defunctionalization",
+   "kind": "functional-type-idioms",
+   "named_in": "Definitional Interpreters for Higher-Order Programming Languages - John C. Reynolds (1972)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "fp",
+    "borderline"
+   ]
+  },
+  {
+   "id": "effect-handler",
+   "name": "Effect Handler",
+   "kind": "functional-type-idioms",
+   "named_in": "Handlers of Algebraic Effects - Plotkin & Pretnar (ESOP, 2009)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "fp",
+    "ocaml",
+    "koka",
+    "borderline"
+   ]
+  },
+  {
+   "id": "expression-templates",
+   "name": "Expression Templates",
+   "kind": "functional-type-idioms",
+   "named_in": "Expression Templates - Todd Veldhuizen, C++ Report (1995)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "c++",
+    "numerics"
+   ]
+  },
+  {
+   "id": "free-monad",
+   "name": "Free Monad",
+   "kind": "functional-type-idioms",
+   "named_in": "Data Types à la Carte - Wouter Swierstra (JFP, 2008)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "fp",
+    "haskell",
+    "scala",
+    "borderline"
+   ]
+  },
+  {
+   "id": "function-object",
+   "name": "Function Object",
+   "kind": "functional-type-idioms",
+   "named_in": "Advanced C++: Programming Styles and Idioms - James O. Coplien (1992; 'functor')",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "c++"
+   ]
+  },
+  {
+   "id": "functional-core-imperative-shell",
+   "name": "Functional Core, Imperative Shell",
+   "kind": "functional-type-idioms",
+   "named_in": "Functional Core, Imperative Shell - Gary Bernhardt (Destroy All Software screencast, 2012)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "fp",
+    "borderline"
+   ]
+  },
+  {
+   "id": "lens",
+   "name": "Lens",
+   "kind": "functional-type-idioms",
+   "named_in": "Combinators for Bidirectional Tree Transformations - Foster, Greenwald, Moore, Pierce, Schmitt (TOPLAS, 2007)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "fp",
+    "haskell",
+    "scala"
+   ]
+  },
+  {
+   "id": "module-pattern",
+   "name": "Module Pattern",
+   "kind": "functional-type-idioms",
+   "named_in": "Learning JavaScript Design Patterns - Addy Osmani (2012); popularized by Crockford",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "javascript"
+   ]
+  },
+  {
+   "id": "monad",
+   "name": "Monad",
+   "kind": "functional-type-idioms",
+   "named_in": "Notions of Computation and Monads - Eugenio Moggi (1991)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "fp",
+    "haskell",
+    "scala",
+    "borderline"
+   ]
+  },
+  {
+   "id": "option-type",
+   "name": "Option Type",
+   "kind": "functional-type-idioms",
+   "named_in": "Haskell 98 Language and Libraries Report - Simon Peyton Jones, ed. (2003)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "fp",
+    "haskell",
+    "ml",
+    "rust",
+    "fsharp",
+    "scala"
+   ]
+  },
+  {
+   "id": "phantom-type",
+   "name": "Phantom Type",
+   "kind": "functional-type-idioms",
+   "named_in": "Domain Specific Embedded Compilers - Leijen & Meijer (DSL '99, 1999)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "fp",
+    "haskell",
+    "rust",
+    "ocaml"
+   ]
+  },
+  {
+   "id": "sealed-trait",
+   "name": "Sealed Trait",
+   "kind": "functional-type-idioms",
+   "named_in": "Rust API Guidelines (C-SEALED, living)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "rust"
+   ]
+  },
+  {
+   "id": "sfinae",
+   "name": "SFINAE",
+   "kind": "functional-type-idioms",
+   "named_in": "C++ Templates: The Complete Guide - Vandevoorde & Josuttis (2002; acronym coined here)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "c++"
+   ]
+  },
+  {
+   "id": "tag-dispatching",
+   "name": "Tag Dispatching",
+   "kind": "functional-type-idioms",
+   "named_in": "Making things do stuff (register access using C++ templates) - Carnie (Feabhas Sticky Bits, 2017)",
+   "named_in_corpus_id": "carnieregisters",
+   "other_sources": [
+    "Making things do stuff (register access using C++ templates) - Carnie (Feabhas Sticky Bits"
+   ],
+   "tags": [
+    "c++",
+    "borderline"
+   ]
+  },
+  {
+   "id": "tagless-final",
+   "name": "Tagless Final",
+   "kind": "functional-type-idioms",
+   "named_in": "Finally Tagless, Partially Evaluated - Carette, Kiselyov, Shan (JFP, 2009)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "fp",
+    "haskell",
+    "scala",
+    "borderline"
+   ]
+  },
+  {
+   "id": "thunk",
+   "name": "Thunk",
+   "kind": "functional-type-idioms",
+   "named_in": "Thunks: A Way of Compiling Procedure Statements with Some Comments on Procedure Declarations - P. Z. Ingerman (CACM, 1961)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "fp",
+    "haskell",
+    "scheme"
+   ]
+  },
+  {
+   "id": "traits-class",
+   "name": "Traits Class",
+   "kind": "functional-type-idioms",
+   "named_in": "Traits: a new and useful template technique - Myers (C++ Report, 1995)",
+   "named_in_corpus_id": null,
+   "other_sources": [
+    "Traits: a new and useful template technique - Myers (C++ Report, 1995)"
+   ],
+   "tags": [
+    "c++",
+    "embedded"
+   ]
+  },
+  {
+   "id": "type-erasure",
+   "name": "Type Erasure",
+   "kind": "functional-type-idioms",
+   "named_in": "C++ Software Design - Klaus Iglberger (2022)",
+   "named_in_corpus_id": "iglberger",
+   "other_sources": [
+    "C++ Software Design - Iglberger (2022)"
+   ],
+   "tags": [
+    "c++"
+   ]
+  },
+  {
+   "id": "typelist",
+   "name": "Typelist",
+   "kind": "functional-type-idioms",
+   "named_in": "Modern C++ Design - Andrei Alexandrescu (2001)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "c++",
+    "borderline"
+   ]
+  },
+  {
+   "id": "typestate",
+   "name": "Typestate",
+   "kind": "functional-type-idioms",
+   "named_in": "Typestate: A Programming Language Concept for Enhancing Software Reliability - Strom & Yemini, IEEE TSE (1986); Rust realization in The Embedded Rust Book",
+   "named_in_corpus_id": null,
+   "other_sources": [
+    "Typestate: A Programming Language Concept for Enhancing Software Reliability - Strom & Yem"
+   ],
+   "tags": [
+    "rust",
+    "embedded",
+    "fp",
+    "cpp"
+   ]
+  },
+  {
+   "id": "units-of-measure-types",
+   "name": "Units-of-Measure Types",
+   "kind": "functional-type-idioms",
+   "named_in": "Kennedy, Types for Units-of-Measure: Theory and Practice (CEFP 2009, LNCS 6299); Kennedy, Programming Languages and Dimensions (Cambridge TR 391, 1996); shipped in F# 2.0",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "fsharp",
+    "type-level",
+    "covers-anchor:semantic-data-types"
+   ]
+  },
+  {
+   "id": "value-semantics",
+   "name": "Value Semantics",
+   "kind": "functional-type-idioms",
+   "named_in": "C++ Software Design - Iglberger (2022)",
+   "named_in_corpus_id": "iglberger",
+   "other_sources": [],
+   "tags": [
+    "c++",
+    "borderline"
+   ]
+  }
+ ]
+}

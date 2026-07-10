@@ -1,0 +1,350 @@
+{
+  "scout": "gap-wiki2-c2",
+  "elements": [
+    {
+      "id": "exceptional-value",
+      "name": "Exceptional Value",
+      "aka": ["exceptional value object", "distinguished out-of-range value"],
+      "kind": "data-representation",
+      "what": "A distinguished value object representing circumstances outside normal ranges (missing, invalid, not-applicable) that flows through domain computations in place of a normal Whole Value.",
+      "problem": "Domain models must keep computing in the presence of missing or exceptional inputs without littering every method with special-case checks or aborting user workflows.",
+      "named_in": "Cunningham, 'The CHECKS Pattern Language of Information Integrity' (PLoP 1994; c2.com/ppr/checks.html, loaded live)",
+      "named_in_corpus_id": null,
+      "tags": ["validation", "domain-modeling", "borderline: overlaps Special Case (Fowler) and Null Object, but the CHECKS mechanism is a value that propagates through arithmetic/computation rather than a polymorphic do-nothing object"],
+      "borderline": "Close to special-case / null-object already in index; kept because the propagating-value mechanism is distinct and the charter names it explicitly.",
+      "confidence": "established"
+    },
+    {
+      "id": "meaningless-behavior",
+      "name": "Meaningless Behavior",
+      "aka": ["let meaningless computations fail quietly"],
+      "kind": "error-handling",
+      "what": "Write domain methods without defensive input checks; let computations on exceptional/missing values fail or yield meaningless results, and have the input/output boundary recover (e.g. display blank) instead.",
+      "problem": "Defensive checks duplicated through every domain method obscure the model; centering recovery at the presentation boundary keeps domain code minimal while tolerating bad data.",
+      "named_in": "Cunningham, 'The CHECKS Pattern Language of Information Integrity' (PLoP 1994; c2.com/ppr/checks.html, loaded live)",
+      "named_in_corpus_id": null,
+      "tags": ["validation", "domain-modeling"],
+      "borderline": null,
+      "confidence": "established"
+    },
+    {
+      "id": "deferred-validation",
+      "name": "Deferred Validation",
+      "aka": ["validate on use", "delayed integrity checking"],
+      "kind": "error-handling",
+      "what": "Delay comprehensive validity checking of captured data until an action requires it, scaling the rigor of the check to the consequences of that action (edit freely, validate on save/commit/publish).",
+      "problem": "Eager validation at entry time rejects legitimately incomplete in-progress data and hard-codes one rigidity level; different actions need different degrees of integrity.",
+      "named_in": "Cunningham, 'The CHECKS Pattern Language of Information Integrity' (PLoP 1994; c2.com/ppr/checks.html, loaded live)",
+      "named_in_corpus_id": null,
+      "tags": ["validation", "domain-modeling"],
+      "borderline": null,
+      "confidence": "established"
+    },
+    {
+      "id": "composed-method",
+      "name": "Composed Method",
+      "aka": ["compose methods out of intention-revealing calls"],
+      "kind": "code-structure",
+      "what": "Divide a program into methods that each perform one identifiable task at a single level of abstraction, composed of calls whose names state intent.",
+      "problem": "Methods mixing abstraction levels are hard to read, reuse, and override; keeping each method small and single-level makes control flow self-documenting and refactorable.",
+      "named_in": "Beck, Smalltalk Best Practice Patterns (1997)",
+      "named_in_corpus_id": null,
+      "tags": ["smalltalk-origin", "language-neutral"],
+      "borderline": "Sits near the practices boundary, but it is a named, recurring structural construct (the canonical target shape of Extract Method), not a process item. Distinct from Combined Method (Henney) already in index.",
+      "confidence": "established"
+    },
+    {
+      "id": "method-object",
+      "name": "Method Object",
+      "aka": ["Replace Method with Method Object (Fowler, Refactoring)", "Replace Function with Command (Fowler, Refactoring 2nd ed.)"],
+      "kind": "code-structure",
+      "what": "Reify a complex method as its own class whose fields hold the method's parameters and temporaries, turning locals into instance state so the computation can be decomposed into helper methods.",
+      "problem": "A long method whose many local variables defeat extraction cannot be decomposed in place; hoisting the computation into an object removes the local-variable coupling.",
+      "named_in": "Beck, Smalltalk Best Practice Patterns (1997); named as a refactoring target in Fowler, Refactoring",
+      "named_in_corpus_id": "fowlerref",
+      "tags": ["smalltalk-origin", "language-neutral", "distinct from function-object (functor) already in index"],
+      "borderline": null,
+      "confidence": "established"
+    },
+    {
+      "id": "pluggable-selector",
+      "name": "Pluggable Selector",
+      "aka": ["pluggable behavior (umbrella)", "pluggable block (closure variant)", "stored method selector"],
+      "kind": "oo-patterns",
+      "what": "Store the name (selector) of a method in an instance variable and dispatch on it reflectively, so instances of one class exhibit different behavior without subclassing.",
+      "problem": "A family of trivially differing subclasses (each overriding one small method) is overkill; parameterizing instances by a stored selector collapses the hierarchy.",
+      "named_in": "Beck, Smalltalk Best Practice Patterns (1997)",
+      "named_in_corpus_id": null,
+      "tags": ["smalltalk", "reflection", "also used in xUnit test-method dispatch"],
+      "borderline": null,
+      "confidence": "established"
+    },
+    {
+      "id": "product-trader",
+      "name": "Product Trader",
+      "aka": ["creation by specification"],
+      "kind": "construction-api",
+      "what": "Clients create objects by naming an abstract product class plus a specification; a trader maps specifications to concrete product classes and performs the instantiation.",
+      "problem": "Direct constructor calls couple clients to concrete classes; a trader decouples client from product, easing configuration and evolution of class hierarchies and frameworks.",
+      "named_in": "Baeumer & Riehle, 'Product Trader', PLoPD3 (1997) (riehle.org paper page and PLoPD3 ToC loaded live)",
+      "named_in_corpus_id": null,
+      "tags": ["creational", "framework-design"],
+      "borderline": null,
+      "confidence": "established"
+    },
+    {
+      "id": "sponsor-selector",
+      "name": "Sponsor-Selector",
+      "aka": ["sponsor/selector triad"],
+      "kind": "oo-patterns",
+      "what": "Separate three responsibilities — sponsors that know when a resource is useful, a selector that picks among sponsors' recommendations, and the client that uses the chosen resource — to select the best resource dynamically.",
+      "problem": "A system must choose the best of a dynamically changing set of resources/strategies without hard-coding selection knowledge into the client.",
+      "named_in": "Wallingford, 'Sponsor-Selector: A Pattern Language for Choosing the Best Resource', PLoPD3 (1997) (cs.uni.edu/~wallingf/patterns/sponsor-selector.html verified)",
+      "named_in_corpus_id": null,
+      "tags": ["dynamic-selection", "AI-systems-origin"],
+      "borderline": null,
+      "confidence": "established"
+    },
+    {
+      "id": "bureaucracy",
+      "name": "Bureaucracy",
+      "aka": ["hierarchical control compound pattern"],
+      "kind": "oo-patterns",
+      "what": "A compound pattern composing Composite, Mediator, Chain of Responsibility, and Observer to build self-maintaining hierarchical structures where each level mediates its children and escalates requests upward.",
+      "problem": "Hierarchies (documents, GUIs, organizations) must maintain internal consistency and route interactions across levels without external coordination logic.",
+      "named_in": "Riehle, 'Bureaucracy', PLoPD3 (1997) (PLoPD3 ToC loaded live)",
+      "named_in_corpus_id": null,
+      "tags": ["compound-pattern"],
+      "borderline": "Compound of four patterns already in the index; kept as an independently named, published composite mechanism.",
+      "confidence": "established"
+    },
+    {
+      "id": "diagnostic-logger",
+      "name": "Diagnostic Logger",
+      "aka": ["logger", "logging facility", "centralized diagnostic logging"],
+      "kind": "error-handling",
+      "what": "Route all diagnostic messages through a dedicated logger object that decouples message producers from output destinations, formats, and severity filtering.",
+      "problem": "Ad-hoc prints scatter diagnostic policy through the code; a central logger lets destination, format, and level be configured without touching call sites.",
+      "named_in": "Harrison, 'Patterns for Logging Diagnostic Messages', PLoPD3 (1997) (PLoPD3 ToC loaded live); living realizations: log4j/syslog-style logging frameworks",
+      "named_in_corpus_id": null,
+      "tags": ["diagnostics", "logging"],
+      "borderline": null,
+      "confidence": "established"
+    },
+    {
+      "id": "diagnostic-context",
+      "name": "Diagnostic Context",
+      "aka": ["mapped diagnostic context (MDC)", "nested diagnostic context (NDC)", "log context", "contextual logging"],
+      "kind": "error-handling",
+      "what": "Attach per-thread/per-request key-value context (transaction id, user, request id) to a stash that the logging system automatically appends to every message emitted within that scope.",
+      "problem": "Interleaved logs from concurrent activities are unattributable; carrying context explicitly through every call is invasive, so the logger holds it ambiently per execution scope.",
+      "named_in": "Harrison, 'Patterns for Logging Diagnostic Messages', PLoPD3 (1997); canonical living form: log4j/logback/SLF4J MDC/NDC documentation",
+      "named_in_corpus_id": null,
+      "tags": ["diagnostics", "logging", "observability"],
+      "borderline": null,
+      "confidence": "established"
+    },
+    {
+      "id": "abstract-session",
+      "name": "Abstract Session",
+      "aka": ["session object (per-client service state)", "service access point object"],
+      "kind": "oo-patterns",
+      "what": "A server object hands each client an opaque session object encapsulating the per-client state of their conversation; the client makes further requests through the session rather than the server, with full type safety.",
+      "problem": "A service serving many clients must keep per-client state without exposing its internals or forcing clients to pass identity/state tokens on every call (the untyped-handle alternative).",
+      "named_in": "Pryce, 'Abstract Session: An Object Structural Pattern', PLoPD4 (2000) (PLoPD4 ToC loaded live; c2 AbstractSessionPattern page exists)",
+      "named_in_corpus_id": null,
+      "tags": ["structural", "sockets-style APIs", "in-process sessions"],
+      "borderline": null,
+      "confidence": "established"
+    },
+    {
+      "id": "object-recursion",
+      "name": "Object Recursion",
+      "aka": ["recursive delegation over polymorphic structure"],
+      "kind": "oo-patterns",
+      "what": "Distribute the handling of a request recursively over a polymorphic object structure: each recurser handles its part and delegates the remainder to its successor(s) until terminator objects stop the recursion.",
+      "problem": "A request must be processed piecewise along a linked/hierarchical structure; centralizing the traversal in one loop couples it to the structure, while polymorphic recursion keeps each node's contribution local.",
+      "named_in": "Woolf, 'The Object Recursion Pattern', PLoPD4 (2000) (PLoPD4 ToC loaded live)",
+      "named_in_corpus_id": null,
+      "tags": ["structural"],
+      "borderline": "Generalizes the traversal shared by Composite, Decorator, Chain of Responsibility and Interpreter (all in index); kept because it is independently named and distinguishes handle-vs-forward semantics.",
+      "confidence": "established"
+    },
+    {
+      "id": "relationship-object",
+      "name": "Relationship Object",
+      "aka": ["association object", "relationship as full object", "reified relationship"],
+      "kind": "data-representation",
+      "what": "Reify a relationship between objects as a first-class object that stores the participants plus the relationship's own attributes and behavior, instead of encoding the link as mutual references.",
+      "problem": "Relationships with their own state (start date, role, quantity) or lifecycle cannot live naturally inside either participant; direct mutual pointers scatter the relationship's logic and complicate consistency.",
+      "named_in": "Noble, 'Basic Relationship Patterns', PLoPD4 (2000); also Boyd, 'Business Patterns of Association Objects', PLoPD3 (1997) (both ToCs loaded live)",
+      "named_in_corpus_id": null,
+      "tags": ["domain-modeling", "in-memory counterpart of association-table-mapping (index)"],
+      "borderline": null,
+      "confidence": "established"
+    },
+    {
+      "id": "temporal-property",
+      "name": "Temporal Property",
+      "aka": ["temporal object (whole-object variant)", "historic mapping", "effectivity (validity-interval variant)", "snapshot view (derived)", "bitemporal record (two-dimensional variant)"],
+      "kind": "data-representation",
+      "what": "Represent an attribute (or whole object) as a time-indexed collection of values so the model can answer 'what was/is/will be the value at time T' rather than only the current value.",
+      "problem": "Domain data changes over time and past states must remain queryable (retroactive corrections, effective dates); overwriting in place destroys history.",
+      "named_in": "Carlson, Estepp & Fowler, 'Temporal Patterns', PLoPD4 (2000) (ToC loaded live); living treatment: Fowler's eaaDev temporal patterns (Temporal Property, Temporal Object, Snapshot, Effectivity)",
+      "named_in_corpus_id": null,
+      "tags": ["domain-modeling", "time"],
+      "borderline": null,
+      "confidence": "established"
+    },
+    {
+      "id": "audit-log",
+      "name": "Audit Log",
+      "aka": ["audit trail", "change log (domain-level)"],
+      "kind": "persistence-durability",
+      "what": "Record every significant change or event as an appended, timestamped entry alongside the current state, so history can be inspected without reconstructing it from the model.",
+      "problem": "Systems need an inspectable record of what changed, when, and by whom, without adopting full temporal modeling or event sourcing as the source of truth.",
+      "named_in": "Fowler, 'Temporal Patterns' (with Carlson & Estepp), PLoPD4 (2000); living treatment: Fowler eaaDev 'Audit Log'",
+      "named_in_corpus_id": null,
+      "tags": ["time", "compliance", "distinct from event-sourcing (log is secondary record, not source of truth)"],
+      "borderline": null,
+      "confidence": "established"
+    },
+    {
+      "id": "comparand",
+      "name": "Comparand",
+      "aka": ["dedicated comparison value", "cheap identity testing value"],
+      "kind": "data-representation",
+      "what": "Equip objects with a dedicated comparand value used solely for cheap identity/equality testing, avoiding expensive structural comparison or unreliable address comparison.",
+      "problem": "Identity tests on structured objects are frequent and must be fast; comparing full contents is costly and comparing addresses breaks when objects are copied or serialized.",
+      "named_in": "'The Comparand Pattern: Cheap Identity Testing Using Dedicated Values', PLoPD5 ch. 8 (2006) (Library of Congress ToC loaded live)",
+      "named_in_corpus_id": null,
+      "tags": ["identity", "related to interning (sharing, in index) but distinct mechanism"],
+      "borderline": "Obscure; named at chapter-title level in a published volume, mechanism stated in the title. Merge team may fold into sharing/interning if judged too thin.",
+      "confidence": "spot-checked"
+    },
+    {
+      "id": "generation-gap",
+      "name": "Generation Gap",
+      "aka": ["generated core class + hand-written subclass", "regeneration-safe extension"],
+      "kind": "code-structure",
+      "what": "Keep machine-generated code in a core base class that is never edited, and put all hand-written modifications in a subclass that survives regeneration unchanged.",
+      "problem": "Generated code is overwritten on every regeneration, destroying manual edits; separating generated and hand-written code by inheritance makes modifications durable across regenerations.",
+      "named_in": "Vlissides, 'Generation Gap', Pattern Hatching: Design Patterns Applied (1998; earlier C++ Report 1996)",
+      "named_in_corpus_id": null,
+      "tags": ["code-generation", "still standard in GUI builders / ORM / protocol-compiler output"],
+      "borderline": null,
+      "confidence": "established"
+    },
+    {
+      "id": "fast-path",
+      "name": "Fast Path",
+      "aka": ["fast path / slow path split", "Parallel Fastpath (McKenney)", "Optimize High-Runner Cases (Meszaros)", "common-case optimization path"],
+      "kind": "code-structure",
+      "what": "Provide a short, cheap code path for the common case (often lock-free or per-CPU) and fall back to a general, heavier slow path for the rare or complex cases.",
+      "problem": "Optimizing an entire algorithm for the worst case penalizes the dominant case; splitting paths buys common-case speed while keeping rare-case correctness in simpler code.",
+      "named_in": "McKenney, 'Selecting Locking Designs for Parallel Programs', PLoPD2 (1996) — Parallel Fastpath (verified via rdrop.com paper/perfbook); Meszaros, capacity pattern language, PLoPD1 (1995)",
+      "named_in_corpus_id": null,
+      "tags": ["systems", "concurrency", "kernel idiom"],
+      "borderline": null,
+      "confidence": "established"
+    },
+    {
+      "id": "credit-based-flow-control",
+      "name": "Credit-Based Flow Control",
+      "aka": ["credit scheme", "Leaky Bucket of Credits (Meszaros)", "demand signaling (Reactive Streams request(n))", "credit grant window"],
+      "kind": "data-flow-buffering",
+      "what": "A receiver grants the sender explicit credits, each authorizing transmission of one unit; the sender stops when credits run out and resumes as the receiver replenishes them from freed buffer space.",
+      "problem": "A producer must never overrun a consumer's buffering capacity; explicit credits achieve lossless flow control without dropping or blind rate guessing.",
+      "named_in": "Kung & Morris, 'Credit-Based Flow Control for ATM Networks', IEEE Network (1995); Meszaros, capacity pattern language, PLoPD1 (1995); Reactive Streams specification (request(n) demand)",
+      "named_in_corpus_id": null,
+      "tags": ["flow-control", "networking", "reactive-streams"],
+      "borderline": "Specific mechanism beneath the general backpressure element (in index) and sibling of sliding-window-flow-control (in index); kept because the credit mechanism is independently named and distinct from windowed ack-based control.",
+      "confidence": "established"
+    }
+  ],
+  "parked_architecture": [
+    {
+      "name": "Recursive Control (Selic, PLoPD3)",
+      "why": "Structuring pattern for whole real-time control systems (hierarchy of control components); system-level structure, fails altitude upward."
+    },
+    {
+      "name": "Bodyguard (das Neves & Garrido, PLoPD3)",
+      "why": "Sharing and protecting objects across address spaces in distributed systems without full RPC; distribution-level."
+    },
+    {
+      "name": "Object Synchronizer (Silva, Pereira & Marques, PLoPD4)",
+      "why": "Synchronization policy for distributed object replicas; distribution-level."
+    },
+    {
+      "name": "Single Access Point + Check Point (Yoder & Barcalow, PLoPD4)",
+      "why": "Presented as 'Architectural Patterns for Enabling Application Security'; application-entry security structure, Phase 3 territory."
+    },
+    {
+      "name": "Dynamic Object Model / Adaptive Object Model (Riehle, Tilman & Johnson, PLoPD5)",
+      "why": "Yoder/Johnson describe it as an architectural style; its design-level constituents (Type Object, Property/attribute objects, Strategy, Interpreter) are already in the catalog."
+    }
+  ],
+  "excluded_notable": [
+    {
+      "name": "Whole Value (CHECKS)",
+      "why": "Already folded into the index: newtype carries 'whole value (related CHECKS pattern)' as aka, and quantity covers the unit-bearing case. No separate entry proposed; merge team may promote if it prefers CHECKS naming."
+    },
+    {
+      "name": "Echo Back (CHECKS)",
+      "why": "UI interaction feedback (redisplay interpreted input for user verification); interaction-design guidance rather than an implementable software mechanism — fails the altitude test sideways."
+    },
+    {
+      "name": "Visible Implication (CHECKS)",
+      "why": "Display of derived quantities for user review; the mechanism half (computed/derived values) is covered by reactive-signals' computed/derivations aka; the rest is UI guidance."
+    },
+    {
+      "name": "Instant Projection / Hypothetical Publication / Forecast Confirmation / Diagnostic Query (CHECKS)",
+      "why": "Publication-workflow and inspection-process patterns, above/os-outside the single-program mechanism band."
+    },
+    {
+      "name": "Cascade (Beck SBPP)",
+      "why": "Smalltalk message-cascade syntax (';'); raw language syntax. The general mechanism is covered by fluent-interface (in index)."
+    },
+    {
+      "name": "Pluggable Object (Beck SBPP)",
+      "why": "Parameterize behavior by plugging in an object instead of subclassing — folds into Strategy (in index); Pluggable Selector kept as the genuinely distinct reflective variant."
+    },
+    {
+      "name": "Abstract Class (Woolf, PLoPD4)",
+      "why": "Design principle / language-feature usage guidance, not a nameable mechanism."
+    },
+    {
+      "name": "Essence (Carlson, PLoPD4)",
+      "why": "Staged construction with completeness validation before yielding the real object — folds into Builder + Smart Constructor (both in index)."
+    },
+    {
+      "name": "Object Recovery (Silva et al., PLoPD3)",
+      "why": "Object-level state save/restore — folds into Memento + Checkpointing + Rollback (all in index)."
+    },
+    {
+      "name": "Manager (Sommerlad, PLoPD3) and Domain Object Manager (PLoPD5)",
+      "why": "Same mechanism as object-manager already in index (lifecycle + lookup of a class's instances); recommend adding 'Manager (Sommerlad)' and 'Domain Object Manager' as aka on object-manager."
+    },
+    {
+      "name": "Encapsulated Context (Kelly, PLoPD5)",
+      "why": "Same mechanism as context-object (in index); recommend aka merge."
+    },
+    {
+      "name": "Default Visitor / Extrinsic Visitor (Nordberg, PLoPD3)",
+      "why": "Visitor variants; fold as aka under visitor (in index)."
+    },
+    {
+      "name": "Code Locking / Data Locking / Data Ownership (McKenney, PLoPD2)",
+      "why": "Already covered: coarse-grained-lock, lock-striping, and thread-specific-storage (which carries 'data ownership' as aka)."
+    },
+    {
+      "name": "Match Progress Work with New Work / Finish Work in Progress / Share the Load / Work Shed at Periphery (Meszaros, PLoPD1)",
+      "why": "Capacity-tuning policy guidance; established siblings already in index (load-shedding, fresh-work-before-stale, leaky-bucket-counter). Work Shed at Periphery folds into load-shedding aka."
+    },
+    {
+      "name": "Smalltalk Scaffolding Patterns (Doble & Auer, PLoPD4)",
+      "why": "Development-process/temporary-code practices, pass-7 territory."
+    }
+  ],
+  "notes": "Gap hunt over CHECKS (primary page c2.com/ppr/checks.html loaded live, all ten patterns altitude-tested), Beck SBPP, and PLoPD1-5 (PLoPD3 ToC via riehle.org, PLoPD4 ToC via InformIT, PLoPD5 ToC via LoC catdir - all loaded live this session). Confirmed already in index before proposing anything: Null Object, Twin, Role Object, Type Object, Command Processor, Serializer, Half-Object plus Protocol (charter said 'park' but it is already IN the index as a communication element - no action), Collecting Parameter, Execute Around Method, Double Dispatch, Delegation, Acceptor-Connector, Asynchronous Completion Token, Double-Checked Locking, External Polymorphism, Acyclic Visitor, Extension Object, Proactor, Guard Clause, Riding Over Transients, Leaky Bucket Counter, Fresh Work Before Stale, Load Shedding. INDEX ISSUES SPOTTED: (1) lines 457-458 'setjmp-longjmp-exception-handling' and 'setjmp-longjmp-structured-error-handling' look like an unmerged duplicate pair; (2) GoF Decorator exists ONLY as an aka on adapter ('aka: Wrapper, Decorator') - wrong fold, Decorator is a distinct GoF pattern and should be its own element; (3) GoF Prototype exists ONLY as an aka on factory-method ('aka: Virtual Constructor, Prototype, clone') - also a wrong fold, Prototype should be its own element. I did not add Decorator/Prototype myself (outside charter; fix is an index correction, not a new proposal). Naming caution for merge: composed-method (Beck) is distinct from combined-method (Henney, in index) despite similar names; method-object is distinct from function-object (functor). 'Late Creation' as an aka for Product Trader could not be verified and was dropped. Comparand is the only needs-scrutiny entry (chapter-title-level naming only). Yield: 20 elements, mostly the CHECKS/Beck/PLoPD3-5 set the charter predicted plus a genuine logging gap (no logger element existed in the 577) and two systems mechanisms (fast path, credit-based flow control) surfaced by the PLoPD1/2 sweep."
+}

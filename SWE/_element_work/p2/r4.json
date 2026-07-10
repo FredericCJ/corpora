@@ -1,0 +1,500 @@
+{
+ "route": "r4",
+ "elements": [
+  {
+   "id": "active-object",
+   "name": "Active Object",
+   "kind": "execution-concurrency",
+   "named_in": "Pattern-Oriented Software Architecture Vol. 2: Patterns for Concurrent and Networked Objects - Schmidt, Stal, Rohnert, Buschmann (2000)",
+   "named_in_corpus_id": "posa2",
+   "other_sources": [
+    "A Universal Modular ACTOR Formalism for Artificial Intelligence - Hewitt, Bishop, Steiger "
+   ],
+   "tags": [
+    "threads",
+    "embedded",
+    "erlang",
+    "scala",
+    "borderline",
+    "c"
+   ]
+  },
+  {
+   "id": "async-await-model",
+   "name": "Async-Await Model",
+   "kind": "execution-concurrency",
+   "named_in": "The F# Asynchronous Programming Model - Syme, Petricek, Lomov (2011)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "csharp",
+    "fsharp",
+    "javascript",
+    "python",
+    "rust"
+   ]
+  },
+  {
+   "id": "asynchronous-completion-token",
+   "name": "Asynchronous Completion Token",
+   "kind": "execution-concurrency",
+   "named_in": "Pattern-Oriented Software Architecture Vol. 2: Patterns for Concurrent and Networked Objects - Schmidt, Stal, Rohnert, Buschmann (2000)",
+   "named_in_corpus_id": "posa2",
+   "other_sources": [],
+   "tags": [
+    "async",
+    "networking"
+   ]
+  },
+  {
+   "id": "bytecode-virtual-machine",
+   "name": "Bytecode Virtual Machine",
+   "kind": "execution-concurrency",
+   "named_in": "Crafting Interpreters - Robert Nystrom (2021)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "interpreters",
+    "languages",
+    "games"
+   ]
+  },
+  {
+   "id": "cancellation-token",
+   "name": "Cancellation Token",
+   "kind": "execution-concurrency",
+   "named_in": "Sameer Ajmani, 'Go Concurrency Patterns: Context' (Go blog, 2014-07-29); Microsoft Learn, 'Cancellation in Managed Threads' (CancellationToken)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "go",
+    "csharp",
+    "cross-language",
+    "borderline"
+   ]
+  },
+  {
+   "id": "competing-consumers",
+   "name": "Competing Consumers",
+   "kind": "execution-concurrency",
+   "named_in": "Enterprise Integration Patterns - Hohpe & Woolf (2003)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "messaging",
+    "concurrency"
+   ]
+  },
+  {
+   "id": "coroutine",
+   "name": "Coroutine",
+   "kind": "execution-concurrency",
+   "named_in": "Design of a Separable Transition-Diagram Compiler - Conway (1963)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "python",
+    "kotlin",
+    "cpp",
+    "lua"
+   ]
+  },
+  {
+   "id": "deoptimization",
+   "name": "Deoptimization",
+   "kind": "execution-concurrency",
+   "named_in": "Hoelzle, Chambers & Ungar, 'Debugging Optimized Code with Dynamic Deoptimization', PLDI 1992 (verified live via selflanguage.org bibliography this session)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "virtual machines",
+    "JIT",
+    "language runtimes",
+    "speculative optimization"
+   ]
+  },
+  {
+   "id": "event-loop",
+   "name": "Event Loop",
+   "kind": "execution-concurrency",
+   "named_in": "Event loop - Wikipedia",
+   "named_in_corpus_id": null,
+   "other_sources": [
+    "Event loop - Wikipedia"
+   ],
+   "tags": [
+    "javascript",
+    "ui",
+    "servers",
+    "embedded"
+   ]
+  },
+  {
+   "id": "executor",
+   "name": "Executor",
+   "kind": "execution-concurrency",
+   "named_in": "Java Concurrency in Practice - Goetz, Peierls, Bloch, Bowbeer, Holmes, Lea (2006)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "java"
+   ]
+  },
+  {
+   "id": "false-sharing-avoidance-via-cache-line-padding",
+   "name": "False-Sharing Avoidance via Cache-Line Padding",
+   "kind": "execution-concurrency",
+   "named_in": "What Every Programmer Should Know About Memory - Ulrich Drepper (2007)",
+   "named_in_corpus_id": "dreppermem",
+   "other_sources": [],
+   "tags": [
+    "c",
+    "cpp",
+    "systems",
+    "embedded",
+    "performance"
+   ]
+  },
+  {
+   "id": "fast-path",
+   "name": "Fast Path",
+   "kind": "execution-concurrency",
+   "named_in": "McKenney, 'Selecting Locking Designs for Parallel Programs', PLoPD2 (1996) — Parallel Fastpath (verified via rdrop.com paper/perfbook); Meszaros, capacity pattern language, PLoPD1 (1995)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "systems",
+    "concurrency",
+    "kernel idiom"
+   ]
+  },
+  {
+   "id": "fork-join",
+   "name": "Fork-Join",
+   "kind": "execution-concurrency",
+   "named_in": "Patterns for Parallel Programming - Mattson, Sanders, Massingill (2004)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "java",
+    "hpc"
+   ]
+  },
+  {
+   "id": "future-promise",
+   "name": "Future / Promise",
+   "kind": "execution-concurrency",
+   "named_in": "Promises: Linguistic Support for Efficient Asynchronous Procedure Calls - Liskov, Shrira (1988)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": []
+  },
+  {
+   "id": "game-loop",
+   "name": "Game Loop",
+   "kind": "execution-concurrency",
+   "named_in": "Game Programming Patterns - Robert Nystrom (2014)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "games"
+   ]
+  },
+  {
+   "id": "green-threads",
+   "name": "Green Threads",
+   "kind": "execution-concurrency",
+   "named_in": "Green thread - Wikipedia",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "java",
+    "go",
+    "erlang"
+   ]
+  },
+  {
+   "id": "half-sync-half-async",
+   "name": "Half-Sync/Half-Async",
+   "kind": "execution-concurrency",
+   "named_in": "Pattern-Oriented Software Architecture Vol. 2: Patterns for Concurrent and Networked Objects - Schmidt, Stal, Rohnert, Buschmann (2000)",
+   "named_in_corpus_id": "posa2",
+   "other_sources": [],
+   "tags": [
+    "os",
+    "networking",
+    "embedded",
+    "borderline"
+   ]
+  },
+  {
+   "id": "job-system",
+   "name": "Job System",
+   "kind": "execution-concurrency",
+   "named_in": "Gregory, Game Engine Architecture, 3rd ed. (job systems chapter); Gyrling, 'Parallelizing the Naughty Dog Engine Using Fibers', GDC 2015",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "games",
+    "engine",
+    "borderline"
+   ]
+  },
+  {
+   "id": "leader-followers",
+   "name": "Leader/Followers",
+   "kind": "execution-concurrency",
+   "named_in": "Pattern-Oriented Software Architecture Vol. 2: Patterns for Concurrent and Networked Objects - Schmidt, Stal, Rohnert, Buschmann (2000)",
+   "named_in_corpus_id": "posa2",
+   "other_sources": [],
+   "tags": [
+    "thread-pool",
+    "networking"
+   ]
+  },
+  {
+   "id": "loop-parallelism",
+   "name": "Loop Parallelism",
+   "kind": "execution-concurrency",
+   "named_in": "Patterns for Parallel Programming - Mattson, Sanders, Massingill (2004)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "openmp",
+    "hpc",
+    "cpp"
+   ]
+  },
+  {
+   "id": "master-slave",
+   "name": "Master-Slave",
+   "kind": "execution-concurrency",
+   "named_in": "Pattern-Oriented Software Architecture Vol. 1: A System of Patterns - Buschmann, Meunier, Rohnert, Sommerlad, Stal (1996)",
+   "named_in_corpus_id": null,
+   "other_sources": [
+    "Patterns for Parallel Programming - Mattson, Sanders, Massingill (2004)"
+   ],
+   "tags": [
+    "parallelism",
+    "fault-tolerance",
+    "hpc"
+   ]
+  },
+  {
+   "id": "multi-state-task",
+   "name": "Multi-State Task",
+   "kind": "execution-concurrency",
+   "named_in": "Patterns for Time-Triggered Embedded Systems - Pont (2001)",
+   "named_in_corpus_id": "pont",
+   "other_sources": [],
+   "tags": [
+    "embedded",
+    "c",
+    "real-time"
+   ]
+  },
+  {
+   "id": "nested-interrupt-handling",
+   "name": "Nested Interrupt Handling",
+   "kind": "execution-concurrency",
+   "named_in": "The Definitive Guide to ARM Cortex-M3 and Cortex-M4 Processors - Yiu (2013)",
+   "named_in_corpus_id": "yiu",
+   "other_sources": [],
+   "tags": [
+    "embedded",
+    "interrupts",
+    "arm"
+   ]
+  },
+  {
+   "id": "parallel-reduction",
+   "name": "Parallel Reduction",
+   "kind": "execution-concurrency",
+   "named_in": "McCool, Robison, Reinders, Structured Parallel Programming: Patterns for Efficient Computation (2012)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "parallelism",
+    "peer of loop-parallelism / fork-join / pipeline-parallelism already in catalog"
+   ]
+  },
+  {
+   "id": "pipeline-parallelism",
+   "name": "Pipeline Parallelism",
+   "kind": "execution-concurrency",
+   "named_in": "Patterns for Parallel Programming - Mattson, Sanders, Massingill (2004)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "hpc",
+    "embedded"
+   ]
+  },
+  {
+   "id": "proactor",
+   "name": "Proactor",
+   "kind": "execution-concurrency",
+   "named_in": "Pattern-Oriented Software Architecture Vol. 2: Patterns for Concurrent and Networked Objects - Schmidt, Stal, Rohnert, Buschmann (2000)",
+   "named_in_corpus_id": "posa2",
+   "other_sources": [],
+   "tags": [
+    "networking",
+    "async-io"
+   ]
+  },
+  {
+   "id": "protothread",
+   "name": "Protothreads",
+   "kind": "execution-concurrency",
+   "named_in": "Protothreads: Simplifying Event-Driven Programming of Memory-Constrained Embedded Systems - Dunkels et al. (2006)",
+   "named_in_corpus_id": "protothreads",
+   "other_sources": [
+    "Protothreads: Simplifying Event-Driven Programming of Memory-Constrained Embedded Systems "
+   ],
+   "tags": [
+    "embedded",
+    "c"
+   ]
+  },
+  {
+   "id": "reactor",
+   "name": "Reactor",
+   "kind": "execution-concurrency",
+   "named_in": "Pattern-Oriented Software Architecture Vol. 2: Patterns for Concurrent and Networked Objects - Schmidt, Stal, Rohnert, Buschmann (2000)",
+   "named_in_corpus_id": "posa2",
+   "other_sources": [],
+   "tags": [
+    "networking",
+    "event-loop",
+    "embedded"
+   ]
+  },
+  {
+   "id": "restartable-sequences",
+   "name": "Restartable Sequences",
+   "kind": "execution-concurrency",
+   "named_in": "Restartable sequences - LWN.net (2015)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "c",
+    "linux",
+    "systems",
+    "borderline"
+   ]
+  },
+  {
+   "id": "spmd",
+   "name": "SPMD",
+   "kind": "execution-concurrency",
+   "named_in": "Patterns for Parallel Programming - Mattson, Sanders, Massingill (2004)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "hpc",
+    "mpi",
+    "gpu"
+   ]
+  },
+  {
+   "id": "stencil",
+   "name": "Stencil",
+   "kind": "execution-concurrency",
+   "named_in": "McCool, Robison, Reinders, Structured Parallel Programming: Patterns for Efficient Computation (2012), stencil chapter",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "scientific-computing",
+    "games",
+    "borderline: domain-parallel kernel shape at the algorithm-zoo edge; kept on pattern-catalog naming and cross-domain recurrence"
+   ]
+  },
+  {
+   "id": "structured-concurrency",
+   "name": "Structured Concurrency",
+   "kind": "execution-concurrency",
+   "named_in": "Smith, Notes on structured concurrency, or: Go statement considered harmful (vorpus.org, 2018); Trio nursery documentation; JEP 453: Structured Concurrency (JDK 21)",
+   "named_in_corpus_id": null,
+   "other_sources": [
+    "Nathaniel J. Smith, 'Notes on structured concurrency, or: Go statement considered harmful'"
+   ],
+   "tags": [
+    "python-trio",
+    "kotlin-coroutines",
+    "java",
+    "swift-concurrency"
+   ]
+  },
+  {
+   "id": "thread-pool",
+   "name": "Thread Pool",
+   "kind": "execution-concurrency",
+   "named_in": "Java Concurrency in Practice - Goetz, Peierls, Bloch, Bowbeer, Holmes, Lea (2006)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "java",
+    "servers",
+    "spot-checked-wikipedia-concurrency-pattern-list"
+   ]
+  },
+  {
+   "id": "thread-specific-storage",
+   "name": "Thread-Specific Storage",
+   "kind": "execution-concurrency",
+   "named_in": "Pattern-Oriented Software Architecture Vol. 2: Patterns for Concurrent and Networked Objects - Schmidt, Stal, Rohnert, Buschmann (2000)",
+   "named_in_corpus_id": "posa2",
+   "other_sources": [
+    "Is Parallel Programming Hard, And, If So, What Can You Do About It? - Paul E. McKenney (pe"
+   ],
+   "tags": [
+    "threads",
+    "systems",
+    "c",
+    "cpp",
+    "java",
+    "linux-kernel"
+   ]
+  },
+  {
+   "id": "threaded-code",
+   "name": "Threaded Code",
+   "kind": "execution-concurrency",
+   "named_in": "Threaded Code - James R. Bell, Communications of the ACM (1973)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "interpreters",
+    "forth",
+    "embedded",
+    "performance"
+   ]
+  },
+  {
+   "id": "trampoline",
+   "name": "Trampoline",
+   "kind": "execution-concurrency",
+   "named_in": "Trampolined Style - Ganz, Friedman, Wand (ICFP, 1999)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "fp",
+    "java",
+    "javascript",
+    "scala",
+    "clojure"
+   ]
+  },
+  {
+   "id": "two-phase-termination",
+   "name": "Two-Phase Termination",
+   "kind": "execution-concurrency",
+   "named_in": "Patterns in Java, Volume 1: A Catalog of Reusable Design Patterns Illustrated with UML - Grand (1998)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "java"
+   ]
+  }
+ ]
+}

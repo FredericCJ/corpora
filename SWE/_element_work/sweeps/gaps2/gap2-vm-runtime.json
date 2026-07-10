@@ -1,0 +1,101 @@
+{
+  "scout": "gap2-vm-runtime",
+  "elements": [
+    {
+      "id": "gc-write-barrier",
+      "name": "GC Write Barrier",
+      "aka": ["write barrier", "card table (folded implementation variant)", "card marking", "remembered-set maintenance (role)", "snapshot-at-the-beginning barrier (variant)", "incremental-update barrier (variant)", "Yuasa barrier / Dijkstra barrier / Steele barrier (variants)"],
+      "kind": "resource-management",
+      "what": "A small code sequence the compiler or runtime inserts on every pointer store that records or checks the mutated reference (e.g. by marking a card in a card table or appending to a remembered set), so the collector can find cross-generation or concurrently-mutated pointers without rescanning the whole heap.",
+      "problem": "Generational and incremental/concurrent collectors must know which old-generation or already-scanned objects now point into the young generation or unscanned space; intercepting mutator writes is the only way to track this without full-heap scans.",
+      "named_in": "Jones, Hosking & Moss, 'The Garbage Collection Handbook: The Art of Automatic Memory Management' (2011), sect. 11.8 'Write barrier mechanisms' incl. 'Card tables' (verified live via O'Reilly index/ToC this session)",
+      "named_in_corpus_id": null,
+      "tags": ["virtual machines", "language runtimes", "garbage collection", "memory management"],
+      "borderline": null,
+      "confidence": "established"
+    },
+    {
+      "id": "safepoint",
+      "name": "Safepoint",
+      "aka": ["GC point", "GC-safe point", "safepoint poll (polling-page / poll-instruction mechanism)", "stop-the-world synchronization point", "yieldpoint (generalized form)"],
+      "kind": "synchronization-coordination",
+      "what": "A designated point in generated or interpreted code at which a thread's state (GC roots, stack maps) is fully described and the thread can be safely blocked; the runtime brings all threads to safepoints (via polls, page-protection tricks, or interpreter checks) before running GC, deoptimization, or other global VM operations.",
+      "problem": "A runtime cannot scan stacks, move objects, or patch code while mutator threads are at arbitrary instructions; restricting global operations to well-described points bounds metadata cost and makes stop-the-world coordination correct and cheap on the fast path.",
+      "named_in": "OpenJDK, 'HotSpot Glossary of Terms' (openjdk.org, verified live this session); mechanism analyzed in Agesen, 'GC Points in a Threaded Environment' (Sun Labs TR SMLI TR-98-70, 1998)",
+      "named_in_corpus_id": null,
+      "tags": ["virtual machines", "language runtimes", "garbage collection", "JIT"],
+      "borderline": null,
+      "confidence": "established"
+    },
+    {
+      "id": "deoptimization",
+      "name": "Deoptimization",
+      "aka": ["dynamic deoptimization", "deopt", "on-stack replacement (OSR, the frame-replacement mechanism, folded)", "uncommon trap (HotSpot)", "bailout (JS-engine usage)", "tiering down"],
+      "kind": "execution-concurrency",
+      "what": "The runtime invalidates speculatively optimized compiled code and transfers a running activation back to unoptimized code (interpreter or baseline), reconstructing the equivalent stack frames and local state at a mapped program point; the same frame-replacement machinery run upward (OSR entry) promotes a hot running loop into optimized code.",
+      "problem": "JIT compilers optimize on assumptions (class hierarchy, type profiles, no debugger) that can be invalidated at runtime, and debuggers need source-level state from optimized frames; the runtime must be able to abandon optimized frames mid-execution without losing correctness.",
+      "named_in": "Hoelzle, Chambers & Ungar, 'Debugging Optimized Code with Dynamic Deoptimization', PLDI 1992 (verified live via selflanguage.org bibliography this session)",
+      "named_in_corpus_id": null,
+      "tags": ["virtual machines", "JIT", "language runtimes", "speculative optimization"],
+      "borderline": null,
+      "confidence": "established"
+    },
+    {
+      "id": "hidden-class",
+      "name": "Hidden Class",
+      "aka": ["maps (Self, original name)", "shapes (SpiderMonkey)", "Structures (JavaScriptCore)", "object shapes", "shape/map transition tree (mechanism detail)"],
+      "kind": "data-representation",
+      "what": "The runtime assigns each object a shared internal layout descriptor (map/shape/hidden class) recording its property names and slot offsets, transitioning objects between descriptors as properties are added, so objects created the same way share one layout.",
+      "problem": "Prototype- and dictionary-based languages have no static classes, so naive objects carry per-instance property tables; shared layout descriptors recover class-like memory density and give inline caches a cheap identity to guard on.",
+      "named_in": "Chambers, Ungar & Lee, 'An Efficient Implementation of SELF, a Dynamically-Typed Object-Oriented Language Based on Prototypes', OOPSLA 1989 (names 'maps'; verified live this session); 'hidden class' is the V8 documentation term",
+      "named_in_corpus_id": null,
+      "tags": ["virtual machines", "language runtimes", "dynamic languages", "JavaScript engines"],
+      "borderline": null,
+      "confidence": "established"
+    }
+  ],
+  "parked_architecture": [],
+  "excluded_notable": [
+    {
+      "name": "Threaded code / computed-goto dispatch (Bell, CACM 1973)",
+      "why": "Already in the catalog: threaded-code (execution-concurrency) with aka direct threading, indirect threading, computed-goto dispatch. Charter candidate rejected as duplicate."
+    },
+    {
+      "name": "Inline caching / polymorphic inline cache",
+      "why": "Already in the catalog: inline-caching (caching-memoization) covers monomorphic/polymorphic/megamorphic ICs. Checked because hidden-class is adjacent; judged genuinely distinct (IC caches per-site lookup results; hidden class is the layout descriptor the IC guards on), so hidden-class added as its own element."
+    },
+    {
+      "name": "Pointer tagging / NaN-boxing / small-integer tagging",
+      "why": "Already in the catalog: pointer-tagging (data-representation) with NaN-boxing and Smi as aka. No new element needed."
+    },
+    {
+      "name": "Hot code reload",
+      "why": "Already in the catalog: hot-code-reload (code-structure). Charter check confirmed present."
+    },
+    {
+      "name": "On-stack replacement (OSR) as a separate element",
+      "why": "Judged per charter: OSR and deoptimization share one frame-replacement mechanism (reconstructing equivalent activation frames at a mapped point, run in either tier direction); at strictness peak folded into deoptimization as aka rather than split into two entries."
+    },
+    {
+      "name": "Card table / card marking as a separate element",
+      "why": "Folded into gc-write-barrier as the dominant implementation variant per one-element-per-mechanism (GC Handbook treats card tables as a write-barrier implementation, sect. 11.8)."
+    },
+    {
+      "name": "Remembered set as a separate element",
+      "why": "The data structure a write barrier maintains; GC Handbook ch. 11 treats barrier and remembered set as one recording mechanism. Folded into gc-write-barrier aka as a role."
+    },
+    {
+      "name": "GC read barrier / load barrier (Brooks pointer, ZGC colored-pointer load barrier)",
+      "why": "Established (GC Handbook sect. 11.8 sibling of write barriers) and genuinely absent, but outside this round's charter candidate list and a dual mechanism of narrower reach; at strictness peak recorded here rather than added. Flag for the editor if VM coverage is later deepened."
+    },
+    {
+      "name": "Tri-color marking / mark-sweep / copying collection",
+      "why": "Covered by the existing garbage-collection element's aka set (mark-sweep, mark-compact, copying collection); no separate entry warranted."
+    },
+    {
+      "name": "Interpreter dispatch loop (switch dispatch)",
+      "why": "Covered between bytecode-virtual-machine (bytecode interpreter) and threaded-code (dispatch variants); a separate 'dispatch loop' entry would duplicate both."
+    }
+  ],
+  "notes": "Final-round strictness applied. Charter listed 5 candidate mechanisms; 1 (threaded code) was already present verbatim, 4 were genuinely absent and all are canonical VM-implementation literature: GC write barrier (Jones/Hosking/Moss 2011, live-verified sect. 11.8), safepoint (OpenJDK HotSpot Glossary live-verified; Agesen TR-98-70), deoptimization (Hoelzle/Chambers/Ungar PLDI 1992, live-verified), hidden class (Chambers/Ungar/Lee OOPSLA 1989 'maps', live-verified; canonical name taken from the dominant modern cross-engine term). Judgment calls: OSR folded into deoptimization (one frame-replacement mechanism); card table and remembered set folded into gc-write-barrier; hidden-class kept separate from inline-caching (layout descriptor vs per-site lookup cache). Safepoint filed under synchronization-coordination (its essence is bringing all threads to a coordinated blockable state), deoptimization under execution-concurrency alongside the other runtime-execution machinery. No architecture-level parks. Yield: 4 new, 0 borderline — consistent with a nearly saturated vein whose remaining gaps were exactly the charter's pre-identified candidates."
+}

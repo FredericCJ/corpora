@@ -1,0 +1,131 @@
+{
+  "scout": "gap-python-js-go",
+  "elements": [
+    {
+      "id": "functional-options",
+      "name": "Functional Options",
+      "aka": ["functional options pattern", "self-referential functions and options (Pike)", "option functions"],
+      "kind": "construction-api",
+      "what": "Configure a constructor via variadic function-valued arguments, each a closure that mutates a config/receiver struct, so callers pass zero or more named, composable options.",
+      "problem": "APIs with many optional settings otherwise force config structs with ambiguous zero values, telescoping constructors, or nil-accepting parameters; functional options keep the default case zero-argument while remaining extensible without breaking signatures.",
+      "named_in": "Dave Cheney, 'Functional options for friendly APIs' (2014-10-17); Rob Pike, 'Self-referential functions and the design of options' (2014)",
+      "named_in_corpus_id": null,
+      "tags": ["go", "api-design"],
+      "borderline": null,
+      "confidence": "spot-checked"
+    },
+    {
+      "id": "cancellation-token",
+      "name": "Cancellation Token",
+      "aka": ["cancellation context", "context propagation (Go context.Context)", "CancellationToken / CancellationTokenSource (.NET)", "cooperative cancellation", "done channel (Go idiom precursor)"],
+      "kind": "execution-concurrency",
+      "what": "An explicit token/context object threaded through the call graph that carries a cancellation signal (and often a deadline) which long-running operations poll or subscribe to, exiting cooperatively when it fires.",
+      "problem": "Work spawned on behalf of a request must stop promptly when the request is abandoned or times out; forced termination is unsafe, so a propagated, observable cancellation signal lets every participant release resources cooperatively.",
+      "named_in": "Sameer Ajmani, 'Go Concurrency Patterns: Context' (Go blog, 2014-07-29); Microsoft Learn, 'Cancellation in Managed Threads' (CancellationToken)",
+      "named_in_corpus_id": null,
+      "tags": ["go", "csharp", "cross-language"],
+      "borderline": "Overlaps deadline-propagation (already in index) which covers the deadline/budget facet; this entry is the explicit cancellation-signal object itself. Also adjacent to two-phase-termination, which is the shutdown protocol rather than the propagated signal carrier.",
+      "confidence": "spot-checked"
+    },
+    {
+      "id": "structured-concurrency",
+      "name": "Structured Concurrency",
+      "aka": ["nursery (Trio)", "task scope / StructuredTaskScope (Java)", "coroutine scope (Kotlin)", "scoped task spawning"],
+      "kind": "execution-concurrency",
+      "what": "A scope construct (nursery/task scope) that ties the lifetimes of spawned concurrent tasks to a lexical block: the block cannot exit until all children complete, and errors/cancellation propagate through the scope tree.",
+      "problem": "Fire-and-forget task spawning (go statements, bare threads) leaks tasks, loses errors, and breaks black-box control flow; binding child tasks to an enclosing scope restores composable error handling, cancellation, and resource cleanup for concurrent code.",
+      "named_in": "Nathaniel J. Smith, 'Notes on structured concurrency, or: Go statement considered harmful' (2018-04-25); Roman Elizarov, 'Structured concurrency' (2018); JEP 505 (Java structured concurrency)",
+      "named_in_corpus_id": null,
+      "tags": ["python", "kotlin", "java", "go", "cross-language"],
+      "borderline": "Sometimes presented as a paradigm/principle rather than a mechanism; included for the implementable nursery/task-scope construct, which is a concrete library-level building block. Go's errgroup is a partial realization (see excluded_notable).",
+      "confidence": "spot-checked"
+    },
+    {
+      "id": "currying-partial-application",
+      "name": "Currying / Partial Application",
+      "aka": ["curried function", "curry", "partial application", "functools.partial (Python realization)", "sectioning (Haskell operator sections)"],
+      "kind": "functional-type-idioms",
+      "what": "Transform a multi-argument function into a chain of single-argument functions (currying), or fix a subset of a function's arguments to produce a new function of the remainder (partial application).",
+      "problem": "Building specialized functions from general ones without wrapper boilerplate; enables point-free composition, reusable configuration-first APIs, and incremental supply of arguments as they become available.",
+      "named_in": "Standard FP vocabulary: Wikipedia 'Currying'/'Partial application'; Reg Braithwaite, JavaScript Allongé; Python stdlib functools.partial documentation",
+      "named_in_corpus_id": null,
+      "tags": ["javascript", "python", "functional", "cross-language"],
+      "borderline": "In curried languages (Haskell/ML) this is the ambient function semantics, i.e. a language feature; cataloged as the deliberate API/design idiom it constitutes in uncurried languages (JS, Python). Two related mechanisms folded into one entry per house dedup rule; sources routinely treat them together.",
+      "confidence": "established"
+    },
+    {
+      "id": "parameterized-test",
+      "name": "Parameterized Test",
+      "aka": ["table-driven tests (Go)", "data-driven test", "test parameterization", "row test"],
+      "kind": "testing-constructs",
+      "what": "A single test-logic body executed once per row of a table of inputs and expected outputs, with each row reported as its own test case.",
+      "problem": "Many near-identical test methods differing only in data invite copy-paste divergence and under-coverage; separating the test logic from the example table makes adding cases one-line cheap and failures individually attributable.",
+      "named_in": "Gerard Meszaros, xUnit Test Patterns: Refactoring Test Code (2007) — 'Parameterized Test' (with 'Data-Driven Test' as the externalized-data variation); Go wiki 'TableDrivenTests'",
+      "named_in_corpus_id": null,
+      "tags": ["go", "cross-language", "testing"],
+      "borderline": null,
+      "confidence": "established"
+    }
+  ],
+  "parked_architecture": [
+    {
+      "name": "MV* family (Model-View-Controller, MVP, MVVM)",
+      "why": "Osmani's JS pattern catalog includes MV* patterns, and none appear in the element index under any alias; they are GUI architectural patterns (POSA1 names MVC an architectural pattern). Parked so Phase 3 verifies the architecture realm covers them - flagged here because their total absence from the design index is conspicuous."
+    }
+  ],
+  "excluded_notable": [
+    {
+      "name": "Descriptor Protocol (Python)",
+      "why": "Named (Python data model; Hettinger's Descriptor HowTo Guide) but a language feature - the attribute-access hook mechanism of the interpreter, akin to 'virtual' - below the design-element band."
+    },
+    {
+      "name": "IIFE (Immediately-Invoked Function Expression, JS)",
+      "why": "Named (Ben Alman 2010; Osmani) but syntax-level: a single expression form for creating scope. The design-level element it enables, Module Pattern (with Revealing Module as aka), is already in the index."
+    },
+    {
+      "name": "Generator Pipeline (Python, Beazley 'Generator Tricks for Systems Programmers')",
+      "why": "Real and named, but the mechanism - staged lazy transformation of a data stream - folds into collection-pipeline already in the index (which lists lazy streams pipelines). Recommend adding 'generator pipeline (Beazley)' as an aka on collection-pipeline instead of a new element."
+    },
+    {
+      "name": "Module-Level Singleton (Python)",
+      "why": "The 'modules are singletons' idiom is a language-provided realization of Singleton (already in index), not a distinct mechanism; at most an aka/implementation note on singleton."
+    },
+    {
+      "name": "errgroup-style bounded concurrency (Go)",
+      "why": "golang.org/x/sync/errgroup is a library facility; its general mechanisms are structured concurrency (proposed this round) plus semaphore-bounded workers (semaphore, thread-pool already in index)."
+    },
+    {
+      "name": "Fan-Out / Fan-In (Go blog 'Pipelines and cancellation')",
+      "why": "Named in the Go blog but not a distinct mechanism at this altitude: fan-out folds into competing-consumers / master-slave (task farm), fan-in into aggregator/multiplexed channels - all already in the index."
+    },
+    {
+      "name": "EAFP / LBYL (Python)",
+      "why": "Named in the Python glossary but a coding style dichotomy (try/except-first vs check-first), not an implementable mechanism."
+    },
+    {
+      "name": "Monkey Patching (Python/JS/Ruby)",
+      "why": "Named and recurring, but a runtime-modification practice/hazard rather than a design building block; closest mechanism (open classes / dynamic dispatch tables) is language machinery."
+    },
+    {
+      "name": "Polyfill / Shim (JS)",
+      "why": "Named (Remy Sharp 2010; MDN) but a compatibility-artifact practice; the underlying mechanisms are feature detection plus adapter/facade, already covered."
+    },
+    {
+      "name": "Revealing Constructor Pattern (JS, Domenic Denicola 2014)",
+      "why": "Citable but essentially single-source naming with thin recurrence beyond describing the Promise constructor; omitted per anti-invention discipline."
+    },
+    {
+      "name": "sync.Once / call-once initialization (Go)",
+      "why": "Library facility; mechanism covered by construct-on-first-use and double-checked-locking already in the index."
+    },
+    {
+      "name": "select-based channel multiplexing (Go)",
+      "why": "Language syntax (select statement) over csp-channel, which is already in the index."
+    },
+    {
+      "name": "Middleware chain (Express/Redux style)",
+      "why": "Recurring JS usage but the mechanism folds into interceptor and chain-of-responsibility, both already in the index."
+    }
+  ],
+  "notes": "Saturation confirmed for this charter: most flagship Python/JS/Go idioms are already indexed (module-pattern covers Module+Revealing Module; dispose-pattern covers Python context managers; scope-guard covers Go defer; csp-channel covers Go channels; green-threads covers goroutines; coroutine covers generators; monostate covers Borg; sentinel-value, thread-pool, pipeline-parallelism likewise). Five additions, three verified by live page load this session (Cheney functional options; Ajmani Go context; Smith structured concurrency); Meszaros Parameterized Test verified at book/title level via search (xunitpatterns.com refused connection). SUSPECTED INDEX ERRORS: (1) 'adapter' lists 'Decorator' as an aka - GoF Decorator is a distinct pattern and appears nowhere else in the 577-entry index; looks like a bad fold. (2) 'factory-method' lists 'Prototype, clone' as aka - GoF Prototype is likewise a distinct pattern absent elsewhere; looks like a bad fold. Both should be split back out by the merge step. SUGGESTED AKA ADDITIONS (no new elements): collection-pipeline += 'generator pipeline (Beazley)'; singleton += 'module-level singleton (Python)'. Also note MV* (MVC/MVP/MVVM) absent from the index under any alias - presumably parked to Phase 3, recorded in parked_architecture to make sure it is not a silent drop."
+}

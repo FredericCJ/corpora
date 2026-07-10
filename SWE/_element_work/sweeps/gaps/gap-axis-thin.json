@@ -1,0 +1,126 @@
+{
+  "scout": "gap-axis-thin",
+  "elements": [
+    {
+      "id": "epsilon-ulp-float-comparison",
+      "name": "Epsilon/ULP Floating-Point Comparison",
+      "aka": ["approximate float equality", "relative-epsilon comparison", "AlmostEqualRelative", "AlmostEqualUlps", "ULP-based comparison", "essentially equal (Knuth)", "tolerance comparison"],
+      "kind": "numeric-precision",
+      "what": "Comparing floating-point values for near-equality using an absolute/relative epsilon tolerance or a bounded distance in units-in-the-last-place (ULPs) instead of exact ==.",
+      "problem": "Rounding error makes exact equality tests on floats unreliable; a fixed absolute epsilon is wrong across magnitudes, so comparisons must scale with the operands (relative epsilon) or count representable values between them (ULPs).",
+      "named_in": "Bruce Dawson, 'Comparing Floating Point Numbers, 2012 Edition' (randomascii.wordpress.com, 2012); ULP framing also in Knuth TAOCP Vol. 2 ('essentially equal') and Goldberg 1991",
+      "named_in_corpus_id": null,
+      "tags": ["numerics", "floating-point"],
+      "borderline": "mechanism-vs-practice: partly a coding practice, but the ULP-distance comparison is a concrete implementable mechanism (bit-pattern reinterpretation, adjacent-float counting) with named canonical realizations (AlmostEqualUlps)",
+      "confidence": "established"
+    },
+    {
+      "id": "checked-arithmetic",
+      "name": "Checked Arithmetic",
+      "aka": ["overflow-checked arithmetic", "ckd_add/ckd_sub/ckd_mul (C23 stdckdint.h)", "__builtin_add_overflow (GCC/Clang)", "checked_add/overflowing_add (Rust)", "overflow detection", "trapping arithmetic (variant)"],
+      "kind": "numeric-precision",
+      "what": "Integer arithmetic operations that report overflow explicitly (a boolean flag or Option/panic) instead of silently wrapping or invoking undefined behavior.",
+      "problem": "Silent integer overflow corrupts computations and is a chronic security-bug source; detecting it at each operation lets the program reject, saturate, or widen instead of proceeding with a wrong value.",
+      "named_in": "ISO/IEC 9899:2024 (C23) <stdckdint.h> checked integer arithmetic macros; GCC integer overflow builtins; Rust std checked_* methods",
+      "named_in_corpus_id": null,
+      "tags": ["C", "Rust", "numerics", "security-adjacent"],
+      "borderline": "language-feature-vs-mechanism: standardized as library/intrinsic surface, but the mechanism (perform op, test overflow condition, branch) is language-independent and routinely hand-implemented where intrinsics are absent",
+      "confidence": "established"
+    },
+    {
+      "id": "interval-arithmetic",
+      "name": "Interval Arithmetic",
+      "aka": ["interval analysis", "interval computation", "directed rounding intervals", "validated numerics (field name)"],
+      "kind": "numeric-precision",
+      "what": "Representing each numeric quantity as an interval [lo, hi] guaranteed to contain the true value, with arithmetic rules (and outward/directed rounding) that propagate the bounds through every operation.",
+      "problem": "Floating-point results carry unquantified rounding and input error; carrying rigorous lower/upper bounds through a computation yields a guaranteed enclosure of the exact result, at the cost of wider results and dependency-induced overestimation.",
+      "named_in": "Ramon E. Moore, 'Interval Analysis' (Prentice-Hall, 1966); standardized as IEEE 1788-2015",
+      "named_in_corpus_id": null,
+      "tags": ["numerics", "scientific-computing"],
+      "borderline": "algorithmics-zoo adjacency: kept as a design element because it is a representation choice a designer reaches for (bounded-error numeric type), standardized (IEEE 1788) and realized as reusable library types; the algorithm-variant zoo (Taylor models, affine arithmetic) stays in the sibling corpus",
+      "confidence": "established"
+    },
+    {
+      "id": "maximal-munch",
+      "name": "Maximal Munch",
+      "aka": ["longest match rule", "longest-prefix tokenization", "maximal munch tokenization", "longest lexeme rule"],
+      "kind": "parsing-text",
+      "what": "The lexing rule that each token consumed is the longest prefix of the remaining input that matches any token pattern, restarting the automaton after each match (with backtracking or tabulation when a long attempt fails).",
+      "problem": "Token patterns overlap ('>' vs '>=', identifiers vs keywords); without a deterministic disambiguation rule tokenization is ambiguous, and naive longest-match backtracking can go quadratic - the named linear-time construction fixes that.",
+      "named_in": "Thomas Reps, \"'Maximal-Munch' Tokenization in Linear Time\", ACM TOPLAS 20(2), 1998; the longest-match rule also stated in Aho/Sethi/Ullman (Dragon Book)",
+      "named_in_corpus_id": null,
+      "tags": ["compilers", "lexing"],
+      "borderline": "rule-vs-mechanism: it is a disambiguation rule, but one realized as a concrete mechanism (DFA restart with last-accepting-state rollback) inside essentially every hand-written or generated lexer",
+      "confidence": "established"
+    },
+    {
+      "id": "shunting-yard-algorithm",
+      "name": "Shunting-Yard Algorithm",
+      "aka": ["shunting yard", "operator-stack expression parsing", "two-stack infix parsing", "infix-to-postfix conversion"],
+      "kind": "parsing-text",
+      "what": "An iterative expression parser that uses an explicit operator stack (and output queue/operand stack) to convert infix input to postfix order or an AST, shunting operators aside until higher-precedence work completes.",
+      "problem": "Infix expressions with precedence and associativity need reordering before evaluation; an explicit-stack single pass handles arbitrary precedence tables without recursion, suiting calculators, spreadsheet formula engines, and stack-limited environments.",
+      "named_in": "E.W. Dijkstra, 'Making a Translator for ALGOL 60' / Mathematisch Centrum report MR 34/61 (1961); the railway shunting-yard name is Dijkstra's own",
+      "named_in_corpus_id": null,
+      "tags": ["compilers", "expression-evaluation"],
+      "borderline": "overlap with pratt-parser (whose aka already holds operator-precedence parser / precedence climbing): kept separate because the mechanism genuinely differs - iterative explicit-stack infix-to-postfix conversion vs recursive top-down parsing with binding powers; relation is alternative-to",
+      "confidence": "established"
+    },
+    {
+      "id": "scannerless-parsing",
+      "name": "Scannerless Parsing",
+      "aka": ["scannerless generalized-LR parsing", "SGLR", "lexer-less parsing", "character-level parsing", "single-phase parsing"],
+      "kind": "parsing-text",
+      "what": "Parsing without a separate lexer: lexical and context-free syntax are integrated into one grammar and the parser consumes individual characters, resolving token-level ambiguity with grammar-level disambiguation (follow restrictions, reject productions).",
+      "problem": "A separate scanner cannot use parsing context, which breaks on composed/embedded languages and context-sensitive tokens; folding lexing into the parser removes the lexer-parser interface mismatch at the cost of more ambiguity to manage.",
+      "named_in": "Eelco Visser, 'Scannerless Generalized-LR Parsing', Univ. of Amsterdam tech report P9707, 1997; term scannerless coined by Salomon & Cormack (SIGPLAN 1989)",
+      "named_in_corpus_id": null,
+      "tags": ["compilers", "grammarware"],
+      "borderline": "approach-vs-mechanism: it is a parser-construction strategy rather than a data mechanism, but named, recurring, and implemented inside single components (SGLR, PEG-based parsers are naturally scannerless)",
+      "confidence": "established"
+    },
+    {
+      "id": "negative-caching",
+      "name": "Negative Caching",
+      "aka": ["negative cache", "negative result caching", "caching of misses/failures", "negative TTL", "DNS NCACHE", "nonexistence caching"],
+      "kind": "caching-memoization",
+      "what": "Caching the fact that a lookup failed (name does not exist, entry not found, call errored) with its own, usually shorter, TTL so repeated misses are answered from cache.",
+      "problem": "Repeated lookups for nonexistent keys bypass a positive-only cache and hammer the backing store; remembering not-found/error outcomes absorbs that load, while a bounded negative TTL limits the staleness window when the item comes into existence.",
+      "named_in": "RFC 2308, 'Negative Caching of DNS Queries (DNS NCACHE)' (M. Andrews, 1998); general form in OS name caches (Linux dentry negative entries)",
+      "named_in_corpus_id": null,
+      "tags": ["networking", "databases", "os"],
+      "borderline": null,
+      "confidence": "established"
+    },
+    {
+      "id": "cache-stampede-protection",
+      "name": "Cache Stampede Protection",
+      "aka": ["dog-pile prevention", "dogpile effect mitigation", "cache stampede prevention", "request coalescing", "singleflight (Go)", "duplicate call suppression", "probabilistic early expiration / XFetch (variant)", "thundering herd mitigation (cache-miss form)"],
+      "kind": "caching-memoization",
+      "what": "Mechanisms ensuring that when a popular cache entry expires, only one computation regenerates it - concurrent requesters are coalesced onto the in-flight computation (singleflight/lock) or expirations are jittered via probabilistic early recomputation.",
+      "problem": "When a hot entry expires, every concurrent miss triggers the same expensive recomputation simultaneously, overloading the backing store exactly when it is most needed; deduplicating or pre-staggering the regeneration removes the spike.",
+      "named_in": "Vattani, Chierichetti, Lowenstein, 'Optimal Probabilistic Cache Stampede Prevention', PVLDB 8(8), 2015; request-coalescing realization named in Go's golang.org/x/sync/singleflight",
+      "named_in_corpus_id": null,
+      "tags": ["distributed-adjacent", "web", "databases"],
+      "borderline": null,
+      "confidence": "established"
+    }
+  ],
+  "parked_architecture": [
+    {
+      "name": "Process Pairs",
+      "why": "Gray 1985 ('Why Do Computers Stop and What Can Be Done About It?', Tandem TR-85.7): primary/backup process replication with checkpoint messages across failure domains - a system-level fault-tolerance structure spanning processes/nodes, not a mechanism inside one component; park for the Phase 3 architecture catalog."
+    }
+  ],
+  "excluded_notable": [
+    {
+      "name": "Kahan Summation (compensated summation)",
+      "why": "Named and canonical (Kahan 1965) but sits in the numerical-algorithmics zoo the mission excludes from this catalog; cross-reference the datastructures/algorithms sibling corpus rather than enumerate summation-algorithm variants (Kahan, Neumaier, pairwise) here."
+    },
+    {
+      "name": "Cache Warming",
+      "why": "Named (cache warm-up/pre-warming) but primarily an operational practice of pre-populating a cache before serving traffic; its mechanism substance is already covered by the existing prefetching and refresh-ahead-cache entries."
+    }
+  ],
+  "notes": "Targeted sweep of the four thinnest axes per charter. Yield deliberately small: 8 elements (3 numeric-precision, 3 parsing-text, 2 caching-memoization, 0 robustness-security), 1 parked, 2 excluded. Charter candidates found ALREADY COVERED in the index and therefore not proposed: (1) panic-mode error recovery - exists as panic-mode-error-recovery; (2) microreboot (Candea & Fox 2004) - already an aka of restart (error-handling), so no new robustness-security entry; (3) assertion checking - covered by sanity-check (aka Runtime Assertion, assert, Assertion) plus design-by-contract. Live verifications this session: Dawson 2012 post (randomascii.wordpress.com/2012/02/25/), Reps TOPLAS 1998 (research.cs.wisc.edu + dl.acm.org 10.1145/276393.276394), Visser 1997 P9707 (eelcovisser.org/publications/1997/Visser97-SGLR.pdf), Vattani et al. PVLDB 2015 (dl.acm.org 10.14778/2757807.2757813), C23 stdckdint.h (cppreference + Gustedt blog). Shunting-yard judged genuinely distinct from pratt-parser (iterative two-stack conversion vs recursive binding-power descent); recommend an alternative-to edge in Phase 3. No naming source matched an existing corpus work id; closest is dietzintoverflow (Understanding Integer Overflow in C/C++, 2015) which motivates but does not name checked-arithmetic, so named_in_corpus_id left null. INDEX ISSUES SPOTTED: (a) adapter lists 'Decorator' as an aka, but GoF Decorator is a distinct pattern and has NO own entry anywhere in the 577 - likely a real gap/error; (b) factory-method lists 'Prototype, clone' as aka, but GoF Prototype is likewise a distinct pattern with no own entry; (c) setjmp-longjmp-exception-handling and setjmp-longjmp-structured-error-handling look like duplicates of one mechanism and should probably merge."
+}

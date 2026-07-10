@@ -1,0 +1,703 @@
+{
+ "route": "r3",
+ "elements": [
+  {
+   "id": "a-b-firmware-image-update",
+   "name": "A/B Firmware Image Update",
+   "kind": "embedded-systems",
+   "named_in": "Device Firmware Update Cookbook - Memfault Interrupt",
+   "named_in_corpus_id": "memfaultea",
+   "other_sources": [],
+   "tags": [
+    "embedded",
+    "firmware-update",
+    "robustness"
+   ]
+  },
+  {
+   "id": "bootloader-jump-handoff",
+   "name": "Bootloader Jump / Handoff",
+   "kind": "embedded-systems",
+   "named_in": "From Zero to main(): How to Write a Bootloader from Scratch - Memfault Interrupt (2019)",
+   "named_in_corpus_id": "zerotomain",
+   "other_sources": [],
+   "tags": [
+    "embedded",
+    "firmware-update",
+    "arm"
+   ]
+  },
+  {
+   "id": "deferred-interrupt-processing",
+   "name": "Deferred Interrupt Processing",
+   "kind": "embedded-systems",
+   "named_in": "Linux Device Drivers, 3rd ed. - Corbet, Rubini & Kroah-Hartman (2005)",
+   "named_in_corpus_id": "ldd3",
+   "other_sources": [
+    "Linux Kernel Development, 3rd ed. - Robert Love (2010), ch. 'Bottom Halves and Deferring W"
+   ],
+   "tags": [
+    "embedded",
+    "os",
+    "concurrency",
+    "interrupts",
+    "c",
+    "os-kernel"
+   ]
+  },
+  {
+   "id": "device-driver",
+   "name": "Device Driver",
+   "kind": "embedded-systems",
+   "named_in": "Linux Device Drivers, 3rd ed. - Corbet, Rubini, Kroah-Hartman (2005)",
+   "named_in_corpus_id": "ldd3",
+   "other_sources": [],
+   "tags": [
+    "c",
+    "embedded",
+    "systems",
+    "borderline"
+   ]
+  },
+  {
+   "id": "direct-memory-access-dma-transfer",
+   "name": "Direct Memory Access (DMA) Transfer",
+   "kind": "embedded-systems",
+   "named_in": "Making Embedded Systems - Elecia White (2024)",
+   "named_in_corpus_id": "white",
+   "other_sources": [
+    "AN4031 - Using the STM32F2, STM32F4 and STM32F7 Series DMA controller (STMicroelectronics)"
+   ],
+   "tags": [
+    "embedded",
+    "hardware-access",
+    "data-flow",
+    "dma",
+    "hardware-io"
+   ]
+  },
+  {
+   "id": "hardware-adapter",
+   "name": "Hardware Adapter",
+   "kind": "embedded-systems",
+   "named_in": "Design Patterns for Embedded Systems in C - Bruce Powel Douglass (2011)",
+   "named_in_corpus_id": "douglasspatternsc",
+   "other_sources": [],
+   "tags": [
+    "embedded",
+    "hardware-access"
+   ]
+  },
+  {
+   "id": "hardware-proxy",
+   "name": "Hardware Proxy",
+   "kind": "embedded-systems",
+   "named_in": "Design Patterns for Embedded Systems in C - Bruce Powel Douglass (2011)",
+   "named_in_corpus_id": "douglasspatternsc",
+   "other_sources": [],
+   "tags": [
+    "embedded",
+    "hardware-access"
+   ]
+  },
+  {
+   "id": "interrupt-service-routine",
+   "name": "Interrupt Service Routine",
+   "kind": "embedded-systems",
+   "named_in": "Design Patterns for Embedded Systems in C - Bruce Powel Douglass (2011)",
+   "named_in_corpus_id": "douglasspatternsc",
+   "other_sources": [
+    "Embedded C Coding Standard (BARR-C:2018) - Barr (2018)"
+   ],
+   "tags": [
+    "embedded",
+    "concurrency",
+    "c",
+    "borderline"
+   ]
+  },
+  {
+   "id": "interrupt-vector-table",
+   "name": "Interrupt Vector Table",
+   "kind": "embedded-systems",
+   "named_in": "The Definitive Guide to ARM Cortex-M3 and Cortex-M4 Processors - Yiu (2013)",
+   "named_in_corpus_id": "yiu",
+   "other_sources": [
+    "The Definitive Guide to ARM Cortex-M3 and Cortex-M4 Processors, 3rd ed. - Yiu (2013)"
+   ],
+   "tags": [
+    "embedded",
+    "interrupts",
+    "borderline",
+    "c"
+   ]
+  },
+  {
+   "id": "iohw-h-standard-hardware-i-o-interface",
+   "name": "iohw.h Standard Hardware I/O Interface",
+   "kind": "embedded-systems",
+   "named_in": "ISO/IEC TR 18015:2006 Technical Report on C++ Performance, hardware-interface chapter",
+   "named_in_corpus_id": "tr18015",
+   "other_sources": [],
+   "tags": [
+    "c",
+    "c++",
+    "embedded",
+    "borderline"
+   ]
+  },
+  {
+   "id": "memory-mapped-register-access",
+   "name": "Memory-Mapped Register Access",
+   "kind": "embedded-systems",
+   "named_in": "Dan Saks embedded.com columns on memory-mapped devices in C and C++",
+   "named_in_corpus_id": "sakscolumns",
+   "other_sources": [
+    "Effective C++ in an Embedded Environment - Meyers (2015); treated across Dan Saks' embedde"
+   ],
+   "tags": [
+    "embedded",
+    "c",
+    "cpp",
+    "hardware-io",
+    "c++"
+   ]
+  },
+  {
+   "id": "pid-controller",
+   "name": "PID Controller",
+   "kind": "embedded-systems",
+   "named_in": "Åström & Hägglund, PID Controllers: Theory, Design, and Tuning (ISA, 1995); Wescott, 'PID Without a PhD' (Embedded Systems Programming, 2000); Åström & Murray, Feedback Systems (Princeton UP)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "embedded",
+    "control",
+    "robotics",
+    "borderline"
+   ]
+  },
+  {
+   "id": "polling",
+   "name": "Polling",
+   "kind": "embedded-systems",
+   "named_in": "Design Patterns for Embedded Systems in C - Bruce Powel Douglass (2011)",
+   "named_in_corpus_id": "douglasspatternsc",
+   "other_sources": [
+    "Polling (computer science) - Wikipedia"
+   ],
+   "tags": [
+    "embedded",
+    "hardware-access",
+    "hardware-io"
+   ]
+  },
+  {
+   "id": "shadow-register",
+   "name": "Shadow Register",
+   "kind": "embedded-systems",
+   "named_in": "Shadow Register - ScienceDirect Topics (Elsevier embedded-systems references); PIC/AVR vendor documentation",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "embedded",
+    "hardware-io",
+    "c"
+   ]
+  },
+  {
+   "id": "super-loop",
+   "name": "Super Loop",
+   "kind": "embedded-systems",
+   "named_in": "Patterns for Time-Triggered Embedded Systems - Pont (2001)",
+   "named_in_corpus_id": "pont",
+   "other_sources": [],
+   "tags": [
+    "embedded",
+    "c",
+    "bare-metal"
+   ]
+  },
+  {
+   "id": "typesafe-register-access-via-c-templates",
+   "name": "Typesafe Register Access via C++ Templates",
+   "kind": "embedded-systems",
+   "named_in": "C++ Hardware Register Access Redux - Smith (2010)",
+   "named_in_corpus_id": "kensmith",
+   "other_sources": [],
+   "tags": [
+    "c++",
+    "embedded"
+   ]
+  },
+  {
+   "id": "arbitrary-precision-arithmetic",
+   "name": "Arbitrary-Precision Arithmetic",
+   "kind": "numeric-precision",
+   "named_in": "Knuth, The Art of Computer Programming Vol. 2: Seminumerical Algorithms, sec. 4.3 'Multiple-Precision Arithmetic'",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "numerics",
+    "crypto"
+   ]
+  },
+  {
+   "id": "checked-arithmetic",
+   "name": "Checked Arithmetic",
+   "kind": "numeric-precision",
+   "named_in": "ISO/IEC 9899:2024 (C23) <stdckdint.h> checked integer arithmetic macros; GCC integer overflow builtins; Rust std checked_* methods",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "C",
+    "Rust",
+    "numerics",
+    "security-adjacent",
+    "borderline"
+   ]
+  },
+  {
+   "id": "epsilon-ulp-float-comparison",
+   "name": "Epsilon/ULP Floating-Point Comparison",
+   "kind": "numeric-precision",
+   "named_in": "Bruce Dawson, 'Comparing Floating Point Numbers, 2012 Edition' (randomascii.wordpress.com, 2012); ULP framing also in Knuth TAOCP Vol. 2 ('essentially equal') and Goldberg 1991",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "numerics",
+    "floating-point",
+    "borderline"
+   ]
+  },
+  {
+   "id": "fixed-point-arithmetic",
+   "name": "Fixed-Point Arithmetic",
+   "kind": "numeric-precision",
+   "named_in": "Embedded Systems Building Blocks - Labrosse (fixed-point math chapter)",
+   "named_in_corpus_id": "labrosse",
+   "other_sources": [],
+   "tags": [
+    "embedded",
+    "dsp",
+    "c"
+   ]
+  },
+  {
+   "id": "interval-arithmetic",
+   "name": "Interval Arithmetic",
+   "kind": "numeric-precision",
+   "named_in": "Ramon E. Moore, 'Interval Analysis' (Prentice-Hall, 1966); standardized as IEEE 1788-2015",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "numerics",
+    "scientific-computing",
+    "borderline"
+   ]
+  },
+  {
+   "id": "kahan-summation",
+   "name": "Kahan Summation",
+   "kind": "numeric-precision",
+   "named_in": "Goldberg, 'What Every Computer Scientist Should Know About Floating-Point Arithmetic' (ACM Computing Surveys 1991; 'Kahan Summation Formula', Thm. 8); Higham, Accuracy and Stability of Numerical Algorithms (SIAM)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "scientific computing",
+    "numerics",
+    "borderline"
+   ]
+  },
+  {
+   "id": "money",
+   "name": "Money",
+   "kind": "numeric-precision",
+   "named_in": "Patterns of Enterprise Application Architecture - Martin Fowler (2002)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "enterprise",
+    "finance"
+   ]
+  },
+  {
+   "id": "pseudorandom-number-generator",
+   "name": "Pseudorandom Number Generator",
+   "kind": "numeric-precision",
+   "named_in": "Knuth, The Art of Computer Programming Vol. 2: Seminumerical Algorithms, ch. 3 'Random Numbers'",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "simulation",
+    "games",
+    "testing",
+    "borderline: algorithm-flavored; included as the deterministic, seeded-reproducibility counterpart of the already-cataloged csprng, with algorithm variants folded into aka"
+   ]
+  },
+  {
+   "id": "saturation-arithmetic",
+   "name": "Saturation Arithmetic",
+   "kind": "numeric-precision",
+   "named_in": "Saturation arithmetic - Wikipedia",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "embedded",
+    "dsp"
+   ]
+  },
+  {
+   "id": "serial-number-arithmetic",
+   "name": "Serial Number Arithmetic",
+   "kind": "numeric-precision",
+   "named_in": "RFC 1982: Serial Number Arithmetic - Elz, Bush (1996)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "networking",
+    "dns",
+    "embedded"
+   ]
+  },
+  {
+   "id": "cyclic-executive",
+   "name": "Cyclic Executive",
+   "kind": "scheduling-time",
+   "named_in": "Design Patterns for Embedded Systems in C - Bruce Powel Douglass (2011)",
+   "named_in_corpus_id": "douglasspatternsc",
+   "other_sources": [
+    "The Cyclic Executive Model and Ada - Baker & Shaw (Real-Time Systems, 1989)",
+    "Patterns for Time-Triggered Embedded Systems - Pont (2001)"
+   ],
+   "tags": [
+    "embedded",
+    "real-time",
+    "safety-critical",
+    "c"
+   ]
+  },
+  {
+   "id": "deadline-propagation",
+   "name": "Deadline Propagation",
+   "kind": "scheduling-time",
+   "named_in": "Site Reliability Engineering: How Google Runs Production Systems - Beyer, Jones, Petoff, Murphy eds. (2016)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "distributed",
+    "grpc",
+    "borderline"
+   ]
+  },
+  {
+   "id": "debouncing",
+   "name": "Debouncing",
+   "kind": "scheduling-time",
+   "named_in": "Design Patterns for Embedded Systems in C - Bruce Powel Douglass (2011)",
+   "named_in_corpus_id": "douglasspatternsc",
+   "other_sources": [
+    "A Guide to Debouncing - Jack Ganssle (2004)",
+    "A Guide to Debouncing - Ganssle (2004)",
+    "Underscore.js documentation - _.debounce"
+   ],
+   "tags": [
+    "embedded",
+    "hardware-access",
+    "hardware-io",
+    "ui",
+    "javascript",
+    "js"
+   ]
+  },
+  {
+   "id": "deferrable-work",
+   "name": "Deferrable Work",
+   "kind": "scheduling-time",
+   "named_in": "Patterns for Fault Tolerant Software - Hanmer (2007)",
+   "named_in_corpus_id": "hanmer",
+   "other_sources": [],
+   "tags": [
+    "overload",
+    "borderline"
+   ]
+  },
+  {
+   "id": "dynamic-priority-scheduling",
+   "name": "Dynamic Priority Scheduling",
+   "kind": "scheduling-time",
+   "named_in": "Real-Time Design Patterns - Bruce Powel Douglass (2002)",
+   "named_in_corpus_id": "douglassrtcorpus",
+   "other_sources": [
+    "Scheduling Algorithms for Multiprogramming in a Hard-Real-Time Environment - Liu, Layland "
+   ],
+   "tags": [
+    "embedded",
+    "real-time",
+    "rtos"
+   ]
+  },
+  {
+   "id": "fixed-timestep",
+   "name": "Fixed Timestep",
+   "kind": "scheduling-time",
+   "named_in": "Fix Your Timestep! - Glenn Fiedler (Gaffer On Games, 2004)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "games",
+    "physics"
+   ]
+  },
+  {
+   "id": "governor",
+   "name": "Governor",
+   "kind": "scheduling-time",
+   "named_in": "Release It! Design and Deploy Production-Ready Software, 2nd ed. - Nygard (2018)",
+   "named_in_corpus_id": "nygard",
+   "other_sources": [],
+   "tags": [
+    "stability",
+    "borderline"
+   ]
+  },
+  {
+   "id": "idle-task-hook",
+   "name": "Idle Task Hook",
+   "kind": "scheduling-time",
+   "named_in": "freertos.org 'The Idle Task and the Idle Task Hook'; Mastering the FreeRTOS Real-Time Kernel; uC/OS-II OSTaskIdleHook",
+   "named_in_corpus_id": "freertosbook",
+   "other_sources": [],
+   "tags": [
+    "embedded",
+    "rtos",
+    "borderline"
+   ]
+  },
+  {
+   "id": "interrupt-coalescing",
+   "name": "Interrupt Coalescing",
+   "kind": "scheduling-time",
+   "named_in": "Interrupt coalescing - Wikipedia (live)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "embedded",
+    "networking",
+    "os-kernel",
+    "drivers"
+   ]
+  },
+  {
+   "id": "leaky-bucket",
+   "name": "Leaky Bucket",
+   "kind": "scheduling-time",
+   "named_in": "New Directions in Communications (or Which Way to the Information Age?) - Turner (1986)",
+   "named_in_corpus_id": null,
+   "other_sources": [
+    "Computer Networks - Andrew S. Tanenbaum (1981; 5th ed. 2011), traffic shaping"
+   ],
+   "tags": [
+    "networking",
+    "rate-limiting",
+    "qos"
+   ]
+  },
+  {
+   "id": "round-robin-scheduling",
+   "name": "Round Robin Scheduling",
+   "kind": "scheduling-time",
+   "named_in": "Real-Time Design Patterns - Bruce Powel Douglass (2002)",
+   "named_in_corpus_id": "douglassrtcorpus",
+   "other_sources": [],
+   "tags": [
+    "embedded",
+    "os"
+   ]
+  },
+  {
+   "id": "sandwich-delay",
+   "name": "Sandwich Delay",
+   "kind": "scheduling-time",
+   "named_in": "Meeting Real-Time Constraints Using 'Sandwich Delays' - Pont, Kurian & Bautista (EuroPLoP 2006)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "embedded",
+    "real-time",
+    "jitter"
+   ]
+  },
+  {
+   "id": "schedule-table",
+   "name": "Schedule Table",
+   "kind": "scheduling-time",
+   "named_in": "AUTOSAR Specification of Operating System (schedule tables); OSEK/VDX time-triggered OS",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "embedded",
+    "real-time",
+    "automotive"
+   ]
+  },
+  {
+   "id": "scheduler",
+   "name": "Scheduler",
+   "kind": "scheduling-time",
+   "named_in": "Patterns in Java, Volume 1: A Catalog of Reusable Design Patterns Illustrated with UML - Grand (1998)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "java",
+    "spot-checked-wikipedia-concurrency-pattern-list"
+   ]
+  },
+  {
+   "id": "software-timer",
+   "name": "Software Timer",
+   "kind": "scheduling-time",
+   "named_in": "Mastering the FreeRTOS Real-Time Kernel (software timers chapter)",
+   "named_in_corpus_id": "freertosbook",
+   "other_sources": [],
+   "tags": [
+    "embedded",
+    "rtos",
+    "borderline"
+   ]
+  },
+  {
+   "id": "static-priority-scheduling",
+   "name": "Static Priority Scheduling",
+   "kind": "scheduling-time",
+   "named_in": "Design Patterns for Embedded Systems in C - Bruce Powel Douglass (2011)",
+   "named_in_corpus_id": "douglasspatternsc",
+   "other_sources": [
+    "Scheduling Algorithms for Multiprogramming in a Hard-Real-Time Environment - Liu, Layland ",
+    "Scheduling Algorithms for Multiprogramming in a Hard-Real-Time Environment - Liu & Layland"
+   ],
+   "tags": [
+    "embedded",
+    "real-time",
+    "rtos"
+   ]
+  },
+  {
+   "id": "system-tick",
+   "name": "System Tick",
+   "kind": "scheduling-time",
+   "named_in": "white",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": "embedd"
+  },
+  {
+   "id": "throttle",
+   "name": "Throttle",
+   "kind": "scheduling-time",
+   "named_in": "Debouncing and Throttling Explained Through Examples - Corbacho, CSS-Tricks (2016)",
+   "named_in_corpus_id": null,
+   "other_sources": [
+    "Underscore.js documentation - _.throttle"
+   ],
+   "tags": [
+    "javascript",
+    "ui",
+    "embedded",
+    "js"
+   ]
+  },
+  {
+   "id": "tickless-idle",
+   "name": "Tickless Idle",
+   "kind": "scheduling-time",
+   "named_in": "Mastering the FreeRTOS Real-Time Kernel (tickless idle mode)",
+   "named_in_corpus_id": "freertosbook",
+   "other_sources": [],
+   "tags": [
+    "embedded",
+    "low-power",
+    "rtos"
+   ]
+  },
+  {
+   "id": "time-to-live-ttl",
+   "name": "Time to Live (TTL)",
+   "kind": "scheduling-time",
+   "named_in": "RFC 791: Internet Protocol - Postel (1981)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "networking",
+    "caching",
+    "borderline"
+   ]
+  },
+  {
+   "id": "time-triggered-co-operative-scheduler",
+   "name": "Time-Triggered Co-operative Scheduler",
+   "kind": "scheduling-time",
+   "named_in": "Patterns for Time-Triggered Embedded Systems - Pont (2001)",
+   "named_in_corpus_id": "pont",
+   "other_sources": [],
+   "tags": [
+    "embedded",
+    "c",
+    "real-time"
+   ]
+  },
+  {
+   "id": "timer-wheel",
+   "name": "Timer Wheel",
+   "kind": "scheduling-time",
+   "named_in": "Hashed and Hierarchical Timing Wheels: Data Structures for the Efficient Implementation of a Timer Facility - Varghese, Lauck (1987)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "networking",
+    "os",
+    "embedded"
+   ]
+  },
+  {
+   "id": "token-bucket",
+   "name": "Token Bucket",
+   "kind": "scheduling-time",
+   "named_in": "Computer Networks, 3rd ed. - Tanenbaum (1996)",
+   "named_in_corpus_id": null,
+   "other_sources": [
+    "Computer Networks - Andrew S. Tanenbaum (1981; 5th ed. 2011), traffic shaping"
+   ],
+   "tags": [
+    "networking",
+    "rate-limiting",
+    "qos",
+    "overlap:robustness-scout"
+   ]
+  },
+  {
+   "id": "update-method",
+   "name": "Update Method",
+   "kind": "scheduling-time",
+   "named_in": "Game Programming Patterns - Robert Nystrom (2014)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "games"
+   ]
+  },
+  {
+   "id": "work-stealing",
+   "name": "Work Stealing",
+   "kind": "scheduling-time",
+   "named_in": "Scheduling Multithreaded Computations by Work Stealing - Blumofe, Leiserson (1999)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "java",
+    "cilk",
+    "rust"
+   ]
+  }
+ ]
+}

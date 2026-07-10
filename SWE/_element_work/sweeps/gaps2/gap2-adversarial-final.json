@@ -1,0 +1,136 @@
+{
+  "scout": "gap2-adversarial-final",
+  "elements": [
+    {
+      "id": "arbitrary-precision-arithmetic",
+      "name": "Arbitrary-Precision Arithmetic",
+      "aka": ["bignum", "multiple-precision arithmetic", "big integer / BigInt", "arbitrary-precision integers", "GMP-style arithmetic"],
+      "kind": "numeric-precision",
+      "what": "Represent and compute on integers (or rationals/decimals) whose size is limited only by memory, using multi-limb representations and carry-propagating algorithms instead of fixed-width machine words.",
+      "problem": "Fixed-width machine integers overflow; cryptography, computer algebra, financial and exact computation need results beyond 64 bits with exact semantics.",
+      "named_in": "Knuth, The Art of Computer Programming Vol. 2: Seminumerical Algorithms, sec. 4.3 'Multiple-Precision Arithmetic'",
+      "tags": ["numerics", "crypto"]
+    },
+    {
+      "id": "pseudorandom-number-generator",
+      "name": "Pseudorandom Number Generator",
+      "aka": ["PRNG", "seeded random generator", "deterministic random source", "LCG / Mersenne Twister / xorshift / PCG (algorithm variants, folded)"],
+      "kind": "numeric-precision",
+      "what": "A deterministic state machine that expands a seed into a stream of statistically random-looking numbers, giving reproducible randomness on demand.",
+      "problem": "Programs need randomness (simulation, games, sampling, testing) that is fast, portable, and — via the seed — exactly reproducible for replay and debugging; true entropy sources provide none of these.",
+      "named_in": "Knuth, The Art of Computer Programming Vol. 2: Seminumerical Algorithms, ch. 3 'Random Numbers'",
+      "tags": ["simulation", "games", "testing", "borderline: algorithm-flavored; included as the deterministic, seeded-reproducibility counterpart of the already-cataloged csprng, with algorithm variants folded into aka"]
+    },
+    {
+      "id": "lr-parser",
+      "name": "LR Parser",
+      "aka": ["shift-reduce parser", "bottom-up parser", "table-driven parser", "LALR / SLR parser (table-construction variants)", "yacc/bison-generated parser", "GLR (generalized variant, folded)"],
+      "kind": "parsing-text",
+      "what": "Bottom-up table-driven parsing: a state stack plus action/goto tables shifts input tokens and reduces recognized handles to grammar nonterminals.",
+      "problem": "Recursive descent cannot directly handle left recursion or many deterministic context-free grammars; generating a shift-reduce table mechanically from the grammar gives linear-time parsing with grammar-level maintainability.",
+      "named_in": "Aho, Sethi, Ullman, Compilers: Principles, Techniques, and Tools (the Dragon Book), ch. 4",
+      "tags": ["compilers", "canonical counterpart of recursive-descent-parser already in catalog"]
+    },
+    {
+      "id": "logical-clock",
+      "name": "Logical Clock",
+      "aka": ["Lamport clock", "Lamport timestamp", "vector clock", "version vector", "hybrid logical clock (HLC)"],
+      "kind": "synchronization-coordination",
+      "what": "A per-process counter (scalar or vector) advanced on local events and merged on message receipt so that timestamp order respects causal (happened-before) order without synchronized physical clocks.",
+      "problem": "Concurrent and distributed components need to order events, detect causality, and version state when wall clocks are unreliable or unavailable.",
+      "named_in": "Lamport, 'Time, Clocks, and the Ordering of Events in a Distributed System', CACM 1978",
+      "tags": ["distributed", "in-process mechanism precedent: crdt and operational-transformation already in catalog"]
+    },
+    {
+      "id": "parallel-reduction",
+      "name": "Parallel Reduction",
+      "aka": ["reduce (parallel pattern)", "reduction tree", "tree reduction", "parallel aggregation", "combiner with associative operator"],
+      "kind": "execution-concurrency",
+      "what": "Combine a collection of values into one result with an associative operator arranged as a tree of partial reductions computed in parallel, then merged.",
+      "problem": "A sequential fold serializes aggregation; exploiting associativity turns O(n) dependent steps into parallel partials plus O(log n) merge, without data races on a shared accumulator.",
+      "named_in": "McCool, Robison, Reinders, Structured Parallel Programming: Patterns for Efficient Computation (2012)",
+      "tags": ["parallelism", "peer of loop-parallelism / fork-join / pipeline-parallelism already in catalog"]
+    },
+    {
+      "id": "stencil",
+      "name": "Stencil",
+      "aka": ["stencil computation", "structured-grid pattern", "neighborhood computation", "ghost cells (supporting mechanism)"],
+      "kind": "execution-concurrency",
+      "what": "Update every element of a regular grid as a fixed function of its spatial neighborhood, typically double-buffered between generations and tiled/parallelized over the grid.",
+      "problem": "Grid computations (image filters, cellular automata, PDE solvers, convolution) share a regular neighbor-access shape whose naive form thrashes caches and races on in-place updates.",
+      "named_in": "McCool, Robison, Reinders, Structured Parallel Programming: Patterns for Efficient Computation (2012), stencil chapter",
+      "tags": ["scientific-computing", "games", "borderline: domain-parallel kernel shape at the algorithm-zoo edge; kept on pattern-catalog naming and cross-domain recurrence"]
+    },
+    {
+      "id": "content-addressable-storage",
+      "name": "Content-Addressable Storage",
+      "aka": ["content addressing", "content-addressed store", "CAS (storage sense)", "hash-addressed storage", "content-defined chunking deduplication (companion mechanism)"],
+      "kind": "persistence-durability",
+      "what": "Store immutable blocks/objects keyed by a cryptographic hash of their contents, so identical data coalesces, references are self-verifying, and writes are idempotent.",
+      "problem": "Location-addressed storage cannot cheaply deduplicate, verify integrity, or share immutable history; hashing the content makes the identifier both the address and the checksum.",
+      "named_in": "Quinlan & Dorward, 'Venti: A New Approach to Archival Storage', USENIX FAST 2002 (verified live); canonical modern realization: the Git object store",
+      "tags": ["storage", "version-control"]
+    },
+    {
+      "id": "privilege-separation",
+      "name": "Privilege Separation",
+      "aka": ["privsep", "privileged monitor / unprivileged worker split", "OpenSSH privilege separation"],
+      "kind": "robustness-security",
+      "what": "Split one application into a small privileged process and unprivileged worker processes that request sensitive operations over a narrow IPC interface, so a compromise of the exposed code yields no privileges.",
+      "problem": "Monolithic privileged programs let any exploited parsing/network-facing code inherit full privileges; confining privileges to a minimal monitor bounds the damage.",
+      "named_in": "Provos, Friedl, Honeyman, 'Preventing Privilege Escalation', 12th USENIX Security Symposium 2003 (verified live)",
+      "tags": ["security", "unix", "borderline: multi-process internal structure edges toward architecture; kept design-realm because it is a named mechanism implemented within one application (privilege-bracketing covers only the temporal form)"]
+    },
+    {
+      "id": "four-phase-test",
+      "name": "Four-Phase Test",
+      "aka": ["setup-exercise-verify-teardown", "Arrange-Act-Assert (AAA)", "Given-When-Then (BDD phrasing)"],
+      "kind": "testing-constructs",
+      "what": "Structure every test as four ordered phases — fixture setup, exercise the system under test, result verification, fixture teardown — one behavior per test.",
+      "problem": "Unstructured test methods interleave setup, actions and assertions, hiding what is tested and leaking state between tests; a fixed phase skeleton makes intent and independence mechanical.",
+      "named_in": "Meszaros, xUnit Test Patterns (2007); xunitpatterns.com 'Four Phase Test' (verified live)",
+      "tags": ["testing", "borderline: test-code structuring pattern near the practice boundary; included on Meszaros catalog establishedness and the composed-method altitude precedent"]
+    }
+  ],
+  "parked_architecture": [
+    {"id": "two-phase-commit", "name": "Two-Phase Commit", "reason": "Distributed atomic commit protocol (Gray) — system-level coordination across nodes; the in-process concurrency band (two-phase-locking) is already cataloged. May duplicate an earlier park; dedupe on merge."},
+    {"id": "graceful-degradation", "name": "Graceful Degradation / Degraded Mode", "reason": "Bass availability tactic; system-quality posture rather than a single in-program mechanism (its mechanisms — safe-state, load-shedding, recovery-blocks, captain-oates — are already elements)."},
+    {"id": "transactional-outbox", "name": "Transactional Outbox", "reason": "Richardson microservices.io pattern; spans service DB + message relay, service-integration altitude."},
+    {"id": "leader-election", "name": "Leader Election", "reason": "Distributed coordination protocol among nodes; not implementable inside one component."},
+    {"id": "blackboard", "name": "Blackboard", "reason": "POSA1 architecture pattern (system organization); likely already in the Phase 1 park log."},
+    {"id": "message-bus", "name": "Message Bus", "reason": "EIP system-topology construct; the in-process form is already cataloged as event-aggregator."}
+  ],
+  "excluded_notable": [
+    {"name": "SSA form / register allocation", "reason": "Compiler-internals specialist vocabulary and algorithmics zoo; fails the reached-for-across-codebases breadth test. AST + bytecode + symbol-table already carry the compiler band at element altitude."},
+    {"name": "Biquad filter / block-based audio processing", "reason": "DSP algorithm zoo; the software mechanisms audio code actually reaches for (audio callback + SPSC lock-free ring buffer, double buffering) are already cataloged elements."},
+    {"name": "Halo exchange / ghost cells", "reason": "Distributed-memory (MPI) communication pattern at the parallel-runtime/architecture edge; noted as supporting mechanism in the stencil entry instead."},
+    {"name": "Prefix sum (parallel scan)", "reason": "Canonical (Blelloch; McCool et al.) but its substance is the algorithm, not a reached-for design mechanism; algorithmic zoo edge, sibling datastructures-corpus territory. Closest call among the rejections."},
+    {"name": "Subcommand dispatch (CLI)", "reason": "No canonical pattern-catalog naming distinct from Command + function-pointer dispatch table; a realization of existing elements."},
+    {"name": "Unicode normalization", "reason": "Text-format standard (UAX #15); the design-element role is covered by canonicalization-before-validation."},
+    {"name": "Fuzzing / fuzz harness", "reason": "Testing practice/tooling (pass-7 territory); generative-input mechanism covered by property-based-testing."},
+    {"name": "Mutation testing", "reason": "Practice/tooling, not an in-program mechanism."},
+    {"name": "Fresh Fixture / Shared Fixture and finer Meszaros entries (Custom Assertion, Test Utility Method)", "reason": "Below the granularity floor or folded: the fixture lifecycle is captured by the added four-phase-test; test-double family already cataloged."},
+    {"name": "Fake clock / virtual time", "reason": "Widely used but lacks a single canonical element-level naming source; treated as a test-double realization."},
+    {"name": "POSIX signal handler", "reason": "OS API usage; the mechanism band is carried by interrupt-service-routine, self-pipe-trick, and callback."},
+    {"name": "Preforking / process pool", "reason": "Fold into the pooling / thread-pool family (process-granularity variant)."},
+    {"name": "Lock file / pidfile", "reason": "OS-administration idiom; mutual-exclusion band already covered (critical-region, leasing, fencing-token)."},
+    {"name": "Polyfill / shim", "reason": "Platform-API-level realization of Adapter."},
+    {"name": "Middleware chain (Express/Rack style)", "reason": "Realization of Chain of Responsibility / Interceptor, both cataloged."},
+    {"name": "Redux reducer / unidirectional data flow (Flux)", "reason": "UI-architecture band -> architecture realm; in-process mechanics covered by event-sourcing, observer, immutable-value."},
+    {"name": "CQS / CQRS", "reason": "CQS is a design principle, not a mechanism; CQRS is architecture (Phase 3)."},
+    {"name": "Functor / Applicative (typeclass hierarchy)", "reason": "Typeclassopedia zoo; the monad entry carries the family at element altitude."},
+    {"name": "Recursion schemes (catamorphism etc.)", "reason": "FP research zoo."},
+    {"name": "EWMA / moving-average smoothing", "reason": "Numeric algorithm zoo despite RTT-estimator and metrics uses."},
+    {"name": "AoS/SoA layout", "reason": "Fold, not a new element: recommend adding 'structure of arrays (SoA) / array of structures (AoS)' to data-locality's aka on merge."},
+    {"name": "Stream/connection multiplexing", "reason": "Protocol-level generic term; no design-catalog naming at element altitude."},
+    {"name": "Protocol version negotiation", "reason": "Folded under handshaking."},
+    {"name": "Race-to-sleep / low-power mode management", "reason": "Hardware/power practice edge; tickless-idle and idle-task-hook carry the software band."},
+    {"name": "Materialized view / incremental view maintenance", "reason": "DBMS system feature above the element band; zone-map and secondary-index carry the in-engine band."},
+    {"name": "Pagination (offset/keyset)", "reason": "API surface convention; cursor already in Iterator's aka."},
+    {"name": "Decimal floating point (IEEE 754-2008)", "reason": "Format standard; the design decision is carried by money and fixed-point-arithmetic."},
+    {"name": "Rounding-mode control", "reason": "Numeric-library detail below the band; interval-arithmetic covers the directed-rounding design use."},
+    {"name": "Fallback (Hystrix/Polly)", "reason": "Covered by recovery-blocks (fallback with acceptance test), safe-state, and the parked graceful-degradation tactic."},
+    {"name": "Binary search / sorting", "reason": "Fundamental algorithm zoo; sibling datastructures corpus."}
+  ],
+  "notes": "FINAL ADVERSARIAL VERDICT: SATURATED — stop per mission rule 4. Evidence: (1) This mandated closer hunt, run with fresh eyes over all 682 entries plus targeted probes of every thin axis and unswept domain, yielded 9 additions of which only 5 are non-borderline (arbitrary-precision-arithmetic, lr-parser, logical-clock, parallel-reduction, content-addressable-storage) — at the ~5 threshold, and 3 of those 5 sit exactly in the axes pre-identified as thin (numeric-precision, parsing-text), i.e. the finds are residue of known thinness, not evidence of an unswept seam. (2) The rejection record (30 checked-and-rejected candidates + 6 parks) shows the remaining candidate space collapses into four closed classes: folds into existing aka, algorithm zoo, practice/tooling, and upward-architecture parks. (3) Source cross-check: GoF 23/23 present; POSA1/POSA2 pattern lists fully present; Nystrom complete; EIP mid-level subset, Fowler PoEAA, Hanmer, Beck SBPP, Douglass, JCiP all swept; the only canonical catalog with a residual title-level gap was Meszaros xUnit Test Patterns (four-phase-test, now added). (4) Calibration-anchor audit: all mission anchors resolve to catalog entries (semantic-data-types is carried by the newtype/quantity/units-of-measure/value-object cluster; ring-buffer-backed queue by ring-buffer; ISR-with-deferred-work by deferred-interrupt-processing; double-buffered DMA by direct-memory-access-dma-transfer aka). Charter probes judged: audio/DSP — no new element (mechanisms already present, biquad rejected as zoo); compilers beyond parsing — rejected (SSA/regalloc zoo), except lr-parser which is parsing-axis proper; scientific computing — parallel-reduction in, stencil in (borderline), halo exchange rejected; CLI subcommand dispatch — rejected; build/config — already covered under code-structure. Naming sources live-verified this session: xunitpatterns.com Four Phase Test, Venti FAST'02, Provos et al. USENIX Sec'03, McCool et al. Structured Parallel Programming; Knuth TAOCP v2, Dragon Book, Lamport CACM 1978 are textbook-canonical. None of the naming sources are existing corpus works (checked work_ids.tsv), so all named_in are free-text for Phase 2 to ingest. Post-merge counts if all 9 accepted: 691 elements; numeric-precision 8->10, parsing-text 18->19, testing-constructs 8->9. Recommendation: freeze the catalog at ~691 and proceed to Phase 2."
+}

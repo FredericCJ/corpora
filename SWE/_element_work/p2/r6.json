@@ -1,0 +1,1249 @@
+{
+ "route": "r6",
+ "elements": [
+  {
+   "id": "buffer-pool",
+   "name": "Buffer Pool",
+   "kind": "caching-memoization",
+   "named_in": "Architecture of a Database System - Hellerstein, Stonebraker & Hamilton (2007)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "db",
+    "storage-engine",
+    "os"
+   ]
+  },
+  {
+   "id": "cache-aside",
+   "name": "Cache-Aside",
+   "kind": "caching-memoization",
+   "named_in": "Cloud Design Patterns - Microsoft patterns & practices (2014)",
+   "named_in_corpus_id": null,
+   "other_sources": [
+    "Cloud Design Patterns - Microsoft Azure Architecture Center"
+   ],
+   "tags": [
+    "db",
+    "caching",
+    "web",
+    "databases"
+   ]
+  },
+  {
+   "id": "cache-eviction-policy",
+   "name": "Cache Eviction Policy",
+   "kind": "caching-memoization",
+   "named_in": "Database Internals - Petrov (2019)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "db",
+    "caching",
+    "os"
+   ]
+  },
+  {
+   "id": "cache-stampede-protection",
+   "name": "Cache Stampede Protection",
+   "kind": "caching-memoization",
+   "named_in": "Vattani, Chierichetti, Lowenstein, 'Optimal Probabilistic Cache Stampede Prevention', PVLDB 8(8), 2015; request-coalescing realization named in Go's golang.org/x/sync/singleflight",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "distributed-adjacent",
+    "web",
+    "databases"
+   ]
+  },
+  {
+   "id": "caching",
+   "name": "Caching",
+   "kind": "caching-memoization",
+   "named_in": "Pattern-Oriented Software Architecture Vol. 3: Patterns for Resource Management - Kircher, Jain (2004)",
+   "named_in_corpus_id": "posa3",
+   "other_sources": [],
+   "tags": [
+    "performance"
+   ]
+  },
+  {
+   "id": "identity-map",
+   "name": "Identity Map",
+   "kind": "caching-memoization",
+   "named_in": "Patterns of Enterprise Application Architecture - Martin Fowler (2002)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "enterprise",
+    "orm"
+   ]
+  },
+  {
+   "id": "inline-caching",
+   "name": "Inline Caching",
+   "kind": "caching-memoization",
+   "named_in": "Deutsch & Schiffman, 'Efficient Implementation of the Smalltalk-80 System' (POPL 1984); Hölzle, Chambers & Ungar, 'Optimizing Dynamically-Typed Object-Oriented Languages With Polymorphic Inline Caches' (ECOOP 1991)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "interpreters",
+    "virtual machines",
+    "language runtimes"
+   ]
+  },
+  {
+   "id": "lookup-table",
+   "name": "Lookup Table",
+   "kind": "caching-memoization",
+   "named_in": "Lookup table - Wikipedia",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "embedded",
+    "performance"
+   ]
+  },
+  {
+   "id": "lru-cache",
+   "name": "LRU Cache",
+   "kind": "caching-memoization",
+   "named_in": "Evaluation Techniques for Storage Hierarchies - Mattson, Gecsei, Slutz, Traiger (1970)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "caching",
+    "os",
+    "databases"
+   ]
+  },
+  {
+   "id": "memoization",
+   "name": "Memoization",
+   "kind": "caching-memoization",
+   "named_in": "'Memo' Functions and Machine Learning - Donald Michie (Nature, 1968)",
+   "named_in_corpus_id": null,
+   "other_sources": [
+    "Memo functions and machine learning - Donald Michie (Nature, 1968)"
+   ],
+   "tags": [
+    "fp",
+    "functional"
+   ]
+  },
+  {
+   "id": "negative-caching",
+   "name": "Negative Caching",
+   "kind": "caching-memoization",
+   "named_in": "RFC 2308, 'Negative Caching of DNS Queries (DNS NCACHE)' (M. Andrews, 1998); general form in OS name caches (Linux dentry negative entries)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "networking",
+    "databases",
+    "os"
+   ]
+  },
+  {
+   "id": "prefetching",
+   "name": "Prefetching",
+   "kind": "caching-memoization",
+   "named_in": "Computer Architecture: A Quantitative Approach - Hennessy & Patterson (1990)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "db",
+    "os",
+    "caching",
+    "cpu-caches"
+   ]
+  },
+  {
+   "id": "read-through-cache",
+   "name": "Read-Through Cache",
+   "kind": "caching-memoization",
+   "named_in": "Read-Through, Write-Through, Write-Behind, and Refresh-Ahead Caching - Oracle Coherence Developer's Guide (2009)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "db",
+    "caching"
+   ]
+  },
+  {
+   "id": "refresh-ahead-cache",
+   "name": "Refresh-Ahead Cache",
+   "kind": "caching-memoization",
+   "named_in": "Read-Through, Write-Through, Write-Behind, and Refresh-Ahead Caching - Oracle Coherence Developer's Guide (2009)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "db",
+    "caching"
+   ]
+  },
+  {
+   "id": "write-behind-cache",
+   "name": "Write-Behind Cache",
+   "kind": "caching-memoization",
+   "named_in": "Read-Through, Write-Through, Write-Behind, and Refresh-Ahead Caching - Oracle Coherence Developer's Guide (2009)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "db",
+    "caching",
+    "cpu-caches"
+   ]
+  },
+  {
+   "id": "write-through-cache",
+   "name": "Write-Through Cache",
+   "kind": "caching-memoization",
+   "named_in": "Read-Through, Write-Through, Write-Behind, and Refresh-Ahead Caching - Oracle Coherence Developer's Guide (2009)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "db",
+    "caching",
+    "cpu-caches"
+   ]
+  },
+  {
+   "id": "b-tree",
+   "name": "B-tree",
+   "kind": "data-structures",
+   "named_in": "Organization and Maintenance of Large Ordered Indexes - Bayer & McCreight (1972)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "databases",
+    "filesystems",
+    "indexing"
+   ]
+  },
+  {
+   "id": "binary-heap-priority-queue",
+   "name": "Binary Heap (Priority Queue)",
+   "kind": "data-structures",
+   "named_in": "Algorithm 232: Heapsort - J. W. J. Williams (1964)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "scheduling",
+    "containers",
+    "embedded"
+   ]
+  },
+  {
+   "id": "binary-search-tree",
+   "name": "Binary Search Tree",
+   "kind": "data-structures",
+   "named_in": "Introduction to Algorithms - Cormen, Leiserson, Rivest, Stein (2009)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "containers",
+    "indexing"
+   ]
+  },
+  {
+   "id": "bitmap-bitset",
+   "name": "Bitmap / Bitset",
+   "kind": "data-structures",
+   "named_in": "Programming Pearls - Jon Bentley (1986)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "embedded",
+    "databases",
+    "memory-efficient"
+   ]
+  },
+  {
+   "id": "bitmap-index",
+   "name": "Bitmap Index",
+   "kind": "data-structures",
+   "named_in": "O'Neil — Model 204 Architecture and Performance, HPTS 1987; O'Neil & Quass — Improved Query Performance with Variant Indexes, SIGMOD 1997",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "db",
+    "analytics",
+    "index",
+    "borderline"
+   ]
+  },
+  {
+   "id": "bloom-filter",
+   "name": "Bloom Filter",
+   "kind": "data-structures",
+   "named_in": "Space/Time Trade-offs in Hash Coding with Allowable Errors - Burton H. Bloom (1970)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "probabilistic",
+    "databases",
+    "networking"
+   ]
+  },
+  {
+   "id": "bounding-volume-hierarchy",
+   "name": "Bounding Volume Hierarchy",
+   "kind": "data-structures",
+   "named_in": "Real-Time Rendering - Akenine-Moller, Haines, Hoffman (2018)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "spatial",
+    "graphics",
+    "games",
+    "physics"
+   ]
+  },
+  {
+   "id": "conflict-free-replicated-data-type-crdt",
+   "name": "Conflict-free Replicated Data Type (CRDT)",
+   "kind": "data-structures",
+   "named_in": "Conflict-free Replicated Data Types - Shapiro, Preguica, Baquero, Zawirski (2011)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "distributed",
+    "collaboration",
+    "borderline"
+   ]
+  },
+  {
+   "id": "consistent-hashing",
+   "name": "Consistent Hashing",
+   "kind": "data-structures",
+   "named_in": "Consistent Hashing and Random Trees: Distributed Caching Protocols for Relieving Hot Spots on the World Wide Web - Karger et al. (1997)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "distributed",
+    "caching",
+    "borderline"
+   ]
+  },
+  {
+   "id": "copy-on-write-b-tree",
+   "name": "Copy-on-Write B-Tree",
+   "kind": "data-structures",
+   "named_in": "Database Internals - Petrov (2019)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "db",
+    "storage-engine",
+    "filesystems"
+   ]
+  },
+  {
+   "id": "count-min-sketch",
+   "name": "Count-Min Sketch",
+   "kind": "data-structures",
+   "named_in": "An Improved Data Stream Summary: The Count-Min Sketch and its Applications - Cormode & Muthukrishnan (2005)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "probabilistic",
+    "streaming"
+   ]
+  },
+  {
+   "id": "deque",
+   "name": "Deque",
+   "kind": "data-structures",
+   "named_in": "The Art of Computer Programming, Vol. 1: Fundamental Algorithms - Donald Knuth (1968)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "containers"
+   ]
+  },
+  {
+   "id": "disjoint-set-union-find",
+   "name": "Disjoint-Set (Union-Find)",
+   "kind": "data-structures",
+   "named_in": "Introduction to Algorithms - Cormen, Leiserson, Rivest, Stein (2009)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "graphs",
+    "compilers"
+   ]
+  },
+  {
+   "id": "dynamic-array",
+   "name": "Dynamic Array",
+   "kind": "data-structures",
+   "named_in": "Introduction to Algorithms - Cormen, Leiserson, Rivest, Stein (2009)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "containers"
+   ]
+  },
+  {
+   "id": "embedded-pointer",
+   "name": "Embedded Pointer",
+   "kind": "data-structures",
+   "named_in": "Small Memory Software: Patterns for Systems with Limited Memory - Noble & Weir (2000)",
+   "named_in_corpus_id": "noblesmallmem",
+   "other_sources": [
+    "Boost.Intrusive library documentation - Ion Gaztanaga, Olaf Krzikalla"
+   ],
+   "tags": [
+    "embedded",
+    "memory",
+    "c",
+    "cpp",
+    "kernel"
+   ]
+  },
+  {
+   "id": "erase-remove",
+   "name": "Erase-Remove",
+   "kind": "data-structures",
+   "named_in": "Effective STL - Scott Meyers (2001)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "c++",
+    "borderline"
+   ]
+  },
+  {
+   "id": "fenwick-tree",
+   "name": "Fenwick Tree",
+   "kind": "data-structures",
+   "named_in": "A New Data Structure for Cumulative Frequency Tables - Peter Fenwick (1994)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "ranges",
+    "borderline"
+   ]
+  },
+  {
+   "id": "fixed-capacity-container",
+   "name": "Fixed-Capacity Container",
+   "kind": "data-structures",
+   "named_in": "Embedded Template Library (ETL) documentation - Wellbelove (living)",
+   "named_in_corpus_id": "etl",
+   "other_sources": [],
+   "tags": [
+    "c++",
+    "embedded"
+   ]
+  },
+  {
+   "id": "gap-buffer",
+   "name": "Gap Buffer",
+   "kind": "data-structures",
+   "named_in": "The Craft of Text Editing - Craig A. Finseth (1991)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "strings",
+    "text-editors"
+   ]
+  },
+  {
+   "id": "hash-array-mapped-trie-hamt",
+   "name": "Hash Array Mapped Trie (HAMT)",
+   "kind": "data-structures",
+   "named_in": "Ideal Hash Trees - Phil Bagwell (2001)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "functional",
+    "immutability",
+    "containers"
+   ]
+  },
+  {
+   "id": "hash-table",
+   "name": "Hash Table",
+   "kind": "data-structures",
+   "named_in": "Introduction to Algorithms - Cormen, Leiserson, Rivest, Stein (2009)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "containers",
+    "indexing"
+   ]
+  },
+  {
+   "id": "hyperloglog",
+   "name": "HyperLogLog",
+   "kind": "data-structures",
+   "named_in": "HyperLogLog: the analysis of a near-optimal cardinality estimation algorithm - Flajolet, Fusy, Gandouet, Meunier (2007)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "probabilistic",
+    "streaming",
+    "distributed"
+   ]
+  },
+  {
+   "id": "interval-tree",
+   "name": "Interval Tree",
+   "kind": "data-structures",
+   "named_in": "Introduction to Algorithms - Cormen, Leiserson, Rivest, Stein (2009)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "intervals",
+    "borderline"
+   ]
+  },
+  {
+   "id": "inverted-index",
+   "name": "Inverted Index",
+   "kind": "data-structures",
+   "named_in": "Introduction to Information Retrieval - Manning, Raghavan, Schutze (2008)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "search",
+    "databases",
+    "indexing"
+   ]
+  },
+  {
+   "id": "k-d-tree",
+   "name": "k-d Tree",
+   "kind": "data-structures",
+   "named_in": "Multidimensional Binary Search Trees Used for Associative Searching - Jon Bentley (1975)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "spatial",
+    "graphics",
+    "ml"
+   ]
+  },
+  {
+   "id": "linked-list",
+   "name": "Linked List",
+   "kind": "data-structures",
+   "named_in": "Introduction to Algorithms - Cormen, Leiserson, Rivest, Stein (2009)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "containers",
+    "borderline"
+   ]
+  },
+  {
+   "id": "lock-free-fifo-queue-michael-scott",
+   "name": "Lock-Free FIFO Queue (Michael-Scott)",
+   "kind": "data-structures",
+   "named_in": "Simple, Fast, and Practical Non-Blocking and Blocking Concurrent Queue Algorithms - Michael & Scott (1996)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "c",
+    "cpp",
+    "java",
+    "systems"
+   ]
+  },
+  {
+   "id": "lock-free-stack-treiber",
+   "name": "Lock-Free Stack (Treiber)",
+   "kind": "data-structures",
+   "named_in": "Systems Programming: Coping with Parallelism (IBM Research Report RJ 5118) - R. K. Treiber (1986)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "c",
+    "cpp",
+    "systems"
+   ]
+  },
+  {
+   "id": "lsm-tree",
+   "name": "LSM Tree",
+   "kind": "data-structures",
+   "named_in": "The Log-Structured Merge-Tree (LSM-Tree) - O'Neil, Cheng, Gawlick, O'Neil (1996)",
+   "named_in_corpus_id": null,
+   "other_sources": [
+    "The Log-Structured Merge-Tree (LSM-Tree) - O'Neil, Cheng, Gawlick & O'Neil (1996)"
+   ],
+   "tags": [
+    "databases",
+    "storage-engines",
+    "db",
+    "storage-engine"
+   ]
+  },
+  {
+   "id": "merkle-tree",
+   "name": "Merkle Tree",
+   "kind": "data-structures",
+   "named_in": "A Digital Signature Based on a Conventional Encryption Function - Ralph Merkle (1987)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "security",
+    "distributed",
+    "storage"
+   ]
+  },
+  {
+   "id": "minhash",
+   "name": "MinHash",
+   "kind": "data-structures",
+   "named_in": "On the Resemblance and Containment of Documents - Andrei Broder (1997)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "probabilistic",
+    "search",
+    "dedup"
+   ]
+  },
+  {
+   "id": "navigation-mesh",
+   "name": "Navigation Mesh",
+   "kind": "data-structures",
+   "named_in": "Snook, 'Simplified 3D Movement and Pathfinding Using Navigation Meshes', Game Programming Gems, 2000",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "games",
+    "ai",
+    "spatial"
+   ]
+  },
+  {
+   "id": "persistent-data-structure",
+   "name": "Persistent Data Structure",
+   "kind": "data-structures",
+   "named_in": "Making Data Structures Persistent - Driscoll, Sarnak, Sleator, Tarjan (JCSS, 1989)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "fp",
+    "clojure",
+    "scala",
+    "haskell"
+   ]
+  },
+  {
+   "id": "piece-table",
+   "name": "Piece Table",
+   "kind": "data-structures",
+   "named_in": "Data Structures for Text Sequences - Charles Crowley (1998)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "strings",
+    "text-editors"
+   ]
+  },
+  {
+   "id": "quadtree-octree",
+   "name": "Quadtree / Octree",
+   "kind": "data-structures",
+   "named_in": "Quad Trees: A Data Structure for Retrieval on Composite Keys - Finkel & Bentley (1974)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "spatial",
+    "games",
+    "graphics",
+    "gis"
+   ]
+  },
+  {
+   "id": "queue-fifo",
+   "name": "Queue (FIFO)",
+   "kind": "data-structures",
+   "named_in": "Introduction to Algorithms - Cormen, Leiserson, Rivest, Stein (2009)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "containers",
+    "borderline"
+   ]
+  },
+  {
+   "id": "r-tree",
+   "name": "R-tree",
+   "kind": "data-structures",
+   "named_in": "R-Trees: A Dynamic Index Structure for Spatial Searching - Antonin Guttman (1984)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "spatial",
+    "databases",
+    "gis"
+   ]
+  },
+  {
+   "id": "rope",
+   "name": "Rope",
+   "kind": "data-structures",
+   "named_in": "Ropes: an Alternative to Strings - Boehm, Atkinson, Plass (1995)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "strings",
+    "text-editors"
+   ]
+  },
+  {
+   "id": "scene-graph",
+   "name": "Scene Graph",
+   "kind": "data-structures",
+   "named_in": "Real-Time Rendering - Akenine-Moller, Haines, Hoffman (2008, 3rd ed.)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "games",
+    "graphics"
+   ]
+  },
+  {
+   "id": "secondary-index",
+   "name": "Secondary Index",
+   "kind": "data-structures",
+   "named_in": "Designing Data-Intensive Applications - Kleppmann (2017)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "db",
+    "storage-engine",
+    "borderline"
+   ]
+  },
+  {
+   "id": "segment-tree",
+   "name": "Segment Tree",
+   "kind": "data-structures",
+   "named_in": "Computational Geometry: Algorithms and Applications - de Berg, Cheong, van Kreveld, Overmars (2008)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "ranges",
+    "borderline"
+   ]
+  },
+  {
+   "id": "skip-list",
+   "name": "Skip List",
+   "kind": "data-structures",
+   "named_in": "Skip Lists: A Probabilistic Alternative to Balanced Trees - William Pugh (1990)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "containers",
+    "concurrency-friendly",
+    "databases"
+   ]
+  },
+  {
+   "id": "slot-map",
+   "name": "Slot Map",
+   "kind": "data-structures",
+   "named_in": "slot_map Container in C++ (WG21 P0661) - Allan Deutsch (2017)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "cpp",
+    "rust",
+    "games"
+   ]
+  },
+  {
+   "id": "sparse-set",
+   "name": "Sparse Set",
+   "kind": "data-structures",
+   "named_in": "An Efficient Representation for Sparse Sets - Briggs & Torczon (1993)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "games",
+    "compilers",
+    "performance"
+   ]
+  },
+  {
+   "id": "spatial-partition",
+   "name": "Spatial Partition",
+   "kind": "data-structures",
+   "named_in": "Game Programming Patterns - Robert Nystrom (2014)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "games",
+    "performance"
+   ]
+  },
+  {
+   "id": "stack",
+   "name": "Stack",
+   "kind": "data-structures",
+   "named_in": "Introduction to Algorithms - Cormen, Leiserson, Rivest, Stein (2009)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "containers",
+    "borderline"
+   ]
+  },
+  {
+   "id": "suffix-array",
+   "name": "Suffix Array",
+   "kind": "data-structures",
+   "named_in": "Suffix Arrays: A New Method for On-Line String Searches - Manber & Myers (1990)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "strings",
+    "bioinformatics",
+    "borderline"
+   ]
+  },
+  {
+   "id": "t-digest",
+   "name": "t-digest",
+   "kind": "data-structures",
+   "named_in": "Computing Extremely Accurate Quantiles Using t-Digests - Dunning & Ertl (2019)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "probabilistic",
+    "streaming",
+    "observability"
+   ]
+  },
+  {
+   "id": "trie",
+   "name": "Trie",
+   "kind": "data-structures",
+   "named_in": "Trie Memory - Edward Fredkin (1960)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "strings",
+    "networking",
+    "indexing"
+   ]
+  },
+  {
+   "id": "uniform-spatial-hash-grid",
+   "name": "Uniform Spatial Hash Grid",
+   "kind": "data-structures",
+   "named_in": "Optimized Spatial Hashing for Collision Detection of Deformable Objects - Teschner et al. (2003)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "spatial",
+    "games",
+    "physics",
+    "simulation"
+   ]
+  },
+  {
+   "id": "zipper",
+   "name": "Zipper",
+   "kind": "data-structures",
+   "named_in": "The Zipper - Gérard Huet (Journal of Functional Programming, 1997)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "fp",
+    "haskell",
+    "clojure"
+   ]
+  },
+  {
+   "id": "zone-map",
+   "name": "Zone Map",
+   "kind": "data-structures",
+   "named_in": "Moerkotte — Small Materialized Aggregates: A Light Weight Index Structure for Data Warehousing, VLDB 1998 (naming source); 'zone map' is the Netezza-originated industry name (Ziauddin et al., Dimensions Based Data Clustering and Zone Maps, PVLDB 2017); PostgreSQL BRIN is the same mechanism",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "db",
+    "analytics",
+    "index"
+   ]
+  },
+  {
+   "id": "active-record",
+   "name": "Active Record",
+   "kind": "persistence-durability",
+   "named_in": "Patterns of Enterprise Application Architecture - Martin Fowler (2002)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "enterprise",
+    "orm"
+   ]
+  },
+  {
+   "id": "association-table-mapping",
+   "name": "Association Table Mapping",
+   "kind": "persistence-durability",
+   "named_in": "Patterns of Enterprise Application Architecture - Martin Fowler (2002)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "enterprise",
+    "orm"
+   ]
+  },
+  {
+   "id": "checkpointing",
+   "name": "Checkpointing",
+   "kind": "persistence-durability",
+   "named_in": "Patterns for Fault Tolerant Software - Hanmer (2007)",
+   "named_in_corpus_id": "hanmer",
+   "other_sources": [
+    "Patterns for Fault Tolerant Software - Hanmer (2007)"
+   ],
+   "tags": [
+    "db",
+    "storage-engine",
+    "long-running-computation",
+    "fault-tolerance"
+   ]
+  },
+  {
+   "id": "class-table-inheritance",
+   "name": "Class Table Inheritance",
+   "kind": "persistence-durability",
+   "named_in": "Patterns of Enterprise Application Architecture - Martin Fowler (2002)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "enterprise",
+    "orm"
+   ]
+  },
+  {
+   "id": "concrete-table-inheritance",
+   "name": "Concrete Table Inheritance",
+   "kind": "persistence-durability",
+   "named_in": "Patterns of Enterprise Application Architecture - Martin Fowler (2002)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "enterprise",
+    "orm"
+   ]
+  },
+  {
+   "id": "content-addressable-storage",
+   "name": "Content-Addressable Storage",
+   "kind": "persistence-durability",
+   "named_in": "Quinlan & Dorward, 'Venti: A New Approach to Archival Storage', USENIX FAST 2002 (verified live); canonical modern realization: the Git object store",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "storage",
+    "version-control"
+   ]
+  },
+  {
+   "id": "data-mapper",
+   "name": "Data Mapper",
+   "kind": "persistence-durability",
+   "named_in": "Patterns of Enterprise Application Architecture - Martin Fowler (2002)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "enterprise",
+    "orm"
+   ]
+  },
+  {
+   "id": "dependent-mapping",
+   "name": "Dependent Mapping",
+   "kind": "persistence-durability",
+   "named_in": "Patterns of Enterprise Application Architecture - Martin Fowler (2002)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "enterprise",
+    "orm"
+   ]
+  },
+  {
+   "id": "eeprom-emulation-in-flash",
+   "name": "EEPROM Emulation in Flash",
+   "kind": "persistence-durability",
+   "named_in": "AN2594 - EEPROM emulation in STM32F10x microcontrollers (STMicroelectronics)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "embedded",
+    "flash",
+    "persistence"
+   ]
+  },
+  {
+   "id": "embedded-value",
+   "name": "Embedded Value",
+   "kind": "persistence-durability",
+   "named_in": "Patterns of Enterprise Application Architecture - Martin Fowler (2002)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "enterprise",
+    "orm"
+   ]
+  },
+  {
+   "id": "event-sourcing",
+   "name": "Event Sourcing",
+   "kind": "persistence-durability",
+   "named_in": "Event Sourcing, martinfowler.com (Further Enterprise Application Architecture development) - Martin Fowler (2005)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "enterprise",
+    "events",
+    "borderline"
+   ]
+  },
+  {
+   "id": "flash-translation-layer",
+   "name": "Flash Translation Layer",
+   "kind": "persistence-durability",
+   "named_in": "Intel 'Understanding the Flash Translation Layer (FTL) Specification' (AP-684, 1998); Chung et al., 'A survey of Flash Translation Layer', Journal of Systems Architecture 2009",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "embedded",
+    "flash",
+    "storage",
+    "borderline"
+   ]
+  },
+  {
+   "id": "flash-wear-leveling",
+   "name": "Flash Wear Leveling",
+   "kind": "persistence-durability",
+   "named_in": "Wear leveling - Wikipedia; AN798 EEPROM Emulation with Wear-Leveling (Silicon Labs)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "embedded",
+    "flash",
+    "persistence"
+   ]
+  },
+  {
+   "id": "foreign-key-mapping",
+   "name": "Foreign Key Mapping",
+   "kind": "persistence-durability",
+   "named_in": "Patterns of Enterprise Application Architecture - Martin Fowler (2002)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "enterprise",
+    "orm"
+   ]
+  },
+  {
+   "id": "group-commit",
+   "name": "Group Commit",
+   "kind": "persistence-durability",
+   "named_in": "Transaction Processing: Concepts and Techniques - Gray & Reuter (1992)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "db",
+    "storage-engine",
+    "throughput"
+   ]
+  },
+  {
+   "id": "identity-field",
+   "name": "Identity Field",
+   "kind": "persistence-durability",
+   "named_in": "Patterns of Enterprise Application Architecture - Martin Fowler (2002)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "enterprise",
+    "orm"
+   ]
+  },
+  {
+   "id": "inheritance-mappers",
+   "name": "Inheritance Mappers",
+   "kind": "persistence-durability",
+   "named_in": "Patterns of Enterprise Application Architecture - Martin Fowler (2002)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "enterprise",
+    "orm"
+   ]
+  },
+  {
+   "id": "log-structured-storage",
+   "name": "Log-Structured Storage",
+   "kind": "persistence-durability",
+   "named_in": "Rosenblum & Ousterhout — The Design and Implementation of a Log-Structured File System, SOSP 1991 / ACM TOCS 1992",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "db",
+    "filesystem",
+    "flash",
+    "embedded (FTLs and flash filesystems are log-structured)",
+    "borderline"
+   ]
+  },
+  {
+   "id": "memory-image",
+   "name": "Memory Image",
+   "kind": "persistence-durability",
+   "named_in": "Fowler, bliki 'MemoryImage' (31 Aug 2011; loaded live — cites Prevayler/'system prevalence' and the LMAX architecture as realizations)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "in-memory",
+    "event-log",
+    "borderline: composes event-sourcing + checkpointing/snapshot and Fowler frames it as an architectural approach; included because it is a single-process persistence mechanism with library-level realizations (Prevayler) and its own established name (system prevalence)"
+   ]
+  },
+  {
+   "id": "metadata-mapping",
+   "name": "Metadata Mapping",
+   "kind": "persistence-durability",
+   "named_in": "Patterns of Enterprise Application Architecture - Martin Fowler (2002)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "enterprise",
+    "orm",
+    "borderline"
+   ]
+  },
+  {
+   "id": "query-object",
+   "name": "Query Object",
+   "kind": "persistence-durability",
+   "named_in": "Patterns of Enterprise Application Architecture - Martin Fowler (2002)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "enterprise",
+    "orm"
+   ]
+  },
+  {
+   "id": "repository",
+   "name": "Repository",
+   "kind": "persistence-durability",
+   "named_in": "Patterns of Enterprise Application Architecture - Martin Fowler (2002)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "enterprise",
+    "orm",
+    "ddd",
+    "borderline"
+   ]
+  },
+  {
+   "id": "row-data-gateway",
+   "name": "Row Data Gateway",
+   "kind": "persistence-durability",
+   "named_in": "Patterns of Enterprise Application Architecture - Martin Fowler (2002)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "enterprise",
+    "orm"
+   ]
+  },
+  {
+   "id": "shadow-paging",
+   "name": "Shadow Paging",
+   "kind": "persistence-durability",
+   "named_in": "Physical Integrity in a Large Segmented Database - Lorie (1977)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "db",
+    "storage-engine",
+    "filesystems"
+   ]
+  },
+  {
+   "id": "single-table-inheritance",
+   "name": "Single Table Inheritance",
+   "kind": "persistence-durability",
+   "named_in": "Patterns of Enterprise Application Architecture - Martin Fowler (2002)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "enterprise",
+    "orm"
+   ]
+  },
+  {
+   "id": "table-data-gateway",
+   "name": "Table Data Gateway",
+   "kind": "persistence-durability",
+   "named_in": "Patterns of Enterprise Application Architecture - Martin Fowler (2002)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "enterprise",
+    "orm"
+   ]
+  },
+  {
+   "id": "tombstone",
+   "name": "Tombstone",
+   "kind": "persistence-durability",
+   "named_in": "Apache Cassandra documentation, 'Tombstones' (verified live); Kleppmann, Designing Data-Intensive Applications (log compaction chapter)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "databases",
+    "storage engines",
+    "LSM",
+    "replication"
+   ]
+  },
+  {
+   "id": "unit-of-work",
+   "name": "Unit of Work",
+   "kind": "persistence-durability",
+   "named_in": "Patterns of Enterprise Application Architecture - Martin Fowler (2002)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "enterprise",
+    "orm"
+   ]
+  },
+  {
+   "id": "write-ahead-log",
+   "name": "Write-Ahead Log",
+   "kind": "persistence-durability",
+   "named_in": "Transaction Processing: Concepts and Techniques - Gray & Reuter (1992)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "db",
+    "storage-engine",
+    "filesystems"
+   ]
+  }
+ ]
+}

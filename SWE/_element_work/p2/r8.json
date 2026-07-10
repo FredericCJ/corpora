@@ -1,0 +1,1176 @@
+{
+ "route": "r8",
+ "elements": [
+  {
+   "id": "brown-out-handling",
+   "name": "Brown-Out Handling",
+   "kind": "error-handling",
+   "named_in": "AVR180: External Brown-out Protection - Atmel/Microchip application note",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "embedded",
+    "power",
+    "robustness"
+   ]
+  },
+  {
+   "id": "built-in-self-test",
+   "name": "Built-In Self-Test",
+   "kind": "error-handling",
+   "named_in": "Built-in self-test - Wikipedia",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "embedded",
+    "safety-critical",
+    "robustness"
+   ]
+  },
+  {
+   "id": "circuit-breaker",
+   "name": "Circuit Breaker",
+   "kind": "error-handling",
+   "named_in": "Release It! Design and Deploy Production-Ready Software, 2nd ed. - Nygard (2018)",
+   "named_in_corpus_id": "nygard",
+   "other_sources": [
+    "Release It!: Design and Deploy Production-Ready Software - Michael T. Nygard (2007); also "
+   ],
+   "tags": [
+    "stability",
+    "distributed",
+    "resilience"
+   ]
+  },
+  {
+   "id": "cleanup-record",
+   "name": "Cleanup Record",
+   "kind": "error-handling",
+   "named_in": "Fluent C: Principles, Practices, and Patterns - Preschern (2022)",
+   "named_in_corpus_id": "preschern",
+   "other_sources": [],
+   "tags": [
+    "c"
+   ]
+  },
+  {
+   "id": "complete-parameter-checking",
+   "name": "Complete Parameter Checking",
+   "kind": "error-handling",
+   "named_in": "Patterns for Fault Tolerant Software - Hanmer (2007)",
+   "named_in_corpus_id": "hanmer",
+   "other_sources": [],
+   "tags": [
+    "fault-detection"
+   ]
+  },
+  {
+   "id": "copy-and-swap",
+   "name": "Copy-and-Swap",
+   "kind": "error-handling",
+   "named_in": "Exceptional C++ - Herb Sutter (1999)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "c++"
+   ]
+  },
+  {
+   "id": "core-dump",
+   "name": "Core Dump",
+   "kind": "error-handling",
+   "named_in": "white",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "e",
+    "m",
+    "b",
+    "e",
+    "d",
+    "d"
+   ]
+  },
+  {
+   "id": "correcting-audits",
+   "name": "Correcting Audits",
+   "kind": "error-handling",
+   "named_in": "Patterns for Fault Tolerant Software - Hanmer (2007)",
+   "named_in_corpus_id": "hanmer",
+   "other_sources": [],
+   "tags": [
+    "fault-tolerance",
+    "telecom"
+   ]
+  },
+  {
+   "id": "cyclic-redundancy-check",
+   "name": "Cyclic Redundancy Check",
+   "kind": "error-handling",
+   "named_in": "Patterns for Fault Tolerant Software - Hanmer (2007)",
+   "named_in_corpus_id": "hanmer",
+   "other_sources": [
+    "A Painless Guide to CRC Error Detection Algorithms - Ross Williams (1993)",
+    "Patterns for Fault Tolerant Software - Hanmer (2007)"
+   ],
+   "tags": [
+    "embedded",
+    "networking",
+    "safety",
+    "robustness",
+    "communication",
+    "fault-detection"
+   ]
+  },
+  {
+   "id": "dead-letter-channel",
+   "name": "Dead Letter Channel",
+   "kind": "error-handling",
+   "named_in": "Enterprise Integration Patterns - Hohpe & Woolf (2003)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "messaging"
+   ]
+  },
+  {
+   "id": "deferred-validation",
+   "name": "Deferred Validation",
+   "kind": "error-handling",
+   "named_in": "Cunningham, 'The CHECKS Pattern Language of Information Integrity' (PLoP 1994; c2.com/ppr/checks.html, loaded live)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "validation",
+    "domain-modeling"
+   ]
+  },
+  {
+   "id": "diagnostic-context",
+   "name": "Diagnostic Context",
+   "kind": "error-handling",
+   "named_in": "Harrison, 'Patterns for Logging Diagnostic Messages', PLoPD3 (1997); canonical living form: log4j/logback/SLF4J MDC/NDC documentation",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "diagnostics",
+    "logging",
+    "observability"
+   ]
+  },
+  {
+   "id": "diagnostic-logger",
+   "name": "Diagnostic Logger",
+   "kind": "error-handling",
+   "named_in": "Harrison, 'Patterns for Logging Diagnostic Messages', PLoPD3 (1997) (PLoPD3 ToC loaded live); living realizations: log4j/syslog-style logging frameworks",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "diagnostics",
+    "logging"
+   ]
+  },
+  {
+   "id": "error-handler",
+   "name": "Error Handler",
+   "kind": "error-handling",
+   "named_in": "Patterns for Fault Tolerant Software - Hanmer (2007)",
+   "named_in_corpus_id": "hanmer",
+   "other_sources": [],
+   "tags": [
+    "fault-tolerance"
+   ]
+  },
+  {
+   "id": "error-kernel",
+   "name": "Error Kernel",
+   "kind": "error-handling",
+   "named_in": "Reactive Design Patterns - Kuhn, Hanafee, Allen (2017)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "erlang",
+    "scala",
+    "actor-model"
+   ]
+  },
+  {
+   "id": "escalation",
+   "name": "Escalation",
+   "kind": "error-handling",
+   "named_in": "Patterns for Fault Tolerant Software - Hanmer (2007)",
+   "named_in_corpus_id": "hanmer",
+   "other_sources": [],
+   "tags": [
+    "fault-tolerance",
+    "embedded"
+   ]
+  },
+  {
+   "id": "exceptional-value",
+   "name": "Exceptional Value",
+   "kind": "error-handling",
+   "named_in": "Cunningham, The CHECKS Pattern Language of Information Integrity (PLoP 1994; c2.com/ppr/checks.html)",
+   "named_in_corpus_id": null,
+   "other_sources": [
+    "Cunningham, 'The CHECKS Pattern Language of Information Integrity' (PLoP 1994; c2.com/ppr/"
+   ],
+   "tags": [
+    "information-integrity",
+    "borderline"
+   ]
+  },
+  {
+   "id": "fail-fast",
+   "name": "Fail Fast",
+   "kind": "error-handling",
+   "named_in": "Release It! Design and Deploy Production-Ready Software, 2nd ed. - Nygard (2018)",
+   "named_in_corpus_id": "nygard",
+   "other_sources": [],
+   "tags": [
+    "stability"
+   ]
+  },
+  {
+   "id": "goto-cleanup",
+   "name": "Goto Cleanup",
+   "kind": "error-handling",
+   "named_in": "Linux kernel coding style (living); also Goto Error Handling in Fluent C - Preschern (2022)",
+   "named_in_corpus_id": "kernelstyle",
+   "other_sources": [
+    "Linux kernel coding style (Documentation/process/coding-style.rst, living)"
+   ],
+   "tags": [
+    "c",
+    "linux",
+    "embedded",
+    "systems"
+   ]
+  },
+  {
+   "id": "guard-clause",
+   "name": "Guard Clause",
+   "kind": "error-handling",
+   "named_in": "Refactoring - Martin Fowler (1999), 'Replace Nested Conditional with Guard Clauses'; also Fluent C (2022)",
+   "named_in_corpus_id": "fowlerref",
+   "other_sources": [
+    "Refactoring: Improving the Design of Existing Code - Martin Fowler (1999), 'Replace Nested",
+    "Fluent C: Principles, Practices, and Patterns - Preschern (2022)"
+   ],
+   "tags": [
+    "c",
+    "borderline"
+   ]
+  },
+  {
+   "id": "happy-eyeballs",
+   "name": "Happy Eyeballs",
+   "kind": "error-handling",
+   "named_in": "RFC 8305: Happy Eyeballs Version 2: Better Connectivity Using Concurrency - Schinazi & Pauly (2017)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "networking",
+    "ipv6",
+    "clients"
+   ]
+  },
+  {
+   "id": "heartbeat",
+   "name": "Heartbeat",
+   "kind": "error-handling",
+   "named_in": "Patterns for Fault Tolerant Software - Hanmer (2007)",
+   "named_in_corpus_id": "hanmer",
+   "other_sources": [
+    "Patterns for Fault Tolerant Software - Robert S. Hanmer (2007), 'Heartbeat'"
+   ],
+   "tags": [
+    "fault-detection",
+    "distributed",
+    "embedded",
+    "networking",
+    "fault-tolerance"
+   ]
+  },
+  {
+   "id": "leaky-bucket-counter",
+   "name": "Leaky Bucket Counter",
+   "kind": "error-handling",
+   "named_in": "Patterns for Fault Tolerant Software - Hanmer (2007)",
+   "named_in_corpus_id": "hanmer",
+   "other_sources": [],
+   "tags": [
+    "fault-detection",
+    "embedded"
+   ]
+  },
+  {
+   "id": "let-it-crash",
+   "name": "Let It Crash",
+   "kind": "error-handling",
+   "named_in": "Release It! Design and Deploy Production-Ready Software, 2nd ed. - Nygard (2018)",
+   "named_in_corpus_id": "nygard",
+   "other_sources": [],
+   "tags": [
+    "erlang",
+    "stability",
+    "borderline"
+   ]
+  },
+  {
+   "id": "log-errors",
+   "name": "Log Errors",
+   "kind": "error-handling",
+   "named_in": "Fluent C ch. 2 (Preschern 2022); also 'Patterns for Returning Error Information in C' (Preschern, EuroPLoP 2019, ACM DL)",
+   "named_in_corpus_id": "preschern",
+   "other_sources": [],
+   "tags": [
+    "c"
+   ]
+  },
+  {
+   "id": "loop-timeout",
+   "name": "Loop Timeout",
+   "kind": "error-handling",
+   "named_in": "Patterns for Time-Triggered Embedded Systems - Pont (2001)",
+   "named_in_corpus_id": "pont",
+   "other_sources": [],
+   "tags": [
+    "embedded",
+    "c",
+    "robustness"
+   ]
+  },
+  {
+   "id": "marked-data",
+   "name": "Marked Data",
+   "kind": "error-handling",
+   "named_in": "Patterns for Fault Tolerant Software - Hanmer (2007)",
+   "named_in_corpus_id": "hanmer",
+   "other_sources": [],
+   "tags": [
+    "fault-tolerance"
+   ]
+  },
+  {
+   "id": "meaningless-behavior",
+   "name": "Meaningless Behavior",
+   "kind": "error-handling",
+   "named_in": "Cunningham, 'The CHECKS Pattern Language of Information Integrity' (PLoP 1994; c2.com/ppr/checks.html, loaded live)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "validation",
+    "domain-modeling"
+   ]
+  },
+  {
+   "id": "n-version-programming",
+   "name": "N-Version Programming",
+   "kind": "error-handling",
+   "named_in": "The N-Version Approach to Fault-Tolerant Software - Avizienis (1985)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "fault-tolerance",
+    "safety-critical",
+    "borderline"
+   ]
+  },
+  {
+   "id": "notification",
+   "name": "Notification",
+   "kind": "error-handling",
+   "named_in": "Notification - Martin Fowler, Further Enterprise Application Architecture development (eaaDev)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "oo"
+   ]
+  },
+  {
+   "id": "quarantine",
+   "name": "Quarantine",
+   "kind": "error-handling",
+   "named_in": "Patterns for Fault Tolerant Software - Hanmer (2007)",
+   "named_in_corpus_id": "hanmer",
+   "other_sources": [],
+   "tags": [
+    "fault-tolerance",
+    "borderline"
+   ]
+  },
+  {
+   "id": "railway-oriented-programming",
+   "name": "Railway-Oriented Programming",
+   "kind": "error-handling",
+   "named_in": "Railway Oriented Programming - Scott Wlaschin (fsharpforfunandprofit.com / NDC, 2014)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "fp",
+    "fsharp",
+    "borderline"
+   ]
+  },
+  {
+   "id": "recovery-blocks",
+   "name": "Recovery Blocks",
+   "kind": "error-handling",
+   "named_in": "System Structure for Software Fault Tolerance - Randell (1975)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "fault-tolerance"
+   ]
+  },
+  {
+   "id": "restart",
+   "name": "Restart",
+   "kind": "error-handling",
+   "named_in": "Patterns for Fault Tolerant Software - Hanmer (2007)",
+   "named_in_corpus_id": "hanmer",
+   "other_sources": [],
+   "tags": [
+    "fault-tolerance",
+    "embedded"
+   ]
+  },
+  {
+   "id": "result-type",
+   "name": "Result Type",
+   "kind": "error-handling",
+   "named_in": "P1028 SG14 status_code and standard error object - Douglas (WG21, 2020)",
+   "named_in_corpus_id": "p1028",
+   "other_sources": [
+    "P1028 SG14 status_code and standard error object - Douglas (WG21, 2020)"
+   ],
+   "tags": [
+    "fp",
+    "rust",
+    "haskell",
+    "fsharp",
+    "scala",
+    "swift"
+   ]
+  },
+  {
+   "id": "retry-budget",
+   "name": "Retry Budget",
+   "kind": "error-handling",
+   "named_in": "Site Reliability Engineering: How Google Runs Production Systems - Beyer, Jones, Petoff, Murphy eds. (2016)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "distributed",
+    "overload"
+   ]
+  },
+  {
+   "id": "retry-with-exponential-backoff-and-jitter",
+   "name": "Retry with Exponential Backoff and Jitter",
+   "kind": "error-handling",
+   "named_in": "Timeouts, Retries, and Backoff with Jitter - Brooker, AWS Builders' Library (2019)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "distributed",
+    "networking"
+   ]
+  },
+  {
+   "id": "return-status-code",
+   "name": "Return Status Code",
+   "kind": "error-handling",
+   "named_in": "Fluent C - Christopher Preschern (2022); also Preschern's EuroPLoP error-handling pattern papers",
+   "named_in_corpus_id": "preschern",
+   "other_sources": [
+    "Patterns for returning error information in C - Preschern (EuroPLoP 2019)"
+   ],
+   "tags": [
+    "c",
+    "embedded"
+   ]
+  },
+  {
+   "id": "riding-over-transients",
+   "name": "Riding Over Transients",
+   "kind": "error-handling",
+   "named_in": "Patterns for Fault Tolerant Software - Hanmer (2007)",
+   "named_in_corpus_id": "hanmer",
+   "other_sources": [],
+   "tags": [
+    "fault-tolerance",
+    "embedded"
+   ]
+  },
+  {
+   "id": "roll-forward",
+   "name": "Roll-Forward",
+   "kind": "error-handling",
+   "named_in": "Patterns for Fault Tolerant Software - Hanmer (2007)",
+   "named_in_corpus_id": "hanmer",
+   "other_sources": [],
+   "tags": [
+    "fault-tolerance"
+   ]
+  },
+  {
+   "id": "rollback",
+   "name": "Rollback",
+   "kind": "error-handling",
+   "named_in": "Patterns for Fault Tolerant Software - Hanmer (2007)",
+   "named_in_corpus_id": "hanmer",
+   "other_sources": [],
+   "tags": [
+    "fault-tolerance"
+   ]
+  },
+  {
+   "id": "safe-state",
+   "name": "Safe State",
+   "kind": "error-handling",
+   "named_in": "ISO 26262:2018 - Road vehicles - Functional safety",
+   "named_in_corpus_id": "iso26262",
+   "other_sources": [],
+   "tags": [
+    "embedded",
+    "safety-critical",
+    "borderline"
+   ]
+  },
+  {
+   "id": "samurai-principle",
+   "name": "Samurai Principle",
+   "kind": "error-handling",
+   "named_in": "Fluent C - Christopher Preschern (2022)",
+   "named_in_corpus_id": "preschern",
+   "other_sources": [
+    "Fluent C: Principles, Practices, and Patterns - Preschern (2022)"
+   ],
+   "tags": [
+    "c",
+    "embedded",
+    "robustness"
+   ]
+  },
+  {
+   "id": "sentinel-value",
+   "name": "Sentinel Value",
+   "kind": "error-handling",
+   "named_in": "The Art of Computer Programming Vol. 3: Sorting and Searching - Donald Knuth (1973); also Code Complete 2nd ed. - McConnell (2004)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "c",
+    "embedded"
+   ]
+  },
+  {
+   "id": "setjmp-longjmp-error-handling",
+   "name": "setjmp/longjmp Error Handling",
+   "kind": "error-handling",
+   "named_in": "C Interfaces and Implementations - Hanson (1996)",
+   "named_in_corpus_id": "hanson",
+   "other_sources": [
+    "C Interfaces and Implementations - David R. Hanson (1996), Except interface"
+   ],
+   "tags": [
+    "c",
+    "embedded"
+   ]
+  },
+  {
+   "id": "software-rejuvenation",
+   "name": "Software Rejuvenation",
+   "kind": "error-handling",
+   "named_in": "Software Rejuvenation: Analysis, Module and Applications - Huang, Kintala, Kolettis, Fulton (1995)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "fault-tolerance",
+    "long-running-systems"
+   ]
+  },
+  {
+   "id": "special-return-value",
+   "name": "Special Return Value",
+   "kind": "error-handling",
+   "named_in": "Fluent C - Christopher Preschern (2022)",
+   "named_in_corpus_id": "preschern",
+   "other_sources": [],
+   "tags": [
+    "c"
+   ]
+  },
+  {
+   "id": "stack-painting-watermarking",
+   "name": "Stack Painting / Watermarking",
+   "kind": "error-handling",
+   "named_in": "Mastering the FreeRTOS Real-Time Kernel (stack overflow detection and uxTaskGetStackHighWaterMark)",
+   "named_in_corpus_id": "freertosbook",
+   "other_sources": [],
+   "tags": [
+    "embedded",
+    "rtos",
+    "robustness"
+   ]
+  },
+  {
+   "id": "supervisor",
+   "name": "Supervisor",
+   "kind": "error-handling",
+   "named_in": "OTP Design Principles (Erlang/OTP documentation) - Ericsson (living)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "erlang",
+    "elixir",
+    "actor-model"
+   ]
+  },
+  {
+   "id": "timeout",
+   "name": "Timeout",
+   "kind": "error-handling",
+   "named_in": "Release It! Design and Deploy Production-Ready Software, 2nd ed. - Nygard (2018)",
+   "named_in_corpus_id": "nygard",
+   "other_sources": [],
+   "tags": [
+    "stability",
+    "networking"
+   ]
+  },
+  {
+   "id": "access-control-list",
+   "name": "Access Control List",
+   "kind": "robustness-security",
+   "named_in": "Lampson, Protection (1971, access matrix); Saltzer & Schroeder (1975); standard OS textbooks",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "security",
+    "authorization",
+    "data-representation-flavored"
+   ]
+  },
+  {
+   "id": "allowlist-input-validation",
+   "name": "Allowlist Input Validation",
+   "kind": "robustness-security",
+   "named_in": "OWASP Input Validation Cheat Sheet; Steel, Nagappan & Lai, Core Security Patterns (2005)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "security",
+    "validation",
+    "borderline"
+   ]
+  },
+  {
+   "id": "audit-log",
+   "name": "Audit Log",
+   "kind": "robustness-security",
+   "named_in": "Fowler, Audit Log (martinfowler.com eaaDev); Steel, Nagappan & Lai, Core Security Patterns (2005, 'Secure Logger'); Schneier & Kelsey (1999, secure audit logs)",
+   "named_in_corpus_id": null,
+   "other_sources": [
+    "Fowler, 'Temporal Patterns' (with Carlson & Estepp), PLoPD4 (2000); living treatment: Fowl"
+   ],
+   "tags": [
+    "security",
+    "persistence-flavored"
+   ]
+  },
+  {
+   "id": "authenticated-encryption",
+   "name": "Authenticated Encryption",
+   "kind": "robustness-security",
+   "named_in": "RFC 5116 (An Interface and Algorithms for Authenticated Encryption, 2008); Rogaway AEAD literature",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "security",
+    "crypto",
+    "borderline"
+   ]
+  },
+  {
+   "id": "canonicalization-before-validation",
+   "name": "Canonicalization Before Validation",
+   "kind": "robustness-security",
+   "named_in": "SEI CERT rules IDS01-J (normalize before validating) / FIO02-C (canonicalize path names); OWASP Input Validation guidance; Seacord, Secure Coding in C and C++",
+   "named_in_corpus_id": "seacordsecure",
+   "other_sources": [],
+   "tags": [
+    "security",
+    "validation"
+   ]
+  },
+  {
+   "id": "capability",
+   "name": "Capability",
+   "kind": "robustness-security",
+   "named_in": "Dennis & Van Horn, Programming Semantics for Multiprogrammed Computations (CACM 1966); Miller, Robust Composition (2006, object-capability)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "security",
+    "authorization",
+    "borderline"
+   ]
+  },
+  {
+   "id": "check-point",
+   "name": "Check Point",
+   "kind": "robustness-security",
+   "named_in": "Yoder & Barcalow (PLoP 1997); Schumacher et al., Security Patterns (Wiley 2006)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "security",
+    "application-level"
+   ]
+  },
+  {
+   "id": "constant-time-comparison",
+   "name": "Constant-Time Comparison",
+   "kind": "robustness-security",
+   "named_in": "BearSSL: Constant-Time Crypto - Pornin (living)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "security",
+    "cryptography",
+    "c"
+   ]
+  },
+  {
+   "id": "cryptographic-hash-function",
+   "name": "Cryptographic Hash Function",
+   "kind": "robustness-security",
+   "named_in": "Menezes, van Oorschot & Vanstone, Handbook of Applied Cryptography (1996, ch. 9); FIPS 180 (Secure Hash Standard)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "security",
+    "crypto",
+    "borderline"
+   ]
+  },
+  {
+   "id": "csprng",
+   "name": "Cryptographically Secure Pseudorandom Number Generator",
+   "kind": "robustness-security",
+   "named_in": "NIST SP 800-90A (DRBG); RFC 4086 (Randomness Requirements for Security)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "security",
+    "crypto",
+    "borderline"
+   ]
+  },
+  {
+   "id": "defensive-copy",
+   "name": "Defensive Copy",
+   "kind": "robustness-security",
+   "named_in": "Effective Java - Joshua Bloch (2001; 3rd ed. Item 50)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "java",
+    "csharp"
+   ]
+  },
+  {
+   "id": "dual-channel",
+   "name": "Dual Channel",
+   "kind": "robustness-security",
+   "named_in": "Design Patterns for Embedded Systems in C - Bruce Powel Douglass (2011)",
+   "named_in_corpus_id": "douglasspatternsc",
+   "other_sources": [],
+   "tags": [
+    "embedded",
+    "safety",
+    "borderline"
+   ]
+  },
+  {
+   "id": "full-view-with-errors",
+   "name": "Full View With Errors",
+   "kind": "robustness-security",
+   "named_in": "Yoder & Barcalow (PLoP 1997); Schumacher et al. (Wiley 2006)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "security",
+    "ui",
+    "borderline"
+   ]
+  },
+  {
+   "id": "guard-page",
+   "name": "Guard Page",
+   "kind": "robustness-security",
+   "named_in": "Creating Guard Pages - Microsoft Win32 documentation (live)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "os",
+    "memory-safety",
+    "debugging",
+    "borderline"
+   ]
+  },
+  {
+   "id": "html-sanitization",
+   "name": "HTML Sanitization",
+   "kind": "robustness-security",
+   "named_in": "OWASP HTML Sanitization guidance (XSS Prevention Cheat Sheet); OWASP Java HTML Sanitizer; WHATWG HTML Sanitizer API (draft)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "security",
+    "web",
+    "parsing-flavored",
+    "borderline"
+   ]
+  },
+  {
+   "id": "limited-view",
+   "name": "Limited View",
+   "kind": "robustness-security",
+   "named_in": "Yoder & Barcalow (PLoP 1997); Schumacher et al. (Wiley 2006, 'Limited Access')",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "security",
+    "ui",
+    "borderline"
+   ]
+  },
+  {
+   "id": "memory-poisoning",
+   "name": "Memory Poisoning",
+   "kind": "robustness-security",
+   "named_in": "Linux kernel CONFIG_PAGE_POISONING and slab-poisoning documentation (verified live); also AddressSanitizer shadow-poisoning terminology (Serebryany et al., USENIX ATC 2012)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "memory debugging",
+    "allocators",
+    "embedded",
+    "kernels",
+    "borderline"
+   ]
+  },
+  {
+   "id": "message-authentication-code",
+   "name": "Message Authentication Code",
+   "kind": "robustness-security",
+   "named_in": "RFC 2104 (HMAC, 1997); Handbook of Applied Cryptography ch. 9",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "security",
+    "crypto",
+    "borderline"
+   ]
+  },
+  {
+   "id": "nonce",
+   "name": "Nonce",
+   "kind": "robustness-security",
+   "named_in": "RFC 4949 (Internet Security Glossary); Handbook of Applied Cryptography ch. 10",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "security",
+    "crypto",
+    "protocol",
+    "borderline"
+   ]
+  },
+  {
+   "id": "one-s-complement-data-storage",
+   "name": "One's Complement Data Storage",
+   "kind": "robustness-security",
+   "named_in": "Design Patterns for Embedded Systems in C - Bruce Powel Douglass (2011)",
+   "named_in_corpus_id": "douglasspatternsc",
+   "other_sources": [],
+   "tags": [
+    "embedded",
+    "safety"
+   ]
+  },
+  {
+   "id": "parameterized-query",
+   "name": "Parameterized Query",
+   "kind": "robustness-security",
+   "named_in": "OWASP Query Parameterization Cheat Sheet / OWASP Top 10 injection guidance; every major database API",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "security",
+    "databases",
+    "injection-defense"
+   ]
+  },
+  {
+   "id": "pointer-check",
+   "name": "Pointer Check",
+   "kind": "robustness-security",
+   "named_in": "Fluent C ch. 3, memory management patterns (Preschern 2022)",
+   "named_in_corpus_id": "preschern",
+   "other_sources": [],
+   "tags": [
+    "c",
+    "borderline"
+   ]
+  },
+  {
+   "id": "privilege-bracketing",
+   "name": "Privilege Bracketing",
+   "kind": "robustness-security",
+   "named_in": "Oracle Solaris Developer's Guide to Security ('privilege bracketing'); Viega & Messier, Secure Programming Cookbook for C and C++ (2003, dropping privileges in setuid programs)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "security",
+    "least-privilege",
+    "unix"
+   ]
+  },
+  {
+   "id": "privilege-separation",
+   "name": "Privilege Separation",
+   "kind": "robustness-security",
+   "named_in": "Provos, Friedl, Honeyman, 'Preventing Privilege Escalation', 12th USENIX Security Symposium 2003 (verified live)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "security",
+    "unix",
+    "borderline: multi-process internal structure edges toward architecture; kept design-realm because it is a named mechanism implemented within one application (privilege-bracketing covers only the temporal form)"
+   ]
+  },
+  {
+   "id": "program-sequence-monitoring",
+   "name": "Program Sequence Monitoring",
+   "kind": "robustness-security",
+   "named_in": "IEC 61508-7:2010 - program sequence monitoring technique",
+   "named_in_corpus_id": "iec61508",
+   "other_sources": [],
+   "tags": [
+    "embedded",
+    "safety-critical",
+    "robustness"
+   ]
+  },
+  {
+   "id": "protected-single-channel",
+   "name": "Protected Single Channel",
+   "kind": "robustness-security",
+   "named_in": "Design Patterns for Embedded Systems in C - Bruce Powel Douglass (2011)",
+   "named_in_corpus_id": "douglasspatternsc",
+   "other_sources": [],
+   "tags": [
+    "embedded",
+    "safety",
+    "borderline"
+   ]
+  },
+  {
+   "id": "reference-monitor",
+   "name": "Reference Monitor",
+   "kind": "robustness-security",
+   "named_in": "Anderson, Computer Security Technology Planning Study (1972); Schumacher et al., Security Patterns (Wiley 2006, 'Reference Monitor')",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "security",
+    "authorization"
+   ]
+  },
+  {
+   "id": "role-based-access-control",
+   "name": "Role-Based Access Control",
+   "kind": "robustness-security",
+   "named_in": "Ferraiolo & Kuhn, Role-Based Access Controls (NIST, 1992); ANSI INCITS 359; Yoder & Barcalow 'Roles' (PLoP 1997); Schumacher et al. (Wiley 2006)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "security",
+    "authorization"
+   ]
+  },
+  {
+   "id": "salted-password-hashing",
+   "name": "Salted Password Hashing",
+   "kind": "robustness-security",
+   "named_in": "Morris & Thompson, Password Security: A Case History (CACM 1979, introduces salt); OWASP Password Storage Cheat Sheet",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "security",
+    "crypto"
+   ]
+  },
+  {
+   "id": "sanity-check",
+   "name": "Sanity Check",
+   "kind": "robustness-security",
+   "named_in": "Real-Time Design Patterns - Bruce Powel Douglass (2002)",
+   "named_in_corpus_id": "douglassrtcorpus",
+   "other_sources": [
+    "Code Complete, 2nd ed. - McConnell (2004)",
+    "C Interfaces and Implementations - Hanson (1996)"
+   ],
+   "tags": [
+    "embedded",
+    "safety",
+    "defensive-programming",
+    "c",
+    "correctness",
+    "c++"
+   ]
+  },
+  {
+   "id": "secure-access-layer",
+   "name": "Secure Access Layer",
+   "kind": "robustness-security",
+   "named_in": "Yoder & Barcalow (PLoP 1997)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "security",
+    "borderline"
+   ]
+  },
+  {
+   "id": "secure-boot-image-verification",
+   "name": "Secure Boot Image Verification",
+   "kind": "robustness-security",
+   "named_in": "UEFI Specification (Secure Boot); Android Verified Boot documentation; embedded bootloader literature (e.g. MCUboot documentation)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "security",
+    "embedded",
+    "crypto",
+    "borderline"
+   ]
+  },
+  {
+   "id": "secure-zeroization",
+   "name": "Secure Zeroization",
+   "kind": "robustness-security",
+   "named_in": "The CERT C Coding Standard, 2nd ed. - Seacord (2014)",
+   "named_in_corpus_id": "certc",
+   "other_sources": [],
+   "tags": [
+    "c",
+    "security",
+    "cryptography",
+    "embedded"
+   ]
+  },
+  {
+   "id": "security-session",
+   "name": "Security Session",
+   "kind": "robustness-security",
+   "named_in": "Yoder & Barcalow (PLoP 1997); Schumacher et al., Security Patterns (Wiley 2006, 'Security Session')",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "security",
+    "state"
+   ]
+  },
+  {
+   "id": "single-access-point",
+   "name": "Single Access Point",
+   "kind": "robustness-security",
+   "named_in": "Yoder & Barcalow, Architectural Patterns for Enabling Application Security (PLoP 1997); Schumacher et al., Security Patterns (Wiley 2006)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "security",
+    "application-level"
+   ]
+  },
+  {
+   "id": "smart-data",
+   "name": "Smart Data",
+   "kind": "robustness-security",
+   "named_in": "Design Patterns for Embedded Systems in C - Bruce Powel Douglass (2011)",
+   "named_in_corpus_id": "douglasspatternsc",
+   "other_sources": [],
+   "tags": [
+    "c",
+    "embedded",
+    "safety"
+   ]
+  },
+  {
+   "id": "stack-canary",
+   "name": "Stack Canary",
+   "kind": "robustness-security",
+   "named_in": "StackGuard: Automatic Adaptive Detection and Prevention of Buffer-Overflow Attacks - Cowan et al. (1998)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "c",
+    "security",
+    "systems",
+    "compilers",
+    "embedded"
+   ]
+  },
+  {
+   "id": "synchronizer-token",
+   "name": "Synchronizer Token Pattern",
+   "kind": "robustness-security",
+   "named_in": "OWASP Cross-Site Request Forgery Prevention Cheat Sheet ('Synchronizer Token Pattern')",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "security",
+    "web"
+   ]
+  },
+  {
+   "id": "taint-checking",
+   "name": "Taint Checking",
+   "kind": "robustness-security",
+   "named_in": "Perl perlsec (taint mode); Ruby $SAFE taint (historical); Schwartz & Christiansen Perl literature; dynamic taint analysis literature (Newsome & Song 2005)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "security",
+    "language-runtime",
+    "perl",
+    "ruby"
+   ]
+  },
+  {
+   "id": "watchdog",
+   "name": "Watchdog",
+   "kind": "robustness-security",
+   "named_in": "Real-Time Design Patterns - Bruce Powel Douglass (2002)",
+   "named_in_corpus_id": "douglassrtcorpus",
+   "other_sources": [
+    "Better Embedded System Software - Koopman (2010)",
+    "Making Embedded Systems: Design Patterns for Great Software - White (2024)"
+   ],
+   "tags": [
+    "embedded",
+    "safety",
+    "real-time",
+    "robustness",
+    "c",
+    "fault-detection"
+   ]
+  }
+ ]
+}

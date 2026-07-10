@@ -1,0 +1,141 @@
+{
+  "scout": "gap-fluentc-preschern",
+  "elements": [
+    {
+      "id": "log-errors",
+      "name": "Log Errors",
+      "aka": ["error logging", "diagnostic error logging channel"],
+      "kind": "error-handling",
+      "what": "Record error details on a separate diagnostic channel (log file, console, trace buffer) at the point where the error occurs, instead of forcing all debug information through return values to the caller.",
+      "problem": "Callers need only actionable error information, but programmers debugging the system need full detail; funneling both through return codes bloats APIs and loses context available only at the error site.",
+      "named_in": "Fluent C ch. 2 (Preschern 2022); also 'Patterns for Returning Error Information in C' (Preschern, EuroPLoP 2019, ACM DL)",
+      "named_in_corpus_id": "preschern",
+      "tags": ["c"],
+      "borderline": null,
+      "confidence": "established"
+    },
+    {
+      "id": "lazy-cleanup",
+      "name": "Lazy Cleanup",
+      "aka": ["no explicit deallocation", "let the OS reclaim at exit"],
+      "kind": "resource-management",
+      "what": "Deliberately never free dynamically allocated memory whose lifetime spans the whole program run, relying on the operating system to reclaim it at process exit.",
+      "problem": "Explicit deallocation of long-lived allocations adds code, ownership bookkeeping, and dangling-pointer risk for memory the process needs until it dies anyway; skipping the free removes that entire error class at the cost of unbounded-lifetime allocations.",
+      "named_in": "Fluent C ch. 3, memory management patterns (Preschern 2022)",
+      "named_in_corpus_id": "preschern",
+      "tags": ["c"],
+      "borderline": "distinct from Eternal Memory / static allocation (already in index under static-allocation): here memory IS dynamically allocated, only the cleanup is skipped",
+      "confidence": "established"
+    },
+    {
+      "id": "allocation-wrapper",
+      "name": "Allocation Wrapper",
+      "aka": ["malloc wrapper", "xmalloc (GNU checked-allocation convention)"],
+      "kind": "resource-management",
+      "what": "Wrap the raw allocation/deallocation calls (malloc/free) in your own functions so every allocation flows through one place that can check for failure, add statistics, tagging, debugging hooks, or alternative backing allocators.",
+      "problem": "Scattered direct malloc calls duplicate out-of-memory handling and make it impossible to instrument, audit, or retarget allocation behavior centrally.",
+      "named_in": "Fluent C ch. 3, memory management patterns (Preschern 2022)",
+      "named_in_corpus_id": "preschern",
+      "tags": ["c"],
+      "borderline": null,
+      "confidence": "established"
+    },
+    {
+      "id": "pointer-check",
+      "name": "Pointer Check",
+      "aka": ["NULL-after-free discipline", "explicit pointer invalidation and check"],
+      "kind": "robustness-security",
+      "what": "Explicitly set pointers to an invalid value (NULL) when uninitialized or freed, and check pointers against that invalid value before dereferencing them.",
+      "problem": "Dangling and uninitialized pointers cause corruption far from the defect site; pairing deliberate invalidation with checks before use converts silent memory corruption into detectable, handleable conditions.",
+      "named_in": "Fluent C ch. 3, memory management patterns (Preschern 2022)",
+      "named_in_corpus_id": "preschern",
+      "tags": ["c"],
+      "borderline": "overlaps sanity-check and complete-parameter-checking in the index; kept separate because the mechanism is the invalidate-on-free/init + check-before-use pairing specific to raw-pointer lifetime, not general input validation",
+      "confidence": "established"
+    },
+    {
+      "id": "function-control",
+      "name": "Function Control",
+      "aka": ["control parameter", "flag argument", "mode parameter"],
+      "kind": "construction-api",
+      "what": "Add a data parameter (enum, flag, mode value) to a function that selects which of several behaviors the function performs, letting one API entry point cover a family of variants without passing function pointers.",
+      "problem": "An API needs caller-selectable behavior variation but a full callback/dynamic interface is overkill; a control parameter keeps the interface small at the cost of coupling the caller to a behavior selector.",
+      "named_in": "Fluent C ch. 6, 'Flexible APIs' (Preschern 2022)",
+      "named_in_corpus_id": "preschern",
+      "tags": ["c"],
+      "borderline": "API-shape mechanism near the syntax floor; the same construct is cataloged as the 'flag argument' smell by Fowler - included as the named Fluent C mechanism with that tension recorded",
+      "confidence": "established"
+    },
+    {
+      "id": "stateless-software-module",
+      "name": "Stateless Software-Module",
+      "aka": ["stateless module", "pure-function module"],
+      "kind": "code-structure",
+      "what": "Provide a set of logically related functions that keep no state between calls: every resource a function needs is acquired and released inside the call, so the caller owns nothing and calls are independent.",
+      "problem": "Callers should not have to reason about initialization order, ownership, or hidden coupling between calls; making the module stateless eliminates those questions at the cost of ruling out cross-call caching or context.",
+      "named_in": "Fluent C ch. 5, 'Data Lifetime and Ownership' (Preschern 2022); also Preschern, 'C Patterns on Data Lifetime and Ownership' (PLoP paper)",
+      "named_in_corpus_id": "preschern",
+      "tags": ["c"],
+      "borderline": "module-structure decision close to a design principle, but named as a discrete pattern with a concrete C realization in two published sources",
+      "confidence": "established"
+    },
+    {
+      "id": "software-module-with-global-state",
+      "name": "Software-Module with Global State",
+      "aka": ["global-state module", "instance-less module with file-scope state"],
+      "kind": "code-structure",
+      "what": "Implement a module whose related functions operate on shared file-scope (static global) state inside the module, with initialization/cleanup functions for that state, while callers hold no instance at all.",
+      "problem": "Functions need common prepared resources (buffers, connections, config) but callers should not manage per-caller instances; one module-internal state blob serves all callers, trading simplicity for a single shared context.",
+      "named_in": "Fluent C ch. 5, 'Data Lifetime and Ownership' (Preschern 2022); also Preschern, 'C Patterns on Data Lifetime and Ownership' (PLoP paper)",
+      "named_in_corpus_id": "preschern",
+      "tags": ["c"],
+      "borderline": "sits near Singleton/Monostate (both in index) but is the instance-less C module form, named in its own right; do not fold - no object identity or class is involved",
+      "confidence": "established"
+    }
+  ],
+  "parked_architecture": [
+    {
+      "name": "Safety Executive",
+      "why": "Douglass safety pattern cataloged in Preschern/Kajtazovic/Kreiner 'Building a Safety Architecture Pattern System' (EuroPLoP 2013, ACM 10.1145/2739011.2739028): a centralized safety monitor component coordinating fail-safe shutdown across subsystems - system-level structure, fails the altitude test upward."
+    },
+    {
+      "name": "Monitor-Actuator (channel pair)",
+      "why": "Douglass safety pattern in the same Preschern EuroPLoP 2013 safety pattern system: separate actuation channel and monitoring channel as distinct components - architecture-level channel structure (index's dual-channel and protected-single-channel cover the in-component mechanisms)."
+    },
+    {
+      "name": "Safety tactics catalog (Wu-Kelly, via Preschern's GSN tactic analysis)",
+      "why": "Preschern's EuroPLoP 2013/2019 safety-pattern-system papers organize patterns under safety tactics (condition monitoring, degradation, replication/diversity redundancy, repair...) - tactics are Phase 3 architecture-realm material; the implementable members (sanity check, watchdog, N-version, dual channel) are already in the design index."
+    }
+  ],
+  "excluded_notable": [
+    {
+      "name": "Function Split (Fluent C ch. 1)",
+      "why": "Refactoring-level: split a function so each part handles its own responsibilities/cleanup - essentially Fowler's Extract Function applied to error handling; below the mechanism band."
+    },
+    {
+      "name": "Return Value (Fluent C ch. 4)",
+      "why": "Raw language mechanism (the C return statement); no design content beyond syntax."
+    },
+    {
+      "name": "Header Files (Fluent C ch. 6)",
+      "why": "C practice/syntax-level (declare API in .h); the design-level residue is already covered by the index's organizing-files-in-modular-c-programs aggregate."
+    },
+    {
+      "name": "Index Access (Fluent C ch. 7)",
+      "why": "Near-syntax API convention (expose element access by integer index); no mechanism beyond array subscripting behind a function."
+    },
+    {
+      "name": "Caller-Owned Instance (Fluent C ch. 5)",
+      "why": "Mechanism is fully covered by the combination of existing index entries opaque-pointer (First-Class ADT with create/destroy already in its aka) + dedicated-ownership; proposing it would duplicate. Suggest adding 'Caller-Owned Instance (Fluent C)' as an aka on dedicated-ownership."
+    },
+    {
+      "name": "Fluent C ch. 8 sub-patterns (Software-Module Directories, Global Include Directory, Self-Contained Component, API Copy)",
+      "why": "Already folded into the index's organizing-files-in-modular-c-programs aggregate entry (house precedent: chapter-level folding); splitting them out would fragment one mechanism cluster."
+    },
+    {
+      "name": "Fluent C ch. 9 sub-patterns (Avoid Variants, Isolated Primitives, Atomic Primitives, Abstraction Layer, Split Variant Implementation)",
+      "why": "Already folded into the index's escaping-ifdef-hell aggregate entry; same folding precedent."
+    }
+  ],
+  "notes": "Verification: Fluent C TOC spot-checked live this session via Google/O'Reilly search results, the fluent-c GitHub repo tree (chapter directories incl. iterator/{indexAccess,cursorIterator,callbackIterator}), and the ACM/EuroPLoP 2019 paper 'Patterns for Returning Error Information in C' (dl.acm.org 10.1145/3361149.3361152) which names RETURN STATUS CODES / RETURN RELEVANT ERRORS / SPECIAL RETURN VALUE / LOG ERRORS; ch. 5 pattern names verified via quoted book text; Preschern EuroPLoP 2013 safety paper verified via ACM DL listing. Checked and found ALREADY COVERED in the index (no action): Guard Clause (guard-clause), Samurai Principle (samurai-principle), Goto Error Handling (goto-cleanup), Cleanup Record (cleanup-record), Object-Based Error Handling (result-type aka), Return Status Codes + Return Relevant Errors (return-status-code + aka), Special Return Values (special-return-value), Stack First (stack-first), Eternal Memory (static-allocation aka), Dedicated Ownership (dedicated-ownership), Memory Pool (pool-allocation aka), Out-Parameters, Aggregate Instance, Caller-Owned Buffer, Callee Allocates, Handle (opaque-pointer aka), Dynamic Interface (function-pointer-dispatch-table aka), Cursor Iterator (iterator aka), Shared Instance (sharing aka 'shared instances'), Include Guard (include-guard). Suggested aka additions to existing index entries: immutable-value += 'Immutable Instance (Fluent C)'; enumeration-method += 'Callback Iterator (Fluent C)'; dedicated-ownership += 'Caller-Owned Instance (Fluent C)'. Possible index issue spotted: two near-duplicate entries setjmp-longjmp-exception-handling and setjmp-longjmp-structured-error-handling appear to describe the same mechanism (both 'TRY/EXCEPT macros in C', non-local jump error handling) - recommend merging. Small yield (7) is expected: the 19-scout sweep already absorbed most of Fluent C; this round's finds are concentrated in ch. 2/3/5/6 leaf patterns."
+}

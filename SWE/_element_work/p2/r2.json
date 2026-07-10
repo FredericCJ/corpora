@@ -1,0 +1,539 @@
+{
+ "route": "r2",
+ "elements": [
+  {
+   "id": "acceptor-connector",
+   "name": "Acceptor-Connector",
+   "kind": "communication",
+   "named_in": "Pattern-Oriented Software Architecture Vol. 2: Patterns for Concurrent and Networked Objects - Schmidt, Stal, Rohnert, Buschmann (2000)",
+   "named_in_corpus_id": "posa2",
+   "other_sources": [],
+   "tags": [
+    "networking",
+    "sockets"
+   ]
+  },
+  {
+   "id": "acknowledgement",
+   "name": "Acknowledgement",
+   "kind": "communication",
+   "named_in": "Patterns for Fault Tolerant Software - Hanmer (2007)",
+   "named_in_corpus_id": "hanmer",
+   "other_sources": [],
+   "tags": [
+    "fault-detection",
+    "networking"
+   ]
+  },
+  {
+   "id": "aggregator",
+   "name": "Aggregator",
+   "kind": "communication",
+   "named_in": "Enterprise Integration Patterns - Hohpe & Woolf (2003)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "messaging"
+   ]
+  },
+  {
+   "id": "bit-banging",
+   "name": "Bit Banging",
+   "kind": "communication",
+   "named_in": "Bit banging - Wikipedia",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "embedded",
+    "hardware-io"
+   ]
+  },
+  {
+   "id": "callback",
+   "name": "Callback",
+   "kind": "communication",
+   "named_in": "Object-Oriented Programming with ANSI-C - Schreiner (1993/2011)",
+   "named_in_corpus_id": "schreiner",
+   "other_sources": [
+    "Object-Oriented Programming with ANSI-C - Schreiner (1993/2011)"
+   ],
+   "tags": [
+    "c",
+    "embedded",
+    "borderline",
+    "c++"
+   ]
+  },
+  {
+   "id": "callback-with-context-pointer",
+   "name": "Callback with Context Pointer",
+   "kind": "communication",
+   "named_in": "Callback (computer programming) - Wikipedia; used pervasively in Hanson's C Interfaces and Implementations (closure 'cl' parameters)",
+   "named_in_corpus_id": "hanson",
+   "other_sources": [],
+   "tags": [
+    "c",
+    "embedded"
+   ]
+  },
+  {
+   "id": "claim-check",
+   "name": "Claim Check",
+   "kind": "communication",
+   "named_in": "Enterprise Integration Patterns - Hohpe & Woolf (2003)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "messaging"
+   ]
+  },
+  {
+   "id": "client-dispatcher-server",
+   "name": "Client-Dispatcher-Server",
+   "kind": "communication",
+   "named_in": "Pattern-Oriented Software Architecture Vol. 1: A System of Patterns - Buschmann, Meunier, Rohnert, Sommerlad, Stal (1996)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "ipc",
+    "networking",
+    "borderline"
+   ]
+  },
+  {
+   "id": "content-based-router",
+   "name": "Content-Based Router",
+   "kind": "communication",
+   "named_in": "Enterprise Integration Patterns - Hohpe & Woolf (2003)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "messaging"
+   ]
+  },
+  {
+   "id": "correlation-identifier",
+   "name": "Correlation Identifier",
+   "kind": "communication",
+   "named_in": "Enterprise Integration Patterns - Hohpe & Woolf (2003)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "messaging"
+   ]
+  },
+  {
+   "id": "csp-channel",
+   "name": "CSP Channel",
+   "kind": "communication",
+   "named_in": "Communicating Sequential Processes - Hoare (1978)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "go",
+    "occam",
+    "rust",
+    "kotlin"
+   ]
+  },
+  {
+   "id": "domain-event",
+   "name": "Domain Event",
+   "kind": "communication",
+   "named_in": "Domain-Driven Design Reference - Eric Evans (2015)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "ddd",
+    "domain-modeling",
+    "events"
+   ]
+  },
+  {
+   "id": "event-aggregator",
+   "name": "Event Aggregator",
+   "kind": "communication",
+   "named_in": "Event Aggregator (martinfowler.com eaaDev) - Martin Fowler (2004)",
+   "named_in_corpus_id": null,
+   "other_sources": [
+    "Event Aggregator - Martin Fowler, Further Enterprise Application Architecture development "
+   ],
+   "tags": [
+    "eventing",
+    "ui",
+    "gui",
+    "oo"
+   ]
+  },
+  {
+   "id": "event-delegation",
+   "name": "Event Delegation",
+   "kind": "communication",
+   "named_in": "Event delegation - javascript.info (The Modern JavaScript Tutorial)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "ui",
+    "js"
+   ]
+  },
+  {
+   "id": "event-driven-consumer",
+   "name": "Event-Driven Consumer",
+   "kind": "communication",
+   "named_in": "Enterprise Integration Patterns - Hohpe & Woolf (2003)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "messaging"
+   ]
+  },
+  {
+   "id": "forwarder-receiver",
+   "name": "Forwarder-Receiver",
+   "kind": "communication",
+   "named_in": "Pattern-Oriented Software Architecture Vol. 1: A System of Patterns - Buschmann, Meunier, Rohnert, Sommerlad, Stal (1996)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "ipc",
+    "networking"
+   ]
+  },
+  {
+   "id": "gateway",
+   "name": "Gateway",
+   "kind": "communication",
+   "named_in": "Patterns of Enterprise Application Architecture - Martin Fowler (2002)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "enterprise"
+   ]
+  },
+  {
+   "id": "half-object-plus-protocol",
+   "name": "Half-Object plus Protocol",
+   "kind": "communication",
+   "named_in": "Half-Object + Protocol - Gerard Meszaros, in Pattern Languages of Program Design (1995)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "distribution",
+    "borderline"
+   ]
+  },
+  {
+   "id": "handshaking",
+   "name": "Handshaking",
+   "kind": "communication",
+   "named_in": "Release It! Design and Deploy Production-Ready Software, 2nd ed. - Nygard (2018)",
+   "named_in_corpus_id": "nygard",
+   "other_sources": [],
+   "tags": [
+    "stability",
+    "networking"
+   ]
+  },
+  {
+   "id": "hedged-request",
+   "name": "Hedged Request",
+   "kind": "communication",
+   "named_in": "The Tail at Scale - Dean, Barroso (2013)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "distributed",
+    "latency",
+    "borderline"
+   ]
+  },
+  {
+   "id": "idempotent-receiver",
+   "name": "Idempotent Receiver",
+   "kind": "communication",
+   "named_in": "Enterprise Integration Patterns - Hohpe & Woolf (2003)",
+   "named_in_corpus_id": null,
+   "other_sources": [
+    "Enterprise Integration Patterns - Hohpe, Woolf (2003)"
+   ],
+   "tags": [
+    "messaging",
+    "web",
+    "distributed"
+   ]
+  },
+  {
+   "id": "interest-management",
+   "name": "Interest Management",
+   "kind": "communication",
+   "named_in": "Morse, 'Interest Management in Large-Scale Distributed Simulations', UC Irvine ICS TR 96-27, 1996; HLA (IEEE 1516) Data Distribution Management; Frohnmayer & Gift, 'The TRIBES Engine Networking Model', GDC 2001 (scoping)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "games",
+    "networking",
+    "simulation",
+    "borderline"
+   ]
+  },
+  {
+   "id": "mailbox",
+   "name": "Mailbox",
+   "kind": "communication",
+   "named_in": "MicroC/OS-III: The Real-Time Kernel (and MicroC/OS-II message mailboxes) - Jean J. Labrosse (2009)",
+   "named_in_corpus_id": "labrosse",
+   "other_sources": [],
+   "tags": [
+    "embedded",
+    "rtos",
+    "c",
+    "actor-model"
+   ]
+  },
+  {
+   "id": "message",
+   "name": "Message",
+   "kind": "communication",
+   "named_in": "Enterprise Integration Patterns - Hohpe & Woolf (2003)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "messaging"
+   ]
+  },
+  {
+   "id": "message-dispatcher",
+   "name": "Message Dispatcher",
+   "kind": "communication",
+   "named_in": "Enterprise Integration Patterns - Hohpe & Woolf (2003)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "messaging",
+    "concurrency"
+   ]
+  },
+  {
+   "id": "message-expiration",
+   "name": "Message Expiration",
+   "kind": "communication",
+   "named_in": "Enterprise Integration Patterns - Hohpe & Woolf (2003)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "messaging"
+   ]
+  },
+  {
+   "id": "message-filter",
+   "name": "Message Filter",
+   "kind": "communication",
+   "named_in": "Enterprise Integration Patterns - Hohpe & Woolf (2003)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "messaging"
+   ]
+  },
+  {
+   "id": "message-queue",
+   "name": "Message Queue",
+   "kind": "communication",
+   "named_in": "Design Patterns for Embedded Systems in C - Bruce Powel Douglass (2011)",
+   "named_in_corpus_id": "douglasspatternsc",
+   "other_sources": [
+    "Enterprise Integration Patterns - Hohpe & Woolf (2003)",
+    "Game Programming Patterns - Robert Nystrom (2014)"
+   ],
+   "tags": [
+    "embedded",
+    "concurrency",
+    "messaging",
+    "rtos",
+    "os"
+   ]
+  },
+  {
+   "id": "nagle-s-algorithm",
+   "name": "Nagle's Algorithm",
+   "kind": "communication",
+   "named_in": "RFC 896: Congestion Control in IP/TCP Internetworks - John Nagle (1984)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "networking",
+    "tcp",
+    "borderline"
+   ]
+  },
+  {
+   "id": "observable-streams",
+   "name": "Observable Streams",
+   "kind": "communication",
+   "named_in": "ReactiveX documentation - Introduction/Observable (reactivex.io)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "ui",
+    "js",
+    "communication"
+   ]
+  },
+  {
+   "id": "polling-consumer",
+   "name": "Polling Consumer",
+   "kind": "communication",
+   "named_in": "Enterprise Integration Patterns - Hohpe & Woolf (2003)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "messaging"
+   ]
+  },
+  {
+   "id": "producer-consumer",
+   "name": "Producer-Consumer",
+   "kind": "communication",
+   "named_in": "Cooperating Sequential Processes - Dijkstra (1965)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "embedded",
+    "servers"
+   ]
+  },
+  {
+   "id": "publish-subscribe-channel",
+   "name": "Publish-Subscribe Channel",
+   "kind": "communication",
+   "named_in": "Enterprise Integration Patterns - Hohpe & Woolf (2003)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "messaging",
+    "borderline"
+   ]
+  },
+  {
+   "id": "remote-procedure-call",
+   "name": "Remote Procedure Call",
+   "kind": "communication",
+   "named_in": "Implementing Remote Procedure Calls - Birrell & Nelson (1984)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "networking",
+    "distributed",
+    "borderline"
+   ]
+  },
+  {
+   "id": "request-reply",
+   "name": "Request-Reply",
+   "kind": "communication",
+   "named_in": "Enterprise Integration Patterns - Hohpe & Woolf (2003)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "messaging"
+   ]
+  },
+  {
+   "id": "return-address",
+   "name": "Return Address",
+   "kind": "communication",
+   "named_in": "Enterprise Integration Patterns - Hohpe & Woolf (2003)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "messaging"
+   ]
+  },
+  {
+   "id": "scatter-gather",
+   "name": "Scatter-Gather",
+   "kind": "communication",
+   "named_in": "Enterprise Integration Patterns - Hohpe & Woolf (2003)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "messaging",
+    "borderline"
+   ]
+  },
+  {
+   "id": "selective-consumer",
+   "name": "Selective Consumer",
+   "kind": "communication",
+   "named_in": "Enterprise Integration Patterns - Hohpe & Woolf (2003)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "messaging"
+   ]
+  },
+  {
+   "id": "shared-memory-communication",
+   "name": "Shared Memory Communication",
+   "kind": "communication",
+   "named_in": "Real-Time Design Patterns - Bruce Powel Douglass (2002)",
+   "named_in_corpus_id": "douglassrtcorpus",
+   "other_sources": [],
+   "tags": [
+    "embedded",
+    "concurrency",
+    "borderline"
+   ]
+  },
+  {
+   "id": "signals-and-slots",
+   "name": "Signals and Slots",
+   "kind": "communication",
+   "named_in": "Signals & Slots - Qt Documentation - The Qt Company",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "ui",
+    "c++",
+    "qt"
+   ]
+  },
+  {
+   "id": "sliding-window-flow-control",
+   "name": "Sliding Window Flow Control",
+   "kind": "communication",
+   "named_in": "TCP/IP Illustrated, Vol. 1: The Protocols - W. Richard Stevens (1994)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "networking",
+    "protocols",
+    "embedded"
+   ]
+  },
+  {
+   "id": "splitter",
+   "name": "Splitter",
+   "kind": "communication",
+   "named_in": "Enterprise Integration Patterns - Hohpe & Woolf (2003)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "messaging"
+   ]
+  },
+  {
+   "id": "wire-tap",
+   "name": "Wire Tap",
+   "kind": "communication",
+   "named_in": "Enterprise Integration Patterns - Hohpe & Woolf (2003)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "messaging",
+    "borderline"
+   ]
+  }
+ ]
+}

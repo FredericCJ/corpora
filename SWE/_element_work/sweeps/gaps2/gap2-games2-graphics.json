@@ -1,0 +1,57 @@
+{
+  "scout": "gap2-games2-graphics",
+  "elements": [
+    {
+      "id": "texture-atlas",
+      "name": "Texture Atlas",
+      "aka": "sprite sheet, sprite atlas, texture packing, atlasing, sub-texture packing",
+      "kind": "data-representation",
+      "what": "Pack many small images into one large texture and remap each user's texture coordinates into its sub-rectangle, so a single bound resource serves many logical images.",
+      "problem": "Per-texture bind/state changes break rendering batches and dominate CPU submission cost; consolidating images into one atlas lets unrelated geometry share render state and be submitted together, at the cost of packing, bleeding/padding, and mip-level management.",
+      "named_in": "NVIDIA SDK White Paper 'Improve Batching Using Texture Atlases' (WP-01387-001, 2004); Ivan-Assen Ivanov, 'Practical Texture Atlases', Gamasutra/Game Developer, 2006",
+      "named_in_corpus_id": null,
+      "verification": "verified — both naming sources located live this session: download.nvidia.com/developer/NVTextureSuite/Atlas_Tools/Texture_Atlas_Whitepaper.pdf and gamedeveloper.com/programming/practical-texture-atlases",
+      "tags": "games; graphics; UI (icon sprite sheets); web (CSS sprites as the same mechanism)"
+    },
+    {
+      "id": "draw-call-batching",
+      "name": "Draw-Call Batching",
+      "aka": "batching (rendering), static batching, dynamic batching, sprite batching (SpriteBatch), geometry instancing / GPU instancing (single-call many-instances variant)",
+      "kind": "data-flow-buffering",
+      "what": "Merge many draw submissions that share render state into fewer, larger GPU submissions — by pre-combining static geometry, transforming and appending small dynamic meshes into a shared buffer, or issuing one instanced call for many copies.",
+      "problem": "Each draw call carries fixed CPU driver/validation overhead, so thousands of small state-changing draws leave the GPU starved; batching restructures scene data and material assignment so submissions amortize that overhead.",
+      "named_in": "Matthias Wloka, 'Batch, Batch, Batch: What Does It Really Mean?', GDC 2003 (NVIDIA); Unity Manual, 'Draw call batching' (static/dynamic batching); GPU Gems 2 ch. 3 'Inside Geometry Instancing' (instancing variant)",
+      "named_in_corpus_id": null,
+      "verification": "verified — nvidia.com/docs/IO/8228/BatchBatchBatch.pdf and docs.unity3d.com Manual/DrawCallBatching.html located live this session",
+      "tags": "games; graphics; borderline — contestable as pure performance practice, kept because it is a named, recurring structural mechanism (shared-material scene organization, merged vertex buffers, instance streams) distinct from update-batching (UI-reactive state flush), batch-method (API shape), and group-commit (durability)"
+    }
+  ],
+  "parked_architecture": [],
+  "excluded_notable": [
+    {
+      "candidate": "GPU command buffer recording",
+      "reason": "API facility, not a designer-implemented element: command buffers are objects the graphics API (Vulkan vkCommandBuffer, Metal MTLCommandBuffer) provides and the driver executes. The designer-reachable generalization — record commands for deferred/batched execution — is already cataloged as command, command-processor, message-queue (event queue), and render-graph (frame-level pass recording)."
+    },
+    {
+      "candidate": "input buffering (fighting-game technique)",
+      "reason": "Fails the establishedness gate at catalog grade: the technique is real and recurring but its documentation lives in community wikis, forums, and talks rather than a citable published catalog/textbook naming it as a mechanism; searched, no catalog-grade naming source found. Mechanically it is an application of the already-cataloged message-queue (aka event queue, event buffer) with a time-window acceptance policy. Rejected on sourcing, not on altitude."
+    },
+    {
+      "candidate": "occlusion culling",
+      "reason": "Algorithm-zoo, not a design element: an umbrella over visibility-determination algorithms (Hi-Z, hardware occlusion queries, potentially visible sets, portal culling) that are graphics-domain research variants in the mission's sense. The designer-reachable structures that carry culling are already cataloged: spatial-partition, bounding-volume-hierarchy, quadtree-octree, scene-graph."
+    },
+    {
+      "candidate": "frustum culling",
+      "reason": "Same reasoning as occlusion culling but weaker still — a geometric test applied while traversing an already-cataloged structure (BVH, quadtree/octree, spatial partition), not an independent named mechanism at design altitude."
+    },
+    {
+      "candidate": "sprite batching",
+      "reason": "Folded into draw-call-batching as aka: SpriteBatch (XNA/MonoGame) and Unity's sprite batching are the 2D realization of the same submission-merging mechanism, not a distinct mechanism."
+    },
+    {
+      "candidate": "geometry instancing / GPU instancing",
+      "reason": "Folded into draw-call-batching as aka/variant: the literature (GPU Gems 2 ch. 3 'Inside Geometry Instancing') treats instancing as a batching technique — one call, many instances; splitting it out would violate one-element-per-mechanism."
+    }
+  ],
+  "notes": "Final-saturation gap hunt over graphics/games residuals cut at round 2's cap. Yield 2 of 6 charter candidates: texture-atlas (solid; NVIDIA SDK white paper + Ivanov 2006, both located live) and draw-call-batching (borderline-tagged; Wloka GDC 2003 + Unity Manual, both located live; sprite batching and instancing folded in as aka). Four rejections recorded with reasons: GPU command buffer recording (API facility; generalization already covered), input buffering (establishedness fails at catalog grade — the honest omit-sooner-than-guess call), occlusion culling and frustum culling (visibility-algorithm zoo; the carrying structures spatial-partition/BVH/quadtree-octree/scene-graph already cataloged). No corpus work carries these naming sources (no game-programming works in work_ids.tsv), so named_in_corpus_id is null for both additions; Phase 2 should add the naming sources as new nodes. Low yield at a strict bar — consistent with saturation of the graphics/games domain."
+}

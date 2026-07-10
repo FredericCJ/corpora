@@ -1,0 +1,777 @@
+{
+ "route": "r5",
+ "elements": [
+  {
+   "id": "aba-mitigation-via-tagged-pointer",
+   "name": "ABA Mitigation via Tagged Pointer",
+   "kind": "synchronization-coordination",
+   "named_in": "The Art of Multiprocessor Programming - Herlihy & Shavit (2008)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "c",
+    "cpp",
+    "systems"
+   ]
+  },
+  {
+   "id": "acquire-release-ordering",
+   "name": "Acquire-Release Ordering",
+   "kind": "synchronization-coordination",
+   "named_in": "Acquire and Release Semantics - Jeff Preshing (2012)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "cpp",
+    "c",
+    "rust",
+    "systems",
+    "borderline"
+   ]
+  },
+  {
+   "id": "balking",
+   "name": "Balking",
+   "kind": "synchronization-coordination",
+   "named_in": "Patterns in Java, Volume 1: A Catalog of Reusable Design Patterns Illustrated with UML - Grand (1998)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "java",
+    "spot-checked-wikipedia-concurrency-pattern-list"
+   ]
+  },
+  {
+   "id": "coarse-grained-lock",
+   "name": "Coarse-Grained Lock",
+   "kind": "synchronization-coordination",
+   "named_in": "Patterns of Enterprise Application Architecture - Martin Fowler (2002)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "enterprise",
+    "concurrency"
+   ]
+  },
+  {
+   "id": "compare-and-swap-loop",
+   "name": "Compare-and-Swap Loop",
+   "kind": "synchronization-coordination",
+   "named_in": "Wait-Free Synchronization - Herlihy (1991)",
+   "named_in_corpus_id": null,
+   "other_sources": [
+    "The Art of Multiprocessor Programming - Herlihy & Shavit (2008)"
+   ],
+   "tags": [
+    "c",
+    "cpp",
+    "java",
+    "borderline",
+    "systems",
+    "embedded"
+   ]
+  },
+  {
+   "id": "condition-variable",
+   "name": "Condition Variable",
+   "kind": "synchronization-coordination",
+   "named_in": "Monitors: An Operating System Structuring Concept - Hoare (1974)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "c",
+    "cpp",
+    "java",
+    "os"
+   ]
+  },
+  {
+   "id": "coordinator",
+   "name": "Coordinator",
+   "kind": "synchronization-coordination",
+   "named_in": "Pattern-Oriented Software Architecture Vol. 3: Patterns for Resource Management - Kircher, Jain (2004)",
+   "named_in_corpus_id": "posa3",
+   "other_sources": [],
+   "tags": [
+    "atomicity",
+    "transactions"
+   ]
+  },
+  {
+   "id": "critical-region",
+   "name": "Critical Region",
+   "kind": "synchronization-coordination",
+   "named_in": "Design Patterns for Embedded Systems in C - Bruce Powel Douglass (2011)",
+   "named_in_corpus_id": "douglasspatternsc",
+   "other_sources": [
+    "Solution of a Problem in Concurrent Programming Control - Dijkstra (1965)"
+   ],
+   "tags": [
+    "embedded",
+    "concurrency",
+    "os",
+    "c",
+    "cpp"
+   ]
+  },
+  {
+   "id": "deadlock-detection",
+   "name": "Deadlock Detection",
+   "kind": "synchronization-coordination",
+   "named_in": "Transaction Processing: Concepts and Techniques - Gray & Reuter (1992)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "db",
+    "concurrency",
+    "os"
+   ]
+  },
+  {
+   "id": "direct-to-task-notification",
+   "name": "Direct-to-Task Notification",
+   "kind": "synchronization-coordination",
+   "named_in": "freertos.org 'Direct to task notifications' (title verified live 2026-07-10); Mastering the FreeRTOS Real-Time Kernel; CMSIS-RTOS2 Thread Flags API",
+   "named_in_corpus_id": "freertosbook",
+   "other_sources": [],
+   "tags": [
+    "embedded",
+    "freertos",
+    "cmsis-rtos",
+    "rtos"
+   ]
+  },
+  {
+   "id": "double-checked-locking",
+   "name": "Double-Checked Locking",
+   "kind": "synchronization-coordination",
+   "named_in": "Pattern-Oriented Software Architecture Vol. 2: Patterns for Concurrent and Networked Objects - Schmidt, Stal, Rohnert, Buschmann (2000)",
+   "named_in_corpus_id": "posa2",
+   "other_sources": [
+    "Double-Checked Locking: An Optimization Pattern for Efficiently Initializing and Accessing"
+   ],
+   "tags": [
+    "c++",
+    "java",
+    "memory-model",
+    "lazy-init",
+    "cpp",
+    "spot-checked-wikipedia-concurrency-pattern-list"
+   ]
+  },
+  {
+   "id": "event-flags-group",
+   "name": "Event Flags Group",
+   "kind": "synchronization-coordination",
+   "named_in": "Mastering the FreeRTOS Real-Time Kernel (event groups chapter)",
+   "named_in_corpus_id": "freertosbook",
+   "other_sources": [],
+   "tags": [
+    "embedded",
+    "rtos",
+    "cmsis-rtos"
+   ]
+  },
+  {
+   "id": "eventcount",
+   "name": "Eventcount",
+   "kind": "synchronization-coordination",
+   "named_in": "Synchronization with Eventcounts and Sequencers - Reed & Kanodia (1979)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "c",
+    "cpp",
+    "systems"
+   ]
+  },
+  {
+   "id": "fencing-token",
+   "name": "Fencing Token",
+   "kind": "synchronization-coordination",
+   "named_in": "Designing Data-Intensive Applications - Kleppmann (2017)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "distributed"
+   ]
+  },
+  {
+   "id": "flat-combining",
+   "name": "Flat Combining",
+   "kind": "synchronization-coordination",
+   "named_in": "Flat Combining and the Synchronization-Parallelism Tradeoff - Hendler, Incze, Shavit & Tzafrir (2010)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "cpp",
+    "java",
+    "systems"
+   ]
+  },
+  {
+   "id": "futex",
+   "name": "Futex",
+   "kind": "synchronization-coordination",
+   "named_in": "Fuss, Futexes and Furwocks: Fast Userlevel Locking in Linux - Franke, Russell & Kirkwood (2002)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "c",
+    "linux",
+    "systems",
+    "borderline"
+   ]
+  },
+  {
+   "id": "guarded-call",
+   "name": "Guarded Call",
+   "kind": "synchronization-coordination",
+   "named_in": "Design Patterns for Embedded Systems in C - Bruce Powel Douglass (2011)",
+   "named_in_corpus_id": "douglasspatternsc",
+   "other_sources": [],
+   "tags": [
+    "embedded",
+    "concurrency"
+   ]
+  },
+  {
+   "id": "guarded-suspension",
+   "name": "Guarded Suspension",
+   "kind": "synchronization-coordination",
+   "named_in": "Patterns in Java, Volume 1: A Catalog of Reusable Design Patterns Illustrated with UML - Grand (1998)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "java",
+    "spot-checked-wikipedia-concurrency-pattern-list"
+   ]
+  },
+  {
+   "id": "implicit-lock",
+   "name": "Implicit Lock",
+   "kind": "synchronization-coordination",
+   "named_in": "Patterns of Enterprise Application Architecture - Martin Fowler (2002)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "enterprise",
+    "concurrency"
+   ]
+  },
+  {
+   "id": "interrupt-masking-critical-section",
+   "name": "Interrupt-Masking Critical Section",
+   "kind": "synchronization-coordination",
+   "named_in": "An Embedded Software Primer - Simon (1999)",
+   "named_in_corpus_id": "dsimonprimer",
+   "other_sources": [],
+   "tags": [
+    "embedded",
+    "interrupts",
+    "borderline"
+   ]
+  },
+  {
+   "id": "latch",
+   "name": "Latch",
+   "kind": "synchronization-coordination",
+   "named_in": "Java Concurrency in Practice - Goetz, Peierls, Bloch, Bowbeer, Holmes, Lea (2006)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "java"
+   ]
+  },
+  {
+   "id": "lock-escalation",
+   "name": "Lock Escalation",
+   "kind": "synchronization-coordination",
+   "named_in": "Transaction Processing: Concepts and Techniques - Gray & Reuter (1992)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "db",
+    "concurrency",
+    "borderline"
+   ]
+  },
+  {
+   "id": "lock-striping",
+   "name": "Lock Striping",
+   "kind": "synchronization-coordination",
+   "named_in": "Java Concurrency in Practice - Goetz, Peierls, Bloch, Bowbeer, Holmes, Lea (2006)",
+   "named_in_corpus_id": null,
+   "other_sources": [
+    "Java Concurrency in Practice - Goetz et al. (2006)"
+   ],
+   "tags": [
+    "java",
+    "cpp",
+    "systems"
+   ]
+  },
+  {
+   "id": "logical-clock",
+   "name": "Logical Clock",
+   "kind": "synchronization-coordination",
+   "named_in": "Lamport, 'Time, Clocks, and the Ordering of Events in a Distributed System', CACM 1978",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "distributed",
+    "in-process mechanism precedent: crdt and operational-transformation already in catalog"
+   ]
+  },
+  {
+   "id": "mcs-queue-lock",
+   "name": "MCS Queue Lock",
+   "kind": "synchronization-coordination",
+   "named_in": "Algorithms for Scalable Synchronization on Shared-Memory Multiprocessors - Mellor-Crummey & Scott (1991)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "c",
+    "linux-kernel",
+    "systems"
+   ]
+  },
+  {
+   "id": "memory-barrier",
+   "name": "Memory Barrier",
+   "kind": "synchronization-coordination",
+   "named_in": "Linux kernel memory-barriers.txt - McKenney, Howells et al. (Linux kernel documentation)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "c",
+    "cpp",
+    "embedded",
+    "systems",
+    "borderline"
+   ]
+  },
+  {
+   "id": "monitor-object",
+   "name": "Monitor Object",
+   "kind": "synchronization-coordination",
+   "named_in": "Pattern-Oriented Software Architecture Vol. 2: Patterns for Concurrent and Networked Objects - Schmidt, Stal, Rohnert, Buschmann (2000)",
+   "named_in_corpus_id": "posa2",
+   "other_sources": [
+    "Monitors: An Operating System Structuring Concept - Hoare (1974)"
+   ],
+   "tags": [
+    "threads",
+    "condition-variables",
+    "java",
+    "os",
+    "spot-checked-wikipedia-concurrency-pattern-list"
+   ]
+  },
+  {
+   "id": "multi-granularity-locking",
+   "name": "Multi-Granularity Locking",
+   "kind": "synchronization-coordination",
+   "named_in": "Granularity of Locks and Degrees of Consistency in a Shared Data Base - Gray, Lorie, Putzolu & Traiger (1976)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "db",
+    "concurrency"
+   ]
+  },
+  {
+   "id": "multiversion-concurrency-control",
+   "name": "Multiversion Concurrency Control",
+   "kind": "synchronization-coordination",
+   "named_in": "Multiversion Concurrency Control - Theory and Algorithms - Bernstein & Goodman (1983)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "db",
+    "concurrency"
+   ]
+  },
+  {
+   "id": "operational-transformation",
+   "name": "Operational Transformation",
+   "kind": "synchronization-coordination",
+   "named_in": "Ellis & Gibbs, Concurrency Control in Groupware Systems (ACM SIGMOD 1989, pp. 399-407)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "collaborative-editing",
+    "alternative-to:conflict-free-replicated-data-type-crdt"
+   ]
+  },
+  {
+   "id": "optimistic-concurrency-control",
+   "name": "Optimistic Concurrency Control",
+   "kind": "synchronization-coordination",
+   "named_in": "On Optimistic Methods for Concurrency Control - Kung & Robinson (1981)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "databases",
+    "systems",
+    "java",
+    "db",
+    "concurrency"
+   ]
+  },
+  {
+   "id": "optimistic-offline-lock",
+   "name": "Optimistic Offline Lock",
+   "kind": "synchronization-coordination",
+   "named_in": "Patterns of Enterprise Application Architecture - Martin Fowler (2002)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "enterprise",
+    "concurrency"
+   ]
+  },
+  {
+   "id": "ordered-locking",
+   "name": "Ordered Locking",
+   "kind": "synchronization-coordination",
+   "named_in": "Design Patterns for Embedded Systems in C - Bruce Powel Douglass (2011)",
+   "named_in_corpus_id": "douglasspatternsc",
+   "other_sources": [],
+   "tags": [
+    "embedded",
+    "concurrency",
+    "deadlock-avoidance"
+   ]
+  },
+  {
+   "id": "pessimistic-offline-lock",
+   "name": "Pessimistic Offline Lock",
+   "kind": "synchronization-coordination",
+   "named_in": "Patterns of Enterprise Application Architecture - Martin Fowler (2002)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "enterprise",
+    "concurrency"
+   ]
+  },
+  {
+   "id": "priority-ceiling-protocol",
+   "name": "Priority Ceiling Protocol",
+   "kind": "synchronization-coordination",
+   "named_in": "Real-Time Design Patterns - Bruce Powel Douglass (2002)",
+   "named_in_corpus_id": "douglassrtcorpus",
+   "other_sources": [
+    "Real-Time Design Patterns - Bruce Powel Douglass (2002)",
+    "Priority Inheritance Protocols: An Approach to Real-Time Synchronization - Sha, Rajkumar &"
+   ],
+   "tags": [
+    "embedded",
+    "real-time",
+    "concurrency",
+    "rtos"
+   ]
+  },
+  {
+   "id": "priority-inheritance-protocol",
+   "name": "Priority Inheritance Protocol",
+   "kind": "synchronization-coordination",
+   "named_in": "Priority Inheritance Protocols: An Approach to Real-Time Synchronization - Sha, Rajkumar & Lehoczky (1990)",
+   "named_in_corpus_id": null,
+   "other_sources": [
+    "Priority Inheritance Protocols: An Approach to Real-Time Synchronization - Sha, Rajkumar &"
+   ],
+   "tags": [
+    "embedded",
+    "real-time",
+    "concurrency",
+    "rtos"
+   ]
+  },
+  {
+   "id": "read-copy-update",
+   "name": "Read-Copy-Update",
+   "kind": "synchronization-coordination",
+   "named_in": "Read-Copy Update: Using Execution History to Solve Concurrency Problems - McKenney, Slingwine (1998)",
+   "named_in_corpus_id": null,
+   "other_sources": [
+    "Read-Copy Update: Using Execution History to Solve Concurrency Problems - McKenney & Sling"
+   ],
+   "tags": [
+    "c",
+    "linux-kernel",
+    "os",
+    "systems"
+   ]
+  },
+  {
+   "id": "readers-writer-lock",
+   "name": "Readers-Writer Lock",
+   "kind": "synchronization-coordination",
+   "named_in": "Concurrent Control with 'Readers' and 'Writers' - Courtois, Heymans, Parnas (1971)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "os",
+    "c",
+    "java",
+    "spot-checked-wikipedia-concurrency-pattern-list"
+   ]
+  },
+  {
+   "id": "reentrant-lock",
+   "name": "Reentrant Lock",
+   "kind": "synchronization-coordination",
+   "named_in": "Java Concurrency in Practice - Goetz, Peierls, Bloch, Bowbeer, Holmes, Lea (2006)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "java",
+    "c",
+    "posix"
+   ]
+  },
+  {
+   "id": "rendezvous",
+   "name": "Rendezvous",
+   "kind": "synchronization-coordination",
+   "named_in": "Design Patterns for Embedded Systems in C - Bruce Powel Douglass (2011)",
+   "named_in_corpus_id": "douglasspatternsc",
+   "other_sources": [
+    "Reference Manual for the Ada Programming Language - ANSI/MIL-STD-1815A (1983)",
+    "Patterns for Parallel Programming - Mattson, Sanders, Massingill (2004)"
+   ],
+   "tags": [
+    "embedded",
+    "concurrency",
+    "ada",
+    "realtime",
+    "hpc",
+    "java"
+   ]
+  },
+  {
+   "id": "safe-publication",
+   "name": "Safe Publication",
+   "kind": "synchronization-coordination",
+   "named_in": "Java Concurrency in Practice - Goetz, Peierls, Bloch, Bowbeer, Holmes, Lea (2006)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "java",
+    "borderline"
+   ]
+  },
+  {
+   "id": "safepoint",
+   "name": "Safepoint",
+   "kind": "synchronization-coordination",
+   "named_in": "OpenJDK, 'HotSpot Glossary of Terms' (openjdk.org, verified live this session); mechanism analyzed in Agesen, 'GC Points in a Threaded Environment' (Sun Labs TR SMLI TR-98-70, 1998)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "virtual machines",
+    "language runtimes",
+    "garbage collection",
+    "JIT"
+   ]
+  },
+  {
+   "id": "scoped-locking",
+   "name": "Scoped Locking",
+   "kind": "synchronization-coordination",
+   "named_in": "Pattern-Oriented Software Architecture Vol. 2: Patterns for Concurrent and Networked Objects - Schmidt, Stal, Rohnert, Buschmann (2000)",
+   "named_in_corpus_id": "posa2",
+   "other_sources": [],
+   "tags": [
+    "c++",
+    "idiom",
+    "raii"
+   ]
+  },
+  {
+   "id": "self-pipe-trick",
+   "name": "Self-Pipe Trick",
+   "kind": "synchronization-coordination",
+   "named_in": "The Linux Programming Interface - Michael Kerrisk (2010), sec. 63.5.2 'The Self-Pipe Trick'",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "c",
+    "unix",
+    "event-loop"
+   ]
+  },
+  {
+   "id": "semaphore",
+   "name": "Semaphore",
+   "kind": "synchronization-coordination",
+   "named_in": "Cooperating Sequential Processes - Dijkstra (1965)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "os",
+    "embedded",
+    "c"
+   ]
+  },
+  {
+   "id": "sequence-lock",
+   "name": "Sequence Lock",
+   "kind": "synchronization-coordination",
+   "named_in": "Sequence counters and sequential locks - Linux kernel documentation (locking/seqlock.rst)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "c",
+    "linux-kernel",
+    "systems",
+    "embedded"
+   ]
+  },
+  {
+   "id": "simultaneous-locking",
+   "name": "Simultaneous Locking",
+   "kind": "synchronization-coordination",
+   "named_in": "Design Patterns for Embedded Systems in C - Bruce Powel Douglass (2011)",
+   "named_in_corpus_id": "douglasspatternsc",
+   "other_sources": [],
+   "tags": [
+    "embedded",
+    "concurrency",
+    "deadlock-avoidance"
+   ]
+  },
+  {
+   "id": "snapshot-isolation",
+   "name": "Snapshot Isolation",
+   "kind": "synchronization-coordination",
+   "named_in": "A Critique of ANSI SQL Isolation Levels - Berenson, Bernstein, Gray, Melton, O'Neil & O'Neil (1995)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "db",
+    "concurrency",
+    "borderline"
+   ]
+  },
+  {
+   "id": "software-transactional-memory",
+   "name": "Software Transactional Memory",
+   "kind": "synchronization-coordination",
+   "named_in": "Software Transactional Memory - Shavit, Touitou (1995)",
+   "named_in_corpus_id": null,
+   "other_sources": [
+    "Software Transactional Memory - Shavit & Touitou (1995)"
+   ],
+   "tags": [
+    "haskell",
+    "clojure",
+    "scala",
+    "cpp",
+    "systems"
+   ]
+  },
+  {
+   "id": "spinlock",
+   "name": "Spinlock",
+   "kind": "synchronization-coordination",
+   "named_in": "The Performance of Spin Lock Alternatives for Shared-Memory Multiprocessors - Anderson (1990)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "os",
+    "embedded",
+    "c"
+   ]
+  },
+  {
+   "id": "strategized-locking",
+   "name": "Strategized Locking",
+   "kind": "synchronization-coordination",
+   "named_in": "Pattern-Oriented Software Architecture Vol. 2: Patterns for Concurrent and Networked Objects - Schmidt, Stal, Rohnert, Buschmann (2000)",
+   "named_in_corpus_id": "posa2",
+   "other_sources": [],
+   "tags": [
+    "c++",
+    "policy"
+   ]
+  },
+  {
+   "id": "test-and-test-and-set-lock",
+   "name": "Test-and-Test-and-Set Lock",
+   "kind": "synchronization-coordination",
+   "named_in": "The Art of Multiprocessor Programming - Herlihy & Shavit (2008)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "c",
+    "cpp",
+    "systems",
+    "embedded"
+   ]
+  },
+  {
+   "id": "thread-confinement",
+   "name": "Thread Confinement",
+   "kind": "synchronization-coordination",
+   "named_in": "Java Concurrency in Practice - Goetz, Peierls, Bloch, Bowbeer, Holmes, Lea (2006)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "java",
+    "ui"
+   ]
+  },
+  {
+   "id": "thread-safe-interface",
+   "name": "Thread-Safe Interface",
+   "kind": "synchronization-coordination",
+   "named_in": "Pattern-Oriented Software Architecture Vol. 2: Patterns for Concurrent and Networked Objects - Schmidt, Stal, Rohnert, Buschmann (2000)",
+   "named_in_corpus_id": "posa2",
+   "other_sources": [],
+   "tags": [
+    "locking-discipline"
+   ]
+  },
+  {
+   "id": "ticket-lock",
+   "name": "Ticket Lock",
+   "kind": "synchronization-coordination",
+   "named_in": "Algorithms for Scalable Synchronization on Shared-Memory Multiprocessors - Mellor-Crummey & Scott (1991)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "c",
+    "linux-kernel",
+    "systems",
+    "embedded"
+   ]
+  },
+  {
+   "id": "timestamp-ordering-concurrency-control",
+   "name": "Timestamp-Ordering Concurrency Control",
+   "kind": "synchronization-coordination",
+   "named_in": "Concurrency Control in Distributed Database Systems - Bernstein & Goodman (1981)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "db",
+    "concurrency"
+   ]
+  },
+  {
+   "id": "two-phase-locking",
+   "name": "Two-Phase Locking",
+   "kind": "synchronization-coordination",
+   "named_in": "The Notions of Consistency and Predicate Locks in a Database System - Eswaran, Gray, Lorie & Traiger (1976)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "db",
+    "concurrency"
+   ]
+  }
+ ]
+}

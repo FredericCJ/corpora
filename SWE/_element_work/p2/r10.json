@@ -1,0 +1,805 @@
+{
+ "route": "r10",
+ "elements": [
+  {
+   "id": "backpressure",
+   "name": "Backpressure",
+   "kind": "data-flow-buffering",
+   "named_in": "Release It! Design and Deploy Production-Ready Software, 2nd ed. - Nygard (2018)",
+   "named_in_corpus_id": "nygard",
+   "other_sources": [],
+   "tags": [
+    "stability",
+    "streaming"
+   ]
+  },
+  {
+   "id": "credit-based-flow-control",
+   "name": "Credit-Based Flow Control",
+   "kind": "data-flow-buffering",
+   "named_in": "Kung & Morris, 'Credit-Based Flow Control for ATM Networks', IEEE Network (1995); Meszaros, capacity pattern language, PLoPD1 (1995); Reactive Streams specification (request(n) demand)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "flow-control",
+    "networking",
+    "reactive-streams",
+    "borderline"
+   ]
+  },
+  {
+   "id": "disruptor",
+   "name": "Disruptor",
+   "kind": "data-flow-buffering",
+   "named_in": "Thompson, Farley, Barker, Gee, Stewart — Disruptor: High Performance Alternative to Bounded Queues for Exchanging Data Between Concurrent Threads (LMAX technical paper, 2011)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "java-origin",
+    "low-latency",
+    "lock-free"
+   ]
+  },
+  {
+   "id": "double-buffer",
+   "name": "Double Buffer",
+   "kind": "data-flow-buffering",
+   "named_in": "Game Programming Patterns - Robert Nystrom (2014)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "games",
+    "graphics"
+   ]
+  },
+  {
+   "id": "draw-call-batching",
+   "name": "Draw-Call Batching",
+   "kind": "data-flow-buffering",
+   "named_in": "Matthias Wloka, 'Batch, Batch, Batch: What Does It Really Mean?', GDC 2003 (NVIDIA); Unity Manual, 'Draw call batching' (static/dynamic batching); GPU Gems 2 ch. 3 'Inside Geometry Instancing' (instancing variant)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "g",
+    "a",
+    "m",
+    "e",
+    "s",
+    ";"
+   ]
+  },
+  {
+   "id": "event-coalescing",
+   "name": "Event Coalescing",
+   "kind": "data-flow-buffering",
+   "named_in": "Pointer Events Level 2 - W3C Recommendation (coalesced events / getCoalescedEvents)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "ui",
+    "js"
+   ]
+  },
+  {
+   "id": "event-time-watermark",
+   "name": "Watermark (Event-Time)",
+   "kind": "data-flow-buffering",
+   "named_in": "Akidau et al., 'The Dataflow Model' (PVLDB 8(12), 2015; verified live); also Akidau, Chernyak & Lax, Streaming Systems (O'Reilly 2018)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "stream processing",
+    "distributed data",
+    "time",
+    "borderline"
+   ]
+  },
+  {
+   "id": "fresh-work-before-stale",
+   "name": "Fresh Work Before Stale",
+   "kind": "data-flow-buffering",
+   "named_in": "Patterns for Fault Tolerant Software - Hanmer (2007)",
+   "named_in_corpus_id": "hanmer",
+   "other_sources": [],
+   "tags": [
+    "overload",
+    "borderline"
+   ]
+  },
+  {
+   "id": "functional-reactive-programming",
+   "name": "Functional Reactive Programming",
+   "kind": "data-flow-buffering",
+   "named_in": "Functional Reactive Animation - Elliott & Hudak (ICFP, 1997)",
+   "named_in_corpus_id": null,
+   "other_sources": [
+    "Functional Reactive Animation - Conal Elliott, Paul Hudak (ICFP 1997)"
+   ],
+   "tags": [
+    "fp",
+    "haskell",
+    "ui",
+    "borderline",
+    "functional"
+   ]
+  },
+  {
+   "id": "jitter-buffer",
+   "name": "Jitter Buffer",
+   "kind": "data-flow-buffering",
+   "named_in": "Understanding Jitter in Packet Voice Networks - Cisco (live technical doc)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "networking",
+    "media",
+    "voip",
+    "real-time"
+   ]
+  },
+  {
+   "id": "load-shedding",
+   "name": "Load Shedding",
+   "kind": "data-flow-buffering",
+   "named_in": "Release It! Design and Deploy Production-Ready Software, 2nd ed. - Nygard (2018)",
+   "named_in_corpus_id": "nygard",
+   "other_sources": [],
+   "tags": [
+    "stability",
+    "overload"
+   ]
+  },
+  {
+   "id": "memory-mapped-file-i-o",
+   "name": "Memory-Mapped File I/O",
+   "kind": "data-flow-buffering",
+   "named_in": "Advanced Programming in the UNIX Environment - W. Richard Stevens (1992), 'Memory-Mapped I/O'",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "c",
+    "os",
+    "persistence",
+    "performance"
+   ]
+  },
+  {
+   "id": "ping-pong-buffer",
+   "name": "Ping-Pong Buffer",
+   "kind": "data-flow-buffering",
+   "named_in": "Ping Pong Buffers - Embedded.fm (White, 2017); Microchip DMA 'Ping-Pong Mode' documentation",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "embedded",
+    "dsp",
+    "audio"
+   ]
+  },
+  {
+   "id": "reactive-programming",
+   "name": "Reactive Programming",
+   "kind": "data-flow-buffering",
+   "named_in": "A Survey on Reactive Programming - Bainomugisha, Carreton, Van Cutsem, Mostinckx, De Meuter (ACM Computing Surveys, 2013)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "ui",
+    "borderline"
+   ]
+  },
+  {
+   "id": "render-graph",
+   "name": "Render Graph",
+   "kind": "data-flow-buffering",
+   "named_in": "O'Donnell, 'FrameGraph: Extensible Rendering Architecture in Frostbite', GDC 2017",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "games",
+    "graphics",
+    "borderline"
+   ]
+  },
+  {
+   "id": "resequencer",
+   "name": "Resequencer",
+   "kind": "data-flow-buffering",
+   "named_in": "Enterprise Integration Patterns - Hohpe & Woolf (2003)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "messaging"
+   ]
+  },
+  {
+   "id": "ring-buffer",
+   "name": "Ring Buffer",
+   "kind": "data-flow-buffering",
+   "named_in": "Making Embedded Systems: Design Patterns for Great Software - Elecia White (2024)",
+   "named_in_corpus_id": "white",
+   "other_sources": [],
+   "tags": [
+    "embedded",
+    "c",
+    "concurrency",
+    "audio"
+   ]
+  },
+  {
+   "id": "scatter-gather-dma",
+   "name": "Scatter-Gather DMA",
+   "kind": "data-flow-buffering",
+   "named_in": "Linux Device Drivers, 3rd ed. - Corbet, Rubini & Kroah-Hartman (2005)",
+   "named_in_corpus_id": "ldd3",
+   "other_sources": [
+    "UNIX Network Programming, Vol. 1 - W. Richard Stevens (1990; 3rd ed. 2003), readv/writev"
+   ],
+   "tags": [
+    "embedded",
+    "os",
+    "dma",
+    "c",
+    "networking",
+    "os-kernel"
+   ]
+  },
+  {
+   "id": "sliding-window-rate-limiting",
+   "name": "Sliding-Window Rate Limiting",
+   "kind": "data-flow-buffering",
+   "named_in": "System Design Interview - An Insider's Guide - Xu (2020)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "web",
+    "rate-limiting"
+   ]
+  },
+  {
+   "id": "snapshot-interpolation",
+   "name": "Snapshot Interpolation",
+   "kind": "data-flow-buffering",
+   "named_in": "Snapshot Interpolation - Glenn Fiedler (Gaffer On Games, 2015)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "games",
+    "networking",
+    "borderline"
+   ]
+  },
+  {
+   "id": "spsc-lock-free-ring-buffer",
+   "name": "SPSC Lock-Free Ring Buffer",
+   "kind": "data-flow-buffering",
+   "named_in": "Proving the Correctness of Multiprocess Programs - Leslie Lamport (1977)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "c",
+    "cpp",
+    "embedded",
+    "audio",
+    "systems"
+   ]
+  },
+  {
+   "id": "stream-buffer",
+   "name": "Stream Buffer",
+   "kind": "data-flow-buffering",
+   "named_in": "freertos.org 'RTOS Stream Buffers' (title verified live 2026-07-10); Mastering the FreeRTOS Real-Time Kernel ch. Stream and Message Buffers",
+   "named_in_corpus_id": "freertosbook",
+   "other_sources": [],
+   "tags": [
+    "embedded",
+    "freertos",
+    "rtos",
+    "borderline"
+   ]
+  },
+  {
+   "id": "stream-trigger",
+   "name": "Trigger (Stream Processing)",
+   "kind": "data-flow-buffering",
+   "named_in": "The Dataflow Model (Akidau et al., PVLDB 8(12), 2015, sec. 2.3); modern canonical treatment: Streaming Systems (Akidau, Chernyak, Lax, 2018) and the Apache Beam programming guide (sec. 9 'Triggers', verified live 2026-07-10)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": "stream"
+  },
+  {
+   "id": "stream-windowing",
+   "name": "Stream Windowing",
+   "kind": "data-flow-buffering",
+   "named_in": "Akidau et al., 'The Dataflow Model' (PVLDB 2015; formal windowing model, verified live); window constructs also in CQL (Arasu, Babu & Widom, VLDB Journal 2006)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "stream processing",
+    "distributed data",
+    "borderline"
+   ]
+  },
+  {
+   "id": "update-batching",
+   "name": "Update Batching",
+   "kind": "data-flow-buffering",
+   "named_in": "React documentation - Automatic Batching (React 18); Vue.js Guide - Reactivity in Depth (Async Update Queue)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "ui",
+    "js"
+   ]
+  },
+  {
+   "id": "vectorized-execution",
+   "name": "Vectorized Execution",
+   "kind": "data-flow-buffering",
+   "named_in": "MonetDB/X100: Hyper-Pipelining Query Execution - Boncz, Zukowski & Nes (2005)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "db",
+    "query-execution",
+    "performance",
+    "borderline"
+   ]
+  },
+  {
+   "id": "volcano-iterator-model",
+   "name": "Volcano Iterator Model",
+   "kind": "data-flow-buffering",
+   "named_in": "Volcano - An Extensible and Parallel Query Evaluation System - Graefe (1994)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "db",
+    "query-execution"
+   ]
+  },
+  {
+   "id": "zero-copy-i-o",
+   "name": "Zero-Copy I/O",
+   "kind": "data-flow-buffering",
+   "named_in": "Zero-copy - Wikipedia",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "networking",
+    "os-kernel",
+    "performance"
+   ]
+  },
+  {
+   "id": "aggregate",
+   "name": "Aggregate",
+   "kind": "state-management",
+   "named_in": "Domain-Driven Design: Tackling Complexity in the Heart of Software - Eric Evans (2003)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "ddd",
+    "domain-modeling"
+   ]
+  },
+  {
+   "id": "behavior-tree",
+   "name": "Behavior Tree",
+   "kind": "state-management",
+   "named_in": "Isla, 'Handling Complexity in the Halo 2 AI', GDC 2005; Champandard & Dunstan, 'The Behavior Tree Starter Kit', Game AI Pro, 2013",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "games",
+    "ai",
+    "robotics"
+   ]
+  },
+  {
+   "id": "client-side-prediction",
+   "name": "Client-Side Prediction",
+   "kind": "state-management",
+   "named_in": "Bernier, 'Latency Compensating Methods in Client/Server In-game Protocol Design and Optimization' (GDC 2001, Valve); Gambetta, 'Client-Side Prediction and Server Reconciliation' (verified live)",
+   "named_in_corpus_id": null,
+   "other_sources": [
+    "Bernier, 'Latency Compensating Methods in Client/Server In-game Protocol Design and Optimi"
+   ],
+   "tags": [
+    "games",
+    "networking",
+    "UI-latency cousin: optimistic-ui-update (already in index, distinct mechanism)"
+   ]
+  },
+  {
+   "id": "collections-for-states",
+   "name": "Collections for States",
+   "kind": "state-management",
+   "named_in": "Pattern-Oriented Software Architecture Vol. 4: A Pattern Language for Distributed Computing - Buschmann, Henney, Schmidt (2007)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "fsm",
+    "schedulers"
+   ]
+  },
+  {
+   "id": "context-object",
+   "name": "Context Object",
+   "kind": "state-management",
+   "named_in": "Pattern-Oriented Software Architecture Vol. 4: A Pattern Language for Distributed Computing - Buschmann, Henney, Schmidt (2007)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "framework"
+   ]
+  },
+  {
+   "id": "data-binding",
+   "name": "Data Binding",
+   "kind": "state-management",
+   "named_in": "Data Binding Overview - WPF documentation - Microsoft",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "ui"
+   ]
+  },
+  {
+   "id": "dead-reckoning",
+   "name": "Dead Reckoning",
+   "kind": "state-management",
+   "named_in": "Aronson, 'Dead Reckoning: Latency Hiding for Networked Games', Gamasutra 1997; IEEE 1278.1 (DIS) dead reckoning algorithms",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "games",
+    "networking",
+    "simulation",
+    "borderline"
+   ]
+  },
+  {
+   "id": "decomposed-and-state",
+   "name": "Decomposed AND-State",
+   "kind": "state-management",
+   "named_in": "Design Patterns for Embedded Systems in C - Bruce Powel Douglass (2011)",
+   "named_in_corpus_id": "douglasspatternsc",
+   "other_sources": [],
+   "tags": [
+    "c",
+    "embedded",
+    "statecharts"
+   ]
+  },
+  {
+   "id": "deferred-event",
+   "name": "Deferred Event",
+   "kind": "state-management",
+   "named_in": "Practical UML Statecharts in C/C++, 2nd ed. - Miro Samek (2008)",
+   "named_in_corpus_id": "samekbook",
+   "other_sources": [],
+   "tags": [
+    "embedded",
+    "statecharts"
+   ]
+  },
+  {
+   "id": "deterministic-lockstep",
+   "name": "Deterministic Lockstep",
+   "kind": "state-management",
+   "named_in": "Fiedler, 'Deterministic Lockstep' (gafferongames.com; verified live); Bettner & Terrano, '1500 Archers on a 28.8: Network Programming in Age of Empires and Beyond' (GDC 2001)",
+   "named_in_corpus_id": null,
+   "other_sources": [
+    "Bettner & Terrano, '1500 Archers on a 28.8: Network Programming in Age of Empires and Beyo"
+   ],
+   "tags": [
+    "games",
+    "simulation",
+    "networking",
+    "borderline"
+   ]
+  },
+  {
+   "id": "dirty-checking",
+   "name": "Dirty Checking",
+   "kind": "state-management",
+   "named_in": "AngularJS Developer Guide - Scopes ($digest / dirty checking)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "ui",
+    "js"
+   ]
+  },
+  {
+   "id": "dirty-flag",
+   "name": "Dirty Flag",
+   "kind": "state-management",
+   "named_in": "Game Programming Patterns - Robert Nystrom (2014)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "games"
+   ]
+  },
+  {
+   "id": "dirty-rectangles",
+   "name": "Dirty Rectangles",
+   "kind": "state-management",
+   "named_in": "Michael Abrash's Graphics Programming Black Book - Michael Abrash (1997), ch. 45 'Dog Hair and Dirty Rectangles'",
+   "named_in_corpus_id": null,
+   "other_sources": [
+    "Graphics Programming Black Book - Michael Abrash (1997)"
+   ],
+   "tags": [
+    "games",
+    "graphics",
+    "ui"
+   ]
+  },
+  {
+   "id": "finite-state-machine",
+   "name": "Finite State Machine",
+   "kind": "state-management",
+   "named_in": "Practical UML Statecharts in C/C++, 2nd ed. - Samek (2008)",
+   "named_in_corpus_id": "samekbook",
+   "other_sources": [
+    "Practical UML Statecharts in C/C++, 2nd ed. - Samek (2008)"
+   ],
+   "tags": [
+    "embedded",
+    "foundational",
+    "c",
+    "c++"
+   ]
+  },
+  {
+   "id": "hierarchical-state-machine",
+   "name": "Hierarchical State Machine",
+   "kind": "state-management",
+   "named_in": "Practical UML Statecharts in C/C++, 2nd ed. - Samek (2008); formalism from Harel, Statecharts: A Visual Formalism for Complex Systems (1987)",
+   "named_in_corpus_id": "samekbook",
+   "other_sources": [
+    "Practical UML Statecharts in C/C++, 2nd ed. - Samek (2008); formalism from Harel, Statecha"
+   ],
+   "tags": [
+    "embedded",
+    "uml",
+    "statecharts",
+    "c",
+    "c++"
+   ]
+  },
+  {
+   "id": "hydration",
+   "name": "Hydration",
+   "kind": "state-management",
+   "named_in": "Server-Side Rendering (SSR) - Vue.js documentation (Client Hydration)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "ui",
+    "js",
+    "borderline"
+   ]
+  },
+  {
+   "id": "immutable-value",
+   "name": "Immutable Value",
+   "kind": "state-management",
+   "named_in": "Pattern-Oriented Software Architecture Vol. 4: A Pattern Language for Distributed Computing - Buschmann, Henney, Schmidt (2007)",
+   "named_in_corpus_id": null,
+   "other_sources": [
+    "Patterns in Java, Volume 1: A Catalog of Reusable Design Patterns Illustrated with UML - G",
+    "Patterns in Java, Volume 1 - Mark Grand (1998)",
+    "Immutable - Mark Grand, Patterns in Java Vol. 1 (1998); reinforced in Effective Java - Blo"
+   ],
+   "tags": [
+    "value-semantics",
+    "concurrency",
+    "java",
+    "functional",
+    "fp",
+    "oo"
+   ]
+  },
+  {
+   "id": "interior-mutability",
+   "name": "Interior Mutability",
+   "kind": "state-management",
+   "named_in": "The Rust Programming Language - Klabnik & Nichols ('RefCell<T> and the Interior Mutability Pattern')",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "rust"
+   ]
+  },
+  {
+   "id": "lag-compensation",
+   "name": "Lag Compensation",
+   "kind": "state-management",
+   "named_in": "Bernier, 'Latency Compensating Methods in Client/Server In-game Protocol Design and Optimization', GDC 2001 (Valve); Valve Developer Community, 'Lag Compensation'",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "games",
+    "networking"
+   ]
+  },
+  {
+   "id": "methods-for-states",
+   "name": "Methods for States",
+   "kind": "state-management",
+   "named_in": "Pattern-Oriented Software Architecture Vol. 4: A Pattern Language for Distributed Computing - Buschmann, Henney, Schmidt (2007)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "fsm",
+    "embedded"
+   ]
+  },
+  {
+   "id": "multiple-event-receptor",
+   "name": "Multiple Event Receptor",
+   "kind": "state-management",
+   "named_in": "Design Patterns for Embedded Systems in C - Bruce Powel Douglass (2011)",
+   "named_in_corpus_id": "douglasspatternsc",
+   "other_sources": [],
+   "tags": [
+    "c",
+    "embedded"
+   ]
+  },
+  {
+   "id": "optimistic-ui-update",
+   "name": "Optimistic UI Update",
+   "kind": "state-management",
+   "named_in": "Apollo Client documentation - Optimistic mutation results",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "ui",
+    "js",
+    "distributed"
+   ]
+  },
+  {
+   "id": "orthogonal-component",
+   "name": "Orthogonal Component",
+   "kind": "state-management",
+   "named_in": "Practical UML Statecharts in C/C++, 2nd ed. - Miro Samek (2008)",
+   "named_in_corpus_id": "samekbook",
+   "other_sources": [],
+   "tags": [
+    "embedded",
+    "statecharts"
+   ]
+  },
+  {
+   "id": "reactive-signals",
+   "name": "Signals (fine-grained reactivity)",
+   "kind": "state-management",
+   "named_in": "JavaScript Signals standard proposal - TC39 (proposal-signals)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "ui",
+    "js"
+   ]
+  },
+  {
+   "id": "reminder",
+   "name": "Reminder",
+   "kind": "state-management",
+   "named_in": "Practical UML Statecharts in C/C++, 2nd ed. - Miro Samek (2008)",
+   "named_in_corpus_id": "samekbook",
+   "other_sources": [],
+   "tags": [
+    "embedded",
+    "statecharts"
+   ]
+  },
+  {
+   "id": "rollback-netcode",
+   "name": "Rollback Netcode",
+   "kind": "state-management",
+   "named_in": "Cannon, 'Fight the Lag! The Trick Behind GGPO's Low-Latency Netcode', Game Developer Magazine, Sept 2012 (republished as 'The lag-fighting techniques behind GGPO's netcode', gamedeveloper.com); ggpo.net",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "games",
+    "networking",
+    "determinism",
+    "borderline"
+   ]
+  },
+  {
+   "id": "rules-engine",
+   "name": "Rules Engine",
+   "kind": "state-management",
+   "named_in": "Fowler, bliki 'RulesEngine' (7 Jan 2009; loaded live — 'you can build a simple rules engine yourself', production rules, Rete, chaining); production rule system literature (Forgy, Rete algorithm, 1982)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "business-logic",
+    "declarative",
+    "borderline: also a commercial product category (BRMS) at system scale; included at the in-process altitude Fowler describes (rule objects + evaluation loop inside one application), sibling of behavior-tree/interpreter"
+   ]
+  },
+  {
+   "id": "run-to-completion-event-processing",
+   "name": "Run-to-Completion Event Processing",
+   "kind": "state-management",
+   "named_in": "Practical UML Statecharts in C/C++, 2nd ed. - Miro Samek (2008)",
+   "named_in_corpus_id": "samekbook",
+   "other_sources": [],
+   "tags": [
+    "embedded",
+    "statecharts",
+    "borderline"
+   ]
+  },
+  {
+   "id": "single-event-receptor",
+   "name": "Single Event Receptor",
+   "kind": "state-management",
+   "named_in": "Design Patterns for Embedded Systems in C - Bruce Powel Douglass (2011)",
+   "named_in_corpus_id": "douglasspatternsc",
+   "other_sources": [],
+   "tags": [
+    "c",
+    "embedded"
+   ]
+  },
+  {
+   "id": "state-transition-table",
+   "name": "State Transition Table",
+   "kind": "state-management",
+   "named_in": "Design Patterns for Embedded Systems in C - Bruce Powel Douglass (2011)",
+   "named_in_corpus_id": "douglasspatternsc",
+   "other_sources": [],
+   "tags": [
+    "c",
+    "embedded"
+   ]
+  },
+  {
+   "id": "transition-to-history",
+   "name": "Transition to History",
+   "kind": "state-management",
+   "named_in": "Practical UML Statecharts in C/C++, 2nd ed. - Miro Samek (2008)",
+   "named_in_corpus_id": "samekbook",
+   "other_sources": [],
+   "tags": [
+    "embedded",
+    "statecharts"
+   ]
+  },
+  {
+   "id": "ultimate-hook",
+   "name": "Ultimate Hook",
+   "kind": "state-management",
+   "named_in": "Practical UML Statecharts in C/C++, 2nd ed. - Miro Samek (2008)",
+   "named_in_corpus_id": "samekbook",
+   "other_sources": [],
+   "tags": [
+    "embedded",
+    "statecharts"
+   ]
+  },
+  {
+   "id": "undo-redo-command-stack",
+   "name": "Undo/Redo Command Stack",
+   "kind": "state-management",
+   "named_in": "Design Patterns - Gamma, Helm, Johnson, Vlissides (1994), Command: undo/redo via command history",
+   "named_in_corpus_id": "gof",
+   "other_sources": [],
+   "tags": [
+    "ui",
+    "oo",
+    "borderline"
+   ]
+  }
+ ]
+}

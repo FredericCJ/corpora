@@ -1,0 +1,521 @@
+{
+  "scout": "parsing-serial",
+  "elements": [
+    {
+      "id": "lexer",
+      "name": "Lexer",
+      "aka": ["lexical analyzer", "tokenizer", "scanner"],
+      "kind": "parsing-text",
+      "what": "A component that converts a raw character stream into a stream of classified tokens (identifiers, literals, operators), usually via maximal-munch matching driven by a finite automaton or hand-written switch.",
+      "problem": "Parsing directly over characters entangles grammar logic with whitespace, comments, and literal syntax; a separate tokenization stage gives the parser a clean, higher-level symbol stream.",
+      "named_in": "Compilers: Principles, Techniques, and Tools (Dragon Book) - Aho, Lam, Sethi, Ullman (2006, 2nd ed.)",
+      "named_in_corpus_id": null,
+      "tags": ["compilers", "interpreters", "text-processing"],
+      "borderline": null,
+      "confidence": "established"
+    },
+    {
+      "id": "recursive-descent-parser",
+      "name": "Recursive Descent Parser",
+      "aka": ["predictive parser (LL(1) special case)"],
+      "kind": "parsing-text",
+      "what": "A top-down parser written as a set of mutually recursive procedures, one per grammar nonterminal, each consuming the tokens its rule derives.",
+      "problem": "Table-driven parsing machinery is heavyweight and opaque; mapping grammar rules directly onto call structure yields a parser that is hand-writable, debuggable, and easy to extend with good error messages.",
+      "named_in": "Compilers: Principles, Techniques, and Tools (Dragon Book) - Aho, Lam, Sethi, Ullman (2006, 2nd ed.)",
+      "named_in_corpus_id": null,
+      "tags": ["compilers", "interpreters"],
+      "borderline": null,
+      "confidence": "established"
+    },
+    {
+      "id": "pratt-parser",
+      "name": "Pratt Parser",
+      "aka": ["top-down operator precedence parser", "operator-precedence parser", "precedence climbing"],
+      "kind": "parsing-text",
+      "what": "An expression parser that associates binding powers and parse functions (prefix/infix handlers) with token types, looping on precedence instead of encoding one grammar level per function.",
+      "problem": "Pure recursive descent needs one procedure per precedence level and deep recursion for expression grammars; driving the parse by token binding power handles arbitrary operators, precedence, and associativity in one compact loop.",
+      "named_in": "Top Down Operator Precedence - Vaughan Pratt (1973)",
+      "named_in_corpus_id": null,
+      "tags": ["compilers", "interpreters", "expressions"],
+      "borderline": null,
+      "confidence": "established"
+    },
+    {
+      "id": "parser-combinator",
+      "name": "Parser Combinator",
+      "aka": ["combinator parsing", "monadic parser"],
+      "kind": "parsing-text",
+      "what": "Parsers built as first-class functions composed by higher-order combinators (sequence, choice, repetition) so the executable parser mirrors the grammar.",
+      "problem": "External parser generators impose a separate toolchain and grammar language; combinators keep the grammar as ordinary host-language code, composable, testable, and extensible with custom combinators.",
+      "named_in": "Monadic Parser Combinators - Hutton, Meijer (1996)",
+      "named_in_corpus_id": null,
+      "tags": ["functional", "haskell", "text-processing"],
+      "borderline": null,
+      "confidence": "established"
+    },
+    {
+      "id": "packrat-parsing",
+      "name": "Packrat Parsing",
+      "aka": ["PEG parsing", "memoized recursive descent", "parsing expression grammar parser"],
+      "kind": "parsing-text",
+      "what": "Recursive descent over a parsing expression grammar (ordered choice, unlimited lookahead) with per-position memoization of intermediate results, giving linear-time parsing despite backtracking.",
+      "problem": "Backtracking parsers can go exponential re-parsing the same input; memoizing every (rule, position) result trades memory for guaranteed linear time and lets PEGs stay composable and unambiguous.",
+      "named_in": "Packrat Parsing: Simple, Powerful, Lazy, Linear Time - Bryan Ford (2002)",
+      "named_in_corpus_id": null,
+      "tags": ["compilers", "borderline"],
+      "borderline": "The PEG formalism itself is grammar notation (excluded as notation); packrat parsing is the implementable memoized-parsing mechanism and is kept.",
+      "confidence": "established"
+    },
+    {
+      "id": "abstract-syntax-tree",
+      "name": "Abstract Syntax Tree",
+      "aka": ["AST", "syntax tree"],
+      "kind": "parsing-text",
+      "what": "A tree representation of parsed input that keeps semantic structure (operators, operands, constructs) while dropping concrete-syntax artifacts like punctuation and grouping tokens.",
+      "problem": "Later stages (analysis, interpretation, code generation, refactoring) need to traverse program structure repeatedly; a purpose-built tree decouples them from surface syntax and token order.",
+      "named_in": "Compilers: Principles, Techniques, and Tools (Dragon Book) - Aho, Lam, Sethi, Ullman (2006, 2nd ed.)",
+      "named_in_corpus_id": null,
+      "tags": ["compilers", "interpreters", "tooling"],
+      "borderline": null,
+      "confidence": "established"
+    },
+    {
+      "id": "symbol-table",
+      "name": "Symbol Table",
+      "aka": ["scope table", "environment (interpreter environments)"],
+      "kind": "parsing-text",
+      "what": "A map from names to their declarations/attributes (type, storage, scope), typically organized as a stack or chain of per-scope tables to resolve lexically scoped lookups.",
+      "problem": "Compilers and interpreters must connect every use of a name to the right declaration under nesting and shadowing; a scoped name-to-binding structure centralizes resolution and attribute storage.",
+      "named_in": "Compilers: Principles, Techniques, and Tools (Dragon Book) - Aho, Lam, Sethi, Ullman (2006, 2nd ed.)",
+      "named_in_corpus_id": null,
+      "tags": ["compilers", "interpreters"],
+      "borderline": null,
+      "confidence": "established"
+    },
+    {
+      "id": "string-interning",
+      "name": "String Interning",
+      "aka": ["interning", "atom table", "symbol interning"],
+      "kind": "caching-memoization",
+      "what": "Storing exactly one canonical copy of each distinct string in a pool so that equal strings share identity and comparisons reduce to pointer/handle equality.",
+      "problem": "Programs that handle many repeated strings (identifiers, keys, symbols) waste memory on duplicates and time on character-wise comparison; interning makes equality O(1) and deduplicates storage.",
+      "named_in": "Crafting Interpreters - Robert Nystrom (2021)",
+      "named_in_corpus_id": null,
+      "tags": ["interpreters", "compilers", "memory"],
+      "borderline": null,
+      "confidence": "established"
+    },
+    {
+      "id": "tree-walking-interpreter",
+      "name": "Tree-Walking Interpreter",
+      "aka": ["AST interpreter", "tree-walk interpreter"],
+      "kind": "parsing-text",
+      "what": "An interpreter that executes a program by recursively traversing its abstract syntax tree, evaluating each node directly against a runtime environment.",
+      "problem": "Compiling to another representation costs implementation effort; evaluating the AST directly is the simplest correct execution strategy and keeps the interpreter structurally isomorphic to the language grammar, at the cost of dispatch overhead.",
+      "named_in": "Crafting Interpreters - Robert Nystrom (2021)",
+      "named_in_corpus_id": null,
+      "tags": ["interpreters", "languages"],
+      "borderline": null,
+      "confidence": "established"
+    },
+    {
+      "id": "bytecode-virtual-machine",
+      "name": "Bytecode Virtual Machine",
+      "aka": ["bytecode interpreter", "VM", "stack machine / register machine (implementation variants)"],
+      "kind": "execution-concurrency",
+      "what": "An interpreter that first compiles source to a compact linear instruction encoding (bytecode) and then executes it in a dispatch loop over a virtual instruction set, usually with an operand stack or virtual registers.",
+      "problem": "Tree walking pays pointer-chasing and dynamic-dispatch costs on every node visit; a dense linear instruction stream improves locality and dispatch speed while remaining portable across host platforms.",
+      "named_in": "Crafting Interpreters - Robert Nystrom (2021)",
+      "named_in_corpus_id": null,
+      "tags": ["interpreters", "languages", "games"],
+      "borderline": null,
+      "confidence": "established"
+    },
+    {
+      "id": "threaded-code",
+      "name": "Threaded Code",
+      "aka": ["direct threading", "indirect threading", "computed-goto dispatch"],
+      "kind": "execution-concurrency",
+      "what": "An interpreter code representation where the program is a sequence of addresses of operation routines, each routine jumping directly to the next, eliminating a central decode-dispatch loop.",
+      "problem": "A switch-based dispatch loop pays a decode branch per instruction and defeats branch prediction; threading the code through direct jumps cuts dispatch overhead and code size, historically crucial on memory-constrained machines (Forth).",
+      "named_in": "Threaded Code - James R. Bell, Communications of the ACM (1973)",
+      "named_in_corpus_id": null,
+      "tags": ["interpreters", "forth", "embedded", "performance"],
+      "borderline": null,
+      "confidence": "spot-checked"
+    },
+    {
+      "id": "panic-mode-error-recovery",
+      "name": "Panic-Mode Error Recovery",
+      "aka": ["error synchronization", "synchronizing tokens", "error productions (related technique)"],
+      "kind": "parsing-text",
+      "what": "On a syntax error, the parser discards input tokens until it reaches a designated synchronizing token (statement end, closing brace), then resumes parsing to report further errors in one pass.",
+      "problem": "Stopping at the first syntax error forces users into fix-one-recompile cycles, while naive continuation produces error cascades; synchronizing at stable grammar boundaries yields multiple meaningful diagnostics per run.",
+      "named_in": "Compilers: Principles, Techniques, and Tools (Dragon Book) - Aho, Lam, Sethi, Ullman (2006, 2nd ed.)",
+      "named_in_corpus_id": null,
+      "tags": ["compilers", "interpreters", "error-handling"],
+      "borderline": null,
+      "confidence": "established"
+    },
+    {
+      "id": "regular-expressions",
+      "name": "Regular Expressions",
+      "aka": ["regex", "regexp", "pattern matching over text"],
+      "kind": "parsing-text",
+      "what": "A declarative pattern notation for regular languages, compiled to a finite automaton (NFA/DFA) or backtracking matcher, used to search, validate, split, and rewrite text.",
+      "problem": "Hand-coding character-by-character scanning logic for each text pattern is verbose and error-prone; a compiled pattern language expresses match logic declaratively and reuses one matching engine.",
+      "named_in": "Regular Expression Search Algorithm - Ken Thompson, Communications of the ACM (1968)",
+      "named_in_corpus_id": null,
+      "tags": ["text-processing", "validation"],
+      "borderline": null,
+      "confidence": "established"
+    },
+    {
+      "id": "event-driven-parsing",
+      "name": "Event-Driven Parsing",
+      "aka": ["SAX-style parsing", "push parsing", "streaming parsing", "pull parsing (StAX variant)"],
+      "kind": "parsing-text",
+      "what": "A parser that emits a stream of callbacks/events (start-element, text, end-element) as it consumes input, instead of materializing a full document tree.",
+      "problem": "Building a complete in-memory tree (DOM-style) for large or unbounded documents costs memory proportional to the document; event streaming lets consumers process input incrementally in constant memory.",
+      "named_in": "Simple API for XML - Wikipedia (SAX, Megginson et al. 1998)",
+      "named_in_corpus_id": null,
+      "tags": ["xml", "streaming", "text-processing"],
+      "borderline": null,
+      "confidence": "established"
+    },
+    {
+      "id": "pretty-printer",
+      "name": "Pretty-Printer",
+      "aka": ["prettyprinting", "code formatter", "unparser"],
+      "kind": "parsing-text",
+      "what": "A component that renders structured data or an AST back to formatted text, choosing line breaks and indentation against a target line width using grouping/fill primitives.",
+      "problem": "Emitting readable text from structure requires globally consistent break and indent decisions; a layout engine over logical blocks solves this once for all output (formatters, error printers, code generators).",
+      "named_in": "Prettyprinting - Derek C. Oppen, ACM TOPLAS (1980)",
+      "named_in_corpus_id": null,
+      "tags": ["compilers", "tooling", "text-processing"],
+      "borderline": null,
+      "confidence": "spot-checked"
+    },
+    {
+      "id": "read-eval-print-loop",
+      "name": "Read-Eval-Print Loop",
+      "aka": ["REPL", "interactive interpreter", "language shell"],
+      "kind": "parsing-text",
+      "what": "An interactive loop that reads one expression from the user, evaluates it in a persistent environment, prints the result, and repeats.",
+      "problem": "Batch compile-run cycles make exploration and debugging slow; an incremental read-evaluate loop with persistent state gives immediate feedback and interactive program construction.",
+      "named_in": "Read-eval-print loop - Wikipedia (term from the Lisp tradition)",
+      "named_in_corpus_id": null,
+      "tags": ["interpreters", "lisp", "tooling"],
+      "borderline": null,
+      "confidence": "established"
+    },
+    {
+      "id": "escape-sequence",
+      "name": "Escape Sequence",
+      "aka": ["character escaping", "escape character", "entity encoding (HTML/XML variant)"],
+      "kind": "parsing-text",
+      "what": "Representing characters that are unrepresentable or syntactically significant in a textual context by a marker character followed by an encoded form (\\n, \\\", &lt;), with matching unescaping on read.",
+      "problem": "Embedding arbitrary text inside delimited syntax (string literals, markup, CSV) collides with the delimiters themselves; a reserved escape marker makes any character representable, at the cost of escaping the marker too.",
+      "named_in": "Escape sequence - Wikipedia; escape sequences defined in ISO/IEC 9899 (C standard)",
+      "named_in_corpus_id": null,
+      "tags": ["text-processing", "security"],
+      "borderline": null,
+      "confidence": "established"
+    },
+    {
+      "id": "length-prefix-framing",
+      "name": "Length-Prefix Framing",
+      "aka": ["length-delimited encoding", "length field framing", "netstring", "Pascal string (length-prefixed string)"],
+      "kind": "serialization-framing",
+      "what": "Prefixing each message or field with its byte length so a receiver knows exactly how many bytes to read, delimiting records in a byte stream without inspecting payload content.",
+      "problem": "Byte streams (TCP, files, UARTs) have no message boundaries; an explicit length header restores boundaries with zero payload transformation, allowing binary-transparent payloads and preallocated reads.",
+      "named_in": "Protocol Buffers Encoding documentation - Google (living; 'length prefixes' / LEN wire type)",
+      "named_in_corpus_id": null,
+      "tags": ["networking", "embedded", "binary-protocols"],
+      "borderline": null,
+      "confidence": "spot-checked"
+    },
+    {
+      "id": "byte-stuffing",
+      "name": "Byte Stuffing",
+      "aka": ["character stuffing", "delimiter framing with escaping", "SLIP ESC framing", "HDLC byte stuffing"],
+      "kind": "serialization-framing",
+      "what": "Framing messages with a reserved delimiter byte (e.g. SLIP END 0xC0) and escaping any payload occurrence of the delimiter or escape byte via a substitution sequence, reversed on receive.",
+      "problem": "A delimiter-based frame boundary breaks when the delimiter value appears in binary payload; stuffing/escaping preserves binary transparency while keeping the receiver's resynchronization trivially simple after corruption.",
+      "named_in": "RFC 1055 - Nonstandard for Transmission of IP Datagrams over Serial Lines: SLIP - Romkey (1988)",
+      "named_in_corpus_id": null,
+      "tags": ["embedded", "networking", "serial", "c"],
+      "borderline": null,
+      "confidence": "established"
+    },
+    {
+      "id": "consistent-overhead-byte-stuffing",
+      "name": "Consistent Overhead Byte Stuffing",
+      "aka": ["COBS"],
+      "kind": "serialization-framing",
+      "what": "A byte-stuffing scheme that eliminates the delimiter byte (zero) from payloads by rewriting runs as (offset-to-next-zero, data) groups, bounding framing overhead to one byte per 254 payload bytes.",
+      "problem": "Classic escaping can double packet size in the worst case, which breaks fixed buffer and bandwidth budgets; COBS guarantees near-constant, tightly bounded overhead regardless of payload content.",
+      "named_in": "Consistent Overhead Byte Stuffing - Cheshire, Baker, IEEE/ACM Transactions on Networking (1999)",
+      "named_in_corpus_id": null,
+      "tags": ["embedded", "networking", "serial", "c"],
+      "borderline": null,
+      "confidence": "established"
+    },
+    {
+      "id": "bit-stuffing",
+      "name": "Bit Stuffing",
+      "aka": ["zero-bit insertion", "HDLC bit stuffing"],
+      "kind": "serialization-framing",
+      "what": "Inserting a 0 bit after every run of five consecutive 1 bits in payload so the flag pattern 01111110 can never occur inside a frame; the receiver removes stuffed bits.",
+      "problem": "Bit-level protocols (HDLC, CAN) delimit frames with a unique bit pattern and need clock-recovery transitions; stuffing guarantees the flag's uniqueness and bounds run lengths for synchronization.",
+      "named_in": "Computer Networks - Tanenbaum, Wetherall (2011, 5th ed.); mechanism defined in ISO/IEC 13239 (HDLC)",
+      "named_in_corpus_id": null,
+      "tags": ["embedded", "networking", "datalink", "can-bus"],
+      "borderline": null,
+      "confidence": "established"
+    },
+    {
+      "id": "sync-word",
+      "name": "Sync Word",
+      "aka": ["syncword", "preamble", "start-of-frame delimiter", "sync character", "training sequence"],
+      "kind": "serialization-framing",
+      "what": "A known byte/bit sequence placed at the start of each frame that a receiver scans for to acquire frame (and sometimes clock) alignment in an undifferentiated stream.",
+      "problem": "A receiver joining or resynchronizing mid-stream has no idea where frames begin; a recognizable, low-false-positive marker sequence lets it lock onto boundaries and recover after corruption.",
+      "named_in": "Syncword - Wikipedia",
+      "named_in_corpus_id": null,
+      "tags": ["embedded", "networking", "serial", "wireless"],
+      "borderline": null,
+      "confidence": "spot-checked"
+    },
+    {
+      "id": "type-length-value",
+      "name": "Type-Length-Value Encoding",
+      "aka": ["TLV", "tag-length-value", "KLV (key-length-value)", "identifier-length-contents (ASN.1 BER)"],
+      "kind": "serialization-framing",
+      "what": "Encoding each data item as a type/tag code, a byte length, and the value bytes, so records are self-describing enough to be skipped, reordered, or extended without a shared positional layout.",
+      "problem": "Fixed positional layouts break when fields are added or when readers meet unknown fields; TLV lets old readers skip unknown types by length and lets messages carry optional fields sparsely.",
+      "named_in": "ITU-T X.690 - ASN.1 Basic Encoding Rules (BER/CER/DER); Type-length-value - Wikipedia",
+      "named_in_corpus_id": null,
+      "tags": ["networking", "embedded", "binary-protocols", "smartcards"],
+      "borderline": null,
+      "confidence": "established"
+    },
+    {
+      "id": "varint",
+      "name": "Varint",
+      "aka": ["variable-length integer", "LEB128", "variable-length quantity (VLQ)", "base-128 encoding"],
+      "kind": "serialization-framing",
+      "what": "Encoding an integer in base 128 using 7 payload bits per byte with a continuation bit, so small values take one byte and the encoding is self-delimiting.",
+      "problem": "Fixed-width integer fields waste space when most values are small; a continuation-bit encoding sizes each value to its magnitude while still marking its own end without a length field.",
+      "named_in": "Protocol Buffers Encoding documentation - Google (living); LEB128 defined in the DWARF Debugging Information Format standard",
+      "named_in_corpus_id": null,
+      "tags": ["binary-protocols", "compression", "protobuf", "wasm"],
+      "borderline": null,
+      "confidence": "spot-checked"
+    },
+    {
+      "id": "zigzag-encoding",
+      "name": "ZigZag Encoding",
+      "aka": ["zig-zag integer encoding"],
+      "kind": "serialization-framing",
+      "what": "Mapping signed integers to unsigned by interleaving positive and negative values (p -> 2p, n -> 2|n|-1) so small-magnitude negatives encode to small unsigned values.",
+      "problem": "Two's-complement negatives have all high bits set, so they encode as maximum-length varints; zigzag remaps them so varint length tracks magnitude for both signs.",
+      "named_in": "Protocol Buffers Encoding documentation - Google (living)",
+      "named_in_corpus_id": null,
+      "tags": ["binary-protocols", "protobuf", "compression"],
+      "borderline": null,
+      "confidence": "spot-checked"
+    },
+    {
+      "id": "network-byte-order",
+      "name": "Network Byte Order Handling",
+      "aka": ["endianness conversion", "big-endian wire order", "htons/ntohl idiom", "byte swapping"],
+      "kind": "serialization-framing",
+      "what": "Fixing a single byte order (conventionally big-endian) for multi-byte values on the wire or in files, with explicit host-to-wire conversion at serialization boundaries.",
+      "problem": "Hosts of different endianness reinterpret the same bytes as different numbers; declaring one canonical wire order and converting at the edges makes binary formats portable across architectures.",
+      "named_in": "RFC 791 - Internet Protocol, Appendix B: Data Transmission Order (1981)",
+      "named_in_corpus_id": null,
+      "tags": ["networking", "embedded", "c", "portability", "borderline"],
+      "borderline": "Arguably a convention plus a pair of library calls rather than a mechanism; kept because cross-endianness handling is a named, recurring design obligation in every binary format.",
+      "confidence": "established"
+    },
+    {
+      "id": "magic-number-file-signature",
+      "name": "Magic Number (File Signature)",
+      "aka": ["file signature", "magic bytes", "format identifier", "byte-order mark (text-encoding variant)"],
+      "kind": "serialization-framing",
+      "what": "A fixed constant placed at the start of a file or message (0x7F'ELF', %PDF, 0xCAFEBABE) that identifies the format independent of names or metadata, often paired with a version field.",
+      "problem": "Consumers must cheaply reject wrong or corrupted inputs before parsing and dispatch on format without trusting file extensions; a distinctive leading constant provides both checks in a few bytes.",
+      "named_in": "Magic number (programming) - Wikipedia; List of file signatures - Wikipedia",
+      "named_in_corpus_id": null,
+      "tags": ["file-formats", "binary-protocols", "robustness"],
+      "borderline": null,
+      "confidence": "established"
+    },
+    {
+      "id": "schema-evolution-field-tags",
+      "name": "Schema Evolution via Field Tags",
+      "aka": ["tagged fields", "field numbers", "forward/backward-compatible encoding"],
+      "kind": "serialization-framing",
+      "what": "Identifying each serialized field by a stable numeric tag rather than by position or name, so encoders and decoders built against different schema versions can skip unknown tags and default missing ones.",
+      "problem": "Long-lived systems must exchange data between old and new code; stable tags plus skip-by-wire-type rules give forward and backward compatibility without lockstep upgrades.",
+      "named_in": "Designing Data-Intensive Applications - Martin Kleppmann (2017), ch. 4 'Encoding and Evolution'",
+      "named_in_corpus_id": null,
+      "tags": ["binary-protocols", "protobuf", "thrift", "borderline"],
+      "borderline": "Sits between a wire-format mechanism and a data-management policy; kept because the tag-and-skip mechanism is concretely implementable and named in a canonical text.",
+      "confidence": "established"
+    },
+    {
+      "id": "delta-encoding",
+      "name": "Delta Encoding",
+      "aka": ["delta compression", "differencing", "delta timestamps"],
+      "kind": "serialization-framing",
+      "what": "Storing or transmitting values as differences from a predecessor or baseline (previous sample, previous version, base frame) instead of absolute values.",
+      "problem": "Sequences with strong local correlation (timestamps, sensor readings, file versions) carry redundant absolute magnitude; encoding differences shrinks the representation and pairs naturally with varints and RLE.",
+      "named_in": "RFC 3229 - Delta Encoding in HTTP (2002); Delta encoding - Wikipedia",
+      "named_in_corpus_id": null,
+      "tags": ["compression", "telemetry", "embedded", "databases"],
+      "borderline": null,
+      "confidence": "established"
+    },
+    {
+      "id": "run-length-encoding",
+      "name": "Run-Length Encoding",
+      "aka": ["RLE", "run-length compression"],
+      "kind": "serialization-framing",
+      "what": "Replacing runs of repeated values with a (count, value) pair, the simplest lossless compression scheme designers hand-roll for run-heavy data.",
+      "problem": "Data with long repeats (bitmaps, sparse buffers, sensor flatlines) wastes space stored literally; counting runs compresses it with trivial, allocation-free encode/decode suitable for constrained targets.",
+      "named_in": "Run-length encoding - Wikipedia (technique published by Robinson and Cherry, 1967)",
+      "named_in_corpus_id": null,
+      "tags": ["compression", "embedded", "graphics", "borderline"],
+      "borderline": "Edge of the compression-algorithm zoo (datastructures corpus territory); kept as the one run-compression element designers routinely implement inline rather than pull as a library.",
+      "confidence": "established"
+    },
+    {
+      "id": "canonical-serialization",
+      "name": "Canonical Serialization",
+      "aka": ["deterministic encoding", "distinguished encoding (DER)", "canonicalization (JSON Canonicalization Scheme)"],
+      "kind": "serialization-framing",
+      "what": "Constraining a serialization format so each abstract value has exactly one legal byte encoding (fixed key order, minimal-length integers, normalized escapes), making encodings byte-comparable.",
+      "problem": "Signing, hashing, caching, and deduplication over serialized data break when equivalent values encode differently; a canonical form makes byte equality coincide with value equality.",
+      "named_in": "ITU-T X.690 - Distinguished Encoding Rules (DER); RFC 8785 - JSON Canonicalization Scheme (2020)",
+      "named_in_corpus_id": null,
+      "tags": ["security", "cryptography", "binary-protocols", "borderline"],
+      "borderline": "A property imposed on a format as much as a mechanism; kept because named standards (DER, JCS) exist specifically to implement it and designers build encoders around it.",
+      "confidence": "established"
+    },
+    {
+      "id": "binary-to-text-encoding",
+      "name": "Binary-to-Text Encoding",
+      "aka": ["Base64", "Base32", "Base16/hex encoding", "quoted-printable", "ASCII armor"],
+      "kind": "serialization-framing",
+      "what": "Re-encoding arbitrary bytes into a restricted printable-character alphabet (e.g. 6 bits per Base64 character, with padding) so binary data can traverse text-only channels.",
+      "problem": "Many channels and formats (email, JSON, URLs, config files, logs) only carry text safely; mapping bytes onto a safe alphabet trades ~33% size overhead for lossless transport through them.",
+      "named_in": "RFC 4648 - The Base16, Base32, and Base64 Data Encodings (2006)",
+      "named_in_corpus_id": null,
+      "tags": ["text-processing", "networking", "interop"],
+      "borderline": null,
+      "confidence": "established"
+    },
+    {
+      "id": "percent-encoding",
+      "name": "Percent-Encoding",
+      "aka": ["URL encoding", "URI escaping"],
+      "kind": "serialization-framing",
+      "what": "Encoding reserved or non-ASCII octets in a URI component as a percent sign followed by two hex digits, with context-dependent reserved sets per component.",
+      "problem": "URIs use characters like '/', '?', '&' as structural delimiters, so data containing them corrupts the URI's own syntax; %XX escaping embeds arbitrary octets while preserving parseability.",
+      "named_in": "RFC 3986 - Uniform Resource Identifier (URI): Generic Syntax (2005), sec. 2.1",
+      "named_in_corpus_id": null,
+      "tags": ["web", "text-processing", "security"],
+      "borderline": null,
+      "confidence": "established"
+    },
+    {
+      "id": "chunked-transfer-encoding",
+      "name": "Chunked Transfer Encoding",
+      "aka": ["chunked transfer coding", "chunked framing"],
+      "kind": "serialization-framing",
+      "what": "Framing a stream of unknown total length as a sequence of length-prefixed chunks terminated by a zero-length chunk, optionally followed by trailers.",
+      "problem": "Length-prefix framing requires knowing the full size up front, which streaming producers cannot; per-chunk lengths plus an explicit terminator let a sender stream indefinitely while receivers still detect truncation.",
+      "named_in": "RFC 9112 - HTTP/1.1 (2022), sec. 7.1 'Chunked Transfer Coding'",
+      "named_in_corpus_id": null,
+      "tags": ["networking", "http", "streaming"],
+      "borderline": null,
+      "confidence": "established"
+    },
+    {
+      "id": "serialization-proxy",
+      "name": "Serialization Proxy",
+      "aka": ["serialization proxy pattern"],
+      "kind": "serialization-framing",
+      "what": "Serializing a logical snapshot object (the proxy) in place of the real object, reconstructing the real object through its public constructors on deserialization.",
+      "problem": "Serializing an object's physical representation bypasses constructors and invariant checks, creating fragility and attack surface; a proxy confines the serialized form to a stable logical state and re-runs validation on read.",
+      "named_in": "Effective Java - Joshua Bloch (2018, 3rd ed.), Item 90",
+      "named_in_corpus_id": null,
+      "tags": ["java", "oo", "security"],
+      "borderline": null,
+      "confidence": "established"
+    }
+  ],
+  "parked_architecture": [
+    {
+      "name": "Compilation pipeline (multi-pass compiler structure)",
+      "why": "The lexer->parser->analyzer->codegen decomposition is a whole-program pipes-and-filters structure - system-level shape, not a single implementable mechanism; its stages (lexer, parser, AST) are cataloged as elements."
+    },
+    {
+      "name": "Protocol layering / encapsulation stack",
+      "why": "Nesting each layer's PDU inside the next (headers-around-payload) is a system structuring principle for communication stacks; the per-layer framing mechanisms (stuffing, TLV, length prefixes) are the design-level elements."
+    },
+    {
+      "name": "Interface definition language / schema-first contract (IDL)",
+      "why": "Generating serializers from a shared schema contract (protobuf .proto, ASN.1, CORBA IDL) is a cross-component contract-and-toolchain structure; the wire mechanisms it emits are cataloged individually."
+    }
+  ],
+  "excluded_notable": [
+    {
+      "name": "LR / LALR / LL table-driven, Earley, GLR parsing algorithms",
+      "why": "Algorithm-variant zoo (datastructures corpus territory); recursive descent and Pratt carry the design-building-block roles per the no-variant-enumeration rule."
+    },
+    {
+      "name": "Shunting-yard algorithm",
+      "why": "A specific stack-based infix-to-postfix algorithm; the design-level role (operator-precedence expression parsing) is carried by the Pratt parser entry."
+    },
+    {
+      "name": "BNF / EBNF / PEG grammar notation",
+      "why": "Specification notation, not an implementable mechanism; the implementable side of PEG is kept as packrat parsing."
+    },
+    {
+      "name": "Parser generator (yacc, ANTLR)",
+      "why": "A build-time tool/practice rather than an in-program mechanism; fails the altitude test sideways into tooling."
+    },
+    {
+      "name": "Interpreter and Visitor (GoF patterns)",
+      "why": "Canonically GoF-named; deferred to the oo-patterns scout to keep GoF names in one place (Visitor is the standard AST-traversal realization)."
+    },
+    {
+      "name": "UTF-8 and character encodings",
+      "why": "Standardized data formats rather than reusable design mechanisms; the byte-order mark is noted as an aka under magic number."
+    },
+    {
+      "name": "Checksum / CRC / frame check sequence trailer",
+      "why": "Integral to real framing schemes but robustness-security territory (integrity checking); expected from that scout - flagged so the framing-integrity pairing is not lost."
+    },
+    {
+      "name": "printf-style format strings",
+      "why": "Library/language feature near the raw-syntax floor; the general structured-output mechanism is covered by the pretty-printer entry."
+    },
+    {
+      "name": "Off-side rule (significant indentation)",
+      "why": "A grammar convention (Landin 1966); its implementation is an INDENT/DEDENT tokenization variant inside the lexer element."
+    },
+    {
+      "name": "Intermediate representation (IR)",
+      "why": "A broad compiler-internal concept spanning many concrete forms; the concrete recurring elements (AST, bytecode) are cataloged instead."
+    },
+    {
+      "name": "Maximal munch (longest-match lexing rule)",
+      "why": "A disambiguation rule inside the lexer mechanism, not a standalone element; noted here so the name is preserved."
+    }
+  ],
+  "notes": "Charter covered: all named parsing items (recursive descent, Pratt, combinators, lexer, AST, symbol table, interning, packrat/PEG, tree-walking interpreter, bytecode VM) and all named framing/encoding items (length-prefix, byte stuffing, COBS, TLV, varint, zigzag, endianness, magic number, field tags, delta, RLE, canonical serialization). Extensions beyond the charter list: threaded code (Bell 1973), panic-mode recovery, regular expressions, event-driven/SAX parsing, pretty-printer (Oppen 1980), REPL, escape sequence, bit stuffing, sync word, binary-to-text (Base64), percent-encoding, chunked transfer encoding, serialization proxy (Bloch). Axis split: 12 parsing-text, 20 serialization-framing, 2 execution-concurrency (bytecode VM, threaded code), 1 caching-memoization (string interning). Overlaps flagged: bytecode VM also in games scout charter (Nystrom); CRC/checksums left to robustness scout; GoF Interpreter/Visitor left to oo-patterns scout; null-terminated string (in-memory sentinel delimiting) assumed with the data-representation/error-handling scouts. Spot-checks this session: Oppen Prettyprinting (ACM DL), Bell Threaded Code (ACM DL), Wikipedia Syncword, protobuf encoding docs (varint/ZigZag/length-prefix naming confirmed live). Thin spots: text-processing beyond parsing (collation, tokenization for search, template engines) intentionally untouched - unclear charter ownership; compression beyond RLE/delta deliberately excluded as algorithmics zoo; no corpus works matched as naming sources (Dragon Book, Crafting Interpreters, the framing RFCs and protobuf docs are absent from work_ids.tsv - Phase 2 will need them as new nodes)."
+}

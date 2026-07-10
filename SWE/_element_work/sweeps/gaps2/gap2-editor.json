@@ -1,0 +1,51 @@
+{
+ "scout": "gap2-editor",
+ "elements": [
+  {
+   "id": "gc-read-barrier",
+   "name": "GC Read Barrier",
+   "aka": [
+    "read barrier",
+    "load barrier"
+   ],
+   "kind": "resource-management",
+   "what": "A small check or fixup executed on every (or selected) pointer load so a concurrent or moving collector can intercept reads of stale or unforwarded references.",
+   "problem": "Concurrent and moving garbage collectors must keep the mutator from observing objects mid-move or mid-mark; intercepting reads lets the collector repair or redirect references lazily.",
+   "named_in": "The Garbage Collection Handbook — Jones, Hosking, Moss (2011)",
+   "named_in_corpus_id": null,
+   "tags": [
+    "runtime",
+    "gc"
+   ],
+   "borderline": null,
+   "confidence": "established"
+  },
+  {
+   "id": "test-fixture",
+   "name": "Test Fixture",
+   "aka": [
+    "Fresh Fixture",
+    "Shared Fixture",
+    "fixture setup"
+   ],
+   "kind": "testing-constructs",
+   "what": "The arranged pre-test state (objects, data, environment) a test depends on, built fresh per test or shared across tests under an explicit strategy.",
+   "problem": "Tests need a known starting state that is cheap to build, isolated enough to prevent inter-test coupling, and expressive enough to read; fixture strategy is the named design decision governing that trade-off.",
+   "named_in": "xUnit Test Patterns: Refactoring Test Code — Gerard Meszaros (2007)",
+   "named_in_corpus_id": null,
+   "tags": [
+    "testing"
+   ],
+   "borderline": null,
+   "confidence": "established"
+  }
+ ],
+ "parked_architecture": [],
+ "excluded_notable": [
+  {
+   "name": "EWMA / median smoothing filters",
+   "why": "established and absent, but declined under the algorithm-zoo rule - would open the DSP filter family; datastructures/numerics corpus territory (flagged by embedded3 hunter, editor concurs)"
+  }
+ ],
+ "notes": "editor adjudications following round-3 hunter flags"
+}

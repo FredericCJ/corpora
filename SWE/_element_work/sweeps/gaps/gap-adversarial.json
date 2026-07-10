@@ -1,0 +1,273 @@
+{
+  "scout": "gap-adversarial",
+  "elements": [
+    {
+      "id": "feature-flag",
+      "name": "Feature Flag",
+      "aka": ["feature toggle", "feature switch", "toggle point", "toggle router", "release toggle / ops toggle / experiment toggle / permission toggle (variants)"],
+      "kind": "code-structure",
+      "what": "A conditional branch point (toggle point) whose path is selected at runtime by a toggle router reading external toggle configuration, so a feature can be enabled or disabled without redeploying code.",
+      "problem": "Shipping latent or incomplete features, decoupling deployment from release, kill switches, and experiments all require switching code paths at runtime instead of maintaining long-lived branches.",
+      "named_in": "Hodgson, 'Feature Toggles (aka Feature Flags)', martinfowler.com, 2017 (verified live; names toggle point, toggle router, toggle configuration)",
+      "named_in_corpus_id": null,
+      "tags": ["configuration", "deployment", "web", "services"],
+      "borderline": null,
+      "confidence": "spot-checked"
+    },
+    {
+      "id": "inline-caching",
+      "name": "Inline Caching",
+      "aka": ["monomorphic inline cache", "polymorphic inline cache", "PIC", "megamorphic cache (degenerate case)"],
+      "kind": "caching-memoization",
+      "what": "Caches the result of dynamic method/property lookup at each individual call site (classically by patching the call instruction itself), so repeated dispatch at that site becomes a type-guard check plus a direct jump.",
+      "problem": "Dynamic dispatch and dynamic-language attribute lookup are expensive, but call sites are overwhelmingly type-stable in practice; per-site caching exploits that stability.",
+      "named_in": "Deutsch & Schiffman, 'Efficient Implementation of the Smalltalk-80 System' (POPL 1984); Hölzle, Chambers & Ungar, 'Optimizing Dynamically-Typed Object-Oriented Languages With Polymorphic Inline Caches' (ECOOP 1991)",
+      "named_in_corpus_id": null,
+      "tags": ["interpreters", "virtual machines", "language runtimes"],
+      "borderline": null,
+      "confidence": "established"
+    },
+    {
+      "id": "pointer-tagging",
+      "name": "Pointer Tagging",
+      "aka": ["tagged pointer", "tag bits", "immediate values", "small-integer tagging (Smi)", "NaN-boxing (NaN-payload variant)", "NuN-boxing / pointer boxing (variants)"],
+      "kind": "data-representation",
+      "what": "Encodes type or other metadata in otherwise-unused bits of a pointer-sized word (low alignment bits, high address bits, or unused NaN payload space), so small values carry their own type tag and need no heap allocation.",
+      "problem": "Dynamic-language runtimes must represent values of many types uniformly and compactly; boxing every integer or float on the heap costs allocation, indirection, and GC pressure.",
+      "named_in": "Gudeman, 'Representing Type Information in Dynamically Typed Languages', Univ. of Arizona TR 93-27, 1993 (canonical survey; verified via live search this session)",
+      "named_in_corpus_id": null,
+      "tags": ["interpreters", "virtual machines", "language runtimes"],
+      "borderline": "index's reference-counting entry lists 'ABA Mitigation via Tagged Pointer' as an aka — that is a different mechanism (version bits for ABA), not type tagging; no dedup conflict",
+      "confidence": "spot-checked"
+    },
+    {
+      "id": "pointer-swizzling",
+      "name": "Pointer Swizzling",
+      "aka": ["swizzling", "unswizzling (inverse)", "swizzling at page-fault time (eager variant)", "lazy swizzling"],
+      "kind": "data-representation",
+      "what": "Converts persistent references (file offsets, object IDs, page-relative addresses) into raw in-memory pointers when data is loaded, and back again on write-out.",
+      "problem": "Persisted or memory-mapped object graphs cannot store raw virtual addresses; following offset-based references on every access is slow, so references are rewritten to native pointers while resident.",
+      "named_in": "Wilson & Kakkad, 'Pointer Swizzling at Page Fault Time' (1992); Moss, 'Working with Persistent Objects: To Swizzle or Not to Swizzle' (IEEE TSE, 1992)",
+      "named_in_corpus_id": null,
+      "tags": ["databases", "persistence", "object stores", "memory-mapped data"],
+      "borderline": null,
+      "confidence": "established"
+    },
+    {
+      "id": "tombstone",
+      "name": "Tombstone",
+      "aka": ["deletion marker", "delete marker", "timestamped deletion record"],
+      "kind": "persistence-durability",
+      "what": "A persisted marker record written in place of an actual deletion in append-only or replicated storage, treated as a write that shadows earlier data and purged later by compaction after a grace period.",
+      "problem": "Log-structured and replicated stores cannot delete in place; without an explicit durable marker, deleted data resurrects from older segments or from replicas that missed the delete.",
+      "named_in": "Apache Cassandra documentation, 'Tombstones' (verified live); Kleppmann, Designing Data-Intensive Applications (log compaction chapter)",
+      "named_in_corpus_id": null,
+      "tags": ["databases", "storage engines", "LSM", "replication"],
+      "borderline": null,
+      "confidence": "spot-checked"
+    },
+    {
+      "id": "event-time-watermark",
+      "name": "Watermark (Event-Time)",
+      "aka": ["low watermark", "event-time watermark", "perfect watermark / heuristic watermark (variants)", "watermark propagation"],
+      "kind": "data-flow-buffering",
+      "what": "A monotonic progress signal flowing through a stream processor asserting that no events with timestamps older than T will arrive, used to decide when buffered event-time computations (windows, timers) are complete and may fire.",
+      "problem": "Unbounded streams arrive out of order; without a completeness signal, an operator can never know when it has seen all data for a time interval and must choose between wrong results and waiting forever.",
+      "named_in": "Akidau et al., 'The Dataflow Model' (PVLDB 8(12), 2015; verified live); also Akidau, Chernyak & Lax, Streaming Systems (O'Reilly 2018)",
+      "named_in_corpus_id": null,
+      "tags": ["stream processing", "distributed data", "time"],
+      "borderline": "mechanism inside one stream-processing engine (passes altitude test), though usually deployed in distributed pipelines",
+      "confidence": "spot-checked"
+    },
+    {
+      "id": "stream-windowing",
+      "name": "Stream Windowing",
+      "aka": ["windowing", "tumbling window", "fixed window", "sliding window", "hopping window", "session window", "window operator"],
+      "kind": "data-flow-buffering",
+      "what": "Partitions an unbounded event stream into finite time- or count-based buckets (fixed, sliding, session) that scope aggregations, with per-window state buffered until the window closes or triggers.",
+      "problem": "Aggregations over an infinite stream never terminate; windowing bounds state and computation and gives every emitted result a defined temporal scope.",
+      "named_in": "Akidau et al., 'The Dataflow Model' (PVLDB 2015; formal windowing model, verified live); window constructs also in CQL (Arasu, Babu & Widom, VLDB Journal 2006)",
+      "named_in_corpus_id": null,
+      "tags": ["stream processing", "distributed data"],
+      "borderline": "distinct from index entries sliding-window-flow-control (protocol ARQ) and sliding-window-rate-limiting (rate limiter) and list-virtualization's UI 'windowing'",
+      "confidence": "spot-checked"
+    },
+    {
+      "id": "property-based-testing",
+      "name": "Property-Based Testing",
+      "aka": ["QuickCheck-style testing", "generative testing", "property testing", "random testing with shrinking", "generators and shrinkers"],
+      "kind": "testing-constructs",
+      "what": "Tests state universally quantified properties of the code; a harness draws random inputs from composable generators, checks the property, and shrinks any failing input to a minimal counterexample.",
+      "problem": "Example-based tests only cover cases the author imagined; executable properties plus generated inputs explore the input space systematically and document intended laws of the API.",
+      "named_in": "Claessen & Hughes, 'QuickCheck: A Lightweight Tool for Random Testing of Haskell Programs' (ICFP 2000)",
+      "named_in_corpus_id": null,
+      "tags": ["testing", "functional programming heritage, now cross-language (Hypothesis, proptest, fast-check)"],
+      "borderline": null,
+      "confidence": "established"
+    },
+    {
+      "id": "golden-master-testing",
+      "name": "Golden Master Testing",
+      "aka": ["approval testing", "snapshot testing", "characterization testing (legacy-code framing)", "reference-output testing", "golden file testing"],
+      "kind": "testing-constructs",
+      "what": "Captures the complete observed output of the system under test as a stored reference artifact (the golden master) and asserts that future runs reproduce it exactly, with an explicit approve-the-diff step when change is intended.",
+      "problem": "Legacy or complex-output code has no specification to assert against; recording current behavior as the oracle makes refactoring safe and turns output drift into a visible diff.",
+      "named_in": "Feathers, Working Effectively with Legacy Code (2004; 'characterization test'); ApprovalTests / approvaltests.com; 'snapshot testing' in Jest documentation (naming verified via live search this session)",
+      "named_in_corpus_id": null,
+      "tags": ["testing", "legacy code", "UI/serializer outputs"],
+      "borderline": "technique-flavored, but included on the same footing as Test Double: it is a concrete test construct (stored reference artifact + comparator + approval step), not a process practice",
+      "confidence": "spot-checked"
+    },
+    {
+      "id": "hot-code-reload",
+      "name": "Hot Code Reload",
+      "aka": ["hot code loading", "code replacement (Erlang/OTP)", "dynamic software updating (DSU)", "hot swapping", "live code reload", "edit-and-continue (IDE variant)"],
+      "kind": "code-structure",
+      "what": "Replaces a module's code in a running program, keeping old and new versions briefly coexistent and migrating state and in-flight control to the new version without a restart.",
+      "problem": "Restart-to-deploy loses process state and availability; long-running systems and interactive development need in-place replacement of code with controlled state handover.",
+      "named_in": "Erlang/OTP System Documentation, 'Code Replacement' (current/old code semantics; verified live); Hicks & Nettles, 'Dynamic Software Updating' (ACM TOPLAS 2005)",
+      "named_in_corpus_id": null,
+      "tags": ["language runtimes", "high-availability systems", "development tooling", "Erlang"],
+      "borderline": null,
+      "confidence": "spot-checked"
+    },
+    {
+      "id": "pid-controller",
+      "name": "PID Controller",
+      "aka": ["PID control loop", "proportional-integral-derivative controller", "PI / PD controller (reduced forms)", "discrete PID with anti-windup"],
+      "kind": "embedded-systems",
+      "what": "A periodic feedback loop computing an actuator command as the weighted sum of proportional, integral, and derivative terms of the setpoint error, implemented as a fixed-rate update with output clamping, integrator anti-windup, and derivative filtering.",
+      "problem": "Driving a physical process to a setpoint despite disturbances and lag needs a standard, tunable feedback structure; the discrete PID update is the established implementable one.",
+      "named_in": "Åström & Hägglund, PID Controllers: Theory, Design, and Tuning (ISA, 1995); Wescott, 'PID Without a PhD' (Embedded Systems Programming, 2000); Åström & Murray, Feedback Systems (Princeton UP)",
+      "named_in_corpus_id": null,
+      "tags": ["embedded", "control", "robotics", "borderline"],
+      "borderline": "control-theory algorithm rather than a software-structural pattern — included because embedded-software literature treats the discrete PID loop (anti-windup, derivative filtering, sample-time handling) as a named implementation-level building block a firmware designer reaches for",
+      "confidence": "established"
+    },
+    {
+      "id": "memory-poisoning",
+      "name": "Memory Poisoning",
+      "aka": ["poison values", "fill patterns", "magic debug values", "page poisoning", "slab poisoning", "0xDEADBEEF fill", "use-after-free poisoning"],
+      "kind": "robustness-security",
+      "what": "Fills freed or uninitialized memory with a recognizable poison pattern and verifies it later (on reallocation or access), so stale reads, use-after-free, and buffer overruns surface as the pattern or its corruption.",
+      "problem": "Memory-lifetime bugs are silent and nondeterministic; deterministic poison patterns make invalid accesses detectable, reproducible, and diagnosable from a crash dump.",
+      "named_in": "Linux kernel CONFIG_PAGE_POISONING and slab-poisoning documentation (verified live); also AddressSanitizer shadow-poisoning terminology (Serebryany et al., USENIX ATC 2012)",
+      "named_in_corpus_id": null,
+      "tags": ["memory debugging", "allocators", "embedded", "kernels"],
+      "borderline": "distinct from stack-painting (usage watermarking), guard-page (trapping region), and marked-data (flagging known-corrupt application data)",
+      "confidence": "spot-checked"
+    },
+    {
+      "id": "deterministic-lockstep",
+      "name": "Deterministic Lockstep",
+      "aka": ["lockstep simulation", "lockstep protocol", "input-synchronous simulation", "synchronized simulation"],
+      "kind": "state-management",
+      "what": "Peers run bit-identical deterministic simulations from the same seed and exchange only per-tick inputs; each side advances a tick only once all participants' inputs for that tick have arrived.",
+      "problem": "Replicating full simulation state across the network scales with world size; if the simulation is deterministic, synchronizing inputs alone keeps all peers' states identical at input-sized bandwidth.",
+      "named_in": "Fiedler, 'Deterministic Lockstep' (gafferongames.com; verified live); Bettner & Terrano, '1500 Archers on a 28.8: Network Programming in Age of Empires and Beyond' (GDC 2001)",
+      "named_in_corpus_id": null,
+      "tags": ["games", "simulation", "networking"],
+      "borderline": "spans peers, but included on the same footing as snapshot-interpolation: the mechanism (deterministic fixed tick + per-tick input queue gating) is implemented inside each program",
+      "confidence": "spot-checked"
+    },
+    {
+      "id": "client-side-prediction",
+      "name": "Client-Side Prediction",
+      "aka": ["prediction and reconciliation", "server reconciliation (companion mechanism)", "input prediction", "prediction with rewind-and-replay"],
+      "kind": "state-management",
+      "what": "The client applies its own inputs to a locally predicted copy of authoritative state immediately, tags each input with a sequence number, and on receiving authoritative server state rewinds to it and replays still-unacknowledged inputs.",
+      "problem": "Waiting a full round trip for server-authoritative state makes controls feel laggy; predicting locally and reconciling against authoritative updates hides latency while keeping the server authoritative.",
+      "named_in": "Bernier, 'Latency Compensating Methods in Client/Server In-game Protocol Design and Optimization' (GDC 2001, Valve); Gambetta, 'Client-Side Prediction and Server Reconciliation' (verified live)",
+      "named_in_corpus_id": null,
+      "tags": ["games", "networking", "UI-latency cousin: optimistic-ui-update (already in index, distinct mechanism)"],
+      "borderline": null,
+      "confidence": "spot-checked"
+    },
+    {
+      "id": "kahan-summation",
+      "name": "Kahan Summation",
+      "aka": ["compensated summation", "Kahan summation algorithm", "Kahan-Babuška summation (variant)", "Neumaier summation (variant)"],
+      "kind": "numeric-precision",
+      "what": "Accumulates a floating-point sum together with a running compensation term that captures the low-order bits lost by each addition, keeping total rounding error near machine epsilon instead of growing with n.",
+      "problem": "Naively summing many floating-point values accumulates rounding error proportional to the number of terms; compensated summation restores accuracy without resorting to wider arithmetic.",
+      "named_in": "Goldberg, 'What Every Computer Scientist Should Know About Floating-Point Arithmetic' (ACM Computing Surveys 1991; 'Kahan Summation Formula', Thm. 8); Higham, Accuracy and Stability of Numerical Algorithms (SIAM)",
+      "named_in_corpus_id": null,
+      "tags": ["scientific computing", "numerics"],
+      "borderline": "single named algorithm — included as the canonical designer-level mechanism of the numeric-precision axis (same footing as CRC), not an algorithmics-zoo variant",
+      "confidence": "established"
+    }
+  ],
+  "parked_architecture": [
+    {
+      "name": "Health Check API",
+      "why": "Richardson (microservices.io) names it, but it is a service-topology observability endpoint contract, not an in-program mechanism; belongs in the Phase 3 architecture realm."
+    },
+    {
+      "name": "Transactional Outbox",
+      "why": "Reliable event publication across a database + broker boundary; inherently a multi-component reliability topology (Richardson names it); park for Phase 3."
+    },
+    {
+      "name": "Blackboard",
+      "why": "Absent from the index but POSA1 classifies it as an architectural pattern (knowledge sources + shared blackboard + control); failed the altitude test upward; ensure Phase 3 ingests it."
+    },
+    {
+      "name": "Saga",
+      "why": "Distributed long-lived transaction decomposition with compensations (Garcia-Molina & Salem 1987; Richardson); cross-service coordination topology, not an in-program element."
+    }
+  ],
+  "excluded_notable": [
+    {
+      "name": "Lock-free audio callback discipline",
+      "why": "Bencina's 'Real-time audio programming 101: time waits for nothing' is citable, but it is a real-time coding rule set (never lock/allocate/IO in the callback), i.e. practice; its mechanisms (spsc-lock-free-ring-buffer, pool-allocation) are already in the index."
+    },
+    {
+      "name": "Structured logging",
+      "why": "Established terminology, but it is an output-format convention/practice, not a distinct implementable mechanism; no catalog-grade naming source at mechanism level found. Judged hard per charter and rejected."
+    },
+    {
+      "name": "Ring-buffer / flight-recorder logging",
+      "why": "Real and widespread (kernel printk buffer, JDK Flight Recorder, embedded trace logs) but it is a composition of ring-buffer + logging with no established mechanism name independent of products; ring-buffer already in index."
+    },
+    {
+      "name": "Message catalog (i18n)",
+      "why": "POSIX catgets / GNU gettext name it, but the in-program mechanism — keyed lookup of externalized strings — folds into the existing resource-files entry (aka 'resource bundle'); i18n-specific forces (locale fallback chains, plural rules) did not justify a second mechanism entry. Judged per charter and rejected as duplicate-risk."
+    },
+    {
+      "name": "Fast path / slow path split",
+      "why": "Named usage exists (kernel literature, Wikipedia 'Fast path') but it is an optimization heuristic for shaping code, closer to practice than to a discrete mechanism."
+    },
+    {
+      "name": "Constant pool",
+      "why": "JVM-spec structure recurring across VMs (CLR metadata, CPython co_consts), but spec-internal representation detail; adjacent to symbol-table and sharing/interning already in index."
+    },
+    {
+      "name": "Metric instrument types (counter/gauge/histogram)",
+      "why": "Prometheus/OpenTelemetry name the trio, but it is an API taxonomy for telemetry libraries, not a mechanism; the underlying mechanisms (counters, sketches like t-digest) are in the index."
+    },
+    {
+      "name": "Dead reckoning",
+      "why": "Strongest near-miss cut at the 15 cap: IEEE 1278 (DIS) standardizes dead-reckoning algorithms for entity-state extrapolation; genuinely established and distinct from client-side prediction; recommend a follow-up scout adopt it."
+    },
+    {
+      "name": "Texture atlas / sprite sheet",
+      "why": "Near-miss cut at the cap: NVIDIA SDK whitepaper 'Improve Batching Using Texture Atlases' names it; naming-source grade weaker than the accepted 15; candidate for follow-up."
+    },
+    {
+      "name": "LMAX Disruptor",
+      "why": "Thompson et al. whitepaper is citable but product-tied; mechanism folds into the lock-free ring buffer family (spsc-lock-free-ring-buffer with sequence barriers)."
+    },
+    {
+      "name": "Z-buffer / depth buffer",
+      "why": "Catmull 1974 names it; judged a domain rendering algorithm co-designed with hardware rather than a software design element; honest borderline, rejected downward-domain."
+    },
+    {
+      "name": "Unix signal handler / async-signal-safety",
+      "why": "OS API plus a safety rule set, not a design element; the design-element response to it (self-pipe-trick) is already in the index."
+    },
+    {
+      "name": "Superinstructions / instruction dispatch optimizations",
+      "why": "Ertl & Gregg name them, but they are VM optimization variants under threaded-code, which the index already carries."
+    }
+  ],
+  "notes": "ADVERSARIAL GAP HUNT RESULT: 15 proposals, each verified against all 577 names+akas. Genuine thin domains found: language-runtime/VM internals (inline caching, pointer tagging, hot code reload), stream processing (entirely absent before: watermark, windowing), storage-engine deletion (tombstone), persistence loading (pointer swizzling), game networking (deterministic lockstep, client-side prediction — snapshot-interpolation was in but its two siblings were not), testing (property-based and golden-master both absent despite a testing-constructs axis), numeric-precision (Kahan), configuration (feature flag — the single most conspicuous absence), control (PID, honest borderline), memory debugging (memory poisoning, distinct from guard-page/stack-painting/marked-data). INDEX DEFECTS SPOTTED (for the merge editor): (1) 'adapter' lists 'Decorator' as an aka — wrong: Decorator is a distinct GoF pattern and has NO standalone entry in the index; GoF Decorator appears to be missing/mis-folded. (2) 'factory-method' lists 'Prototype, clone' as akas — Prototype is a distinct GoF pattern with NO standalone entry; also apparently mis-folded. These two are the only GoF patterns without their own entries. (3) setjmp-longjmp-exception-handling and setjmp-longjmp-structured-error-handling are near-duplicate entries of the same mechanism. (4) cache-eviction-policy and lru-cache overlap heavily (LRU/LFU/CLOCK/2Q/ARC listed in both akas) — consider folding. (5) byte-stuffing lists COBS in its aka while consistent-overhead-byte-stuffing is also a standalone entry, and bit-stuffing is both standalone and listed inside byte-stuffing's aka — fold direction inconsistent. (6) reference-counting's aka is a grab-bag: 'ABA Mitigation via Tagged Pointer', 'generation count', 'version counter', 'stamped reference', 'modification counter' describe version/tag counting (a distinct mechanism for ABA and invalidation detection), not reference counting. VERIFICATION: live-loaded this session — martinfowler.com feature-toggles article, gafferongames deterministic-lockstep, gambetta client-side prediction, erlang.org code-replacement docs; live-searched with confirming primary hits — Gudeman TR 93-27, Linux kernel page/slab poisoning, golden-master/characterization (Feathers), Cassandra tombstone docs, Dataflow Model PVLDB 2015. The small-yield signal is honest: most of my ~30 raw candidates were already present or failed the gate; the surviving 15 cluster in domains (VMs, streaming, game netcode, testing) the 19-scout sweep demonstrably under-covered."
+}

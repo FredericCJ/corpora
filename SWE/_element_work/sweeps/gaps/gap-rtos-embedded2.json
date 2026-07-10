@@ -1,0 +1,115 @@
+{
+  "scout": "gap-rtos-embedded2",
+  "elements": [
+    {
+      "id": "stream-buffer",
+      "name": "Stream Buffer",
+      "aka": ["message buffer (framed variant)", "FreeRTOS stream buffer", "byte stream buffer", "xStreamBuffer/xMessageBuffer"],
+      "kind": "data-flow-buffering",
+      "what": "RTOS kernel object providing a single-writer single-reader byte stream (message-buffer variant: discrete variable-length messages) with blocking send/receive and a trigger level controlling how many bytes must arrive before the reader unblocks.",
+      "problem": "Passing continuous byte data or framed messages from exactly one task/ISR to exactly one task; the single-reader/single-writer restriction permits a much lighter implementation than a general message queue while keeping blocking semantics.",
+      "named_in": "freertos.org 'RTOS Stream Buffers' (title verified live 2026-07-10); Mastering the FreeRTOS Real-Time Kernel ch. Stream and Message Buffers",
+      "named_in_corpus_id": "freertosbook",
+      "tags": ["embedded", "freertos", "rtos"],
+      "borderline": "blocking kernel-object layer over an SPSC ring buffer (cf. existing spsc-lock-free-ring-buffer); kept because trigger-level blocking byte/message-stream semantics is a distinct named kernel mechanism, not just the underlying data structure",
+      "confidence": "established"
+    },
+    {
+      "id": "direct-to-task-notification",
+      "name": "Direct-to-Task Notification",
+      "aka": ["task notification", "notification value", "thread flags (CMSIS-RTOS2 analog)", "lightweight task signal"],
+      "kind": "synchronization-coordination",
+      "what": "Each task carries built-in notification slots (a 32-bit value plus pending state) that other tasks or ISRs can set, increment, overwrite, or OR bits into, letting the task block on its own notification instead of on a separate kernel object.",
+      "problem": "Binary/counting semaphores, event flags, and one-deep mailboxes used purely to wake a single known task cost a separate kernel object and slower code paths; notifying the receiving task directly is significantly faster and uses less RAM when there is exactly one receiver.",
+      "named_in": "freertos.org 'Direct to task notifications' (title verified live 2026-07-10); Mastering the FreeRTOS Real-Time Kernel; CMSIS-RTOS2 Thread Flags API",
+      "named_in_corpus_id": "freertosbook",
+      "tags": ["embedded", "freertos", "cmsis-rtos", "rtos"],
+      "borderline": null,
+      "confidence": "established"
+    },
+    {
+      "id": "event-flags-group",
+      "name": "Event Flags Group",
+      "aka": ["event group (FreeRTOS)", "event flags (CMSIS-RTOS2, ThreadX, uC/OS)", "event register", "event set", "AND/OR flag wait"],
+      "kind": "synchronization-coordination",
+      "what": "A kernel object holding a word of boolean event bits that tasks and ISRs set or clear atomically and that tasks block on with AND/OR combinations of bits, optionally auto-clearing the bits on wake.",
+      "problem": "A task must wait for any-of or all-of several distinct conditions signaled by different tasks/ISRs; semaphores signal only a single anonymous event and compose poorly for conjunction/disjunction waits.",
+      "named_in": "freertos.org 'FreeRTOS event groups' (title verified live 2026-07-10); CMSIS-RTOS2 osEventFlags API; ThreadX event flags group; uC/OS-III event flags",
+      "named_in_corpus_id": "freertosbook",
+      "tags": ["embedded", "rtos", "cmsis-rtos"],
+      "borderline": null,
+      "confidence": "established"
+    },
+    {
+      "id": "software-timer",
+      "name": "Software Timer",
+      "aka": ["RTOS timer", "kernel timer", "timer object", "one-shot timer / auto-reload (periodic) timer", "timer service task / timer daemon"],
+      "kind": "scheduling-time",
+      "what": "Kernel facility multiplexing many logical one-shot or auto-reload callback timers onto a single hardware tick/timer, with expiry callbacks typically executed by a timer-service (daemon) task rather than in interrupt context.",
+      "problem": "Applications need many independent timed callbacks but hardware timers are scarce; a software timer layer provides unlimited cheap timers without dedicating a hardware timer or a task per delay.",
+      "named_in": "freertos.org 'FreeRTOS software timers' (title verified live 2026-07-10); CMSIS-RTOS2 osTimer API; Zephyr k_timer docs",
+      "named_in_corpus_id": "freertosbook",
+      "tags": ["embedded", "rtos"],
+      "borderline": "decision logged: index has timer-wheel, but that is an implementation data structure for large timer populations; the RTOS software-timer kernel facility (one-shot/auto-reload objects + timer daemon) is the mechanism designers name and reach for, so a separate element is warranted",
+      "confidence": "established"
+    },
+    {
+      "id": "idle-task-hook",
+      "name": "Idle Task Hook",
+      "aka": ["idle hook", "vApplicationIdleHook", "idle callback", "idle-time background processing"],
+      "kind": "scheduling-time",
+      "what": "A user callback invoked repeatedly from the RTOS idle task (the lowest-priority always-ready task), used to run work that should consume only otherwise-idle cycles: low-power sleep entry, background self-tests, stack watermark checks.",
+      "problem": "Firmware has background work and power-management actions that must run only when nothing else is runnable, without a dedicated task or any interference with real-time work.",
+      "named_in": "freertos.org 'The Idle Task and the Idle Task Hook'; Mastering the FreeRTOS Real-Time Kernel; uC/OS-II OSTaskIdleHook",
+      "named_in_corpus_id": "freertosbook",
+      "tags": ["embedded", "rtos"],
+      "borderline": "arguably just a registered callback (hook method) into the scheduler; kept because idle-context background processing is a named, recurring firmware mechanism across RTOSes (FreeRTOS idle hook, Zephyr idle thread, uC/OS idle hook) with distinct constraints (must not block)",
+      "confidence": "established"
+    },
+    {
+      "id": "flash-translation-layer",
+      "name": "Flash Translation Layer",
+      "aka": ["FTL", "logical-to-physical flash mapping", "flash mapping layer", "out-of-place flash update"],
+      "kind": "persistence-durability",
+      "what": "A firmware layer that remaps logical block writes to out-of-place physical flash pages, maintaining a logical-to-physical mapping table plus garbage collection so erase-constrained flash presents an ordinary rewritable block device.",
+      "problem": "NAND/NOR flash cannot rewrite in place and erases in large blocks with limited endurance; out-of-place remapping hides erase-before-write, enables wear leveling, and keeps a consistent mapping across power loss.",
+      "named_in": "Intel 'Understanding the Flash Translation Layer (FTL) Specification' (AP-684, 1998); Chung et al., 'A survey of Flash Translation Layer', Journal of Systems Architecture 2009",
+      "named_in_corpus_id": null,
+      "tags": ["embedded", "flash", "storage"],
+      "borderline": "composite mechanism (composes flash-wear-leveling + out-of-place update + garbage collection); kept because FTL is the established name for the mapping mechanism itself, which the existing flash-wear-leveling entry does not cover",
+      "confidence": "established"
+    }
+  ],
+  "parked_architecture": [],
+  "excluded_notable": [
+    {
+      "name": "Zephyr memory slab (k_mem_slab)",
+      "why": "Dedup: despite the name it is a fixed-size block pool, i.e. already covered by pool-allocation (aka fixed-block allocator, partition allocator). It is NOT the Bonwick object-caching slab-allocator; folding it there would be wrong. Recommend adding 'memory slab (Zephyr)' as an aka of pool-allocation."
+    },
+    {
+      "name": "Workqueue (Zephyr k_work / Linux workqueue)",
+      "why": "Dedup: same mechanism as deferred-interrupt-processing, whose aka list already contains 'work queue deferral' (plus tasklet, softirq, DPC). No new element."
+    },
+    {
+      "name": "Stack overflow detection hook (vApplicationStackOverflowHook / FreeRTOS methods 1 & 2)",
+      "why": "Dedup: the detection techniques are already covered by stack-painting-watermarking (fill-pattern check, method 2) and guard-page/MPU redzone; FreeRTOS method 1 (SP bounds check at context switch) is an implementation detail, and the hook itself is a plain callback, not a distinct mechanism."
+    },
+    {
+      "name": "Interrupt latency budgeting",
+      "why": "Practice/analysis activity (budget allocation and measurement), not an implementable in-program mechanism; fails the altitude test downward into process territory."
+    },
+    {
+      "name": "Tick hook (vApplicationTickHook)",
+      "why": "Plain periodic callback from the tick ISR; unlike the idle hook it carries no distinct execution-context semantics beyond 'callback registered in ISR context' — covered by callback + interrupt-service-routine."
+    },
+    {
+      "name": "Flash journaling / journaling filesystem",
+      "why": "Dedup: write-ahead-log already carries 'journaling' in its aka; a journaling FS is WAL applied to filesystem metadata. Power-loss-resilient update in flash is otherwise covered by copy-on-write + shadow-paging + eeprom-emulation-in-flash."
+    },
+    {
+      "name": "littlefs metadata pairs / CTZ skip-list",
+      "why": "Named only in the littlefs DESIGN.md; single-project construct names that fail the 'recurring across codebases' gate. The recurring mechanisms littlefs composes (copy-on-write, wear leveling, checksummed commit) are already in the index."
+    }
+  ],
+  "notes": "Gap-hunter rtos-embedded2. Verification: four FreeRTOS mechanism names (stream buffers, direct-to-task notifications, event groups, software timers) verified at title level on live freertos.org pages this session; FTL named in Intel AP-684 spec and the Chung et al. 2009 survey (canonical literature, not fetched). Decision log: (1) software-timer added as a kernel-facility element distinct from the existing timer-wheel implementation structure — rationale recorded in the element's borderline field. (2) Stream Buffer and Message Buffer folded into ONE element (message buffer = framed variant built on stream buffer). (3) Event Flags Group added beyond the charter's explicit list: a classic cross-RTOS primitive (FreeRTOS/ThreadX/uC-OS/CMSIS) absent from the index under any alias — checked against eventcount, reminder, latch, semaphore entries. (4) Zephyr memory slab and workqueue deliberately NOT added (dedup calls above). Flagged possible gap outside my charter: MPU-based task/memory isolation (FreeRTOS-MPU, Zephyr user mode) appears absent from the index; naming is diffuse so I did not add it — orchestrator may want a dedicated check. Index entries that look wrong/duplicated to me: (a) 'adapter' lists 'Decorator' as an aka — Decorator is a separate GoF pattern (which also appears nowhere else as its own entry except inside adapter's aka; the standalone 'decorator' element seems MISSING from the index entirely — worth an orchestrator check); (b) 'factory-method' lists 'Prototype, clone' in aka — Prototype is a distinct GoF pattern and also has no standalone entry; (c) setjmp-longjmp-exception-handling (457) and setjmp-longjmp-structured-error-handling (458) look like the same mechanism twice — merge candidate; (d) cache-eviction-policy (43) and lru-cache (276) substantially overlap (both enumerate LRU/LFU/CLOCK/2Q/ARC)."
+}

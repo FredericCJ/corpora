@@ -1,0 +1,552 @@
+{
+ "route": "r9",
+ "elements": [
+  {
+   "id": "abstract-syntax-tree",
+   "name": "Abstract Syntax Tree",
+   "kind": "parsing-text",
+   "named_in": "Compilers: Principles, Techniques, and Tools (Dragon Book) - Aho, Lam, Sethi, Ullman (2006, 2nd ed.)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "compilers",
+    "interpreters",
+    "tooling"
+   ]
+  },
+  {
+   "id": "escape-sequence",
+   "name": "Escape Sequence",
+   "kind": "parsing-text",
+   "named_in": "Escape sequence - Wikipedia; escape sequences defined in ISO/IEC 9899 (C standard)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "text-processing",
+    "security"
+   ]
+  },
+  {
+   "id": "event-driven-parsing",
+   "name": "Event-Driven Parsing",
+   "kind": "parsing-text",
+   "named_in": "Simple API for XML - Wikipedia (SAX, Megginson et al. 1998)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "xml",
+    "streaming",
+    "text-processing"
+   ]
+  },
+  {
+   "id": "lexer",
+   "name": "Lexer",
+   "kind": "parsing-text",
+   "named_in": "Compilers: Principles, Techniques, and Tools (Dragon Book) - Aho, Lam, Sethi, Ullman (2006, 2nd ed.)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "compilers",
+    "interpreters",
+    "text-processing"
+   ]
+  },
+  {
+   "id": "lr-parser",
+   "name": "LR Parser",
+   "kind": "parsing-text",
+   "named_in": "Aho, Sethi, Ullman, Compilers: Principles, Techniques, and Tools (the Dragon Book), ch. 4",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "compilers",
+    "canonical counterpart of recursive-descent-parser already in catalog"
+   ]
+  },
+  {
+   "id": "maximal-munch",
+   "name": "Maximal Munch",
+   "kind": "parsing-text",
+   "named_in": "Thomas Reps, \"'Maximal-Munch' Tokenization in Linear Time\", ACM TOPLAS 20(2), 1998; the longest-match rule also stated in Aho/Sethi/Ullman (Dragon Book)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "compilers",
+    "lexing",
+    "borderline"
+   ]
+  },
+  {
+   "id": "packrat-parsing",
+   "name": "Packrat Parsing",
+   "kind": "parsing-text",
+   "named_in": "Packrat Parsing: Simple, Powerful, Lazy, Linear Time - Bryan Ford (2002)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "compilers",
+    "borderline"
+   ]
+  },
+  {
+   "id": "panic-mode-error-recovery",
+   "name": "Panic-Mode Error Recovery",
+   "kind": "parsing-text",
+   "named_in": "Compilers: Principles, Techniques, and Tools (Dragon Book) - Aho, Lam, Sethi, Ullman (2006, 2nd ed.)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "compilers",
+    "interpreters",
+    "error-handling"
+   ]
+  },
+  {
+   "id": "parser-combinator",
+   "name": "Parser Combinator",
+   "kind": "parsing-text",
+   "named_in": "Monadic Parser Combinators - Hutton & Meijer (1996)",
+   "named_in_corpus_id": null,
+   "other_sources": [
+    "Monadic Parser Combinators - Hutton, Meijer (1996)"
+   ],
+   "tags": [
+    "fp",
+    "haskell",
+    "scala",
+    "rust",
+    "functional",
+    "text-processing"
+   ]
+  },
+  {
+   "id": "pratt-parser",
+   "name": "Pratt Parser",
+   "kind": "parsing-text",
+   "named_in": "Top Down Operator Precedence - Vaughan Pratt (1973)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "compilers",
+    "interpreters",
+    "expressions"
+   ]
+  },
+  {
+   "id": "pretty-printer",
+   "name": "Pretty-Printer",
+   "kind": "parsing-text",
+   "named_in": "Prettyprinting - Derek C. Oppen, ACM TOPLAS (1980)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "compilers",
+    "tooling",
+    "text-processing"
+   ]
+  },
+  {
+   "id": "read-eval-print-loop",
+   "name": "Read-Eval-Print Loop",
+   "kind": "parsing-text",
+   "named_in": "Read-eval-print loop - Wikipedia (term from the Lisp tradition)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "interpreters",
+    "lisp",
+    "tooling"
+   ]
+  },
+  {
+   "id": "recursive-descent-parser",
+   "name": "Recursive Descent Parser",
+   "kind": "parsing-text",
+   "named_in": "Compilers: Principles, Techniques, and Tools (Dragon Book) - Aho, Lam, Sethi, Ullman (2006, 2nd ed.)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "compilers",
+    "interpreters"
+   ]
+  },
+  {
+   "id": "regular-expressions",
+   "name": "Regular Expressions",
+   "kind": "parsing-text",
+   "named_in": "Regular Expression Search Algorithm - Ken Thompson, Communications of the ACM (1968)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "text-processing",
+    "validation"
+   ]
+  },
+  {
+   "id": "scannerless-parsing",
+   "name": "Scannerless Parsing",
+   "kind": "parsing-text",
+   "named_in": "Eelco Visser, 'Scannerless Generalized-LR Parsing', Univ. of Amsterdam tech report P9707, 1997; term scannerless coined by Salomon & Cormack (SIGPLAN 1989)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "compilers",
+    "grammarware",
+    "borderline"
+   ]
+  },
+  {
+   "id": "semantic-model",
+   "name": "Semantic Model",
+   "kind": "parsing-text",
+   "named_in": "Fowler, Domain-Specific Languages (Addison-Wesley, 2010), ch. 11; martinfowler.com/dslCatalog ('The model that's populated by a DSL', verified live 2026-07-10)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": "DSL pr"
+  },
+  {
+   "id": "shunting-yard-algorithm",
+   "name": "Shunting-Yard Algorithm",
+   "kind": "parsing-text",
+   "named_in": "E.W. Dijkstra, 'Making a Translator for ALGOL 60' / Mathematisch Centrum report MR 34/61 (1961); the railway shunting-yard name is Dijkstra's own",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "compilers",
+    "expression-evaluation",
+    "borderline"
+   ]
+  },
+  {
+   "id": "symbol-table",
+   "name": "Symbol Table",
+   "kind": "parsing-text",
+   "named_in": "Compilers: Principles, Techniques, and Tools (Dragon Book) - Aho, Lam, Sethi, Ullman (2006, 2nd ed.)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "compilers",
+    "interpreters"
+   ]
+  },
+  {
+   "id": "template-engine",
+   "name": "Template Engine",
+   "kind": "parsing-text",
+   "named_in": "Parr, Enforcing Strict Model-View Separation in Template Engines (WWW 2004, StringTemplate); Fowler, Patterns of Enterprise Application Architecture (2002) names the web form 'Template View'",
+   "named_in_corpus_id": null,
+   "other_sources": [
+    "Parr — Enforcing Strict Model-View Separation in Template Engines, WWW 2004 (StringTemplat"
+   ],
+   "tags": [
+    "web",
+    "codegen"
+   ]
+  },
+  {
+   "id": "tree-walking-interpreter",
+   "name": "Tree-Walking Interpreter",
+   "kind": "parsing-text",
+   "named_in": "Crafting Interpreters - Robert Nystrom (2021)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "interpreters",
+    "languages"
+   ]
+  },
+  {
+   "id": "binary-to-text-encoding",
+   "name": "Binary-to-Text Encoding",
+   "kind": "serialization-framing",
+   "named_in": "RFC 4648 - The Base16, Base32, and Base64 Data Encodings (2006)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "text-processing",
+    "networking",
+    "interop"
+   ]
+  },
+  {
+   "id": "bit-stuffing",
+   "name": "Bit Stuffing",
+   "kind": "serialization-framing",
+   "named_in": "Computer Networks - Tanenbaum, Wetherall (2011, 5th ed.); mechanism defined in ISO/IEC 13239 (HDLC)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "embedded",
+    "networking",
+    "datalink",
+    "can-bus"
+   ]
+  },
+  {
+   "id": "byte-stuffing",
+   "name": "Byte Stuffing",
+   "kind": "serialization-framing",
+   "named_in": "RFC 1055 - Nonstandard for Transmission of IP Datagrams over Serial Lines: SLIP - Romkey (1988)",
+   "named_in_corpus_id": null,
+   "other_sources": [
+    "Computer Networks - Andrew S. Tanenbaum (1981; 5th ed. 2011), framing"
+   ],
+   "tags": [
+    "embedded",
+    "networking",
+    "serial",
+    "c",
+    "protocols"
+   ]
+  },
+  {
+   "id": "canonical-serialization",
+   "name": "Canonical Serialization",
+   "kind": "serialization-framing",
+   "named_in": "ITU-T X.690 - Distinguished Encoding Rules (DER); RFC 8785 - JSON Canonicalization Scheme (2020)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "security",
+    "cryptography",
+    "binary-protocols",
+    "borderline"
+   ]
+  },
+  {
+   "id": "chunked-transfer-encoding",
+   "name": "Chunked Transfer Encoding",
+   "kind": "serialization-framing",
+   "named_in": "RFC 9112 - HTTP/1.1 (2022), sec. 7.1 'Chunked Transfer Coding'",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "networking",
+    "http",
+    "streaming"
+   ]
+  },
+  {
+   "id": "consistent-overhead-byte-stuffing",
+   "name": "Consistent Overhead Byte Stuffing",
+   "kind": "serialization-framing",
+   "named_in": "Consistent Overhead Byte Stuffing - Cheshire & Baker (IEEE/ACM Transactions on Networking, 1999)",
+   "named_in_corpus_id": null,
+   "other_sources": [
+    "Consistent Overhead Byte Stuffing - Cheshire, Baker, IEEE/ACM Transactions on Networking ("
+   ],
+   "tags": [
+    "embedded",
+    "networking",
+    "framing",
+    "serial",
+    "c"
+   ]
+  },
+  {
+   "id": "delta-encoding",
+   "name": "Delta Encoding",
+   "kind": "serialization-framing",
+   "named_in": "RFC 3229 - Delta Encoding in HTTP (2002); Delta encoding - Wikipedia",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "compression",
+    "telemetry",
+    "embedded",
+    "databases"
+   ]
+  },
+  {
+   "id": "length-prefix-framing",
+   "name": "Length-Prefix Framing",
+   "kind": "serialization-framing",
+   "named_in": "Protocol Buffers Encoding documentation - Google (living; 'length prefixes' / LEN wire type)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "networking",
+    "embedded",
+    "binary-protocols"
+   ]
+  },
+  {
+   "id": "magic-number-file-signature",
+   "name": "Magic Number (File Signature)",
+   "kind": "serialization-framing",
+   "named_in": "Magic number (programming) - Wikipedia; List of file signatures - Wikipedia",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "file-formats",
+    "binary-protocols",
+    "robustness"
+   ]
+  },
+  {
+   "id": "network-byte-order-handling",
+   "name": "Network Byte Order Handling",
+   "kind": "serialization-framing",
+   "named_in": "RFC 791 - Internet Protocol, Appendix B: Data Transmission Order (1981)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "networking",
+    "embedded",
+    "c",
+    "portability",
+    "borderline"
+   ]
+  },
+  {
+   "id": "percent-encoding",
+   "name": "Percent-Encoding",
+   "kind": "serialization-framing",
+   "named_in": "RFC 3986 - Uniform Resource Identifier (URI): Generic Syntax (2005), sec. 2.1",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "web",
+    "text-processing",
+    "security"
+   ]
+  },
+  {
+   "id": "run-length-encoding",
+   "name": "Run-Length Encoding",
+   "kind": "serialization-framing",
+   "named_in": "Run-length encoding - Wikipedia (technique published by Robinson and Cherry, 1967)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "compression",
+    "embedded",
+    "graphics",
+    "borderline"
+   ]
+  },
+  {
+   "id": "schema-evolution-via-field-tags",
+   "name": "Schema Evolution via Field Tags",
+   "kind": "serialization-framing",
+   "named_in": "Designing Data-Intensive Applications - Martin Kleppmann (2017), ch. 4 'Encoding and Evolution'",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "binary-protocols",
+    "protobuf",
+    "thrift",
+    "borderline"
+   ]
+  },
+  {
+   "id": "serialization-proxy",
+   "name": "Serialization Proxy",
+   "kind": "serialization-framing",
+   "named_in": "Effective Java - Joshua Bloch (3rd ed., Item 90)",
+   "named_in_corpus_id": null,
+   "other_sources": [
+    "Effective Java - Joshua Bloch (2018, 3rd ed.), Item 90"
+   ],
+   "tags": [
+    "java",
+    "oo",
+    "security"
+   ]
+  },
+  {
+   "id": "serialized-lob",
+   "name": "Serialized LOB",
+   "kind": "serialization-framing",
+   "named_in": "Patterns of Enterprise Application Architecture - Martin Fowler (2002)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "enterprise",
+    "orm",
+    "borderline"
+   ]
+  },
+  {
+   "id": "serializer",
+   "name": "Serializer",
+   "kind": "serialization-framing",
+   "named_in": "Serializer - Dirk Riehle, Wolf Siberski, Dirk Baeumer, Daniel Megert, Heinz Zuellighoven, in Pattern Languages of Program Design 3 (1998)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "oo"
+   ]
+  },
+  {
+   "id": "sync-word",
+   "name": "Sync Word",
+   "kind": "serialization-framing",
+   "named_in": "Syncword - Wikipedia",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "embedded",
+    "networking",
+    "serial",
+    "wireless"
+   ]
+  },
+  {
+   "id": "tolerant-reader",
+   "name": "Tolerant Reader",
+   "kind": "serialization-framing",
+   "named_in": "Fowler, bliki 'TolerantReader' (9 May 2011; loaded live — notes Rob Daigneau published the full pattern in Service Design Patterns, Addison-Wesley 2011)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "integration",
+    "schema-evolution",
+    "robustness",
+    "web-services"
+   ]
+  },
+  {
+   "id": "type-length-value-encoding",
+   "name": "Type-Length-Value Encoding",
+   "kind": "serialization-framing",
+   "named_in": "ITU-T X.690 - ASN.1 Basic Encoding Rules (BER/CER/DER); Type-length-value - Wikipedia",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "networking",
+    "embedded",
+    "binary-protocols",
+    "smartcards"
+   ]
+  },
+  {
+   "id": "varint",
+   "name": "Varint",
+   "kind": "serialization-framing",
+   "named_in": "Protocol Buffers Encoding documentation - Google (living); LEB128 defined in the DWARF Debugging Information Format standard",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "binary-protocols",
+    "compression",
+    "protobuf",
+    "wasm"
+   ]
+  },
+  {
+   "id": "zigzag-encoding",
+   "name": "ZigZag Encoding",
+   "kind": "serialization-framing",
+   "named_in": "Protocol Buffers Encoding documentation - Google (living)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "binary-protocols",
+    "protobuf",
+    "compression"
+   ]
+  }
+ ]
+}

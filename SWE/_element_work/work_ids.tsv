@@ -1,0 +1,468 @@
+aapcs	2020	official-doc	Procedure Call Standard for the Arm Architecture (AAPCS)
+aarenstrup	2015	book	Managing Model-Based Design
+abas	1999	report	Attribute-Based Architectural Styles (ABAS)
+abiaa	living	official-doc	ARM Application Binary Interface (ABI-AA) suite
+abowd	1995	paper	Formalizing Style to Understand Descriptions of Software Architecture
+accelerate	2018	book	Accelerate: The Science of Lean Software and DevOps
+acme	1997	paper	Acme: An Architecture Description Interchange Language
+agilemanifesto	2001	other	Manifesto for Agile Software Development
+alalfi	2012	paper	Models are Code Too: Near-miss Clone Detection for Simulink Models
+aldini	2010	book	A Process Algebraic Approach to Software Architecture Design
+alma	2004	paper	Architecture-level modifiability analysis (ALMA)
+amos	2020	book	Hands-On RTOS with Microcontrollers (FreeRTOS, STM32, SEGGER)
+an4989	UNRESOLVED	report	AN4989 STM32 microcontroller debug toolbox
+angelov	2012	paper	A framework for analysis and design of software reference architectures
+arc42	living	guide	arc42 — architecture documentation template
+arinc653	living	standard	ARINC 653 — Avionics Application Standard Software Interface (Parts 0-5, APEX API)
+atam	2000	report	ATAM: Method for Architecture Evaluation
+autosaradaptive	living	standard	AUTOSAR Adaptive Platform — Explanation of Adaptive and Classic Platform Software Architectural Deci
+autosarblockset	living	official-doc	AUTOSAR Blockset documentation + Software Architecture Modeling
+autosarclassic	living	standard	AUTOSAR Classic Platform — Layered Software Architecture
+autosarcpp14	2018	standard	Guidelines for the use of the C++14 language in critical and safety-related systems (AUTOSAR C++14)
+avizienis	UNRESOLVED	paper	Basic Concepts and Taxonomy of Dependable and Secure Computing (dependability taxonomy)
+babar04	2004	paper	A Framework for Classifying and Comparing Software Architecture Evaluation Methods
+bacchellibird	2013	paper	Expectations, Outcomes, and Challenges of Modern Code Review
+ball	UNRESOLVED	book	Embedded Microprocessor Systems: Real World Design
+barbacci	1995	report	Quality Attributes
+barnes	2014	paper	Evolution Styles: foundations and models for software architecture evolution
+barrbugs	UNRESOLVED	blog	Top 10 Causes of Nasty Firmware Bugs
+barrc	2018	standard	Embedded C Coding Standard (BARR-C:2018)
+barrmassa	2007	book	Programming Embedded Systems: With C and GNU Development Tools, 2nd ed.
+barrycrowley	UNRESOLVED	book	Modern Embedded Computing
+bck	2021	book	Software Architecture in Practice, 4th ed.
+beningodesign	2022	book	Embedded Software Design: A Practical Approach to Architecture, Processes, and Coding Techniques
+beningofw	2017	book	Reusable Firmware Development: A Practical Approach to APIs, HALs and Drivers
+berger	UNRESOLVED	book	Embedded Systems Design
+bertolotti	UNRESOLVED	book	Embedded Software Development: The Open-Source Approach
+bestpractices	living	guide	Applying Best Practices for Building Large Simulink Models
+binutilsblog	living	guide	GNU Binutils: the ELF Swiss Army Knife
+black	living	tooling-doc	Black — The Uncompromising Code Formatter
+blanchette	2008	report	The Little Manual of API Design
+bloaty	living	tooling-doc	Bloaty McBloatface binary-size profiler
+bloch	2006	paper	How to Design a Good API and Why it Matters
+boll	2021	paper	Characteristics, potentials, and limitations of open-source Simulink projects for empirical research
+boogerdmoonen	2009	paper	Assessing the Value of Coding Standards: An Empirical Study / Evaluating the Relation Between Coding
+boostoutcome	living	tooling-doc	Boost.Outcome documentation (incl. experimental status_code)
+boostsml	living	tooling-doc	Boost.SML — C++14 State Machine library
+bootlin	living	course	Bootlin embedded-Linux training slides
+bosch00	2000	book	Design and Use of Software Architectures: Adopting and Evolving a Product-Line Approach
+boschmolin	1999	paper	Software architecture design: evaluation and transformation
+breathe	living	tooling-doc	Breathe (Doxygen-XML to Sphinx bridge)
+breivold	2012	paper	A Systematic Review of Software Architecture Evolution Research
+broy	2006	paper	Challenges in automotive software engineering
+buildtool	2022	official-doc	MATLAB build tool (buildtool)
+burge	2008	book	Rationale-Based Software Engineering
+burnswellings	2009	book	Real-Time Systems and Programming Languages, 4th ed.
+busobj	living	official-doc	Simulink.Bus objects documentation
+buttazzo	2023	book	Hard Real-Time Computing Systems: Predictable Scheduling Algorithms and Applications
+c4model	living	guide	The C4 model for visualising software architecture
+caissetalk	UNRESOLVED	course	Modern C++ in an Embedded World
+capilla	2016	paper	10 years of software architecture knowledge management: Practice and future
+carniebigfour	2015	blog	The Rule of The Big Four (and a half) — Move Semantics and Resource Management
+carnieregisters	2017	blog	Making things do stuff (register access using C++ templates), Parts 1-8
+catch2	living	tooling-doc	Catch2
+catsoulis	UNRESOLVED	book	Designing Embedded Hardware
+cbam	2001	paper	Quantifying the Costs and Benefits of Architectural Decisions (CBAM)
+ceedling	living	tooling-doc	Ceedling (test/build manager, v1.0; bundles Unity + CMock + CException)
+certc	2014	standard	The CERT C Coding Standard, 2nd ed. (98 Rules)
+certcpp	2016	standard	SEI CERT C++ Coding Standard (2016 Edition)
+certkits	living	official-doc	IEC Certification Kit (ISO 26262 & IEC 61508) and DO Qualification Kit (DO-178C/DO-331)
+cervanteskazman	2024	book	Designing Software Architectures: A Practical Approach, 2nd ed.
+checkcode	living	tooling-doc	checkcode / Code Analyzer (formerly mlint)
+chowdhury	2018	paper	A Curated Corpus of Simulink Models for Model-Based Empirical Studies
+cipart1	living	guide	Continuous Integration for Verification of Simulink Models (Part 1)
+cipart2	living	guide	Continuous Integration for Verification of Simulink Models Using GitLab (Part 2)
+clangdocs	living	official-doc	Clang Compiler User's Manual / Cross-compilation / Command Line Reference
+clangformat	living	tooling-doc	clang-format
+clangtidy	living	tooling-doc	clang-tidy
+cloudiotref	living	other	Azure IoT / AWS IoT Well-Architected reference architectures
+cmake	living	tooling-doc	CMake documentation / build organization for embedded C++
+cmock	living	tooling-doc	CMock (mock/stub generator for C headers)
+cmsis	living	standard	CMSIS — Cortex Microcontroller Software Interface Standard
+cohenreview	2006	book	Best Kept Secrets of Peer Code Review
+commercialtools	living	tooling-doc	Commercial static-analysis/coverage tool docs (VectorCAST, LDRA, Cantata, Polyspace, Coverity, Klocw
+compmodel	living	official-doc	Component-Based Modeling in Simulink / Model Reference behavior docs
+contdeliv	2010	book	Continuous Delivery
+contiki	2004	paper	Contiki — a Lightweight and Flexible Operating System for Tiny Networked Sensors
+convcommits	living	standard	Conventional Commits (v1.0.0)
+cooling	UNRESOLVED	book	Software Engineering for Real-Time Systems / Real-Time Operating Systems series
+coreguidelines	living	tooling-doc	C++ Core Guidelines
+cppcheck	living	tooling-doc	cppcheck (with MISRA addon)
+cpputest	living	tooling-doc	CppUTest / CppUMock
+crosstoolng	living	official-doc	crosstool-NG documentation
+csapp	2016	book	Computer Systems: A Programmer's Perspective, 3rd ed. (linking chapter)
+csmith	2011	paper	Finding and Understanding Bugs in C Compilers (Csmith)
+dagstuhl16	2016	report	Managing Technical Debt in Software Engineering
+darwin	1996	paper	Dynamic Structure in Software Architectures (Darwin)
+datadict	living	official-doc	Simulink Data Dictionary documentation
+deissenboeck	2008	paper	Clone Detection in Automotive Model-Based Development
+diataxis	living	guide	Diátaxis — a systematic framework for technical documentation
+dietzintoverflow	2015	paper	Understanding Integer Overflow in C/C++
+diffmergeci	living	official-doc	Set Up Simulink Diff and Merge in CI/CD Pipeline
+dlmalloc	2000	guide	A Memory Allocator (dlmalloc essay)
+do178c	2011	standard	RTCA DO-178C / EUROCAE ED-12C — Software Considerations in Airborne Systems and Equipment Certificat
+do331	2011	standard	RTCA DO-331 / EUROCAE ED-218 — Model-Based Development and Verification Supplement to DO-178C and DO
+do332	2011	standard	DO-332 Object-Oriented Technology and Related Techniques Supplement to DO-178C and DO-278A
+dobrica	2002	paper	A Survey on Software Architecture Analysis Methods
+doctest	living	tooling-doc	doctest
+doors	living	official-doc	Working with IBM DOORS / DOORS Next requirements docs
+dora	living	report	DORA — DevOps Research and Assessment / State of DevOps
+douglassagility	UNRESOLVED	book	Real-Time Agility / Real-Time UML Workshop for Embedded Systems
+douglasspatternsc	2011	book	Design Patterns for Embedded Systems in C: An Embedded Software Engineering Toolkit
+douglassrtcorpus	living	book	Real-Time Design Patterns; Doing Hard Time; Real-Time UML
+doxygen	living	tooling-doc	Doxygen (manual, current)
+drepperlibs	2011	report	How To Write Shared Libraries
+dreppermem	2007	report	What Every Programmer Should Know About Memory
+drl	1991	paper	What's in Design Rationale? (DRL)
+dsimonprimer	1999	book	An Embedded Software Primer
+dspacecompare	living	tooling-doc	dSPACE Model Compare
+dspaceguide	living	guide	Modeling Guidelines for MATLAB/Simulink/Stateflow and TargetLink
+dutoit	2006	book	Rationale Management in Software Engineering
+dvorak	2009	report	Flight Software Complexity (NASA study)
+dwarf5	2017	official-doc	DWARF Debugging Information Format, Version 5
+eafparm	UNRESOLVED	blog	Embedded Artistry posts (Demystifying ARM Floating Point Compiler Options; libmemory docs)
+eastadl	living	standard	EAST-ADL
+eastl	2007	paper	EASTL — Electronic Arts Standard Template Library (WG21 N2271)
+ebertjones	2009	paper	Embedded Software: Facts, Figures, and Future
+ecpp	1999	standard	The Embedded C++ (EC++) specification, WP-AM-003
+ecss	UNRESOLVED	standard	ESA ECSS-E-ST-40C and ECSS-Q-ST-80C
+editorconfig	living	tooling-doc	EditorConfig
+ehabi32	2018	official-doc	Exception Handling ABI for the Arm Architecture (EHABI32)
+eideregehr	2008	paper	Volatiles Are Miscompiled, and What to Do about It
+elfspec	1995	official-doc	Tool Interface Standard (TIS) ELF Specification, Version 1.2 (+ System V gABI)
+embeddedcoder	living	official-doc	Embedded Coder documentation + production-code modeling patterns
+embeddedrust	living	course	The Embedded Rust Book / Discovery book / Ferrous Systems materials
+emeryhilliard	2009	paper	Every Architecture Description Needs a Framework: Expressing Architecture Frameworks Using ISO/IEC 4
+en50128	2020	standard	EN 50128:2011 (+A1/A2:2020) — Railway applications — Software for railway control and protection sys
+esa	2001	book	Evaluating Software Architectures: Methods and Case Studies
+espidf	living	other	ESP-IDF architecture docs
+etl	living	tooling-doc	Embedded Template Library (ETL)
+ettermtw	2016	book	Modern Technical Writing
+exhale	living	tooling-doc	Exhale (automatic C/C++ API docs via Doxygen + Sphinx + Breathe)
+fagan	1976	paper	Design and Code Inspections to Reduce Errors in Program Development
+falessi	2011	paper	Decision-making techniques for software architecture design: A comparative survey
+fanrt	2015	book	Real-Time Embedded Systems
+feilergluch	2012	book	Model-Based Engineering with AADL: An Introduction to the SAE Architecture Analysis & Design Languag
+fixedpoint	living	official-doc	Fixed-Point Designer documentation
+fowlerci	living	guide	Continuous Integration
+fowlerref	UNRESOLVED	book	Refactoring
+framac	2015	paper	Frama-C: A Software Analysis Perspective
+freertosbook	living	report	Mastering the FreeRTOS Real-Time Kernel
+freertosheap	living	official-doc	FreeRTOS memory management (heap_1 ... heap_5)
+fuerst	UNRESOLVED	paper	AUTOSAR — A Worldwide Standard is on the Road
+furber	UNRESOLVED	book	ARM System-on-Chip Architecture
+gajski	UNRESOLVED	book	Embedded System Design: Modeling, Synthesis and Verification
+galster	2011	paper	Empirically-grounded reference architectures: a proposal
+ganssle	UNRESOLVED	book	The Art of Designing Embedded Systems; The Firmware Handbook (ed.); The Embedded Muse newsletter
+garlan14	2014	paper	Software Architecture: a Travelogue
+garlanshaw93	1993	paper	An Introduction to Software Architecture
+gccmanual	living	official-doc	Using the GNU Compiler Collection (GCC) — incl. Optimize Options chapter and -fstack-usage
+gdbmanual	living	official-doc	Debugging with GDB, Tenth Edition
+gendesign	2007	paper	A General Model of Software Architecture Design Derived from Five Industrial Approaches
+gerlitz	2015	paper	Detection and Handling of Model Smells for MATLAB/Simulink Models
+gitflow	2010	blog	A successful Git branching model (git-flow)
+githubflow	living	official-doc	GitHub flow
+gitlabci	living	tooling-doc	GitLab CI/CD documentation
+gitlabflow	living	official-doc	GitLab flow
+gnuinternals	living	official-doc	GNU (GCC) Internals manual
+godbolt	2017	course	What Has My Compiler Done for Me Lately? + Compiler Explorer
+gof	1994	book	Design Patterns: Elements of Reusable Object-Oriented Software
+gomaa	2016	book	Real-Time Software Design for Embedded Systems
+googleeng	living	guide	Code Review Developer Guide (Google eng-practices)
+googlestyle	living	tooling-doc	Google C++ Style Guide
+googletest	living	tooling-doc	GoogleTest / GoogleMock
+graaf	2003	paper	Embedded software engineering: the state of the practice
+grenningtdd	2011	book	Test-Driven Development for Embedded C
+gsl	living	tooling-doc	Guideline Support Library (GSL)
+gtkdoc	living	tooling-doc	GTK-Doc (GNOME C API documentation tool)
+gustedt	UNRESOLVED	book	Modern C (3rd ed., C23)
+guyblog	2016	blog	Three-Way Model Merge and Git
+hallinan	UNRESOLVED	book	Embedded Linux Primer
+hanmer	UNRESOLVED	book	Patterns for Fault Tolerant Software
+hanson	1996	book	C Interfaces and Implementations: Techniques for Creating Reusable Software
+hardfaultblog	living	guide	How to debug a HardFault on an ARM Cortex-M MCU
+hatleypirbhai	UNRESOLVED	book	Strategies for Real-Time System Specification
+hatton95	1995	book	Safer C: Developing Software for High-Integrity and Safety-Critical Systems
+hattonsubset	2004	paper	Language subsetting in an industrial context: MISRA C 1998 vs 2004 / Safer language subsets: MISRA C
+hauserblog	2015	blog	Typesafe Register Access in C++
+hawkmoth	living	tooling-doc	Hawkmoth (Sphinx C/C++ autodoc via Clang)
+heath	UNRESOLVED	book	Embedded Systems Design
+henzingersifakis	2006	paper	The Embedded Systems Design Challenge
+hicpp	2013	standard	High Integrity C++ Coding Standard v4.0
+hobbs	2019	book	Embedded Software Development for Safety-Critical Systems, 2nd ed.
+hofmeister00	2000	book	Applied Software Architecture
+holmestalk	2019	course	Hey C, This Is What Performance Looks Like
+holzmannp10	2006	paper	The Power of Ten: Rules for Developing Safety-Critical Code
+humphreypsp	1997	book	Introduction to the Personal Software Process
+hutheses	UNRESOLVED	other	HU Utrecht / RWTH Aachen embedded-C++ HAL/metaprogramming theses
+hwlib	living	tooling-doc	hwlib
+ibis	1970	paper	Issues as Elements of Information Systems (IBIS)
+iec61508	2010	standard	IEC 61508:2010 — Functional safety of E/E/PE safety-related systems (Ed. 2.0, 7 parts)
+iec62304	2015	standard	IEC 62304:2006 (+AMD1:2015) — Medical device software — Software life cycle processes
+ieee828	2012	standard	IEEE 828-2012 — Configuration Management in Systems and Software Engineering
+iglberger	2022	book	C++ Software Design: Design Principles and Patterns for High-Quality Software
+iira	living	standard	Industrial Internet Reference Architecture (IIC)
+iso12207	2017	standard	ISO/IEC/IEEE 12207:2017 — Software life cycle processes
+iso25010	2023	standard	ISO/IEC 25010:2023 — SQuaRE — Product quality model
+iso26262	2018	standard	ISO 26262:2018 — Road vehicles — Functional safety (2nd ed., 12 parts)
+iso26262p6	2018	standard	ISO 26262-6:2018 — Road vehicles — Functional safety — Part 6: Product development at the software l
+iso42010	2022	standard	ISO/IEC/IEEE 42010:2022 — Software, systems and enterprise — Architecture description
+itaniumabi	living	official-doc	Itanium C++ ABI
+janeliu	2000	book	Real-Time Systems
+jansenbosch	2005	paper	Software Architecture as a Set of Architectural Design Decisions
+jmaab	2023	standard	JMAAB Control Algorithm Modeling Guidelines, v5.1 / v6.0
+johnsonbook	2010	book	The Elements of MATLAB Style
+johnsonguide	living	guide	MATLAB Style Guidelines 2.0 / MATLAB Programming Style Guidelines
+jplstd	2009	standard	JPL Institutional Coding Standard for the C Programming Language
+jsfav	2007	standard	JSF Air Vehicle C++ Coding Standards
+jusiaktalks	2018	course	State Machines Battlefield / [Boost].DI - Inject all the things!
+kandr	1988	book	The C Programming Language, 2nd ed.
+kensmith	2010	report	C++ Hardware Register Access Redux
+kerneldoc	living	tooling-doc	kernel-doc (Linux kernel documentation system)
+kernelstyle	living	tooling-doc	Linux kernel coding style
+knuthlit	1992	book	Literate Programming
+koopmanbess	2010	book	Better Embedded System Software
+kopetz	2022	book	Real-Time Systems: Design Principles for Distributed Embedded Applications
+kopetzbauer	2003	paper	The Time-Triggered Architecture
+kormanyos	2021	book	Real-Time C++: Efficient Object-Oriented and Template Microcontroller Programming, 4th ed.
+kramermagee	2007	paper	Self-Managed Systems: an Architectural Challenge
+kruchten	1995	paper	Architectural Blueprints — The 4+1 View Model of Software Architecture
+kvasir	living	tooling-doc	Kvasir register-abstraction library
+l4liedtke	UNRESOLVED	paper	L4 microkernel papers
+labrosse	2009	book	MicroC/OS-III: The Real-Time Kernel (also MicroC/OS-II; Embedded Systems Building Blocks)
+lacamera	2023	book	Embedded Systems Architecture
+lakosemcs	2021	book	Embracing Modern C++ Safely
+lakoslsc	UNRESOLVED	book	Large-Scale C++ Software Design
+lakosvol1	2019	book	Large-Scale C++ Volume I: Process and Architecture
+laplante	UNRESOLVED	book	Real-Time Systems Design and Analysis
+largescale	living	official-doc	Large-Scale Modeling documentation chapter
+lattnerub	2011	blog	What Every C Programmer Should Know About Undefined Behavior
+ld	living	official-doc	The GNU Linker (ld)
+ldd3	2005	book	Linux Device Drivers, 3rd ed.
+ledin	2021	book	Architecting High-Performance Embedded Systems
+leecps	2008	paper	Cyber-Physical Systems: Design Challenges
+leeseshia	2017	book	Introduction to Embedded Systems: A Cyber-Physical Systems Approach, 2nd ed.
+levesonesw	UNRESOLVED	book	Engineering a Safer World (STAMP/STPA)
+levesonsafeware	UNRESOLVED	book	Safeware
+levine	1999	book	Linkers and Loaders
+liggesmeyer	UNRESOLVED	paper	Trends in embedded software engineering
+lippman	1996	book	Inside the C++ Object Model
+liulayland	1973	paper	Scheduling Algorithms for Multiprogramming in a Hard-Real-Time Environment
+liyao	UNRESOLVED	book	Real-Time Concepts for Embedded Systems
+lld	living	official-doc	LLD — The LLVM Linker
+lldbdocs	living	official-doc	LLDB documentation (remote debugging)
+llvmeh	living	official-doc	Exception Handling in LLVM
+mab	living	standard	MAB Control Algorithm Modeling Guidelines
+mabdoc	living	official-doc	MAB Modeling Guidelines documentation sections (Simulink/Stateflow/MATLAB Function rule sets)
+maintdash	living	official-doc	Model Maintainability Dashboard
+malavolta	2013	paper	What Industry Needs from Architectural Languages: A Survey
+marscode	2014	paper	Mars Code
+martincleanarch	2017	book	Clean Architecture
+martincleancode	UNRESOLVED	book	Clean Code
+marwedel	2021	book	Embedded System Design: Foundations of Cyber-Physical Systems, and the Internet of Things, 4th ed.
+maskray	2022	guide	All about... linker series (TLS, GOT, PLT, COMMON symbols)
+maskraygc	UNRESOLVED	blog	MaskRay posts on linker garbage collection and COMDAT/section groups
+matlabci	living	official-doc	Continuous Integration (CI) for MATLAB and Simulink
+matlabpkg	living	official-doc	MATLAB packages/namespaces, classes/OOP guide, toolbox packaging docs
+matlabpublish	living	official-doc	MATLAB Live Scripts & the publish workflow
+matlabtest	2023	official-doc	MATLAB Test
+mcconnell	2004	book	Code Complete, 2nd ed.
+mcdcchilenski	1994	paper	Applicability of Modified Condition/Decision Coverage to Software Testing
+mcdcnasa	2001	report	A Practical Tutorial on Modified Condition/Decision Coverage
+medtay	2000	paper	A Classification and Comparison Framework for Software Architecture Description Languages
+medvidovicuml	2002	paper	Modeling Software Architectures in the Unified Modeling Language
+memfaultea	living	other	Memfault Interrupt / Embedded Artistry canonical guides
+memfaultsize	UNRESOLVED	blog	Code Size Optimization: GCC Flags
+mergedocs	living	official-doc	Resolve Conflicts Using Simulink Three-Way Merge / Customize External Source Control
+metricsdash	living	official-doc	Metrics Dashboard
+meyerseffcpp	2005	book	Effective C++, 3rd ed.
+meyerseffmod	2014	book	Effective Modern C++
+meyersembedded	2015	course	Effective C++ in an Embedded Environment (Presentation Materials)
+mismatch09	2009	paper	Architectural Mismatch: Why Reuse Is Still So Hard
+mismatch95	1995	paper	Architectural Mismatch: Why Reuse Is So Hard
+misrac	2025	standard	MISRA C (C:2012 3rd ed. 2013; +AMD1-3; consolidated C:2023; C:2025)
+misracompliance	2020	standard	MISRA Compliance:2020
+misracpp2008	2008	standard	MISRA C++:2008
+misracpp2023	2023	standard	MISRA C++:2023
+misragmg	2023	standard	MISRA AC GMG:2023 — Generic Modelling Design and Style Guidelines
+misraslsf	2023	standard	MISRA AC SLSF:2023 — Modelling design and style guidelines for Simulink and Stateflow
+modelcompare	living	official-doc	Model Comparison docs (Comparison Tool, visdiff, Three-Way Merge Tool)
+modm	living	tooling-doc	modm HAL / lbuild generator
+molloy	UNRESOLVED	book	Exploring BeagleBone / Exploring Raspberry Pi
+moriconi	1995	paper	Correct Architecture Refinement
+mwcodingguide	living	tooling-doc	MATLAB Coding Guidelines (mathworks/MATLAB-Coding-Guidelines)
+naturaldocs	living	tooling-doc	Natural Docs
+nesc	2003	paper	The nesC Language: A Holistic Approach to Networked Embedded Systems
+newlib	living	official-doc	newlib / newlib-nano documentation
+nigeljones	UNRESOLVED	blog	A 'C' Test: The 0x10 Best Questions for Would-be Embedded Programmers
+noblesmallmem	2000	book	Small Memory Software: Patterns for Systems with Limited Memory
+noergaard	2013	book	Embedded Systems Architecture: A Comprehensive Guide for Engineers and Programmers
+nordicacademy	living	course	Nordic Semiconductor / Zephyr DevAcademy
+nygard	UNRESOLVED	book	Release It!
+nygardadr	2011	blog	Documenting Architecture Decisions
+omgspecs	living	standard	OMG specifications: MARTE, SysML, DDS
+openocd	living	official-doc	OpenOCD User's Guide
+oreizy	1998	paper	Architecture-Based Runtime Software Evolution
+oshana	2019	book	Software Engineering for Embedded Systems, 2nd ed.
+osstyleguides	living	tooling-doc	Zephyr / FreeRTOS / Apache NuttX / ESP-IDF coding guidelines; ARM CMSIS API conventions
+ousterhout	UNRESOLVED	book	A Philosophy of Software Design
+p0568	2017	paper	P0568 Towards Better Embedded programming support for C++
+p0709	2019	paper	P0709 Zero-overhead deterministic exceptions: Throwing values
+p0829	2019	paper	P0829 Freestanding Proposal
+p1028	2020	paper	P1028 SG14 status_code and standard error object
+p1105	2019	paper	P1105 Leaving no room for a lower-level language: A C++ Subset
+p2198	UNRESOLVED	paper	P2198 Freestanding Feature-Test Macros and Implementation-Defined Extensions
+p2232	2021	paper	P2232 Zero-Overhead Deterministic Exceptions: Catching Values
+p2268	UNRESOLVED	paper	P2268 Freestanding Roadmap
+p2338	UNRESOLVED	paper	P2338 Freestanding Library: Character primitives and the C library
+p2739	2022	paper	P2739 A call to action: Think seriously about safety; then do something sensible about it
+p2816	2023	paper	P2816 Safety Profiles: Type-and-resource safe programming in ISO standard C++
+p3081	2025	paper	P3081 Core safety Profiles: Specification, adoptability, and impact
+parnas72	1972	paper	On the Criteria To Be Used in Decomposing Systems into Modules
+parnas74	1974	paper	On a 'Buzzword': Hierarchical Structure
+parnas79	1979	paper	Designing Software for Ease of Extension and Contraction
+parnasclements	1986	paper	A Rational Design Process: How and Why to Fake It
+peckol	UNRESOLVED	book	Embedded Systems: A Contemporary Design Tool
+pep20	living	standard	The Zen of Python (PEP 20)
+pep257	living	standard	Docstring Conventions (PEP 257)
+pep517	2015	standard	PEP 517 — A build-system independent format for source trees
+pep518	2016	standard	PEP 518 — Specifying Minimum Build System Requirements
+pep621	2020	standard	PEP 621 — Storing project metadata in pyproject.toml
+pep8	living	standard	Style Guide for Python Code (PEP 8)
+pep8eyetracking	2024	paper	Assessing Python Style Guides: An Eye-Tracking Study with Novice Developers
+perrywolf	1992	paper	Foundations for the Study of Software Architecture
+piadl	2004	paper	pi-ADL: an ADL based on the higher-order typed pi-calculus for dynamic and mobile architectures
+picolibc	2023	official-doc	Picolibc documentation
+pigweedcpp	living	tooling-doc	Embedded C++ Guide and C++ style guide (Pigweed)
+pigweedrefdoc	living	tooling-doc	Pigweed reference-documentation conventions for C++
+pigweedsdk	living	tooling-doc	Pigweed SDK / build-system integrations (Bazel, GN, CMake)
+pitchfork	living	guide	The Pitchfork Layout (PFL)
+pont	2001	book	Patterns for Time-Triggered Embedded Systems
+posa2	UNRESOLVED	book	Pattern-Oriented Software Architecture Vol. 2: Patterns for Concurrent and Networked Objects
+posa3	UNRESOLVED	book	Pattern-Oriented Software Architecture Vol. 3: Patterns for Resource Management
+posch	2019	book	Hands-On Embedded Programming with C++17
+potvinmonorepo	2016	paper	Why Google Stores Billions of Lines of Code in a Single Repository
+pragprog	UNRESOLVED	book	The Pragmatic Programmer
+precommit	living	tooling-doc	pre-commit (hook framework)
+preschern	2022	book	Fluent C: Principles, Practices, and Patterns
+preschernplop	UNRESOLVED	paper	Patterns for... EuroPLoP/PLoP pattern-paper series (organizing files; returning error information)
+pretschner	2007	paper	Software Engineering for Automotive Systems: A Roadmap
+probetools	living	official-doc	probe-rs documentation; pyOCD docs; Black Magic Probe docs
+profcmake	living	book	Professional CMake: A Practical Guide
+progit	2014	book	Pro Git, 2nd ed.
+projects	living	official-doc	Simulink Projects / MATLAB Projects docs
+protothreads	2006	paper	Protothreads: Simplifying Event-Driven Programming of Memory-Constrained Embedded Systems
+puncover	living	other	puncover
+pwbloat	living	tooling-doc	pw_bloat memory-report module
+pwunittest	living	tooling-doc	pw_unit_test
+px4ardu	living	other	PX4 / ArduPilot architecture docs
+pylint	living	tooling-doc	Pylint
+pypackaging	living	official-doc	Python Packaging User Guide
+qnxguide	living	other	QNX architecture guide
+qoc	1991	paper	Questions, Options, and Criteria: Elements of Design Space Analysis (QOC)
+qpc	living	tooling-doc	QP/C real-time embedded framework
+qpcpp	living	tooling-doc	QP/C++ Real-Time Embedded Framework + QM modeler
+rainbow	2004	paper	Rainbow: Architecture-Based Self-Adaptation with Reusable Infrastructure
+rami40	living	standard	RAMI 4.0
+rapide	1995	paper	Specification and Analysis of System Architecture Using Rapide
+rcda	2012	paper	RCDA: Architecting as a risk- and cost management discipline
+refmodels	living	official-doc	Reference Existing Models & model-reference workflow docs
+regehrub	UNRESOLVED	blog	A Guide to Undefined Behavior in C and C++
+renwick	2019	paper	Low-cost deterministic C++ exceptions for embedded systems
+replicability	2023	paper	Replicability Study: Corpora For Understanding Simulink Models & Projects
+reqtoolbox	living	official-doc	Requirements Toolbox documentation
+richardsford	UNRESOLVED	book	Fundamentals of Software Architecture
+rierson	2013	book	Developing Safety-Critical Software: A Practical Guide for Aviation Software and DO-178C Compliance
+rigbybird	2013	paper	Convergent Contemporary Software Peer Review Practices
+riot	2018	paper	RIOT: An Open Source Operating System for Low-End Embedded Devices in the IoT
+rittelwebber	1973	paper	Dilemmas in a General Theory of Planning
+room	1994	book	Real-Time Object-Oriented Modeling (ROOM)
+ros2design	living	other	ROS 2 design docs
+rozanski	2011	book	Software Systems Architecture: Working with Stakeholders Using Viewpoints and Perspectives, 2nd ed.
+ruff	living	tooling-doc	Ruff — an extremely fast Python linter and formatter
+rushby	UNRESOLVED	report	Partitioning in avionics architectures (SRI/NASA report)
+saam	1994	paper	SAAM: A Method for Analyzing the Properties of Software Architectures
+sadowskigoogle	2018	paper	Modern Code Review: A Case Study at Google
+sae2010	2010	paper	Large-Scale Modeling for Embedded Applications
+saksbtb	UNRESOLVED	course	Back to Basics CppCon talks
+sakscolumns	UNRESOLVED	blog	Dan Saks embedded.com columns on memory-mapped devices in C and C++
+samekbook	2008	book	Practical UML Statecharts in C/C++: Event-Driven Programming for Embedded Systems, 2nd ed.
+samekcourse	living	course	Modern Embedded Systems Programming video course + QP framework docs
+schaeuffele	UNRESOLVED	book	Automotive Software Engineering
+schreiner	2011	book	Object-Oriented Programming with ANSI-C
+scrumguide	living	guide	The Scrum Guide
+seacordeffc	2024	book	Effective C, 2nd ed.
+seacordsecure	2013	book	Secure Coding in C and C++, 2nd ed.
+segger	UNRESOLVED	official-doc	SEGGER J-Link User Guide (UM08001), SystemView (UM08027), RTT documentation
+sel4	2009	paper	seL4: Formal Verification of an OS Kernel
+semihosting	2020	official-doc	Semihosting for AArch32 and AArch64
+semver	living	standard	Semantic Versioning (SemVer 2.0.0)
+sfm	2003	book	Formal Methods for Software Architectures (SFM 2003)
+shaw01	2001	paper	The Coming-of-Age of Software Architecture Research
+shawgarlan96	1996	book	Software Architecture: Perspectives on an Emerging Discipline
+siewert	UNRESOLVED	book	Real-Time Embedded Components and Systems with Linux and RTOS
+signaltyping	living	official-doc	Simulink signal naming/typing guidance (MAB signal rules; data-type propagation)
+simmonds	2021	book	Mastering Embedded Linux Programming, 3rd ed.
+simon96	1996	book	The Sciences of the Artificial, 3rd ed.
+slcheck	living	official-doc	Simulink Check docs (Model Advisor, MAB/JMAAB checks)
+slcoverage	living	official-doc	Simulink Coverage docs (incl. MC/DC)
+slnet	2022	paper	SLNET: A Redistributable Corpus of 3rd-party Simulink Models
+sloss	UNRESOLVED	book	ARM System Developer's Guide
+sltest	living	official-doc	Simulink Test docs + Continuous Integration
+smitconventions	2011	report	Maintainability and Source Code Conventions: An Analysis of Open Source Projects
+sphinx	living	tooling-doc	Sphinx documentation generator
+sple	2001	book	Software Product Lines: Practices and Patterns
+sqlitetesting	living	other	How SQLite Is Tested
+staron	2021	book	Automotive Software Architectures: An Introduction, 2nd ed.
+stephancordy	2015	paper	Identification of Simulink Model Antipattern Instances Using Model Clone Detection
+stevanovic	2014	book	Advanced C and C++ Compiling
+storey	UNRESOLVED	book	Safety-Critical Computer Systems
+stroustruptour	2022	book	A Tour of C++, 3rd ed. (C++20)
+svincentelli	UNRESOLVED	paper	Platform-based design papers
+swebok	2024	guide	Guide to the Software Engineering Body of Knowledge (SWEBOK v4.0)
+syscompbp	living	official-doc	Best Practices for Large-Scale Architecture Modeling
+syscomposer	living	official-doc	System Composer documentation
+tactics	2003	report	Deriving Architectural Tactics: A Step Toward Methodical Architectural Design
+tangjinhan	2007	paper	A rationale-based architecture model for design traceability and reasoning
+tangrazavian	UNRESOLVED	paper	Empirical studies on software design reasoning and reflection
+tangsurvey06	2006	paper	A survey of architecture design rationale
+targetlink	living	tooling-doc	dSPACE TargetLink
+taylorlinkers	2007	guide	Linkers (20-part series)
+techdebt19	2019	book	Managing Technical Debt: Reducing Friction in Software Development
+thinlto	living	official-doc	ThinLTO documentation
+thinltoblog	2016	report	ThinLTO: Scalable and Incremental LTO (blog + LLVM Dev Meeting 2016 talk)
+tinyos	2000	paper	System Architecture Directions for Networked Sensors
+tlsf	2004	paper	TLSF: a New Dynamic Memory Allocator for Real-Time Systems
+tmd	2010	book	Software Architecture: Foundations, Theory, and Practice
+tornhill	UNRESOLVED	book	Patterns in C
+tr18015	2006	standard	ISO/IEC TR 18015:2006 — Technical Report on C++ Performance
+trompeloeil	living	tooling-doc	trompeloeil
+trunkbased	living	guide	Trunk-Based Development
+turnerc64	2016	course	Rich Code for Tiny Computers: A Simple Commodore 64 Game in C++17
+uncrustify	living	tooling-doc	Uncrustify (source beautifier)
+unity	living	tooling-doc	Unity (xUnit-style unit-test framework for C)
+vab	2010	book	Documenting Software Architectures: Views and Beyond, 2nd ed.
+vahidgivargis	2002	book	Embedded System Design: A Unified Hardware/Software Introduction
+vanooijentalk	2014	course	Objects? No Thanks!
+vanvliettang	2016	paper	Decision making in software architecture
+viarheichyk	2020	book	Embedded Programming with Modern C++ Cookbook
+vxthreadx	living	other	VxWorks / ThreadX documentation
+walls	UNRESOLVED	book	Embedded Software: The Works
+wangrt	UNRESOLVED	book	Real-Time Embedded Systems
+wardmellor	UNRESOLVED	book	Structured Development for Real-Time Systems
+weinreich	2016	paper	Software architecture knowledge management approaches and their support for knowledge management act
+weyns	2020	book	An Introduction to Self-Adaptive Systems: A Contemporary Software Engineering Perspective
+white	2024	book	Making Embedded Systems: Design Patterns for Great Software
+wiegers	2002	book	Peer Reviews in Software: A Practical Guide
+wilsonsurvey	1995	paper	Dynamic Storage Allocation: A Survey and Critical Review
+wolf5	2022	book	Computers as Components: Principles of Embedded Computing System Design, 5th ed.
+wright	1997	paper	A Formal Basis for Architectural Connection (Wright, CSP semantics)
+xpexplained	2004	book	Extreme Programming Explained: Embrace Change, 2nd ed.
+yaghmour	UNRESOLVED	book	Building Embedded Linux Systems
+yiu	2013	book	The Definitive Guide to ARM Cortex-M3 and Cortex-M4 Processors, 3rd ed.
+zannier	2007	paper	A model of design decision making based on empirical results of interviews with software designers
+zephyrdocs	living	other	Zephyr Project documentation
+zephyrlinker	living	official-doc	Zephyr docs on linker scripts / code relocation
+zerotomain	2019	guide	From Zero to main() series
+zhang	2010	paper	A Classification and Comparison of Model Checking Software Architecture Techniques
+zimmermann	2007	paper	Reusable Architectural Decision Models for Enterprise Application Development

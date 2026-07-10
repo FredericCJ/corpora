@@ -1,0 +1,422 @@
+{
+  "scout": "db-internals",
+  "elements": [
+    {
+      "id": "write-ahead-log",
+      "name": "Write-Ahead Log",
+      "aka": ["WAL", "write-ahead logging", "redo log", "commit log", "journaling", "undo/redo logging"],
+      "kind": "persistence-durability",
+      "what": "Append every intended change to a sequential durable log and force it to stable storage before the corresponding in-place data update, so committed work can be redone and uncommitted work undone after a crash.",
+      "problem": "In-place updates can be half-applied when a crash hits; sequential logging makes durability cheap (one sequential write) and gives recovery a total order of changes to replay or roll back.",
+      "named_in": "Transaction Processing: Concepts and Techniques - Gray & Reuter (1992)",
+      "named_in_corpus_id": null,
+      "tags": ["db", "storage-engine", "filesystems"],
+      "borderline": null,
+      "confidence": "established"
+    },
+    {
+      "id": "checkpointing",
+      "name": "Checkpointing",
+      "aka": ["checkpoint", "fuzzy checkpoint", "database checkpoint"],
+      "kind": "persistence-durability",
+      "what": "Periodically record a consistent marker of which logged changes have reached the main data store, bounding how far back crash recovery must scan the log.",
+      "problem": "Without checkpoints the recovery log grows without bound and restart must replay the whole history; a checkpoint truncates the redo horizon and caps recovery time.",
+      "named_in": "Transaction Processing: Concepts and Techniques - Gray & Reuter (1992)",
+      "named_in_corpus_id": null,
+      "tags": ["db", "storage-engine", "long-running-computation"],
+      "borderline": null,
+      "confidence": "established"
+    },
+    {
+      "id": "group-commit",
+      "name": "Group Commit",
+      "aka": ["batch commit"],
+      "kind": "persistence-durability",
+      "what": "Accumulate the log records of several concurrently committing transactions and flush them to stable storage with a single synchronous write.",
+      "problem": "One fsync per commit makes the log device the throughput ceiling; amortizing one flush over many commits trades a little latency for large gains in commit throughput.",
+      "named_in": "Transaction Processing: Concepts and Techniques - Gray & Reuter (1992)",
+      "named_in_corpus_id": null,
+      "tags": ["db", "storage-engine", "throughput"],
+      "borderline": null,
+      "confidence": "established"
+    },
+    {
+      "id": "shadow-paging",
+      "name": "Shadow Paging",
+      "aka": ["shadow pages", "shadow copy update"],
+      "kind": "persistence-durability",
+      "what": "Perform updates on copies of pages and atomically switch a page-table root from the old (shadow) versions to the new ones at commit, never overwriting committed state in place.",
+      "problem": "Gives atomic, no-log crash recovery: a crash before the root switch leaves the intact shadow state; the cost is copying pressure and lost clustering, the classic alternative to write-ahead logging.",
+      "named_in": "Physical Integrity in a Large Segmented Database - Lorie (1977)",
+      "named_in_corpus_id": null,
+      "tags": ["db", "storage-engine", "filesystems"],
+      "borderline": null,
+      "confidence": "established"
+    },
+    {
+      "id": "copy-on-write-b-tree",
+      "name": "Copy-on-Write B-Tree",
+      "aka": ["CoW B-tree", "append-only B-tree"],
+      "kind": "data-structures",
+      "what": "A B-tree whose updates never modify pages in place: changed pages and their ancestors up to the root are rewritten to new locations, and commit is an atomic root swap.",
+      "problem": "Combines B-tree lookup with crash safety and lock-free readers (old roots stay valid snapshots) without a separate recovery log; used by LMDB and btrfs at the cost of write amplification.",
+      "named_in": "Database Internals - Petrov (2019)",
+      "named_in_corpus_id": null,
+      "tags": ["db", "storage-engine", "filesystems"],
+      "borderline": null,
+      "confidence": "spot-checked"
+    },
+    {
+      "id": "buffer-pool",
+      "name": "Buffer Pool",
+      "aka": ["page cache", "buffer manager", "buffer cache"],
+      "kind": "caching-memoization",
+      "what": "A fixed set of in-memory frames that caches disk pages, tracks pin counts and dirty state, and mediates all page reads and writes between the storage layer and disk.",
+      "problem": "Disk access is orders of magnitude slower than memory; a managed page cache exploits locality while controlling exactly when dirty pages reach disk, which the recovery protocol depends on (steal/force policies).",
+      "named_in": "Architecture of a Database System - Hellerstein, Stonebraker & Hamilton (2007)",
+      "named_in_corpus_id": null,
+      "tags": ["db", "storage-engine", "os"],
+      "borderline": null,
+      "confidence": "established"
+    },
+    {
+      "id": "slotted-page",
+      "name": "Slotted Page Layout",
+      "aka": ["slotted pages", "slot directory", "slot array page"],
+      "kind": "data-representation",
+      "what": "A page format with a slot directory growing from one end and variable-length records growing from the other, so records are addressed by stable slot number rather than byte offset.",
+      "problem": "Variable-length records must be inserted, deleted, and relocated within a fixed-size page without invalidating external record identifiers; the indirection slot array permits in-page compaction while record ids stay stable.",
+      "named_in": "Database Internals - Petrov (2019)",
+      "named_in_corpus_id": null,
+      "tags": ["db", "storage-engine"],
+      "borderline": null,
+      "confidence": "spot-checked"
+    },
+    {
+      "id": "lsm-tree",
+      "name": "Log-Structured Merge-Tree",
+      "aka": ["LSM tree", "LSM-tree", "memtable + SSTable", "log-structured storage engine"],
+      "kind": "data-structures",
+      "what": "A write-optimized index that absorbs writes in an in-memory sorted structure (memtable), flushes it as immutable sorted runs on disk (SSTables), and background-merges runs (compaction) to bound read cost.",
+      "problem": "In-place trees pay a random write per update; converting random writes into sequential flushes plus deferred merging trades read and space amplification for far higher sustained write throughput.",
+      "named_in": "The Log-Structured Merge-Tree (LSM-Tree) - O'Neil, Cheng, Gawlick & O'Neil (1996)",
+      "named_in_corpus_id": null,
+      "tags": ["db", "storage-engine"],
+      "borderline": null,
+      "confidence": "established"
+    },
+    {
+      "id": "mvcc",
+      "name": "Multiversion Concurrency Control",
+      "aka": ["MVCC", "multi-version concurrency control", "versioned records"],
+      "kind": "synchronization-coordination",
+      "what": "Keep multiple timestamped versions of each data item so readers see a consistent older version while writers create new ones, with obsolete versions garbage-collected later.",
+      "problem": "Lock-based schemes make readers and writers block each other; versioning lets reads proceed without locks against a stable snapshot at the cost of version storage and cleanup (vacuum).",
+      "named_in": "Multiversion Concurrency Control - Theory and Algorithms - Bernstein & Goodman (1983)",
+      "named_in_corpus_id": null,
+      "tags": ["db", "concurrency"],
+      "borderline": null,
+      "confidence": "established"
+    },
+    {
+      "id": "snapshot-isolation",
+      "name": "Snapshot Isolation",
+      "aka": ["SI"],
+      "kind": "synchronization-coordination",
+      "what": "A transaction reads from a consistent snapshot taken at its start and commits only if no concurrent committed transaction wrote the same items (first-committer-wins).",
+      "problem": "Gives long-running reads a stable, non-blocking view while catching write-write conflicts; weaker than serializability (admits write skew), which is exactly the trade-off it names.",
+      "named_in": "A Critique of ANSI SQL Isolation Levels - Berenson, Bernstein, Gray, Melton, O'Neil & O'Neil (1995)",
+      "named_in_corpus_id": null,
+      "tags": ["db", "concurrency", "borderline"],
+      "borderline": "Primarily an isolation-level semantics; included because it names the concrete snapshot-read + first-committer-wins mechanism MVCC engines implement.",
+      "confidence": "established"
+    },
+    {
+      "id": "two-phase-locking",
+      "name": "Two-Phase Locking",
+      "aka": ["2PL", "strict two-phase locking", "S2PL"],
+      "kind": "synchronization-coordination",
+      "what": "A locking discipline in which a transaction acquires all its locks before releasing any (growing then shrinking phase), which suffices to guarantee serializable executions.",
+      "problem": "Ad-hoc lock acquisition and release admits non-serializable interleavings; the two-phase rule is the classic protocol-level fix, at the price of blocking and possible deadlock.",
+      "named_in": "The Notions of Consistency and Predicate Locks in a Database System - Eswaran, Gray, Lorie & Traiger (1976)",
+      "named_in_corpus_id": null,
+      "tags": ["db", "concurrency"],
+      "borderline": null,
+      "confidence": "established"
+    },
+    {
+      "id": "optimistic-concurrency-control",
+      "name": "Optimistic Concurrency Control",
+      "aka": ["OCC", "optimistic locking", "validation-based concurrency control"],
+      "kind": "synchronization-coordination",
+      "what": "Execute transactions without locks against private working copies, then validate at commit that no conflicting concurrent access occurred, aborting and retrying on conflict.",
+      "problem": "When conflicts are rare, pessimistic locking pays overhead and blocking for protection it seldom needs; optimistic validation moves the cost to the (rare) conflict case.",
+      "named_in": "On Optimistic Methods for Concurrency Control - Kung & Robinson (1981)",
+      "named_in_corpus_id": null,
+      "tags": ["db", "concurrency"],
+      "borderline": null,
+      "confidence": "established"
+    },
+    {
+      "id": "timestamp-ordering",
+      "name": "Timestamp-Ordering Concurrency Control",
+      "aka": ["T/O", "timestamp ordering", "basic timestamp ordering"],
+      "kind": "synchronization-coordination",
+      "what": "Assign each transaction a unique timestamp at start and enforce that all conflicting reads and writes execute in timestamp order, aborting operations that arrive too late.",
+      "problem": "Provides serializability without locks or deadlocks by pre-deciding the serialization order; the third classic concurrency-control family alongside 2PL and OCC.",
+      "named_in": "Concurrency Control in Distributed Database Systems - Bernstein & Goodman (1981)",
+      "named_in_corpus_id": null,
+      "tags": ["db", "concurrency"],
+      "borderline": null,
+      "confidence": "established"
+    },
+    {
+      "id": "multi-granularity-locking",
+      "name": "Multi-Granularity Locking",
+      "aka": ["intention locks", "intent locks", "hierarchical locking", "MGL"],
+      "kind": "synchronization-coordination",
+      "what": "Locks are taken at multiple granularities (database, table, page, row) with intention modes (IS, IX, SIX) on ancestors advertising finer-grained locks below.",
+      "problem": "Row-only locking makes whole-table operations acquire millions of locks, while table-only locking kills concurrency; the intention-mode hierarchy lets both coexist with cheap conflict checks.",
+      "named_in": "Granularity of Locks and Degrees of Consistency in a Shared Data Base - Gray, Lorie, Putzolu & Traiger (1976)",
+      "named_in_corpus_id": null,
+      "tags": ["db", "concurrency"],
+      "borderline": null,
+      "confidence": "established"
+    },
+    {
+      "id": "lock-escalation",
+      "name": "Lock Escalation",
+      "aka": ["lock promotion to coarser granularity"],
+      "kind": "synchronization-coordination",
+      "what": "When a transaction holds too many fine-grained locks, the lock manager replaces them with a single coarser-granularity lock to cap lock-table memory.",
+      "problem": "Fine-grained locking has per-lock overhead that can exhaust the lock table; escalation trades concurrency for bounded lock-manager resources.",
+      "named_in": "Transaction Processing: Concepts and Techniques - Gray & Reuter (1992)",
+      "named_in_corpus_id": null,
+      "tags": ["db", "concurrency", "borderline"],
+      "borderline": "A resource-bounding policy inside the lock manager rather than a standalone mechanism; included as it is named, recurring, and independently implementable.",
+      "confidence": "established"
+    },
+    {
+      "id": "deadlock-detection",
+      "name": "Deadlock Detection",
+      "aka": ["waits-for graph detection", "cycle detection in wait graph", "deadlock victim selection"],
+      "kind": "synchronization-coordination",
+      "what": "Maintain a waits-for graph of which transactions block which, periodically detect cycles, and break them by aborting a chosen victim (alternatives: timeouts, wound-wait/wait-die prevention).",
+      "problem": "Blocking lock protocols can produce circular waits that never resolve; explicit detection converts a permanent hang into a bounded abort-and-retry.",
+      "named_in": "Transaction Processing: Concepts and Techniques - Gray & Reuter (1992)",
+      "named_in_corpus_id": null,
+      "tags": ["db", "concurrency", "os"],
+      "borderline": null,
+      "confidence": "established"
+    },
+    {
+      "id": "volcano-iterator-model",
+      "name": "Volcano Iterator Model",
+      "aka": ["iterator model", "open-next-close model", "pull-based query execution", "tuple-at-a-time execution"],
+      "kind": "data-flow-buffering",
+      "what": "Every query operator implements a uniform open/next/close iterator interface and pulls one tuple at a time from its children, composing arbitrary operator trees into demand-driven pipelines.",
+      "problem": "Operators need to compose without materializing intermediate results or knowing each other's internals; the uniform pull interface makes pipelining and operator extensibility mechanical.",
+      "named_in": "Volcano - An Extensible and Parallel Query Evaluation System - Graefe (1994)",
+      "named_in_corpus_id": null,
+      "tags": ["db", "query-execution"],
+      "borderline": null,
+      "confidence": "established"
+    },
+    {
+      "id": "vectorized-execution",
+      "name": "Vectorized Execution",
+      "aka": ["batch-at-a-time execution", "vectorized query processing", "vector-at-a-time model"],
+      "kind": "data-flow-buffering",
+      "what": "Query operators pass batches (vectors) of hundreds or thousands of values per next() call instead of single tuples, running tight primitive loops over each batch.",
+      "problem": "Tuple-at-a-time iteration pays interpretation overhead per row and defeats CPU caches and SIMD; batching amortizes dispatch cost and enables cache- and SIMD-friendly inner loops.",
+      "named_in": "MonetDB/X100: Hyper-Pipelining Query Execution - Boncz, Zukowski & Nes (2005)",
+      "named_in_corpus_id": null,
+      "tags": ["db", "query-execution", "performance", "borderline"],
+      "borderline": "Arguably an optimization of the iterator model rather than a distinct mechanism; kept separate because the batch-interface design is independently named and adopted (DuckDB, Velox, Arrow).",
+      "confidence": "established"
+    },
+    {
+      "id": "cursor",
+      "name": "Cursor",
+      "aka": ["database cursor", "scrollable cursor", "result-set iterator"],
+      "kind": "data-flow-buffering",
+      "what": "A named, positioned handle over a query result set that the client advances row by row (optionally scrolling or updating through it) instead of receiving the whole result at once.",
+      "problem": "Set-oriented query results must be consumed by record-at-a-time application code with bounded memory; the cursor bridges the set/record impedance and carries position state across calls.",
+      "named_in": "ISO/IEC 9075 - Database Language SQL",
+      "named_in_corpus_id": null,
+      "tags": ["db", "api", "sql"],
+      "borderline": null,
+      "confidence": "established"
+    },
+    {
+      "id": "secondary-index",
+      "name": "Secondary Index",
+      "aka": ["non-clustered index", "alternate-key index"],
+      "kind": "data-structures",
+      "what": "An auxiliary structure mapping non-primary-key attribute values to record locations (or primary keys), maintained alongside the base data on every write.",
+      "problem": "Queries on attributes other than the primary access path degenerate to full scans; a redundant per-attribute index buys lookup speed at the cost of write amplification and consistency maintenance.",
+      "named_in": "Designing Data-Intensive Applications - Kleppmann (2017)",
+      "named_in_corpus_id": null,
+      "tags": ["db", "storage-engine", "borderline"],
+      "borderline": "Generic 'index' altitude is contested; kept because 'secondary index' names a specific recurring design decision (redundant derived access path maintained on write).",
+      "confidence": "established"
+    },
+    {
+      "id": "column-oriented-storage",
+      "name": "Column-Oriented Storage",
+      "aka": ["columnar storage", "column store layout", "DSM (decomposition storage model)"],
+      "kind": "data-representation",
+      "what": "Store all values of each column contiguously (rather than row by row), typically with per-column compression, so queries read only the columns they touch.",
+      "problem": "Analytical scans over wide tables waste I/O and cache on unused columns in row layout; columnar layout minimizes bytes read and makes runs of same-typed values highly compressible and SIMD-friendly.",
+      "named_in": "C-Store: A Column-oriented DBMS - Stonebraker et al. (2005)",
+      "named_in_corpus_id": null,
+      "tags": ["db", "storage-engine", "analytics"],
+      "borderline": null,
+      "confidence": "established"
+    },
+    {
+      "id": "cache-aside",
+      "name": "Cache-Aside",
+      "aka": ["lazy loading", "look-aside cache"],
+      "kind": "caching-memoization",
+      "what": "Application code checks the cache first, loads from the backing store on a miss, populates the cache itself, and invalidates or updates the entry when it writes the store.",
+      "problem": "Keeps the cache optional and the store authoritative when the cache cannot sit transparently in the data path; the application accepts responsibility for population and invalidation consistency.",
+      "named_in": "Cloud Design Patterns - Microsoft patterns & practices (2014)",
+      "named_in_corpus_id": null,
+      "tags": ["db", "caching", "web"],
+      "borderline": null,
+      "confidence": "established"
+    },
+    {
+      "id": "read-through-cache",
+      "name": "Read-Through Cache",
+      "aka": ["read-through caching"],
+      "kind": "caching-memoization",
+      "what": "The cache itself, not the application, loads missing entries from the backing store via a pluggable loader when a get misses, then returns and retains the value.",
+      "problem": "Centralizes miss-handling so callers see one always-answering interface, and lets the cache coalesce concurrent misses for the same key (thundering-herd protection).",
+      "named_in": "Read-Through, Write-Through, Write-Behind, and Refresh-Ahead Caching - Oracle Coherence Developer's Guide (2009)",
+      "named_in_corpus_id": null,
+      "tags": ["db", "caching"],
+      "borderline": null,
+      "confidence": "spot-checked"
+    },
+    {
+      "id": "write-through-cache",
+      "name": "Write-Through Cache",
+      "aka": ["write-through caching"],
+      "kind": "caching-memoization",
+      "what": "Writes go to the cache, which synchronously propagates them to the backing store before acknowledging, keeping cache and store consistent at all times.",
+      "problem": "Guarantees the store never lags the cache (no dirty data to lose) at the cost of paying full store latency on every write; the safety end of the write-policy spectrum.",
+      "named_in": "Read-Through, Write-Through, Write-Behind, and Refresh-Ahead Caching - Oracle Coherence Developer's Guide (2009)",
+      "named_in_corpus_id": null,
+      "tags": ["db", "caching", "cpu-caches"],
+      "borderline": null,
+      "confidence": "spot-checked"
+    },
+    {
+      "id": "write-behind-cache",
+      "name": "Write-Behind Cache",
+      "aka": ["write-back cache", "deferred write", "write-behind caching"],
+      "kind": "caching-memoization",
+      "what": "Writes are acknowledged once they hit the cache and are propagated to the backing store asynchronously, often batched and coalesced, after a delay.",
+      "problem": "Synchronous store writes cap write latency and throughput; deferring and batching them absorbs bursts and coalesces repeated writes, at the risk of losing acknowledged-but-unflushed data.",
+      "named_in": "Read-Through, Write-Through, Write-Behind, and Refresh-Ahead Caching - Oracle Coherence Developer's Guide (2009)",
+      "named_in_corpus_id": null,
+      "tags": ["db", "caching", "cpu-caches"],
+      "borderline": null,
+      "confidence": "spot-checked"
+    },
+    {
+      "id": "refresh-ahead-cache",
+      "name": "Refresh-Ahead Cache",
+      "aka": ["refresh-ahead caching", "proactive refresh"],
+      "kind": "caching-memoization",
+      "what": "When a cached entry is read close to its expiry, the cache returns the current value and asynchronously reloads a fresh one from the backing store before it expires.",
+      "problem": "Plain TTL expiry makes some unlucky reader pay the reload latency on hot keys; refreshing ahead of expiry hides reload cost for frequently accessed entries.",
+      "named_in": "Read-Through, Write-Through, Write-Behind, and Refresh-Ahead Caching - Oracle Coherence Developer's Guide (2009)",
+      "named_in_corpus_id": null,
+      "tags": ["db", "caching"],
+      "borderline": null,
+      "confidence": "spot-checked"
+    },
+    {
+      "id": "cache-eviction-policy",
+      "name": "Cache Eviction Policy",
+      "aka": ["cache replacement policy", "page replacement policy", "LRU", "LFU", "CLOCK", "FIFO eviction", "2Q", "LRU-K", "ARC"],
+      "kind": "caching-memoization",
+      "what": "The rule a bounded cache uses to choose which resident entry to discard when admitting a new one, approximating 'least likely to be needed again' (recency-, frequency-, or clock-based).",
+      "problem": "A cache smaller than its working set must evict; the choice of victim policy determines hit rate and scan-resistance and is a named, pluggable design decision in every cache and buffer pool.",
+      "named_in": "Database Internals - Petrov (2019)",
+      "named_in_corpus_id": null,
+      "tags": ["db", "caching", "os"],
+      "borderline": null,
+      "confidence": "established"
+    },
+    {
+      "id": "prefetching",
+      "name": "Prefetching",
+      "aka": ["readahead", "read-ahead", "anticipatory fetching", "sequential prefetch"],
+      "kind": "caching-memoization",
+      "what": "Fetch data into a cache or buffer before it is requested, based on a predicted access pattern (most commonly sequential readahead), overlapping fetch latency with useful work.",
+      "problem": "Demand fetching stalls the consumer for the full miss latency; when the access pattern is predictable, speculatively issuing fetches early hides that latency at the risk of wasted bandwidth on wrong guesses.",
+      "named_in": "Computer Architecture: A Quantitative Approach - Hennessy & Patterson (1990)",
+      "named_in_corpus_id": null,
+      "tags": ["db", "os", "caching", "cpu-caches"],
+      "borderline": null,
+      "confidence": "established"
+    }
+  ],
+  "parked_architecture": [
+    {
+      "name": "Two-phase commit (2PC)",
+      "why": "Atomic commit protocol coordinating multiple independent participants across a system - a distributed/system-structure protocol, not a single-component mechanism (Gray & Reuter name it; Phase 3 candidate)."
+    },
+    {
+      "name": "Log shipping / replication log (primary-replica replication)",
+      "why": "Reuses the WAL as a system-level replication channel between nodes - statement of system structure, feeds Phase 3 (named in Kleppmann DDIA)."
+    },
+    {
+      "name": "Shared-nothing parallel database architecture",
+      "why": "Whole-system partitioning/topology decision (Stonebraker 1986 'The Case for Shared Nothing') - clearly architecture realm."
+    },
+    {
+      "name": "Partitioning / sharding",
+      "why": "Distribution of a dataset across nodes is system-level structure (DDIA ch. 6); the in-component analogue (hash partitioning of an in-memory structure) would be a different, unnamed-at-this-altitude candidate."
+    },
+    {
+      "name": "Query optimizer / query planner",
+      "why": "Named recurring construct but primarily a component role in DBMS system structure (Hellerstein et al. 2007 anatomy) rather than a reusable design mechanism; parked rather than dropped."
+    }
+  ],
+  "excluded_notable": [
+    {
+      "name": "Join algorithms (nested-loop, sort-merge, hash join, grace/hybrid hash)",
+      "why": "Excluded per charter: algorithm zoo at algorithmics granularity - datastructures corpus territory; the execution-model elements (Volcano, vectorized) carry the design-level content."
+    },
+    {
+      "name": "ARIES",
+      "why": "A specific published recovery algorithm (Mohan et al. 1992), not a distinct design element - its ideas (WAL, fuzzy checkpointing, redo/undo passes) are folded into the write-ahead-log and checkpointing entries."
+    },
+    {
+      "name": "Latch",
+      "why": "DB-internals name for a short-term lightweight mutex on in-memory structures (Hellerstein et al. 2007 distinguishes locks vs latches); folds into the generic mutex/lock element owned by the concurrency scout - recorded so the aka is not lost."
+    },
+    {
+      "name": "ACID properties / SQL isolation levels (read committed, repeatable read, serializable)",
+      "why": "Correctness semantics and contract taxonomy, not implementable mechanisms (Haerder & Reuter 1983; Berenson et al. 1995); snapshot isolation alone was admitted as the mechanism-shaped borderline."
+    },
+    {
+      "name": "Steal/no-steal, force/no-force buffer policies",
+      "why": "A 2x2 policy taxonomy for buffer-pool/recovery interaction (Haerder & Reuter 1983), noted under buffer-pool and write-ahead-log rather than as standalone elements."
+    },
+    {
+      "name": "Write amplification / read amplification / space amplification",
+      "why": "Named evaluation metrics for storage designs (RUM conjecture), not mechanisms."
+    },
+    {
+      "name": "Predicate locking",
+      "why": "Named in Eswaran et al. 1976 but essentially a (rarely implemented) generalization within the 2PL family; folded as a note under two-phase-locking rather than a separate element."
+    }
+  ],
+  "notes": "Coverage: 28 elements across persistence-durability (4), data-structures (3), data-representation (2), synchronization-coordination (8), data-flow-buffering (3), caching-memoization (8). Fold decisions logged per charter: (1) undo/redo logging FOLDED into write-ahead-log (aka + what) - Gray & Reuter treat undo/redo as roles of the single WAL protocol, and ARIES (the redo/undo realization) is excluded_notable as an algorithm; (2) memtable + SSTable FOLDED under lsm-tree as aka - DDIA and the Bigtable paper (Chang et al. 2006) name them, but they are constituent parts of one mechanism, and compaction is carried in the lsm-tree what/problem as a note rather than a separate element; (3) cache eviction policy kept as ONE element with LRU/LFU/CLOCK/2Q/LRU-K/ARC as aka - the variants are the algorithmics zoo (datastructures corpus territory), the pluggable-victim-policy slot is the design element; (4) the four Coherence caching strategies (read-through/write-through/write-behind/refresh-ahead) kept as SEPARATE elements plus cache-aside (Microsoft Cloud Design Patterns) - each names a distinct data-path/consistency contract, matching charter enumeration; write-back folded into write-behind as aka (Hennessy & Patterson CPU-cache usage). Spot-checks this session: Oracle Coherence doc section title 'Read-Through, Write-Through, Write-Behind, and Refresh-Ahead Caching' confirmed live (docs.oracle.com, Coherence 3.5 Developer's Guide); Petrov Database Internals confirmed live to contain 'Slotted Pages' (ch. 4 Implementing B-Trees) and Copy-on-Write B-tree variants (ch. 6 B-Tree Variants) via O'Reilly TOC. No db-internals naming sources exist in the corpus work-id map (checked: no Kleppmann/Petrov/Hellerstein/Gray-Reuter entries), so all named_in_corpus_id are null - Phase 2 will need DDIA, Database Internals, Architecture of a Database System, and Transaction Processing as new nodes. Thin spots for other scouts / later sweeps: plain B-tree/B+tree, bloom filter, skip list (datastructures scout); distributed-transactions and replication vocabulary parked for Phase 3; query-optimization vocabulary (cost model, cardinality estimation) deliberately left out as component-internal algorithmics; bitmap index / inverted index / zone maps could extend the index family if a later sweep wants deeper index coverage."
+}

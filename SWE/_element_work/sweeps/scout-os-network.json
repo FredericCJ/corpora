@@ -1,0 +1,374 @@
+{
+  "scout": "os-network",
+  "elements": [
+    {
+      "id": "deferred-interrupt-handling",
+      "name": "Deferred Interrupt Handling",
+      "aka": ["bottom half", "softirq", "tasklet", "deferred procedure call (DPC)", "second-level interrupt handler (SLIH)", "ISR with deferred work", "work queue deferral"],
+      "kind": "embedded-systems",
+      "what": "Split interrupt servicing into a minimal, fast handler that acknowledges the hardware and a deferred, interruptible context that does the bulk of the work later.",
+      "problem": "Interrupt handlers run with interrupts masked and cannot sleep; doing real work there increases latency and risks missed interrupts, so the work must be handed off to a schedulable context.",
+      "named_in": "Linux Kernel Development, 3rd ed. - Robert Love (2010), ch. 'Bottom Halves and Deferring Work'",
+      "named_in_corpus_id": null,
+      "tags": ["c", "embedded", "os-kernel", "overlap:embedded-scout"],
+      "borderline": null,
+      "confidence": "established"
+    },
+    {
+      "id": "interrupt-coalescing",
+      "name": "Interrupt Coalescing",
+      "aka": ["interrupt moderation", "interrupt throttling", "interrupt blanking", "interrupt mitigation"],
+      "kind": "scheduling-time",
+      "what": "Hold back events that would each raise an interrupt until a count threshold or timeout is reached, then deliver one interrupt for the whole batch.",
+      "problem": "Per-event interrupts under high event rates (e.g. NIC packet arrival) swamp the CPU with context switches; batching trades a bounded latency increase for an order-of-magnitude drop in interrupt load. NAPI-style hybrid interrupt/polling is the software realization folded here.",
+      "named_in": "Interrupt coalescing - Wikipedia (live)",
+      "named_in_corpus_id": null,
+      "tags": ["embedded", "networking", "os-kernel", "drivers"],
+      "borderline": null,
+      "confidence": "spot-checked"
+    },
+    {
+      "id": "zero-copy",
+      "name": "Zero-Copy I/O",
+      "aka": ["zero-copy", "sendfile", "splice"],
+      "kind": "data-flow-buffering",
+      "what": "Move data between endpoints (file, socket, device) without copying it through intermediate user-space buffers, via DMA, page remapping, or in-kernel transfer.",
+      "problem": "Each redundant copy across the user/kernel boundary costs CPU cycles, cache pollution, and memory bandwidth; for high-throughput I/O paths the copies dominate the cost of the transfer itself.",
+      "named_in": "Zero-copy - Wikipedia",
+      "named_in_corpus_id": null,
+      "tags": ["networking", "os-kernel", "performance"],
+      "borderline": null,
+      "confidence": "established"
+    },
+    {
+      "id": "scatter-gather-io",
+      "name": "Scatter-Gather I/O",
+      "aka": ["vectored I/O", "readv/writev", "scatter read and gather write", "scatter-gather DMA"],
+      "kind": "data-flow-buffering",
+      "what": "Perform a single I/O operation over a vector of non-contiguous buffers, scattering input into them or gathering output from them.",
+      "problem": "Data naturally lives in separate pieces (header + payload, protocol layers); copying it into one contiguous buffer just to do one syscall, or issuing one syscall per piece, both waste work. Also realized in hardware as scatter-gather DMA descriptor chains.",
+      "named_in": "UNIX Network Programming, Vol. 1 - W. Richard Stevens (1990; 3rd ed. 2003), readv/writev",
+      "named_in_corpus_id": null,
+      "tags": ["c", "networking", "os-kernel", "embedded"],
+      "borderline": null,
+      "confidence": "established"
+    },
+    {
+      "id": "memory-mapped-file-io",
+      "name": "Memory-Mapped File I/O",
+      "aka": ["mmap", "file mapping", "memory-mapped I/O (file)"],
+      "kind": "data-flow-buffering",
+      "what": "Map a file's contents into the process address space so it is read and written through ordinary memory access, with the OS paging data in and out on demand.",
+      "problem": "Explicit read/write loops double-buffer data and force the program to manage its own windowing over large files; mapping delegates buffering, caching, and lazy loading to the virtual-memory system and enables sharing between processes. Distinct from memory-mapped device registers (embedded scout's territory).",
+      "named_in": "Advanced Programming in the UNIX Environment - W. Richard Stevens (1992), 'Memory-Mapped I/O'",
+      "named_in_corpus_id": null,
+      "tags": ["c", "os", "persistence", "performance"],
+      "borderline": null,
+      "confidence": "established"
+    },
+    {
+      "id": "buddy-allocator",
+      "name": "Buddy Memory Allocation",
+      "aka": ["buddy system", "binary buddy allocator"],
+      "kind": "resource-management",
+      "what": "Manage memory in power-of-two-sized blocks that split into two 'buddies' on allocation and coalesce back with their buddy on free, found by address arithmetic.",
+      "problem": "General free-list allocators suffer slow coalescing and external fragmentation; restricting block sizes to powers of two makes split/merge O(1)-ish and bounds fragmentation predictably, at the price of internal fragmentation. Technique due to Knowlton (1965); named and analyzed by Knuth.",
+      "named_in": "The Art of Computer Programming, Vol. 1 - Donald E. Knuth (1968), sec. 2.5 'Dynamic Storage Allocation'",
+      "named_in_corpus_id": null,
+      "tags": ["c", "os-kernel", "embedded", "allocators"],
+      "borderline": null,
+      "confidence": "established"
+    },
+    {
+      "id": "slab-allocator",
+      "name": "Slab Allocator",
+      "aka": ["object-caching allocator", "slab cache"],
+      "kind": "resource-management",
+      "what": "Carve memory into per-type slabs of preconstructed, fixed-size objects and cache freed objects in initialized state for immediate reuse.",
+      "problem": "Frequently allocated kernel objects pay repeated construction/destruction and fragmentation costs under a general allocator; caching constructed objects per type removes both and improves locality. Slab coloring and the later magazine/vmem layer (Bonwick & Adams 2001) are folded here as variants.",
+      "named_in": "The Slab Allocator: An Object-Caching Kernel Memory Allocator - Jeff Bonwick (1994)",
+      "named_in_corpus_id": null,
+      "tags": ["c", "os-kernel", "allocators"],
+      "borderline": null,
+      "confidence": "established"
+    },
+    {
+      "id": "memory-arena",
+      "name": "Memory Arena",
+      "aka": ["arena allocator", "region-based memory management", "region allocator", "bump allocator", "linear allocator", "frame allocator", "obstack"],
+      "kind": "resource-management",
+      "what": "Allocate objects by bumping a pointer through a large block and free them all at once by resetting or discarding the whole arena.",
+      "problem": "Per-object malloc/free is slow and error-prone when many objects share one lifetime (a request, a frame, a compilation pass); grouping them into one region makes allocation a pointer increment and deallocation a single bulk release. Canonical name decided as 'memory arena' (mission anchor; Hanson's Arena interface); region/bump/linear/frame allocator folded as aka.",
+      "named_in": "C Interfaces and Implementations - David R. Hanson (1996), ch. 'Arenas'",
+      "named_in_corpus_id": "hanson",
+      "tags": ["c", "games", "embedded", "compilers", "allocators"],
+      "borderline": null,
+      "confidence": "established"
+    },
+    {
+      "id": "free-list",
+      "name": "Free List",
+      "aka": ["freelist", "list of available space", "intrusive free list"],
+      "kind": "resource-management",
+      "what": "Thread freed blocks into a linked list (often stored inside the free blocks themselves) so allocation pops and deallocation pushes in O(1).",
+      "problem": "An allocator must find reusable blocks without scanning memory; linking free blocks makes recycling constant-time and needs no external metadata. Segregated free lists / size classes folded as the standard variant.",
+      "named_in": "Dynamic Storage Allocation: A Survey and Critical Review - Wilson, Johnstone, Neely & Boles (1995)",
+      "named_in_corpus_id": "wilsonsurvey",
+      "tags": ["c", "embedded", "allocators", "games"],
+      "borderline": null,
+      "confidence": "established"
+    },
+    {
+      "id": "reference-counting",
+      "name": "Reference Counting",
+      "aka": ["refcounting", "automatic reference counting (ARC)", "shared_ptr semantics"],
+      "kind": "resource-management",
+      "what": "Store with each object a count of live references to it, incremented and decremented as references are created and dropped, reclaiming the object when the count hits zero.",
+      "problem": "Manual lifetime management fails when ownership is shared and dynamic; counting references reclaims objects deterministically and promptly, at the cost of per-reference bookkeeping and inability to collect cycles unaided.",
+      "named_in": "A Method for Overlapping and Erasure of Lists - George E. Collins (1960)",
+      "named_in_corpus_id": null,
+      "tags": ["c", "cpp", "objc", "swift", "python", "os-kernel"],
+      "borderline": null,
+      "confidence": "established"
+    },
+    {
+      "id": "weak-reference",
+      "name": "Weak Reference",
+      "aka": ["weak pointer", "weak_ptr", "WeakReference"],
+      "kind": "resource-management",
+      "what": "A reference that does not keep its target alive: it can be dereferenced only while the target still exists and observably lapses when the target is reclaimed.",
+      "problem": "Reference-counted or traced object graphs with back-pointers, caches, or observer lists otherwise leak via cycles or unwanted retention; a non-owning, lapse-aware reference breaks the cycle while remaining safe to use. Kept as a separate element from reference counting per decision log (distinct mechanism, also exists in tracing-GC runtimes).",
+      "named_in": "The Garbage Collection Handbook - Jones, Hosking & Moss (2011)",
+      "named_in_corpus_id": null,
+      "tags": ["cpp", "java", "python", "swift"],
+      "borderline": null,
+      "confidence": "established"
+    },
+    {
+      "id": "tracing-garbage-collection",
+      "name": "Tracing Garbage Collection",
+      "aka": ["garbage collection", "mark-sweep", "mark-compact", "copying collection"],
+      "kind": "resource-management",
+      "what": "Reclaim memory by tracing reachability from a root set and freeing everything not reached, rather than tracking lifetimes at each assignment.",
+      "problem": "Manual deallocation and pure reference counting are unsafe or incomplete (dangling pointers, cycles); tracing determines liveness globally and correctly. One element by decision: generational, incremental, and concurrent collection are strategy variants folded here, not separate elements.",
+      "named_in": "The Garbage Collection Handbook - Jones, Hosking & Moss (2011)",
+      "named_in_corpus_id": null,
+      "tags": ["runtimes", "java", "lisp", "go"],
+      "borderline": null,
+      "confidence": "established"
+    },
+    {
+      "id": "copy-on-write",
+      "name": "Copy-on-Write",
+      "aka": ["COW", "lazy copy", "implicit sharing", "copy-on-write pages"],
+      "kind": "resource-management",
+      "what": "Share one physical copy of data among logical copies and defer the actual duplication until (and unless) one sharer writes to it.",
+      "problem": "Eager copying of large state (fork'd address spaces, big strings/containers, snapshots) wastes time and memory when most copies are never modified; write-time copying makes copies O(1) and pays only for actual divergence. Covers both the VM page mechanism and the in-process data-structure idiom; concurrency scout overlap noted.",
+      "named_in": "Advanced Programming in the UNIX Environment - W. Richard Stevens (1992), fork and copy-on-write",
+      "named_in_corpus_id": null,
+      "tags": ["os-kernel", "cpp", "databases", "overlap:concurrency-scout"],
+      "borderline": null,
+      "confidence": "established"
+    },
+    {
+      "id": "self-pipe-trick",
+      "name": "Self-Pipe Trick",
+      "aka": ["self-pipe", "wakeup pipe"],
+      "kind": "synchronization-coordination",
+      "what": "A process writes a byte to a pipe it also polls, converting an asynchronous event (typically a signal) into a file-descriptor readiness event handled in the main event loop.",
+      "problem": "Signals interrupt at arbitrary points and cannot safely do real work, and select/poll cannot wait on them directly; funneling the notification through a self-owned pipe unifies all wakeups race-free in one multiplexing point. Modern kernel equivalents (eventfd, signalfd, pselect) folded here as notes; attributed to D. J. Bernstein.",
+      "named_in": "The Linux Programming Interface - Michael Kerrisk (2010), sec. 63.5.2 'The Self-Pipe Trick'",
+      "named_in_corpus_id": null,
+      "tags": ["c", "unix", "event-loop"],
+      "borderline": null,
+      "confidence": "established"
+    },
+    {
+      "id": "sliding-window-flow-control",
+      "name": "Sliding Window Flow Control",
+      "aka": ["sliding window protocol", "window-based flow control", "go-back-N", "selective repeat"],
+      "kind": "communication",
+      "what": "Sender and receiver agree on a window of unacknowledged data that may be in flight; acknowledgments slide the window forward, throttling the sender to the receiver's capacity.",
+      "problem": "Stop-and-wait wastes bandwidth on every round trip, while unlimited sending overruns the receiver; a sliding window pipelines transmission up to a negotiated bound and doubles as the receiver's backpressure signal. Go-back-N and selective repeat are retransmission variants folded here; silly-window-syndrome avoidance noted.",
+      "named_in": "TCP/IP Illustrated, Vol. 1: The Protocols - W. Richard Stevens (1994)",
+      "named_in_corpus_id": null,
+      "tags": ["networking", "protocols", "embedded"],
+      "borderline": null,
+      "confidence": "established"
+    },
+    {
+      "id": "nagles-algorithm",
+      "name": "Nagle's Algorithm",
+      "aka": ["small-packet avoidance", "tinygram avoidance", "TCP_NODELAY (disable knob)"],
+      "kind": "communication",
+      "what": "Coalesce small outgoing writes by holding new small segments while any previously sent data remains unacknowledged, sending them as one larger segment when the ACK arrives.",
+      "problem": "Streams of tiny writes (keystrokes, RPC headers) generate one mostly-header packet each, congesting the network; self-clocked coalescing amortizes header overhead without a fixed timer. Interaction with delayed ACK and the TCP_CORK variant noted.",
+      "named_in": "RFC 896: Congestion Control in IP/TCP Internetworks - John Nagle (1984)",
+      "named_in_corpus_id": null,
+      "tags": ["networking", "tcp", "borderline"],
+      "borderline": "Stack-internal in TCP, but the small-write-coalescing mechanism is named, recurring, and reimplemented in user protocol libraries - kept IN.",
+      "confidence": "established"
+    },
+    {
+      "id": "jitter-buffer",
+      "name": "Jitter Buffer",
+      "aka": ["playout buffer", "de-jitter buffer", "playout delay buffer", "adaptive jitter buffer"],
+      "kind": "data-flow-buffering",
+      "what": "Buffer arriving media packets briefly and release them on a steady clock (reordering by sequence number), absorbing variation in network transit time.",
+      "problem": "Real-time audio/video must be played at a constant rate but packets arrive with variable delay and out of order; buffering trades a bounded added latency for smooth, gap-free playout. Static vs adaptive sizing folded as variants.",
+      "named_in": "Understanding Jitter in Packet Voice Networks - Cisco (live technical doc)",
+      "named_in_corpus_id": null,
+      "tags": ["networking", "media", "voip", "real-time"],
+      "borderline": null,
+      "confidence": "spot-checked"
+    },
+    {
+      "id": "heartbeat",
+      "name": "Heartbeat",
+      "aka": ["keepalive", "TCP keepalive", "liveness probe", "application-level keepalive"],
+      "kind": "error-handling",
+      "what": "Periodically send a small liveness message (or probe an idle peer) so that silence beyond a threshold reveals a dead, hung, or unreachable counterpart.",
+      "problem": "A failed peer or severed connection is otherwise indistinguishable from one that is merely idle; periodic signals bound failure-detection time and let half-open connections be reaped. Keepalive (RFC 1122 TCP keepalive) folded as aka per decision log. Same-name architecture-realm tactic (Bass availability 'heartbeat') exists - bridge in Phase 3, do not collapse.",
+      "named_in": "Patterns for Fault Tolerant Software - Robert S. Hanmer (2007), 'Heartbeat'",
+      "named_in_corpus_id": "hanmer",
+      "tags": ["networking", "fault-tolerance", "distributed", "embedded"],
+      "borderline": null,
+      "confidence": "established"
+    },
+    {
+      "id": "guard-page",
+      "name": "Guard Page",
+      "aka": ["red zone", "redzone", "guard region", "PAGE_GUARD", "electric fence"],
+      "kind": "robustness-security",
+      "what": "Place an inaccessible (or trap-on-touch) memory page or poisoned band adjacent to a stack or allocation so that overrun/overflow faults immediately at the boundary instead of corrupting neighbors.",
+      "problem": "Buffer and stack overflows silently corrupt adjacent memory and surface far from the bug; a trapping boundary converts the overrun into an immediate, located fault (and enables lazy stack growth). Allocator redzones (ASan-style poisoned bands) folded as aka; distinct from the ABI 'red zone' stack optimization.",
+      "named_in": "Creating Guard Pages - Microsoft Win32 documentation (live)",
+      "named_in_corpus_id": null,
+      "tags": ["os", "memory-safety", "debugging", "borderline"],
+      "borderline": "Relies on MMU protection, so it straddles the OS/hardware boundary - but it is set up inside one program (allocator, runtime, thread library), so kept IN.",
+      "confidence": "spot-checked"
+    },
+    {
+      "id": "stack-canary",
+      "name": "Stack Canary",
+      "aka": ["stack cookie", "stack protector", "canary value", "StackGuard"],
+      "kind": "robustness-security",
+      "what": "Write a known guard value between a stack frame's buffers and its control data and verify it before returning; a changed canary means the frame was overflowed.",
+      "problem": "Stack buffer overflows overwrite return addresses and enable control-flow hijack; a checked sentinel detects the overwrite before the corrupted return address is used, aborting instead of being exploited.",
+      "named_in": "StackGuard: Automatic Adaptive Detection and Prevention of Buffer-Overflow Attacks - Cowan et al. (1998)",
+      "named_in_corpus_id": null,
+      "tags": ["c", "security", "compilers", "embedded"],
+      "borderline": null,
+      "confidence": "established"
+    },
+    {
+      "id": "token-bucket",
+      "name": "Token Bucket",
+      "aka": ["token bucket filter", "committed access rate"],
+      "kind": "scheduling-time",
+      "what": "Accumulate tokens into a bucket at a fixed rate up to a burst capacity; each action consumes tokens and is delayed or rejected when the bucket is empty.",
+      "problem": "Rate limiting must bound average throughput while still absorbing legitimate bursts; a replenishing token budget enforces the long-term rate with a tunable burst allowance, in a few integers of state.",
+      "named_in": "Computer Networks - Andrew S. Tanenbaum (1981; 5th ed. 2011), traffic shaping",
+      "named_in_corpus_id": null,
+      "tags": ["networking", "rate-limiting", "qos", "overlap:robustness-scout"],
+      "borderline": null,
+      "confidence": "established"
+    },
+    {
+      "id": "leaky-bucket",
+      "name": "Leaky Bucket",
+      "aka": ["leaky bucket algorithm", "leaky bucket as a meter/queue"],
+      "kind": "scheduling-time",
+      "what": "Queue arriving items in a fixed-capacity bucket that drains at a constant rate, emitting a perfectly smoothed output stream and dropping arrivals that overflow.",
+      "problem": "Bursty producers must sometimes be forced to a strictly constant output rate (traffic shaping, pacing); a constant-drain queue enforces the rate exactly, unlike token bucket which permits bursts. Kept separate from token bucket per decision log: the mechanisms and output behaviors genuinely differ. Named by J. S. Turner (1986).",
+      "named_in": "Computer Networks - Andrew S. Tanenbaum (1981; 5th ed. 2011), traffic shaping",
+      "named_in_corpus_id": null,
+      "tags": ["networking", "rate-limiting", "qos"],
+      "borderline": null,
+      "confidence": "established"
+    },
+    {
+      "id": "byte-stuffing",
+      "name": "Byte Stuffing",
+      "aka": ["character stuffing", "escape stuffing", "bit stuffing (bit-level variant)", "COBS (consistent overhead byte stuffing)", "SLIP/PPP escaping"],
+      "kind": "serialization-framing",
+      "what": "Mark frame boundaries with a reserved delimiter byte and escape occurrences of that byte (and the escape itself) inside the payload so the delimiter is unambiguous.",
+      "problem": "A byte stream has no inherent message boundaries and payloads may contain any byte value; stuffing lets a receiver resynchronize on delimiters regardless of payload content. Bit stuffing (HDLC) and COBS (Cheshire & Baker 1997) folded as variants; length-prefix/TLV framing left to the serialization scout.",
+      "named_in": "Computer Networks - Andrew S. Tanenbaum (1981; 5th ed. 2011), framing",
+      "named_in_corpus_id": null,
+      "tags": ["networking", "embedded", "serial", "protocols"],
+      "borderline": null,
+      "confidence": "established"
+    },
+    {
+      "id": "happy-eyeballs",
+      "name": "Happy Eyeballs",
+      "aka": ["fast fallback", "connection racing", "dual-stack connection attempts"],
+      "kind": "error-handling",
+      "what": "Race connection attempts over alternative paths (canonically IPv6 vs IPv4) with small staggered delays, keep the first to succeed, and cancel the rest.",
+      "problem": "Trying alternatives strictly in sequence makes users wait out full timeouts when the preferred path is broken; staggered parallel attempts hide failures at the cost of a little duplicate work.",
+      "named_in": "RFC 8305: Happy Eyeballs Version 2: Better Connectivity Using Concurrency - Schinazi & Pauly (2017)",
+      "named_in_corpus_id": null,
+      "tags": ["networking", "ipv6", "clients"],
+      "borderline": null,
+      "confidence": "established"
+    }
+  ],
+  "parked_architecture": [
+    {
+      "name": "Server concurrency models (iterative, process-per-connection, preforked, prethreaded server)",
+      "why": "Stevens UNP ch. 30 catalogs these as whole-server structural alternatives - system-level structure, not an in-component mechanism; feed Phase 3 (relates to thread pool, Leader/Followers)."
+    },
+    {
+      "name": "Kernel-bypass networking (DPDK, user-space network stacks)",
+      "why": "A restructuring of the whole I/O path across OS/application boundary - deployment/system-structure decision, not implementable inside one component."
+    },
+    {
+      "name": "Split top-half/bottom-half driver architecture (as OS structuring principle)",
+      "why": "The per-driver mechanism is IN as deferred-interrupt-handling; the kernel-wide layering of all drivers into halves is a statement of system structure for Phase 3."
+    }
+  ],
+  "excluded_notable": [
+    {
+      "name": "Pipes / FIFOs (OS IPC facility)",
+      "why": "Kernel-provided facility, not an implementable element; the in-process analog (inter-thread channel / blocking queue) is the communication scout's element."
+    },
+    {
+      "name": "Shared memory segments (System V / POSIX shm)",
+      "why": "Facility-not-element; in-process analog is plain shared address-space state plus synchronization primitives (concurrency scout)."
+    },
+    {
+      "name": "System V / POSIX message queues, UNIX domain sockets",
+      "why": "OS facilities; the design-level element is the in-process message queue / mailbox (communication scout)."
+    },
+    {
+      "name": "Readiness- vs completion-based I/O multiplexing (select/poll/epoll/kqueue vs IOCP/io_uring)",
+      "why": "The syscall families are facilities; the design-level elements are Reactor and Proactor, owned by POSA2 (corpus id posa2) via the concurrency scout."
+    },
+    {
+      "name": "Page-replacement policies (LRU, clock, second-chance, WSClock)",
+      "why": "OS instance of cache eviction - fold as a note under the cache-eviction-policy element (caching scout owns); policy variants are the algorithmics zoo."
+    },
+    {
+      "name": "TCP congestion-control algorithm family (slow start, AIMD, CUBIC, BBR)",
+      "why": "Stack-internal algorithm zoo, not a reusable in-process building block; AIMD as a concept may merit a note under rate limiting if another scout claims it."
+    },
+    {
+      "name": "Demand paging / virtual memory",
+      "why": "OS facility spanning hardware and kernel; the in-process analog is lazy loading / lazy initialization (creational scout)."
+    },
+    {
+      "name": "ASLR (address space layout randomization)",
+      "why": "OS loader/kernel security facility, not implementable inside one program."
+    },
+    {
+      "name": "UNIX signals (as a facility)",
+      "why": "Kernel-delivered asynchronous notification facility; the design-level handling idiom is captured as the self-pipe trick element."
+    },
+    {
+      "name": "Active queue management (RED, CoDel)",
+      "why": "Network-infrastructure queue policy running in routers; algorithm family rather than an in-process design element."
+    }
+  ],
+  "notes": "Decision log: (1) region/arena/bump allocator collapsed into ONE element 'memory-arena' - canonical name follows the mission anchor and Hanson's Arenas chapter (corpus id hanson); region-based memory management (Tofte-Talpin), bump/linear/frame allocator, obstack all aka. (2) Weak reference kept as a SEPARATE element from reference counting: distinct mechanism, also meaningful under tracing GC. (3) Tracing GC is one element; generational/incremental/concurrent/copying are folded variants. (4) Keepalive folded into heartbeat aka (Hanmer's Heartbeat pattern, corpus id hanmer); same-name architecture tactic (Bass) flagged for the Phase 3 same-name-two-realms rule. (5) NAPI hybrid interrupt/polling folded into interrupt-coalescing. (6) sendfile/splice folded into zero-copy; eventfd/signalfd folded into self-pipe trick as modern replacements; go-back-N/selective-repeat folded into sliding window; slab coloring and magazines folded into slab allocator; delayed-ACK interaction and TCP_CORK noted under Nagle. (7) Token bucket and leaky bucket kept as two elements (genuinely different output behavior: bursts allowed vs strict smoothing). (8) Guard page and stack canary kept as two elements (page-protection trap vs checked sentinel value). Overlap flags for merge: deferred-interrupt-handling (embedded scout), copy-on-write (concurrency scout), token-bucket rate limiting (robustness scout), byte-stuffing/COBS (embedded scout may also surface it), stack-canary (security scout if one exists). Deliberately left to other scouts: timer wheel (scheduling), RCU/hazard pointers/seqlock (concurrency), circular/ring buffer and backpressure (data-flow), checksums/CRC (embedded or robustness), TLV/length-prefix framing (serialization), connection pool (resource, via object pool). Confidence: 21 established, 3 spot-checked (interrupt coalescing via Wikipedia article, guard page via Microsoft Win32 'Creating Guard Pages' doc, jitter buffer via Cisco 'Understanding Jitter in Packet Voice Networks' doc - all confirmed live this session)."
+}

@@ -1,0 +1,1301 @@
+{
+ "route": "r1",
+ "elements": [
+  {
+   "id": "aggregate-instance",
+   "name": "Aggregate Instance",
+   "kind": "construction-api",
+   "named_in": "Fluent C - Christopher Preschern (2022)",
+   "named_in_corpus_id": "preschern",
+   "other_sources": [],
+   "tags": [
+    "c"
+   ]
+  },
+  {
+   "id": "batch-method",
+   "name": "Batch Method",
+   "kind": "construction-api",
+   "named_in": "Pattern-Oriented Software Architecture Vol. 4: A Pattern Language for Distributed Computing - Buschmann, Henney, Schmidt (2007)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "api-design",
+    "performance"
+   ]
+  },
+  {
+   "id": "combined-method",
+   "name": "Combined Method",
+   "kind": "construction-api",
+   "named_in": "Pattern-Oriented Software Architecture Vol. 4: A Pattern Language for Distributed Computing - Buschmann, Henney, Schmidt (2007)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "concurrency",
+    "api-design"
+   ]
+  },
+  {
+   "id": "construct-on-first-use",
+   "name": "Construct On First Use",
+   "kind": "construction-api",
+   "named_in": "More C++ Idioms - Wikibooks (living); popularized by the C++ FAQ (Cline) and Effective C++ (Meyers)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "c++"
+   ]
+  },
+  {
+   "id": "dependency-injection",
+   "name": "Dependency Injection",
+   "kind": "construction-api",
+   "named_in": "Inversion of Control Containers and the Dependency Injection pattern - Fowler (2004)",
+   "named_in_corpus_id": null,
+   "other_sources": [
+    "Inversion of Control Containers and the Dependency Injection pattern - Fowler (2004)"
+   ],
+   "tags": [
+    "oo",
+    "c",
+    "c++"
+   ]
+  },
+  {
+   "id": "design-by-contract",
+   "name": "Design by Contract",
+   "kind": "construction-api",
+   "named_in": "Object-Oriented Software Construction - Meyer (1988)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "eiffel",
+    "correctness"
+   ]
+  },
+  {
+   "id": "embedded-domain-specific-language",
+   "name": "Embedded Domain-Specific Language",
+   "kind": "construction-api",
+   "named_in": "Building Domain-Specific Embedded Languages - Paul Hudak (ACM Computing Surveys, 1996)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "fp",
+    "haskell",
+    "scala",
+    "borderline"
+   ]
+  },
+  {
+   "id": "enumeration-method",
+   "name": "Enumeration Method",
+   "kind": "construction-api",
+   "named_in": "Pattern-Oriented Software Architecture Vol. 4: A Pattern Language for Distributed Computing - Buschmann, Henney, Schmidt (2007)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "collections",
+    "functional"
+   ]
+  },
+  {
+   "id": "explicit-interface",
+   "name": "Explicit Interface",
+   "kind": "construction-api",
+   "named_in": "Explicit Interface and Object Manager: Two Patterns from a Pattern Language for Distributed Computing - Buschmann, Henney, Schmidt (EuroPLoP 2003)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "component",
+    "borderline"
+   ]
+  },
+  {
+   "id": "expression-builder",
+   "name": "Expression Builder",
+   "kind": "construction-api",
+   "named_in": "Fowler, Domain-Specific Languages (Addison-Wesley, 2010), ch. 32; martinfowler.com/dslCatalog ('An object, or family of objects, that provides a fluent interface over a normal command-query API', verified live 2026-07-10)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": "intern"
+  },
+  {
+   "id": "extension-interface",
+   "name": "Extension Interface",
+   "kind": "construction-api",
+   "named_in": "Pattern-Oriented Software Architecture Vol. 2: Patterns for Concurrent and Networked Objects - Schmidt, Stal, Rohnert, Buschmann (2000)",
+   "named_in_corpus_id": "posa2",
+   "other_sources": [],
+   "tags": [
+    "com",
+    "component"
+   ]
+  },
+  {
+   "id": "facade-backend-module-pattern",
+   "name": "Facade/Backend Module Pattern",
+   "kind": "construction-api",
+   "named_in": "Pigweed SDK documentation (living)",
+   "named_in_corpus_id": "pigweedsdk",
+   "other_sources": [],
+   "tags": [
+    "c++",
+    "embedded",
+    "borderline"
+   ]
+  },
+  {
+   "id": "fluent-interface",
+   "name": "Fluent Interface",
+   "kind": "construction-api",
+   "named_in": "FluentInterface, martinfowler.com bliki - Martin Fowler & Eric Evans (2005)",
+   "named_in_corpus_id": null,
+   "other_sources": [
+    "FluentInterface - Martin Fowler (bliki, 2005, with Eric Evans)"
+   ],
+   "tags": [
+    "api-design",
+    "oo"
+   ]
+  },
+  {
+   "id": "function-control",
+   "name": "Function Control",
+   "kind": "construction-api",
+   "named_in": "Fluent C ch. 6, 'Flexible APIs' (Preschern 2022)",
+   "named_in_corpus_id": "preschern",
+   "other_sources": [],
+   "tags": [
+    "c",
+    "borderline"
+   ]
+  },
+  {
+   "id": "functional-options",
+   "name": "Functional Options",
+   "kind": "construction-api",
+   "named_in": "Pike, Self-referential functions and the design of options (commandcenter blog, 2014); Cheney, Functional options for friendly APIs (dave.cheney.net / dotGo, 2014)",
+   "named_in_corpus_id": null,
+   "other_sources": [
+    "Dave Cheney, 'Functional options for friendly APIs' (2014-10-17); Rob Pike, 'Self-referent"
+   ],
+   "tags": [
+    "go"
+   ]
+  },
+  {
+   "id": "hardware-abstraction-layer",
+   "name": "Hardware Abstraction Layer",
+   "kind": "construction-api",
+   "named_in": "Reusable Firmware Development: A Practical Approach to APIs, HALs and Drivers - Beningo (2017)",
+   "named_in_corpus_id": "beningofw",
+   "other_sources": [],
+   "tags": [
+    "embedded",
+    "c",
+    "borderline"
+   ]
+  },
+  {
+   "id": "immediate-mode-gui",
+   "name": "Immediate-Mode GUI",
+   "kind": "construction-api",
+   "named_in": "Immediate mode (computer graphics) - Wikipedia; Immediate-Mode Graphical User Interfaces - Casey Muratori (2005)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "ui",
+    "games",
+    "borderline"
+   ]
+  },
+  {
+   "id": "introspective-interface",
+   "name": "Introspective Interface",
+   "kind": "construction-api",
+   "named_in": "Pattern-Oriented Software Architecture Vol. 4: A Pattern Language for Distributed Computing - Buschmann, Henney, Schmidt (2007)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "reflection",
+    "component"
+   ]
+  },
+  {
+   "id": "lifecycle-callback",
+   "name": "Lifecycle Callback",
+   "kind": "construction-api",
+   "named_in": "Pattern-Oriented Software Architecture Vol. 4: A Pattern Language for Distributed Computing - Buschmann, Henney, Schmidt (2007)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "framework",
+    "inversion-of-control"
+   ]
+  },
+  {
+   "id": "named-parameter-idiom",
+   "name": "Named Parameter Idiom",
+   "kind": "construction-api",
+   "named_in": "More C++ Idioms - Wikibooks (living); classical C++ FAQ (Cline) entry",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "c++"
+   ]
+  },
+  {
+   "id": "nifty-counter",
+   "name": "Nifty Counter",
+   "kind": "construction-api",
+   "named_in": "More C++ Idioms - Wikibooks (living)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "c++"
+   ]
+  },
+  {
+   "id": "out-parameters",
+   "name": "Out-Parameters",
+   "kind": "construction-api",
+   "named_in": "Fluent C - Christopher Preschern (2022)",
+   "named_in_corpus_id": "preschern",
+   "other_sources": [],
+   "tags": [
+    "c"
+   ]
+  },
+  {
+   "id": "plugin",
+   "name": "Plugin",
+   "kind": "construction-api",
+   "named_in": "Patterns of Enterprise Application Architecture - Martin Fowler (2002)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "enterprise"
+   ]
+  },
+  {
+   "id": "product-trader",
+   "name": "Product Trader",
+   "kind": "construction-api",
+   "named_in": "Baeumer & Riehle, 'Product Trader', PLoPD3 (1997) (riehle.org paper page and PLoPD3 ToC loaded live)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "creational",
+    "framework-design"
+   ]
+  },
+  {
+   "id": "retained-mode-gui",
+   "name": "Retained-Mode GUI",
+   "kind": "construction-api",
+   "named_in": "Retained mode - Wikipedia",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "ui",
+    "borderline"
+   ]
+  },
+  {
+   "id": "service-locator",
+   "name": "Service Locator",
+   "kind": "construction-api",
+   "named_in": "Core J2EE Patterns: Best Practices and Design Strategies - Alur, Crupi, Malks (2001)",
+   "named_in_corpus_id": null,
+   "other_sources": [
+    "Core J2EE Patterns - Deepak Alur, John Crupi, Dan Malks (2001); analyzed vs DI in Fowler ("
+   ],
+   "tags": [
+    "games",
+    "java",
+    "oo"
+   ]
+  },
+  {
+   "id": "smart-constructor",
+   "name": "Smart Constructor",
+   "kind": "construction-api",
+   "named_in": "Smart constructors - Haskell wiki (haskell.org)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "fp",
+    "haskell",
+    "rust",
+    "scala"
+   ]
+  },
+  {
+   "id": "static-factory-method",
+   "name": "Static Factory Method",
+   "kind": "construction-api",
+   "named_in": "Effective Java - Joshua Bloch (2001; 3rd ed. 2018, Item 1)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "java",
+    "c++",
+    "csharp"
+   ]
+  },
+  {
+   "id": "wrapper-facade",
+   "name": "Wrapper Facade",
+   "kind": "construction-api",
+   "named_in": "Pattern-Oriented Software Architecture Vol. 2: Patterns for Concurrent and Networked Objects - Schmidt, Stal, Rohnert, Buschmann (2000)",
+   "named_in_corpus_id": "posa2",
+   "other_sources": [],
+   "tags": [
+    "c++",
+    "systems",
+    "portability"
+   ]
+  },
+  {
+   "id": "abstract-factory",
+   "name": "Abstract Factory",
+   "kind": "oo-patterns",
+   "named_in": "Design Patterns: Elements of Reusable Object-Oriented Software - Gamma, Helm, Johnson, Vlissides (1994)",
+   "named_in_corpus_id": "gof",
+   "other_sources": [],
+   "tags": [
+    "creational"
+   ]
+  },
+  {
+   "id": "abstract-session",
+   "name": "Abstract Session",
+   "kind": "oo-patterns",
+   "named_in": "Pryce, 'Abstract Session: An Object Structural Pattern', PLoPD4 (2000) (PLoPD4 ToC loaded live; c2 AbstractSessionPattern page exists)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "structural",
+    "sockets-style APIs",
+    "in-process sessions"
+   ]
+  },
+  {
+   "id": "acyclic-visitor",
+   "name": "Acyclic Visitor",
+   "kind": "oo-patterns",
+   "named_in": "Acyclic Visitor - Robert C. Martin, in Pattern Languages of Program Design 3 (1998)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "oo",
+    "cpp"
+   ]
+  },
+  {
+   "id": "adapter",
+   "name": "Adapter",
+   "kind": "oo-patterns",
+   "named_in": "Design Patterns: Elements of Reusable Object-Oriented Software - Gamma, Helm, Johnson, Vlissides (1994)",
+   "named_in_corpus_id": "gof",
+   "other_sources": [],
+   "tags": [
+    "structural"
+   ]
+  },
+  {
+   "id": "bridge",
+   "name": "Bridge",
+   "kind": "oo-patterns",
+   "named_in": "Design Patterns: Elements of Reusable Object-Oriented Software - Gamma, Helm, Johnson, Vlissides (1994)",
+   "named_in_corpus_id": "gof",
+   "other_sources": [
+    "Advanced C++: Programming Styles and Idioms - James O. Coplien (1992) (as Handle/Body; 'pi"
+   ],
+   "tags": [
+    "structural",
+    "c++"
+   ]
+  },
+  {
+   "id": "builder",
+   "name": "Builder",
+   "kind": "oo-patterns",
+   "named_in": "Design Patterns: Elements of Reusable Object-Oriented Software - Gamma, Helm, Johnson, Vlissides (1994)",
+   "named_in_corpus_id": "gof",
+   "other_sources": [],
+   "tags": [
+    "creational"
+   ]
+  },
+  {
+   "id": "bureaucracy",
+   "name": "Bureaucracy",
+   "kind": "oo-patterns",
+   "named_in": "Riehle, 'Bureaucracy', PLoPD3 (1997) (PLoPD3 ToC loaded live)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "compound-pattern",
+    "borderline"
+   ]
+  },
+  {
+   "id": "chain-of-responsibility",
+   "name": "Chain of Responsibility",
+   "kind": "oo-patterns",
+   "named_in": "Design Patterns: Elements of Reusable Object-Oriented Software - Gamma, Helm, Johnson, Vlissides (1994)",
+   "named_in_corpus_id": "gof",
+   "other_sources": [],
+   "tags": [
+    "behavioral"
+   ]
+  },
+  {
+   "id": "collecting-parameter",
+   "name": "Collecting Parameter",
+   "kind": "oo-patterns",
+   "named_in": "Smalltalk Best Practice Patterns - Kent Beck (1997)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "smalltalk",
+    "oo",
+    "borderline"
+   ]
+  },
+  {
+   "id": "command",
+   "name": "Command",
+   "kind": "oo-patterns",
+   "named_in": "Design Patterns: Elements of Reusable Object-Oriented Software - Gamma, Helm, Johnson, Vlissides (1994)",
+   "named_in_corpus_id": "gof",
+   "other_sources": [],
+   "tags": [
+    "behavioral",
+    "games",
+    "gof-revisit"
+   ]
+  },
+  {
+   "id": "command-processor",
+   "name": "Command Processor",
+   "kind": "oo-patterns",
+   "named_in": "Pattern-Oriented Software Architecture Vol. 1: A System of Patterns - Buschmann, Meunier, Rohnert, Sommerlad, Stal (1996)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "behavioral",
+    "ui"
+   ]
+  },
+  {
+   "id": "component",
+   "name": "Component",
+   "kind": "oo-patterns",
+   "named_in": "Game Programming Patterns - Robert Nystrom (2014)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "games"
+   ]
+  },
+  {
+   "id": "composite",
+   "name": "Composite",
+   "kind": "oo-patterns",
+   "named_in": "Design Patterns: Elements of Reusable Object-Oriented Software - Gamma, Helm, Johnson, Vlissides (1994)",
+   "named_in_corpus_id": "gof",
+   "other_sources": [],
+   "tags": [
+    "structural"
+   ]
+  },
+  {
+   "id": "curiously-recurring-template-pattern-crtp",
+   "name": "Curiously Recurring Template Pattern (CRTP)",
+   "kind": "oo-patterns",
+   "named_in": "Curiously Recurring Template Patterns - Coplien (C++ Report, 1995)",
+   "named_in_corpus_id": null,
+   "other_sources": [
+    "Curiously Recurring Template Patterns - Coplien (C++ Report, 1995)",
+    "Objects? No Thanks! - van Ooijen (Meeting C++ 2014)"
+   ],
+   "tags": [
+    "c++",
+    "embedded"
+   ]
+  },
+  {
+   "id": "decorator",
+   "name": "Decorator",
+   "kind": "oo-patterns",
+   "named_in": "Design Patterns: Elements of Reusable Object-Oriented Software - Gamma, Helm, Johnson, Vlissides (1994)",
+   "named_in_corpus_id": "gof",
+   "other_sources": [],
+   "tags": [
+    "structural"
+   ]
+  },
+  {
+   "id": "delegation",
+   "name": "Delegation",
+   "kind": "oo-patterns",
+   "named_in": "Using Prototypical Objects to Implement Shared Behavior in Object-Oriented Systems - Henry Lieberman (OOPSLA 1986); discussed as a reuse mechanism in GoF",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "oo",
+    "borderline"
+   ]
+  },
+  {
+   "id": "domain-service",
+   "name": "Domain Service",
+   "kind": "oo-patterns",
+   "named_in": "Domain-Driven Design: Tackling Complexity in the Heart of Software - Eric Evans (2003)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "ddd",
+    "domain-modeling"
+   ]
+  },
+  {
+   "id": "double-dispatch",
+   "name": "Double Dispatch",
+   "kind": "oo-patterns",
+   "named_in": "A Simple Technique for Handling Multiple Polymorphism - Daniel H. H. Ingalls (OOPSLA 1986); mechanism underlying GoF Visitor",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "oo"
+   ]
+  },
+  {
+   "id": "envelope-letter",
+   "name": "Envelope-Letter",
+   "kind": "oo-patterns",
+   "named_in": "Advanced C++: Programming Styles and Idioms - James O. Coplien (1992)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "c++"
+   ]
+  },
+  {
+   "id": "extension-object",
+   "name": "Extension Object",
+   "kind": "oo-patterns",
+   "named_in": "Extension Object - Erich Gamma, in Pattern Languages of Program Design 3 (1998)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "oo"
+   ]
+  },
+  {
+   "id": "external-polymorphism",
+   "name": "External Polymorphism",
+   "kind": "oo-patterns",
+   "named_in": "External Polymorphism - Cleeland, Schmidt & Harrison (PLoP 1996)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "c++"
+   ]
+  },
+  {
+   "id": "facade",
+   "name": "Facade",
+   "kind": "oo-patterns",
+   "named_in": "Design Patterns: Elements of Reusable Object-Oriented Software - Gamma, Helm, Johnson, Vlissides (1994)",
+   "named_in_corpus_id": "gof",
+   "other_sources": [],
+   "tags": [
+    "structural"
+   ]
+  },
+  {
+   "id": "factory-method",
+   "name": "Factory Method",
+   "kind": "oo-patterns",
+   "named_in": "Design Patterns: Elements of Reusable Object-Oriented Software - Gamma, Helm, Johnson, Vlissides (1994)",
+   "named_in_corpus_id": "gof",
+   "other_sources": [],
+   "tags": [
+    "creational"
+   ]
+  },
+  {
+   "id": "flyweight",
+   "name": "Flyweight",
+   "kind": "oo-patterns",
+   "named_in": "Design Patterns: Elements of Reusable Object-Oriented Software - Gamma, Helm, Johnson, Vlissides (1994)",
+   "named_in_corpus_id": "gof",
+   "other_sources": [],
+   "tags": [
+    "structural",
+    "memory",
+    "games",
+    "gof-revisit"
+   ]
+  },
+  {
+   "id": "function-pointer-dispatch-table",
+   "name": "Function Pointer Dispatch Table",
+   "kind": "oo-patterns",
+   "named_in": "The C Programming Language, 2nd ed. - Kernighan & Ritchie (1988), sec. 5.11 pointers to functions",
+   "named_in_corpus_id": "kandr",
+   "other_sources": [
+    "The C Programming Language, 2nd ed., section 5.11 - Kernighan & Ritchie (1988)"
+   ],
+   "tags": [
+    "c",
+    "embedded"
+   ]
+  },
+  {
+   "id": "hook-method",
+   "name": "Hook Method",
+   "kind": "oo-patterns",
+   "named_in": "Meta Patterns - A Means for Capturing the Essentials of Reusable Object-Oriented Design - Wolfgang Pree (ECOOP 1994); 'hook operations' in GoF Template Method",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "oo",
+    "borderline"
+   ]
+  },
+  {
+   "id": "interceptor",
+   "name": "Interceptor",
+   "kind": "oo-patterns",
+   "named_in": "Pattern-Oriented Software Architecture Vol. 2: Patterns for Concurrent and Networked Objects - Schmidt, Stal, Rohnert, Buschmann (2000)",
+   "named_in_corpus_id": "posa2",
+   "other_sources": [],
+   "tags": [
+    "framework",
+    "extensibility"
+   ]
+  },
+  {
+   "id": "interpreter",
+   "name": "Interpreter",
+   "kind": "oo-patterns",
+   "named_in": "Design Patterns: Elements of Reusable Object-Oriented Software - Gamma, Helm, Johnson, Vlissides (1994)",
+   "named_in_corpus_id": "gof",
+   "other_sources": [],
+   "tags": [
+    "behavioral",
+    "languages"
+   ]
+  },
+  {
+   "id": "iterator",
+   "name": "Iterator",
+   "kind": "oo-patterns",
+   "named_in": "Design Patterns: Elements of Reusable Object-Oriented Software - Gamma, Helm, Johnson, Vlissides (1994)",
+   "named_in_corpus_id": "gof",
+   "other_sources": [
+    "ISO/IEC 9075 - Database Language SQL"
+   ],
+   "tags": [
+    "behavioral",
+    "db",
+    "api",
+    "sql",
+    "c",
+    "c++"
+   ]
+  },
+  {
+   "id": "layer-supertype",
+   "name": "Layer Supertype",
+   "kind": "oo-patterns",
+   "named_in": "Patterns of Enterprise Application Architecture - Martin Fowler (2002)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "enterprise"
+   ]
+  },
+  {
+   "id": "mapper",
+   "name": "Mapper",
+   "kind": "oo-patterns",
+   "named_in": "Patterns of Enterprise Application Architecture - Martin Fowler (2002)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "enterprise"
+   ]
+  },
+  {
+   "id": "marker-interface",
+   "name": "Marker Interface",
+   "kind": "oo-patterns",
+   "named_in": "Effective Java - Joshua Bloch (3rd ed., Item 41)",
+   "named_in_corpus_id": null,
+   "other_sources": [
+    "Effective Java - Joshua Bloch (2001)"
+   ],
+   "tags": [
+    "java"
+   ]
+  },
+  {
+   "id": "mediator",
+   "name": "Mediator",
+   "kind": "oo-patterns",
+   "named_in": "Design Patterns: Elements of Reusable Object-Oriented Software - Gamma, Helm, Johnson, Vlissides (1994)",
+   "named_in_corpus_id": "gof",
+   "other_sources": [],
+   "tags": [
+    "behavioral"
+   ]
+  },
+  {
+   "id": "memento",
+   "name": "Memento",
+   "kind": "oo-patterns",
+   "named_in": "Design Patterns: Elements of Reusable Object-Oriented Software - Gamma, Helm, Johnson, Vlissides (1994)",
+   "named_in_corpus_id": "gof",
+   "other_sources": [],
+   "tags": [
+    "behavioral"
+   ]
+  },
+  {
+   "id": "mixin",
+   "name": "Mixin",
+   "kind": "oo-patterns",
+   "named_in": "Mixin-Based Inheritance - Gilad Bracha & William Cook (OOPSLA 1990; term from Lisp Flavors, Moon 1986)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "c++",
+    "python",
+    "ruby",
+    "scala"
+   ]
+  },
+  {
+   "id": "monostate",
+   "name": "Monostate",
+   "kind": "oo-patterns",
+   "named_in": "Agile Software Development: Principles, Patterns, and Practices - Robert C. Martin (2002); originally Ball & Crawford",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "oo",
+    "cpp",
+    "python"
+   ]
+  },
+  {
+   "id": "multiton",
+   "name": "Multiton",
+   "kind": "oo-patterns",
+   "named_in": "Multiton pattern - Wikipedia (software design pattern list, creational)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "oo"
+   ]
+  },
+  {
+   "id": "non-virtual-interface-nvi",
+   "name": "Non-Virtual Interface (NVI)",
+   "kind": "oo-patterns",
+   "named_in": "Virtuality - Herb Sutter, C/C++ Users Journal (2001)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "c++"
+   ]
+  },
+  {
+   "id": "null-object",
+   "name": "Null Object",
+   "kind": "oo-patterns",
+   "named_in": "Null Object - Bobby Woolf, in Pattern Languages of Program Design 3 (1998; PLoP 1996)",
+   "named_in_corpus_id": null,
+   "other_sources": [
+    "Null Object - Bobby Woolf, in Pattern Languages of Program Design 3 (1998; PLoP 1996)",
+    "xUnit Test Patterns: Refactoring Test Code - Gerard Meszaros (2007)",
+    "xUnit Test Patterns: Refactoring Test Code - Meszaros (2007)"
+   ],
+   "tags": [
+    "behavioral",
+    "oo",
+    "c",
+    "embedded"
+   ]
+  },
+  {
+   "id": "object-orientation-in-c",
+   "name": "Object Orientation in C",
+   "kind": "oo-patterns",
+   "named_in": "Object-Oriented Programming with ANSI-C - Schreiner (1993/2011)",
+   "named_in_corpus_id": "schreiner",
+   "other_sources": [],
+   "tags": [
+    "c",
+    "embedded",
+    "borderline"
+   ]
+  },
+  {
+   "id": "object-recursion",
+   "name": "Object Recursion",
+   "kind": "oo-patterns",
+   "named_in": "Woolf, 'The Object Recursion Pattern', PLoPD4 (2000) (PLoPD4 ToC loaded live)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "structural",
+    "borderline"
+   ]
+  },
+  {
+   "id": "observer",
+   "name": "Observer",
+   "kind": "oo-patterns",
+   "named_in": "Design Patterns: Elements of Reusable Object-Oriented Software - Gamma, Helm, Johnson, Vlissides (1994)",
+   "named_in_corpus_id": "gof",
+   "other_sources": [
+    "Pattern-Oriented Software Architecture Vol. 1: A System of Patterns - Buschmann, Meunier, "
+   ],
+   "tags": [
+    "behavioral",
+    "events",
+    "games",
+    "gof-revisit"
+   ]
+  },
+  {
+   "id": "oo-in-c-via-explicit-vtable",
+   "name": "OO in C via Explicit Vtable",
+   "kind": "oo-patterns",
+   "named_in": "Object-Oriented Programming with ANSI-C - Axel-Tobias Schreiner (1993/2011)",
+   "named_in_corpus_id": "schreiner",
+   "other_sources": [],
+   "tags": [
+    "c",
+    "embedded",
+    "os"
+   ]
+  },
+  {
+   "id": "pluggable-selector",
+   "name": "Pluggable Selector",
+   "kind": "oo-patterns",
+   "named_in": "Beck, Smalltalk Best Practice Patterns (1997)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "smalltalk",
+    "reflection",
+    "also used in xUnit test-method dispatch"
+   ]
+  },
+  {
+   "id": "policy-based-design",
+   "name": "Policy-Based Design",
+   "kind": "oo-patterns",
+   "named_in": "Modern C++ Design - Andrei Alexandrescu (2001)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "c++"
+   ]
+  },
+  {
+   "id": "private-class-data",
+   "name": "Private Class Data",
+   "kind": "oo-patterns",
+   "named_in": "Private Class Data - SourceMaking design patterns catalog (structural)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "oo"
+   ]
+  },
+  {
+   "id": "prototype",
+   "name": "Prototype",
+   "kind": "oo-patterns",
+   "named_in": "Design Patterns: Elements of Reusable Object-Oriented Software - Gamma, Helm, Johnson, Vlissides (1994)",
+   "named_in_corpus_id": "gof",
+   "other_sources": [
+    "Design Patterns: Elements of Reusable Object-Oriented Software - Gamma, Helm, Johnson, Vli"
+   ],
+   "tags": [
+    "creational",
+    "games",
+    "gof-revisit"
+   ]
+  },
+  {
+   "id": "proxy",
+   "name": "Proxy",
+   "kind": "oo-patterns",
+   "named_in": "Design Patterns: Elements of Reusable Object-Oriented Software - Gamma, Helm, Johnson, Vlissides (1994)",
+   "named_in_corpus_id": "gof",
+   "other_sources": [
+    "Pattern-Oriented Software Architecture Vol. 3: Patterns for Resource Management - Kircher,",
+    "Patterns of Enterprise Application Architecture - Martin Fowler (2002)",
+    "Lazy initialization - Wikipedia (software design pattern list, creational); discussed in G"
+   ],
+   "tags": [
+    "structural",
+    "startup",
+    "embedded",
+    "enterprise",
+    "orm",
+    "java"
+   ]
+  },
+  {
+   "id": "registry",
+   "name": "Registry",
+   "kind": "oo-patterns",
+   "named_in": "Patterns of Enterprise Application Architecture - Martin Fowler (2002)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "enterprise"
+   ]
+  },
+  {
+   "id": "role-object",
+   "name": "Role Object",
+   "kind": "oo-patterns",
+   "named_in": "The Role Object Pattern - Dirk Baeumer, Dirk Riehle, Wolf Siberski, Martina Wulf (PLoP 1997)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "oo"
+   ]
+  },
+  {
+   "id": "separated-interface",
+   "name": "Separated Interface",
+   "kind": "oo-patterns",
+   "named_in": "Patterns of Enterprise Application Architecture - Martin Fowler (2002)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "enterprise"
+   ]
+  },
+  {
+   "id": "servant",
+   "name": "Servant",
+   "kind": "oo-patterns",
+   "named_in": "Servant (design pattern) - Wikipedia (software design pattern list, behavioral)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "oo",
+    "borderline"
+   ]
+  },
+  {
+   "id": "singleton",
+   "name": "Singleton",
+   "kind": "oo-patterns",
+   "named_in": "Design Patterns: Elements of Reusable Object-Oriented Software - Gamma, Helm, Johnson, Vlissides (1994)",
+   "named_in_corpus_id": "gof",
+   "other_sources": [],
+   "tags": [
+    "creational",
+    "games",
+    "gof-revisit"
+   ]
+  },
+  {
+   "id": "special-case",
+   "name": "Special Case",
+   "kind": "oo-patterns",
+   "named_in": "Patterns of Enterprise Application Architecture - Martin Fowler (2002)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "enterprise"
+   ]
+  },
+  {
+   "id": "specification",
+   "name": "Specification",
+   "kind": "oo-patterns",
+   "named_in": "Specifications - Eric Evans & Martin Fowler (1997)",
+   "named_in_corpus_id": null,
+   "other_sources": [
+    "Specifications - Eric Evans, Martin Fowler (PLoP 1997 workshop paper)"
+   ],
+   "tags": [
+    "ddd",
+    "domain-modeling",
+    "oo"
+   ]
+  },
+  {
+   "id": "sponsor-selector",
+   "name": "Sponsor-Selector",
+   "kind": "oo-patterns",
+   "named_in": "Wallingford, 'Sponsor-Selector: A Pattern Language for Choosing the Best Resource', PLoPD3 (1997) (cs.uni.edu/~wallingf/patterns/sponsor-selector.html verified)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "dynamic-selection",
+    "AI-systems-origin"
+   ]
+  },
+  {
+   "id": "state",
+   "name": "State",
+   "kind": "oo-patterns",
+   "named_in": "Design Patterns: Elements of Reusable Object-Oriented Software - Gamma, Helm, Johnson, Vlissides (1994)",
+   "named_in_corpus_id": "gof",
+   "other_sources": [],
+   "tags": [
+    "behavioral",
+    "games",
+    "gof-revisit"
+   ]
+  },
+  {
+   "id": "strategy",
+   "name": "Strategy",
+   "kind": "oo-patterns",
+   "named_in": "Design Patterns: Elements of Reusable Object-Oriented Software - Gamma, Helm, Johnson, Vlissides (1994)",
+   "named_in_corpus_id": "gof",
+   "other_sources": [],
+   "tags": [
+    "behavioral"
+   ]
+  },
+  {
+   "id": "subclass-sandbox",
+   "name": "Subclass Sandbox",
+   "kind": "oo-patterns",
+   "named_in": "Game Programming Patterns - Robert Nystrom (2014)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "games"
+   ]
+  },
+  {
+   "id": "template-method",
+   "name": "Template Method",
+   "kind": "oo-patterns",
+   "named_in": "Design Patterns: Elements of Reusable Object-Oriented Software - Gamma, Helm, Johnson, Vlissides (1994)",
+   "named_in_corpus_id": "gof",
+   "other_sources": [],
+   "tags": [
+    "behavioral"
+   ]
+  },
+  {
+   "id": "twin",
+   "name": "Twin",
+   "kind": "oo-patterns",
+   "named_in": "Twin - A Design Pattern for Modelling Multiple Inheritance - Hannes Moessenboeck (Johannes Kepler University Linz)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "java",
+    "oo"
+   ]
+  },
+  {
+   "id": "type-object",
+   "name": "Type Object",
+   "kind": "oo-patterns",
+   "named_in": "Game Programming Patterns - Robert Nystrom (2014)",
+   "named_in_corpus_id": null,
+   "other_sources": [
+    "The Type Object Pattern - Ralph Johnson, Bobby Woolf, in Pattern Languages of Program Desi"
+   ],
+   "tags": [
+    "games",
+    "data-driven",
+    "oo"
+   ]
+  },
+  {
+   "id": "view-handler",
+   "name": "View Handler",
+   "kind": "oo-patterns",
+   "named_in": "Pattern-Oriented Software Architecture Vol. 1: A System of Patterns - Buschmann, Meunier, Rohnert, Sommerlad, Stal (1996)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "ui"
+   ]
+  },
+  {
+   "id": "visitor",
+   "name": "Visitor",
+   "kind": "oo-patterns",
+   "named_in": "Design Patterns: Elements of Reusable Object-Oriented Software - Gamma, Helm, Johnson, Vlissides (1994)",
+   "named_in_corpus_id": "gof",
+   "other_sources": [],
+   "tags": [
+    "behavioral"
+   ]
+  },
+  {
+   "id": "whole-part",
+   "name": "Whole-Part",
+   "kind": "oo-patterns",
+   "named_in": "Pattern-Oriented Software Architecture Vol. 1: A System of Patterns - Buschmann, Meunier, Rohnert, Sommerlad, Stal (1996)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "structural"
+   ]
+  },
+  {
+   "id": "four-phase-test",
+   "name": "Four-Phase Test",
+   "kind": "testing-constructs",
+   "named_in": "Meszaros, xUnit Test Patterns (2007); xunitpatterns.com 'Four Phase Test' (verified live)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "testing",
+    "borderline: test-code structuring pattern near the practice boundary; included on Meszaros catalog establishedness and the composed-method altitude precedent"
+   ]
+  },
+  {
+   "id": "golden-master-testing",
+   "name": "Golden Master Testing",
+   "kind": "testing-constructs",
+   "named_in": "Feathers, Working Effectively with Legacy Code (2004; 'characterization test'); ApprovalTests / approvaltests.com; 'snapshot testing' in Jest documentation (naming verified via live search this session)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "testing",
+    "legacy code",
+    "UI/serializer outputs",
+    "borderline"
+   ]
+  },
+  {
+   "id": "humble-object",
+   "name": "Humble Object",
+   "kind": "testing-constructs",
+   "named_in": "xUnit Test Patterns: Refactoring Test Code - Gerard Meszaros (2007)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "testing",
+    "ui",
+    "borderline"
+   ]
+  },
+  {
+   "id": "object-mother",
+   "name": "Object Mother",
+   "kind": "testing-constructs",
+   "named_in": "ObjectMother: Easing Test Object Creation in XP - Peter Schuh, Stephanie Punke (XP Universe 2001); name coined on a ThoughtWorks project",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "testing",
+    "borderline"
+   ]
+  },
+  {
+   "id": "page-object",
+   "name": "Page Object",
+   "kind": "testing-constructs",
+   "named_in": "Fowler, bliki 'PageObject' (10 Sep 2013; loaded live — states it was first described as Window Driver at eaaDev and popularized as 'page object' by Selenium); Selenium project documentation",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "testing",
+    "ui",
+    "web"
+   ]
+  },
+  {
+   "id": "parameterized-test",
+   "name": "Parameterized Test",
+   "kind": "testing-constructs",
+   "named_in": "Gerard Meszaros, xUnit Test Patterns: Refactoring Test Code (2007) — 'Parameterized Test' (with 'Data-Driven Test' as the externalized-data variation); Go wiki 'TableDrivenTests'",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "go",
+    "cross-language",
+    "testing"
+   ]
+  },
+  {
+   "id": "property-based-testing",
+   "name": "Property-Based Testing",
+   "kind": "testing-constructs",
+   "named_in": "Claessen & Hughes, 'QuickCheck: A Lightweight Tool for Random Testing of Haskell Programs' (ICFP 2000)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "testing",
+    "functional programming heritage, now cross-language (Hypothesis, proptest, fast-check)"
+   ]
+  },
+  {
+   "id": "service-stub",
+   "name": "Service Stub",
+   "kind": "testing-constructs",
+   "named_in": "Patterns of Enterprise Application Architecture - Martin Fowler (2002)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "enterprise",
+    "testing"
+   ]
+  },
+  {
+   "id": "test-data-builder",
+   "name": "Test Data Builder",
+   "kind": "testing-constructs",
+   "named_in": "Test Data Builders: an alternative to the Object Mother pattern - Nat Pryce (2007); also in Growing Object-Oriented Software, Guided by Tests - Freeman & Pryce (2009)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "testing",
+    "borderline"
+   ]
+  },
+  {
+   "id": "test-double",
+   "name": "Test Double",
+   "kind": "testing-constructs",
+   "named_in": "xUnit Test Patterns: Refactoring Test Code - Gerard Meszaros (2007)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "testing",
+    "borderline"
+   ]
+  },
+  {
+   "id": "test-fixture",
+   "name": "Test Fixture",
+   "kind": "testing-constructs",
+   "named_in": "xUnit Test Patterns: Refactoring Test Code — Gerard Meszaros (2007)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "testing"
+   ]
+  }
+ ]
+}

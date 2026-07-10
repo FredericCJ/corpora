@@ -1,0 +1,193 @@
+{
+  "scout": "gap-games-netcode",
+  "elements": [
+    {
+      "id": "client-side-prediction",
+      "name": "Client-Side Prediction",
+      "aka": ["prediction", "client prediction", "input prediction", "server reconciliation (companion correction step)", "prediction and reconciliation"],
+      "kind": "state-management",
+      "what": "The game client simulates the results of the local player's inputs immediately instead of waiting for the authoritative server, then reconciles when authoritative state arrives by rewinding to the acknowledged state and replaying still-unacknowledged inputs.",
+      "problem": "Round-trip latency to an authoritative server makes controls feel unresponsive; prediction hides the latency for the local player while reconciliation prevents divergence and visible snap-back when server corrections arrive.",
+      "named_in": "Bernier, 'Latency Compensating Methods in Client/Server In-game Protocol Design and Optimization', GDC 2001 (Valve); Gambetta, 'Fast-Paced Multiplayer Part II: Client-Side Prediction and Server Reconciliation'",
+      "named_in_corpus_id": null,
+      "tags": ["games", "networking", "distributed"],
+      "borderline": "Index entry optimistic-ui-update lists 'latency compensation' as an aka and is the UI-domain cousin; kept separate because continuous per-tick re-simulation with input replay against authoritative snapshots is a distinct, separately named mechanism, not a one-shot optimistic mutation.",
+      "confidence": "established"
+    },
+    {
+      "id": "lag-compensation",
+      "name": "Lag Compensation",
+      "aka": ["server-side rewind", "backward reconciliation", "lag-compensated hit detection", "favor the shooter"],
+      "kind": "state-management",
+      "what": "The server keeps a short history of world state and, when processing a client's time-stamped action, temporarily rewinds targets to where the acting client saw them at the moment of the action before adjudicating it.",
+      "problem": "With interpolation and latency, clients aim at where targets were in the past; without compensation players must lead their targets by their own ping, so the server re-executes actions against the past state each client actually perceived.",
+      "named_in": "Bernier, 'Latency Compensating Methods in Client/Server In-game Protocol Design and Optimization', GDC 2001 (Valve); Valve Developer Community, 'Lag Compensation'",
+      "named_in_corpus_id": null,
+      "tags": ["games", "networking"],
+      "borderline": null,
+      "confidence": "established"
+    },
+    {
+      "id": "dead-reckoning",
+      "name": "Dead Reckoning",
+      "aka": ["dead reckoning models", "predictive extrapolation of entity state", "DIS dead reckoning", "extrapolation (netcode)"],
+      "kind": "state-management",
+      "what": "Each node extrapolates remote entities' current state from their last received kinematic update (position, velocity, acceleration) via an agreed model, and senders transmit a new update only when their real state diverges from the shared model beyond a threshold.",
+      "problem": "Broadcasting every entity's state every tick overwhelms bandwidth and latency hides the true present; a shared extrapolation model keeps remote entities moving plausibly between sparse, threshold-triggered updates.",
+      "named_in": "Aronson, 'Dead Reckoning: Latency Hiding for Networked Games', Gamasutra 1997; IEEE 1278.1 (DIS) dead reckoning algorithms",
+      "named_in_corpus_id": null,
+      "tags": ["games", "networking", "simulation"],
+      "borderline": "Extrapolation complement of snapshot-interpolation (already in index); kept as its own element because it is independently named, standardized in DIS, and includes the sender-side threshold protocol, not just receiver-side smoothing.",
+      "confidence": "established"
+    },
+    {
+      "id": "deterministic-lockstep",
+      "name": "Deterministic Lockstep",
+      "aka": ["lockstep protocol", "lockstep networking", "input-synchronous simulation", "synchronized simulation"],
+      "kind": "synchronization-coordination",
+      "what": "All peers run bit-identical deterministic simulations and exchange only player inputs; each simulation tick advances only once every peer's input for that tick has arrived, so state never needs to be transmitted.",
+      "problem": "Games with thousands of units (RTS) cannot fit per-entity state replication in available bandwidth; sending only inputs makes bandwidth independent of world size, at the cost of strict cross-platform determinism and per-tick latency coupling.",
+      "named_in": "Bettner & Terrano, '1500 Archers on a 28.8: Network Programming in Age of Empires and Beyond', GDC 2001; Fiedler, 'Deterministic Lockstep' (gafferongames.com)",
+      "named_in_corpus_id": null,
+      "tags": ["games", "networking", "determinism"],
+      "borderline": null,
+      "confidence": "established"
+    },
+    {
+      "id": "rollback-netcode",
+      "name": "Rollback Netcode",
+      "aka": ["rollback networking", "GGPO-style netcode", "predict-and-rollback", "speculative execution netcode"],
+      "kind": "state-management",
+      "what": "Peers advance a deterministic simulation without waiting for remote inputs by predicting them; when actual remote inputs arrive and differ from the prediction, the engine restores a saved earlier state and re-simulates the intervening frames with the corrected inputs.",
+      "problem": "Plain lockstep stalls every frame on the slowest peer's latency; speculative execution keeps local inputs frame-perfect and hides network delay, trading it for state save/restore and cheap re-simulation of a few frames.",
+      "named_in": "Cannon, 'Fight the Lag! The Trick Behind GGPO's Low-Latency Netcode', Game Developer Magazine, Sept 2012 (republished as 'The lag-fighting techniques behind GGPO's netcode', gamedeveloper.com); ggpo.net",
+      "named_in_corpus_id": null,
+      "tags": ["games", "networking", "determinism"],
+      "borderline": "Composes deterministic simulation with prediction, but kept separate from client-side-prediction: peer-to-peer full-simulation rewind/re-simulate with no authoritative server is a distinctly named, recurring mechanism (fighting games, GGPO, MK11, emulators).",
+      "confidence": "established"
+    },
+    {
+      "id": "interest-management",
+      "name": "Interest Management",
+      "aka": ["area-of-interest management", "AoI filtering", "relevance filtering", "data distribution management (HLA DDM)", "scoping / ghost scoping (Tribes)"],
+      "kind": "communication",
+      "what": "The replication layer filters which entities' state updates each connected client receives, matching entity 'update regions' against per-client interest expressions (typically spatial area-of-interest, visibility, or subscription predicates).",
+      "problem": "Broadcasting every entity update to every client scales as O(entities x clients) and explodes bandwidth; filtering to each client's relevant subset bounds per-connection traffic in large worlds.",
+      "named_in": "Morse, 'Interest Management in Large-Scale Distributed Simulations', UC Irvine ICS TR 96-27, 1996; HLA (IEEE 1516) Data Distribution Management; Frohnmayer & Gift, 'The TRIBES Engine Networking Model', GDC 2001 (scoping)",
+      "named_in_corpus_id": null,
+      "tags": ["games", "networking", "simulation", "borderline"],
+      "borderline": "Leans toward distributed-system scale, but passes the altitude test as a filtering mechanism implemented inside one server/replication component; the multi-federate infrastructure form (HLA RTI) is the architecture-side reading.",
+      "confidence": "established"
+    },
+    {
+      "id": "job-system",
+      "name": "Job System",
+      "aka": ["task graph", "job scheduler", "fiber-based job system", "task-based parallelism (engine form)", "job kernel"],
+      "kind": "execution-concurrency",
+      "what": "The engine decomposes each frame's work into many small jobs with declared dependencies (a task DAG) and schedules them onto a fixed pool of worker threads (often via fibers and work-stealing), instead of dedicating threads to subsystems.",
+      "problem": "Per-subsystem threads leave cores idle and serialize the frame; fine-grained dependency-scheduled jobs keep all cores saturated and let the frame's parallelism scale with hardware.",
+      "named_in": "Gregory, Game Engine Architecture, 3rd ed. (job systems chapter); Gyrling, 'Parallelizing the Naughty Dog Engine Using Fibers', GDC 2015",
+      "named_in_corpus_id": null,
+      "tags": ["games", "engine", "borderline"],
+      "borderline": "Overlaps thread-pool, executor, fork-join, and work-stealing (all in index); kept because the engine literature names it distinctly: whole-frame dependency-declared task graph over a shared worker pool, with fiber-based suspension as its signature realization.",
+      "confidence": "established"
+    },
+    {
+      "id": "asset-streaming",
+      "name": "Asset Streaming",
+      "aka": ["resource streaming", "level streaming", "world streaming", "texture streaming (mip streaming)"],
+      "kind": "resource-management",
+      "what": "The engine loads and unloads game assets (geometry, textures, audio, world chunks) asynchronously in the background, keyed to player position or predicted need, keeping only a sliding working set resident within a memory budget.",
+      "problem": "Open worlds exceed RAM and load screens break immersion; position-driven background load/unload bounds memory while presenting a seamless world.",
+      "named_in": "Gregory, Game Engine Architecture (resource management / streaming); Unreal Engine documentation, 'Level Streaming'",
+      "named_in_corpus_id": null,
+      "tags": ["games", "engine", "borderline"],
+      "borderline": "Near paging, prefetching, and resource-files (all in index); kept per charter as the named game-engine form: spatially keyed, budgeted, asynchronous load/unload of a world working set.",
+      "confidence": "established"
+    },
+    {
+      "id": "render-graph",
+      "name": "Render Graph",
+      "aka": ["frame graph", "FrameGraph", "render dependency graph (RDG)"],
+      "kind": "data-flow-buffering",
+      "what": "Render passes declare their input/output resources up front, building a per-frame DAG that the engine compiles into an execution schedule with automatic barrier placement and transient resource memory aliasing.",
+      "problem": "Hand-wired render pipelines couple passes to concrete resources and make reordering, async compute, and transient-memory reuse error-prone; a declared pass/resource graph decouples features and lets the compiler derive scheduling and aliasing.",
+      "named_in": "O'Donnell, 'FrameGraph: Extensible Rendering Architecture in Frostbite', GDC 2017",
+      "named_in_corpus_id": null,
+      "tags": ["games", "graphics", "borderline"],
+      "borderline": "Modern (2017) and graphics-domain, but named, recurring (Frostbite FrameGraph, Unreal RDG, Unity SRP render graph), and implementable inside one renderer component, so it passes the gates.",
+      "confidence": "established"
+    },
+    {
+      "id": "behavior-tree",
+      "name": "Behavior Tree",
+      "aka": ["BT", "behaviour tree", "behavior DAG (Isla)"],
+      "kind": "state-management",
+      "what": "AI decision logic is structured as a tree of composable nodes (sequence, selector/fallback, parallel, decorators, leaf tasks) evaluated by periodic ticks that return success/failure/running, giving reactive hierarchical behavior without explicit state-transition wiring.",
+      "problem": "Flat and hierarchical FSMs for complex agents suffer transition explosion and poor reuse; a tree of prioritized, composable behaviors scales, supports designer-authored logic, and re-decides reactively every tick.",
+      "named_in": "Isla, 'Handling Complexity in the Halo 2 AI', GDC 2005; Champandard & Dunstan, 'The Behavior Tree Starter Kit', Game AI Pro, 2013",
+      "named_in_corpus_id": null,
+      "tags": ["games", "ai", "robotics"],
+      "borderline": null,
+      "confidence": "established"
+    },
+    {
+      "id": "navigation-mesh",
+      "name": "Navigation Mesh",
+      "aka": ["navmesh", "walkable-surface mesh"],
+      "kind": "data-structures",
+      "what": "A data structure representing an environment's walkable space as connected convex polygons, over which agents path-find polygon-to-polygon and then smooth (e.g. string-pulling/funnel) within the free space.",
+      "problem": "Waypoint graphs under-represent open walkable areas and force unnatural paths; a polygon mesh of free space supports arbitrary agent movement, cheap search over few polygons, and locally optimal smoothing.",
+      "named_in": "Snook, 'Simplified 3D Movement and Pathfinding Using Navigation Meshes', Game Programming Gems, 2000",
+      "named_in_corpus_id": null,
+      "tags": ["games", "ai", "spatial"],
+      "borderline": null,
+      "confidence": "established"
+    }
+  ],
+  "parked_architecture": [
+    {
+      "name": "Blackboard",
+      "why": "POSA1/Shaw-Garlan classify Blackboard as an architectural pattern; the game-AI blackboard (shared AI working memory) is a component-scale variant but the canonical classification is architectural - Phase 3 should catalog it and can note the game-AI reading."
+    },
+    {
+      "name": "Authoritative Server model",
+      "why": "Client/server with server-authoritative simulation (vs peer-to-peer lockstep) is a system-topology decision, not an in-component mechanism; the in-component mechanisms it induces (prediction, reconciliation, lag compensation) are cataloged above."
+    },
+    {
+      "name": "HLA Run-Time Infrastructure / federated simulation",
+      "why": "IEEE 1516 federation of simulators is system-level structure; only its interest-management/DDM mechanism passes the altitude test (included above)."
+    }
+  ],
+  "excluded_notable": [
+    {
+      "name": "Goal-Oriented Action Planning (GOAP)",
+      "why": "Named (Orkin, 'Three States and a Plan: The A.I. of F.E.A.R.', GDC 2006) but it is a STRIPS-family planning algorithm applied to agents - algorithm-zoo side of the line; reconsider if a game-AI axis is grown."
+    },
+    {
+      "name": "Utility AI / utility system",
+      "why": "Named (Mark, 'Behavioral Mathematics for Game AI'; Graham, 'An Introduction to Utility Theory', Game AI Pro) but it is a scoring/selection technique with weak mechanism boundaries rather than a recurring implementable construct."
+    },
+    {
+      "name": "Steering behaviors",
+      "why": "Reynolds, 'Steering Behaviors for Autonomous Characters', GDC 1999 - a family of movement algorithms (seek/flee/flock); algorithmics zoo, cross-reference territory rather than a design element."
+    },
+    {
+      "name": "Triple buffering",
+      "why": "Variant of double buffering; belongs as an aka/variant under the existing double-buffer entry, not a new element."
+    },
+    {
+      "name": "Entity interpolation / snapshot extrapolation",
+      "why": "Already covered: index snapshot-interpolation carries 'entity interpolation' as aka; the extrapolation side enters as dead-reckoning above."
+    },
+    {
+      "name": "Graphics command buffer",
+      "why": "Recording device commands for deferred submission is a graphics-API construct (Vulkan/D3D12) conceptually covered by Command + message-queue + double-buffer composition; no independent design-element naming source at the right altitude."
+    },
+    {
+      "name": "Asset hot-reload",
+      "why": "Live reloading of changed assets/code is development-workflow tooling (pass-7 practice territory), not a shipped-program mechanism."
+    }
+  ],
+  "notes": "Gap hunt scoped to games/netcode per charter. Verification: Fiedler 'Deterministic Lockstep' page loaded live; Gambetta prediction/reconciliation page loaded live; Bernier GDC 2001 paper title verified via Semantic Scholar + WPI-hosted PDF (Valve wiki itself returns 403 to fetchers); Aronson 1997 dead-reckoning article verified live on gamedeveloper.com; Cannon 'Fight the Lag!' (Game Developer, Sept 2012) verified via gamedeveloper.com republication + GGPO Wikipedia; Morse 1996 interest-management survey verified via eScholarship; Isla GDC 2005 proceeding verified on gamedeveloper.com; O'Donnell FrameGraph GDC 2017 verified via GDC Vault listing. Checked-and-not-proposed: entity interpolation (covered by snapshot-interpolation), delta snapshots (covered by delta-encoding aka delta compression), reliable-UDP ack/sequence machinery (covered by acknowledgement + sliding-window-flow-control + serial-number-arithmetic), fixed timestep and game loop and update method and ECS and spatial partition and object pool and scene graph and dirty flag (all present from the Nystrom sweep). Possible gap OUTSIDE this charter, flagged for a distributed-systems gap hunter: clock synchronization / network time offset estimation (Cristian's algorithm, NTP-style RTT/2) has no index entry. Index observations: (1) 'adapter' lists 'Decorator' as an aka - Decorator is a separate GoF pattern (both are aka 'Wrapper' but folding them looks wrong); (2) 'factory-method' lists 'Prototype, clone' as aka - Prototype is a separate GoF pattern; (3) setjmp-longjmp-exception-handling and setjmp-longjmp-structured-error-handling look like duplicates of the same mechanism; (4) optimistic-ui-update carries aka 'latency compensation', which collides with Bernier's netcode umbrella term - suggest scoping that aka to the UI reading. Small yield (11) is consistent with saturation: the Nystrom/game-loop layer was already fully harvested; the genuine holes were netcode, frame-level engine infrastructure, and game AI."
+}

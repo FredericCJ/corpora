@@ -1,0 +1,90 @@
+{
+  "scout": "gap-db2-text",
+  "elements": [
+    {
+      "id": "pax-page-layout",
+      "name": "PAX Page Layout",
+      "aka": ["PAX", "Partition Attributes Across", "cache-conscious page layout", "columnar page layout", "hybrid row/column page layout"],
+      "kind": "data-representation",
+      "what": "Within each fixed-size storage page, values are grouped per attribute into minipages instead of being stored row-contiguously, keeping a page's records together on disk while making each attribute cache-line-contiguous in memory.",
+      "problem": "Row-oriented (NSM) pages drag all attributes of a record through the cache when a scan touches only a few columns, while full column stores (DSM) pay record-reconstruction joins; PAX gets columnar cache behavior without changing page-level I/O or record placement.",
+      "named_in": "Ailamaki, DeWitt, Hill, Skounakis — Weaving Relations for Cache Performance, VLDB 2001",
+      "named_in_corpus_id": null,
+      "tags": ["db", "storage-engine", "cache-conscious"],
+      "borderline": null,
+      "confidence": "established"
+    },
+    {
+      "id": "zone-map",
+      "name": "Zone Map",
+      "aka": ["small materialized aggregates", "SMA", "min-max index", "block range index", "BRIN", "data skipping index", "storage index"],
+      "kind": "data-structures",
+      "what": "A tiny per-block summary (typically min/max, optionally count/sum) kept for each zone of contiguously stored tuples; scans consult the summaries first and skip every block whose value range cannot satisfy the predicate.",
+      "problem": "Full-precision secondary indexes on bulk-loaded analytic data are expensive to build and maintain; a few bytes of precomputed aggregate per block prunes most of a scan for range/equality predicates at near-zero load and storage cost.",
+      "named_in": "Moerkotte — Small Materialized Aggregates: A Light Weight Index Structure for Data Warehousing, VLDB 1998 (naming source); 'zone map' is the Netezza-originated industry name (Ziauddin et al., Dimensions Based Data Clustering and Zone Maps, PVLDB 2017); PostgreSQL BRIN is the same mechanism",
+      "named_in_corpus_id": null,
+      "tags": ["db", "analytics", "index"],
+      "borderline": null,
+      "confidence": "spot-checked"
+    },
+    {
+      "id": "bitmap-index",
+      "name": "Bitmap Index",
+      "aka": ["bit-map index", "bitmapped index", "bit-sliced index (variant)", "bitmap join index (variant)", "encoded bitmap index (variant)"],
+      "kind": "data-structures",
+      "what": "An index that keeps, for each distinct value (or value range) of a column, a bitmap with one bit per row; multi-predicate queries are answered by bitwise AND/OR/NOT over the bitmaps before touching any rows.",
+      "problem": "B-tree row-id lists are bulky and slow to intersect for low-cardinality columns and ad-hoc conjunctive predicates; per-value bitmaps make multi-column selection a stream of word-wide boolean operations and compress well on skewed data.",
+      "named_in": "O'Neil — Model 204 Architecture and Performance, HPTS 1987; O'Neil & Quass — Improved Query Performance with Variant Indexes, SIGMOD 1997",
+      "named_in_corpus_id": null,
+      "tags": ["db", "analytics", "index"],
+      "borderline": "distinct from bitmap-bitset (the raw data structure already in the index): this is the database index mechanism built from per-value bitmaps, with its own naming literature",
+      "confidence": "established"
+    },
+    {
+      "id": "log-structured-storage",
+      "name": "Log-Structured Storage",
+      "aka": ["log-structured file system", "LFS", "append-only storage with segment cleaning", "segment cleaning", "copy-forward garbage collection", "journal-structured storage"],
+      "kind": "persistence-durability",
+      "what": "All updates are written as appends to the head of a sequential log divided into large segments; live data is never overwritten in place, and a cleaner process copies still-live records out of old segments to reclaim them.",
+      "problem": "Small random writes waste disk/flash bandwidth on seeks and read-modify-write cycles, and in-place update complicates crash recovery; turning the entire store into a sequential log makes writes device-speed and recovery a log replay, at the cost of background cleaning.",
+      "named_in": "Rosenblum & Ousterhout — The Design and Implementation of a Log-Structured File System, SOSP 1991 / ACM TOCS 1992",
+      "named_in_corpus_id": null,
+      "tags": ["db", "filesystem", "flash", "embedded (FTLs and flash filesystems are log-structured)"],
+      "borderline": "kept separate from lsm-tree: LSM is a sorted-run merge index structure; log-structured storage is the persistence mechanism (append-only segments + cleaning) usable with no sorted-merge component at all (LFS, FTLs, journal-based KV stores)",
+      "confidence": "established"
+    },
+    {
+      "id": "template-engine",
+      "name": "Template Engine",
+      "aka": ["template processor", "text templating", "templating engine", "string template", "template expansion", "macro/template substitution"],
+      "kind": "parsing-text",
+      "what": "Output text is produced by interpreting a template document containing literal text interleaved with placeholders and simple directives (interpolation, conditionals, loops) that are filled from a data model at render time.",
+      "problem": "Generating structured text (HTML, code, configuration, reports) by string concatenation in program code entangles presentation with logic and inverts maintainability; a template keeps the output's shape readable and enforces separation between model and view.",
+      "named_in": "Parr — Enforcing Strict Model-View Separation in Template Engines, WWW 2004 (StringTemplate)",
+      "named_in_corpus_id": null,
+      "tags": ["text", "codegen", "web"],
+      "borderline": null,
+      "confidence": "established"
+    }
+  ],
+  "parked_architecture": [],
+  "excluded_notable": [
+    {
+      "name": "Invertible Bloom Lookup Table (IBLT)",
+      "why": "Named and citable (Goodrich & Mitzenmacher, Allerton 2011) but judged research-zoo tier: a set-reconciliation specialist below the count-min-sketch/HyperLogLog prominence line the index already draws; belongs in the datastructures sibling corpus as a Bloom-family variant, cross-referenced rather than cataloged."
+    },
+    {
+      "name": "Diff / patch (Myers diff, edit script computation)",
+      "why": "Myers — An O(ND) Difference Algorithm and Its Variations (Algorithmica 1986) is algorithmics zoo per the scope rules; the designer-facing mechanism (representing changes as deltas) is already carried by delta-encoding (aka differencing) in the index. Patch application adds no separate implementable mechanism at catalog altitude."
+    },
+    {
+      "name": "Collation",
+      "why": "Locale-aware string ordering (Unicode Collation Algorithm, UTS #10) is a facility/standardized service you configure and call, not a mechanism you implement inside one program; fails the altitude test sideways (library/platform facility, like Unicode normalization)."
+    },
+    {
+      "name": "N-ary Storage Model (NSM) as a separate entry",
+      "why": "The row-oriented counterpart of DSM/PAX is the unnamed default, not a reached-for mechanism; it is adequately carried as context in the pax-page-layout and column-oriented-storage entries."
+    }
+  ],
+  "notes": "Charter fully swept; small yield is the honest result - the analytics/storage band is close to saturated. All five proposals checked against elements_index.txt names AND aka fields. Dedup decisions: (1) PAX kept separate from column-oriented-storage (DSM/column store) - the literature (Ailamaki 2001) treats NSM/DSM/PAX as three distinct layouts and PAX's mechanism (per-attribute minipages inside an unchanged page) differs from full vertical partitioning; also distinct from slotted-page-layout, which is the NSM slot-directory organization. (2) Zone Map chosen as canonical name over Moerkotte's 'small materialized aggregates' - zone map is the name every implementation uses (Netezza, Oracle, Snowflake; PostgreSQL says BRIN); SMA folded as aka and Moerkotte 1998 credited as naming source (spot-checked live: VLDB 1998 pp. 476-487, plus Ziauddin PVLDB 2017 confirming the Netezza naming lineage). (3) Bitmap Index added as a mechanism distinct from the bitmap-bitset raw structure; Roaring compression stays folded under bitmap-bitset. (4) Log-Structured Storage (Rosenblum-Ousterhout) kept separate from lsm-tree per charter judgment: append-only segments + cleaner is a persistence mechanism independent of the LSM sorted-run/merge index; FTLs and flash filesystems (JFFS2, F2FS) are log-structured without being LSM trees. FLAG for the merge editor: lsm-tree's aka 'log-structured storage engine' now collides with this new element and should be dropped or narrowed to 'log-structured merge storage engine'. (5) Template Engine added here as instructed since coordination with the anchors-fixes hunter is unnecessary (merge dedups). Index entries that look off: adapter's aka list contains 'Decorator' (a separate GoF pattern - looks like a data error); setjmp-longjmp-exception-handling and setjmp-longjmp-structured-error-handling (ids 457/458) look like an unmerged duplicate pair."
+}

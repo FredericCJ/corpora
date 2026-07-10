@@ -1,0 +1,182 @@
+{
+ "scout": "gap2-fowler-bliki-sweep",
+ "elements": [
+  {
+   "id": "page-object",
+   "name": "Page Object",
+   "aka": ["Window Driver (Fowler's earlier eaaDev name)", "page object model (POM, Selenium usage)"],
+   "kind": "testing-constructs",
+   "what": "A test-side object that wraps a UI page or fragment behind an application-specific API, so tests manipulate intention-revealing methods instead of raw HTML/widget structure.",
+   "problem": "UI-driving tests coupled directly to page structure break en masse on every markup change; a page object centralizes the UI knowledge in one place and keeps test logic readable and stable.",
+   "named_in": "Fowler, bliki 'PageObject' (10 Sep 2013; loaded live — states it was first described as Window Driver at eaaDev and popularized as 'page object' by Selenium); Selenium project documentation",
+   "named_in_corpus_id": null,
+   "tags": ["testing", "ui", "web"]
+  },
+  {
+   "id": "tolerant-reader",
+   "name": "Tolerant Reader",
+   "aka": [],
+   "kind": "serialization-framing",
+   "what": "A consumer-side reading strategy that extracts only the data elements it needs from a payload, ignores unknown or extra content, and makes minimal assumptions about structure.",
+   "problem": "Strictly schema-bound consumers break whenever a service provider evolves its message format; reading tolerantly (Postel's robustness principle applied to payload consumption) lets providers add or rearrange elements without breaking existing clients.",
+   "named_in": "Fowler, bliki 'TolerantReader' (9 May 2011; loaded live — notes Rob Daigneau published the full pattern in Service Design Patterns, Addison-Wesley 2011)",
+   "named_in_corpus_id": null,
+   "tags": ["integration", "schema-evolution", "robustness", "web-services"]
+  },
+  {
+   "id": "memory-image",
+   "name": "Memory Image",
+   "aka": ["system prevalence", "object prevalence", "prevalent system (Prevayler)"],
+   "kind": "persistence-durability",
+   "what": "Keep the authoritative application state entirely in main memory and obtain durability by logging every state-changing event to persistent storage, replaying the log (accelerated by periodic snapshots) to rebuild state after restart.",
+   "problem": "Routing all state through a database costs IO and mapping complexity; when the working set fits in RAM, an event log plus snapshots gives durability while the program works at memory speed with plain in-memory structures.",
+   "named_in": "Fowler, bliki 'MemoryImage' (31 Aug 2011; loaded live — cites Prevayler/'system prevalence' and the LMAX architecture as realizations)",
+   "named_in_corpus_id": null,
+   "tags": ["in-memory", "event-log", "borderline: composes event-sourcing + checkpointing/snapshot and Fowler frames it as an architectural approach; included because it is a single-process persistence mechanism with library-level realizations (Prevayler) and its own established name (system prevalence)"]
+  },
+  {
+   "id": "rules-engine",
+   "name": "Rules Engine",
+   "aka": ["production rule system", "business rules engine", "inference engine (forward-chaining)", "Rete-based rule engine (realization)"],
+   "kind": "state-management",
+   "what": "A component that evaluates a collection of independent condition-action (production) rules against working state, with the engine — not imperative code order — deciding which rules fire, including chaining when one rule's action changes another rule's condition.",
+   "problem": "Domain logic consisting of many independent, frequently-changing decision rules becomes tangled when hard-coded as nested conditionals; representing it as declarative rules run by an evaluation loop keeps each rule separate and independently modifiable.",
+   "named_in": "Fowler, bliki 'RulesEngine' (7 Jan 2009; loaded live — 'you can build a simple rules engine yourself', production rules, Rete, chaining); production rule system literature (Forgy, Rete algorithm, 1982)",
+   "named_in_corpus_id": null,
+   "tags": ["business-logic", "declarative", "borderline: also a commercial product category (BRMS) at system scale; included at the in-process altitude Fowler describes (rule objects + evaluation loop inside one application), sibling of behavior-tree/interpreter"]
+  }
+ ],
+ "parked_architecture": [
+  {
+   "name": "Event Collaboration (Fowler, eaaDev 'Focusing on Events')",
+   "why": "Components coordinate by broadcasting events instead of making requests — as a cross-component interaction style this is event-driven architecture's territory (Phase 3); its in-process mechanisms are already cataloged (observer, event-aggregator, domain-event, message-queue)."
+  },
+  {
+   "name": "Reporting Database (Fowler, bliki 2004)",
+   "why": "Separate database fed from the operational store for reporting/analytics — system-level data topology, fails altitude upward."
+  },
+  {
+   "name": "Bounded Context (Evans DDD; Fowler bliki 2014)",
+   "why": "Strategic-design decomposition of a large model/system into contexts with explicit boundaries — system-structure altitude, Phase 3 (belongs with the DDD strategic set alongside already-parked Service Layer etc.)."
+  },
+  {
+   "name": "Polyglot Persistence (Fowler/Sadalage, bliki 2011)",
+   "why": "Using different datastore technologies per data need across a system — data-architecture stance, Phase 3 territory."
+  }
+ ],
+ "excluded_notable": [
+  {
+   "name": "CQRS (verification, not a new decision)",
+   "why": "VERIFIED already parked: merged_design.json carries the poeaa-ddd scout's park ('splitting a system's read and write models is an architecture style, Fowler bliki 2011; Greg Young') plus the wiki-longtail duplicate. No action needed."
+  },
+  {
+   "name": "Role Interface (Fowler bliki 2006)",
+   "why": "Interface-granularity vocabulary (interface shaped per collaborator role, contrasted with Header Interface); ISP-adjacent characterization of interface design, not a distinct implementable mechanism beyond 'an interface'. Catalog already carries the mechanism-bearing interface constructs (separated-interface, explicit-interface, extension-interface, marker-interface)."
+  },
+  {
+   "name": "Header Interface (Fowler bliki 2006)",
+   "why": "Counterpart vocabulary to Role Interface (one interface mirroring a whole class); same rejection — characterization, not mechanism."
+  },
+  {
+   "name": "Published Interface (Fowler bliki)",
+   "why": "Public-vs-published distinction is API-evolution/management vocabulary (who may depend on it), not an implementable mechanism — practice/altitude fail sideways."
+  },
+  {
+   "name": "Local DTO (Fowler bliki 2004)",
+   "why": "Usage discussion (DTOs within a process) of the already-cataloged data-transfer-object; no separate mechanism."
+  },
+  {
+   "name": "Seedwork (Fowler bliki, term from Michael Feathers)",
+   "why": "Copy-then-diverge code-reuse approach for small starter kits — development practice vocabulary, weak establishedness as an element; excluded."
+  },
+  {
+   "name": "Anemic Domain Model (Fowler bliki 2003)",
+   "why": "Anti-pattern/smell, not a design element; catalog excludes anti-patterns."
+  },
+  {
+   "name": "Data Clump (Fowler, Refactoring)",
+   "why": "Code smell, not a mechanism; refactoring/practice territory."
+  },
+  {
+   "name": "Self Initializing Fake (Fowler bliki 2009)",
+   "why": "Record-and-replay fake that primes itself from the real service on first run — judged a variant of the cataloged test-double rather than a separate mechanism; recommend merge team add 'self-initializing fake / record-and-replay fake' to test-double's aka."
+  },
+  {
+   "name": "Clock Wrapper (Fowler bliki)",
+   "why": "Injectable abstraction over the ambient time source for testability — application of dependency-injection + test-double to one dependency (time); fold, optionally as aka ('fake/virtual clock') on test-double."
+  },
+  {
+   "name": "Window Driver (Fowler eaaDev)",
+   "why": "Folded as aka into the new page-object element — Fowler's PageObject bliki states it is the same pattern under his earlier name."
+  },
+  {
+   "name": "Given When Then (Fowler bliki 2013)",
+   "why": "Test-description convention (BDD scenario format, kin of arrange-act-assert) — a writing style/practice, not an implementable construct."
+  },
+  {
+   "name": "Legacy Seam / Seam (Feathers WELC 2004; Fowler bliki LegacySeam)",
+   "why": "Analytical concept naming *where* behavior can be substituted without editing source (object/link/preprocessing seams) — a testability property of code plus legacy-work practice, not a recurring implementable mechanism; strictness round excludes."
+  },
+  {
+   "name": "Contract Test (Fowler bliki 2011)",
+   "why": "Testing strategy verifying a test double (or provider) matches the real contract (consumer-driven contracts, Pact) — cross-component testing practice rather than an in-program construct; excluded at strictness peak."
+  },
+  {
+   "name": "In Memory Test Database (Fowler bliki)",
+   "why": "Test-environment substitution technique — practice, plus covered conceptually by test-double/service-stub territory."
+  },
+  {
+   "name": "Command Query Separation / Tell Don't Ask / Uniform Access / Hollywood Principle (bliki)",
+   "why": "Principles/guidelines, not mechanisms (DI, the mechanism behind Hollywood Principle, is already cataloged)."
+  },
+  {
+   "name": "Branch By Abstraction (Fowler bliki 2014)",
+   "why": "Transitional technique for large-scale change on trunk (introduce abstraction, migrate implementations, remove scaffolding) — change-sequencing practice, not a runtime mechanism."
+  },
+  {
+   "name": "Parallel Change / Expand-Contract (Fowler bliki 2014)",
+   "why": "Interface-migration sequencing technique (expand, migrate, contract) — practice altitude, same family as Branch by Abstraction."
+  },
+  {
+   "name": "Canary Release / Blue-Green Deployment / Dark Launching / Keystone Interface (bliki)",
+   "why": "Release-engineering and deployment practices — pass-7/ops territory, not design elements (feature-flag, the enabling mechanism, is already cataloged)."
+  },
+  {
+   "name": "eaaDev frozen drafts: Agreement Dispatcher, Parallel Model, Retroactive Event, Event Poster, Eager Read Derivation, Proposed Object, Request-Response Collaboration, Autonomous View, Presentation Chooser, Money Bag, Time Point",
+   "why": "Development-only drafts of the frozen (2006) eaaDev material — fail the establishedness gate for a strictness round (no recurrence beyond Fowler's drafts); Time Point additionally folds into the cataloged temporal family (temporal-property, range)."
+  },
+  {
+   "name": "Flow Synchronization / Observer Synchronization (Fowler eaaDev 2004)",
+   "why": "Screen-to-session-state synchronization variants — Observer Synchronization is Observer applied to presentation sync, Flow Synchronization is its manual counterpart; folded into cataloged observer/data-binding territory, no distinct mechanism survives."
+  },
+  {
+   "name": "Separated Presentation (Fowler eaaDev)",
+   "why": "Separation principle (presentation vs domain), not a mechanism; its concrete realizations (data-binding, presentation-model family) are cataloged or parked."
+  },
+  {
+   "name": "Accounting patterns: Account, Accounting Entry, Accounting Transaction, Replacement/Reversal/Difference Adjustment (Fowler eaaDev/Analysis Patterns)",
+   "why": "Domain analysis/modeling patterns for a specific business domain — analysis-pattern altitude, not implementation mechanisms; money (the value-representation mechanism) is already cataloged."
+  },
+  {
+   "name": "Humane Interface / Minimal Interface (Fowler bliki)",
+   "why": "API-design stance debate (how rich an interface should be) — vocabulary, not mechanisms."
+  },
+  {
+   "name": "API-design bliki vocabulary: Command Oriented Interface, Duck Interface, Required Interface, Typed Collection, User Defined Field, Courtesy Implementation, Decorated Command, Interface Implementation Pair, Seal, Getter Eradicator, Flag Argument, Constructor/Setter Initialization",
+   "why": "Checked against the live API-design tag page: essays, language-feature discussions, or already folded (Flag Argument = aka on function-control; constructor/setter injection = aka on dependency-injection; Seal's mechanism = sealed-trait; Typed Collection is a dated pre-generics workaround). None survives as a distinct absent mechanism."
+  },
+  {
+   "name": "Sacrificial Architecture (Fowler bliki 2014)",
+   "why": "Lifecycle strategy (plan to throw one away) — strategy essay, neither a design element nor a catalogable architecture element."
+  },
+  {
+   "name": "Presentation Model / Passive View / Supervising Controller (verification, not a new decision)",
+   "why": "VERIFIED already parked: ui-reactive scout parked the whole MV* family (MVC, MVP with Passive View and Supervising Controller as sub-variants, MVVM, Presentation Model, Elm/MVU, MVI) as app-structure altitude for Phase 3."
+  },
+  {
+   "name": "Strangler Fig / Front Controller / Page Controller / Transaction Script / Table Module / Service Layer / Remote Facade (verification, not a new decision)",
+   "why": "VERIFIED already parked by wiki-longtail, posa, and poeaa-ddd scouts in merged_design.json."
+  }
+ ],
+ "notes": "Strictness-peak audit of martinfowler.com bliki + eaaDev. Method: full 682-line index read first; live fetches of the bliki front page, the eaaDev catalog page, and the API-design / testing / event-architectures tag indexes; every proposed element verified against its live primary bliki page; prior-round decisions checked in merged_design.json before re-judging. Charter items confirmed already present: feature-flag, collection-pipeline, fluent-interface, event-aggregator, notification, specification, event-sourcing, optimistic-offline-lock, gateway, mapper, object-mother; audit additionally confirmed present-or-folded: audit-log, temporal-property (temporal object/effectivity/snapshot as aka), domain-event, range, data-binding, humble-object, test-double, money, value-object, function-control (flag argument). CQRS park verified. Yield: 4 new elements (page-object certain; tolerant-reader certain, book-cataloged by Daigneau; memory-image and rules-engine borderline-tagged) — near the top of the expected 0-5 band but each is live-verified, book-or-bliki established, and genuinely absent under all names/akas. 4 new architecture parks (Event Collaboration, Reporting Database, Bounded Context, Polyglot Persistence). ~28 recorded rejections constitute the saturation evidence: the Fowler corpus beyond these is principles, practices, smells, frozen drafts, and vocabulary. Side observation for the editor (out of my charter): Meszaros xUnit fixture vocabulary (test fixture / fresh vs shared fixture / four-phase test) has no dedicated entry in testing-constructs; a targeted judge-call there may be warranted before Phase 1 closes."
+}

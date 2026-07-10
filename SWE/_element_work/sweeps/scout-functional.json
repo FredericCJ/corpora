@@ -1,0 +1,404 @@
+{
+  "scout": "functional",
+  "elements": [
+    {
+      "id": "tagged-union",
+      "name": "Tagged Union",
+      "aka": ["sum type", "discriminated union", "variant", "disjoint union"],
+      "kind": "data-representation",
+      "what": "A data type whose value is exactly one of several named alternatives, carrying a tag that identifies which alternative is present.",
+      "problem": "Safely representing 'one of N shapes' data without unchecked casts or sentinel conventions; enables exhaustive case analysis so unhandled alternatives are caught statically.",
+      "named_in": "Types and Programming Languages - Benjamin C. Pierce (2002)",
+      "named_in_corpus_id": null,
+      "tags": ["fp", "c", "rust", "fsharp", "scala", "haskell"],
+      "borderline": null,
+      "confidence": "established"
+    },
+    {
+      "id": "option-type",
+      "name": "Option Type",
+      "aka": ["Maybe type", "Optional", "nullable type"],
+      "kind": "functional-type-idioms",
+      "what": "A sum type with exactly two cases - a present value (Some/Just) or absence (None/Nothing) - making optionality explicit in the type.",
+      "problem": "Eliminates null-reference and sentinel-value failure modes by forcing every consumer to handle the absent case before touching the value.",
+      "named_in": "Haskell 98 Language and Libraries Report - Simon Peyton Jones, ed. (2003)",
+      "named_in_corpus_id": null,
+      "tags": ["fp", "haskell", "ml", "rust", "fsharp", "scala"],
+      "borderline": null,
+      "confidence": "established"
+    },
+    {
+      "id": "result-type",
+      "name": "Result Type",
+      "aka": ["Either type", "Try", "error union"],
+      "kind": "error-handling",
+      "what": "A sum type carrying either a success value or an error value, returned instead of throwing, so failure is part of the function's signature.",
+      "problem": "Makes failure paths visible and composable in the type system, avoiding invisible exception control flow and forcing callers to acknowledge errors.",
+      "named_in": "The Rust Programming Language - Klabnik & Nichols (2019), 'Recoverable Errors with Result'",
+      "named_in_corpus_id": null,
+      "tags": ["fp", "rust", "haskell", "fsharp", "scala", "swift"],
+      "borderline": null,
+      "confidence": "established"
+    },
+    {
+      "id": "monad",
+      "name": "Monad",
+      "aka": ["computation builder", "Kleisli triple"],
+      "kind": "functional-type-idioms",
+      "what": "An interface (unit/return plus bind) for sequencing computations inside a context - optionality, failure, state, IO - so effectful steps compose like plain functions.",
+      "problem": "Gives one uniform composition law for wildly different effect plumbings, removing hand-written propagation of state, errors, or absence through call chains.",
+      "named_in": "Notions of Computation and Monads - Eugenio Moggi (1991)",
+      "named_in_corpus_id": null,
+      "tags": ["fp", "haskell", "scala", "borderline"],
+      "borderline": "Umbrella abstraction: concrete instances (State, Reader, Writer, IO, monad transformers) are folded here as variants, not enumerated; kept because the interface itself is the recurring design element.",
+      "confidence": "established"
+    },
+    {
+      "id": "thunk",
+      "name": "Thunk",
+      "aka": ["suspension", "delayed evaluation", "lazy evaluation", "delay/force"],
+      "kind": "functional-type-idioms",
+      "what": "A zero-argument closure standing in for a not-yet-computed value, forced (evaluated) on first demand and typically cached thereafter.",
+      "problem": "Defers expensive or possibly-unneeded computation until its result is actually demanded, enabling infinite structures, call-by-need semantics, and cheap short-circuiting.",
+      "named_in": "Thunks: A Way of Compiling Procedure Statements with Some Comments on Procedure Declarations - P. Z. Ingerman (CACM, 1961)",
+      "named_in_corpus_id": null,
+      "tags": ["fp", "haskell", "scheme"],
+      "borderline": null,
+      "confidence": "established"
+    },
+    {
+      "id": "memoization",
+      "name": "Memoization",
+      "aka": ["memo function", "tabling", "function result caching"],
+      "kind": "caching-memoization",
+      "what": "Caching a function's results keyed by its arguments so repeated calls with the same inputs return the stored answer instead of recomputing.",
+      "problem": "Trades memory for time on pure or effectively-pure functions with overlapping call patterns (recursive decomposition, repeated queries), often turning exponential recursions polynomial.",
+      "named_in": "'Memo' Functions and Machine Learning - Donald Michie (Nature, 1968)",
+      "named_in_corpus_id": null,
+      "tags": ["fp"],
+      "borderline": null,
+      "confidence": "established"
+    },
+    {
+      "id": "persistent-data-structure",
+      "name": "Persistent Data Structure",
+      "aka": ["immutable data structure", "structural sharing", "purely functional data structure"],
+      "kind": "data-structures",
+      "what": "A data structure whose update operations return a new version while old versions remain valid, sharing unchanged substructure between versions.",
+      "problem": "Provides safe sharing across threads and cheap history/undo without defensive copying, by making every version immutable and reusing common parts.",
+      "named_in": "Making Data Structures Persistent - Driscoll, Sarnak, Sleator, Tarjan (JCSS, 1989)",
+      "named_in_corpus_id": null,
+      "tags": ["fp", "clojure", "scala", "haskell"],
+      "borderline": null,
+      "confidence": "established"
+    },
+    {
+      "id": "continuation-passing-style",
+      "name": "Continuation-Passing Style",
+      "aka": ["CPS", "callback-passing style"],
+      "kind": "functional-type-idioms",
+      "what": "Writing functions to take an explicit continuation - a callback receiving the result - instead of returning, making control flow a first-class value.",
+      "problem": "Reifies 'what happens next' so programs can implement early exit, backtracking, coroutines, and asynchronous flows in a language without those control features.",
+      "named_in": "Compiling with Continuations - Andrew W. Appel (1992)",
+      "named_in_corpus_id": null,
+      "tags": ["fp", "scheme", "javascript"],
+      "borderline": null,
+      "confidence": "established"
+    },
+    {
+      "id": "trampoline",
+      "name": "Trampoline",
+      "aka": ["trampolined style", "bounce loop"],
+      "kind": "execution-concurrency",
+      "what": "A driver loop that repeatedly invokes returned thunks/step objects so that deep or mutual recursion runs in constant stack space.",
+      "problem": "Avoids stack overflow from deep tail or mutual recursion on runtimes without tail-call elimination by converting nested calls into iterated returns.",
+      "named_in": "Trampolined Style - Ganz, Friedman, Wand (ICFP, 1999)",
+      "named_in_corpus_id": null,
+      "tags": ["fp", "java", "javascript", "scala", "clojure"],
+      "borderline": null,
+      "confidence": "established"
+    },
+    {
+      "id": "defunctionalization",
+      "name": "Defunctionalization",
+      "aka": ["defunctionalisation", "closure conversion by tags"],
+      "kind": "functional-type-idioms",
+      "what": "Replacing first-class functions with a tagged-union of the closures that actually occur plus an apply function that dispatches on the tag.",
+      "problem": "Lets higher-order programs run (or be serialized, stored, or sent) in first-order settings - C, wire protocols, event logs - by turning behavior into data.",
+      "named_in": "Definitional Interpreters for Higher-Order Programming Languages - John C. Reynolds (1972)",
+      "named_in_corpus_id": null,
+      "tags": ["fp", "borderline"],
+      "borderline": "Charter-flagged: originated as a compiler/interpreter transformation, but is a recurring in-program design move (serializable jobs, state machines from closures), so it passes the altitude test.",
+      "confidence": "established"
+    },
+    {
+      "id": "lens",
+      "name": "Lens",
+      "aka": ["optics", "functional reference", "prism", "traversal"],
+      "kind": "functional-type-idioms",
+      "what": "A first-class, composable pair of getter and updater focused on a part of an immutable structure, so nested reads and copy-with-change updates compose like functions.",
+      "problem": "Removes the boilerplate of updating deeply nested immutable records, where each level otherwise requires manual copy-and-replace code.",
+      "named_in": "Combinators for Bidirectional Tree Transformations - Foster, Greenwald, Moore, Pierce, Schmitt (TOPLAS, 2007)",
+      "named_in_corpus_id": null,
+      "tags": ["fp", "haskell", "scala"],
+      "borderline": null,
+      "confidence": "established"
+    },
+    {
+      "id": "phantom-type",
+      "name": "Phantom Type",
+      "aka": ["phantom type parameter", "marker type parameter"],
+      "kind": "functional-type-idioms",
+      "what": "A type parameter that appears in a type's signature but not in its runtime representation, used purely to encode compile-time distinctions or states.",
+      "problem": "Statically separates values that share a representation but must not mix (sanitized vs raw strings, units, protocol states) at zero runtime cost.",
+      "named_in": "Domain Specific Embedded Compilers - Leijen & Meijer (DSL '99, 1999)",
+      "named_in_corpus_id": null,
+      "tags": ["fp", "haskell", "rust", "ocaml"],
+      "borderline": null,
+      "confidence": "spot-checked"
+    },
+    {
+      "id": "smart-constructor",
+      "name": "Smart Constructor",
+      "aka": ["validating constructor function"],
+      "kind": "construction-api",
+      "what": "A function that is the only exported way to build a value of an abstract type, performing validation or normalization so every constructed value satisfies the type's invariants.",
+      "problem": "Guarantees invariants at the construction boundary - hiding the raw data constructor makes invalid values unrepresentable to the rest of the program.",
+      "named_in": "Smart constructors - Haskell wiki (haskell.org)",
+      "named_in_corpus_id": null,
+      "tags": ["fp", "haskell", "rust", "scala"],
+      "borderline": null,
+      "confidence": "spot-checked"
+    },
+    {
+      "id": "effect-handler",
+      "name": "Effect Handler",
+      "aka": ["algebraic effect handler", "algebraic effects and handlers"],
+      "kind": "functional-type-idioms",
+      "what": "A construct that intercepts declared effect operations performed by a computation and decides how to interpret them and how to resume the suspended computation.",
+      "problem": "Separates what effects a computation performs from how they are implemented, enabling swappable interpreters, testing without mocks, and user-defined control flow (exceptions, generators, async).",
+      "named_in": "Handlers of Algebraic Effects - Plotkin & Pretnar (ESOP, 2009)",
+      "named_in_corpus_id": null,
+      "tags": ["fp", "ocaml", "koka", "borderline"],
+      "borderline": "Charter-flagged modern: still primarily a language/library research construct, but implemented in shipping languages (OCaml 5, Koka, Unison) and libraries, so it clears the establishedness gate.",
+      "confidence": "established"
+    },
+    {
+      "id": "functional-core-imperative-shell",
+      "name": "Functional Core, Imperative Shell",
+      "aka": ["impureim sandwich"],
+      "kind": "functional-type-idioms",
+      "what": "Structuring a component as a pure decision-making core wrapped by a thin imperative layer that performs all IO and mutation.",
+      "problem": "Isolates hard-to-test effects at the boundary so the bulk of logic is pure, deterministic, and unit-testable without mocks.",
+      "named_in": "Functional Core, Imperative Shell - Gary Bernhardt (Destroy All Software screencast, 2012)",
+      "named_in_corpus_id": null,
+      "tags": ["fp", "borderline"],
+      "borderline": "Charter-flagged: a program-structuring statement that pulls toward architecture, but it is implementable inside one component and named/recurring, so kept in the design realm.",
+      "confidence": "established"
+    },
+    {
+      "id": "collection-pipeline",
+      "name": "Collection Pipeline",
+      "aka": ["method chaining over collections", "streams pipeline", "LINQ pipeline"],
+      "kind": "functional-type-idioms",
+      "what": "Composing a sequence of collection-transforming operations (filter, map, reduce and kin) where each stage's output feeds the next.",
+      "problem": "Replaces tangled loop-and-accumulator code with declarative, reorderable stages, making data transformations readable and often lazily or parallelly executable.",
+      "named_in": "Collection Pipeline - Martin Fowler (martinfowler.com, 2014)",
+      "named_in_corpus_id": null,
+      "tags": ["fp", "java", "csharp", "javascript"],
+      "borderline": null,
+      "confidence": "established"
+    },
+    {
+      "id": "newtype",
+      "name": "Newtype",
+      "aka": ["wrapper type", "tiny type", "strong typedef", "micro type"],
+      "kind": "data-representation",
+      "what": "A distinct nominal type wrapping exactly one underlying value, giving it a separate identity in the type system with little or no runtime cost.",
+      "problem": "Prevents mixing semantically different values that share a representation (UserId vs OrderId, meters vs feet) and provides an attachment point for domain-specific operations and instances.",
+      "named_in": "The Rust Programming Language - Klabnik & Nichols (2019), 'Using the Newtype Pattern'",
+      "named_in_corpus_id": null,
+      "tags": ["fp", "haskell", "rust"],
+      "borderline": null,
+      "confidence": "established"
+    },
+    {
+      "id": "typestate",
+      "name": "Typestate",
+      "aka": ["typestate pattern", "session-typed API", "state-encoding types"],
+      "kind": "functional-type-idioms",
+      "what": "Encoding an object's protocol states as distinct types so that operations invalid in the current state do not type-check, with transitions returning the next state's type.",
+      "problem": "Moves 'called in the wrong order' protocol errors (use before open, double close, build before configure) from runtime checks to compile-time rejection.",
+      "named_in": "Typestate: A Programming Language Concept for Enhancing Software Reliability - Strom & Yemini (IEEE TSE, 1986)",
+      "named_in_corpus_id": null,
+      "tags": ["fp", "rust", "cpp", "embedded"],
+      "borderline": null,
+      "confidence": "established"
+    },
+    {
+      "id": "zipper",
+      "name": "Zipper",
+      "aka": ["Huet zipper", "focused data structure", "one-hole context"],
+      "kind": "data-structures",
+      "what": "A representation of a position inside an immutable structure as the focused element plus its inverted surrounding context, allowing O(1) local edits and navigation.",
+      "problem": "Enables efficient localized updates and cursor-style navigation in purely functional trees and lists, where naive editing would rebuild the path from the root on every step.",
+      "named_in": "The Zipper - Gérard Huet (Journal of Functional Programming, 1997)",
+      "named_in_corpus_id": null,
+      "tags": ["fp", "haskell", "clojure"],
+      "borderline": null,
+      "confidence": "established"
+    },
+    {
+      "id": "immutable-object",
+      "name": "Immutable Object",
+      "aka": ["Immutable (pattern)", "immutable value"],
+      "kind": "state-management",
+      "what": "An object whose observable state cannot change after construction; all 'modifications' produce new instances.",
+      "problem": "Eliminates aliasing bugs, defensive copies, and data races on shared state - immutable values are safe to share, cache, and use as keys.",
+      "named_in": "Patterns in Java, Volume 1 - Mark Grand (1998)",
+      "named_in_corpus_id": null,
+      "tags": ["fp", "java", "oo"],
+      "borderline": null,
+      "confidence": "established"
+    },
+    {
+      "id": "railway-oriented-programming",
+      "name": "Railway-Oriented Programming",
+      "aka": ["two-track error handling", "Result chaining", "Kleisli composition of Results"],
+      "kind": "error-handling",
+      "what": "Composing a workflow as a chain of functions over a two-track success/failure type, where any failure switches the rest of the pipeline onto the error track automatically.",
+      "problem": "Keeps multi-step validation/IO workflows linear and readable while still short-circuiting on the first failure and accumulating error information, without nested conditionals or exceptions.",
+      "named_in": "Railway Oriented Programming - Scott Wlaschin (fsharpforfunandprofit.com / NDC, 2014)",
+      "named_in_corpus_id": null,
+      "tags": ["fp", "fsharp", "borderline"],
+      "borderline": "Essentially a named usage idiom of the result type (monadic bind); kept as a separate entry because the name is established and widely taught, cross-linked to result-type.",
+      "confidence": "spot-checked"
+    },
+    {
+      "id": "tagless-final",
+      "name": "Tagless Final",
+      "aka": ["finally tagless", "final encoding", "object algebra (OO cousin)"],
+      "kind": "functional-type-idioms",
+      "what": "Encoding an embedded language's operations as a parameterized interface (type class/trait) so programs are polymorphic terms interpretable by any implementation.",
+      "problem": "Allows multiple interpreters (evaluate, pretty-print, optimize) over the same program description and extension with new operations without reworking existing code, avoiding the tag-dispatch and expression-problem costs of a data-type encoding.",
+      "named_in": "Finally Tagless, Partially Evaluated - Carette, Kiselyov, Shan (JFP, 2009)",
+      "named_in_corpus_id": null,
+      "tags": ["fp", "haskell", "scala", "borderline"],
+      "borderline": "Advanced FP-community pattern rather than broad-industry vocabulary; establishedness is solid (canonical paper, standard Scala/Haskell pattern name) so kept with honest tag.",
+      "confidence": "established"
+    },
+    {
+      "id": "parser-combinator",
+      "name": "Parser Combinator",
+      "aka": ["combinator parsing", "monadic parsing"],
+      "kind": "parsing-text",
+      "what": "Building parsers as first-class values composed with higher-order functions (sequence, choice, repetition), so the grammar is expressed directly as executable code.",
+      "problem": "Provides modular, testable, incrementally-buildable parsers inside the host language, avoiding external grammar files and generator build steps for mid-complexity input languages.",
+      "named_in": "Monadic Parser Combinators - Hutton & Meijer (1996)",
+      "named_in_corpus_id": null,
+      "tags": ["fp", "haskell", "scala", "rust"],
+      "borderline": null,
+      "confidence": "established"
+    },
+    {
+      "id": "embedded-dsl",
+      "name": "Embedded Domain-Specific Language",
+      "aka": ["EDSL", "internal DSL", "domain-specific embedded language"],
+      "kind": "construction-api",
+      "what": "A domain-specific vocabulary implemented as a library within a host language, reusing the host's syntax, types, and tooling instead of a separate parser.",
+      "problem": "Gives domain experts a notation close to their problem while inheriting the host language's abstraction, checking, and ecosystem - no separate compiler to build or maintain.",
+      "named_in": "Building Domain-Specific Embedded Languages - Paul Hudak (ACM Computing Surveys, 1996)",
+      "named_in_corpus_id": null,
+      "tags": ["fp", "haskell", "scala", "borderline"],
+      "borderline": "Umbrella technique spanning many concrete idioms (fluent interfaces, combinator libraries, tagless final); kept because the name and canonical source are established and the mechanism is in-program.",
+      "confidence": "established"
+    },
+    {
+      "id": "functional-reactive-programming",
+      "name": "Functional Reactive Programming",
+      "aka": ["FRP", "behaviors and events", "reactive combinators"],
+      "kind": "data-flow-buffering",
+      "what": "Programming with first-class time-varying values (behaviors/signals) and event streams composed declaratively, with the runtime propagating changes through the dependency graph.",
+      "problem": "Replaces manual observer wiring and callback state machines for time- and event-driven logic (UIs, animation, robotics) with composable declarative dataflow.",
+      "named_in": "Functional Reactive Animation - Elliott & Hudak (ICFP, 1997)",
+      "named_in_corpus_id": null,
+      "tags": ["fp", "haskell", "ui", "borderline"],
+      "borderline": "A programming model verging on paradigm; kept because it is library-implementable inside one program (Yampa, reflex, Rx-style signal libraries) and canonically named. Overlaps concurrency/reactive scout - fine.",
+      "confidence": "established"
+    },
+    {
+      "id": "free-monad",
+      "name": "Free Monad",
+      "aka": ["free monad interpreter pattern", "program-as-data"],
+      "kind": "functional-type-idioms",
+      "what": "Representing a computation as a data structure of instructions (built from a functor) that is later run by separately-defined interpreters.",
+      "problem": "Decouples the description of an effectful program from its execution, enabling multiple interpreters (production, test, dry-run, logging) over one program value.",
+      "named_in": "Data Types à la Carte - Wouter Swierstra (JFP, 2008)",
+      "named_in_corpus_id": null,
+      "tags": ["fp", "haskell", "scala", "borderline"],
+      "borderline": "Could be folded into the monad umbrella as a variant, but it names a distinct design move (reify program, interpret later) with its own literature, so kept as an entry.",
+      "confidence": "established"
+    }
+  ],
+  "parked_architecture": [
+    {
+      "name": "MapReduce",
+      "why": "System-scale data-processing topology built from functional primitives (Dean & Ghemawat 2004); fails the altitude test upward - it is a statement of system structure, not an in-component mechanism."
+    },
+    {
+      "name": "Dataflow programming (as a system paradigm)",
+      "why": "As a whole-system execution paradigm/topology it is architecture-realm; the in-program design elements it decomposes into (collection pipeline, FRP) are cataloged here."
+    },
+    {
+      "name": "Function-as-a-Service / serverless functions",
+      "why": "Deployment and topology construct ('functions' as unit of system decomposition); architecture realm, Phase 3."
+    }
+  ],
+  "excluded_notable": [
+    {
+      "name": "algebraic data type (ADT)",
+      "why": "DECISION LOG (charter-directed): NOT a separate umbrella entry. ADT = sum types + product types; the design element is tagged-union (which carries the sum side and the aliases); product/record types are raw language syntax. Recorded here so the decision is auditable."
+    },
+    {
+      "name": "pattern matching",
+      "why": "Charter-directed exclusion: language syntax level (destructuring/case analysis feature), below the altitude band; it is the consumption syntax for tagged unions, noted there."
+    },
+    {
+      "name": "fold / map / higher-order functions",
+      "why": "Charter-directed exclusion: syntax-level primitives; their design-level composition is captured by collection-pipeline."
+    },
+    {
+      "name": "currying / partial application",
+      "why": "Language-level calling-convention technique, below the altitude band; not an in-program design mechanism in its own right."
+    },
+    {
+      "name": "type class",
+      "why": "Language type-system feature (Wadler & Blott 1989, 'How to make ad-hoc polymorphism less ad hoc'), not an implementable in-program mechanism; the patterns built on it (tagless final, newtype instances) are cataloged."
+    },
+    {
+      "name": "functor / applicative functor hierarchy",
+      "why": "Type-class abstraction ladder (McBride & Paterson 2008); monad is kept as the representative umbrella entry, the rest of the hierarchy is not enumerated per the one-element-per-mechanism rule."
+    },
+    {
+      "name": "recursion schemes (catamorphism/anamorphism etc.)",
+      "why": "Meijer, Fokkinga & Paterson 1991 ('bananas' paper); generalized folds - theory/syntax altitude, and enumeration would open an algorithmics zoo owned elsewhere."
+    },
+    {
+      "name": "parse, don't validate",
+      "why": "Principle/slogan (Alexis King, 2019), not a mechanism; its mechanism side is the smart-constructor entry."
+    },
+    {
+      "name": "make illegal states unrepresentable",
+      "why": "Design principle (Yaron Minsky), not a mechanism; realized via tagged-union, newtype, phantom-type, typestate, smart-constructor entries."
+    },
+    {
+      "name": "session types",
+      "why": "Type-system research feature for communication protocols (Honda 1993); language-level, not an in-program mechanism; the practical in-program cousin (typestate) is cataloged."
+    },
+    {
+      "name": "pure function / referential transparency",
+      "why": "A semantic property, not a mechanism; the structural idiom that operationalizes it (functional core, imperative shell) is cataloged."
+    }
+  ],
+  "notes": "Coverage: 26 elements across the charter list plus extensions (newtype, typestate, zipper, parser combinator, EDSL, FRP, tagless final, free monad, railway-oriented programming, immutable object). Decisions logged: (1) ADT is NOT a separate umbrella entry - tagged-union carries it (see excluded_notable); (2) monad kept as one borderline umbrella entry with the instance/transformer zoo folded in, free monad kept separately as a distinct design move; (3) lens entry absorbs the optics variants (prism, traversal). Cross-references: persistent-data-structure notes HAMT/finger-tree/banker's-queue variants belong to the sibling datastructures corpus (E:/dev/corpora/datastructures) - only the mechanism-level entry lives here. Known overlaps accepted per charter: collection-pipeline (poeaa/Fowler scout), immutable-object (OO scout), parser-combinator (parsing scout), FRP (concurrency scout), smart-constructor/EDSL (construction-api scout). Corpus work_ids.tsv contains no FP naming sources (no Okasaki, GoF-FP, Wadler, Reynolds, Haskell works), so all named_in_corpus_id are null - Phase 2 will need new nodes for Moggi 1991, Reynolds 1972, Okasaki 1998, Huet 1997, Hutton & Meijer 1996, Plotkin & Pretnar 2009, Foster et al. 2007, etc. Live spot-checks this session: Haskell wiki Smart constructors page (loaded), Leijen & Meijer DSL'99 (search-confirmed as the phantom-types source), Wlaschin ROP 2014 (search-confirmed). Thin spots: type-level programming beyond phantom/typestate (GADTs, refinement types, dependent types) deliberately excluded as language features; effect-system vocabulary beyond effect handlers is still research-fluid; Okasaki-style amortization techniques (lazy rebuilding, scheduling) left to the datastructures corpus."
+}

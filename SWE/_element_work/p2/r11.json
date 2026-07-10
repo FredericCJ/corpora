@@ -1,0 +1,763 @@
+{
+ "route": "r11",
+ "elements": [
+  {
+   "id": "allocation-wrapper",
+   "name": "Allocation Wrapper",
+   "kind": "resource-management",
+   "named_in": "Fluent C ch. 3, memory management patterns (Preschern 2022)",
+   "named_in_corpus_id": "preschern",
+   "other_sources": [],
+   "tags": [
+    "c"
+   ]
+  },
+  {
+   "id": "asset-streaming",
+   "name": "Asset Streaming",
+   "kind": "resource-management",
+   "named_in": "Gregory, Game Engine Architecture (resource management / streaming); Unreal Engine documentation, 'Level Streaming'",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "games",
+    "engine",
+    "borderline"
+   ]
+  },
+  {
+   "id": "boundary-tags",
+   "name": "Boundary Tags",
+   "kind": "resource-management",
+   "named_in": "A Memory Allocator (dlmalloc essay) - Lea (2000); technique originally due to Knuth",
+   "named_in_corpus_id": "dlmalloc",
+   "other_sources": [],
+   "tags": [
+    "c",
+    "systems"
+   ]
+  },
+  {
+   "id": "buddy-memory-allocation",
+   "name": "Buddy Memory Allocation",
+   "kind": "resource-management",
+   "named_in": "The Art of Computer Programming, Vol. 1 - Donald E. Knuth (1968), sec. 2.5 'Dynamic Storage Allocation'",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "c",
+    "os-kernel",
+    "embedded",
+    "allocators"
+   ]
+  },
+  {
+   "id": "bulkhead",
+   "name": "Bulkhead",
+   "kind": "resource-management",
+   "named_in": "Release It! Design and Deploy Production-Ready Software, 2nd ed. - Nygard (2018)",
+   "named_in_corpus_id": "nygard",
+   "other_sources": [
+    "Release It!: Design and Deploy Production-Ready Software - Michael T. Nygard (2007); also "
+   ],
+   "tags": [
+    "stability",
+    "borderline",
+    "resilience"
+   ]
+  },
+  {
+   "id": "callee-allocates",
+   "name": "Callee Allocates",
+   "kind": "resource-management",
+   "named_in": "Fluent C - Christopher Preschern (2022)",
+   "named_in_corpus_id": "preschern",
+   "other_sources": [],
+   "tags": [
+    "c"
+   ]
+  },
+  {
+   "id": "caller-owned-buffer",
+   "name": "Caller-Owned Buffer",
+   "kind": "resource-management",
+   "named_in": "Fluent C - Christopher Preschern (2022)",
+   "named_in_corpus_id": "preschern",
+   "other_sources": [],
+   "tags": [
+    "c",
+    "embedded"
+   ]
+  },
+  {
+   "id": "captain-oates",
+   "name": "Captain Oates",
+   "kind": "resource-management",
+   "named_in": "Small Memory Software: Patterns for Systems with Limited Memory - Noble & Weir (2000)",
+   "named_in_corpus_id": "noblesmallmem",
+   "other_sources": [],
+   "tags": [
+    "embedded",
+    "memory"
+   ]
+  },
+  {
+   "id": "compaction",
+   "name": "Compaction",
+   "kind": "resource-management",
+   "named_in": "Small Memory Software: Patterns for Systems with Limited Memory - Noble & Weir (2000)",
+   "named_in_corpus_id": "noblesmallmem",
+   "other_sources": [],
+   "tags": [
+    "embedded",
+    "memory"
+   ]
+  },
+  {
+   "id": "component-configurator",
+   "name": "Component Configurator",
+   "kind": "resource-management",
+   "named_in": "Pattern-Oriented Software Architecture Vol. 2: Patterns for Concurrent and Networked Objects - Schmidt, Stal, Rohnert, Buschmann (2000)",
+   "named_in_corpus_id": "posa2",
+   "other_sources": [],
+   "tags": [
+    "dynamic-loading",
+    "lifecycle"
+   ]
+  },
+  {
+   "id": "copy-on-write",
+   "name": "Copy-on-Write",
+   "kind": "resource-management",
+   "named_in": "Small Memory Software: Patterns for Systems with Limited Memory - Noble & Weir (2000)",
+   "named_in_corpus_id": "noblesmallmem",
+   "other_sources": [
+    "Java Concurrency in Practice - Goetz, Peierls, Bloch, Bowbeer, Holmes, Lea (2006)",
+    "More C++ Idioms - Wikibooks (living); the general mechanism is classical OS vocabulary (fo",
+    "Advanced Programming in the UNIX Environment - W. Richard Stevens (1992), fork and copy-on"
+   ],
+   "tags": [
+    "embedded",
+    "memory",
+    "os",
+    "java",
+    "cpp",
+    "c++"
+   ]
+  },
+  {
+   "id": "custom-allocator",
+   "name": "Custom Allocator",
+   "kind": "resource-management",
+   "named_in": "EASTL - Electronic Arts Standard Template Library (WG21 N2271) - Pedriana (2007)",
+   "named_in_corpus_id": "eastl",
+   "other_sources": [],
+   "tags": [
+    "c++",
+    "games",
+    "embedded"
+   ]
+  },
+  {
+   "id": "data-files",
+   "name": "Data Files",
+   "kind": "resource-management",
+   "named_in": "Small Memory Software: Patterns for Systems with Limited Memory - Noble & Weir (2000)",
+   "named_in_corpus_id": "noblesmallmem",
+   "other_sources": [],
+   "tags": [
+    "embedded",
+    "memory"
+   ]
+  },
+  {
+   "id": "dedicated-ownership",
+   "name": "Dedicated Ownership",
+   "kind": "resource-management",
+   "named_in": "Fluent C: Principles, Practices, and Patterns - Preschern (2022)",
+   "named_in_corpus_id": "preschern",
+   "other_sources": [],
+   "tags": [
+    "c"
+   ]
+  },
+  {
+   "id": "dispose-pattern",
+   "name": "Dispose Pattern",
+   "kind": "resource-management",
+   "named_in": "Framework Design Guidelines - Cwalina & Abrams (2005); Effective Java Item 9 (try-with-resources)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "csharp",
+    "java",
+    "dotnet",
+    "python"
+   ]
+  },
+  {
+   "id": "eager-acquisition",
+   "name": "Eager Acquisition",
+   "kind": "resource-management",
+   "named_in": "Pattern-Oriented Software Architecture Vol. 3: Patterns for Resource Management - Kircher, Jain (2004)",
+   "named_in_corpus_id": "posa3",
+   "other_sources": [],
+   "tags": [
+    "real-time",
+    "embedded",
+    "determinism"
+   ]
+  },
+  {
+   "id": "epoch-based-reclamation",
+   "name": "Epoch-Based Reclamation",
+   "kind": "resource-management",
+   "named_in": "Practical Lock-Freedom (UCAM-CL-TR-579) - Keir Fraser (2004)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "c",
+    "cpp",
+    "rust",
+    "systems"
+   ]
+  },
+  {
+   "id": "evictor",
+   "name": "Evictor",
+   "kind": "resource-management",
+   "named_in": "Pattern-Oriented Software Architecture Vol. 3: Patterns for Resource Management - Kircher, Jain (2004)",
+   "named_in_corpus_id": "posa3",
+   "other_sources": [],
+   "tags": [
+    "memory",
+    "caching"
+   ]
+  },
+  {
+   "id": "execute-around-method",
+   "name": "Execute Around Method",
+   "kind": "resource-management",
+   "named_in": "Smalltalk Best Practice Patterns - Kent Beck (1997)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "smalltalk",
+    "idiom",
+    "raii-alternative",
+    "c++",
+    "java",
+    "scala"
+   ]
+  },
+  {
+   "id": "fixed-sized-buffer",
+   "name": "Fixed Sized Buffer",
+   "kind": "resource-management",
+   "named_in": "Real-Time Design Patterns - Bruce Powel Douglass (2002)",
+   "named_in_corpus_id": "douglassrtcorpus",
+   "other_sources": [],
+   "tags": [
+    "embedded",
+    "memory"
+   ]
+  },
+  {
+   "id": "free-list",
+   "name": "Free List",
+   "kind": "resource-management",
+   "named_in": "Dynamic Storage Allocation: A Survey and Critical Review - Wilson, Johnstone, Neely & Boles (1995)",
+   "named_in_corpus_id": "wilsonsurvey",
+   "other_sources": [
+    "Dynamic Storage Allocation: A Survey and Critical Review - Wilson, Johnstone, Neely & Bole",
+    "Dynamic Storage Allocation: A Survey and Critical Review - Wilson, Johnstone, Neely, Boles"
+   ],
+   "tags": [
+    "c",
+    "embedded",
+    "allocators",
+    "games"
+   ]
+  },
+  {
+   "id": "garbage-collection",
+   "name": "Garbage Collection",
+   "kind": "resource-management",
+   "named_in": "Real-Time Design Patterns - Bruce Powel Douglass (2002)",
+   "named_in_corpus_id": "douglassrtcorpus",
+   "other_sources": [
+    "The Garbage Collection Handbook - Jones, Hosking & Moss (2011)"
+   ],
+   "tags": [
+    "memory",
+    "runtime",
+    "runtimes",
+    "java",
+    "lisp",
+    "go"
+   ]
+  },
+  {
+   "id": "gc-read-barrier",
+   "name": "GC Read Barrier",
+   "kind": "resource-management",
+   "named_in": "The Garbage Collection Handbook — Jones, Hosking, Moss (2011)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "runtime",
+    "gc"
+   ]
+  },
+  {
+   "id": "gc-write-barrier",
+   "name": "GC Write Barrier",
+   "kind": "resource-management",
+   "named_in": "Jones, Hosking & Moss, 'The Garbage Collection Handbook: The Art of Automatic Memory Management' (2011), sect. 11.8 'Write barrier mechanisms' incl. 'Card tables' (verified live via O'Reilly index/ToC this session)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "virtual machines",
+    "language runtimes",
+    "garbage collection",
+    "memory management"
+   ]
+  },
+  {
+   "id": "hazard-pointers",
+   "name": "Hazard Pointers",
+   "kind": "resource-management",
+   "named_in": "Hazard Pointers: Safe Memory Reclamation for Lock-Free Objects - Maged M. Michael (2004)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "c",
+    "cpp",
+    "systems"
+   ]
+  },
+  {
+   "id": "hooks",
+   "name": "Hooks",
+   "kind": "resource-management",
+   "named_in": "Small Memory Software: Patterns for Systems with Limited Memory - Noble & Weir (2000)",
+   "named_in_corpus_id": "noblesmallmem",
+   "other_sources": [],
+   "tags": [
+    "embedded",
+    "memory"
+   ]
+  },
+  {
+   "id": "lazy-cleanup",
+   "name": "Lazy Cleanup",
+   "kind": "resource-management",
+   "named_in": "Fluent C ch. 3, memory management patterns (Preschern 2022)",
+   "named_in_corpus_id": "preschern",
+   "other_sources": [],
+   "tags": [
+    "c",
+    "borderline"
+   ]
+  },
+  {
+   "id": "leasing",
+   "name": "Leasing",
+   "kind": "resource-management",
+   "named_in": "Pattern-Oriented Software Architecture Vol. 3: Patterns for Resource Management - Kircher, Jain (2004)",
+   "named_in_corpus_id": "posa3",
+   "other_sources": [
+    "Leases: An Efficient Fault-Tolerant Mechanism for Distributed File Cache Consistency - Gra"
+   ],
+   "tags": [
+    "timeouts",
+    "robustness",
+    "distributed",
+    "caching"
+   ]
+  },
+  {
+   "id": "list-virtualization",
+   "name": "List Virtualization",
+   "kind": "resource-management",
+   "named_in": "Optimizing Performance: Controls (UI Virtualization) - WPF documentation - Microsoft",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "ui",
+    "js"
+   ]
+  },
+  {
+   "id": "lookup",
+   "name": "Lookup",
+   "kind": "resource-management",
+   "named_in": "Pattern-Oriented Software Architecture Vol. 3: Patterns for Resource Management - Kircher, Jain (2004)",
+   "named_in_corpus_id": "posa3",
+   "other_sources": [],
+   "tags": [
+    "registry",
+    "borderline"
+   ]
+  },
+  {
+   "id": "memory-arena",
+   "name": "Memory Arena",
+   "kind": "resource-management",
+   "named_in": "C Interfaces and Implementations - David R. Hanson (1996), ch. 'Arenas'",
+   "named_in_corpus_id": "hanson",
+   "other_sources": [],
+   "tags": [
+    "c",
+    "games",
+    "embedded",
+    "compilers",
+    "allocators"
+   ]
+  },
+  {
+   "id": "memory-discard",
+   "name": "Memory Discard",
+   "kind": "resource-management",
+   "named_in": "Small Memory Software: Patterns for Systems with Limited Memory - Noble & Weir (2000)",
+   "named_in_corpus_id": "noblesmallmem",
+   "other_sources": [],
+   "tags": [
+    "embedded",
+    "memory"
+   ]
+  },
+  {
+   "id": "memory-limit",
+   "name": "Memory Limit",
+   "kind": "resource-management",
+   "named_in": "Small Memory Software: Patterns for Systems with Limited Memory - Noble & Weir (2000)",
+   "named_in_corpus_id": "noblesmallmem",
+   "other_sources": [],
+   "tags": [
+    "embedded",
+    "memory",
+    "borderline"
+   ]
+  },
+  {
+   "id": "memory-overlay",
+   "name": "Memory Overlay",
+   "kind": "resource-management",
+   "named_in": "Linkers and Loaders - Levine (1999)",
+   "named_in_corpus_id": "levine",
+   "other_sources": [
+    "The GNU Linker (ld) manual, overlay description section (living)"
+   ],
+   "tags": [
+    "embedded",
+    "memory",
+    "c",
+    "borderline"
+   ]
+  },
+  {
+   "id": "object-manager",
+   "name": "Object Manager",
+   "kind": "resource-management",
+   "named_in": "Explicit Interface and Object Manager: Two Patterns from a Pattern Language for Distributed Computing - Buschmann, Henney, Schmidt (EuroPLoP 2003)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "lifecycle"
+   ]
+  },
+  {
+   "id": "paging",
+   "name": "Paging",
+   "kind": "resource-management",
+   "named_in": "Small Memory Software: Patterns for Systems with Limited Memory - Noble & Weir (2000)",
+   "named_in_corpus_id": "noblesmallmem",
+   "other_sources": [],
+   "tags": [
+    "embedded",
+    "memory",
+    "os"
+   ]
+  },
+  {
+   "id": "partial-acquisition",
+   "name": "Partial Acquisition",
+   "kind": "resource-management",
+   "named_in": "Pattern-Oriented Software Architecture Vol. 3: Patterns for Resource Management - Kircher, Jain (2004)",
+   "named_in_corpus_id": "posa3",
+   "other_sources": [],
+   "tags": [
+    "streaming",
+    "memory"
+   ]
+  },
+  {
+   "id": "pool-allocation",
+   "name": "Pool Allocation",
+   "kind": "resource-management",
+   "named_in": "Real-Time Design Patterns - Bruce Powel Douglass (2002)",
+   "named_in_corpus_id": "douglassrtcorpus",
+   "other_sources": [
+    "Small Memory Software: Patterns for Systems with Limited Memory - Noble & Weir (2000)",
+    "Fluent C: Principles, Practices, and Patterns - Preschern (2022)"
+   ],
+   "tags": [
+    "embedded",
+    "real-time",
+    "memory",
+    "c"
+   ]
+  },
+  {
+   "id": "pooling",
+   "name": "Pooling",
+   "kind": "resource-management",
+   "named_in": "Pattern-Oriented Software Architecture Vol. 3: Patterns for Resource Management - Kircher, Jain (2004)",
+   "named_in_corpus_id": "posa3",
+   "other_sources": [
+    "Game Programming Patterns - Robert Nystrom (2014)",
+    "Pooling - in Pattern-Oriented Software Architecture Vol. 3: Patterns for Resource Manageme"
+   ],
+   "tags": [
+    "performance",
+    "embedded",
+    "memory",
+    "games",
+    "resource"
+   ]
+  },
+  {
+   "id": "raii-resource-acquisition-is-initialization",
+   "name": "RAII (Resource Acquisition Is Initialization)",
+   "kind": "resource-management",
+   "named_in": "The Design and Evolution of C++ - Stroustrup (1994)",
+   "named_in_corpus_id": null,
+   "other_sources": [
+    "The Design and Evolution of C++ - Stroustrup (1994)"
+   ],
+   "tags": [
+    "c++",
+    "rust",
+    "embedded"
+   ]
+  },
+  {
+   "id": "read-only-memory",
+   "name": "Read-Only Memory",
+   "kind": "resource-management",
+   "named_in": "Small Memory Software: Patterns for Systems with Limited Memory - Noble & Weir (2000)",
+   "named_in_corpus_id": "noblesmallmem",
+   "other_sources": [],
+   "tags": [
+    "embedded",
+    "memory"
+   ]
+  },
+  {
+   "id": "reference-counting",
+   "name": "Reference Counting",
+   "kind": "resource-management",
+   "named_in": "A Method for Overlapping and Erasure of Lists - George E. Collins (1960)",
+   "named_in_corpus_id": null,
+   "other_sources": [
+    "The Art of Multiprocessor Programming - Herlihy & Shavit (2008)",
+    "Advanced C++: Programming Styles and Idioms - James O. Coplien (1992)",
+    "A Method for Overlapping and Erasure of Lists - George E. Collins (1960)"
+   ],
+   "tags": [
+    "c++",
+    "idiom",
+    "memory",
+    "c",
+    "cpp",
+    "systems"
+   ]
+  },
+  {
+   "id": "resource-files",
+   "name": "Resource Files",
+   "kind": "resource-management",
+   "named_in": "Small Memory Software: Patterns for Systems with Limited Memory - Noble & Weir (2000)",
+   "named_in_corpus_id": "noblesmallmem",
+   "other_sources": [],
+   "tags": [
+    "embedded",
+    "memory"
+   ]
+  },
+  {
+   "id": "resource-lifecycle-manager",
+   "name": "Resource Lifecycle Manager",
+   "kind": "resource-management",
+   "named_in": "Pattern-Oriented Software Architecture Vol. 3: Patterns for Resource Management - Kircher, Jain (2004)",
+   "named_in_corpus_id": "posa3",
+   "other_sources": [],
+   "tags": [
+    "lifecycle"
+   ]
+  },
+  {
+   "id": "rule-of-three-five-zero",
+   "name": "Rule of Three/Five/Zero",
+   "kind": "resource-management",
+   "named_in": "C++ Core Guidelines (C.20/C.21) - Stroustrup & Sutter (living)",
+   "named_in_corpus_id": "coreguidelines",
+   "other_sources": [
+    "The Rule of The Big Four (and a half) - Carnie (Feabhas Sticky Bits, 2015)"
+   ],
+   "tags": [
+    "c++",
+    "borderline"
+   ]
+  },
+  {
+   "id": "scope-guard",
+   "name": "Scope Guard",
+   "kind": "resource-management",
+   "named_in": "Generic<Programming>: Change the Way You Write Exception-Safe Code - Forever - Andrei Alexandrescu & Petru Marginean, Dr. Dobb's/CUJ (2000)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "c++"
+   ]
+  },
+  {
+   "id": "sharing",
+   "name": "Sharing",
+   "kind": "resource-management",
+   "named_in": "Small Memory Software: Patterns for Systems with Limited Memory - Noble & Weir (2000)",
+   "named_in_corpus_id": "noblesmallmem",
+   "other_sources": [
+    "Crafting Interpreters - Robert Nystrom (2021)"
+   ],
+   "tags": [
+    "embedded",
+    "memory",
+    "interpreters",
+    "compilers"
+   ]
+  },
+  {
+   "id": "slab-allocator",
+   "name": "Slab Allocator",
+   "kind": "resource-management",
+   "named_in": "The Slab Allocator: An Object-Caching Kernel Memory Allocator - Jeff Bonwick (1994)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "c",
+    "os-kernel",
+    "allocators"
+   ]
+  },
+  {
+   "id": "small-buffer-optimization",
+   "name": "Small Buffer Optimization",
+   "kind": "resource-management",
+   "named_in": "C++ Software Design - Iglberger (2022)",
+   "named_in_corpus_id": "iglberger",
+   "other_sources": [
+    "C++ Software Design - Iglberger (2022)"
+   ],
+   "tags": [
+    "c++",
+    "embedded"
+   ]
+  },
+  {
+   "id": "smart-pointer",
+   "name": "Smart Pointer",
+   "kind": "resource-management",
+   "named_in": "Real-Time Design Patterns - Bruce Powel Douglass (2002)",
+   "named_in_corpus_id": "douglassrtcorpus",
+   "other_sources": [],
+   "tags": [
+    "c",
+    "c++",
+    "memory"
+   ]
+  },
+  {
+   "id": "stack-first",
+   "name": "Stack First",
+   "kind": "resource-management",
+   "named_in": "Fluent C: Principles, Practices, and Patterns - Preschern (2022)",
+   "named_in_corpus_id": "preschern",
+   "other_sources": [],
+   "tags": [
+    "c",
+    "embedded"
+   ]
+  },
+  {
+   "id": "static-allocation",
+   "name": "Static Allocation",
+   "kind": "resource-management",
+   "named_in": "Real-Time Design Patterns - Bruce Powel Douglass (2002)",
+   "named_in_corpus_id": "douglassrtcorpus",
+   "other_sources": [
+    "Small Memory Software: Patterns for Systems with Limited Memory - Noble & Weir (2000)",
+    "Fluent C: Principles, Practices, and Patterns - Preschern (2022)"
+   ],
+   "tags": [
+    "embedded",
+    "real-time",
+    "memory",
+    "c",
+    "safety-critical"
+   ]
+  },
+  {
+   "id": "steady-state",
+   "name": "Steady State",
+   "kind": "resource-management",
+   "named_in": "Release It! Design and Deploy Production-Ready Software, 2nd ed. - Nygard (2018)",
+   "named_in_corpus_id": "nygard",
+   "other_sources": [],
+   "tags": [
+    "stability",
+    "borderline"
+   ]
+  },
+  {
+   "id": "two-level-segregated-fit-allocator-tlsf",
+   "name": "Two-Level Segregated Fit Allocator (TLSF)",
+   "kind": "resource-management",
+   "named_in": "TLSF: a New Dynamic Memory Allocator for Real-Time Systems - Masmano, Ripoll, Crespo, Real (ECRTS 2004)",
+   "named_in_corpus_id": "tlsf",
+   "other_sources": [],
+   "tags": [
+    "c",
+    "embedded",
+    "real-time"
+   ]
+  },
+  {
+   "id": "variable-allocation",
+   "name": "Variable Allocation",
+   "kind": "resource-management",
+   "named_in": "Small Memory Software: Patterns for Systems with Limited Memory - Noble & Weir (2000)",
+   "named_in_corpus_id": "noblesmallmem",
+   "other_sources": [],
+   "tags": [
+    "embedded",
+    "memory"
+   ]
+  },
+  {
+   "id": "weak-reference",
+   "name": "Weak Reference",
+   "kind": "resource-management",
+   "named_in": "The Garbage Collection Handbook - Jones, Hosking & Moss (2011)",
+   "named_in_corpus_id": null,
+   "other_sources": [],
+   "tags": [
+    "cpp",
+    "java",
+    "python",
+    "swift"
+   ]
+  }
+ ]
+}
