@@ -58,5 +58,35 @@ SWE.parse = (function () {
     }
     return /** @type {Relations} */ (r);
   }
-  return { ValidationError, parseCorpus, parseRelations };
+
+  const EL_KINDS = new Set(['realizes', 'enables', 'constrains', 'implements', 'specializes', 'composes-with', 'alternative-to']);
+  const REALMS = new Set(['design', 'architecture']);
+  /**
+   * The element layer (design + architecture realms + the bridge). Inward boundary — a stale
+   * data/elements.js must fail loud here. @param {unknown} raw @returns {any}
+   */
+  function parseElements(raw) {
+    if (!isObj(raw)) throw new ValidationError('elements: not an object');
+    const e = /** @type {any} */ (raw);
+    const ids = new Set();
+    for (const n of arr(e.nodes, 'elements.nodes')) {
+      if (!isObj(n)) throw new ValidationError('element: not an object');
+      str(n.id, 'element.id'); str(n.name, 'element.name'); str(n.kind, 'element.kind');
+      if (!REALMS.has(n.realm)) throw new ValidationError(`element ${n.id}: bad realm ${n.realm}`);
+      if (ids.has(n.id)) throw new ValidationError('elements: duplicate id ' + n.id);
+      ids.add(n.id);
+    }
+    for (const ed of arr(e.edges, 'elements.edges')) {
+      str(ed.from, 'element-edge.from'); str(ed.to, 'element-edge.to'); str(ed.kind, 'element-edge.kind');
+      if (!EL_KINDS.has(ed.kind)) throw new ValidationError(`element-edge ${ed.from}->${ed.to}: unknown kind ${ed.kind}`);
+      if (!ids.has(ed.from)) throw new ValidationError('element-edge source not an element: ' + ed.from);
+      if (!ids.has(ed.to)) throw new ValidationError('element-edge target not an element: ' + ed.to);
+    }
+    arr(e.unbridged, 'elements.unbridged');
+    if (!isObj(e.works)) throw new ValidationError('elements.works missing');
+    if (!isObj(e.meta)) throw new ValidationError('elements.meta missing');
+    return e;
+  }
+
+  return { ValidationError, parseCorpus, parseRelations, parseElements };
 })();

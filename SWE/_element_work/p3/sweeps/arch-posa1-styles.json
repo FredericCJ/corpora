@@ -1,0 +1,403 @@
+{
+  "scout": "arch-posa1-styles",
+  "elements": [
+    {
+      "id": "layers-style",
+      "name": "Layers",
+      "aka": ["layered architecture", "layered pattern", "strict/relaxed layering", "abstraction layering", "Layered Pattern (RTDP)"],
+      "kind": "style",
+      "what": "Structures a whole system as a hierarchy of abstraction levels in which each layer offers services to the layer above and uses only the layer(s) below.",
+      "problem": "A large system mixes concerns at very different abstraction levels (hardware access, mechanism, policy, UI); one-way layered dependencies buy exchangeability, portability, and independent evolution at the cost of indirection and pass-through overhead.",
+      "named_in": "Pattern-Oriented Software Architecture Vol. 1: A System of Patterns - Buschmann, Meunier, Rohnert, Sommerlad, Stal (1996)",
+      "named_in_corpus_id": "posa1",
+      "tags": ["general", "os", "embedded", "networking"],
+      "borderline": null,
+      "confidence": "established"
+    },
+    {
+      "id": "pipes-and-filters-style",
+      "name": "Pipes and Filters",
+      "aka": ["pipeline architecture", "pipes-and-filters (EIP integration style)", "dataflow pipeline (system-scale)"],
+      "kind": "style",
+      "what": "Organizes a processing system as a chain of independent filter components connected by pipes that carry a data stream from source to sink.",
+      "problem": "A whole processing task must be decomposable, recombination-friendly, and incrementally streamable; independent filters buy reuse, reordering, and parallel deployment at the cost of shared-format agreement and per-stage transfer overhead. EIP restates the same macro structure at inter-application integration scale (steps joined by message channels).",
+      "named_in": "Pattern-Oriented Software Architecture Vol. 1: A System of Patterns - Buschmann et al (1996)",
+      "named_in_corpus_id": "posa1",
+      "tags": ["dataflow", "batch", "integration", "unix"],
+      "borderline": null,
+      "confidence": "established"
+    },
+    {
+      "id": "blackboard-style",
+      "name": "Blackboard",
+      "aka": ["blackboard system", "blackboard model (HEARSAY-II lineage)"],
+      "kind": "style",
+      "what": "Independent specialized knowledge sources cooperate by reading and writing partial solutions on a shared data structure (the blackboard) under a control component's opportunistic scheduling.",
+      "problem": "For problems with no deterministic solution strategy (signal interpretation, recognition), no fixed control flow can be designed up front; opportunistic, data-driven cooperation of partial experts replaces a hardwired pipeline.",
+      "named_in": "Pattern-Oriented Software Architecture Vol. 1: A System of Patterns - Buschmann et al (1996)",
+      "named_in_corpus_id": "posa1",
+      "tags": ["ai", "knowledge-based"],
+      "borderline": null,
+      "confidence": "established"
+    },
+    {
+      "id": "broker-style",
+      "name": "Broker",
+      "aka": ["object request broker", "ORB architecture", "distributed object middleware", "Broker Pattern (RTDP)"],
+      "kind": "style",
+      "what": "Structures a distributed system around an intermediary component that coordinates remote service invocations - locating servers, marshalling requests/replies, and reporting errors - so clients and servers stay decoupled from location and transport.",
+      "problem": "Components of a distributed system should interact by service request without hardwiring host, transport, or wire format into every participant; the broker centralizes registration, lookup, and forwarding (CORBA/DCOM lineage). Distinct from EIP's Message Broker: this brokers request/reply remote invocations, not asynchronous message routing.",
+      "named_in": "Pattern-Oriented Software Architecture Vol. 1: A System of Patterns - Buschmann et al (1996)",
+      "named_in_corpus_id": "posa1",
+      "tags": ["distributed", "middleware"],
+      "borderline": null,
+      "confidence": "established"
+    },
+    {
+      "id": "model-view-controller-arch",
+      "name": "Model-View-Controller",
+      "aka": ["MVC", "Model/View/Controller (Smalltalk-80, Reenskaug lineage)"],
+      "kind": "pattern",
+      "what": "Decomposes an interactive application into a model holding core data and logic, views presenting it, and controllers handling user input, with a change-propagation mechanism keeping them consistent.",
+      "problem": "User interfaces change far more often than the domain core and the same information needs multiple simultaneous presentations; separating model from presentation lets UIs be added or changed without touching the core. GoF ch.1 decomposes MVC into Observer, Composite, and Strategy - the design-realm bridge endpoints.",
+      "named_in": "Pattern-Oriented Software Architecture Vol. 1: A System of Patterns - Buschmann et al (1996)",
+      "named_in_corpus_id": "posa1",
+      "tags": ["ui", "interactive"],
+      "borderline": null,
+      "confidence": "established"
+    },
+    {
+      "id": "presentation-abstraction-control-arch",
+      "name": "Presentation-Abstraction-Control",
+      "aka": ["PAC", "PAC agents", "agent hierarchy (Coutaz lineage)"],
+      "kind": "pattern",
+      "what": "Structures an interactive system as a hierarchy of cooperating agents, each with its own presentation, abstraction, and control facet, communicating only through the control facets.",
+      "problem": "Interactive systems built from semi-autonomous subtasks (multiple tools, views, input modalities) need each agent independently developed and composed; full per-agent PAC triads buy composability at the cost of many small components and longer control paths.",
+      "named_in": "Pattern-Oriented Software Architecture Vol. 1: A System of Patterns - Buschmann et al (1996)",
+      "named_in_corpus_id": "posa1",
+      "tags": ["ui", "interactive", "distributed"],
+      "borderline": null,
+      "confidence": "established"
+    },
+    {
+      "id": "microkernel-style",
+      "name": "Microkernel",
+      "aka": ["microkernel architecture", "plug-in architecture", "minimal core plus extensions", "Microkernel Architecture Pattern (RTDP)", "OS microkernel (L4/seL4 lineage)"],
+      "kind": "style",
+      "what": "Separates a minimal functional core (fundamental services, communication, extension management) from extended functionality delivered as internal/external servers or plug-ins loaded onto the core.",
+      "problem": "A platform or product family must adapt to changing requirements and support many variants; keeping the core minimal and pushing features into replaceable extensions buys portability and product-line flexibility at the cost of extra indirection through the core.",
+      "named_in": "Pattern-Oriented Software Architecture Vol. 1: A System of Patterns - Buschmann et al (1996)",
+      "named_in_corpus_id": "posa1",
+      "tags": ["os", "embedded", "extensibility", "product-line"],
+      "borderline": null,
+      "confidence": "established"
+    },
+    {
+      "id": "reflection-arch",
+      "name": "Reflection",
+      "aka": ["meta-level architecture", "open implementation", "metaobject protocol (architecture-scale)"],
+      "kind": "pattern",
+      "what": "Splits a system into a base level doing the application work and a meta level holding a self-representation (metaobjects) whose modification changes the base level's behavior and structure at runtime.",
+      "problem": "Systems that must change structure or behavior dynamically (type discovery, marshalling, adaptation) need change without editing and redeploying base code; an explicit meta level makes the software self-aware and modifiable at the price of complexity and opacity.",
+      "named_in": "Pattern-Oriented Software Architecture Vol. 1: A System of Patterns - Buschmann et al (1996)",
+      "named_in_corpus_id": "posa1",
+      "tags": ["adaptability", "middleware"],
+      "borderline": null,
+      "confidence": "established"
+    },
+    {
+      "id": "file-transfer-style",
+      "name": "File Transfer",
+      "aka": ["file-based integration", "batch file exchange"],
+      "kind": "style",
+      "what": "Applications integrate by one producing files of shared data and others consuming them, with an agreed format and transfer/processing cadence.",
+      "problem": "Independently built applications must share information with maximum decoupling and no shared infrastructure; files buy universality and loose coupling at the cost of staleness, format-agreement effort, and no transactional coordination.",
+      "named_in": "Enterprise Integration Patterns - Hohpe, Woolf (2003)",
+      "named_in_corpus_id": "hohpe",
+      "tags": ["enterprise", "integration", "batch"],
+      "borderline": null,
+      "confidence": "established"
+    },
+    {
+      "id": "shared-database-style",
+      "name": "Shared Database",
+      "aka": ["shared data integration", "integration database"],
+      "kind": "style",
+      "what": "Multiple applications integrate by reading and writing the same database schema, making one store the single point of data agreement.",
+      "problem": "Applications need consistent, immediately visible shared data; a common schema buys freshness and one source of truth at the cost of schema-coupling every application together and contention on the shared store. Distinct from Blackboard: an integration data store, not opportunistic problem-solving control.",
+      "named_in": "Enterprise Integration Patterns - Hohpe, Woolf (2003)",
+      "named_in_corpus_id": "hohpe",
+      "tags": ["enterprise", "integration", "data"],
+      "borderline": null,
+      "confidence": "established"
+    },
+    {
+      "id": "remote-procedure-invocation-style",
+      "name": "Remote Procedure Invocation",
+      "aka": ["RPI", "RPC-based integration", "remote invocation integration"],
+      "kind": "style",
+      "what": "Applications integrate by exposing procedures/services that other applications invoke synchronously over the network to exchange data and trigger behavior.",
+      "problem": "Integration needs behavior sharing and encapsulation, not just data sharing; synchronous invocation buys encapsulated interfaces at the cost of tight temporal coupling and distributed-failure fragility. The design realm's remote-procedure-call element is the invocation mechanism; this entry is the system-integration style built on it.",
+      "named_in": "Enterprise Integration Patterns - Hohpe, Woolf (2003)",
+      "named_in_corpus_id": "hohpe",
+      "tags": ["enterprise", "integration", "distributed"],
+      "borderline": null,
+      "confidence": "established"
+    },
+    {
+      "id": "messaging-style",
+      "name": "Messaging",
+      "aka": ["message-based integration", "asynchronous messaging (integration style)"],
+      "kind": "style",
+      "what": "Applications integrate by exchanging discrete asynchronous messages over channels provided by a messaging infrastructure, decoupling senders from receivers in time and availability.",
+      "problem": "Integration must be frequent, immediate-enough, and reliable between systems that cannot assume each other's availability; asynchronous channels buy decoupling and reliability at the cost of eventual consistency and harder end-to-end reasoning.",
+      "named_in": "Enterprise Integration Patterns - Hohpe, Woolf (2003)",
+      "named_in_corpus_id": "hohpe",
+      "tags": ["enterprise", "integration", "distributed", "messaging"],
+      "borderline": null,
+      "confidence": "established"
+    },
+    {
+      "id": "message-broker-arch",
+      "name": "Message Broker",
+      "aka": ["hub-and-spoke topology", "integration broker", "broker topology (messaging)"],
+      "kind": "pattern",
+      "what": "A central intermediary receives messages from all senders and routes (and often transforms) them to the appropriate receivers, so every application couples only to the hub.",
+      "problem": "Point-to-point integration of N applications explodes into N^2 connections; a hub-and-spoke broker buys maintainable topology and central routing logic at the cost of a potential bottleneck and single point of failure. Distinct from POSA1 Broker: routes asynchronous messages rather than mediating remote invocations.",
+      "named_in": "Enterprise Integration Patterns - Hohpe, Woolf (2003)",
+      "named_in_corpus_id": "hohpe",
+      "tags": ["enterprise", "distributed", "messaging"],
+      "borderline": null,
+      "confidence": "established"
+    },
+    {
+      "id": "message-bus-arch",
+      "name": "Message Bus",
+      "aka": ["bus topology (messaging)", "service bus", "enterprise service bus (ESB, productized form)"],
+      "kind": "style",
+      "what": "A shared messaging backbone - common channels, a common data model, and a common command set - that all applications plug into to interoperate, joining or leaving without affecting the others.",
+      "problem": "An enterprise of separate applications must work as one system while letting individual systems be added, removed, or replaced; a common bus buys plug-in interoperability at the cost of enterprise-wide agreement on the shared contract.",
+      "named_in": "Enterprise Integration Patterns - Hohpe, Woolf (2003)",
+      "named_in_corpus_id": "hohpe",
+      "tags": ["enterprise", "distributed", "messaging"],
+      "borderline": null,
+      "confidence": "established"
+    },
+    {
+      "id": "channel-adapter-arch",
+      "name": "Channel Adapter",
+      "aka": ["application adapter", "endpoint adapter"],
+      "kind": "pattern",
+      "what": "A component that connects an application never built for messaging to the messaging system, translating between the application's API/data/database/UI surface and messages on a channel.",
+      "problem": "Integration must reach packaged, legacy, or third-party applications that cannot be modified to speak messaging; an adapter at the boundary buys their participation at the cost of an extra mediation component per application.",
+      "named_in": "Enterprise Integration Patterns - Hohpe, Woolf (2003)",
+      "named_in_corpus_id": "hohpe",
+      "tags": ["enterprise", "integration", "legacy"],
+      "borderline": null,
+      "confidence": "established"
+    },
+    {
+      "id": "messaging-bridge-arch",
+      "name": "Messaging Bridge",
+      "aka": ["broker bridge", "cross-broker connection"],
+      "kind": "pattern",
+      "what": "A set of connected channel pairs (or a broker-to-broker connector) that replicates messages between two distinct messaging systems so each behaves as an extension of the other.",
+      "problem": "Organizations end up with multiple messaging infrastructures (mergers, vendors, platforms) whose applications must still exchange messages; a bridge buys interoperation without migrating either side, at the cost of mapping between two messaging semantics.",
+      "named_in": "Enterprise Integration Patterns - Hohpe, Woolf (2003)",
+      "named_in_corpus_id": "hohpe",
+      "tags": ["enterprise", "integration", "messaging"],
+      "borderline": null,
+      "confidence": "established"
+    },
+    {
+      "id": "control-bus-arch",
+      "name": "Control Bus",
+      "aka": ["management bus", "administration channel overlay"],
+      "kind": "pattern",
+      "what": "A separate messaging channel overlay used to send configuration, heartbeat, test, and monitoring traffic to every component of a distributed messaging solution, distinct from the application-data channels.",
+      "problem": "A distributed integration solution spanning many machines must be administered and observed as one system; a dedicated control plane buys manageability without polluting or depending on the data plane it manages.",
+      "named_in": "Enterprise Integration Patterns - Hohpe, Woolf (2003)",
+      "named_in_corpus_id": "hohpe",
+      "tags": ["enterprise", "operations", "messaging", "qa:manageability"],
+      "borderline": null,
+      "confidence": "established"
+    },
+    {
+      "id": "process-manager-arch",
+      "name": "Process Manager",
+      "aka": ["orchestrator", "orchestration engine", "central process control"],
+      "kind": "pattern",
+      "what": "A central component maintains the state of each multi-step process instance and determines, step by step, which processing unit to invoke next based on intermediate results.",
+      "problem": "Multi-step message flows whose routing cannot be fixed at design time need central sequencing, state, and error handling; an orchestrator buys visibility and flexible flow control at the cost of a hub that all steps depend on. The structural alternative is itinerary-based routing (Routing Slip) or pure choreography.",
+      "named_in": "Enterprise Integration Patterns - Hohpe, Woolf (2003)",
+      "named_in_corpus_id": "hohpe",
+      "tags": ["enterprise", "integration", "workflow"],
+      "borderline": null,
+      "confidence": "established"
+    },
+    {
+      "id": "routing-slip-arch",
+      "name": "Routing Slip",
+      "aka": ["itinerary-based routing", "itinerary pattern"],
+      "kind": "pattern",
+      "what": "Each message carries its own list of processing steps; every step consumes its entry and forwards the message to the next step on the slip, so the route is decided once up front and no central router is consulted en route.",
+      "problem": "Message flows that vary per message but are computable at entry need sequential routing without a central orchestration bottleneck; the attached itinerary buys decentralized flow at the cost of no mid-flight re-planning and harder flow visibility.",
+      "named_in": "Enterprise Integration Patterns - Hohpe, Woolf (2003)",
+      "named_in_corpus_id": "hohpe",
+      "tags": ["enterprise", "integration", "workflow"],
+      "borderline": null,
+      "confidence": "established"
+    },
+    {
+      "id": "canonical-data-model-arch",
+      "name": "Canonical Data Model",
+      "aka": ["common data model", "canonical message format"],
+      "kind": "pattern",
+      "what": "An application-independent shared data model for the messages exchanged across an integration solution; every application translates only between its internal format and the canonical one.",
+      "problem": "Translating directly between every pair of application formats needs O(N^2) translators and couples applications' formats to each other; a canonical hub format reduces this to 2N translations and decouples applications' data models enterprise-wide.",
+      "named_in": "Enterprise Integration Patterns - Hohpe, Woolf (2003)",
+      "named_in_corpus_id": "hohpe",
+      "tags": ["enterprise", "integration", "data"],
+      "borderline": null,
+      "confidence": "established"
+    },
+    {
+      "id": "guaranteed-delivery-arch",
+      "name": "Guaranteed Delivery",
+      "aka": ["persistent messaging", "store-and-forward delivery"],
+      "kind": "pattern",
+      "what": "The messaging system persists every message to a local data store at each hop before acknowledging, and deletes it only after successful handoff to the next store, so messages survive crashes and outages end to end.",
+      "problem": "Asynchronous integration is only trustworthy if a sent message cannot be lost while machines and networks fail; per-hop persistence buys the delivery guarantee at the cost of throughput and storage.",
+      "named_in": "Enterprise Integration Patterns - Hohpe, Woolf (2003)",
+      "named_in_corpus_id": "hohpe",
+      "tags": ["enterprise", "messaging", "qa:reliability", "borderline"],
+      "borderline": "A quality-of-service guarantee of the messaging infrastructure rather than a topology; kept architecture-level because it mandates persistent-store structure at every hop of the system (parked upward by the Phase 1 EIP scout).",
+      "confidence": "established"
+    },
+    {
+      "id": "durable-subscriber-arch",
+      "name": "Durable Subscriber",
+      "aka": ["durable subscription", "persistent subscription"],
+      "kind": "pattern",
+      "what": "The messaging infrastructure persists a subscriber's subscription so that messages published while the subscriber is disconnected are saved and delivered when it reconnects.",
+      "problem": "Publish-subscribe normally delivers only to currently connected subscribers; when a subscriber must miss nothing across downtime, the infrastructure - not the application - has to hold its messages, trading broker storage and cleanup obligations for completeness.",
+      "named_in": "Enterprise Integration Patterns - Hohpe, Woolf (2003)",
+      "named_in_corpus_id": "hohpe",
+      "tags": ["enterprise", "messaging", "qa:reliability", "borderline"],
+      "borderline": "Endpoint-scoped QoS rather than a topology; kept architecture-level because the durability obligation lives in the messaging infrastructure, not in application code (parked upward by the Phase 1 EIP scout).",
+      "confidence": "established"
+    },
+    {
+      "id": "datatype-channel-arch",
+      "name": "Datatype Channel",
+      "aka": ["channel-per-datatype", "typed channel organization"],
+      "kind": "pattern",
+      "what": "The channel topology is organized so each channel carries messages of exactly one data type, letting receivers know a message's type from the channel it arrived on.",
+      "problem": "Receivers must know how to interpret incoming messages without inspecting each one; dedicating channels per type buys implicit typing and simple receivers at the cost of channel proliferation and topology-wide naming discipline.",
+      "named_in": "Enterprise Integration Patterns - Hohpe, Woolf (2003)",
+      "named_in_corpus_id": "hohpe",
+      "tags": ["enterprise", "messaging", "borderline"],
+      "borderline": "A channel-topology organizing convention rather than a mechanism or whole topology; kept with honest tag per the over-inclusion rule (parked upward by the Phase 1 EIP scout as a channel-topology design decision).",
+      "confidence": "established"
+    },
+    {
+      "id": "component-container-arch",
+      "name": "Container",
+      "aka": ["component container", "application container", "EJB/CCM-style container", "managed execution environment"],
+      "kind": "deployment",
+      "what": "An execution environment that hosts application components and transparently provides them the technical services they need - lifecycle, transactions, security, persistence, resource access - via contracts the components declare.",
+      "problem": "Domain components should not each reimplement cross-cutting runtime services; hosting them in a managing container buys uniform infrastructure and deploy-time configuration at the cost of conforming to the container's component model. Distinct from OS-level containers (Docker-style isolation), which are a separate deployment element.",
+      "named_in": "Pattern-Oriented Software Architecture Vol. 4: A Pattern Language for Distributed Computing - Buschmann, Henney, Schmidt (2007)",
+      "named_in_corpus_id": "posa4",
+      "tags": ["enterprise", "distributed", "middleware"],
+      "borderline": null,
+      "confidence": "spot-checked"
+    },
+    {
+      "id": "activator-arch",
+      "name": "Activator",
+      "aka": ["on-demand activation", "inetd-style activation", "activate-on-request"],
+      "kind": "deployment",
+      "what": "A component that launches services or server processes on demand when a request arrives and can shut them down when idle, instead of keeping every service resident at all times.",
+      "problem": "Keeping rarely used services running wastes memory and startup capacity, but clients must still be able to reach them at any time; an activation intermediary buys resource economy at the cost of first-request latency.",
+      "named_in": "Pattern-Oriented Software Architecture Vol. 4: A Pattern Language for Distributed Computing - Buschmann, Henney, Schmidt (2007)",
+      "named_in_corpus_id": "posa4",
+      "tags": ["distributed", "os", "operations", "qa:resource-efficiency"],
+      "borderline": null,
+      "confidence": "spot-checked"
+    }
+  ],
+  "rejected": [
+    {
+      "name": "Pipes and Filters (EIP integration style)",
+      "decision": "fold",
+      "into": "pipes-and-filters-style",
+      "why": "EIP explicitly restates the POSA1/Garlan-Shaw style at integration scale (steps joined by message channels); same macro structure, one element - EIP usage recorded in the entry's aka and problem text."
+    },
+    {
+      "name": "Message Channel (POSA4, from EIP)",
+      "decision": "fold",
+      "into": "message-bus-arch",
+      "why": "Generic root concept, too catch-all to be a bridgeable endpoint; the concrete channel kinds are already design-realm elements (message-queue aka point-to-point channel; publish-subscribe-channel) and the topology-scale channel fabric is Message Bus / Message Broker."
+    },
+    {
+      "name": "Message Endpoint (POSA4, from EIP)",
+      "decision": "fold",
+      "into": "channel-adapter-arch",
+      "why": "The application-side connection code is design-level (design realm carries event-driven-consumer, idempotent-receiver, message-dispatcher); its system-boundary flavor at architecture scale is the Channel Adapter."
+    },
+    {
+      "name": "Message Router (POSA4, from EIP)",
+      "decision": "fold",
+      "into": "message-broker-arch",
+      "why": "The routing mechanism is already a design-realm element (content-based-router); the topology-scale routing intermediary is the Message Broker hub."
+    },
+    {
+      "name": "Message Translator (POSA4, from EIP)",
+      "decision": "fold",
+      "into": "canonical-data-model-arch",
+      "why": "Format mediation as an architecture-scale statement is the Canonical Data Model (plus the broker's transformation stage); the in-component translator mechanism is design-level - flagged as a design-realm addendum candidate rather than duplicated here."
+    },
+    {
+      "name": "Client Proxy (POSA4)",
+      "decision": "fold",
+      "into": "broker-style",
+      "why": "POSA4's decomposition of Broker into internal middleware roles; component-level machinery below architecture altitude - documented as Broker internals, resurrectable if Phase 3b needs finer endpoints (design realm already carries proxy aka Remote Proxy)."
+    },
+    {
+      "name": "Requestor (POSA4)",
+      "decision": "fold",
+      "into": "broker-style",
+      "why": "Broker-internal client-side invocation role (POSA4 Broker decomposition); below architecture altitude on its own."
+    },
+    {
+      "name": "Invoker (POSA4)",
+      "decision": "fold",
+      "into": "broker-style",
+      "why": "Broker-internal server-side dispatch role (POSA4 Broker decomposition); below architecture altitude on its own."
+    },
+    {
+      "name": "Client Request Handler (POSA4)",
+      "decision": "fold",
+      "into": "broker-style",
+      "why": "Broker-internal transport role (POSA4 Broker decomposition); below architecture altitude on its own."
+    },
+    {
+      "name": "Server Request Handler (POSA4)",
+      "decision": "fold",
+      "into": "broker-style",
+      "why": "Broker-internal transport role (POSA4 Broker decomposition); below architecture altitude on its own."
+    },
+    {
+      "name": "Replicated Component Group (POSA4)",
+      "decision": "drop",
+      "why": "Could not confirm this exact pattern name on a live POSA4 pattern list this session (Container 20.2 and Activator 20.14 were confirmed; this was not in the retrieved list); replication-for-availability structure belongs with the Bass availability-tactics scout (redundancy/replication tactics) - deferred there, not silently discarded."
+    },
+    {
+      "name": "Publisher-Subscriber (POSA1 / distributed pub-sub style)",
+      "decision": "drop",
+      "why": "Out of this scout's charter, not a rejection of the element: POSA1 lists it among its design patterns (design realm holds observer with publish-subscribe as aka), and distributed pub-sub as an architecture style belongs to the Shaw-Garlan/Taylor styles scout per the same-name-two-realms rule. Recorded here only to prevent double-entry."
+    }
+  ],
+  "notes": "VERIFICATION: POSA1's 8 architectural patterns (Layers, Pipes and Filters, Blackboard, Broker, MVC, PAC, Microkernel, Reflection) verified live at modernescpp.com/index.php/classification-of-patterns-2/ (full POSA1 classification incl. the design-pattern chapter); all 13 EIP charter items verified live on enterpriseintegrationpatterns.com/patterns/messaging/toc.html; POSA4 Container (20.2) and Activator (20.14) confirmed via the book's published pattern list (secondary aggregation, hence spot-checked). KIND CALLS (logged per charter): POSA1 calls all eight 'architectural patterns'; I assigned kind=style to whole-system organizations (Layers, Pipes and Filters, Blackboard, Broker, Microkernel) and kind=pattern to application-scale structurings short of a whole topology (MVC, PAC, Reflection); EIP integration styles are kind=style, EIP topology elements kind=pattern except Message Bus (style - it IS the system organization); POSA4 Container/Activator are kind=deployment (hosting/activation infrastructure). SAME-NAME/near-name handling: POSA1 Broker vs EIP Message Broker kept as two elements (remote-invocation mediation vs async message routing - genuinely different mechanisms, distinction documented in both entries); design-realm near-names (message-queue, publish-subscribe-channel, content-based-router, remote-procedure-call, message-filter) left in the design realm and used as fold targets/notes - ids here are suffixed (-style/-arch) so no id collision with either realm or corpus work ids (checked against work_ids.tsv and pass8_ids.tsv). PARKED ITEMS EXPLICITLY LEFT TO OTHER SCOUTS (not silently dropped): MV* variants MVP/MVVM/MVI (ui-reactive parks - no scout obviously owns them; flag for orchestrator), RTDP Layered/Five-Layer/Data Bus/Broker (douglass-samek parks - embedded scout; RTDP Layered and Broker recorded as aka on layers-style/broker-style), HAL and AUTOSAR layerings (embedded scout), POSA4 non-distribution parks (Domain Model, Domain Object, Shared Repository, Page/Front/Application Controller, Template/Transform View, Firewall Proxy, Authorization - PoEAA/enterprise and security scouts), wiki-longtail cloud parks (Sidecar, Competing Consumers, Claim Check, Choreography etc. - cloud/microservices scout). Half-Object plus Protocol not re-cataloged per charter (design element). No analysis methods (ATAM/QAW) encountered. Datatype/Guaranteed/Durable kept with borderline tags per the over-inclusion-beats-silent-exclusion rule."
+}

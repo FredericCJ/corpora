@@ -1,0 +1,268 @@
+{
+  "scout": "arch-description-42010",
+  "elements": [
+    {
+      "id": "architecture-description",
+      "name": "Architecture Description",
+      "aka": ["AD", "architectural description"],
+      "kind": "description",
+      "what": "The concrete work product (documents, models, views) used to express the architecture of a system of interest.",
+      "problem": "An architecture is intangible and lives partly in architects' heads; stakeholders need a durable, reviewable artifact that expresses it and can be checked for concern coverage.",
+      "named_in": "ISO/IEC/IEEE 42010:2022 — Architecture description",
+      "named_in_corpus_id": "iso42010",
+      "tags": ["architecture-description", "standard"],
+      "borderline": null,
+      "confidence": "established"
+    },
+    {
+      "id": "architecture-view",
+      "name": "Architecture View",
+      "aka": ["view", "architectural view"],
+      "kind": "description",
+      "what": "A representation of a system's architecture from the perspective of a related set of concerns, composed of one or more architecture models.",
+      "problem": "No single representation can serve all stakeholders; splitting the description into concern-focused views keeps each representation coherent, readable, and auditable against the concerns it frames.",
+      "named_in": "ISO/IEC/IEEE 42010:2022 — Architecture description",
+      "named_in_corpus_id": "iso42010",
+      "tags": ["architecture-description"],
+      "borderline": null,
+      "confidence": "established"
+    },
+    {
+      "id": "architecture-viewpoint",
+      "name": "Architecture Viewpoint",
+      "aka": ["viewpoint"],
+      "kind": "description",
+      "what": "A reusable work product establishing the conventions — model kinds, notations, methods — for constructing, interpreting, and using views that frame a specific set of stakeholder concerns.",
+      "problem": "Views built ad hoc are inconsistent across systems and teams; making the conventions first-class lets viewpoints be declared, reused, and conformance-checked independently of any one system.",
+      "named_in": "ISO/IEC/IEEE 42010:2022 — Architecture description",
+      "named_in_corpus_id": "iso42010",
+      "tags": ["architecture-description"],
+      "borderline": null,
+      "confidence": "established"
+    },
+    {
+      "id": "model-kind",
+      "name": "Model Kind",
+      "aka": ["architecture model kind"],
+      "kind": "description",
+      "what": "The conventions (notation, modeling template, analytic methods) for one type of architecture model used within a viewpoint, e.g. a state-machine or dataflow model kind.",
+      "problem": "A viewpoint typically needs several distinct model types; declaring each model type's conventions separately keeps individual models checkable and lets model kinds be reused across viewpoints.",
+      "named_in": "ISO/IEC/IEEE 42010:2022 — Architecture description",
+      "named_in_corpus_id": "iso42010",
+      "tags": ["architecture-description"],
+      "borderline": null,
+      "confidence": "established"
+    },
+    {
+      "id": "stakeholder-concern",
+      "name": "Stakeholder Concern",
+      "aka": ["concern", "architecture concern"],
+      "kind": "description",
+      "what": "An interest in the system relevant to one or more stakeholders, used to scope which viewpoints and views an architecture description must provide.",
+      "problem": "Architecture descriptions must demonstrably address what matters to whom; naming concerns explicitly lets viewpoint selection be justified and concern coverage be audited.",
+      "named_in": "ISO/IEC/IEEE 42010:2022 — Architecture description",
+      "named_in_corpus_id": "iso42010",
+      "tags": ["architecture-description", "borderline"],
+      "borderline": "Concept-vs-construct call: included as a construct because ISO 42010 defines it normatively and viewpoints are specified by the concerns they frame; bridging value to design elements is low — bridge indirectly via quality attributes where applicable.",
+      "confidence": "established"
+    },
+    {
+      "id": "architecture-framework",
+      "name": "Architecture Framework",
+      "aka": ["architecture description framework", "ADF"],
+      "kind": "description",
+      "what": "An established package of conventions, principles, viewpoints, and practices for architecture description within a specific domain or stakeholder community.",
+      "problem": "Communities and organizations repeatedly need the same viewpoints and description conventions; packaging them as a reusable framework standardizes descriptions across projects (instances such as TOGAF or DoDAF stay works, not elements).",
+      "named_in": "ISO/IEC/IEEE 42010:2022 — Architecture description",
+      "named_in_corpus_id": "iso42010",
+      "tags": ["architecture-description", "enterprise"],
+      "borderline": null,
+      "confidence": "established"
+    },
+    {
+      "id": "architecture-description-language",
+      "name": "Architecture Description Language",
+      "aka": ["ADL"],
+      "kind": "description",
+      "what": "A formal notation whose first-class constructs are architectural — components, connectors, configurations — used to model and analyze a software architecture.",
+      "problem": "Box-and-line diagrams lack defined semantics, so descriptions cannot be analyzed or checked for consistency; an ADL gives architectural constructs a defined syntax and semantics amenable to tooling (instances — AADL, Wright, Rapide, Darwin, ACME — stay works; AADL is corpus work feilergluch).",
+      "named_in": "ISO/IEC/IEEE 42010:2022 — Architecture description",
+      "named_in_corpus_id": "iso42010",
+      "tags": ["architecture-description", "formal-methods"],
+      "borderline": null,
+      "confidence": "established"
+    },
+    {
+      "id": "architecture-decision-record",
+      "name": "Architecture Decision Record",
+      "aka": ["ADR", "architectural decision record", "decision record"],
+      "kind": "description",
+      "what": "A short, versioned document capturing one architecturally significant decision together with its context, status, and consequences.",
+      "problem": "Design rationale evaporates as teams change; later maintainers see what was decided but not why, and either cargo-cult the decision or blindly reverse it. A lightweight per-decision record kept with the code preserves the why at low cost.",
+      "named_in": "Documenting Architecture Decisions — Michael Nygard (2011)",
+      "named_in_corpus_id": "nygardadr",
+      "tags": ["architecture-description", "documentation", "agile"],
+      "borderline": null,
+      "confidence": "established"
+    },
+    {
+      "id": "four-plus-one-view-model",
+      "name": "4+1 View Model",
+      "aka": ["4+1 architectural view model", "Kruchten 4+1"],
+      "kind": "description",
+      "what": "A fixed viewpoint set — logical, process, development, and physical views, plus scenarios (the +1) that tie them together — for describing a software architecture.",
+      "problem": "Single-diagram architecture descriptions overload one drawing with every stakeholder's concerns; a small fixed set of concurrent views, validated by use-case scenarios, covers the stakeholder spectrum without conflating concerns.",
+      "named_in": "Architectural Blueprints — The 4+1 View Model of Software Architecture — Kruchten (1995)",
+      "named_in_corpus_id": "kruchten",
+      "tags": ["architecture-description", "viewpoint-set"],
+      "borderline": null,
+      "confidence": "established"
+    },
+    {
+      "id": "rozanski-woods-viewpoint-set",
+      "name": "Rozanski–Woods Viewpoint Catalog",
+      "aka": ["viewpoint catalog (Rozanski–Woods)"],
+      "kind": "description",
+      "what": "A catalog of seven viewpoints — context, functional, information, concurrency, development, deployment, operational — for describing information-system architectures.",
+      "problem": "Architects reinvent view structure per project; a checklist-strength, reusable viewpoint catalog with defined models and pitfalls per viewpoint standardizes coverage. Granularity call: the catalog is one element, not seven — per-viewpoint entries would balloon the realm without adding bridge endpoints beyond what 4+1 and the Views-and-Beyond viewtypes already give.",
+      "named_in": "Software Systems Architecture, 2nd ed. — Rozanski & Woods (2011)",
+      "named_in_corpus_id": "rozanski",
+      "tags": ["architecture-description", "viewpoint-set", "enterprise"],
+      "borderline": null,
+      "confidence": "established"
+    },
+    {
+      "id": "architectural-perspective",
+      "name": "Architectural Perspective",
+      "aka": ["perspective (Rozanski–Woods)", "quality perspective"],
+      "kind": "description",
+      "what": "A collection of activities, tactics, and guidelines for ensuring that a system exhibits a particular quality property, applied across all of a description's views rather than forming a view of its own.",
+      "problem": "Quality attributes (security, performance, availability, evolution) cut across every view; treating each as yet another view duplicates content, so a cross-cutting construct is applied to existing views instead. Highly bridgeable: perspective instances map onto quality attributes and their tactics.",
+      "named_in": "Software Systems Architecture, 2nd ed. — Rozanski & Woods (2011)",
+      "named_in_corpus_id": "rozanski",
+      "tags": ["architecture-description", "quality-attributes"],
+      "borderline": null,
+      "confidence": "established"
+    },
+    {
+      "id": "module-view",
+      "name": "Module View",
+      "aka": ["module viewtype", "module structure view"],
+      "kind": "description",
+      "what": "A view type documenting the system's units of implementation (modules) and their static relations — decomposition, uses, layering, generalization, data-model.",
+      "problem": "Stakeholders doing construction, modification-impact analysis, and work assignment reason about code structure, not runtime; a dedicated static-structure view type keeps implementation-unit concerns separate from runtime concerns.",
+      "named_in": "Documenting Software Architectures: Views and Beyond, 2nd ed. — Clements et al. (2010)",
+      "named_in_corpus_id": "vab",
+      "tags": ["architecture-description", "viewtype"],
+      "borderline": null,
+      "confidence": "established"
+    },
+    {
+      "id": "component-and-connector-view",
+      "name": "Component-and-Connector View",
+      "aka": ["C&C view", "component-and-connector viewtype", "runtime view"],
+      "kind": "description",
+      "what": "A view type documenting the system's runtime elements (components) and their interaction pathways (connectors) — pipes-and-filters, client-server, publish-subscribe structures and the like.",
+      "problem": "Static module structure says little about runtime behavior, concurrency, or data flow; a dedicated runtime view type is where architectural styles and connector choices become visible and analyzable.",
+      "named_in": "Documenting Software Architectures: Views and Beyond, 2nd ed. — Clements et al. (2010)",
+      "named_in_corpus_id": "vab",
+      "tags": ["architecture-description", "viewtype"],
+      "borderline": null,
+      "confidence": "established"
+    },
+    {
+      "id": "allocation-view",
+      "name": "Allocation View",
+      "aka": ["allocation viewtype", "mapping view"],
+      "kind": "description",
+      "what": "A view type mapping software elements onto structures in the system's environment — hardware and networks (deployment), file systems (implementation), and teams (work assignment).",
+      "problem": "Neither module nor runtime structure says where software executes, lives on disk, or who builds it; a dedicated mapping view type carries the software-to-environment correspondences these concerns need.",
+      "named_in": "Documenting Software Architectures: Views and Beyond, 2nd ed. — Clements et al. (2010)",
+      "named_in_corpus_id": "vab",
+      "tags": ["architecture-description", "viewtype", "deployment"],
+      "borderline": null,
+      "confidence": "established"
+    }
+  ],
+  "rejected": [
+    {
+      "name": "ATAM (Architecture Tradeoff Analysis Method)",
+      "decision": "drop",
+      "into": null,
+      "why": "Analysis/evaluation method — process, not an element, per mission rule."
+    },
+    {
+      "name": "QAW (Quality Attribute Workshop)",
+      "decision": "drop",
+      "into": null,
+      "why": "Elicitation workshop — process, not an element, per mission rule."
+    },
+    {
+      "name": "SAAM / CBAM",
+      "decision": "drop",
+      "into": null,
+      "why": "Evaluation methods — process, not elements, per mission rule."
+    },
+    {
+      "name": "stakeholder",
+      "decision": "drop",
+      "into": null,
+      "why": "A role concept, not an architecture-description construct; the bridgeable content lives in stakeholder-concern."
+    },
+    {
+      "name": "architecture model",
+      "decision": "fold",
+      "into": "model-kind",
+      "why": "The model is an instance; the model kind carries the reusable conventions — one element suffices."
+    },
+    {
+      "name": "correspondence / correspondence rule (ISO 42010)",
+      "decision": "drop",
+      "into": null,
+      "why": "Normative bookkeeping construct relating AD elements within the standard; essentially no use outside the standard's text and no bridge value to design elements."
+    },
+    {
+      "name": "architecture decision / architecture rationale (ISO 42010; Perry & Wolf 1992)",
+      "decision": "fold",
+      "into": "architecture-decision-record",
+      "why": "The ADR is the established, bridgeable documentation construct; decision and rationale (first named as an architecture component in perrywolf) are its content, not separable elements."
+    },
+    {
+      "name": "individual Rozanski-Woods viewpoints (context, functional, information, concurrency, development, deployment, operational)",
+      "decision": "fold",
+      "into": "rozanski-woods-viewpoint-set",
+      "why": "Granularity call: the book names them as one coherent catalog; seven per-viewpoint entries add no bridge endpoints beyond the catalog, 4+1, and the three viewtypes."
+    },
+    {
+      "name": "individual Rozanski-Woods perspectives (security, performance and scalability, availability and resilience, evolution, ...)",
+      "decision": "fold",
+      "into": "architectural-perspective",
+      "why": "The construct is the element; perspective instances bridge via qa:<attribute> tactics, which are the tactics scouts' territory."
+    },
+    {
+      "name": "ADL instances (AADL, Wright, Rapide, Darwin, xADL, ACME)",
+      "decision": "fold",
+      "into": "architecture-description-language",
+      "why": "Per charter: ADL is one element; instances stay works (AADL is already corpus work feilergluch)."
+    },
+    {
+      "name": "viewtype (generic Views-and-Beyond term)",
+      "decision": "fold",
+      "into": "module-view",
+      "why": "The generic term is scaffolding; the three named viewtypes (module, C&C, allocation) are the established elements. Folded nominally into module-view; applies equally to all three."
+    },
+    {
+      "name": "view packet (Views and Beyond)",
+      "decision": "drop",
+      "into": null,
+      "why": "Documentation chunking device (a small stakeholder-sized piece of a view) within one book's method; too fine-grained, no bridge value."
+    },
+    {
+      "name": "UML as architecture notation",
+      "decision": "drop",
+      "into": null,
+      "why": "A general modeling language is a work/notation, not an architecture element; corpus work medvidovicuml covers the works angle."
+    }
+  ],
+  "notes": "Charter yield 14, inside the 8-15 band. Verification: 'model kind' spot-checked live against ISO/IEC/IEEE 42010:2022 material (iso.org OBP term entry and conformance clause: AD, ADF, ADL, viewpoint, and model kind are all 2022 conformance targets), so all ISO constructs cite corpus id iso42010 directly; 'architecture viewpoint' originated in IEEE 1471:2000, subsumed by the 42010 series. ADL is defined normatively in 42010, so no pass-8 addendum is needed; Medvidovic & Taylor's 'A Classification and Comparison Framework for Software Architecture Description Languages' (TSE 2000) is the canonical survey and is a candidate best-modern-treatment membership for Phase 2, not required as naming source. Granularity calls logged in rejected[]: Rozanski-Woods catalog = 1 element + perspective construct = 1 element; Views-and-Beyond = exactly 3 viewtype elements; 4+1 = 1 element (a viewpoint set, not 5 views). Name-collision check against elements_index.txt: no design-realm collisions for any id here (view-handler in the design realm is a POSA pattern, distinct name and mechanism). Thin spots for other scouts / phase lead: (a) 'architecture style' and 'architecture pattern' as meta-constructs were NOT cataloged here - they are the style scouts' framing, flag if nobody owns the judgment; (b) Perry-Wolf 'elements/form/rationale' triad yielded no standalone element beyond the rationale fold - deliberate; (c) C4 model (Simon Brown) is an established modern viewpoint set not in my charter's corpus list - candidate for a description element + pass-8 addendum if the phase lead wants coverage of practitioner notations."
+}

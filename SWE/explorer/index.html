@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="Single-viewport explorer of a unified embedded-software research corpus: 468 resources, seven passes, five relational models.">
-<title>Embedded Software Corpus Explorer — seven passes, five models, one viewport</title>
+<meta name="description" content="Explorer of a unified embedded-software research corpus: 468 works across seven passes and five relational models, plus a 1083-element design+architecture vocabulary wired by a typed bridge.">
+<title>Embedded Software Corpus Explorer — works, elements, and the bridge between them</title>
 <!-- Baseline target: Widely available as of 2026-07. Raw HTML/CSS/JS, no framework, no build
      step at view time; opens directly from file:// (data ships as classic scripts because
      fetch() of JSON is blocked on file://). See ARCHITECTURE.md. -->
@@ -15,7 +15,7 @@
 
 <header class="top">
   <div class="brand">
-    <div class="eyebrow">unified reference corpus · seven research passes · compiled 2026</div>
+    <div class="eyebrow">unified reference corpus · seven passes + a two-realm element layer · compiled 2026</div>
     <h1>Embedded Software Corpus Explorer</h1>
   </div>
   <nav class="tabs" role="tablist" id="tabs" aria-label="Relational models"></nav>
@@ -45,19 +45,25 @@
 <!-- DATA (generated; classic scripts so the page opens from file://) -->
 <script src="data/corpus.js"></script>
 <script src="data/relations.js"></script>
+<script src="data/elements.js"></script>
 <!-- LOGIC: seam + helpers + boundary + state -->
 <script src="logic/log.js"></script>
 <script src="logic/util.js"></script>
 <script src="logic/parse.js"></script>
 <script src="logic/state.js"></script>
-<!-- LOGIC: functional core, then the shells -->
+<!-- LOGIC: functional cores (work models + element layer), then the shells -->
 <script src="logic/core.js"></script>
+<script src="logic/core_elements.js"></script>
 <script src="logic/inspector.js"></script>
 <script src="logic/views/graph.js"></script>
 <script src="logic/views/facets.js"></script>
 <script src="logic/views/timeline.js"></script>
 <script src="logic/views/overlap.js"></script>
 <script src="logic/views/anchors.js"></script>
+<script src="logic/views/el_taxonomy.js"></script>
+<script src="logic/views/el_bridge.js"></script>
+<script src="logic/views/el_graph.js"></script>
+<script src="logic/views/el_coverage.js"></script>
 <script src="logic/app.js"></script>
 </body>
 </html>

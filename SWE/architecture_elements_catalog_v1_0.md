@@ -4,24 +4,24 @@
 
 **Same-name, two realms.** Some names live in both realms (heartbeat, event sourcing, bulkhead …). They are cataloged in each realm where sources establish them — ids disambiguated by kind suffix — and Phase 3b bridges the pairs; the realms are never collapsed.
 
-**Census.** **370 elements** · kinds: style 64 · pattern 131 · tactic 109 · connector 14 · deployment 26 · reference-architecture 10 · description 16 · confidence: 355 established / 15 spot-checked / 0 needs-check · 44 borderline · tactic coverage by quality attribute: availability 49, deployability 12, energy-efficiency 13, integrability 10, manageability 1, modifiability 7, performance 16, reliability 2, resource-efficiency 1, safety 18, scalability 7, security 28, testability 8, usability 7.
+**Census.** **374 elements** · kinds: style 66 · pattern 133 · tactic 109 · connector 14 · deployment 26 · reference-architecture 10 · description 16 · confidence: 359 established / 15 spot-checked / 0 needs-check · 44 borderline · tactic coverage by quality attribute: availability 49, deployability 12, energy-efficiency 13, integrability 10, manageability 1, modifiability 7, performance 16, reliability 2, resource-efficiency 1, safety 18, scalability 7, security 28, testability 8, usability 7.
 
 **Per-kind counts.**
 
 | kind | n |
 |---|---|
-| style | 64 |
-| pattern | 131 |
+| style | 66 |
+| pattern | 133 |
 | tactic | 109 |
 | connector | 14 |
 | deployment | 26 |
 | reference-architecture | 10 |
 | description | 16 |
-| **total** | **370** |
+| **total** | **374** |
 
 ---
 
-## Architectural styles — `style` (64)
+## Architectural styles — `style` (66)
 
 ### actor-based-architecture — Actor-Based Architecture
 - aka: actor system, active-object framework, run-to-completion kernel (QP-style), actor topology
@@ -119,6 +119,14 @@
 - named-in: corpus:room — Real-Time Object-Oriented Modeling - Selic, Gullekson & Ward (1994)
 - tags: embedded, general
 
+### data-parallel-architecture — Data-Parallel Architecture
+- aka: SPMD, single program multiple data, data parallelism, geometric decomposition
+- kind: style
+- what: The same program is applied concurrently across partitions of a large regular data set, each unit of execution running identical code over its own data slice (SPMD / geometric decomposition).
+- problem: A computation over a large regular data structure must exploit many processing units; partitioning the data and running one program across all partitions converts data size into parallelism while keeping the code single-sourced.
+- named-in: corpus:mattsonppp — Patterns for Parallel Programming - Mattson, Sanders & Massingill (2004), SPMD & Geometric Decomposition patterns
+- tags: parallel, hpc
+
 ### dataflow-architecture — Dataflow Architecture
 - aka: dataflow systems (Shaw-Garlan), dataflow programming (system paradigm)
 - kind: style
@@ -158,6 +166,14 @@
 - problem: How to integrate components without hard-wiring caller-callee identities; announcers gain strong decoupling but surrender control over which handlers run, in what order, and whether they run at all.
 - named-in: corpus:garlanshaw93 — An Introduction to Software Architecture - Garlan & Shaw (1993)
 - tags: distributed, enterprise, messaging, embedded, reactive
+
+### event-driven-architecture — Event-Driven Architecture
+- aka: EDA, event-driven system, broker/mediator event topology
+- kind: style
+- what: The system is organized around the production, detection, and asynchronous reaction to events, with components emitting and subscribing to event notifications through a mediator or broker rather than calling each other directly.
+- problem: Components must stay decoupled and independently scalable while reacting to state changes whose timing and origin they do not control; routing interactions as asynchronous events removes direct dependencies and lets producers and consumers evolve and scale separately.
+- named-in: corpus:richardsford — Fundamentals of Software Architecture - Richards & Ford (2020), Event-Driven Architecture Style
+- tags: distributed, enterprise
 
 ### event-sourcing-architecture-style — Event Sourcing (architecture style)
 - aka: event-sourced system, event store as system of record
@@ -536,7 +552,7 @@
 - tags: security, enterprise, distributed, qa:security
 
 
-## Architecture patterns — `pattern` (131)
+## Architecture patterns — `pattern` (133)
 
 ### anti-corruption-layer — Anti-Corruption Layer
 - aka: ACL, Anticorruption Layer, ACL (DDD), isolating translation layer
@@ -1090,6 +1106,14 @@
 - named-in: corpus:hanmer — Patterns for Fault Tolerant Software - Hanmer (2007)
 - tags: ops, embedded
 
+### master-worker — Master-Worker
+- aka: task farm, master/worker, boss/worker, farmer/worker
+- kind: pattern
+- what: A master component partitions work into independent tasks and dispatches them to a pool of identical worker components, then collects and combines their results.
+- problem: A large, largely-independent, throughput-bound workload must be spread across many workers with dynamic load balancing and without workers coordinating with one another; a master centralizes task hand-out and result collection.
+- named-in: corpus:mattsonppp — Patterns for Parallel Programming - Mattson, Sanders & Massingill (2004), Master/Worker pattern
+- tags: parallel, concurrency
+
 ### materialized-view-architecture-pattern — Materialized View (architecture pattern)
 - aka: precomputed view, derived read store, Materialized View, query-shaped projection
 - kind: pattern
@@ -1425,6 +1449,14 @@
 - problem: Multiple interface kinds (UI, API, batch) must share one authoritative boundary of application operations.
 - named-in: corpus:poeaa — Patterns of Enterprise Application Architecture - Fowler (2002)
 - tags: enterprise
+
+### service-registry — Service Registry
+- aka: service discovery, service directory
+- kind: pattern
+- what: A continually-updated database of available service instances and their network locations, which instances register with on startup and which clients or routers query to discover where to send requests.
+- problem: In a dynamic deployment where instances come and go and change location, clients cannot hard-code endpoints; a registry holds the current authoritative map that service discovery uses to route requests.
+- named-in: corpus:richardsonmp — Microservices Patterns - Richardson (2018), Service registry / Service discovery patterns
+- tags: distributed, microservices
 
 ### sharding — Sharding
 - aka: partitioning, horizontal partitioning, data partitioning, partitioning across nodes, Sharding (Azure)
@@ -3014,6 +3046,7 @@
 - EDITOR ADDS (scout-flagged gaps, certain sources): subsumption-architecture (Brooks 1986 - robotics control vocabulary, bridge target for behavior-tree); os-container (Burns-Oppenheimer 2016 - the deployment-unit sense, distinct from POSA4 component-container); the observability structures the quality scout flagged as unowned - distributed-tracing (Dapper 2010), log-aggregation + health-check-api (Richardson 2018). Declined: sense-plan-act (naming diffuse across robotics texts), models of computation (leeseshia - modeling formalisms, a different band than architecture elements; logged not cataloged), 'metrics collection' (Richardson names it but it folds into log-aggregation/observability family - too thin alone... kept OUT, noted).
 - INTAKE AUDIT CLOSURE: 'Pipes and Filters (POSA1)' was a fuzz miss (pipes-and-filters is cataloged); 'Competing Consumers' now carries an explicit drop record (bridge, not catalog).
 - REALM RESOLUTION: message-translator existed verbatim in both realms after the design-realm repair (bridge agent g2 flagged the id collision); the architecture entry is dropped - EIP establishes one mechanism-level sense; the bridge carries its relation to the messaging integration style.
+- DEMAND-DRIVEN GROWTH (Phase 3b feedback): four architecture elements added after bridge agents reported forced convergence onto generic targets - event-driven-architecture (richardsford; event-loop/reactor were funnelling into event-based-implicit-invocation), master-worker (mattsonppp; thread-pool/fork-join were funnelling into the introduce-concurrency tactic), data-parallel-architecture/SPMD (mattsonppp; spmd/parallel-reduction/stencil/loop-parallelism had no data-parallel style), service-registry (richardsonmp; service-locator had only the generic 'discover' tactic). All four naming sources were already in the verified work set.
 
 ## Parked-candidate intake (the Phase 1 → Phase 3a audit)
 

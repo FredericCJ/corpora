@@ -1,0 +1,15 @@
+{
+ "group": "gCONVERT",
+ "edges": [
+  {"from": "dead-letter-channel", "kind": "realizes", "to": "message-channel", "provenance": "sourced", "cite": "eip, Dead Letter Channel is a channel type in the Messaging taxonomy", "note": "recovered from an invalid cross-realm specializes: a dead-letter channel realizes the message-channel connector"},
+  {"from": "error-kernel", "kind": "realizes", "to": "supervision-tree-otp", "provenance": "editorial", "cite": null, "note": "recovered from an invalid cross-realm composes-with: the error-kernel principle is realized as an OTP supervision tree"},
+  {"from": "recovery-blocks", "kind": "realizes", "to": "rollback-tactic", "provenance": "editorial", "cite": null, "note": "recovered from an invalid cross-realm composes-with: recovery blocks realize a rollback-to-checkpoint scheme guarded by an acceptance test"},
+  {"from": "retry-budget", "kind": "realizes", "to": "retry", "provenance": "editorial", "cite": null, "note": "recovered from an invalid cross-realm composes-with: a retry budget realizes a governed form of the retry availability tactic"},
+  {"from": "program-sequence-monitoring", "kind": "realizes", "to": "watchdog-architecture-pattern", "provenance": "sourced", "cite": "iec61508, program-sequence monitoring specified as a watchdog-manager function", "note": "recovered from an invalid cross-realm composes-with"},
+  {"from": "secure-access-layer", "kind": "realizes", "to": "layers", "provenance": "editorial", "cite": null, "note": "recovered from an invalid cross-realm specializes: a dedicated secure-access layer realizes the layered style"},
+  {"from": "crash-only-software", "kind": "constrains", "to": "two-phase-termination", "provenance": "editorial", "cite": null, "note": "recovered from an invalid cross-realm alternative-to, re-typed as a constrains: a crash-only architecture obviates graceful two-phase shutdown"},
+  {"from": "message-dispatcher", "kind": "realizes", "to": "master-worker", "provenance": "editorial", "cite": null, "note": "a message dispatcher handing messages to a pool of performers realizes the master-worker structure (more specific than its message-endpoint edge)"}
+ ],
+ "unbridged": [],
+ "notes": "curated recovery of 8 cross-realm edges that bridge agents expressed with within-realm kinds (composes-with/alternative-to/specializes); re-typed to valid realizes/constrains. The dropped invalid edges (claim-check->data-access-connector, message-dispatcher alt-to competing-consumers, n-version-programming->voting, notification->service-layer, message-translator self-edge) were confirmed redundant: each source retains a valid primary bridge."
+}

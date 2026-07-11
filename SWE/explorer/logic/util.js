@@ -81,7 +81,28 @@ SWE.util = (function () {
     return out;
   }
 
+  // ── element layer (design + architecture realms) ──
+  const REALM_CLS = { design: 're-design', architecture: 're-arch' };
+  const REALM_SHORT = { design: 'design', architecture: 'arch' };
+  const EL_KIND_DASH = { 'specializes': '', 'composes-with': '6 4', 'alternative-to': '2 4', 'implements': '1 3' };
+  /** realm chip + kind chip for an element node. */
+  function elChips(n) {
+    return [
+      el('span', { class: 'chip ' + (REALM_CLS[n.realm] || ''), title: 'realm: ' + n.realm, text: REALM_SHORT[n.realm] || n.realm }),
+      el('span', { class: 'chip', text: n.kind }),
+    ];
+  }
+  /** honesty badges for an element: confidence, borderline, quality-attribute tags. */
+  function elBadges(n) {
+    const out = [];
+    out.push(el('span', { class: 'badge ' + (n.confidence === 'established' ? 'ver' : 'surv'), text: n.confidence }));
+    if (n.borderline) out.push(el('span', { class: 'badge unres', text: '~ borderline' }));
+    for (const q of (n.qa || [])) out.push(el('span', { class: 'badge auto', text: 'qa: ' + q }));
+    return out;
+  }
+
   return { SVGNS, InvariantError, invariant, assertNever, el, svg,
            CORPUS_ORDER, CORPUS_CLS, CORPUS_SHORT, CORPUS_KEY, corpusFill, corpusStroke,
-           kindColor, KIND_DASH, yearNum, shortTitle, wrapLabel, corpusChips, badges };
+           kindColor, KIND_DASH, yearNum, shortTitle, wrapLabel, corpusChips, badges,
+           REALM_CLS, REALM_SHORT, EL_KIND_DASH, elChips, elBadges };
 })();

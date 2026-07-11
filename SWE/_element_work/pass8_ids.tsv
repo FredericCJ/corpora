@@ -1,0 +1,336 @@
+beckbpp	1997	Smalltalk Best Practice Patterns
+brachacook	1990	Mixin-Based Inheritance
+cheneyopts	2014	Functional options for friendly APIs
+coplienadv	1991	Advanced C++: Programming Styles and Idioms
+effjava	2018	Effective Java, 3rd ed.
+evansddd	2003	Domain-Driven Design: Tackling Complexity in the Heart of Software
+fowlerdi	2004	Inversion of Control Containers and the Dependency Injection pattern
+fowlerdsl	2010	Domain-Specific Languages
+fowlerfluent	2005	FluentInterface (bliki)
+fowlerpageobj	2013	PageObject (bliki)
+goos	2009	Growing Object-Oriented Software, Guided by Tests
+hswikismart	living	Smart constructors (Haskell wiki)
+hudakdsl	1996	Building Domain-Specific Embedded Languages
+ingalls	1986	A Simple Technique for Handling Multiple Polymorphism
+lieberman	1986	Using Prototypical Objects to Implement Shared Behavior in Object-Oriented Systems
+martinppp	2003	Agile Software Development: Principles, Patterns, and Practices
+mcppidioms	living	More C++ Idioms
+meszaros	2007	xUnit Test Patterns: Refactoring Test Code
+meyerooc	1997	Object-Oriented Software Construction, 2nd ed.
+moderncppdesign	2001	Modern C++ Design: Generic Programming and Design Patterns Applied
+msimgui	living	Retained Mode Versus Immediate Mode (Win32 Learn)
+muratoriimgui	2005	Immediate-Mode Graphical User Interfaces (2005)
+nystrom	2014	Game Programming Patterns
+osmani	living	Learning JavaScript Design Patterns, 2nd ed.
+plopd3	1997	Pattern Languages of Program Design 3
+plopd4	2000	Pattern Languages of Program Design 4
+poeaa	2002	Patterns of Enterprise Application Architecture
+posa1	1996	Pattern-Oriented Software Architecture Vol. 1: A System of Patterns
+posa4	2007	Pattern-Oriented Software Architecture Vol. 4: A Pattern Language for Distributed Computin
+quickcheck	2000	QuickCheck: A Lightweight Tool for Random Testing of Haskell Programs
+refactoringguru	living	Refactoring.Guru — Design Patterns catalog
+sourcemaking	living	SourceMaking — Design Patterns catalog
+specpaper	1997	Specifications
+sutternvi	2001	Virtuality
+twinpattern	2000	Twin — A Design Pattern for Modeling Multiple Inheritance
+welc	2004	Working Effectively with Legacy Code
+abrashbb	1997	Michael Abrash's Graphics Programming Black Book, Special Edition
+akidaudataflow	2015	The Dataflow Model: A Practical Approach to Balancing Correctness, Latency, and Cost in Ma
+angularjsguide	living	AngularJS Developer Guide: Scopes ($digest and dirty checking)
+apollodocs	living	Apollo Client documentation - Optimistic mutation results
+apue	2013	Advanced Programming in the UNIX Environment, 3rd ed.
+aronson97	1997	Dead Reckoning: Latency Hiding for Networked Games
+bainomugisha13	2013	A Survey on Reactive Programming
+bernier01	2001	Latency Compensating Methods in Client/Server In-game Protocol Design and Optimization
+boncz05	2005	MonetDB/X100: Hyper-Pipelining Query Execution
+cannon12	2012	The lag-fighting techniques behind GGPO's netcode
+ciscojitter	living	Understanding Jitter in Packet Voice Networks (Cisco IOS Platforms)
+cloudflarerate	2017	How we built rate limiting capable of scaling to millions of domains
+colledanchise	2018	Behavior Trees in Robotics and AI: An Introduction
+elliotthudak97	1997	Functional Reactive Animation
+embeddedfmpingpong	2017	Ping Pong Buffers
+fowlerrules	2009	RulesEngine (bliki)
+gafferongames	living	Gaffer On Games (Networked Physics / Game Networking series)
+gambetta	living	Fast-Paced Multiplayer (Client-Server Game Architecture series)
+graefe94	1994	Volcano - An Extensible and Parallel Query Evaluation System
+harel87	1987	Statecharts: A Visual Formalism for Complex Systems
+hohpe	2003	Enterprise Integration Patterns: Designing, Building, and Deploying Messaging Solutions
+lamport77	1977	Proving the Correctness of Multiprocess Programs
+lmaxdisruptor	2011	Disruptor: High Performance Alternative to Bounded Queues for Exchanging Data Between Conc
+lwnzerocopy	2017	Zero-copy networking
+odonnell17	2017	FrameGraph: Extensible Rendering Architecture in Frostbite
+pointerevents	living	Pointer Events (W3C specification)
+reactdocs	living	React documentation (react.dev)
+reactivestreams	living	Reactive Streams Specification
+rustbook	living	The Rust Programming Language
+streamingsystems	2018	Streaming Systems: The What, Where, When, and How of Large-Scale Data Processing
+tc39signals	living	JavaScript Signals standard proposal (proposal-signals)
+vuedocs	living	Vue.js documentation - Server-Side Rendering (Client Hydration)
+wlokabatch	2003	Batch, Batch, Batch: What Does It Really Mean?
+wpfdatabinding	living	Data binding overview (WPF)
+bonwickslab	1994	The Slab Allocator: An Object-Caching Kernel Memory Allocator
+cujscopeguard	2000	Simplify Your Exception-Safe Code - Forever (ScopeGuard)
+dotnetdispose	living	Implement a Dispose method (.NET documentation)
+fraserlockfree	2004	Practical lock-freedom
+gchandbook	2023	The Garbage Collection Handbook: The Art of Automatic Memory Management, 2nd ed.
+michaelhazard	2004	Hazard Pointers: Safe Memory Reclamation for Lock-Free Objects
+stroustrupde	1994	The Design and Evolution of C++
+taocp1	1997	The Art of Computer Programming, Volume 1: Fundamental Algorithms, 3rd ed.
+wpfvirtualization	living	Optimize control performance (WPF documentation, UI virtualization)
+birrellrpc	1984	Implementing Remote Procedure Calls
+dddref	2015	Domain-Driven Design Reference: Definitions and Pattern Summaries
+downeysem	None	The Little Book of Semaphores
+eaadev	living	Further Enterprise Application Architecture development (eaaDev pattern drafts)
+effectivego	living	Effective Go
+ewd123	1965	Cooperating Sequential Processes (EWD123)
+hoarecsp	1978	Communicating Sequential Processes
+imsurvey	2014	Interest management for distributed virtual environments: A survey
+jsinfo	living	Event Delegation - The Modern JavaScript Tutorial
+qtsignals	living	Signals & Slots - Qt Documentation
+reactivex	living	ReactiveX documentation: Introduction / Observable
+rfc896	1984	RFC 896: Congestion Control in IP/TCP Internetworks
+stevenstcpip	1994	TCP/IP Illustrated, Volume 1: The Protocols
+tailatscale	2013	The Tail at Scale
+astrommurray	living	Feedback Systems: An Introduction for Scientists and Engineers, 2nd ed.
+autosaros	living	AUTOSAR Classic Platform — Specification of Operating System (SWS OS)
+blumofeleiserson	1999	Scheduling Multithreaded Computations by Work Stealing
+c23	2024	ISO/IEC 9899:2024 — Information technology — Programming languages — C (C23)
+corbachodebounce	2016	Debouncing and Throttling Explained Through Examples
+dawsonfloat	2012	Comparing Floating Point Numbers, 2012 Edition
+fiedlertimestep	2004	Fix Your Timestep!
+ganssledebounce	2004	A Guide to Debouncing
+goldbergfp	1991	What Every Computer Scientist Should Know About Floating-Point Arithmetic
+googlesre	2016	Site Reliability Engineering: How Google Runs Production Systems
+ieee1788	2015	IEEE 1788-2015 — IEEE Standard for Interval Arithmetic
+mogullivelock	1996	Eliminating Receive Livelock in an Interrupt-driven Kernel
+mooreinterval	1966	Interval Analysis
+pontsandwich	2009	Meeting Real-Time Constraints Using 'Sandwich Delays'
+rfc1982	1996	RFC 1982: Serial Number Arithmetic
+rfc791	1981	RFC 791: Internet Protocol
+tanenbaumcn	2021	Computer Networks, 6th ed.
+taocp2	1997	The Art of Computer Programming, Volume 2: Seminumerical Algorithms, 3rd ed.
+timingwheels	1987	Hashed and Hierarchical Timing Wheels: Data Structures for the Efficient Implementation of
+wescottpid	2000	PID Without a PhD
+bellthreaded	1973	Threaded Code
+conway1963	1963	Design of a Separable Transition-Diagram Compiler
+craftinginterp	2021	Crafting Interpreters
+ertlthreaded	living	Threaded Code (what is threaded code, direct/indirect threading, dispatch techniques)
+ganztrampoline	1999	Trampolined Style
+grandjava	1998	Patterns in Java, Volume 1: A Catalog of Reusable Design Patterns Illustrated with UML
+gregorygea	2026	Game Engine Architecture, 4th ed. (two-volume set)
+hewitt1973	1973	A Universal Modular ACTOR Formalism for Artificial Intelligence
+hoelzledeopt	1992	Debugging Optimized Code with Dynamic Deoptimization
+hotspotglossary	living	HotSpot Glossary of Terms
+jcip	2006	Java Concurrency in Practice
+jep444	2023	JEP 444: Virtual Threads
+leacpj	1999	Concurrent Programming in Java: Design Principles and Patterns, 2nd ed.
+liskovpromises	1988	Promises: Linguistic Support for Efficient Asynchronous Procedure Calls in Distributed Sys
+lwnrseq	2015	Restartable sequences
+mattsonppp	2004	Patterns for Parallel Programming
+mccoolspp	2012	Structured Parallel Programming: Patterns for Efficient Computation
+mscancellation	living	Cancellation in Managed Threads
+nodeeventloop	living	The Node.js Event Loop (Event Loop, Timers, and process.nextTick)
+perfbook	living	Is Parallel Programming Hard, And, If So, What Can You Do About It?
+revisitcoro	2009	Revisiting Coroutines
+symeasync	2011	The F# Asynchronous Programming Model
+vorpussc	2018	Notes on structured concurrency, or: Go statement considered harmful
+bernsteingoodman81	1981	Concurrency Control in Distributed Database Systems
+drepperfutex	2011	Futexes Are Tricky
+ellisgibbs	1989	Concurrency Control in Groupware Systems
+flatcombining	2010	Flat Combining and the Synchronization-Parallelism Tradeoff
+grayreuter	1992	Transaction Processing: Concepts and Techniques
+herlihyshavit	2020	The Art of Multiprocessor Programming, 2nd ed.
+hoaremonitors	1974	Monitors: An Operating System Structuring Concept
+kernelsyncdoc	living	Linux kernel locking, RCU and memory-barrier documentation
+kerrisktlpi	2010	The Linux Programming Interface
+kleppmannddia	2017	Designing Data-Intensive Applications
+kungrobinson81	1981	On Optimistic Methods for Concurrency Control
+lamportclocks	1978	Time, Clocks, and the Ordering of Events in a Distributed System
+mcslock91	1991	Algorithms for Scalable Synchronization on Shared-Memory Multiprocessors
+preshing	living	Preshing on Programming (lock-free and memory-ordering series)
+reedkanodia	1979	Synchronization with Eventcounts and Sequencers
+sharajkumar90	1990	Priority Inheritance Protocols: An Approach to Real-Time Synchronization
+shavittouitou	1995	Software Transactional Memory
+an2594	living	AN2594: EEPROM emulation in STM32F10x microcontrollers
+azurepatterns	living	Cloud Design Patterns: Cache-Aside
+bagwell2001	2001	Ideal Hash Trees
+bloom1970	1970	Space/Time Trade-offs in Hash Coding with Allowable Errors
+boehm1995	1995	Ropes: an Alternative to Strings
+briggstorczon1993	1993	An Efficient Representation for Sparse Sets
+chungftl2009	2009	A Survey of Flash Translation Layer
+clrs	2022	Introduction to Algorithms, 4th ed.
+coherencecache	living	Caching Data Sources (Oracle Coherence Developing Applications guide)
+cormode2005	2005	An Improved Data Stream Summary: The Count-Min Sketch and its Applications
+deberg	2008	Computational Geometry: Algorithms and Applications, 3rd ed.
+deutschschiffman1984	1984	Efficient Implementation of the Smalltalk-80 System
+ericson	2005	Real-Time Collision Detection
+fenwick1994	1994	A New Data Structure for Cumulative Frequency Tables
+finseth	1991	The Craft of Text Editing: Emacs for the Modern World
+flajolet2007	2007	HyperLogLog: the analysis of a near-optimal cardinality estimation algorithm
+guttman1984	1984	R-Trees: A Dynamic Index Structure for Spatial Searching
+hellersteindb	2007	Architecture of a Database System
+hennessypatterson	2017	Computer Architecture: A Quantitative Approach, 6th ed.
+huet1997	1997	The Zipper
+karger1997	1997	Consistent Hashing and Random Trees: Distributed Caching Protocols for Relieving Hot Spots
+lfs1992	1992	The Design and Implementation of a Log-Structured File System
+littlefs	living	littlefs DESIGN.md
+lorie1977	1977	Physical Integrity in a Large Segmented Database
+manningiir	2008	Introduction to Information Retrieval
+merkle1987	1987	A Digital Signature Based on a Conventional Encryption Function
+meyerseffstl	2001	Effective STL: 50 Specific Ways to Improve Your Use of the Standard Template Library
+mfeaadev	living	martinfowler.com: Further Enterprise Application Architecture development (Event Sourcing;
+michaelscott1996	1996	Simple, Fast, and Practical Non-Blocking and Blocking Concurrent Queue Algorithms
+michie1968	1968	'Memo' Functions and Machine Learning
+millingtonai	2019	AI for Games, 3rd ed.
+moerkotte1998	1998	Small Materialized Aggregates: A Light Weight Index Structure for Data Warehousing
+okasaki	1998	Purely Functional Data Structures
+oneilquass1997	1997	Improved Query Performance with Variant Indexes
+p0661	2017	slot_map Container in C++ (WG21 P0661)
+paip	1992	Paradigms of Artificial Intelligence Programming: Case Studies in Common Lisp
+petrov	2019	Database Internals: A Deep-Dive into How Distributed Data Systems Work
+pugh1990	1990	Skip Lists: A Probabilistic Alternative to Balanced Trees
+rfc2308	1998	Negative Caching of DNS Queries (DNS NCACHE)
+rtr4	2018	Real-Time Rendering, 4th ed.
+sedgewick	2011	Algorithms, 4th ed.
+shapiro2011	2011	Conflict-free Replicated Data Types
+tdigest2019	2019	Computing Extremely Accurate Quantiles Using t-Digests
+vattani2015	2015	Optimal Probabilistic Cache Stampede Prevention
+venti2002	2002	Venti: A New Approach to Archival Storage
+vscodepiecetree	2018	Text Buffer Reimplementation (VS Code blog)
+abadicolumn	2013	The Design and Implementation of Modern Column-Oriented Database Systems
+ailamakipax01	2001	Weaving Relations for Cache Performance
+appelcwc	1991	Compiling with Continuations
+bernhardtfcis	2012	Functional Core, Imperative Shell
+carettetagless09	2009	Finally Tagless, Partially Evaluated: Tagless Staged Interpreters for Simpler Typed Langua
+chambersself89	1989	An Efficient Implementation of Self, a Dynamically-Typed Object-Oriented Language Based on
+erlangcodereplace	living	Erlang/OTP System Documentation - Compilation and Code Loading
+fosterlenses	2007	Combinators for Bi-Directional Tree Transformations: A Linguistic Approach to the View Upd
+fowleranalysis	1996	Analysis Patterns: Reusable Object Models
+fowlerpipeline	2015	Collection Pipeline
+gudeman93	1993	Representing Type Information in Dynamically Typed Languages
+hamming1950	1950	Error Detecting and Error Correcting Codes
+hodgsontoggles	2017	Feature Toggles (aka Feature Flags)
+huttonhaskell	2016	Programming in Haskell, 2nd ed.
+ingerman61	1961	Thunks: A Way of Compiling Procedure Statements with Some Comments on Procedure Declaratio
+ivanovatlas	2006	Practical Texture Atlases
+kennedyunits	2010	Types for Units-of-Measure: Theory and Practice
+leijenmeijer99	1999	Domain Specific Embedded Compilers
+luebkelod	2003	Level of Detail for 3D Graphics
+meyersxmacros	2001	The New C: X Macros
+moggi91	1991	Notions of Computation and Monads
+piercetapl	2002	Types and Programming Languages
+plopd5	2006	Pattern Languages of Program Design 5
+plotkinpretnar09	2009	Handlers of Algebraic Effects
+reynolds72	1972	Definitional Interpreters for Higher-Order Programming Languages
+rustapiguidelines	living	Rust API Guidelines
+rustpatterns	living	Rust Design Patterns
+stromyemini86	1986	Typestate: A Programming Language Concept for Enhancing Software Reliability
+swierstra08	2008	Data Types a la Carte
+vandevoordetemplates	2017	C++ Templates: The Complete Guide, 2nd ed.
+vlissideshatching	1998	Pattern Hatching: Design Patterns Applied
+westecs	2007	Evolve Your Hierarchy: Refactoring Game Entities with Components
+wilsonkakkad92	1992	Pointer Swizzling at Page Fault Time: Efficiently and Compatibly Supporting Huge Address S
+asan	2012	AddressSanitizer: A Fast Address Sanity Checker
+avizienis85	1985	The N-Version Approach to Fault-Tolerant Software
+avr180	2002	AVR180: External Brown-out Protection (application note)
+awsbuilders	living	Timeouts, Retries, and Backoff with Jitter (Amazon Builders' Library)
+bearsslct	living	BearSSL: Constant-Time Crypto
+candeafox	2003	Crash-Only Software
+crcguide	1993	A Painless Guide to CRC Error Detection Algorithms
+cunninghamchecks	1994	The CHECKS Pattern Language of Information Integrity
+hac	1996	Handbook of Applied Cryptography
+huangrejuv	1995	Software Rejuvenation: Analysis, Module and Applications
+kuhnreactive	2017	Reactive Design Patterns
+mcuboot	living	MCUboot documentation
+msguardpages	living	Creating Guard Pages (Win32 memory management documentation)
+otpdesign	living	OTP Design Principles (Erlang/OTP System Documentation)
+owaspcheat	living	OWASP Cheat Sheet Series
+perlsec	living	perlsec — Perl security (taint mode)
+provos	2003	Preventing Privilege Escalation
+randell75	1975	System Structure for Software Fault Tolerance
+rfc5116	2008	RFC 5116: An Interface and Algorithms for Authenticated Encryption
+rfc8305	2017	RFC 8305: Happy Eyeballs Version 2: Better Connectivity Using Concurrency
+saltzerschroeder	1975	The Protection of Information in Computer Systems
+schumacher	2006	Security Patterns: Integrating Security and Systems Engineering
+solarispriv	living	Developer's Guide to Oracle Solaris Security — Privilege Bracketing
+stackguard	1998	StackGuard: Automatic Adaptive Detection and Prevention of Buffer-Overflow Attacks
+sutterexceptional	1999	Exceptional C++: 47 Engineering Puzzles, Programming Problems, and Solutions
+wlaschinrop	2014	Railway Oriented Programming
+yoderbarcalow	1997	Architectural Patterns for Enabling Application Security
+cobs1999	1999	Consistent Overhead Byte Stuffing
+dijkstra1961	1961	Algol 60 Translation: An Algol 60 Translator for the X1 and Making a Translator for Algol 
+dragonbook	2006	Compilers: Principles, Techniques, and Tools (2nd ed.)
+filemagic	living	file / libmagic (official project site and magic file documentation)
+ford2002	2002	Packrat Parsing: Simple, Powerful, Lazy, Linear Time
+huttonmeijer1996	1996	Monadic Parser Combinators
+isoc	2024	ISO/IEC 9899 - Programming Languages - C
+knuth1965	1965	On the Translation of Languages from Left to Right
+oppen1980	1980	Prettyprinting
+parr2004	2004	Enforcing Strict Model-View Separation in Template Engines
+pratt1973	1973	Top Down Operator Precedence
+protobufenc	living	Protocol Buffers Encoding (programming guide)
+reps1998	1998	"Maximal-Munch" Tokenization in Linear Time
+rfc1055	1988	Nonstandard for Transmission of IP Datagrams over Serial Lines: SLIP
+rfc3229	2002	Delta Encoding in HTTP
+rfc3986	2005	Uniform Resource Identifier (URI): Generic Syntax
+rfc4648	2006	The Base16, Base32, and Base64 Data Encodings
+rfc8785	2020	JSON Canonicalization Scheme (JCS)
+rfc9112	2022	HTTP/1.1
+riehleserializer	1998	Serializer
+salomondc	2007	Data Compression: The Complete Reference (4th ed.)
+saxproject	living	SAX (Simple API for XML) - official project documentation
+thompson1968	1968	Programming Techniques: Regular Expression Search Algorithm
+tolerantreader	2011	Tolerant Reader (bliki)
+visser1997	1997	Scannerless Generalized-LR Parsing
+x690	2021	ITU-T X.690 - ASN.1 Encoding Rules: BER, CER and DER
+mehtaconnectors	2000	Towards a Taxonomy of Software Connectors
+microservicesio	living	microservices.io — A Pattern Language for Microservices
+burnshotcloud	2016	Design Patterns for Container-based Distributed Systems
+richardsonmp	2018	Microservices Patterns: With Examples in Java
+unpv1	2003	UNIX Network Programming, Volume 1: The Sockets Networking API, 3rd ed.
+do297	2005	DO-297 — Integrated Modular Avionics (IMA) Development Guidance and Certification Consider
+chappellesb	2004	Enterprise Service Bus
+azureautoscale	living	Autoscaling Guidance — Azure Architecture Center
+awscellbased	2023	Reducing the Scope of Impact with Cell-Based Architecture
+immutableserver	2013	ImmutableServer
+k8sdeploy	living	Kubernetes Documentation — Deployments
+abbottfisher	2015	The Art of Scalability: Scalable Web Architecture, Processes, and Organizations for the Mo
+robertsserverless	2018	Serverless Architectures
+morganservicemesh	2017	What's a service mesh? And why do I need one?
+corbaspec	1991	The Common Object Request Broker: Architecture and Specification
+youngcqrs	2010	CQRS Documents
+chord01	2001	Chord: A Scalable Peer-to-peer Lookup Service for Internet Applications
+chandylamport85	1985	Distributed Snapshots: Determining Global States of Distributed Systems
+cortexr5trm	2011	Cortex-R5 and Cortex-R5F Technical Reference Manual
+fowlereventdriven	2017	What do you mean by 'Event-Driven'?
+fluxoverview	None	Flux: In-Depth Overview
+denning87ids	1987	An Intrusion-Detection Model
+islandsarch	2020	Islands Architecture
+dpdkprogguide	living	DPDK Programmer's Guide
+cyclejsmvi	living	Model-View-Intent (Cycle.js documentation)
+potelmvp	1996	MVP: Model-View-Presenter — The Taligent Programming Model for C++ and Java
+gossmanmvvm	2005	Introduction to Model/View/ViewModel pattern for building WPF apps
+xacml3	2013	eXtensible Access Control Markup Language (XACML) Version 3.0
+fowlerpolyglot	2011	PolyglotPersistence (bliki)
+fowlerreportdb	2004	ReportingDatabase (bliki)
+sagas	1987	Sagas
+coresecpat	2005	Core Security Patterns: Best Practices and Strategies for J2EE, Web Services, and Identity
+elmarch	living	The Elm Architecture (An Introduction to Elm, official guide)
+gpteearch	living	TEE System Architecture
+datamesh	2019	How to Move Beyond a Monolithic Data Lake to a Distributed Data Mesh
+ieee1516	2010	IEEE Standard for Modeling and Simulation (M&S) High Level Architecture (HLA) — Framework 
+bitcoin	2008	Bitcoin: A Peer-to-Peer Electronic Cash System
+krepslog	2013	The Log: What every software engineer should know about real-time data's unifying abstract
+hexagonalarch	2005	Hexagonal Architecture (Ports and Adapters)
+kappakreps	2014	Questioning the Lambda Architecture
+bigdatamarz	2015	Big Data: Principles and Best Practices of Scalable Realtime Data Systems
+lmaxfowler	2011	The LMAX Architecture
+mapreduceosdi	2004	MapReduce: Simplified Data Processing on Large Clusters
+microfrontends	2019	Micro Frontends
+microservicesfowler	2014	Microservices
+monolith2micro	2019	Monolith to Microservices: Evolutionary Patterns to Transform Your Monolith
+fieldingrest	2000	Architectural Styles and the Design of Network-based Software Architectures
+sedasosp	2001	SEDA: An Architecture for Well-Conditioned, Scalable Internet Services
+sharednothing	1986	The Case for Shared Nothing
+subsumptionbrooks	1986	A Robust Layered Control System for a Mobile Robot
+nistzerotrust	2020	Zero Trust Architecture (NIST SP 800-207)

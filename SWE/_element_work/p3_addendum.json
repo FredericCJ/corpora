@@ -1,0 +1,495 @@
+{
+ "candidates": [
+  {
+   "key": "towards a taxonomy of software connectors",
+   "citations": [
+    "Towards a Taxonomy of Software Connectors - Mehta, Medvidovic & Phadke (2000)"
+   ],
+   "names_arch_elements": [
+    "adaptor-connector",
+    "arbitrator-connector",
+    "data-access-connector",
+    "distributor-connector",
+    "event-connector",
+    "linkage-connector",
+    "procedure-call-connector",
+    "stream-connector"
+   ]
+  },
+  {
+   "key": "microservicesio pattern",
+   "citations": [
+    "microservices.io: Pattern - API Composition - Richardson (living)",
+    "microservices.io: Pattern - API Gateway - Richardson (living)",
+    "microservices.io: Pattern - Database per Service - Richardson (living)",
+    "microservices.io: Pattern - Distributed Tracing - Richardson (living); canonical system: Dapper - Sigelman et al. (Google, 2010)",
+    "microservices.io: Pattern - Monolithic Architecture - Richardson (living)",
+    "microservices.io: Pattern - Transactional Outbox - Richardson (living)"
+   ],
+   "names_arch_elements": [
+    "api-composition",
+    "api-gateway",
+    "database-per-service",
+    "distributed-tracing",
+    "monolithic-architecture",
+    "transactional-outbox"
+   ]
+  },
+  {
+   "key": "design patterns for containerbased distributed systems",
+   "citations": [
+    "Design Patterns for Container-based Distributed Systems - Burns & Oppenheimer (HotCloud 2016)",
+    "Design Patterns for Container-based Distributed Systems - Burns & Oppenheimer (USENIX HotCloud 2016)"
+   ],
+   "names_arch_elements": [
+    "adapter-container",
+    "os-container"
+   ]
+  },
+  {
+   "key": "microservices patterns",
+   "citations": [
+    "Microservices Patterns - Richardson (2018), Health check API pattern",
+    "Microservices Patterns - Richardson (2018), Log aggregation pattern"
+   ],
+   "names_arch_elements": [
+    "health-check-api",
+    "log-aggregation"
+   ]
+  },
+  {
+   "key": "unix network programming volume 1 3rd ed",
+   "citations": [
+    "UNIX Network Programming, Volume 1, 3rd ed. - Stevens, Fenner & Rudoff (2003)"
+   ],
+   "names_arch_elements": [
+    "preforked-prethreaded-server",
+    "thread-per-connection-server"
+   ]
+  },
+  {
+   "key": "do297",
+   "citations": [
+    "DO-297 - Integrated Modular Avionics (IMA) Development Guidance and Certification Considerations - RTCA (2005)"
+   ],
+   "names_arch_elements": [
+    "federated-avionics-architecture",
+    "integrated-modular-avionics"
+   ]
+  },
+  {
+   "key": "enterprise service bus",
+   "citations": [
+    "Enterprise Service Bus - Chappell (2004)"
+   ],
+   "names_arch_elements": [
+    "enterprise-service-bus"
+   ]
+  },
+  {
+   "key": "autoscaling guidance",
+   "citations": [
+    "Autoscaling guidance - Microsoft Azure Architecture Center (living); also AWS Auto Scaling documentation"
+   ],
+   "names_arch_elements": [
+    "auto-scaling"
+   ]
+  },
+  {
+   "key": "reducing the scope of impact with cellbased architecture",
+   "citations": [
+    "Reducing the Scope of Impact with Cell-Based Architecture - AWS Well-Architected (2023)"
+   ],
+   "names_arch_elements": [
+    "cell-based-architecture"
+   ]
+  },
+  {
+   "key": "immutableserver",
+   "citations": [
+    "ImmutableServer - Kief Morris (martinfowler.com bliki, 2013); also Infrastructure as Code - Morris (2016)"
+   ],
+   "names_arch_elements": [
+    "immutable-infrastructure"
+   ]
+  },
+  {
+   "key": "kubernetes documentation",
+   "citations": [
+    "Kubernetes Documentation - Deployments (RollingUpdate strategy) (living)"
+   ],
+   "names_arch_elements": [
+    "rolling-deployment"
+   ]
+  },
+  {
+   "key": "the art of scalability",
+   "citations": [
+    "The Art of Scalability - Abbott & Fisher (2009; 2nd ed. 2015)"
+   ],
+   "names_arch_elements": [
+    "scale-cube"
+   ]
+  },
+  {
+   "key": "serverless architectures",
+   "citations": [
+    "Serverless Architectures - Roberts (martinfowler.com, 2016)"
+   ],
+   "names_arch_elements": [
+    "serverless-function-as-a-service"
+   ]
+  },
+  {
+   "key": "whats a service mesh and why do i need one",
+   "citations": [
+    "What's a service mesh? And why do I need one? - Morgan (Buoyant, 2017)"
+   ],
+   "names_arch_elements": [
+    "service-mesh"
+   ]
+  },
+  {
+   "key": "the common object request broker architecture and specificat",
+   "citations": [
+    "The Common Object Request Broker: Architecture and Specification - OMG (1991)"
+   ],
+   "names_arch_elements": [
+    "interface-definition-language"
+   ]
+  },
+  {
+   "key": "cqrs documents",
+   "citations": [
+    "CQRS Documents - Young (2010); also CQRS - Fowler (bliki, 2011)"
+   ],
+   "names_arch_elements": [
+    "cqrs"
+   ]
+  },
+  {
+   "key": "crashonly software",
+   "citations": [
+    "Crash-Only Software - Candea & Fox (HotOS IX, 2003)"
+   ],
+   "names_arch_elements": [
+    "crash-only-software"
+   ]
+  },
+  {
+   "key": "chord a scalable peertopeer lookup service for internet appl",
+   "citations": [
+    "Chord: A Scalable Peer-to-peer Lookup Service for Internet Applications - Stoica et al. (2001)"
+   ],
+   "names_arch_elements": [
+    "distributed-hash-table"
+   ]
+  },
+  {
+   "key": "distributed snapshots determining global states of distribut",
+   "citations": [
+    "Distributed Snapshots: Determining Global States of Distributed Systems - Chandy & Lamport (ACM TOCS, 1985)"
+   ],
+   "names_arch_elements": [
+    "distributed-snapshot"
+   ]
+  },
+  {
+   "key": "cortexr5 and cortexr5f technical reference manual",
+   "citations": [
+    "Cortex-R5 and Cortex-R5F Technical Reference Manual - Arm (2011)"
+   ],
+   "names_arch_elements": [
+    "dual-core-lockstep"
+   ]
+  },
+  {
+   "key": "what do you mean by eventdriven",
+   "citations": [
+    "What do you mean by 'Event-Driven'? - Fowler (martinfowler.com, 2017)"
+   ],
+   "names_arch_elements": [
+    "event-carried-state-transfer"
+   ]
+  },
+  {
+   "key": "flux indepth overview",
+   "citations": [
+    "Flux: In-Depth Overview - Facebook (2014)"
+   ],
+   "names_arch_elements": [
+    "flux"
+   ]
+  },
+  {
+   "key": "an intrusiondetection model",
+   "citations": [
+    "An Intrusion-Detection Model - Denning (IEEE Trans. Software Engineering, 1987)"
+   ],
+   "names_arch_elements": [
+    "intrusion-detection-system"
+   ]
+  },
+  {
+   "key": "islands architecture",
+   "citations": [
+    "Islands Architecture - Jason Miller (2020)"
+   ],
+   "names_arch_elements": [
+    "islands-architecture"
+   ]
+  },
+  {
+   "key": "dpdk programmers guide dpdkorg",
+   "citations": [
+    "DPDK Programmer's Guide (dpdk.org)"
+   ],
+   "names_arch_elements": [
+    "kernel-bypass-networking"
+   ]
+  },
+  {
+   "key": "modelviewintent",
+   "citations": [
+    "Model-View-Intent - Cycle.js documentation (Staltz)"
+   ],
+   "names_arch_elements": [
+    "model-view-intent"
+   ]
+  },
+  {
+   "key": "mvp modelviewpresenter",
+   "citations": [
+    "MVP: Model-View-Presenter - Potel (Taligent, 1996)"
+   ],
+   "names_arch_elements": [
+    "model-view-presenter"
+   ]
+  },
+  {
+   "key": "introduction to modelviewviewmodel pattern",
+   "citations": [
+    "Introduction to Model/View/ViewModel pattern - Gossman (Microsoft blog, 2005)"
+   ],
+   "names_arch_elements": [
+    "model-view-viewmodel"
+   ]
+  },
+  {
+   "key": "extensible access control markup language xacml 30",
+   "citations": [
+    "eXtensible Access Control Markup Language (XACML) 3.0 - OASIS Standard (2013); terminology from IETF RFC 2753"
+   ],
+   "names_arch_elements": [
+    "policy-decision-point-policy-enforcement-point"
+   ]
+  },
+  {
+   "key": "polyglotpersistence",
+   "citations": [
+    "PolyglotPersistence - Fowler (bliki, 2011)"
+   ],
+   "names_arch_elements": [
+    "polyglot-persistence"
+   ]
+  },
+  {
+   "key": "reportingdatabase",
+   "citations": [
+    "ReportingDatabase - Fowler (bliki, 2004)"
+   ],
+   "names_arch_elements": [
+    "reporting-database"
+   ]
+  },
+  {
+   "key": "sagas",
+   "citations": [
+    "Sagas - Garcia-Molina & Salem (SIGMOD 1987)"
+   ],
+   "names_arch_elements": [
+    "saga"
+   ]
+  },
+  {
+   "key": "core security patterns",
+   "citations": [
+    "Core Security Patterns - Steel, Nagappan & Lai (2005)"
+   ],
+   "names_arch_elements": [
+    "single-sign-on"
+   ]
+  },
+  {
+   "key": "the elm architecture",
+   "citations": [
+    "The Elm Architecture - Czaplicki (Official Elm Guide, living)"
+   ],
+   "names_arch_elements": [
+    "the-elm-architecture"
+   ]
+  },
+  {
+   "key": "tee system architecture",
+   "citations": [
+    "TEE System Architecture - GlobalPlatform (living specification)"
+   ],
+   "names_arch_elements": [
+    "trusted-execution-environment"
+   ]
+  },
+  {
+   "key": "how to move beyond a monolithic data lake to a distributed d",
+   "citations": [
+    "How to Move Beyond a Monolithic Data Lake to a Distributed Data Mesh - Dehghani (martinfowler.com, 2019)"
+   ],
+   "names_arch_elements": [
+    "data-mesh"
+   ]
+  },
+  {
+   "key": "ieee 15162010",
+   "citations": [
+    "IEEE 1516-2010 - High Level Architecture (HLA)"
+   ],
+   "names_arch_elements": [
+    "hla-federation"
+   ]
+  },
+  {
+   "key": "bitcoin a peertopeer electronic cash system",
+   "citations": [
+    "Bitcoin: A Peer-to-Peer Electronic Cash System - Nakamoto (2008)"
+   ],
+   "names_arch_elements": [
+    "blockchain"
+   ]
+  },
+  {
+   "key": "the log what every software engineer should know about realt",
+   "citations": [
+    "The Log: What every software engineer should know about real-time data's unifying abstraction - Kreps (LinkedIn Engineering, 2013)"
+   ],
+   "names_arch_elements": [
+    "distributed-commit-log"
+   ]
+  },
+  {
+   "key": "hexagonal architecture",
+   "citations": [
+    "Hexagonal Architecture - Cockburn (alistair.cockburn.us, 2005)"
+   ],
+   "names_arch_elements": [
+    "hexagonal-architecture"
+   ]
+  },
+  {
+   "key": "questioning the lambda architecture",
+   "citations": [
+    "Questioning the Lambda Architecture - Kreps (O'Reilly Radar, 2014)"
+   ],
+   "names_arch_elements": [
+    "kappa-architecture"
+   ]
+  },
+  {
+   "key": "big data principles and best practices of scalable realtime ",
+   "citations": [
+    "Big Data: Principles and best practices of scalable realtime data systems - Marz & Warren (2015)"
+   ],
+   "names_arch_elements": [
+    "lambda-architecture"
+   ]
+  },
+  {
+   "key": "the lmax architecture",
+   "citations": [
+    "The LMAX Architecture - Martin Fowler (2011)"
+   ],
+   "names_arch_elements": [
+    "lmax-architecture"
+   ]
+  },
+  {
+   "key": "mapreduce simplified data processing on large clusters",
+   "citations": [
+    "MapReduce: Simplified Data Processing on Large Clusters - Dean & Ghemawat (OSDI 2004)"
+   ],
+   "names_arch_elements": [
+    "mapreduce"
+   ]
+  },
+  {
+   "key": "micro frontends",
+   "citations": [
+    "Micro Frontends - Jackson (martinfowler.com, 2019)"
+   ],
+   "names_arch_elements": [
+    "micro-frontends"
+   ]
+  },
+  {
+   "key": "microservices",
+   "citations": [
+    "Microservices - Lewis & Fowler (martinfowler.com, 2014)"
+   ],
+   "names_arch_elements": [
+    "microservices"
+   ]
+  },
+  {
+   "key": "monolith to microservices",
+   "citations": [
+    "Monolith to Microservices - Newman (2019)"
+   ],
+   "names_arch_elements": [
+    "modular-monolith"
+   ]
+  },
+  {
+   "key": "architectural styles and the design of networkbased software",
+   "citations": [
+    "Architectural Styles and the Design of Network-based Software Architectures - Fielding (2000)"
+   ],
+   "names_arch_elements": [
+    "rest-representational-state-transfer"
+   ]
+  },
+  {
+   "key": "seda an architecture for wellconditioned scalable internet s",
+   "citations": [
+    "SEDA: An Architecture for Well-Conditioned, Scalable Internet Services - Welsh, Culler & Brewer (SOSP 2001)"
+   ],
+   "names_arch_elements": [
+    "seda-staged-event-driven-architecture"
+   ]
+  },
+  {
+   "key": "the case for shared nothing",
+   "citations": [
+    "The Case for Shared Nothing - Stonebraker (1986)"
+   ],
+   "names_arch_elements": [
+    "shared-nothing-architecture"
+   ]
+  },
+  {
+   "key": "a robust layered control system for a mobile robot",
+   "citations": [
+    "A Robust Layered Control System for a Mobile Robot - Brooks (IEEE J. Robotics and Automation, 1986)"
+   ],
+   "names_arch_elements": [
+    "subsumption-architecture"
+   ]
+  },
+  {
+   "key": "zero trust architecture",
+   "citations": [
+    "Zero Trust Architecture - Rose, Borchert, Mitchell, Connelly (NIST SP 800-207, 2020)"
+   ],
+   "names_arch_elements": [
+    "zero-trust-architecture"
+   ]
+  }
+ ]
+}

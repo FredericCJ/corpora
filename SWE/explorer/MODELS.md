@@ -1,10 +1,13 @@
 # MODELS.md — the relational models (INFERENCE layer)
 
-Five navigation semantics over one fact layer. `data/corpus.json` holds only what the seven reports
-assert; everything here is computed **on top of** those facts, and every typed edge carries a
-provenance tag. The models are unchanged from the original design — the single-viewport rebuild
-changed how each is *rendered* (noted per model), not what it *means*. The pure computations live
-in `logic/core.js`; the view shells only project them.
+**Nine** navigation semantics over **two** fact layers: five **work models** over the seven-pass
+work corpus (`data/corpus.json`), and four **element views** over the two-realm element layer
+(`data/elements.json` — 709 design + 374 architecture elements wired by 1132 typed bridge edges).
+Everything here is computed **on top of** the asserted facts, and every typed edge carries a
+provenance tag. The work models are unchanged from the original design — the single-viewport rebuild
+changed how each is *rendered* (noted per model), not what it *means*. Pure computations live in
+`logic/core.js` (work models) and `logic/core_elements.js` (element views); the view shells only
+project them.
 
 Corpora unified (superseding directive: everything in `E:\dev\corpora\SWE`):
 
@@ -86,10 +89,58 @@ applies-method-of, companion, subsumes, evaluates, critiques, supersedes, part-o
 - **Search** — substring over title/authors/id/ident, applied within whichever model is active.
 - **Corpus filter** — narrows every model to one pass.
 
+## The element layer — two realms and the bridge (views 6–9)
+
+A distinct node kind added by the ELEMENT-layer mission: the *concepts themselves*, in two realms —
+**design** (implementation-level mechanisms, below software architecture and above raw syntax) and
+**architecture** (styles, tactics, patterns, connectors, deployment/reference structures, description
+constructs). The realms are wired by a typed, provenance-tagged **bridge** (`realizes`, `enables`,
+`constrains` cross-realm; `implements`, `specializes`, `composes-with`, `alternative-to`). Pure
+computations live in `logic/core_elements.js` (`SWE.coreEl`). Page/inner scroll is authorized for
+these four views (element-scale navigability); the five work models keep the strict single-viewport
+form.
+
+### View 6 — Element taxonomy (`el-taxonomy`)
+- **Semantic.** The realm × kind × tag lattice over both element catalogs, with live counts.
+- **Question.** "What implementation- and architecture-level vocabulary exists, and how is it distributed?"
+- **Computation (`core.facetCount` over element nodes).** Pure filtering/counting over element tags
+  (realm, kind, confidence, quality-attribute, tag); honours the global search. Every element is
+  reachable here and through search.
+
+### View 7 — Design↔Architecture bridge (`el-bridge`)
+- **Semantic.** The mission-critical map: which architecture elements anchor which design elements, plus the unbridged tail.
+- **Question.** "How does implementation vocabulary map onto architecture — and what has no architectural counterpart?"
+- **Computation (`coreEl.bridgeByArch`).** Cross-realm `realizes`/`enables`/`constrains` edges grouped
+  by architecture target (busiest anchors first); the 6 unbridged design elements listed explicitly.
+  Provenance (sourced : editorial) shown per edge.
+
+### View 8 — Element relations (`el-graph`)
+- **Semantic.** The typed element relation graph; a focused ego-network with cycle-safe closure.
+- **Question.** "What realizes, specializes, composes-with, or is an alternative to what?"
+- **Computation (`coreEl.closure` over the 1132-edge adjacency).** A focus element's direct
+  neighbourhood laid out design-left / architecture-right; click any neighbour to re-focus. (A full
+  1083-node graph is unreadable; the ego-graph is the scale-appropriate form.)
+
+### View 9 — Element coverage (`el-coverage`)
+- **Semantic.** Which works teach which elements (Phase 2), and where coverage is thin.
+- **Question.** "Where do I read about this element; which works are element-dense; what is thinly covered?"
+- **Computation (`coreEl.coverageBuckets` + the element→works inversion).** Coverage buckets
+  (gap = 0 works, thin = 1, covered ≥ 2) and works ranked by element density; the 3 gap elements
+  surfaced honestly.
+
+## Cross-cutting lenses (not separate models)
+
+- **Verification** — `verified | unverified` on works; **confidence** (`established | spot-checked`) on
+  elements — always a visible badge.
+- **Search** — substring over title/authors/id (works) or id/name/aka/what (elements), within the active view.
+- **Corpus filter** — narrows the work models to one pass (element views are realm-filtered in-view instead).
+
 ## The persistent inspector
 
-Not a model — the always-present right dock. With nothing selected it shows the **active model's**
-semantic/question/computation (from `relations.views`), the corpus stat block, and the full legend
-(corpora, 12 edge kinds with dash patterns, provenance & honesty markers). With a work selected it
-shows the full citation, corpus memberships, phase-2 reconciled tags, the raw per-report tags
-exactly as each report stated them, and both edge directions with kind + provenance + justification.
+Not a model — the always-present right dock. With nothing selected it shows the **active view's**
+semantic/question/computation (work models from `relations.views`; element views from
+`coreEl.VIEWS`), the stat block, and the legend. With a **work** selected it shows the full citation,
+corpus memberships, phase-2 reconciled tags, the raw per-report tags, both edge directions — and now
+the **elements it teaches** (work → element navigation). With an **element** selected it shows the
+definition, aliases, kind, realm, `named-in`, tags, the **covering works** (Phase 2, linking back to
+the work corpus), and every typed relation including the cross-realm bridge edges with provenance.

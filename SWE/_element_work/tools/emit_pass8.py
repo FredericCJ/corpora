@@ -16,8 +16,9 @@ ROUTE_LABEL = {
     "r9": "R9. Parsing, text & serialization",
     "r10": "R10. Data flow, state & UI/games",
     "r11": "R11. Resource management & memory",
+    "r12": "R12. Phase 3 addendum — architecture-catalog naming sources (element ids in this route refer to `architecture_elements_catalog_v1_0.md`)",
 }
-ROUTE_ORDER = ["r1", "r2", "r3", "r4", "r5", "r6", "r7", "r8", "r9", "r10", "r11"]
+ROUTE_ORDER = ["r1", "r2", "r3", "r4", "r5", "r6", "r7", "r8", "r9", "r10", "r11", "r12"]
 
 data = json.load(open(os.path.join(SCRATCH, "pass8_works.json"), encoding="utf-8"))
 eldata = json.load(open(os.path.join(SCRATCH, "merged_design.json"), encoding="utf-8"))

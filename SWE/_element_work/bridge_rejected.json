@@ -1,0 +1,110 @@
+[
+ {
+  "group": "g2",
+  "from": "claim-check",
+  "kind": "composes-with",
+  "to": "data-access-connector",
+  "provenance": "editorial",
+  "cite": null,
+  "note": "The parked payload is deposited and redeemed through a data-access connector to the shared store"
+ },
+ {
+  "group": "g2",
+  "from": "message-dispatcher",
+  "kind": "alternative-to",
+  "to": "competing-consumers-system-scale",
+  "provenance": "sourced",
+  "cite": "EIP, Message Dispatcher: explicitly compared with Competing Consumers for parallel consumption",
+  "note": "In-process dispatch vs multiple independent consumers on one channel"
+ },
+ {
+  "group": "g2",
+  "from": "message-translator",
+  "kind": "realizes",
+  "to": "message-translator",
+  "provenance": "sourced",
+  "cite": "EIP, Message Translator: same pattern; the architecture entry is its system-integration scale",
+  "note": "Same-name-two-realms pair (identical id in both realms - see notes)"
+ },
+ {
+  "group": "g4",
+  "from": "two-phase-termination",
+  "kind": "alternative-to",
+  "to": "crash-only-software",
+  "provenance": "sourced",
+  "cite": "Candea & Fox, 'Crash-Only Software' (HotOS 2003): argues for crash+recover as the only stop/start path, explicitly against maintaining separate clean-shutdown code",
+  "note": "Cross-realm alternative: graceful two-phase shutdown vs designing so that crashing is the shutdown."
+ },
+ {
+  "group": "g8",
+  "from": "dead-letter-channel",
+  "kind": "specializes",
+  "to": "message-channel",
+  "provenance": "sourced",
+  "cite": "Enterprise Integration Patterns (Hohpe & Woolf), Messaging Channels chapter: Dead Letter Channel is a channel the messaging system moves undeliverable messages to",
+  "note": "A channel type in EIP's own taxonomy."
+ },
+ {
+  "group": "g8",
+  "from": "error-kernel",
+  "kind": "composes-with",
+  "to": "supervision-tree-otp",
+  "provenance": "sourced",
+  "cite": "Akka documentation (supervision and the error kernel): keep important state high in the actor hierarchy, delegate risky work to child actors that can fail and be restarted",
+  "note": "The error kernel is articulated in terms of the supervision tree."
+ },
+ {
+  "group": "g8",
+  "from": "n-version-programming",
+  "kind": "composes-with",
+  "to": "voting",
+  "provenance": "sourced",
+  "cite": "Avizienis, The N-Version Approach to Fault-Tolerant Software: version outputs are adjudicated by a decision algorithm/voter",
+  "note": "The voter is a defined part of NVP."
+ },
+ {
+  "group": "g8",
+  "from": "notification",
+  "kind": "composes-with",
+  "to": "service-layer",
+  "provenance": "sourced",
+  "cite": "Fowler, P of EAA catalog 'Notification': an object collecting errors from the domain layer, passed back across the service-layer boundary instead of throwing",
+  "note": "Fowler describes Notification at the layer boundary."
+ },
+ {
+  "group": "g8",
+  "from": "recovery-blocks",
+  "kind": "composes-with",
+  "to": "rollback-tactic",
+  "provenance": "sourced",
+  "cite": "Randell, System Structure for Software Fault Tolerance (1975): on acceptance-test failure, state is restored to the recovery point before the alternate runs",
+  "note": "Rollback to the recovery point is a defined step of the scheme."
+ },
+ {
+  "group": "g8",
+  "from": "retry-budget",
+  "kind": "composes-with",
+  "to": "retry",
+  "provenance": "sourced",
+  "cite": "Site Reliability Engineering (Google), Handling Overload: per-client retry budgets (e.g. retries at most 10% of requests) bound the retry tactic's added load",
+  "note": "The budget is a stated guard on retrying."
+ },
+ {
+  "group": "g8",
+  "from": "program-sequence-monitoring",
+  "kind": "composes-with",
+  "to": "watchdog-architecture-pattern",
+  "provenance": "sourced",
+  "cite": "AUTOSAR Watchdog Manager (WdgM) specification: alive, deadline and logical (program-flow) supervision results drive the hardware watchdog",
+  "note": "Sequence monitoring is specified as a watchdog-manager function."
+ },
+ {
+  "group": "g8",
+  "from": "secure-access-layer",
+  "kind": "specializes",
+  "to": "layers",
+  "provenance": "editorial",
+  "cite": null,
+  "note": "A dedicated layer in the application's stack, per the pattern's own name and structure (Yoder & Barcalow)."
+ }
+]

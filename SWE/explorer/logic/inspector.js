@@ -6,12 +6,72 @@ SWE.inspector = (function () {
   const U = SWE.util;
   const PROV = { 'report:swa': 'report · swa', 'report:sim': 'report · sim', 'report:proc': 'report · proc', 'derived': 'derived', 'editorial': 'EDITORIAL' };
 
-  /** @param {HTMLElement} host @param {{corpus:any,relations:any,log?:any}} ctx */
+  /** @param {HTMLElement} host @param {{corpus:any,relations:any,elIndex?:any,log?:any}} ctx */
   function mount(host, ctx) {
     const corpus = ctx.corpus, relations = ctx.relations, log = ctx.log || SWE.log.NOOP;
+    const EL = ctx.elIndex || null, CE = SWE.coreEl;
     const byId = {}; corpus.nodes.forEach((n) => { byId[n.id] = n; });
     const outE = {}, inE = {};
     for (const e of relations.edges) { (outE[e.s] = outE[e.s] || []).push(e); (inE[e.t] = inE[e.t] || []).push(e); }
+
+    // ── element layer (design + architecture realms) ──
+    function selLink(id, label) {
+      return U.el('span', { class: 'lnk', text: label, tabindex: '0', role: 'link',
+        onclick: () => SWE.state.set({ sel: id }),
+        onkeydown: (ev) => { if (ev.key === 'Enter' || ev.key === ' ') { ev.preventDefault(); SWE.state.set({ sel: id }); } } });
+    }
+    function elEdgeRow(e, dir) {
+      const otherId = dir === 'out' ? e.to : e.from, other = EL.byId[otherId];
+      const row = U.el('div', { class: 'edge' });
+      row.appendChild(U.el('span', { class: 'kt', text: dir === 'out' ? e.kind : 'is ' + e.kind + ' of' }));
+      row.appendChild(document.createTextNode(' '));
+      row.appendChild(selLink(otherId, other ? other.name : otherId));
+      if (other) row.appendChild(U.el('span', { class: 'chip ' + (U.REALM_CLS[other.realm] || ''), text: U.REALM_SHORT[other.realm] }));
+      row.appendChild(document.createTextNode(' '));
+      row.appendChild(U.el('span', { class: 'badge ' + (e.provenance === 'sourced' ? 'rep' : 'edi'), text: e.provenance === 'sourced' ? 'sourced' : 'EDITORIAL' }));
+      if (e.cite) row.appendChild(U.el('span', { class: 'ov', text: e.cite }));
+      if (e.note) row.appendChild(U.el('span', { class: 'ov', text: e.note }));
+      return row;
+    }
+    function workChip(wid) {
+      const w = EL.works[wid];
+      if (w && w.corpusNode) return selLink(wid, (w.title || wid).slice(0, 46));   // -> full corpus detail
+      return U.el('span', { class: 'chip', title: w ? (w.authors + ' · ' + w.year) : wid, text: (w ? w.title : wid).slice(0, 46) + (w && !w.corpusNode ? ' ·p8' : '') });
+    }
+    function renderElement(id) {
+      const n = EL.byId[id]; if (!n) { renderOverview(); return; }
+      host.replaceChildren();
+      host.appendChild(U.el('button', { class: 'close', text: 'Esc ✕', 'aria-label': 'Close detail', onclick: () => SWE.state.set({ sel: null }) }));
+      host.appendChild(U.el('h2', { text: n.name }));
+      const bl = U.el('div');
+      bl.appendChild(U.el('span', { class: 'chip ' + (U.REALM_CLS[n.realm] || ''), text: 'realm: ' + n.realm }));
+      bl.appendChild(U.el('span', { class: 'chip', text: 'kind: ' + n.kind }));
+      U.elBadges(n).forEach((b) => bl.appendChild(b));
+      host.appendChild(bl);
+      if (n.aka && n.aka.length) host.appendChild(U.el('p', { class: 'muted', text: 'aka: ' + n.aka.join(', ') }));
+      host.appendChild(U.el('p', { text: n.what }));
+      if (n.problem) host.appendChild(U.el('p', { class: 'muted', text: n.problem }));
+      if (n.borderline) { host.appendChild(U.el('div', { class: 'sec', text: 'borderline (altitude)' })); host.appendChild(U.el('p', { class: 'muted', text: n.borderline })); }
+
+      host.appendChild(U.el('div', { class: 'sec', text: 'named in' }));
+      const ni = U.el('p', {});
+      if (n.named_in_corpus_id && EL.works[n.named_in_corpus_id] && EL.works[n.named_in_corpus_id].corpusNode) ni.appendChild(selLink(n.named_in_corpus_id, n.named_in));
+      else ni.appendChild(U.el('span', { text: n.named_in }));
+      host.appendChild(ni);
+      if (n.tags && n.tags.length) { const tw = U.el('div'); n.tags.forEach((t) => tw.appendChild(U.el('span', { class: 'chip', text: t }))); host.appendChild(tw); }
+
+      host.appendChild(U.el('div', { class: 'sec', text: 'covering works — pass 8 (' + n.works.length + ')' }));
+      if (n.works.length) { const cw = U.el('div'); n.works.forEach((w) => cw.appendChild(workChip(w))); host.appendChild(cw); }
+      else host.appendChild(U.el('p', { class: 'empty', text: 'no catalog-grade covering work (explicit gap)' }));
+
+      const outs = EL.out[id] || [], ins = EL.inn[id] || [];
+      const crossOut = outs.filter((e) => CE.isCross(e.kind)), otherOut = outs.filter((e) => !CE.isCross(e.kind));
+      host.appendChild(U.el('div', { class: 'sec', text: (n.realm === 'design' ? 'bridges to architecture' : 'realized by / constrains') + ' (' + crossOut.length + ')' }));
+      crossOut.length ? crossOut.forEach((e) => host.appendChild(elEdgeRow(e, 'out'))) : host.appendChild(U.el('p', { class: 'empty', text: 'none' }));
+      if (otherOut.length) { host.appendChild(U.el('div', { class: 'sec', text: 'relates to (' + otherOut.length + ')' })); otherOut.forEach((e) => host.appendChild(elEdgeRow(e, 'out'))); }
+      if (ins.length) { host.appendChild(U.el('div', { class: 'sec', text: 'related from (' + ins.length + ')' })); ins.forEach((e) => host.appendChild(elEdgeRow(e, 'in'))); }
+      log.debug('inspect element', { id });
+    }
 
     function provBadge(src) { return U.el('span', { class: 'badge ' + (src === 'editorial' ? 'edi' : 'rep'), text: PROV[src] || src }); }
 
@@ -67,6 +127,20 @@ SWE.inspector = (function () {
       outs.length ? outs.forEach((e) => host.appendChild(edgeRow(e, 'out'))) : host.appendChild(U.el('p', { class: 'empty', text: 'no outgoing relations' }));
       host.appendChild(U.el('div', { class: 'sec', text: 'related from (' + ins.length + ')' }));
       ins.length ? ins.forEach((e) => host.appendChild(edgeRow(e, 'in'))) : host.appendChild(U.el('p', { class: 'empty', text: 'no incoming relations' }));
+
+      // work -> element navigation: elements this work defines/teaches (pass 8)
+      const taught = (EL && EL.elementsByWork[id]) || [];
+      if (taught.length) {
+        host.appendChild(U.el('div', { class: 'sec', text: 'teaches elements — pass 8 (' + taught.length + ')' }));
+        const tw = U.el('div');
+        taught.slice(0, 40).forEach((eid) => {
+          const en = EL.byId[eid];
+          const chip = selLink(eid, (en ? en.name : eid).slice(0, 40));
+          chip.classList.add('chip'); tw.appendChild(chip);
+        });
+        if (taught.length > 40) tw.appendChild(U.el('span', { class: 'chip', text: '+' + (taught.length - 40) + ' more' }));
+        host.appendChild(tw);
+      }
       log.debug('inspect', { id });
     }
 
@@ -153,7 +227,43 @@ SWE.inspector = (function () {
       host.appendChild(foot);
     }
 
-    function render() { const s = SWE.state.get(); if (s.sel) renderNode(s.sel); else renderOverview(); }
+    function renderElementOverview(view) {
+      host.replaceChildren();
+      const m = EL.meta, model = CE.VIEWS[view];
+      host.appendChild(U.el('div', { class: 'sec', text: 'active view — ' + (model ? model.label : view) }));
+      if (model) {
+        host.appendChild(U.el('p', { class: 'muted', text: model.semantic }));
+        host.appendChild(U.el('p', {}, U.el('b', { text: 'Q. ' }), U.el('span', { text: model.question })));
+        host.appendChild(U.el('p', { class: 'muted', text: model.computed }));
+      }
+      host.appendChild(U.el('div', { class: 'sec', text: 'element layer' }));
+      const grid = U.el('div', { class: 'statgrid' });
+      const stat = (k, v) => grid.appendChild(U.el('div', {}, U.el('div', { class: 'k', text: k }), U.el('div', { class: 'v', text: String(v) })));
+      stat('design elements', m.designCount); stat('architecture', m.archCount);
+      stat('bridge edges', m.edgeCount); stat('cross-realm', m.crossRealm);
+      stat('bridged', m.bridged + '/' + m.designCount); stat('unbridged', m.unbridgedCount);
+      stat('sourced edges', m.sourced); stat('editorial', m.editorial);
+      host.appendChild(grid);
+      host.appendChild(U.el('p', { class: 'muted', text: 'Two realms below and above software architecture, wired by a typed, provenance-tagged bridge. ' + m.designCovered + '/' + m.designCount + ' design elements reach a catalog-grade work (pass 8); ' + m.unbridgedCount + ' design elements have no architectural counterpart (listed in the bridge view). Click any element for its definition, covering works, and typed relations.' }));
+      host.appendChild(U.el('div', { class: 'sec', text: 'realms' }));
+      const rf = U.el('div');
+      rf.appendChild(U.el('span', { class: 'chip re-design', text: 'design — implementation-level mechanisms' }));
+      rf.appendChild(U.el('span', { class: 'chip re-arch', text: 'architecture — styles · tactics · patterns' }));
+      host.appendChild(rf);
+      host.appendChild(U.el('div', { class: 'sec', text: 'keyboard' }));
+      host.appendChild(U.el('p', { class: 'muted' },
+        U.el('span', { class: 'kbd', text: '1–9' }), ' views · ',
+        U.el('span', { class: 'kbd', text: '/' }), ' search · ',
+        U.el('span', { class: 'kbd', text: 'Esc' }), ' close'));
+    }
+
+    function render() {
+      const s = SWE.state.get();
+      if (s.sel && EL && EL.byId[s.sel]) { renderElement(s.sel); return; }
+      if (s.sel) { renderNode(s.sel); return; }
+      if (EL && CE.VIEWS[s.view]) { renderElementOverview(s.view); return; }
+      renderOverview();
+    }
     SWE.state.on((s, changed) => { if (changed.includes('sel') || (!s.sel && changed.includes('view'))) render(); });
     render();
     return { render };

@@ -1,0 +1,1019 @@
+{
+ "parked": [
+  {
+   "name": "SEDA (Staged Event-Driven Architecture)",
+   "why": "Welsh et al. 2001 - a whole-service structure of event-driven stages connected by queues with per-stage admission control; primarily a statement of system-level structure (charter directs it here).",
+   "scout": "concurrency"
+  },
+  {
+   "name": "Half-Sync/Half-Async",
+   "why": "POSA2 labels it an architectural pattern: it layers an entire concurrent system into synchronous and asynchronous service layers with a queueing layer between - system structuring, not an in-component mechanism.",
+   "scout": "concurrency"
+  },
+  {
+   "name": "MapReduce",
+   "why": "Dean & Ghemawat 2004 - a cluster-scale programming model plus execution framework/topology; the in-program kernel of it is covered by master/worker + pipeline elements.",
+   "scout": "concurrency"
+  },
+  {
+   "name": "Hardware Abstraction Layer (HAL)",
+   "why": "Named across beningofw/CMSIS/White as a structural layer of the system, not an intra-component mechanism - Phase 3 architecture realm (bridge target for facade-backend, device-driver, register-access elements).",
+   "scout": "corpus-seed"
+  },
+  {
+   "name": "Board Support Package (BSP)",
+   "why": "System-structure packaging of all board-specific support (simmonds/emb-arch); layer-level construct.",
+   "scout": "corpus-seed"
+  },
+  {
+   "name": "Layered software architecture",
+   "why": "AUTOSAR Classic layered architecture and Noergaard's layered model are canonical architecture-style statements (MCAL -> ECU abstraction -> services -> RTE).",
+   "scout": "corpus-seed"
+  },
+  {
+   "name": "Time-Triggered Architecture (TTA)",
+   "why": "Kopetz-Bauer TTA is a system-level architecture; its in-program counterpart is captured as the time-triggered-scheduler design element.",
+   "scout": "corpus-seed"
+  },
+  {
+   "name": "Time/space partitioning (ARINC 653 / IMA)",
+   "why": "Partitioning of applications across an RTOS/hypervisor is system-level structure (APEX API, Rushby partitioning report).",
+   "scout": "corpus-seed"
+  },
+  {
+   "name": "Event-driven architecture (event-driven OS)",
+   "why": "TinyOS is characterized as a 'tiny event-driven OS' - style-level; the event-loop design element belongs to other scouts' territory.",
+   "scout": "corpus-seed"
+  },
+  {
+   "name": "Active-object framework (run-to-completion kernel)",
+   "why": "QP/QP++ 'active-object / inversion-of-control realization' is framework/kernel-level organization; the Active Object pattern itself is captured as a design element.",
+   "scout": "corpus-seed"
+  },
+  {
+   "name": "AUTOSAR Virtual Function Bus / RTE",
+   "why": "Middleware/communication topology between components - squarely architectural.",
+   "scout": "corpus-seed"
+  },
+  {
+   "name": "Microkernel",
+   "why": "seL4/L4 papers named in emb-arch; OS architecture style, feeds Phase 3.",
+   "scout": "corpus-seed"
+  },
+  {
+   "name": "Bootloader",
+   "why": "Named in zerotomain ('How to Write a Bootloader from Scratch'); a whole-program/system role and boot topology rather than an intra-program mechanism.",
+   "scout": "corpus-seed"
+  },
+  {
+   "name": "Small Architecture (Noble & Weir pattern group)",
+   "why": "The 'small architecture' group of Small Memory Software states memory-conscious system structure; its member mechanisms (pools, overlays, compression) are design-level.",
+   "scout": "corpus-seed"
+  },
+  {
+   "name": "Service-oriented architecture (AUTOSAR Adaptive ara::com)",
+   "why": "Report names AUTOSAR Adaptive as 'POSIX-based service-oriented architecture' - style-level.",
+   "scout": "corpus-seed"
+  },
+  {
+   "name": "Two-phase commit (2PC)",
+   "why": "Atomic commit protocol coordinating multiple independent participants across a system - a distributed/system-structure protocol, not a single-component mechanism (Gray & Reuter name it; Phase 3 candidate).",
+   "scout": "db-internals"
+  },
+  {
+   "name": "Log shipping / replication log (primary-replica replication)",
+   "why": "Reuses the WAL as a system-level replication channel between nodes - statement of system structure, feeds Phase 3 (named in Kleppmann DDIA).",
+   "scout": "db-internals"
+  },
+  {
+   "name": "Shared-nothing parallel database architecture",
+   "why": "Whole-system partitioning/topology decision (Stonebraker 1986 'The Case for Shared Nothing') - clearly architecture realm.",
+   "scout": "db-internals"
+  },
+  {
+   "name": "Partitioning / sharding",
+   "why": "Distribution of a dataset across nodes is system-level structure (DDIA ch. 6); the in-component analogue (hash partitioning of an in-memory structure) would be a different, unnamed-at-this-altitude candidate.",
+   "scout": "db-internals"
+  },
+  {
+   "name": "Query optimizer / query planner",
+   "why": "Named recurring construct but primarily a component role in DBMS system structure (Hellerstein et al. 2007 anatomy) rather than a reusable design mechanism; parked rather than dropped.",
+   "scout": "db-internals"
+  },
+  {
+   "name": "Layered Pattern (RTDP)",
+   "why": "System-level organization of the whole software stack into abstraction layers - architecture style, POSA1/RTDP canon.",
+   "scout": "douglass-samek"
+  },
+  {
+   "name": "Five-Layer Architecture Pattern (RTDP)",
+   "why": "A specific whole-system layering template for embedded/real-time applications.",
+   "scout": "douglass-samek"
+  },
+  {
+   "name": "Microkernel Architecture Pattern (RTDP)",
+   "why": "Whole-system structuring around a minimal core plus plug-in services - architecture altitude.",
+   "scout": "douglass-samek"
+  },
+  {
+   "name": "Channel Architecture Pattern / Channel Pattern (RTDP ch4, DPESC ch6 base form)",
+   "why": "Organizes the system as sequential data-transformation channels; the base channel concept is system structure (its safety refinements Protected Single Channel and Dual Channel were kept as design elements per charter).",
+   "scout": "douglass-samek"
+  },
+  {
+   "name": "Recursive Containment Pattern (RTDP)",
+   "why": "Recursive system decomposition strategy - statement about system structure.",
+   "scout": "douglass-samek"
+  },
+  {
+   "name": "Hierarchical Control Pattern (RTDP)",
+   "why": "System-wide distribution of control policy across a hierarchy of controllers.",
+   "scout": "douglass-samek"
+  },
+  {
+   "name": "Virtual Machine Pattern (RTDP)",
+   "why": "Douglass presents it as an architecture pattern (portable system atop an abstract machine); the interpreter mechanism itself belongs to the GoF/language scouts.",
+   "scout": "douglass-samek"
+  },
+  {
+   "name": "Component-Based Architecture / ROOM Pattern (RTDP)",
+   "why": "Whole-system component structuring per ROOM methodology - architecture altitude.",
+   "scout": "douglass-samek"
+  },
+  {
+   "name": "Homogeneous Redundancy Pattern (RTDP)",
+   "why": "System-level replication of identical channels for fault tolerance.",
+   "scout": "douglass-samek"
+  },
+  {
+   "name": "Triple Modular Redundancy Pattern (RTDP)",
+   "why": "Three-channel voting redundancy - system-level safety architecture.",
+   "scout": "douglass-samek"
+  },
+  {
+   "name": "Heterogeneous Redundancy Pattern (RTDP)",
+   "why": "Diversely implemented redundant channels against systematic faults - system-level safety architecture.",
+   "scout": "douglass-samek"
+  },
+  {
+   "name": "Monitor-Actuator Pattern (RTDP)",
+   "why": "Paired actuation and monitoring channels - channel-pair system structure for safety.",
+   "scout": "douglass-samek"
+  },
+  {
+   "name": "Safety Executive Pattern (RTDP)",
+   "why": "Centralized system-wide safety coordinator managing shutdown/recovery across subsystems.",
+   "scout": "douglass-samek"
+  },
+  {
+   "name": "Data Bus Pattern (RTDP)",
+   "why": "System-wide shared communication backbone topology.",
+   "scout": "douglass-samek"
+  },
+  {
+   "name": "Broker Pattern (RTDP/POSA1)",
+   "why": "Intermediary-based distributed system topology - POSA1 architecture canon.",
+   "scout": "douglass-samek"
+  },
+  {
+   "name": "Client-Server (DPESC ch1)",
+   "why": "System-level role topology between requesters and providers.",
+   "scout": "douglass-samek"
+  },
+  {
+   "name": "Distributed hash table (Chord/Kademlia/DHT)",
+   "why": "System-level overlay topology built atop consistent hashing; the routing overlay is a multi-node structure, not implementable inside one component.",
+   "scout": "dsa-blocks"
+  },
+  {
+   "name": "Sharding / data partitioning scheme",
+   "why": "System-level data-distribution decision across nodes; the in-process hash-ring structure is cataloged, the cluster partitioning strategy is Phase 3's.",
+   "scout": "dsa-blocks"
+  },
+  {
+   "name": "Distributed replicated log (Kafka-style commit log)",
+   "why": "As a cluster-wide ordering/replication backbone it is a topology; the in-process append-only log / WAL mechanism belongs to the persistence scout.",
+   "scout": "dsa-blocks"
+  },
+  {
+   "name": "Blockchain / Merkle-chained distributed ledger",
+   "why": "System-of-nodes construct composing Merkle trees with consensus; the Merkle tree itself is cataloged as the design element.",
+   "scout": "dsa-blocks"
+  },
+  {
+   "name": "Search-engine index tier (index + query fan-out architecture)",
+   "why": "The inverted index is cataloged; the sharded index-serving tier around it is architecture.",
+   "scout": "dsa-blocks"
+  },
+  {
+   "name": "Message Broker",
+   "why": "Central intermediary topology that decouples all senders from all receivers system-wide (EIP); primarily a statement of system-level structure.",
+   "scout": "eip-messaging"
+  },
+  {
+   "name": "Message Bus",
+   "why": "Shared enterprise-wide bus connecting many applications via common channels and data model (EIP); an architecture style, not an in-process mechanism.",
+   "scout": "eip-messaging"
+  },
+  {
+   "name": "Channel Adapter",
+   "why": "Connects an application that was not built for messaging to the messaging infrastructure (EIP); a system-integration topology element.",
+   "scout": "eip-messaging"
+  },
+  {
+   "name": "Messaging Bridge",
+   "why": "Connects two separate messaging systems so messages flow between them (EIP); inter-system topology.",
+   "scout": "eip-messaging"
+  },
+  {
+   "name": "Pipes and Filters (integration style)",
+   "why": "As EIP presents it: system-level composition of processing steps connected by channels; the in-process pipeline/pipes-and-filters idiom is a distinct design-level element for the concurrency/POSA scout.",
+   "scout": "eip-messaging"
+  },
+  {
+   "name": "Process Manager",
+   "why": "Central workflow/orchestration engine maintaining process state across multi-step message flows (EIP); system-level control structure.",
+   "scout": "eip-messaging"
+  },
+  {
+   "name": "Routing Slip",
+   "why": "Itinerary attached to a message driving it through a system-level sequence of processing steps (EIP); trends architectural (dynamic workflow across components).",
+   "scout": "eip-messaging"
+  },
+  {
+   "name": "Control Bus",
+   "why": "Separate management/monitoring channel overlay for administering a distributed messaging system (EIP system management); operations topology.",
+   "scout": "eip-messaging"
+  },
+  {
+   "name": "Canonical Data Model",
+   "why": "Enterprise-wide agreement on a common data format to minimize translator count (EIP); cross-system data governance, not an implementable mechanism.",
+   "scout": "eip-messaging"
+  },
+  {
+   "name": "Guaranteed Delivery",
+   "why": "Persistence-backed delivery quality-of-service of the messaging infrastructure (EIP); a system-level guarantee rather than an in-process mechanism.",
+   "scout": "eip-messaging"
+  },
+  {
+   "name": "Durable Subscriber",
+   "why": "Subscription persistence so a disconnected subscriber misses no messages (EIP); a QoS feature of messaging infrastructure.",
+   "scout": "eip-messaging"
+  },
+  {
+   "name": "Datatype Channel",
+   "why": "Channel-per-datatype organization convention for a messaging system (EIP); a channel-topology design decision, not a mechanism.",
+   "scout": "eip-messaging"
+  },
+  {
+   "name": "Integration Styles (File Transfer, Shared Database, Remote Procedure Invocation, Messaging)",
+   "why": "EIP's root-level styles for connecting applications; pure architecture-realm vocabulary for Phase 3.",
+   "scout": "eip-messaging"
+  },
+  {
+   "name": "Application Switching (Noble & Weir)",
+   "why": "Splits the system into independent executables run one at a time - a statement of system-level structure, not an in-program mechanism (fails altitude test upward).",
+   "scout": "embedded-mech"
+  },
+  {
+   "name": "Time-Triggered Architecture (Kopetz)",
+   "why": "System/network-level computation and communication architecture (TTA, TTP); the in-program TTC scheduler element is cataloged, the architecture goes to Phase 3 (corpus: kopetzbauer).",
+   "scout": "embedded-mech"
+  },
+  {
+   "name": "Spatial/temporal partitioning (ARINC 653 / IMA)",
+   "why": "Platform-level isolation architecture between applications; MPU/MMU enforcement is configuration of system structure (corpus: arinc653, rushby).",
+   "scout": "embedded-mech"
+  },
+  {
+   "name": "Layered firmware architecture (driver/HAL/middleware/application)",
+   "why": "The layering itself is architectural structure; only the HAL interface construct was kept as a borderline design element (corpus: lacamera, beningodesign).",
+   "scout": "embedded-mech"
+  },
+  {
+   "name": "Redundant channel structures (TMR, dual-channel 1oo2, homogeneous/heterogeneous redundancy)",
+   "why": "Replication topologies across channels/processors are system-level fault-tolerance structure (Douglass channel patterns; IEC 61508).",
+   "scout": "embedded-mech"
+  },
+  {
+   "name": "Limp-home / degraded mode operation",
+   "why": "System-level behavioral policy for continuing service under fault (automotive lexicon); the in-program safe-state transition is cataloged instead.",
+   "scout": "embedded-mech"
+  },
+  {
+   "name": "Dataflow programming (as a system paradigm)",
+   "why": "As a whole-system execution paradigm/topology it is architecture-realm; the in-program design elements it decomposes into (collection pipeline, FRP) are cataloged here.",
+   "scout": "functional"
+  },
+  {
+   "name": "Function-as-a-Service / serverless functions",
+   "why": "Deployment and topology construct ('functions' as unit of system decomposition); architecture realm, Phase 3.",
+   "scout": "functional"
+  },
+  {
+   "name": "Model-View-Controller (MVC)",
+   "why": "Discussed in GoF chapter 1 as the motivating example, but it is a whole-application/UI structural decomposition (Smalltalk-80 lineage) - fails the altitude test upward; feed to Phase 3. GoF itself decomposes MVC into Observer, Composite, and Strategy, which are cataloged here.",
+   "scout": "gof"
+  },
+  {
+   "name": "Publish-Subscribe (as system topology)",
+   "why": "GoF lists Publish-Subscribe as an aka of Observer (in-process, IN and folded into the observer entry's aka); pub-sub as a distributed messaging/system topology is architecture-level and belongs to Phase 3 - the name lives in both realms per the mission's same-name-two-realms rule.",
+   "scout": "gof"
+  },
+  {
+   "name": "Abstraction Layer / Hardware Abstraction Layer (Fluent C, Beningo)",
+   "why": "Fluent C names 'Abstraction Layer' for escaping #ifdef variant hell, but as a platform-spanning layer it states component/system structure - architecture realm (HAL).",
+   "scout": "idioms"
+  },
+  {
+   "name": "Self-Contained Component (Fluent C, Organizing Files chapter)",
+   "why": "Prescribes directory/component structure and dependency direction across modules - code-organization at component granularity, feeds the architecture catalog.",
+   "scout": "idioms"
+  },
+  {
+   "name": "Shared-nothing architecture",
+   "why": "Per-CPU/per-thread sharding scaled to whole-system partitioning (Stonebraker's shared-nothing) is a statement of system structure, not an in-component mechanism.",
+   "scout": "lockfree-mem"
+  },
+  {
+   "name": "Authoritative server with client-side prediction",
+   "why": "System-level netcode topology (who owns truth, how clients reconcile) - a statement about multi-node structure, not an in-process mechanism; the in-process piece (snapshot interpolation) is cataloged above.",
+   "scout": "nystrom-games"
+  },
+  {
+   "name": "Layered game engine runtime architecture",
+   "why": "Gregory-style engine layering (platform/core/resources/gameplay) is whole-system structure; encountered while sourcing scene graph, belongs to the Phase 3 architecture realm.",
+   "scout": "nystrom-games"
+  },
+  {
+   "name": "Server concurrency models (iterative, process-per-connection, preforked, prethreaded server)",
+   "why": "Stevens UNP ch. 30 catalogs these as whole-server structural alternatives - system-level structure, not an in-component mechanism; feed Phase 3 (relates to thread pool, Leader/Followers).",
+   "scout": "os-network"
+  },
+  {
+   "name": "Kernel-bypass networking (DPDK, user-space network stacks)",
+   "why": "A restructuring of the whole I/O path across OS/application boundary - deployment/system-structure decision, not implementable inside one component.",
+   "scout": "os-network"
+  },
+  {
+   "name": "Split top-half/bottom-half driver architecture (as OS structuring principle)",
+   "why": "The per-driver mechanism is IN as deferred-interrupt-handling; the kernel-wide layering of all drivers into halves is a statement of system structure for Phase 3.",
+   "scout": "os-network"
+  },
+  {
+   "name": "Compilation pipeline (multi-pass compiler structure)",
+   "why": "The lexer->parser->analyzer->codegen decomposition is a whole-program pipes-and-filters structure - system-level shape, not a single implementable mechanism; its stages (lexer, parser, AST) are cataloged as elements.",
+   "scout": "parsing-serial"
+  },
+  {
+   "name": "Protocol layering / encapsulation stack",
+   "why": "Nesting each layer's PDU inside the next (headers-around-payload) is a system structuring principle for communication stacks; the per-layer framing mechanisms (stuffing, TLV, length prefixes) are the design-level elements.",
+   "scout": "parsing-serial"
+  },
+  {
+   "name": "Interface definition language / schema-first contract (IDL)",
+   "why": "Generating serializers from a shared schema contract (protobuf .proto, ASN.1, CORBA IDL) is a cross-component contract-and-toolchain structure; the wire mechanisms it emits are cataloged individually.",
+   "scout": "parsing-serial"
+  },
+  {
+   "name": "Model View Controller",
+   "why": "Whole-app UI structure splitting an application into model, view, and controller responsibilities - app-structure altitude (PoEAA web presentation family).",
+   "scout": "poeaa-ddd"
+  },
+  {
+   "name": "Front Controller",
+   "why": "Single handler consolidating all request handling for a web application - app-structure altitude.",
+   "scout": "poeaa-ddd"
+  },
+  {
+   "name": "Page Controller",
+   "why": "Per-page request-handling structure for a web application - app-structure altitude.",
+   "scout": "poeaa-ddd"
+  },
+  {
+   "name": "Template View",
+   "why": "Web-presentation rendering structure (markup with embedded markers) - app-structure altitude.",
+   "scout": "poeaa-ddd"
+  },
+  {
+   "name": "Transform View",
+   "why": "Web-presentation rendering structure (transform domain data element by element into HTML) - app-structure altitude.",
+   "scout": "poeaa-ddd"
+  },
+  {
+   "name": "Two Step View",
+   "why": "Two-stage page-rendering structure (logical page then formatting) - app-structure altitude.",
+   "scout": "poeaa-ddd"
+  },
+  {
+   "name": "Application Controller",
+   "why": "Centralized point for application flow/navigation control - app-structure altitude.",
+   "scout": "poeaa-ddd"
+  },
+  {
+   "name": "Transaction Script",
+   "why": "Way of organizing all domain logic as procedures per request - domain-logic organization, app-structure altitude (PoEAA).",
+   "scout": "poeaa-ddd"
+  },
+  {
+   "name": "Domain Model",
+   "why": "Way of organizing domain logic as an interconnected object model - domain-logic organization, app-structure altitude (PoEAA).",
+   "scout": "poeaa-ddd"
+  },
+  {
+   "name": "Table Module",
+   "why": "Way of organizing domain logic with one class per table - domain-logic organization, app-structure altitude (PoEAA).",
+   "scout": "poeaa-ddd"
+  },
+  {
+   "name": "Service Layer",
+   "why": "Layer defining an application's boundary of available operations - explicitly a layer construct, architecture altitude (PoEAA).",
+   "scout": "poeaa-ddd"
+  },
+  {
+   "name": "Remote Facade",
+   "why": "Coarse-grained facade over fine-grained objects to serve remote calls - primarily about distribution-boundary structure (PoEAA).",
+   "scout": "poeaa-ddd"
+  },
+  {
+   "name": "Client Session State",
+   "why": "System-level decision to hold session state on the client - state-placement across tiers (PoEAA).",
+   "scout": "poeaa-ddd"
+  },
+  {
+   "name": "Server Session State",
+   "why": "System-level decision to hold session state in server memory - state-placement across tiers (PoEAA).",
+   "scout": "poeaa-ddd"
+  },
+  {
+   "name": "Database Session State",
+   "why": "System-level decision to hold session state in the database - state-placement across tiers (PoEAA).",
+   "scout": "poeaa-ddd"
+  },
+  {
+   "name": "Bounded Context",
+   "why": "Strategic DDD: explicit boundary within which a model applies - system-decomposition altitude (Evans 2003).",
+   "scout": "poeaa-ddd"
+  },
+  {
+   "name": "Context Map",
+   "why": "Strategic DDD: map of bounded contexts and their relationships - system-level structure (Evans 2003).",
+   "scout": "poeaa-ddd"
+  },
+  {
+   "name": "Anti-corruption Layer",
+   "why": "Strategic DDD: isolating translation layer between two systems' models - inter-system boundary structure (Evans 2003).",
+   "scout": "poeaa-ddd"
+  },
+  {
+   "name": "CQRS",
+   "why": "Command Query Responsibility Segregation - splitting a system's read and write models is an architecture style (Fowler bliki 2011; Greg Young).",
+   "scout": "poeaa-ddd"
+  },
+  {
+   "name": "Event Sourcing (architecture style)",
+   "why": "The system-wide event-sourced-system style (event store as backbone, projections, replay across services) - the in-component persistence mechanism is cataloged as element event-sourcing.",
+   "scout": "poeaa-ddd"
+  },
+  {
+   "name": "Layers (POSA1)",
+   "why": "Whole-system structuring into abstraction levels - the canonical architectural pattern.",
+   "scout": "posa"
+  },
+  {
+   "name": "Pipes and Filters (POSA1)",
+   "why": "Architectural style: dataflow topology of a whole processing system (the in-process pipeline mechanism is a separate, smaller element other scouts may carry).",
+   "scout": "posa"
+  },
+  {
+   "name": "Blackboard (POSA1)",
+   "why": "Architectural style for whole problem-solving systems with cooperating knowledge sources.",
+   "scout": "posa"
+  },
+  {
+   "name": "Broker (POSA1/POSA4)",
+   "why": "Distributed-system topology / middleware structure.",
+   "scout": "posa"
+  },
+  {
+   "name": "Model-View-Controller (POSA1)",
+   "why": "Application-level structuring of interactive systems.",
+   "scout": "posa"
+  },
+  {
+   "name": "Presentation-Abstraction-Control (POSA1)",
+   "why": "Hierarchy of cooperating agents structuring a whole interactive application.",
+   "scout": "posa"
+  },
+  {
+   "name": "Microkernel (POSA1)",
+   "why": "Platform/product-line level system structure (minimal core plus extensions).",
+   "scout": "posa"
+  },
+  {
+   "name": "Reflection (POSA1)",
+   "why": "Two-level meta/base architecture for self-modifying systems - system-level structure in POSA1's formulation.",
+   "scout": "posa"
+  },
+  {
+   "name": "Domain Model (POSA4)",
+   "why": "Application-scale organization of business logic (Fowler PoEAA origin); statement about whole-app structure.",
+   "scout": "posa"
+  },
+  {
+   "name": "Domain Object (POSA4)",
+   "why": "Component-partitioning construct for structuring applications around self-contained domain concepts.",
+   "scout": "posa"
+  },
+  {
+   "name": "Shared Repository (POSA4)",
+   "why": "System integration style: components coordinate through a central data store.",
+   "scout": "posa"
+  },
+  {
+   "name": "Message Channel (POSA4, from EIP)",
+   "why": "Inter-system messaging infrastructure role; middleware topology.",
+   "scout": "posa"
+  },
+  {
+   "name": "Message Endpoint (POSA4, from EIP)",
+   "why": "Inter-system messaging infrastructure role.",
+   "scout": "posa"
+  },
+  {
+   "name": "Message Translator (POSA4, from EIP)",
+   "why": "Inter-system integration role (format mediation between systems).",
+   "scout": "posa"
+  },
+  {
+   "name": "Message Router (POSA4, from EIP)",
+   "why": "Inter-system routing topology element.",
+   "scout": "posa"
+  },
+  {
+   "name": "Client Proxy (POSA4)",
+   "why": "Broker-decomposition middleware role for remote invocation infrastructure.",
+   "scout": "posa"
+  },
+  {
+   "name": "Requestor (POSA4)",
+   "why": "Broker-decomposition middleware role (client-side invocation machinery).",
+   "scout": "posa"
+  },
+  {
+   "name": "Invoker (POSA4)",
+   "why": "Broker-decomposition middleware role (server-side dispatch machinery).",
+   "scout": "posa"
+  },
+  {
+   "name": "Client Request Handler (POSA4)",
+   "why": "Broker-decomposition middleware transport role.",
+   "scout": "posa"
+  },
+  {
+   "name": "Server Request Handler (POSA4)",
+   "why": "Broker-decomposition middleware transport role.",
+   "scout": "posa"
+  },
+  {
+   "name": "Replicated Component Group (POSA4)",
+   "why": "System-level replication structure for availability/scalability.",
+   "scout": "posa"
+  },
+  {
+   "name": "Container (POSA4)",
+   "why": "Component-hosting execution infrastructure (EJB/CCM-style); system-level runtime structure.",
+   "scout": "posa"
+  },
+  {
+   "name": "Activator (POSA4)",
+   "why": "On-demand activation of services/processes (inetd-style); deployment/system-level resource mechanism.",
+   "scout": "posa"
+  },
+  {
+   "name": "Page Controller (POSA4, from PoEAA)",
+   "why": "Web-application structuring pattern; app-level control topology.",
+   "scout": "posa"
+  },
+  {
+   "name": "Front Controller (POSA4, from PoEAA)",
+   "why": "Web-application structuring pattern; app-level control topology.",
+   "scout": "posa"
+  },
+  {
+   "name": "Application Controller (POSA4, from PoEAA)",
+   "why": "App-level centralization of screen/action flow.",
+   "scout": "posa"
+  },
+  {
+   "name": "Template View (POSA4, from PoEAA)",
+   "why": "Web presentation-layer structure; app-structure flavored - a Fowler-focused scout may reclaim it downward.",
+   "scout": "posa"
+  },
+  {
+   "name": "Transform View (POSA4, from PoEAA)",
+   "why": "Web presentation-layer structure; app-structure flavored - a Fowler-focused scout may reclaim it downward.",
+   "scout": "posa"
+  },
+  {
+   "name": "Firewall Proxy (POSA4)",
+   "why": "Network security topology element.",
+   "scout": "posa"
+  },
+  {
+   "name": "Authorization (POSA4, from Yoder-Barcalow)",
+   "why": "Security-architecture pattern (policy enforcement structure across a system); Phase 3 / security territory.",
+   "scout": "posa"
+  },
+  {
+   "name": "Failover",
+   "why": "Hanmer pattern; switching service to a redundant unit is primarily a system-level structure/tactic (per charter directive: park if system-level).",
+   "scout": "resilience"
+  },
+  {
+   "name": "Redundancy (spatial/temporal/informational)",
+   "why": "Hanmer architectural pattern; provisioning redundant units is an availability tactic / system structure, not an in-program mechanism.",
+   "scout": "resilience"
+  },
+  {
+   "name": "Units of Mitigation",
+   "why": "Hanmer architectural pattern; defines the system's recovery-unit decomposition - a structural statement.",
+   "scout": "resilience"
+  },
+  {
+   "name": "Error Containment Barrier",
+   "why": "Hanmer architectural pattern; primarily prescribes structural boundaries for error propagation across the system.",
+   "scout": "resilience"
+  },
+  {
+   "name": "Someone in Charge",
+   "why": "Hanmer architectural pattern; assigns system-wide responsibility for fault-handling actions - structural/organizational.",
+   "scout": "resilience"
+  },
+  {
+   "name": "Fault Observer",
+   "why": "Hanmer pattern; a system-wide component collecting and publishing fault reports - topology-level.",
+   "scout": "resilience"
+  },
+  {
+   "name": "System Monitor",
+   "why": "Hanmer detection pattern; a dedicated monitoring component watching the rest of the system - system-level structure.",
+   "scout": "resilience"
+  },
+  {
+   "name": "Maintenance Interface",
+   "why": "Hanmer pattern; a separate management/maintenance channel beside the application interface - architectural interface decision.",
+   "scout": "resilience"
+  },
+  {
+   "name": "Health Check (endpoint)",
+   "why": "Per charter directive; a service-exposed liveness/readiness probe is a system/operations integration construct (cf. heartbeat, which stays design-level).",
+   "scout": "resilience"
+  },
+  {
+   "name": "Decoupling Middleware",
+   "why": "Nygard stability pattern; choosing middleware topology to decouple systems is architectural.",
+   "scout": "resilience"
+  },
+  {
+   "name": "Graceful Degradation",
+   "why": "System-level quality tactic (SRE / Bass availability tactics); realized by design elements like load shedding and circuit breaker but itself a system property.",
+   "scout": "resilience"
+  },
+  {
+   "name": "Process Pairs",
+   "why": "Gray (1985, Tandem); primary/backup process structure with takeover - system-level redundancy organization.",
+   "scout": "resilience"
+  },
+  {
+   "name": "Triple Modular Redundancy (TMR)",
+   "why": "Lyons & Vanderkulk (1962); hardware/system-level redundancy with voting; software analog covered by n-version-programming element.",
+   "scout": "resilience"
+  },
+  {
+   "name": "Saga / Compensating Transaction",
+   "why": "Garcia-Molina & Salem (1987); long-lived transaction structure spanning services - architecture-level failure handling (flagging for Phase 3; may also belong to a persistence scout).",
+   "scout": "resilience"
+  },
+  {
+   "name": "Shed Work at Periphery",
+   "why": "Hanmer overload pattern; prescribes WHERE in the system to shed load (at the edge) - a placement/topology statement; the mechanism itself is the load-shedding element.",
+   "scout": "resilience"
+  },
+  {
+   "name": "Model-View-Presenter (MVP)",
+   "why": "App-structure variant of MVC (Potel; Fowler's Passive View and Supervising Controller are its sub-variants) - Phase 3.",
+   "scout": "ui-reactive"
+  },
+  {
+   "name": "Model-View-ViewModel (MVVM)",
+   "why": "App-structure pattern (Gossman, Microsoft WPF) built on data binding; the binding mechanism is cataloged as a design element, the structure parks here.",
+   "scout": "ui-reactive"
+  },
+  {
+   "name": "Presentation-Abstraction-Control (PAC)",
+   "why": "POSA 1 architectural pattern - hierarchical agent decomposition of an interactive system, system-structure altitude.",
+   "scout": "ui-reactive"
+  },
+  {
+   "name": "Presentation Model",
+   "why": "Fowler GUI-architecture pattern (2004) - app-structure separation predecessor of MVVM.",
+   "scout": "ui-reactive"
+  },
+  {
+   "name": "Flux",
+   "why": "Facebook's application architecture for unidirectional data flow (dispatcher/store/view) - app-structure altitude; Redux/centralized-store is its best-known descendant.",
+   "scout": "ui-reactive"
+  },
+  {
+   "name": "Elm Architecture",
+   "why": "aka Model-View-Update (MVU); whole-app structure (model/update/view triad) from the Elm guide - app-structure altitude.",
+   "scout": "ui-reactive"
+  },
+  {
+   "name": "Unidirectional Data Flow",
+   "why": "App-wide data-flow discipline umbrella (Flux/Elm/MVI family) - a constraint on system structure, not an in-component mechanism.",
+   "scout": "ui-reactive"
+  },
+  {
+   "name": "Model-View-Intent (MVI)",
+   "why": "Reactive app-structure variant (cycle.js lineage) of unidirectional data flow - Phase 3 with the MV* family.",
+   "scout": "ui-reactive"
+  },
+  {
+   "name": "Islands Architecture",
+   "why": "Page-level structure for partial hydration (Astro et al.); the hydration mechanism itself is cataloged as a design element.",
+   "scout": "ui-reactive"
+  },
+  {
+   "name": "Sidecar",
+   "why": "Azure: auxiliary component deployed as a separate process/container alongside the main application - deployment topology.",
+   "scout": "wiki-longtail"
+  },
+  {
+   "name": "Ambassador",
+   "why": "Azure: out-of-process helper proxy for remote communication on behalf of a service - topology.",
+   "scout": "wiki-longtail"
+  },
+  {
+   "name": "Gateway Aggregation / Gateway Routing / Gateway Offloading",
+   "why": "Azure: system-edge gateway structures - topology.",
+   "scout": "wiki-longtail"
+  },
+  {
+   "name": "Backends for Frontends",
+   "why": "Azure: per-frontend backend services - whole-system structuring.",
+   "scout": "wiki-longtail"
+  },
+  {
+   "name": "Gatekeeper",
+   "why": "Azure: dedicated validating host between clients and backends - deployment topology for security.",
+   "scout": "wiki-longtail"
+  },
+  {
+   "name": "Strangler Fig",
+   "why": "Azure/Fowler: incremental legacy-system replacement strategy - system migration structure.",
+   "scout": "wiki-longtail"
+  },
+  {
+   "name": "Queue-Based Load Leveling",
+   "why": "Azure: queue as buffer between services - inter-service topology (in-process message queue is a separate design element owned elsewhere).",
+   "scout": "wiki-longtail"
+  },
+  {
+   "name": "Competing Consumers",
+   "why": "Azure/EIP: multiple consumer instances on a shared channel - system-scale messaging.",
+   "scout": "wiki-longtail"
+  },
+  {
+   "name": "Publisher-Subscriber",
+   "why": "Azure: system-scale async messaging topology; in-process pub-sub is covered by Observer/Event Aggregator in the design realm.",
+   "scout": "wiki-longtail"
+  },
+  {
+   "name": "Event Sourcing",
+   "why": "Azure: append-only event store as the system of record - data-architecture level (db scout may claim a mechanism-level form).",
+   "scout": "wiki-longtail"
+  },
+  {
+   "name": "Scheduler Agent Supervisor",
+   "why": "Azure: distributed action coordination and recovery - multi-service structure.",
+   "scout": "wiki-longtail"
+  },
+  {
+   "name": "Leader Election",
+   "why": "Azure: coordination across distributed instances - distributed-systems mechanism above component level.",
+   "scout": "wiki-longtail"
+  },
+  {
+   "name": "Sharding",
+   "why": "Azure: horizontal partitioning of a data store - data-architecture.",
+   "scout": "wiki-longtail"
+  },
+  {
+   "name": "Deployment Stamps / Geode",
+   "why": "Azure: replicated deployment units / geo-distributed nodes - deployment topology.",
+   "scout": "wiki-longtail"
+  },
+  {
+   "name": "Federated Identity / Valet Key",
+   "why": "Azure: cross-system authentication delegation / token-based direct resource access - system-level security structures.",
+   "scout": "wiki-longtail"
+  },
+  {
+   "name": "Health Endpoint Monitoring",
+   "why": "Azure: externally-probed health checks - operational/system monitoring structure.",
+   "scout": "wiki-longtail"
+  },
+  {
+   "name": "Static Content Hosting / External Configuration Store",
+   "why": "Azure: moving content/config to external services - deployment decisions.",
+   "scout": "wiki-longtail"
+  },
+  {
+   "name": "Claim Check / Sequential Convoy / Messaging Bridge / Asynchronous Request-Reply / Choreography",
+   "why": "Azure/EIP system-messaging patterns - inter-service; EIP scout may claim mid-level subsets.",
+   "scout": "wiki-longtail"
+  },
+  {
+   "name": "Compute Resource Consolidation",
+   "why": "Azure: packing tasks into deployment units - deployment-level.",
+   "scout": "wiki-longtail"
+  },
+  {
+   "name": "Index Table / Materialized View",
+   "why": "Azure: data-tier query structures - data-architecture; db scout may claim mechanism-level forms.",
+   "scout": "wiki-longtail"
+  },
+  {
+   "name": "Blackboard",
+   "why": "On Wikipedia's behavioral list but canonically a POSA1 architectural pattern - system-level knowledge-source structure.",
+   "scout": "wiki-longtail"
+  },
+  {
+   "name": "Half-Object + Protocol (HOPP)",
+   "why": "PLoP (Meszaros 1995): splitting an object across address spaces with a protocol between halves - distribution structure.",
+   "scout": "wiki-longtail"
+  },
+  {
+   "name": "Health Check API",
+   "why": "Richardson (microservices.io) names it, but it is a service-topology observability endpoint contract, not an in-program mechanism; belongs in the Phase 3 architecture realm.",
+   "scout": "gap-adversarial"
+  },
+  {
+   "name": "Transactional Outbox",
+   "why": "Reliable event publication across a database + broker boundary; inherently a multi-component reliability topology (Richardson names it); park for Phase 3.",
+   "scout": "gap-adversarial"
+  },
+  {
+   "name": "Saga",
+   "why": "Distributed long-lived transaction decomposition with compensations (Garcia-Molina & Salem 1987; Richardson); cross-service coordination topology, not an in-program element.",
+   "scout": "gap-adversarial"
+  },
+  {
+   "name": "Safety Executive",
+   "why": "Douglass safety pattern cataloged in Preschern/Kajtazovic/Kreiner 'Building a Safety Architecture Pattern System' (EuroPLoP 2013, ACM 10.1145/2739011.2739028): a centralized safety monitor component coordinating fail-safe shutdown across subsystems - system-level structure, fails the altitude test upward.",
+   "scout": "gap-fluentc-preschern"
+  },
+  {
+   "name": "Monitor-Actuator (channel pair)",
+   "why": "Douglass safety pattern in the same Preschern EuroPLoP 2013 safety pattern system: separate actuation channel and monitoring channel as distinct components - architecture-level channel structure (index's dual-channel and protected-single-channel cover the in-component mechanisms).",
+   "scout": "gap-fluentc-preschern"
+  },
+  {
+   "name": "Safety tactics catalog (Wu-Kelly, via Preschern's GSN tactic analysis)",
+   "why": "Preschern's EuroPLoP 2013/2019 safety-pattern-system papers organize patterns under safety tactics (condition monitoring, degradation, replication/diversity redundancy, repair...) - tactics are Phase 3 architecture-realm material; the implementable members (sanity check, watchdog, N-version, dual channel) are already in the design index.",
+   "scout": "gap-fluentc-preschern"
+  },
+  {
+   "name": "Authoritative Server model",
+   "why": "Client/server with server-authoritative simulation (vs peer-to-peer lockstep) is a system-topology decision, not an in-component mechanism; the in-component mechanisms it induces (prediction, reconciliation, lag compensation) are cataloged above.",
+   "scout": "gap-games-netcode"
+  },
+  {
+   "name": "HLA Run-Time Infrastructure / federated simulation",
+   "why": "IEEE 1516 federation of simulators is system-level structure; only its interest-management/DDM mechanism passes the altitude test (included above).",
+   "scout": "gap-games-netcode"
+  },
+  {
+   "name": "MV* family (Model-View-Controller, MVP, MVVM)",
+   "why": "Osmani's JS pattern catalog includes MV* patterns, and none appear in the element index under any alias; they are GUI architectural patterns (POSA1 names MVC an architectural pattern). Parked so Phase 3 verifies the architecture realm covers them - flagged here because their total absence from the design index is conspicuous.",
+   "scout": "gap-python-js-go"
+  },
+  {
+   "name": "Privilege Separation (Provos et al.)",
+   "why": "Splits a program into privileged monitor and unprivileged worker processes — multi-process system structure, not in-process; distinguished from privilege bracketing (which is in-process and included)",
+   "scout": "gap-security"
+  },
+  {
+   "name": "Sandbox / process sandboxing (seccomp, pledge, jails)",
+   "why": "OS-enforced isolation topology around a process, not a mechanism inside it",
+   "scout": "gap-security"
+  },
+  {
+   "name": "Secure channel / Secure Pipe (TLS)",
+   "why": "Inter-system communication security infrastructure (Core Security Patterns 'Secure Pipe')",
+   "scout": "gap-security"
+  },
+  {
+   "name": "Single Sign-On / third-party authentication (Kerberos, OAuth/OIDC topology)",
+   "why": "Cross-system identity federation topology",
+   "scout": "gap-security"
+  },
+  {
+   "name": "Demilitarized Zone, Packet Filter Firewall, Proxy-Based Firewall (Schumacher et al.)",
+   "why": "Network security topology patterns from the same catalog; clearly architecture realm",
+   "scout": "gap-security"
+  },
+  {
+   "name": "Policy Decision Point / centralized authorization service (XACML PEP/PDP/PIP)",
+   "why": "Distributed authorization topology; its in-process kernel is covered by reference-monitor",
+   "scout": "gap-security"
+  },
+  {
+   "name": "Intrusion Detection System",
+   "why": "Infrastructure component observing systems from outside",
+   "scout": "gap-security"
+  },
+  {
+   "name": "Secrets management service / vault",
+   "why": "Infrastructure for credential storage and distribution",
+   "scout": "gap-security"
+  },
+  {
+   "name": "Defense in Depth / Compartmentalization (as structure)",
+   "why": "System-structuring principle; layered independent controls is an architecture-level statement",
+   "scout": "gap-security"
+  },
+  {
+   "name": "Recursive Control (Selic, PLoPD3)",
+   "why": "Structuring pattern for whole real-time control systems (hierarchy of control components); system-level structure, fails altitude upward.",
+   "scout": "gap-wiki2-c2"
+  },
+  {
+   "name": "Bodyguard (das Neves & Garrido, PLoPD3)",
+   "why": "Sharing and protecting objects across address spaces in distributed systems without full RPC; distribution-level.",
+   "scout": "gap-wiki2-c2"
+  },
+  {
+   "name": "Object Synchronizer (Silva, Pereira & Marques, PLoPD4)",
+   "why": "Synchronization policy for distributed object replicas; distribution-level.",
+   "scout": "gap-wiki2-c2"
+  },
+  {
+   "name": "Single Access Point + Check Point (Yoder & Barcalow, PLoPD4)",
+   "why": "Presented as 'Architectural Patterns for Enabling Application Security'; application-entry security structure, Phase 3 territory.",
+   "scout": "gap-wiki2-c2"
+  },
+  {
+   "name": "Dynamic Object Model / Adaptive Object Model (Riehle, Tilman & Johnson, PLoPD5)",
+   "why": "Yoder/Johnson describe it as an architectural style; its design-level constituents (Type Object, Property/attribute objects, Strategy, Interpreter) are already in the catalog.",
+   "scout": "gap-wiki2-c2"
+  },
+  {
+   "name": "Two-Phase Commit",
+   "why": "",
+   "scout": "gap2-adversarial-final"
+  },
+  {
+   "name": "Graceful Degradation / Degraded Mode",
+   "why": "",
+   "scout": "gap2-adversarial-final"
+  },
+  {
+   "name": "Chained Processors",
+   "why": "",
+   "scout": "gap2-embedded3"
+  },
+  {
+   "name": "Event Collaboration (Fowler, eaaDev 'Focusing on Events')",
+   "why": "Components coordinate by broadcasting events instead of making requests — as a cross-component interaction style this is event-driven architecture's territory (Phase 3); its in-process mechanisms are already cataloged (observer, event-aggregator, domain-event, message-queue).",
+   "scout": "gap2-fowler-bliki-sweep"
+  },
+  {
+   "name": "Reporting Database (Fowler, bliki 2004)",
+   "why": "Separate database fed from the operational store for reporting/analytics — system-level data topology, fails altitude upward.",
+   "scout": "gap2-fowler-bliki-sweep"
+  },
+  {
+   "name": "Bounded Context (Evans DDD; Fowler bliki 2014)",
+   "why": "Strategic-design decomposition of a large model/system into contexts with explicit boundaries — system-structure altitude, Phase 3 (belongs with the DDD strategic set alongside already-parked Service Layer etc.).",
+   "scout": "gap2-fowler-bliki-sweep"
+  },
+  {
+   "name": "Polyglot Persistence (Fowler/Sadalage, bliki 2011)",
+   "why": "Using different datastore technologies per data need across a system — data-architecture stance, Phase 3 territory.",
+   "scout": "gap2-fowler-bliki-sweep"
+  },
+  {
+   "name": "Distributed Snapshot / Checkpoint Barrier (Chandy-Lamport; Flink Asynchronous Barrier Snapshotting)",
+   "why": "",
+   "scout": "gap2-streams-poeaa-tail"
+  },
+  {
+   "name": "Session State placement trio: Client Session State / Server Session State / Database Session State (PoEAA)",
+   "why": "",
+   "scout": "gap2-streams-poeaa-tail"
+  }
+ ]
+}

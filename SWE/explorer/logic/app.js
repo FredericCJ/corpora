@@ -5,7 +5,9 @@
   'use strict';
   const U = SWE.util, S = SWE.state;
   const log = SWE.log.consoleLogger('swe', 'debug');
-  const VIEW_ORDER = ['graph', 'facets', 'timeline', 'overlap', 'anchors'];
+  const WORK_VIEWS = ['graph', 'facets', 'timeline', 'overlap', 'anchors'];
+  const EL_VIEWS = ['el-taxonomy', 'el-bridge', 'el-graph', 'el-coverage'];
+  const VIEW_ORDER = WORK_VIEWS.concat(EL_VIEWS);
 
   window.addEventListener('error', (ev) => log.error('uncaught error escaped every boundary', { message: ev.message, src: ev.filename, line: ev.lineno }));
   window.addEventListener('unhandledrejection', (ev) => log.error('unhandled promise rejection', { reason: String(ev.reason) }));
@@ -25,18 +27,24 @@
     const ids = new Set(corpus.nodes.map((n) => n.id));
     const relations = SWE.parse.parseRelations(window.SWE && window.SWE.relations, ids);
     SWE.core.buildIndex(corpus);
-    log.info('data parsed', { nodes: corpus.nodes.length, edges: relations.edges.length });
+    const elements = SWE.parse.parseElements(window.SWE && window.SWE.elements);
+    const elIndex = SWE.coreEl.buildIndex(elements);
+    log.info('data parsed', { nodes: corpus.nodes.length, edges: relations.edges.length,
+      elements: elements.nodes.length, elementEdges: elements.edges.length });
 
-    const ctx = { corpus, relations, log };
+    const ctx = { corpus, relations, elements, elIndex, log };
 
     // corpus filter options
     const fc = $('fcorpus');
     for (const c of U.CORPUS_ORDER) fc.appendChild(U.el('option', { value: c, text: 'corpus: ' + U.CORPUS_SHORT[c] }));
 
-    // tabs
+    // tabs — five work models, a divider, then the four element views
     const tabs = $('tabs');
-    VIEW_ORDER.forEach((id, i) => tabs.appendChild(U.el('button', { role: 'tab', id: 'tab-' + id, 'aria-selected': 'false',
-      text: (i + 1) + ' · ' + SWE.views[id].label, onclick: () => S.set({ view: id }) })));
+    VIEW_ORDER.forEach((id, i) => {
+      if (id === EL_VIEWS[0]) tabs.appendChild(U.el('span', { class: 'tab-sep', 'aria-hidden': 'true', text: 'elements' }));
+      tabs.appendChild(U.el('button', { role: 'tab', id: 'tab-' + id, 'aria-selected': 'false',
+        text: (i + 1) + ' · ' + SWE.views[id].label, onclick: () => S.set({ view: id }) }));
+    });
     tabs.addEventListener('keydown', (ev) => {
       if (ev.key !== 'ArrowRight' && ev.key !== 'ArrowLeft') return;
       const i = VIEW_ORDER.indexOf(S.get().view);
@@ -80,7 +88,7 @@
       if (ev.key === '/') { ev.preventDefault(); q.focus(); q.select(); }
       else if (ev.key === 'Escape') { if (S.get().sel) S.set({ sel: null }); }
       else if (ev.key === 'v') { const nx = fv.value === '' ? 'verified' : fv.value === 'verified' ? 'unverified' : ''; S.set({ ver: nx }); }
-      else if (/^[1-5]$/.test(ev.key)) S.set({ view: VIEW_ORDER[+ev.key - 1] });
+      else if (/^[1-9]$/.test(ev.key) && +ev.key <= VIEW_ORDER.length) S.set({ view: VIEW_ORDER[+ev.key - 1] });
     });
 
     // initial render from hash

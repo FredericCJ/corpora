@@ -1,18 +1,25 @@
 # Embedded Software Corpus Explorer
 
-A single-page, single-viewport explorer of a **unified embedded-software research corpus** — seven
-research passes merged into one fact layer and navigable through **five relational models**.
+A single-page explorer of a **unified embedded-software research corpus** — seven research passes of
+*works* merged into one fact layer (five relational models), plus a two-realm layer of the *concepts
+themselves* — the **design + architecture elements** — wired to the works and to each other and
+navigable through **four element views**. Nine views over two fact layers.
 
-- **468 resources · 7 corpora · 261 typed edges** (86 swa + 57 sim + 50 derived + 19 editorial + 49 proc) ·
-  354 verified / 114 unverified · 82 cross-corpus works · 65 nodes with UNRESOLVED fields.
-- Pass 7 (`swe-process` — Engineering process & workflow) adds 47 new nodes + 48 memberships across
-  standards / documentation / vcs-review / ci-cd / org-build / process, on a new `language` facet
-  (agnostic · matlab · python · c · cpp · multi). See `../swe_process_corpus_v1_0.md`.
-- Rebuilt in the style + rule set of `web_manifests/` (raw HTML/CSS/JS, no framework, no build
-  step at view time) for **one 16:9 4K / 27" display, fullscreen, landscape** — a single viewport
-  with no page scroll.
+- **Works:** 468 resources · 7 corpora · 261 typed edges (86 swa + 57 sim + 50 derived + 19 editorial + 49 proc) ·
+  354 verified / 114 unverified · 82 cross-corpus works.
+- **Elements (the ELEMENT-layer mission):** **709 design + 374 architecture = 1083 elements**, wired by
+  **1132 typed bridge edges** (703/709 design elements bridged to a specific architecture element,
+  6 unbridged; 328 sourced : 804 editorial). Element→work coverage from **pass 8** (399 works;
+  706/709 design elements reach a catalog-grade work). Deliverables: `../design_elements_catalog_v1_0.md`,
+  `../architecture_elements_catalog_v1_0.md`, `../design_elements_corpus_v1_0.md`,
+  `../design_elements_bridge_v1_0.md`.
+- Pass 7 (`swe-process`) adds 47 nodes + 48 memberships on a `language` facet. See `../swe_process_corpus_v1_0.md`.
+- Raw HTML/CSS/JS, no framework, no build step at view time, opens from `file://`. The five work
+  models keep the strict **single 16:9 4K viewport, no page scroll**; the four element views
+  **authorize page/inner scroll** (element-scale navigability) — the one relaxation of the
+  single-viewport rule, per the mission (target display unchanged; the work models are not degraded).
 
-## The five models
+## The five work models
 
 1. **Reading graph** — typed, cyclic-capable relations; hover traces a work's full closure.
 2. **Facets** — corpus × branch × theme × type lattice with live counts.
@@ -20,8 +27,18 @@ research passes merged into one fact layer and navigable through **five relation
 4. **Overlap** — the graft points: works claimed by ≥2 passes (pairwise matrix + signatures).
 5. **Anchors** — each corpus's own report-flagged entry points.
 
-A persistent inspector dock shows the active model's method + full legend, or — when you select a
-work — its citation, memberships, reconciled + raw-per-report tags, and every typed relation.
+## The four element views (6–9)
+
+6. **Element taxonomy** — the realm × kind × tag lattice over both catalogs, live counts.
+7. **Design↔Arch bridge** — which architecture elements anchor which design elements; the 6 unbridged shown.
+8. **Element relations** — a focused ego-graph over the typed edges; click a neighbour to re-focus.
+9. **Element coverage** — which works teach which elements (pass 8); thin/gap coverage surfaced.
+
+A persistent inspector dock shows the active view's method + legend, or — when you select a **work**
+— its citation, memberships, tags, relations, and the elements it teaches; when you select an
+**element** — its definition, aliases, realm, kind, covering works, and every typed relation
+(including cross-realm bridge edges with provenance). Selection flows across layers: an element's
+covering work links to the work corpus, and a work links back to the elements it teaches.
 
 ## Open it
 
@@ -30,17 +47,25 @@ work — its citation, memberships, reconciled + raw-per-report tags, and every 
 
 ## Use it
 
-- **Tabs `1–5`** switch models · **`/`** search · **`v`** cycles verification · **`Esc`** clears.
-- Hover/focus a node in the graph to trace its closure; click any resource anywhere for its detail.
-- The **verification** and **corpus** selectors filter every model at once; **reset** clears all.
+- **Tabs `1–9`** switch views (1–5 work models · 6–9 element views) · **`/`** search · **`v`** cycles verification · **`Esc`** clears.
+- Hover/focus a node in the graph to trace its closure; click any resource or element anywhere for its detail.
+- The **verification** and **corpus** selectors filter the work models; the element views filter by realm/kind in-view; **reset** clears all.
 
 ## Rebuild the data
 
 The fact + inference layers are generated by the Python `build/` (the only place report text is read):
 
 ```
-python build/build.py     # build/records_*.py + edges.py → data/*.js + *.json
+python build/build.py     # records_*.py + edges.py → corpus/relations; build_elements.py → elements
 ```
+
+`build.py` runs four phases: the seven work passes (unchanged) then **PHASE 4**, which encodes the
+element layer. `build/build_elements.py` consumes `build/element_src/` (the committed encoded form of
+the four Phase 1–3 deliverables — as `records_*.py` are the encoded form of the pass reports) and
+**self-audits, failing loud** on any mismatch: (a) **completeness** — built design/architecture/edge
+counts must equal the deliverable `.md` census headers (709 / 374 / 1132); (b) the **bridging rule**
+— every design element carries ≥1 cross-realm edge or is on the unbridged list, and that list must
+match the bridge report's. It emits `data/elements.{json,js}`.
 
 ## Checker & tests (committed contract)
 
@@ -54,9 +79,11 @@ npm test          # vitest run
 ```
 
 > Node was unavailable where this was authored, so `check`/`test` are the committed contract, not a
-> verified run. The app ships **zero runtime dependencies** and was verified in-browser at
-> 3840×2160: single viewport, no page scroll, all five models rendering, hover-closure + inspect +
-> filters working, no console errors.
+> verified run. The app ships **zero runtime dependencies**. The five work models were verified
+> in-browser at 3840×2160 (single viewport, no page scroll, hover-closure + inspect + filters, no
+> console errors); the element layer was verified via headless Chrome (`--dump-dom`): `build.py`
+> audits pass, all nine view tabs mount with zero boot errors, element detail + cross-layer
+> navigation (element ↔ covering work) render, and the work models are unregressed.
 
 ## Layout & provenance
 

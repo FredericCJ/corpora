@@ -1,0 +1,374 @@
+adaptor-connector | connector | Adaptor Connector | A connector that converts between mismatched interaction policies, interfaces, or data formats of components n
+arbitrator-connector | connector | Arbitrator Connector | A connector that resolves conflicts and redirects control among components with conflicting needs, providing c
+autosar-virtual-function-bus-rte | connector | AUTOSAR Virtual Function Bus / RTE | A communication abstraction in which software components interact through typed ports on a virtual bus, genera
+data-access-connector | connector | Data Access Connector | A connector through which a component reads or writes data maintained by a data store or another component, co
+distributor-connector | connector | Distributor Connector | A connector that identifies interaction paths and routes communication among components - naming, registration
+enterprise-service-bus | connector | Enterprise Service Bus | A shared messaging backbone providing routing, transformation, protocol bridging, and orchestration between en
+event-connector | connector | Event Connector | A connector that transfers control and data by delivering occurrences (events) from producers to registered ob
+linkage-connector | connector | Linkage Connector | A connector that ties system elements together by establishing and enforcing associations - name bindings, imp
+message-channel | connector | Message Channel | A named logical conduit of the messaging system that senders write messages to and receivers read from.
+procedure-call-connector | connector | Procedure Call Connector | A connector that transfers control and data between components through invocation with parameters and (usually
+secure-channel | connector | qa:security | Secure Channel | A connector type in which communication between components crosses an authenticated, encrypted transport so co
+stream-connector | connector | Stream Connector | A connector that transfers sequences of data between autonomous processes, covering pipes, sockets, and other 
+temporal-firewall | connector | Temporal Firewall | A unidirectional, time-controlled shared-memory interface between subsystems: the sender deposits temporally a
+time-triggered-bus | connector | Time-Triggered Bus | A broadcast communication channel whose access is governed by a static TDMA schedule: each node owns pre-assig
+activator | deployment | qa:resource-efficiency | Activator | A component that launches services or server processes on demand when a request arrives and can shut them down
+adapter-container | deployment | Adapter (container) | A sidecar variant that presents a standardized interface (e.g., uniform metrics/log format) over a heterogeneo
+ambassador | deployment | Ambassador | A sidecar variant that proxies the application's outbound connections to the outside world, hiding discovery, 
+auto-scaling | deployment | qa:scalability | Auto-Scaling | The instance pool grows and shrinks automatically, driven by metrics or schedules evaluated against scaling po
+blue-green-deployment | deployment | qa:deployability | Blue-Green Deployment | Two identical production environments are maintained and releases go live by switching traffic from the active
+bootloader-application-split | deployment | Bootloader-Application Split | Partitioning firmware into a small, rarely-changed bootloader image and one or more application images in sepa
+bootloader-boot-stage-architecture | deployment | Bootloader (boot-stage architecture) | A dedicated boot-stage program that initializes the platform, selects/validates an application image, and hand
+canary-release | deployment | qa:deployability | Canary Release | A new version is deployed to a small slice of production servers or users and observed before the rollout is w
+cell-based-architecture | deployment | qa:availability | Cell-Based Architecture | Workload deployed as multiple isolated, self-sufficient instances (cells), each serving a partition of request
+component-container | deployment | Container | An execution environment that hosts application components and transparently provides them the technical servi
+compute-resource-consolidation | deployment | Compute Resource Consolidation | Multiple tasks or operations are consolidated into shared compute units to raise utilization and cut cost.
+deployment-pipeline | deployment | qa:deployability | Deployment Pipeline | An automated, staged structure through which every change flows from commit to production - build, automated t
+deployment-stamps | deployment | qa:scalability,qa:availability | Deployment Stamps | The full solution is replicated as identical scale-unit deployments (stamps), each hosting a subset of tenants
+external-configuration-store | deployment | External Configuration Store | Configuration for all application instances is moved to a central external store fetched at startup/run time.
+feature-flag-driven-release | deployment | qa:deployability | Feature-Flag-Driven Release | Code ships to production dark behind runtime toggles, and release becomes a configuration act - enabling the f
+gatekeeper | deployment | Gatekeeper | A dedicated hardened host between clients and backends validates and sanitizes all requests, holding no keys o
+geodes | deployment | qa:availability | Geodes | Identical active-active deployments distributed across geographic regions, each able to serve any user, backed
+immutable-infrastructure | deployment | qa:deployability | Immutable Infrastructure | Deployed servers/images are never modified in place; every change produces a new image that replaces the old i
+load-balancer | deployment | qa:scalability,qa:availability | Load Balancer | An intermediary distributes incoming requests across a pool of equivalent service instances, presenting the po
+os-container | deployment | OS Container | An OS-level isolated execution unit packaging an application with its dependencies, sharing the host kernel, u
+rolling-deployment | deployment | qa:deployability | Rolling Deployment | Instances in a load-balanced pool are replaced with the new version a few at a time, keeping the service up wh
+scale-cube | deployment | qa:scalability | Scale Cube | A three-axis model of scaling structures: X - cloning identical instances behind a load balancer, Y - splittin
+serverless-function-as-a-service | deployment | Serverless / Function-as-a-Service | Application logic deployed as provider-managed, event-triggered ephemeral functions (plus managed backend serv
+service-mesh | deployment | Service Mesh | Dedicated infrastructure layer of per-service proxies (data plane) plus a control plane that transparently han
+sidecar | deployment | Sidecar | A helper process/container co-deployed with an application instance, sharing its lifecycle and local resources
+static-content-hosting | deployment | Static Content Hosting | Static content is served from dedicated storage/CDN services instead of the application's compute instances.
+4-1-view-model | description | 4+1 View Model | A fixed viewpoint set — logical, process, development, and physical views, plus scenarios (the +1) that tie th
+allocation-view | description | Allocation View | A view type mapping software elements onto structures in the system's environment — hardware and networks (dep
+architectural-perspective | description | Architectural Perspective | A collection of activities, tactics, and guidelines for ensuring that a system exhibits a particular quality p
+architecture-decision-record | description | Architecture Decision Record | A short, versioned document capturing one architecturally significant decision together with its context, stat
+architecture-description | description | Architecture Description | The concrete work product (documents, models, views) used to express the architecture of a system of interest.
+architecture-description-language | description | Architecture Description Language | A formal notation whose first-class constructs are architectural — components, connectors, configurations — us
+architecture-framework | description | Architecture Framework | An established package of conventions, principles, viewpoints, and practices for architecture description with
+architecture-view | description | Architecture View | A representation of a system's architecture from the perspective of a related set of concerns, composed of one
+architecture-viewpoint | description | Architecture Viewpoint | A reusable work product establishing the conventions — model kinds, notations, methods — for constructing, int
+component-and-connector-view | description | Component-and-Connector View | A view type documenting the system's runtime elements (components) and their interaction pathways (connectors)
+context-map | description | Context Map | A documented map of the system's bounded contexts and the relationship type at each seam (partnership, custome
+interface-definition-language | description | Interface Definition Language | A language-neutral contract describing component interfaces and data types from which stubs, skeletons and ser
+model-kind | description | Model Kind | The conventions (notation, modeling template, analytic methods) for one type of architecture model used within
+module-view | description | Module View | A view type documenting the system's units of implementation (modules) and their static relations — decomposit
+rozanski-woods-viewpoint-catalog | description | Rozanski–Woods Viewpoint Catalog | A catalog of seven viewpoints — context, functional, information, concurrency, development, deployment, operat
+stakeholder-concern | description | Stakeholder Concern | An interest in the system relevant to one or more stakeholders, used to scope which viewpoints and views an ar
+anti-corruption-layer | pattern | Anti-Corruption Layer | An isolating translation layer between two bounded contexts (typically new model and legacy/external system) t
+api-composition | pattern | API Composition | A composer queries multiple services and joins their results in memory to answer a query that spans service-ow
+api-gateway | pattern | API Gateway | Single entry point that routes, composes, and adapts client requests to backend services, and absorbs cross-cu
+application-controller | pattern | Application Controller | A centralized component owns the application's screen navigation and action flow, deciding which domain logic 
+application-switching | pattern | Application Switching | Splits the system into independent executables of which only one runs at a time, each fitting the memory budge
+asynchronous-request-reply | pattern | Asynchronous Request-Reply | A client-facing request is accepted immediately with a status/result endpoint while backend processing complet
+authoritative-server | pattern | Authoritative Server | One server owns the true game/simulation state; clients send inputs and locally predict, then reconcile agains
+authorization-security-pattern | pattern | Authorization (security pattern) | A system-level structure defining which subjects may perform which actions on which protected resources, enfor
+backends-for-frontends | pattern | Backends for Frontends | One purpose-built edge/API backend per frontend type (mobile, web, ...), each owned by the corresponding front
+board-support-package | pattern | Board Support Package | The packaging of all board-specific software - boot code, clock and pin configuration, device drivers, memory 
+bodyguard | pattern | Bodyguard | Shares objects across address spaces without full RPC by attaching a guard that intercepts and validates opera
+bounded-context | pattern | Bounded Context | An explicit boundary within which a domain model and its ubiquitous language apply consistently; large systems
+bulkhead-deployment-isolation | pattern | qa:availability | Bulkhead (deployment isolation) | System capacity (instances, pools, clusters) is partitioned into isolated compartments per client, workload, o
+canonical-data-model | pattern | Canonical Data Model | An application-independent shared data model for the messages exchanged across an integration solution; every 
+chained-processors | pattern | Chained Processors | Arranges multiple processors in a chain where a small always-on processor handles front-line work and wakes or
+channel-adapter | pattern | Channel Adapter | A component that connects an application never built for messaging to the messaging system, translating betwee
+choreography | pattern | Choreography | Multi-service workflows emerge from services publishing and reacting to each other's events, with no central c
+client-proxy-remoting | pattern | Client Proxy (remoting) | A local object presenting the remote component's interface inside the client process, forwarding invocations t
+client-request-handler | pattern | Client Request Handler | Client-side middleware component that manages network resources, sends request messages and receives replies f
+client-session-state | pattern | Client Session State | Session state is held on the client (cookies, hidden fields, client storage) and sent with each request; serve
+competing-consumers-system-scale | pattern | Competing Consumers (system scale) | Multiple service instances concurrently consume from one shared channel, each message going to exactly one of 
+competing-consumers-system-topology | pattern | qa:scalability | Competing Consumers (system topology) | Multiple independently deployed consumer instances pull from one shared message channel, so load spreads and a
+control-bus | pattern | qa:manageability | Control Bus | A separate messaging channel overlay used to send configuration, heartbeat, test, and monitoring traffic to ev
+cqrs | pattern | CQRS | The system's write model (commands) and read model (queries) are separated into distinct models, often with di
+crash-only-software | pattern | qa:availability | Crash-Only Software | A system is structured so its components have exactly one stop method (crash) and one start method (recover), 
+data-bus-rtdp | pattern | Data Bus (RTDP) | A system-wide shared bus abstraction through which components publish and read common data instead of holding 
+database-per-service | pattern | Database per Service | Each service exclusively owns its persistent data; other services access it only through the service's API.
+database-session-state | pattern | Database Session State | Session state is committed to shared persistent storage between requests, keyed by session, readable by any se
+datatype-channel | pattern | Datatype Channel | The channel topology is organized so each channel carries messages of exactly one data type, letting receivers
+demilitarized-zone | pattern | Demilitarized Zone | Externally reachable services are placed in a separate network segment between two firewall layers, isolating 
+distributed-hash-table | pattern | Distributed Hash Table | Nodes form a self-organizing overlay in which consistent-hashing-based routing locates the node responsible fo
+distributed-snapshot | pattern | qa:availability | Distributed Snapshot | Marker messages flow through a distributed system's channels so each node records a mutually consistent cut of
+distributed-tracing | pattern | Distributed Tracing | Every external request gets a trace id propagated through all service hops; per-hop spans are collected centra
+domain-model | pattern | Domain Model | Organizes domain logic as an interconnected object model where each object carries the data and behavior of on
+domain-object-posa4 | pattern | Domain Object (POSA4) | Encapsulates each distinct unit of application functionality as a self-contained component behind an explicit 
+dual-core-lockstep | pattern | Dual-Core Lockstep | Two identical processor cores execute the same instruction stream cycle-aligned (one delayed a few cycles) whi
+durable-subscriber | pattern | qa:reliability | Durable Subscriber | The messaging infrastructure persists a subscriber's subscription so that messages published while the subscri
+event-carried-state-transfer | pattern | Event-Carried State Transfer | Events carry the full changed state so consumers maintain local replicas and need not call back to the source 
+event-collaboration | pattern | Event Collaboration | Components collaborate by broadcasting events about what happened rather than requesting each other to act, ea
+fault-containment-region | pattern | Fault Containment Region | A set of components (typically a node computer) engineered so that the immediate consequences of an internal f
+fault-observer | pattern | Fault Observer | A system-wide component that collects fault reports from everywhere and publishes them to interested parties (
+fault-tolerant-unit | pattern | Fault-Tolerant Unit | A group of replica-deterministic fault containment regions that produce the same outputs so that the failure o
+federated-identity | pattern | qa:security | Federated Identity | Authentication is delegated to a separate identity provider that the application trusts, receiving identity cl
+firewall | pattern | qa:safety | Firewall | A barrier that restricts access to designated resources (typically processors, memory, and network connections
+five-layer-architecture-rtdp | pattern | Five-Layer Architecture (RTDP) | A concrete whole-system layering template for real-time embedded applications (application, UI, communication,
+flux | pattern | Flux | App structure with a strict one-way cycle: views dispatch actions, a dispatcher routes them to stores, stores 
+front-controller | pattern | Front Controller | One handler receives every request for a web application, performing common processing and dispatching to per-
+functional-redundancy | pattern | qa:availability,qa:safety | Functional Redundancy | Provide redundant components that are diversely designed and implemented but must produce the same output for 
+gateway-aggregation | pattern | Gateway Aggregation | A gateway fans one client request out to multiple backend services and aggregates their results into a single 
+gateway-offloading | pattern | Gateway Offloading | Shared edge functionality (TLS termination, authentication, compression) is offloaded from services into the g
+gateway-routing | pattern | Gateway Routing | A gateway routes requests to different backend services from a single endpoint based on request attributes.
+guaranteed-delivery | pattern | qa:reliability | Guaranteed Delivery | The messaging system persists every message to a local data store at each hop before acknowledging, and delete
+half-object-plus-protocol-arch | pattern | Half-Object plus Protocol (distribution structure) | Splits one logical object into coordinated halves in two address spaces with a private protocol keeping them c
+half-sync-half-async-system-layering | pattern | Half-Sync/Half-Async (system layering) | Layers a concurrent system into a synchronous service layer and an asynchronous event layer mediated by a queu
+hardware-abstraction-layer-arch | pattern | Hardware Abstraction Layer (architectural layer) | A dedicated layer in the firmware stack that presents hardware-independent interfaces for all peripheral and p
+health-check-api | pattern | Health Check API | Each service exposes an endpoint reporting its own liveness/readiness, polled by orchestrators and load balanc
+health-endpoint-monitoring | pattern | qa:availability | Health Endpoint Monitoring | Services expose endpoints reporting their own health; external agents (monitors, orchestrators, load balancers
+health-monitor-arinc-653 | pattern | Health Monitor (ARINC 653) | A standardized architectural function that detects and reports faults at process, partition, and module level 
+hierarchical-control-rtdp | pattern | Hierarchical Control (RTDP) | Distributes control policy across a hierarchy in which upper controllers set goals/modes and lower controllers
+index-table | pattern | Index Table | Maintains separate tables keyed by frequently queried fields over a data store that lacks native secondary ind
+intrusion-detection-system | pattern | qa:security | Intrusion Detection System | A dedicated component observes network traffic or host activity and flags (or blocks, as IPS) patterns indicat
+invoker | pattern | Invoker | Server-side middleware component that receives invocations, unmarshals them and dispatches to the target remot
+islands-architecture | pattern | Islands Architecture | Server-rendered pages contain isolated interactive islands that hydrate independently, leaving the rest static
+kernel-bypass-networking | pattern | Kernel-Bypass Networking | Restructures the I/O path so the application drives the NIC from user space via polled queues, bypassing the k
+leader-election | pattern | qa:availability | Leader Election | Cooperating instances select exactly one of themselves as coordinator for a role, and re-elect when the leader
+leaderless-replication | pattern | qa:availability | Leaderless Replication | Clients (or coordinators) write to and read from multiple replicas directly, using read/write quorums, read re
+log-aggregation | pattern | Log Aggregation | All services ship logs to a central searchable store rather than keeping them on individual hosts.
+m-out-of-n-voting | pattern | MooN Voting Architecture | The safety-instrumented channel topologies named MooN in IEC 61508: N channels of which M must agree/demand fo
+maintenance-interface | pattern | Maintenance Interface | A separate interface/channel dedicated to administration, diagnosis and maintenance, distinct from the applica
+master-worker | pattern | Master-Worker | A master component partitions work into independent tasks and dispatches them to a pool of identical worker co
+materialized-view-architecture-pattern | pattern | Materialized View (architecture pattern) | Precomputed, query-shaped copies of data are generated and refreshed from source-of-truth stores to serve read
+message-broker | pattern | Message Broker | A central intermediary receives messages from all senders and routes (and often transforms) them to the approp
+message-endpoint | pattern | Message Endpoint | The component that connects an application to a messaging channel, encapsulating send/receive mechanics at the
+message-router | pattern | Message Router | A component that consumes messages from one channel and republishes them to different channels according to ro
+messaging-bridge | pattern | Messaging Bridge | A set of connected channel pairs (or a broker-to-broker connector) that replicates messages between two distin
+model-view-controller | pattern | Model-View-Controller | Decomposes an interactive application into a model holding core data and logic, views presenting it, and contr
+model-view-intent | pattern | Model-View-Intent | Structures the app as a reactive cycle: intents (user input streams) feed a model function producing state str
+model-view-presenter | pattern | Model-View-Presenter | UI structure where a presenter mediates all interaction between a (possibly passive) view and the model, absor
+model-view-viewmodel | pattern | Model-View-ViewModel | UI structure where a view binds declaratively (data binding) to a view-model exposing view-shaped state and co
+monitor-actuator | pattern | Monitor-Actuator | A two-channel structure separating the actuation channel from an independent monitoring channel that checks th
+multi-leader-replication | pattern | qa:availability | Multi-Leader Replication | Several nodes accept writes concurrently and asynchronously replicate to each other, requiring conflict resolu
+object-synchronizer | pattern | Object Synchronizer | Decouples object replicas' synchronization policy from their functionality, coordinating state updates between
+page-controller | pattern | Page Controller | Each page or action of a web application has its own controller object handling its requests.
+policy-decision-point-policy-enforcement-point | pattern | qa:security | Policy Decision Point / Policy Enforcement Point | Authorization is externalized: enforcement points embedded at resource boundaries defer every access decision 
+polyglot-persistence | pattern | Polyglot Persistence | A system deliberately uses multiple storage technologies, matching each data-management need to the store best
+preforked-prethreaded-server | pattern | Preforked / Prethreaded Server | The server creates a pool of processes or threads at startup that take turns accepting and serving connections
+presentation-abstraction-control | pattern | Presentation-Abstraction-Control | Structures an interactive system as a hierarchy of cooperating agents, each with its own presentation, abstrac
+presentation-model | pattern | Presentation Model | A self-contained class holding all view state and behavior, which the view synchronizes with; the toolkit-inde
+primary-replica-replication | pattern | qa:availability | Primary-Replica Replication | One node accepts all writes and streams its change log to replicas, which serve reads and can be promoted on f
+privilege-separation-arch | pattern | qa:security | Privilege Separation | Splits a program into a small privileged monitor process and unprivileged worker processes that request privil
+process-manager | pattern | Process Manager | A central component maintains the state of each multi-step process instance and determines, step by step, whic
+process-pairs | pattern | qa:availability | Process Pairs | A primary process executes while a backup process on another node receives checkpoints and takes over transpar
+proxy-based-firewall | pattern | Proxy-Based Firewall | A firewall that terminates connections and re-issues them via per-protocol proxies, inspecting traffic at appl
+recursive-containment-rtdp | pattern | Recursive Containment (RTDP) | Decomposes the system recursively into parts that are themselves structured like systems, to any needed depth.
+recursive-control | pattern | Recursive Control | Structures a real-time control system as a recursive hierarchy in which every component pairs its functional p
+reflection | pattern | Reflection | Splits a system into a base level doing the application work and a meta level holding a self-representation (m
+remote-facade | pattern | Remote Facade | A coarse-grained facade over fine-grained objects provides the remote interface, bundling many small interacti
+replicated-component-group | pattern | Replicated Component Group | Deploys a component as a coordinated group of replicas presented as one logical component, for availability or
+replication | pattern | qa:availability,qa:safety | Replication | Provide multiple identical copies of a component so their results can be voted on or a copy can take over; eff
+reporting-database | pattern | Reporting Database | A separate database, fed from the operational store, structured and indexed for reporting/analytics queries.
+requestor | pattern | Requestor | Client-side middleware component that constructs and sends remote invocations on behalf of proxies, handling m
+routing-slip | pattern | Routing Slip | Each message carries its own list of processing steps; every step consumes its entry and forwards the message 
+safety-executive | pattern | Safety Executive | A centralized component that tracks safety-relevant events and coordinates all shutdown, recovery, and fail-sa
+saga | pattern | qa:availability | Saga | A multi-step business transaction implemented as a sequence of local transactions, each with a compensating ac
+sandbox | pattern | qa:testability,qa:security | Sandbox | Isolate an instance of the system from the real world so it can be experimented on without permanent consequen
+scheduler-agent-supervisor | pattern | Scheduler Agent Supervisor | A scheduler drives distributed steps via agents while a supervisor tracks step state and triggers recovery or 
+secrets-management-service | pattern | qa:security | Secrets Management Service | Credentials, keys, and tokens are held in a dedicated hardened service that issues them to workloads at runtim
+self-contained-component | pattern | Self-Contained Component | Organizes code into components each owning its directory, exposing one header interface, with dependencies poi
+sequential-convoy | pattern | Sequential Convoy | Related messages are grouped into convoys processed in order by a single consumer, while unrelated convoys pro
+server-request-handler | pattern | Server Request Handler | Server-side middleware component that accepts connections, receives request messages and hands them to invoker
+server-session-state | pattern | Server Session State | Session state is kept in the application server's memory (possibly serialized or replicated) between requests.
+service-layer | pattern | Service Layer | A layer of application services defines the system's available operations, coordinating domain logic, transact
+service-registry | pattern | Service Registry | A continually-updated database of available service instances and their network locations, which instances reg
+sharding | pattern | qa:scalability | Sharding | A dataset is split by key across nodes (range or hash partitioning) so each shard is stored and served indepen
+single-sign-on | pattern | Single Sign-On | One authentication event with a trusted authority yields tokens/tickets accepted by many independent systems.
+someone-in-charge | pattern | Someone in Charge | For every fault-tolerance activity some identified component is in charge of seeing it through to completion.
+strangler-fig | pattern | Strangler Fig | Incrementally build the new system around the edges of the old, intercepting and redirecting functionality unt
+supervision-tree-otp | pattern | Supervision Tree (OTP) | Workers are organized under a tree of supervisors whose only job is to monitor children and apply restart stra
+table-module | pattern | Table Module | Organizes domain logic with one class per database table, each instance handling all rows of its table.
+template-view | pattern | Template View | Renders web pages from static markup templates with embedded markers that are filled with dynamic content.
+the-elm-architecture | pattern | The Elm Architecture | App structured as an immutable model, a pure update function folding messages into the model, and a pure view 
+thread-per-connection-server | pattern | Thread-per-Connection Server | The server dedicates a freshly created process or thread to each accepted connection for its lifetime.
+time-and-space-partitioning | pattern | Time and Space Partitioning | An operating-system-enforced structure in which applications run in partitions with statically allocated memor
+transaction-script | pattern | Transaction Script | Organizes all domain logic as one procedure per business transaction, each handling its request from presentat
+transactional-outbox | pattern | Transactional Outbox | Service writes outgoing messages into an outbox table within the local database transaction; a relay publishes
+transform-view | pattern | Transform View | Renders output by programmatically transforming each domain data element into its presentation form.
+triple-modular-redundancy | pattern | Triple Modular Redundancy | Three identical channels compute in parallel and a voter forwards the majority result, masking any single chan
+trusted-execution-environment | pattern | qa:security | Trusted Execution Environment | A hardware-isolated execution partition runs security-critical code and holds secrets, exposing only a narrow 
+two-phase-commit | pattern | Two-Phase Commit | A coordinator drives distributed atomic commit: participants first vote prepared, then all commit or all abort
+two-step-view | pattern | Two Step View | Renders pages in two stages: first a logical presentation independent of look, then a formatting stage applyin
+units-of-mitigation | pattern | Units of Mitigation | Divides the system into the units within which errors are contained and recovery is performed - the granularit
+valet-key | pattern | Valet Key | The application issues clients a restricted token granting direct, time-limited access to a specific resource 
+watchdog-architecture-pattern | pattern | Watchdog (architecture pattern) | A system-level supervision structure: an independent watchdog component (often on separate hardware with its o
+autosar-adaptive-platform | reference-architecture | AUTOSAR Adaptive Platform | The POSIX-based automotive reference architecture for high-performance ECUs: dynamically scheduled application
+autosar-layered-software-architecture | reference-architecture | AUTOSAR Layered Software Architecture | The automotive reference layering for ECU software: application layer above the RTE, above basic software spli
+data-mesh | reference-architecture | Data Mesh | Analytical data architecture decentralized into domain-owned data products with self-serve platform and federa
+domain-specific-software-architecture | reference-architecture | Domain-Specific Software Architecture | A reference structure specialized to one application domain (e.g. avionics, vehicle management) that fixes the
+federated-avionics-architecture | reference-architecture | Federated Avionics Architecture | The traditional avionics system structure in which each function runs on its own dedicated computer with priva
+hla-federation | reference-architecture | HLA Federation | Independent simulators (federates) interoperate through a Run-Time Infrastructure under a federation object mo
+integrated-modular-avionics | reference-architecture | Integrated Modular Avionics | A domain reference architecture in which multiple avionics functions, formerly on dedicated boxes, are hosted 
+layered-game-engine-architecture | reference-architecture | Layered Game Engine Architecture | The canonical layering of a game engine runtime: platform independence layer, core systems, resource managemen
+multi-pass-compiler-pipeline | reference-architecture | Multi-Pass Compiler Pipeline | The canonical decomposition of a compiler into sequential phases (lexical analysis, parsing, semantic analysis
+relational-dbms-reference-architecture | reference-architecture | Relational DBMS Reference Architecture | The canonical decomposition of a DBMS into process manager, query processor (parser, rewriter, optimizer, exec
+actor-based-architecture | style | Actor-Based Architecture | Organizes the whole system as actors that own their state and interact only via asynchronous messages processe
+adaptive-object-model | style | Adaptive Object Model | Represents classes, attributes and rules as runtime data (metadata) interpreted by a generic engine, so the do
+batch-sequential | style | Batch Sequential | A degenerate data-flow organization in which each processing step runs to completion on the entire data set be
+blackboard | style | Blackboard | Independent specialized knowledge sources cooperate by reading and writing partial solutions on a shared data 
+blockchain | style | Blockchain | A peer-to-peer system maintains a replicated append-only ledger of Merkle-chained blocks agreed by a consensus
+broker | style | Broker | Structures a distributed system around an intermediary component that coordinates remote service invocations -
+c2 | style | C2 | A layered, message-based style in which components communicate only through explicit connectors via asynchrono
+channel-architecture | style | Channel Architecture | Organizing the system as one or more end-to-end channels, each a sequential chain of data transformations from
+clean-architecture | style | Clean Architecture | Concentric layers (entities, use cases, interface adapters, frameworks) with all source dependencies pointing 
+client-server | style | Client-Server | Server components provide services at known locations while client components initiate requests for them, typi
+code-on-demand | style | Code-on-Demand | A mobile-code style in which a client that has the data and processing resources requests executable code (kno
+component-based-architecture | style | Component-Based Architecture | Structures the whole system as replaceable components with explicit provided/required interfaces (ROOM: capsul
+data-parallel-architecture | style | Data-Parallel Architecture | The same program is applied concurrently across partitions of a large regular data set, each unit of execution
+dataflow-architecture | style | Dataflow Architecture | Organizes the whole system around the availability and movement of data through transforming nodes rather than
+distributed-commit-log | style | Distributed Commit Log | A partitioned, replicated append-only log serves as the system's ordering and integration backbone; producers 
+distributed-objects | style | Distributed Objects | System functionality is partitioned into objects whose methods can be invoked across process and machine bound
+distributed-processes | style | Distributed Processes | The system is a set of independent processes, typically on multiple processors, interacting by message passing
+event-based-implicit-invocation | style | Event-Based Implicit Invocation | Components announce (broadcast) events instead of invoking procedures directly; the system implicitly invokes 
+event-driven-architecture | style | Event-Driven Architecture | The system is organized around the production, detection, and asynchronous reaction to events, with components
+event-sourcing-architecture-style | style | Event Sourcing (architecture style) | System-level persistence strategy where the event log is the source of truth for whole services and downstream
+event-triggered-architecture | style | Event-Triggered Architecture | System-level organization in which communication and task activation are initiated by the occurrence of signif
+file-transfer | style | File Transfer | Applications integrate by one producing files of shared data and others consuming them, with an agreed format 
+function-queue-scheduling-architecture | style | Function-Queue-Scheduling Architecture | A system structure in which interrupts enqueue pointers to task functions and the main loop dequeues and runs 
+hexagonal-architecture | style | Hexagonal Architecture | Application core exposes technology-neutral ports; adapters translate between each external actor (UI, DB, tes
+interpreter-architectural-style | style | Interpreter (Architectural Style) | The system is organized as a virtual machine: an interpretation engine, the pseudo-program it executes, and th
+kappa-architecture | style | Kappa Architecture | Everything is a stream: a single stream-processing pipeline over a replayable log serves both real-time and re
+lambda-architecture | style | Lambda Architecture | Data system split into a batch layer (immutable master dataset, recomputed views), a speed layer (incremental 
+layers | style | Layers | Structures a whole system as a hierarchy of abstraction levels in which each layer offers services to the laye
+lmax-architecture | style | LMAX Architecture | A single-threaded in-memory business logic processor is fed and drained by ring-buffer (Disruptor) pipelines, 
+main-program-and-subroutines | style | Main Program and Subroutines | A single main program drives the system by calling a hierarchy of subroutines, with control returning up the c
+mapreduce | style | MapReduce | Batch computation structured as a parallel map phase over partitioned input, a shuffle, and a reduce phase, sc
+message-bus | style | Message Bus | A shared messaging backbone - common channels, a common data model, and a common command set - that all applic
+messaging | style | Messaging | Applications integrate by exchanging discrete asynchronous messages over channels provided by a messaging infr
+micro-frontends | style | Micro Frontends | Frontend decomposed into independently built and deployed UI fragments owned end-to-end by the teams owning th
+microkernel | style | Microkernel | Separates a minimal functional core (fundamental services, communication, extension management) from extended 
+microservices | style | Microservices | Suite of small, independently deployable services, each owning its data, communicating over lightweight networ
+mobile-agent | style | Mobile Agent | A mobile-code style in which an entire computational unit - code, execution state, and data - migrates itself 
+modular-monolith | style | Modular Monolith | Single deployable unit whose interior is decomposed into strictly encapsulated modules with enforced boundarie
+monolithic-architecture | style | Monolithic Architecture | The whole application is built and deployed as a single deployable unit.
+n-tier-client-server | style | N-Tier Client-Server | Client-server generalized to a chain of tiers (e.g. presentation, business logic, data management), each actin
+object-oriented-organization | style | Object-Oriented Organization | The system is organized as a collection of abstract-data-type instances (objects) that hide their representati
+peer-to-peer | style | Peer-to-Peer | Networked components (peers) act as both clients and servers of one another, discovering and exchanging servic
+pipes-and-filters | style | Pipes and Filters | Organizes a processing system as a chain of independent filter components connected by pipes that carry a data
+process-control-feedback-control-loop | style | Process Control (Feedback Control Loop) | The system is organized around a control loop: a controller reads process variables from sensors, compares the
+protocol-layering | style | Protocol Layering | Structures communication software as a stack of protocol layers, each providing services to the layer above an
+publish-subscribe-architectural-style | style | Publish-Subscribe (Architectural Style) | Publishers emit messages classified by topic or content to an intermediary event service, which delivers them 
+remote-evaluation | style | Remote Evaluation | A mobile-code style in which a component that has the know-how sends code to a remote site that has the resour
+remote-procedure-invocation | style | Remote Procedure Invocation | Applications integrate by exposing procedures/services that other applications invoke synchronously over the n
+repository-shared-data-style | style | Repository (Shared Data) Style | A central data structure represents the system state while a collection of independent components operate on i
+rest-representational-state-transfer | style | REST (Representational State Transfer) | A hybrid network-based style constraining client-server interaction to be stateless, cacheable, layered, and m
+rtos-based-architecture | style | RTOS-Based Architecture | A whole-system structure in which the application is decomposed into prioritized, preemptively scheduled RTOS 
+rule-based-system | style | Rule-Based System | An interpreter specialization in which a rule engine (inference/interpretation engine) selects and fires condi
+seda-staged-event-driven-architecture | style | qa:performance | SEDA (Staged Event-Driven Architecture) | Service structured as a network of event-driven stages connected by explicit queues, each stage with its own t
+sense-compute-control | style | Sense-Compute-Control | An embedded-systems organization structured as a repeating loop of sensor reading, computation over the sensed
+service-based-architecture | style | Service-Based Architecture | Small number of coarse-grained, separately deployed domain services sharing a single database, typically front
+service-oriented-architecture | style | Service-Oriented Architecture | Enterprise organized as coarse-grained reusable business/enterprise services coordinated through a mediating i
+shared-database | style | Shared Database | Multiple applications integrate by reading and writing the same database schema, making one store the single p
+shared-nothing-architecture | style | qa:scalability | Shared-Nothing Architecture | Nodes own disjoint partitions of data and memory and coordinate only by messages; no shared disk or shared mem
+space-based-architecture | style | Space-Based Architecture | Processing units with replicated in-memory data grids, synchronized asynchronously to persistent storage, so t
+state-transition-system-architectural-organization | style | State Transition System (Architectural Organization) | A whole reactive system is organized as a set of states plus named transitions that move the system between th
+streaming-dataflow-architecture | style | Streaming Dataflow Architecture | Structures data processing as a long-running dataflow graph over unbounded streams with windowing, watermarks 
+subsumption-architecture | style | Subsumption Architecture | Layers of behavior-producing modules run concurrently, with higher layers subsuming (suppressing/overriding) t
+superloop-architecture | style | Superloop Architecture | A whole-system structure with no operating system: one endless main loop polls and services every task in turn
+time-triggered-architecture | style | Time-Triggered Architecture | System-level organization in which all communication and computation are driven by the progression of a fault-
+virtual-machine-architectural-style | style | Virtual Machine (architectural style) | Builds the system atop an abstract machine whose instruction set is interpreted, decoupling applications from 
+zero-trust-architecture | style | qa:security | Zero Trust Architecture | A security architecture in which no implicit trust is granted by network location; every access to a resource 
+abort | tactic | qa:safety | Abort | If an operation is determined to be unsafe, terminate it before it causes damage — the conceptually simplest w
+abstract-common-services | tactic | qa:integrability,qa:modifiability | Abstract Common Services | Where elements provide similar services, factor the similarity into a single more general/abstract service use
+abstract-data-sources | tactic | qa:testability | Abstract Data Sources | Abstract the interfaces to a program's input data so test data can be substituted easily — e.g. repointing the
+adhere-to-standards | tactic | qa:integrability | Adhere to Standards | Conform to published interface, protocol, and data standards so that elements built independently can interope
+aggregate-tactic | tactic | qa:usability | Aggregate | Provide the ability to aggregate lower-level objects into a group so an operation applies to the whole group, 
+analytic-redundancy | tactic | qa:availability,qa:safety | Analytic Redundancy | Provide redundant components that are diverse not only internally but also in their inputs and outputs (e.g. c
+audit | tactic | qa:security | Audit | Record user and system actions and their effects so an attacker's actions can be traced and identified, suppor
+authenticate-actors | tactic | qa:security | Authenticate Actors | Ensure an actor actually is who or what it claims to be, via passwords, one-time passwords, digital certificat
+authorize-actors | tactic | qa:security | Authorize Actors | Ensure an authenticated actor has the rights to access and modify data or services, via access control mechani
+bound-execution-times | tactic | qa:performance,qa:energy-efficiency | Bound Execution Times | Place a limit on how much execution time is used to respond to an event — e.g. bounding iteration counts in da
+bound-queue-sizes | tactic | qa:performance | Bound Queue Sizes | Control the maximum number of queued arrivals, and thereby the resources used to process them, with an explici
+cancel | tactic | qa:usability | Cancel | Support user-issued cancellation: a listener not blocked by the operation being cancelled, termination of the 
+change-credential-settings | tactic | qa:security | Change Credential Settings | Force users to change default security settings and credentials on delivered systems, and require periodic pas
+comparison | tactic | qa:safety | Comparison | Detect potentially unsafe states by comparing the outputs of redundant components and flagging divergence.
+condition-monitoring | tactic | qa:availability,qa:safety | Condition Monitoring | Check conditions in a process or device, or validate assumptions made during design (e.g. by computing checksu
+configure-behavior | tactic | qa:integrability | Configure Behavior | Build components so their behavior can be configured — during build, deployment/startup, or runtime — to opera
+defense-in-depth | tactic | qa:security | Defense in Depth | Multiple independent security controls are layered along the path to an asset so that compromising any single 
+defer-binding | tactic | qa:modifiability | Defer Binding | Bind values and choices as late in the life cycle as cost-effective: at compile/build time (component replacem
+degradation | tactic | qa:availability,qa:safety | Degradation | In the presence of component failures, maintain the most critical system functions while dropping or substitut
+detect-intrusion | tactic | qa:security | Detect Intrusion | Compare network traffic or service request patterns within a system against a database of signatures or known 
+detect-message-delay | tactic | qa:security | Detect Message Delay | Detect potential man-in-the-middle attacks by checking the time taken to deliver or receive messages against n
+detect-service-denial | tactic | qa:security | Detect Service Denial | Compare the pattern or signature of incoming network traffic against historical profiles of known denial-of-se
+discover | tactic | qa:integrability,qa:energy-efficiency | Discover | Match service requests to service providers at runtime through a discovery service, enabling identification an
+dynamic-classification | tactic | qa:energy-efficiency | Dynamic Classification | Estimate energy consumption with a dynamic model — a table lookup, a regression over past executions, or a sim
+encapsulate | tactic | qa:integrability,qa:modifiability | Encapsulate | Introduce an explicit interface to an element and hide its internals so that other elements depend only on the
+encrypt-data | tactic | qa:security | Encrypt Data | Apply encryption (symmetric or asymmetric) to stored data and to communication, providing confidentiality beyo
+escalating-restart | tactic | qa:availability | Escalating Restart | Recover by restarting components at progressively coarser granularity levels (e.g. child threads only, then un
+exception-detection | tactic | qa:availability | Exception Detection | Detect system conditions that alter the normal flow of execution, refined by the book into system exceptions, 
+exception-handling | tactic | qa:availability | Exception Handling | After an exception is detected, handle it using mechanisms ranging from function return codes to exception cla
+exception-prevention | tactic | qa:availability | Exception Prevention | Employ techniques that keep exceptions from arising at all — error-correcting codes, abstract data types such 
+executable-assertions | tactic | qa:testability | Executable Assertions | Hand-code assertions checking that data values satisfy specified constraints — placed wherever the data is ref
+failover | tactic | qa:availability | Failover | On failure of an active unit, service is switched to a redundant standby unit that assumes its role.
+feature-toggle | tactic | qa:deployability | Feature Toggle | Integrate a runtime 'kill switch' for new features so a deployed feature can be automatically disabled without
+heartbeat-tactic | tactic | qa:availability | Heartbeat | A monitored component periodically emits a message to (or resets a watchdog timer in) a system monitor, so tha
+identify-actors | tactic | qa:security | Identify Actors | Identify the source of any external input to the system — users by user IDs; other systems by access codes, IP
+ignore-faulty-behavior | tactic | qa:availability | Ignore Faulty Behavior | Ignore messages from a particular source once they are determined to be spurious, e.g. messages from a sensor 
+increase-competence-set | tactic | qa:availability | Increase Competence Set | Design a component to handle more cases — states that would otherwise be faults — as part of its normal operat
+increase-resource-usage-efficiency | tactic | qa:performance,qa:energy-efficiency | Increase Resource Usage Efficiency | Improve the efficiency of the algorithms used in critical areas to decrease latency and improve throughput and
+increase-resources | tactic | qa:performance | Increase Resources | Add or upgrade resources — faster processors, additional processors, more memory, faster networks — to improve
+inform-actors | tactic | qa:security | Inform Actors | When the system detects an attack, notify the relevant set of actors — operators, other personnel, or cooperat
+interlock | tactic | qa:safety | Interlock | Protect against failures arising from incorrect event ordering by controlling all access to protected componen
+introduce-concurrency | tactic | qa:performance | Introduce Concurrency | Process requests in parallel — different event streams on different threads, or additional threads for differe
+limit-access | tactic | qa:security | Limit Access | Restrict access to computing resources by limiting the number of access points and/or the types of traffic all
+limit-event-response | tactic | qa:performance,qa:energy-efficiency | Limit Event Response | Process events only up to a set maximum rate, queueing or deliberately dropping events that arrive faster, tri
+limit-exposure | tactic | qa:security | Limit Exposure | Minimize the damage a successful attack can do by reducing the amount of data or services reachable through an
+limit-nondeterminism | tactic | qa:testability | Limit Nondeterminism | Find and, where possible, eliminate sources of behavioral nondeterminism such as unconstrained parallelism; wh
+limit-structural-complexity | tactic | qa:testability | Limit Structural Complexity | Keep the structure simple enough to test: avoid or resolve cyclic dependencies, isolate and encapsulate enviro
+localize-state-storage | tactic | qa:testability | Localize State Storage | Store system/subsystem/component state in a single place — conveniently a state machine object tracking and re
+maintain-multiple-copies-of-computations | tactic | qa:performance | Maintain Multiple Copies of Computations | Run multiple replicas of a computation (replicated services in a microservice architecture, replicated web ser
+maintain-multiple-copies-of-data | tactic | qa:performance | Maintain Multiple Copies of Data | Keep copies of data — replication (separate identical copies to reduce contention) or caching (copies, possibl
+maintain-system-model | tactic | qa:usability | Maintain System Model | The system maintains an explicit model of itself to determine expected system behavior and give users appropri
+maintain-task-model | tactic | qa:usability | Maintain Task Model | Maintain a model of the task the user is performing so the system can infer context and assist — e.g. predicti
+maintain-user-model | tactic | qa:usability | Maintain User Model | Maintain an explicit model of a user or user class — their knowledge of the system, expected response-time beh
+manage-event-arrival | tactic | qa:performance,qa:energy-efficiency | Manage Event Arrival | Control the arrival rate of events from external systems, canonically by setting a service level agreement tha
+manage-resources-integrability | tactic | qa:integrability | Manage Resources (Integrability) | Interpose an explicit resource manager that mediates access to shared computing resources (memory, threads, ha
+manage-sampling-rate | tactic | qa:performance,qa:energy-efficiency | Manage Sampling Rate | Reduce (possibly dynamically) the frequency at which environmental input is sampled — sensor data rates, video
+manage-service-interactions | tactic | qa:deployability | Manage Service Interactions | Allow multiple versions of system services to be deployed and executed simultaneously, with client requests ro
+masking | tactic | qa:safety | Masking | Mask a fault by comparing the results of several redundant components and using a voting procedure when they d
+metering | tactic | qa:energy-efficiency | Metering | Collect data about the energy consumption of computing resources in near real time via a sensor infrastructure
+monitor | tactic | qa:availability | Monitor | A dedicated component monitors the health of other parts of the system (processors, processes, I/O, memory) an
+non-stop-forwarding | tactic | qa:availability | Non-Stop Forwarding | Split functionality into a control/management plane and a data plane so that when the control plane fails, the
+nonrepudiation | tactic | qa:security | Nonrepudiation | Guarantee that the sender of a message cannot later deny sending it and the receiver cannot deny receiving it,
+orchestrate | tactic | qa:integrability | Orchestrate | Introduce a control mechanism (e.g. an orchestration engine or workflow controller) that coordinates, sequence
+package-dependencies | tactic | qa:deployability | Package Dependencies | Package an element together with its dependencies (libraries, OS version, utility containers) — via containers
+parameter-fence | tactic | qa:availability | Parameter Fence | Place a known data pattern immediately after any variable-length parameters of an object so that overwrites of
+parameter-typing | tactic | qa:availability | Parameter Typing | Use a base class defining functions to add, find, and iterate over type-length-value (TLV) message parameters 
+pause-resume | tactic | qa:usability | Pause/Resume | Let users pause and later resume long-running operations (e.g. large downloads), temporarily freeing resources
+ping-echo | tactic | qa:availability | Ping/Echo | Nodes exchange asynchronous request/response message pairs to determine reachability and round-trip delay, wit
+predictive-model | tactic | qa:availability,qa:safety | Predictive Model | Combine a model with monitoring to predict, from operational metrics (session establishment rates, threshold c
+prioritize-events | tactic | qa:performance,qa:energy-efficiency | Prioritize Events | Impose a priority scheme ordering events by importance of servicing them, so that under resource pressure low-
+queue-based-load-leveling | tactic | qa:availability,qa:performance | Queue-Based Load Leveling | A queue is placed between producers and a service so bursts are absorbed by the queue and the service consumes
+reconfiguration | tactic | qa:availability,qa:safety | Reconfiguration | Recover from failure by reassigning responsibilities — remapping the logical architecture onto the (possibly l
+record-playback | tactic | qa:testability | Record/Playback | Record information as it crosses interfaces and use the recorded state to 'play the system back', recreating t
+redistribute-responsibilities | tactic | qa:modifiability | Redistribute Responsibilities | Move similar responsibilities scattered across several modules into one module (existing or new), guided by ch
+reduce-computational-overhead | tactic | qa:performance,qa:energy-efficiency | Reduce Computational Overhead | Reduce the work spent per event by removing costly indirection (while ideally preserving encapsulation through
+reduce-usage | tactic | qa:energy-efficiency | Reduce Usage | Reduce energy use by device-level actions (lower refresh rate, dim display), removing or deactivating unneeded
+redundant-spare | tactic | qa:availability | Redundant Spare | Configure one or more spare components that can step in and take over when an active component fails; hot/warm
+removal-from-service | tactic | qa:availability | Removal from Service | Temporarily place a system component out of service and reset it to scrub latent faults (memory leaks, fragmen
+repair-state | tactic | qa:safety | Repair State | Repair an erroneous state — effectively enlarging the set of states the component handles competently — and co
+restrict-communication-paths | tactic | qa:integrability | Restrict Communication Paths | Restrict the set of elements with which a given element can communicate, so the number of potential interactio
+restrict-dependencies | tactic | qa:modifiability | Restrict Dependencies | Restrict which modules a given module may interact with or depend on, in practice via interface visibility and
+restrict-login | tactic | qa:security | Restrict Login | Limit access from a computer after repeated failed login attempts to an account, typically for a bounded perio
+retry | tactic | qa:availability | Retry | Assume the fault that caused a failure is transient and retry the operation, with a limit on the number of att
+revoke-access | tactic | qa:security | Revoke Access | When an attack is believed to be underway, severely limit access to sensitive resources — even for normally le
+rollback-deployment | tactic | qa:deployability | Rollback (Deployment) | Revert a defective or disappointing deployment to its prior state, tracking or being able to reverse the coord
+rollback-tactic | tactic | qa:availability,qa:safety | Rollback | On detecting a failure, revert the system to a previously saved known-good state (the rollback line), captured
+sanity-checking | tactic | qa:availability,qa:safety | Sanity Checking | Check the validity or reasonableness of a component's specific operations or outputs, typically at interfaces,
+scale-rollouts | tactic | qa:deployability | Scale Rollouts | Deploy a new version of a service gradually to controlled subsets of the user population rather than to everyo
+schedule-resources | tactic | qa:performance,qa:energy-efficiency | Schedule Resources | When resources (processors, buffers, networks) are contended, choose and apply a scheduling policy — priority 
+script-deployment-commands | tactic | qa:deployability | Script Deployment Commands | Capture the many precisely ordered, coordinated deployment steps as scripts that are treated like code — docum
+self-test | tactic | qa:availability | Self-Test | A component or subsystem runs procedures to test itself for correct operation, initiated by itself or invoked 
+separate-entities | tactic | qa:security | Separate Entities | Limit the scope of an attack by separating entities — physical separation onto different servers/networks, vir
+shadow | tactic | qa:availability | Shadow | Run a previously failed or freshly upgraded component in shadow mode for a predefined period, monitoring its b
+software-upgrade | tactic | qa:availability | Software Upgrade | Upgrade executable code images in service, without affecting the running service, via function patches, class 
+specialized-interfaces | tactic | qa:testability | Specialized Interfaces | Provide dedicated test interfaces — set/get methods for important variables, report methods returning full obj
+split-module | tactic | qa:modifiability | Split Module | Refactor a module whose responsibilities are not cohesive into several modules that are each individually cohe
+state-resynchronization | tactic | qa:availability | State Resynchronization | Restore and verify state consistency between active and standby components, either naturally under active redu
+static-classification | tactic | qa:energy-efficiency | Static Classification | Estimate energy consumption by cataloging the computing resources used and their known static energy character
+substitution | tactic | qa:safety | Substitution | Replace potentially hazardous software design features with protection mechanisms — typically hardware devices
+tailor-interface | tactic | qa:integrability | Tailor Interface | Add capabilities to or hide capabilities of an interface without changing the underlying implementation — e.g.
+throttling-service-admission-control | tactic | qa:performance,qa:availability | Throttling (service admission control) | A service enforces consumption limits per tenant/client and degrades or rejects excess requests to protect its
+timeout-tactic | tactic | qa:availability,qa:safety | Timeout | A component raises an exception when it detects that it or another component has failed to meet its timing con
+timestamp | tactic | qa:availability,qa:safety | Timestamp | Assign the state of a local clock (or a sequence number) to events immediately after they occur so that incorr
+transactions | tactic | qa:availability | Transactions | Use transaction semantics (ACID properties, most commonly implemented via two-phase commit) to bundle state up
+undo | tactic | qa:usability | Undo | Maintain sufficient information about earlier system state — snapshots/checkpoints or sets of reversible opera
+use-an-intermediary | tactic | qa:integrability,qa:modifiability | Use an Intermediary | Break a dependency between elements by interposing an intermediary (broker, publish-subscribe bus, name server
+validate-input | tactic | qa:security | Validate Input | Sanitize and check input as it is received — filtering, canonicalization, and cleansing, typically via a secur
+verify-message-integrity | tactic | qa:security | Verify Message Integrity | Use checksums or hash values to verify the integrity of messages, resource files, deployment files, and config
+voting | tactic | qa:availability | Voting | Compare computational results from multiple sources that should produce the same result and decide which to us

@@ -1,0 +1,103 @@
+{
+ "group": "gEDITOR",
+ "edges": [
+  {
+   "from": "event-loop",
+   "kind": "enables",
+   "to": "event-driven-architecture",
+   "provenance": "editorial",
+   "cite": null,
+   "note": "the event loop is the in-process engine that makes an event-driven topology run: it demultiplexes and dispatches the events EDA is organized around"
+  },
+  {
+   "from": "reactor",
+   "kind": "enables",
+   "to": "event-driven-architecture",
+   "provenance": "editorial",
+   "cite": null,
+   "note": "the reactor's synchronous event demultiplexing is a canonical realization substrate for an event-driven architecture"
+  },
+  {
+   "from": "thread-pool",
+   "kind": "realizes",
+   "to": "master-worker",
+   "provenance": "sourced",
+   "cite": "mattsonppp, Master/Worker pattern (Supporting Structures): a shared work queue feeding a pool of identical workers",
+   "note": "a worker pool draining a task queue is the textbook realization of master/worker"
+  },
+  {
+   "from": "fork-join",
+   "kind": "enables",
+   "to": "master-worker",
+   "provenance": "editorial",
+   "cite": null,
+   "note": "fork/join task decomposition can be structured as master-dispatched work with joined results"
+  },
+  {
+   "from": "work-stealing",
+   "kind": "alternative-to",
+   "to": "fork-join",
+   "provenance": "editorial",
+   "cite": null,
+   "note": "work-stealing and centralized fork/join are alternative task-distribution disciplines for the same divide-and-conquer parallelism"
+  },
+  {
+   "from": "spmd",
+   "kind": "realizes",
+   "to": "data-parallel-architecture",
+   "provenance": "sourced",
+   "cite": "mattsonppp, SPMD pattern",
+   "note": "SPMD is the canonical realization of the data-parallel style"
+  },
+  {
+   "from": "parallel-reduction",
+   "kind": "realizes",
+   "to": "data-parallel-architecture",
+   "provenance": "editorial",
+   "cite": null,
+   "note": "a parallel reduction is a data-parallel collective over a partitioned data set"
+  },
+  {
+   "from": "stencil",
+   "kind": "realizes",
+   "to": "data-parallel-architecture",
+   "provenance": "sourced",
+   "cite": "mattsonppp, Geometric Decomposition pattern",
+   "note": "stencil computation is geometric-decomposition data parallelism"
+  },
+  {
+   "from": "loop-parallelism",
+   "kind": "realizes",
+   "to": "data-parallel-architecture",
+   "provenance": "editorial",
+   "cite": null,
+   "note": "parallelizing loop iterations over data partitions is the data-parallel style in the small"
+  },
+  {
+   "from": "message-translator",
+   "kind": "realizes",
+   "to": "messaging",
+   "provenance": "sourced",
+   "cite": "eip, Message Translator sits within the Messaging integration style",
+   "note": "in-process payload transformation realized inside a messaging topology (repairs the dropped same-name arch node)"
+  },
+  {
+   "from": "seda-staged-event-driven-architecture",
+   "kind": "specializes",
+   "to": "event-driven-architecture",
+   "provenance": "editorial",
+   "cite": null,
+   "note": "SEDA is a staged, queue-decoupled specialization of the event-driven style"
+  },
+  {
+   "from": "mapreduce",
+   "kind": "specializes",
+   "to": "data-parallel-architecture",
+   "provenance": "editorial",
+   "cite": null,
+   "note": "MapReduce is a batch, shuffle-based specialization of data-parallel processing"
+  }
+ ],
+ "unbridged": [],
+ "notes": "editor pass: demand-driven new-node wiring for already-completed groups + message-translator realm repair"
+}

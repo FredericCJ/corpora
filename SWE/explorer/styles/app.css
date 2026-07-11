@@ -170,6 +170,29 @@ table.matrix td.hot{background:var(--c-cpp-bg);font-weight:700;color:var(--c-cpp
 .foot-note{font-size:.66rem;color:var(--faint);margin-top:1rem;border-top:1px solid var(--line-2);padding-top:.5rem}
 .foot-note a{color:var(--mut)}
 
+/* ─────────────────────────── element layer (design + architecture realms) ─────────────────────────── */
+/* Page/inner scroll is authorized for the element views (element-scale navigability); the five work
+   models keep the strict single-viewport form. */
+.tabs .tab-sep{align-self:center;font-family:var(--mono);font-size:.54rem;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--faint);padding:0 .2rem 0 .5rem;border-left:1px solid var(--line);margin-left:.25rem}
+.chip.re-design{color:#0F6D5B;border-color:#BFE0D2;background:#E9F4EE}
+.chip.re-arch{color:#6D4AA6;border-color:#D8C9EC;background:#F1EAFB}
+.chip.re-design.sel,.chip.re-arch.sel{outline:2px solid var(--ink)}
+/* generic element-view scroll region + layouts (used by the bridge / coverage / graph shells) */
+.el-scroll{position:absolute;inset:0;overflow:auto;padding:.6rem .9rem 1.4rem}
+.el-two{display:grid;grid-template-columns:1fr 1fr;gap:.5rem 1rem;align-items:start}
+.el-group{break-inside:avoid;border:1px solid var(--line-2);border-radius:var(--rad);padding:.45rem .6rem;margin:0 0 .6rem;background:var(--panel)}
+.el-group>h3{font-family:var(--serif);font-weight:500;font-size:.85rem;margin:0 0 .1rem;display:flex;gap:.4rem;align-items:baseline;flex-wrap:wrap}
+.el-group .sub{font-size:.68rem;color:var(--mut)}
+.el-line{display:flex;gap:.3rem;align-items:baseline;flex-wrap:wrap;font-size:.72rem;padding:.16rem 0;border-top:1px solid var(--line-2);cursor:pointer}
+.el-line:first-of-type{border-top:none}
+.el-line:hover{color:var(--ink)}
+.el-line .nm{font-weight:600}
+.prov-s{color:var(--mut);font-family:var(--mono);font-size:.56rem}
+.prov-e{color:var(--unv);font-family:var(--mono);font-size:.56rem;font-style:italic}
+.el-count{font-family:var(--serif);font-size:1.1rem;color:var(--ink)}
+.el-legend{font-size:.66rem;color:var(--mut);display:flex;gap:.8rem;flex-wrap:wrap;margin-top:.2rem}
+
 /* graceful degradation on small screens (not the target) */
 @media (max-width:900px){
   body{overflow:auto;height:auto}

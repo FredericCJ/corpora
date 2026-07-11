@@ -1,0 +1,120 @@
+{
+ "group": "g4",
+ "edges": [
+  {"from": "active-object", "kind": "realizes", "to": "actor-based-architecture", "provenance": "editorial", "cite": null, "note": "An actor is an active object with a mailbox: state owned by one execution context, invocations reified as queued messages; active object is the in-process realization of the actor style."},
+  {"from": "active-object", "kind": "realizes", "to": "introduce-concurrency", "provenance": "editorial", "cite": null, "note": "Decoupling invocation from execution puts callers and servants on different threads - a direct mechanism for processing requests concurrently."},
+
+  {"from": "async-await-model", "kind": "realizes", "to": "introduce-concurrency", "provenance": "editorial", "cite": null, "note": "Compiler-generated continuations let one thread interleave many in-flight operations - concurrency without thread-per-request."},
+  {"from": "async-await-model", "kind": "specializes", "to": "coroutine", "provenance": "editorial", "cite": null, "note": "Async functions are stackless coroutines: suspension at await points with compiler-managed state, restricted to the async/await protocol."},
+  {"from": "async-await-model", "kind": "composes-with", "to": "future-promise", "provenance": "sourced", "cite": "MDN, async functions reference: an async function returns a Promise, and await consumes promises/thenables", "note": "The awaitable object is a future/promise; the two mechanisms form one model."},
+  {"from": "async-await-model", "kind": "composes-with", "to": "event-loop", "provenance": "sourced", "cite": "MDN, 'The event loop' + async function docs: awaited continuations are scheduled as microtasks on the event loop", "note": "In JS/Python-asyncio the resumption of awaited code is driven by the event loop."},
+
+  {"from": "asynchronous-completion-token", "kind": "enables", "to": "asynchronous-request-reply", "provenance": "editorial", "cite": null, "note": "Correlating a completion with its initiating request via an opaque token is the in-process form of the correlation needed by system-scale async request-reply."},
+
+  {"from": "bytecode-virtual-machine", "kind": "realizes", "to": "interpreter-architectural-style", "provenance": "sourced", "cite": "Garlan & Shaw, An Introduction to Software Architecture: interpreter style = interpretation engine + the pseudo-program (bytecode) it executes", "note": "A bytecode VM is exactly the style's organization: engine, pseudo-program, and execution state."},
+  {"from": "bytecode-virtual-machine", "kind": "realizes", "to": "virtual-machine-architectural-style", "provenance": "editorial", "cite": null, "note": "Building the system atop an abstract instruction set interpreted at runtime is realized concretely by a bytecode VM."},
+
+  {"from": "cancellation-token", "kind": "realizes", "to": "cancel", "provenance": "editorial", "cite": null, "note": "The token threaded through the call graph is the standard mechanism by which a user- or system-issued cancel reaches a running operation at safe points."},
+  {"from": "cancellation-token", "kind": "realizes", "to": "timeout-tactic", "provenance": "editorial", "cite": null, "note": "Deadline-carrying tokens/contexts (Go context.WithDeadline, .NET CancelAfter) are the implementation vehicle for enforcing timing bounds on operations."},
+
+  {"from": "competing-consumers", "kind": "realizes", "to": "competing-consumers-system-topology", "provenance": "sourced", "cite": "Enterprise Integration Patterns, Competing Consumers: multiple consumers on one point-to-point channel, each message to exactly one", "note": "Same-name pair: the design-level mechanism is the EIP pattern the system-topology arch entry names."},
+  {"from": "competing-consumers", "kind": "realizes", "to": "competing-consumers-system-scale", "provenance": "sourced", "cite": "Enterprise Integration Patterns, Competing Consumers (system-scale reading of the same pattern)", "note": "Same mechanism read at deployed-service-instance scale."},
+  {"from": "competing-consumers", "kind": "enables", "to": "queue-based-load-leveling", "provenance": "sourced", "cite": "Azure Architecture Center, Competing Consumers pattern - related patterns list Queue-Based Load Leveling", "note": "Scaling the drain side of the leveling queue is done by adding competing consumers."},
+
+  {"from": "coroutine", "kind": "enables", "to": "pipes-and-filters", "provenance": "editorial", "cite": null, "note": "Classic realization: each filter is a coroutine yielding items downstream, giving incremental pipeline processing without threads (Conway's original coroutine use was a pipeline)."},
+  {"from": "coroutine", "kind": "realizes", "to": "introduce-concurrency", "provenance": "editorial", "cite": null, "note": "Cooperative suspension/resumption interleaves multiple activities on one thread - the lightweight form of introducing concurrency."},
+
+  {"from": "deoptimization", "kind": "enables", "to": "virtual-machine-architectural-style", "provenance": "editorial", "cite": null, "note": "Speculatively optimizing VMs (JVM, V8) depend on deoptimization as the safety net that makes speculative JIT compilation sound; without it the managed-runtime style loses its performance model."},
+  {"from": "deoptimization", "kind": "composes-with", "to": "bytecode-virtual-machine", "provenance": "editorial", "cite": null, "note": "Deopt transfers a running activation back to the bytecode interpreter tier of the same VM."},
+
+  {"from": "event-loop", "kind": "enables", "to": "event-based-implicit-invocation", "provenance": "editorial", "cite": null, "note": "The dispatch loop is the load-bearing runtime mechanism of implicit-invocation systems: announced events are delivered by the loop to registered handlers. (Closest node; a general event-driven-architecture style node is missing.)"},
+  {"from": "event-loop", "kind": "enables", "to": "function-queue-scheduling-architecture", "provenance": "editorial", "cite": null, "note": "The FQS main loop that dequeues and runs function pointers enqueued by ISRs is an event loop at whole-firmware scale."},
+
+  {"from": "executor", "kind": "realizes", "to": "schedule-resources", "provenance": "editorial", "cite": null, "note": "The executor object is exactly where the scheduling policy for contended CPU (which thread, when, what order) is chosen and applied."},
+  {"from": "executor", "kind": "composes-with", "to": "thread-pool", "provenance": "sourced", "cite": "Java Concurrency in Practice (Goetz et al.), ch. 6: the Executor framework's standard implementations are thread pools", "note": "Submission-side abstraction backed by a pooled-worker execution policy."},
+
+  {"from": "false-sharing-avoidance-via-cache-line-padding", "kind": "realizes", "to": "increase-resource-usage-efficiency", "provenance": "editorial", "cite": null, "note": "Padding removes needless cache-coherence traffic on hot shared data - efficiency of the memory system in critical areas."},
+  {"from": "false-sharing-avoidance-via-cache-line-padding", "kind": "enables", "to": "lmax-architecture", "provenance": "sourced", "cite": "LMAX Disruptor technical paper (Thompson et al.): ring-buffer sequence counters are cache-line padded to eliminate false sharing", "note": "The style's single-threaded-processor-plus-ring-buffer throughput model depends on padded sequences."},
+
+  {"from": "fast-path", "kind": "realizes", "to": "reduce-computational-overhead", "provenance": "editorial", "cite": null, "note": "A short cheap common-case path is the canonical way to cut per-event work while keeping the general slow path for rare cases."},
+
+  {"from": "fork-join", "kind": "realizes", "to": "introduce-concurrency", "provenance": "editorial", "cite": null, "note": "Forking subtasks across worker threads and joining is a direct mechanism for parallel processing of divisible work."},
+
+  {"from": "future-promise", "kind": "realizes", "to": "asynchronous-request-reply", "provenance": "editorial", "cite": null, "note": "The future is the in-process handle for an eventual result - the same accepted-now/result-later contract the arch pattern establishes over the network."},
+  {"from": "future-promise", "kind": "composes-with", "to": "active-object", "provenance": "sourced", "cite": "POSA2, Active Object: clients receive a future through which the servant's eventual result is obtained", "note": "The pattern's structure names the future as its result-return participant."},
+
+  {"from": "game-loop", "kind": "enables", "to": "layered-game-engine-architecture", "provenance": "sourced", "cite": "Game Engine Architecture (Gregory), 'The Game Loop and Real-Time Simulation': the loop drives updates of all engine subsystems each frame", "note": "The engine's runtime layering is animated by the game loop; it is the mechanism the whole architecture ticks on."},
+  {"from": "game-loop", "kind": "realizes", "to": "superloop-architecture", "provenance": "editorial", "cite": null, "note": "A game loop is the game-domain instance of the endless poll-update-service main loop as whole-program structure."},
+  {"from": "game-loop", "kind": "alternative-to", "to": "event-loop", "provenance": "sourced", "cite": "Game Programming Patterns (Nystrom), Game Loop chapter: contrasted with the blocking GUI event loop - the game loop processes input without waiting for it", "note": "Nystrom's own comparison: same driver-loop family, opposite blocking discipline."},
+
+  {"from": "green-threads", "kind": "realizes", "to": "introduce-concurrency", "provenance": "editorial", "cite": null, "note": "User-space threads are a mechanism for adding cheap concurrency (many more logical threads than OS threads)."},
+  {"from": "green-threads", "kind": "enables", "to": "actor-based-architecture", "provenance": "editorial", "cite": null, "note": "Actor runtimes (BEAM processes, Akka dispatchers, Java Loom) rest on runtime-scheduled lightweight threads; millions of actors are only feasible in user space."},
+
+  {"from": "half-sync-half-async", "kind": "realizes", "to": "half-sync-half-async-system-layering", "provenance": "sourced", "cite": "POSA2, Half-Sync/Half-Async: the same pattern, described from in-process mechanism to whole-system layering", "note": "Same-name pair bridged: the design-level split is the mechanism of the system-scale layering."},
+  {"from": "half-sync-half-async", "kind": "composes-with", "to": "reactor", "provenance": "sourced", "cite": "POSA2, Half-Sync/Half-Async implementation: the asynchronous layer is commonly built with Reactor (or Proactor) event demultiplexing", "note": "Reactor supplies the async-layer event dispatching."},
+
+  {"from": "job-system", "kind": "realizes", "to": "schedule-resources", "provenance": "editorial", "cite": null, "note": "A job system is an applied scheduling policy: dependency-DAG ordering of small tasks onto contended cores."},
+  {"from": "job-system", "kind": "enables", "to": "layered-game-engine-architecture", "provenance": "sourced", "cite": "Game Engine Architecture (Gregory), concurrency chapter: modern engine runtimes decompose frame work into jobs run by the engine's job system", "note": "The engine layers' per-frame work is executed through the job system."},
+  {"from": "job-system", "kind": "composes-with", "to": "thread-pool", "provenance": "sourced", "cite": "Game Engine Architecture (Gregory): jobs are scheduled onto a fixed pool of worker threads (one per core)", "note": "The job scheduler's execution substrate is a pinned worker pool."},
+
+  {"from": "leader-followers", "kind": "realizes", "to": "introduce-concurrency", "provenance": "editorial", "cite": null, "note": "A rotating thread set demultiplexing and processing events concurrently is a concurrency-introduction mechanism tuned to avoid hand-offs."},
+  {"from": "leader-followers", "kind": "realizes", "to": "preforked-prethreaded-server", "provenance": "editorial", "cite": null, "note": "Pre-created processes/threads taking turns on accept() is the leader/followers protocol at server-architecture scale."},
+  {"from": "leader-followers", "kind": "alternative-to", "to": "half-sync-half-async", "provenance": "sourced", "cite": "POSA2, Leader/Followers: consequences/see-also compare it with Half-Sync/Half-Async queue-based thread pooling", "note": "Both structure concurrent event processing; L/F trades the queue layer away for lower latency."},
+
+  {"from": "loop-parallelism", "kind": "realizes", "to": "introduce-concurrency", "provenance": "editorial", "cite": null, "note": "Distributing independent loop iterations across threads is the most direct data-parallel form of introducing concurrency."},
+  {"from": "loop-parallelism", "kind": "composes-with", "to": "fork-join", "provenance": "sourced", "cite": "OpenMP execution model (spec) / Patterns for Parallel Programming (Mattson et al.): parallel loops execute under a fork-join model", "note": "The parallel-for region forks a team and joins at the loop end."},
+
+  {"from": "master-slave", "kind": "realizes", "to": "voting", "provenance": "sourced", "cite": "POSA1, Master-Slave: fault-tolerance variant - slaves are replicas, the master compares/votes their results", "note": "The pattern's fault-tolerance variant is a voting implementation."},
+  {"from": "master-slave", "kind": "enables", "to": "mapreduce", "provenance": "sourced", "cite": "Dean & Ghemawat, 'MapReduce' (OSDI 2004): one copy is the master, assigning map/reduce tasks to workers", "note": "The MapReduce runtime is a master-worker structure at datacenter scale."},
+
+  {"from": "multi-state-task", "kind": "enables", "to": "superloop-architecture", "provenance": "editorial", "cite": null, "note": "Superloops only stay responsive if every task is non-blocking; the one-short-step-per-invocation state-machine task is the mechanism that makes that possible."},
+  {"from": "multi-state-task", "kind": "realizes", "to": "bound-execution-times", "provenance": "editorial", "cite": null, "note": "Advancing one bounded step per scheduler pass places an explicit limit on execution time per invocation."},
+  {"from": "superloop-architecture", "kind": "constrains", "to": "multi-state-task", "provenance": "editorial", "cite": null, "note": "The no-OS cooperative loop forbids blocking waits, forcing long activities into stepwise state-machine form."},
+
+  {"from": "nested-interrupt-handling", "kind": "realizes", "to": "prioritize-events", "provenance": "editorial", "cite": null, "note": "Hardware/NVIC interrupt priority preemption is the lowest-level implementation of servicing important events ahead of less important ones."},
+  {"from": "nested-interrupt-handling", "kind": "enables", "to": "event-triggered-architecture", "provenance": "editorial", "cite": null, "note": "Event-triggered systems rely on interrupt-driven activation; nesting keeps high-priority event latency bounded under load."},
+
+  {"from": "parallel-reduction", "kind": "enables", "to": "mapreduce", "provenance": "editorial", "cite": null, "note": "The reduce phase is a distributed parallel reduction: tree/partial combination with an associative operator."},
+  {"from": "parallel-reduction", "kind": "composes-with", "to": "fork-join", "provenance": "editorial", "cite": null, "note": "The tree of partial reductions is naturally expressed and scheduled as recursive fork-join tasks."},
+
+  {"from": "pipeline-parallelism", "kind": "realizes", "to": "pipes-and-filters", "provenance": "sourced", "cite": "Garlan & Shaw, An Introduction to Software Architecture: filters compute incrementally and concurrently; pipelines are named as the linear specialization", "note": "Threaded stages connected by queues are the concurrent execution of the pipes-and-filters style inside one system."},
+  {"from": "pipeline-parallelism", "kind": "enables", "to": "seda-staged-event-driven-architecture", "provenance": "editorial", "cite": null, "note": "SEDA is stage-per-thread-pool pipeline parallelism promoted to whole-service structure; the stage/queue mechanism is what the style runs on."},
+
+  {"from": "proactor", "kind": "realizes", "to": "introduce-concurrency", "provenance": "editorial", "cite": null, "note": "Completion-dispatched asynchronous operations service many requests concurrently without dedicating a thread per request."},
+  {"from": "proactor", "kind": "alternative-to", "to": "reactor", "provenance": "sourced", "cite": "POSA2, Proactor: presented as the asynchronous counterpart of Reactor (readiness- vs completion-based demultiplexing)", "note": "Same event-demux role, opposite I/O model."},
+  {"from": "proactor", "kind": "composes-with", "to": "asynchronous-completion-token", "provenance": "sourced", "cite": "POSA2, Proactor: uses Asynchronous Completion Token to demultiplex completion events to their handlers efficiently", "note": "ACT is the pattern's completion-routing participant."},
+
+  {"from": "protothread", "kind": "enables", "to": "superloop-architecture", "provenance": "editorial", "cite": null, "note": "Protothreads give the superloop's event-driven C tasks a sequential blocking-style structure with two-byte state - purpose-built for OS-less main-loop firmware."},
+  {"from": "protothread", "kind": "implements", "to": "coroutine", "provenance": "sourced", "cite": "Dunkels et al., 'Protothreads' (SenSys 2006): described as an extremely lightweight stackless mechanism related to coroutines, built on local continuations", "note": "A stackless C coroutine realization via switch-based local continuations."},
+
+  {"from": "reactor", "kind": "enables", "to": "event-based-implicit-invocation", "provenance": "editorial", "cite": null, "note": "Registered-handler dispatch from a synchronous demultiplexer is the concrete runtime of implicit-invocation organization for I/O-driven systems. (Closest node; general event-driven-architecture style missing.)"},
+  {"from": "reactor", "kind": "specializes", "to": "event-loop", "provenance": "editorial", "cite": null, "note": "A reactor is an event loop specialized to OS-level I/O readiness demultiplexing (select/poll/epoll) with a handler-registration interface."},
+
+  {"from": "restartable-sequences", "kind": "realizes", "to": "reduce-computational-overhead", "provenance": "editorial", "cite": null, "note": "rseq removes atomic-instruction and lock overhead from per-CPU fast paths by letting the kernel restart interrupted critical sections."},
+  {"from": "restartable-sequences", "kind": "composes-with", "to": "fast-path", "provenance": "editorial", "cite": null, "note": "rseq is the mechanism that makes per-CPU lock-free fast paths safe against migration/preemption."},
+
+  {"from": "spmd", "kind": "realizes", "to": "distributed-processes", "provenance": "editorial", "cite": null, "note": "An MPI-style SPMD program is a set of independent processes on multiple processors interacting by message passing - the distributed-processes style with one program text."},
+  {"from": "spmd", "kind": "alternative-to", "to": "master-slave", "provenance": "sourced", "cite": "Patterns for Parallel Programming (Mattson et al.), Supporting Structures: SPMD, Master/Worker, Loop Parallelism and Fork/Join are presented as alternative parallel program structures", "note": "Peer choices for structuring a parallel algorithm."},
+
+  {"from": "stencil", "kind": "realizes", "to": "introduce-concurrency", "provenance": "editorial", "cite": null, "note": "Neighborhood updates over a grid are embarrassingly parallel per generation; the stencil shape exists to expose that concurrency."},
+  {"from": "stencil", "kind": "composes-with", "to": "spmd", "provenance": "editorial", "cite": null, "note": "Distributed stencils are run SPMD: each rank owns a grid partition and exchanges halo/ghost cells with neighbors."},
+
+  {"from": "structured-concurrency", "kind": "realizes", "to": "limit-nondeterminism", "provenance": "editorial", "cite": null, "note": "Confining task lifetimes to lexical scopes eliminates unconstrained parallelism (orphaned tasks, leaked threads) - directly the tactic's target."},
+  {"from": "structured-concurrency", "kind": "realizes", "to": "supervision-tree-otp", "provenance": "editorial", "cite": null, "note": "A nursery/task-scope tree with error propagation and scope-wide cancellation is an in-process supervision tree; the structured-concurrency literature credits Erlang supervision as prior art."},
+
+  {"from": "thread-pool", "kind": "realizes", "to": "introduce-concurrency", "provenance": "editorial", "cite": null, "note": "The standard mechanism for processing different requests on different threads while bounding thread count."},
+  {"from": "thread-pool", "kind": "enables", "to": "seda-staged-event-driven-architecture", "provenance": "sourced", "cite": "Welsh, Culler & Brewer, 'SEDA' (SOSP 2001): each stage contains a thread pool managed by resource controllers", "note": "Per-stage thread pools are the style's execution substrate."},
+
+  {"from": "thread-specific-storage", "kind": "realizes", "to": "maintain-multiple-copies-of-data", "provenance": "editorial", "cite": null, "note": "Giving each thread its own copy of a logically global datum is replication to reduce contention - the tactic's stated purpose - applied at thread granularity."},
+
+  {"from": "threaded-code", "kind": "realizes", "to": "interpreter-architectural-style", "provenance": "sourced", "cite": "Bell, 'Threaded Code' (CACM 1973): presented as an implementation technique for interpreted code representations", "note": "A dispatch representation for the style's interpretation engine."},
+  {"from": "threaded-code", "kind": "composes-with", "to": "bytecode-virtual-machine", "provenance": "editorial", "cite": null, "note": "Direct/indirect threading is a standard dispatch technique inside bytecode VMs (e.g. gcc computed-goto interpreters)."},
+
+  {"from": "trampoline", "kind": "realizes", "to": "exception-prevention", "provenance": "editorial", "cite": null, "note": "Converting deep/mutual recursion into a constant-stack driver loop prevents stack-overflow failures from arising at all - the tactic's keep-exceptions-from-occurring intent."},
+
+  {"from": "two-phase-termination", "kind": "enables", "to": "removal-from-service", "provenance": "editorial", "cite": null, "note": "Taking a component out of service in an orderly way depends on cooperative termination: request flag observed at safe points, then cleanup."},
+  {"from": "two-phase-termination", "kind": "alternative-to", "to": "crash-only-software", "provenance": "sourced", "cite": "Candea & Fox, 'Crash-Only Software' (HotOS 2003): argues for crash+recover as the only stop/start path, explicitly against maintaining separate clean-shutdown code", "note": "Cross-realm alternative: graceful two-phase shutdown vs designing so that crashing is the shutdown."}
+ ],
+ "unbridged": [],
+ "notes": "All 37 g4 (execution-concurrency) elements bridged; unbridged list empty. Same-name pairs bridged: competing-consumers -> competing-consumers-system-topology/-scale (EIP), half-sync-half-async -> half-sync-half-async-system-layering (POSA2). One constrains example: superloop-architecture constrains multi-state-task. MISSING arch targets encountered: (1) a general event-driven-architecture style node (Richards/Fowler sense) - event-loop, reactor, async-await had to target event-based-implicit-invocation / function-queue-scheduling-architecture instead; (2) a master-worker / task-farm parallel style and a data-parallel/SPMD architecture node - parallel-programming elements (spmd, loop-parallelism, fork-join, parallel-reduction, stencil) funnel into introduce-concurrency, distributed-processes, mapreduce; (3) a managed-runtime / JIT-compilation platform node - deoptimization mapped to virtual-machine-architectural-style; (4) a graceful-shutdown / lifecycle-management concept - two-phase-termination mapped to removal-from-service; (5) concurrency-tactic vocabulary is thin (only introduce-concurrency + schedule-resources), causing many concurrency mechanisms to converge on introduce-concurrency."
+}
