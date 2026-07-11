@@ -1,0 +1,65 @@
+{
+ "existing_edges": 1132,
+ "new_accepted": 1679,
+ "derived": 0,
+ "total": 2811,
+ "rejected": {
+  "dup": 71,
+  "degree-cap": 2,
+  "sym-conflict": 2
+ },
+ "per_group": {
+  "A01": 56,
+  "A02": 65,
+  "A03": 31,
+  "A04": 53,
+  "A05": 93,
+  "A06": 91,
+  "A07": 75,
+  "A08": 65,
+  "A09": 70,
+  "A10": 65,
+  "D01": 128,
+  "D02": 68,
+  "D03": 76,
+  "D04": 69,
+  "D05": 84,
+  "D06": 75,
+  "D07": 64,
+  "D08": 63,
+  "D09": 67,
+  "D10": 40,
+  "D11": 52,
+  "D12": 59,
+  "D14": 46,
+  "D15": 66,
+  "D13": 58
+ },
+ "prov_new": {
+  "sourced": 695,
+  "editorial": 984
+ },
+ "kind_new": {
+  "specializes": 188,
+  "uses": 488,
+  "alternative-to": 351,
+  "composes-with": 638,
+  "implements": 14
+ },
+ "baseline": {
+  "within_design": 252,
+  "within_arch": 2,
+  "sibling_less_design": 332,
+  "disconnected_arch": 370,
+  "mean_within_degree": 0.47
+ },
+ "enriched": {
+  "within_design": 1267,
+  "within_arch": 666,
+  "sibling_less_design": 0,
+  "disconnected_arch": 0,
+  "mean_within_degree": 3.57,
+  "modularity": 0.732,
+  "communities": 90
+ }
+}

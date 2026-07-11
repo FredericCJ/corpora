@@ -1,0 +1,5106 @@
+{
+ "islands": [
+  {
+   "id": "isl01",
+   "members": [
+    "abstract-common-services",
+    "abstract-factory",
+    "abstract-session",
+    "adapter",
+    "adaptive-object-model",
+    "adaptor-connector",
+    "adhere-to-standards",
+    "aggregate-instance",
+    "blackboard",
+    "bridge",
+    "builder",
+    "bureaucracy",
+    "callee-allocates",
+    "caller-owned-buffer",
+    "chain-of-responsibility",
+    "client-session-state",
+    "collecting-parameter",
+    "collection-pipeline",
+    "component-based-architecture",
+    "component-configurator",
+    "composite",
+    "configure-behavior",
+    "construct-on-first-use",
+    "copied-value",
+    "curiously-recurring-template-pattern-crtp",
+    "currying-partial-application",
+    "database-session-state",
+    "decorator",
+    "defensive-copy",
+    "defer-binding",
+    "delegation",
+    "dependency-injection",
+    "double-dispatch",
+    "empty-base-optimization-ebo",
+    "encapsulate",
+    "envelope-letter",
+    "explicit-interface",
+    "expression-templates",
+    "extension-interface",
+    "extension-object",
+    "external-polymorphism",
+    "facade",
+    "facade-backend-module-pattern",
+    "factory-method",
+    "flyweight",
+    "function-control",
+    "function-object",
+    "function-pointer-dispatch-table",
+    "functional-options",
+    "generation-gap",
+    "hardware-adapter",
+    "hook-method",
+    "immediate-mode-gui",
+    "introspective-interface",
+    "lifecycle-callback",
+    "maintain-system-model",
+    "maintain-task-model",
+    "maintain-user-model",
+    "microkernel",
+    "mixin",
+    "module-pattern",
+    "monostate",
+    "multiton",
+    "named-parameter-idiom",
+    "network-byte-order-handling",
+    "nifty-counter",
+    "non-virtual-interface-nvi",
+    "object-orientation-in-c",
+    "object-oriented-organization",
+    "oo-in-c-via-explicit-vtable",
+    "opaque-pointer",
+    "out-parameters",
+    "pluggable-selector",
+    "plugin",
+    "policy-based-design",
+    "private-class-data",
+    "product-trader",
+    "prototype",
+    "reflection",
+    "registry",
+    "repository-shared-data-style",
+    "retained-mode-gui",
+    "role-object",
+    "rule-based-system",
+    "separated-interface",
+    "servant",
+    "server-session-state",
+    "service-locator",
+    "service-registry",
+    "sfinae",
+    "singleton",
+    "smart-constructor",
+    "software-module-with-global-state",
+    "sponsor-selector",
+    "state",
+    "state-transition-table",
+    "stateless-software-module",
+    "static-factory-method",
+    "strategy",
+    "tag-dispatching",
+    "tailor-interface",
+    "template-method",
+    "thunk",
+    "traits-class",
+    "twin",
+    "type-erasure",
+    "type-object",
+    "type-safe-enum",
+    "typelist",
+    "value-semantics",
+    "visitor",
+    "whole-part",
+    "wrapper-facade",
+    "x-macro"
+   ],
+   "size": 114,
+   "hub": "defer-binding",
+   "representatives": [
+    "encapsulate",
+    "strategy",
+    "abstract-factory"
+   ],
+   "family": "structure",
+   "realm_split": {
+    "architecture": 22,
+    "design": 92
+   },
+   "top_kinds": [
+    [
+     "oo-patterns",
+     44
+    ],
+    [
+     "construction-api",
+     21
+    ],
+    [
+     "functional-type-idioms",
+     13
+    ],
+    [
+     "tactic",
+     9
+    ],
+    [
+     "style",
+     7
+    ]
+   ],
+   "internal_edges": 237,
+   "neighbours": [
+    {
+     "island": "isl07",
+     "weight": 20
+    },
+    {
+     "island": "isl02",
+     "weight": 15
+    },
+    {
+     "island": "isl12",
+     "weight": 11
+    },
+    {
+     "island": "isl11",
+     "weight": 10
+    },
+    {
+     "island": "isl06",
+     "weight": 9
+    },
+    {
+     "island": "isl17",
+     "weight": 9
+    },
+    {
+     "island": "isl10",
+     "weight": 8
+    },
+    {
+     "island": "isl08",
+     "weight": 8
+    },
+    {
+     "island": "isl18",
+     "weight": 8
+    },
+    {
+     "island": "isl13",
+     "weight": 7
+    },
+    {
+     "island": "isl20",
+     "weight": 6
+    },
+    {
+     "island": "isl14",
+     "weight": 5
+    },
+    {
+     "island": "isl19",
+     "weight": 4
+    },
+    {
+     "island": "isl04",
+     "weight": 4
+    },
+    {
+     "island": "isl03",
+     "weight": 3
+    },
+    {
+     "island": "isl16",
+     "weight": 3
+    },
+    {
+     "island": "isl15",
+     "weight": 2
+    }
+   ]
+  },
+  {
+   "id": "isl02",
+   "members": [
+    "allocation-wrapper",
+    "bound-execution-times",
+    "boundary-tags",
+    "buddy-memory-allocation",
+    "buffer-pool",
+    "cache-aside",
+    "cache-eviction-policy",
+    "cache-stampede-protection",
+    "caching",
+    "captain-oates",
+    "compaction",
+    "copy-and-swap",
+    "custom-allocator",
+    "dedicated-ownership",
+    "degradation",
+    "dirty-flag",
+    "dirty-rectangles",
+    "dispose-pattern",
+    "domain-specific-software-architecture",
+    "draw-call-batching",
+    "evictor",
+    "exception-prevention",
+    "exceptional-value",
+    "execute-around-method",
+    "fast-path",
+    "federated-avionics-architecture",
+    "fixed-capacity-container",
+    "fixed-sized-buffer",
+    "free-list",
+    "garbage-collection",
+    "gc-read-barrier",
+    "gc-write-barrier",
+    "health-monitor-arinc-653",
+    "increase-competence-set",
+    "integrated-modular-avionics",
+    "lazy-cleanup",
+    "leasing",
+    "lookup",
+    "lookup-table",
+    "loop-timeout",
+    "lru-cache",
+    "maintain-multiple-copies-of-data",
+    "manage-resources-integrability",
+    "manage-sampling-rate",
+    "meaningless-behavior",
+    "memoization",
+    "memory-arena",
+    "memory-discard",
+    "memory-limit",
+    "monitor-object",
+    "negative-caching",
+    "newtype",
+    "null-object",
+    "object-manager",
+    "ordered-locking",
+    "packrat-parsing",
+    "phantom-type",
+    "pool-allocation",
+    "pooling",
+    "prefetching",
+    "quantity",
+    "raii-resource-acquisition-is-initialization",
+    "read-through-cache",
+    "reconfiguration",
+    "reduce-computational-overhead",
+    "reentrant-lock",
+    "reference-counting",
+    "refresh-ahead-cache",
+    "resource-lifecycle-manager",
+    "restartable-sequences",
+    "rule-of-three-five-zero",
+    "scope-guard",
+    "scoped-locking",
+    "simultaneous-locking",
+    "slab-allocator",
+    "small-buffer-optimization",
+    "smart-pointer",
+    "special-case",
+    "stack-first",
+    "static-allocation",
+    "steady-state",
+    "strategized-locking",
+    "texture-atlas",
+    "thread-safe-interface",
+    "time-and-space-partitioning",
+    "time-to-live-ttl",
+    "two-level-segregated-fit-allocator-tlsf",
+    "units-of-measure-types",
+    "variable-allocation",
+    "weak-reference",
+    "write-behind-cache",
+    "write-through-cache"
+   ],
+   "size": 92,
+   "hub": "exception-prevention",
+   "representatives": [
+    "maintain-multiple-copies-of-data",
+    "reduce-computational-overhead",
+    "caching"
+   ],
+   "family": "resource",
+   "realm_split": {
+    "design": 78,
+    "architecture": 14
+   },
+   "top_kinds": [
+    [
+     "resource-management",
+     38
+    ],
+    [
+     "caching-memoization",
+     14
+    ],
+    [
+     "tactic",
+     9
+    ],
+    [
+     "synchronization-coordination",
+     7
+    ],
+    [
+     "error-handling",
+     4
+    ]
+   ],
+   "internal_edges": 183,
+   "neighbours": [
+    {
+     "island": "isl08",
+     "weight": 16
+    },
+    {
+     "island": "isl04",
+     "weight": 16
+    },
+    {
+     "island": "isl01",
+     "weight": 15
+    },
+    {
+     "island": "isl05",
+     "weight": 14
+    },
+    {
+     "island": "isl15",
+     "weight": 12
+    },
+    {
+     "island": "isl09",
+     "weight": 8
+    },
+    {
+     "island": "isl07",
+     "weight": 7
+    },
+    {
+     "island": "isl11",
+     "weight": 6
+    },
+    {
+     "island": "isl17",
+     "weight": 4
+    },
+    {
+     "island": "isl13",
+     "weight": 4
+    },
+    {
+     "island": "isl10",
+     "weight": 3
+    },
+    {
+     "island": "isl12",
+     "weight": 3
+    },
+    {
+     "island": "isl18",
+     "weight": 3
+    },
+    {
+     "island": "isl03",
+     "weight": 3
+    },
+    {
+     "island": "isl20",
+     "weight": 2
+    },
+    {
+     "island": "isl06",
+     "weight": 2
+    },
+    {
+     "island": "isl16",
+     "weight": 2
+    },
+    {
+     "island": "isl14",
+     "weight": 1
+    },
+    {
+     "island": "isl19",
+     "weight": 1
+    }
+   ]
+  },
+  {
+   "id": "isl03",
+   "members": [
+    "a-b-firmware-image-update",
+    "access-control-list",
+    "audit",
+    "audit-log",
+    "authenticate-actors",
+    "authenticated-encryption",
+    "authorization-security-pattern",
+    "authorize-actors",
+    "blockchain",
+    "bootloader-application-split",
+    "bootloader-boot-stage-architecture",
+    "bootloader-jump-handoff",
+    "canonical-serialization",
+    "capability",
+    "change-credential-settings",
+    "check-point",
+    "constant-time-comparison",
+    "content-addressable-storage",
+    "cryptographic-hash-function",
+    "csprng",
+    "defense-in-depth",
+    "demilitarized-zone",
+    "detect-intrusion",
+    "detect-message-delay",
+    "detect-service-denial",
+    "encrypt-data",
+    "failover",
+    "federated-identity",
+    "firewall",
+    "full-view-with-errors",
+    "gatekeeper",
+    "hot-code-reload",
+    "identify-actors",
+    "inform-actors",
+    "intrusion-detection-system",
+    "limit-access",
+    "limit-exposure",
+    "limited-view",
+    "merkle-tree",
+    "message-authentication-code",
+    "non-stop-forwarding",
+    "nonce",
+    "nonrepudiation",
+    "policy-decision-point-policy-enforcement-point",
+    "privilege-bracketing",
+    "privilege-separation",
+    "privilege-separation-arch",
+    "proxy-based-firewall",
+    "redundant-spare",
+    "reference-monitor",
+    "restrict-login",
+    "revoke-access",
+    "role-based-access-control",
+    "salted-password-hashing",
+    "sandbox",
+    "secrets-management-service",
+    "secure-access-layer",
+    "secure-boot-image-verification",
+    "secure-channel",
+    "secure-zeroization",
+    "security-session",
+    "separate-entities",
+    "serial-number-arithmetic",
+    "shadow",
+    "single-access-point",
+    "single-sign-on",
+    "software-upgrade",
+    "state-resynchronization",
+    "synchronizer-token",
+    "timestamp",
+    "trusted-execution-environment",
+    "verify-message-integrity",
+    "zero-trust-architecture"
+   ],
+   "size": 73,
+   "hub": "authenticate-actors",
+   "representatives": [
+    "authorize-actors",
+    "verify-message-integrity",
+    "check-point"
+   ],
+   "family": "reliability",
+   "realm_split": {
+    "design": 30,
+    "architecture": 43
+   },
+   "top_kinds": [
+    [
+     "tactic",
+     25
+    ],
+    [
+     "robustness-security",
+     23
+    ],
+    [
+     "pattern",
+     12
+    ],
+    [
+     "deployment",
+     3
+    ],
+    [
+     "embedded-systems",
+     2
+    ]
+   ],
+   "internal_edges": 158,
+   "neighbours": [
+    {
+     "island": "isl05",
+     "weight": 6
+    },
+    {
+     "island": "isl11",
+     "weight": 5
+    },
+    {
+     "island": "isl07",
+     "weight": 4
+    },
+    {
+     "island": "isl14",
+     "weight": 4
+    },
+    {
+     "island": "isl19",
+     "weight": 4
+    },
+    {
+     "island": "isl04",
+     "weight": 4
+    },
+    {
+     "island": "isl01",
+     "weight": 3
+    },
+    {
+     "island": "isl16",
+     "weight": 3
+    },
+    {
+     "island": "isl02",
+     "weight": 3
+    },
+    {
+     "island": "isl12",
+     "weight": 2
+    },
+    {
+     "island": "isl18",
+     "weight": 2
+    },
+    {
+     "island": "isl17",
+     "weight": 2
+    },
+    {
+     "island": "isl09",
+     "weight": 2
+    },
+    {
+     "island": "isl10",
+     "weight": 2
+    },
+    {
+     "island": "isl06",
+     "weight": 1
+    },
+    {
+     "island": "isl15",
+     "weight": 1
+    },
+    {
+     "island": "isl08",
+     "weight": 1
+    }
+   ]
+  },
+  {
+   "id": "isl04",
+   "members": [
+    "analytic-redundancy",
+    "b-tree",
+    "checkpointing",
+    "coarse-grained-lock",
+    "comparison",
+    "conflict-free-replicated-data-type-crdt",
+    "consistent-hashing",
+    "coordinator",
+    "copy-on-write",
+    "copy-on-write-b-tree",
+    "deadlock-detection",
+    "dual-core-lockstep",
+    "eeprom-emulation-in-flash",
+    "epsilon-ulp-float-comparison",
+    "fault-tolerant-unit",
+    "fencing-token",
+    "flash-translation-layer",
+    "flash-wear-leveling",
+    "flat-combining",
+    "functional-redundancy",
+    "group-commit",
+    "implicit-lock",
+    "index-table",
+    "inverted-index",
+    "leader-election",
+    "leaderless-replication",
+    "lock-escalation",
+    "lock-striping",
+    "log-structured-storage",
+    "logical-clock",
+    "lsm-tree",
+    "m-out-of-n-voting",
+    "masking",
+    "memory-image",
+    "multi-granularity-locking",
+    "multi-leader-replication",
+    "multiversion-concurrency-control",
+    "n-version-programming",
+    "object-synchronizer",
+    "operational-transformation",
+    "optimistic-concurrency-control",
+    "optimistic-offline-lock",
+    "optimistic-ui-update",
+    "pax-page-layout",
+    "pessimistic-offline-lock",
+    "primary-replica-replication",
+    "process-pairs",
+    "recovery-blocks",
+    "relational-dbms-reference-architecture",
+    "repair-state",
+    "replicated-component-group",
+    "replication",
+    "roll-forward",
+    "rollback",
+    "rollback-tactic",
+    "secondary-index",
+    "shadow-paging",
+    "sharding",
+    "shared-nothing-architecture",
+    "sharing",
+    "slotted-page-layout",
+    "snapshot-isolation",
+    "software-transactional-memory",
+    "timestamp-ordering-concurrency-control",
+    "tombstone",
+    "transactions",
+    "triple-modular-redundancy",
+    "two-phase-commit",
+    "two-phase-locking",
+    "voting",
+    "write-ahead-log"
+   ],
+   "size": 71,
+   "hub": "transactions",
+   "representatives": [
+    "relational-dbms-reference-architecture",
+    "voting",
+    "optimistic-concurrency-control"
+   ],
+   "family": "data",
+   "realm_split": {
+    "architecture": 25,
+    "design": 46
+   },
+   "top_kinds": [
+    [
+     "synchronization-coordination",
+     19
+    ],
+    [
+     "pattern",
+     16
+    ],
+    [
+     "persistence-durability",
+     10
+    ],
+    [
+     "tactic",
+     7
+    ],
+    [
+     "data-structures",
+     7
+    ]
+   ],
+   "internal_edges": 142,
+   "neighbours": [
+    {
+     "island": "isl02",
+     "weight": 16
+    },
+    {
+     "island": "isl08",
+     "weight": 11
+    },
+    {
+     "island": "isl05",
+     "weight": 11
+    },
+    {
+     "island": "isl15",
+     "weight": 8
+    },
+    {
+     "island": "isl14",
+     "weight": 6
+    },
+    {
+     "island": "isl06",
+     "weight": 5
+    },
+    {
+     "island": "isl16",
+     "weight": 4
+    },
+    {
+     "island": "isl03",
+     "weight": 4
+    },
+    {
+     "island": "isl01",
+     "weight": 4
+    },
+    {
+     "island": "isl13",
+     "weight": 4
+    },
+    {
+     "island": "isl10",
+     "weight": 4
+    },
+    {
+     "island": "isl20",
+     "weight": 2
+    },
+    {
+     "island": "isl12",
+     "weight": 2
+    },
+    {
+     "island": "isl07",
+     "weight": 2
+    },
+    {
+     "island": "isl17",
+     "weight": 1
+    },
+    {
+     "island": "isl09",
+     "weight": 1
+    },
+    {
+     "island": "isl19",
+     "weight": 1
+    },
+    {
+     "island": "isl18",
+     "weight": 1
+    }
+   ]
+  },
+  {
+   "id": "isl05",
+   "members": [
+    "brown-out-handling",
+    "built-in-self-test",
+    "bulkhead",
+    "circuit-breaker",
+    "complete-parameter-checking",
+    "condition-monitoring",
+    "control-bus",
+    "core-dump",
+    "correcting-audits",
+    "crash-only-software",
+    "cyclic-redundancy-check",
+    "dead-letter-channel",
+    "deadline-propagation",
+    "deferred-validation",
+    "dual-channel",
+    "error-kernel",
+    "escalating-restart",
+    "escalation",
+    "fault-containment-region",
+    "fault-observer",
+    "guaranteed-delivery",
+    "happy-eyeballs",
+    "heartbeat",
+    "heartbeat-tactic",
+    "hedged-request",
+    "idempotent-receiver",
+    "ignore-faulty-behavior",
+    "interlock",
+    "leaky-bucket-counter",
+    "let-it-crash",
+    "maintenance-interface",
+    "marked-data",
+    "message-expiration",
+    "monitor",
+    "monitor-actuator",
+    "one-s-complement-data-storage",
+    "ping-echo",
+    "pointer-check",
+    "predictive-model",
+    "program-sequence-monitoring",
+    "protected-single-channel",
+    "quarantine",
+    "removal-from-service",
+    "restart",
+    "retry",
+    "retry-budget",
+    "retry-with-exponential-backoff-and-jitter",
+    "riding-over-transients",
+    "safe-state",
+    "safety-executive",
+    "sanity-check",
+    "sanity-checking",
+    "self-test",
+    "smart-data",
+    "software-rejuvenation",
+    "someone-in-charge",
+    "substitution",
+    "supervision-tree-otp",
+    "supervisor",
+    "timeout",
+    "timeout-tactic",
+    "transactional-outbox",
+    "typestate",
+    "units-of-mitigation",
+    "watchdog",
+    "watchdog-architecture-pattern"
+   ],
+   "size": 66,
+   "hub": "monitor",
+   "representatives": [
+    "restart",
+    "retry-with-exponential-backoff-and-jitter",
+    "condition-monitoring"
+   ],
+   "family": "reliability",
+   "realm_split": {
+    "design": 39,
+    "architecture": 27
+   },
+   "top_kinds": [
+    [
+     "error-handling",
+     25
+    ],
+    [
+     "tactic",
+     14
+    ],
+    [
+     "pattern",
+     13
+    ],
+    [
+     "robustness-security",
+     8
+    ],
+    [
+     "communication",
+     3
+    ]
+   ],
+   "internal_edges": 140,
+   "neighbours": [
+    {
+     "island": "isl02",
+     "weight": 14
+    },
+    {
+     "island": "isl06",
+     "weight": 11
+    },
+    {
+     "island": "isl04",
+     "weight": 11
+    },
+    {
+     "island": "isl07",
+     "weight": 8
+    },
+    {
+     "island": "isl03",
+     "weight": 6
+    },
+    {
+     "island": "isl19",
+     "weight": 5
+    },
+    {
+     "island": "isl12",
+     "weight": 5
+    },
+    {
+     "island": "isl09",
+     "weight": 4
+    },
+    {
+     "island": "isl14",
+     "weight": 3
+    },
+    {
+     "island": "isl10",
+     "weight": 2
+    },
+    {
+     "island": "isl16",
+     "weight": 2
+    },
+    {
+     "island": "isl18",
+     "weight": 1
+    },
+    {
+     "island": "isl15",
+     "weight": 1
+    },
+    {
+     "island": "isl11",
+     "weight": 1
+    },
+    {
+     "island": "isl13",
+     "weight": 1
+    }
+   ]
+  },
+  {
+   "id": "isl06",
+   "members": [
+    "active-object",
+    "actor-based-architecture",
+    "async-await-model",
+    "cancellation-token",
+    "canonical-data-model",
+    "channel-adapter",
+    "competing-consumers",
+    "competing-consumers-system-scale",
+    "competing-consumers-system-topology",
+    "content-based-router",
+    "coroutine",
+    "csp-channel",
+    "data-bus-rtdp",
+    "data-parallel-architecture",
+    "datatype-channel",
+    "distributed-processes",
+    "enterprise-service-bus",
+    "event-driven-consumer",
+    "executor",
+    "fork-join",
+    "future-promise",
+    "gateway",
+    "green-threads",
+    "half-sync-half-async",
+    "half-sync-half-async-system-layering",
+    "introduce-concurrency",
+    "job-system",
+    "leader-followers",
+    "loop-parallelism",
+    "mailbox",
+    "mapreduce",
+    "master-slave",
+    "master-worker",
+    "message-broker",
+    "message-bus",
+    "message-channel",
+    "message-dispatcher",
+    "message-endpoint",
+    "message-filter",
+    "message-queue",
+    "message-router",
+    "message-translator",
+    "messaging-bridge",
+    "parallel-reduction",
+    "pipeline-parallelism",
+    "polling-consumer",
+    "preforked-prethreaded-server",
+    "producer-consumer",
+    "queue-based-load-leveling",
+    "seda-staged-event-driven-architecture",
+    "selective-consumer",
+    "sequential-convoy",
+    "service-oriented-architecture",
+    "service-stub",
+    "shared-memory-communication",
+    "splitter",
+    "spmd",
+    "stencil",
+    "structured-concurrency",
+    "thread-pool",
+    "two-phase-termination",
+    "work-stealing"
+   ],
+   "size": 62,
+   "hub": "thread-pool",
+   "representatives": [
+    "introduce-concurrency",
+    "message-queue",
+    "competing-consumers"
+   ],
+   "family": "communication",
+   "realm_split": {
+    "design": 37,
+    "architecture": 25
+   },
+   "top_kinds": [
+    [
+     "execution-concurrency",
+     21
+    ],
+    [
+     "pattern",
+     14
+    ],
+    [
+     "communication",
+     14
+    ],
+    [
+     "style",
+     7
+    ],
+    [
+     "connector",
+     2
+    ]
+   ],
+   "internal_edges": 132,
+   "neighbours": [
+    {
+     "island": "isl15",
+     "weight": 14
+    },
+    {
+     "island": "isl09",
+     "weight": 13
+    },
+    {
+     "island": "isl14",
+     "weight": 11
+    },
+    {
+     "island": "isl05",
+     "weight": 11
+    },
+    {
+     "island": "isl12",
+     "weight": 11
+    },
+    {
+     "island": "isl01",
+     "weight": 9
+    },
+    {
+     "island": "isl17",
+     "weight": 8
+    },
+    {
+     "island": "isl10",
+     "weight": 7
+    },
+    {
+     "island": "isl16",
+     "weight": 7
+    },
+    {
+     "island": "isl04",
+     "weight": 5
+    },
+    {
+     "island": "isl07",
+     "weight": 4
+    },
+    {
+     "island": "isl08",
+     "weight": 3
+    },
+    {
+     "island": "isl18",
+     "weight": 2
+    },
+    {
+     "island": "isl02",
+     "weight": 2
+    },
+    {
+     "island": "isl13",
+     "weight": 2
+    },
+    {
+     "island": "isl19",
+     "weight": 2
+    },
+    {
+     "island": "isl03",
+     "weight": 1
+    },
+    {
+     "island": "isl20",
+     "weight": 1
+    }
+   ]
+  },
+  {
+   "id": "isl07",
+   "members": [
+    "abort",
+    "abstract-data-sources",
+    "acyclic-visitor",
+    "cleanup-record",
+    "composed-method",
+    "continuation-passing-style",
+    "defunctionalization",
+    "design-by-contract",
+    "effect-handler",
+    "error-handler",
+    "exception-detection",
+    "exception-handling",
+    "executable-assertions",
+    "fail-fast",
+    "four-phase-test",
+    "free-monad",
+    "functional-core-imperative-shell",
+    "golden-master-testing",
+    "goto-cleanup",
+    "guard-clause",
+    "guard-page",
+    "humble-object",
+    "limit-nondeterminism",
+    "limit-structural-complexity",
+    "localize-state-storage",
+    "marker-interface",
+    "memory-poisoning",
+    "method-object",
+    "monad",
+    "notification",
+    "object-mother",
+    "option-type",
+    "page-object",
+    "parameter-fence",
+    "parameter-typing",
+    "parameterized-test",
+    "pointer-tagging",
+    "property-based-testing",
+    "pseudorandom-number-generator",
+    "record-playback",
+    "redistribute-responsibilities",
+    "restrict-communication-paths",
+    "restrict-dependencies",
+    "result-type",
+    "return-status-code",
+    "samurai-principle",
+    "sealed-trait",
+    "sentinel-value",
+    "setjmp-longjmp-error-handling",
+    "special-return-value",
+    "specialized-interfaces",
+    "split-module",
+    "stack-canary",
+    "stack-painting-watermarking",
+    "subclass-sandbox",
+    "tagged-union",
+    "tagless-final",
+    "test-data-builder",
+    "test-double",
+    "test-fixture",
+    "trampoline"
+   ],
+   "size": 61,
+   "hub": "exception-handling",
+   "representatives": [
+    "limit-structural-complexity",
+    "exception-detection",
+    "monad"
+   ],
+   "family": "reliability",
+   "realm_split": {
+    "architecture": 16,
+    "design": 45
+   },
+   "top_kinds": [
+    [
+     "tactic",
+     16
+    ],
+    [
+     "error-handling",
+     13
+    ],
+    [
+     "testing-constructs",
+     10
+    ],
+    [
+     "functional-type-idioms",
+     9
+    ],
+    [
+     "oo-patterns",
+     3
+    ]
+   ],
+   "internal_edges": 100,
+   "neighbours": [
+    {
+     "island": "isl01",
+     "weight": 20
+    },
+    {
+     "island": "isl05",
+     "weight": 8
+    },
+    {
+     "island": "isl02",
+     "weight": 7
+    },
+    {
+     "island": "isl11",
+     "weight": 6
+    },
+    {
+     "island": "isl12",
+     "weight": 5
+    },
+    {
+     "island": "isl06",
+     "weight": 4
+    },
+    {
+     "island": "isl03",
+     "weight": 4
+    },
+    {
+     "island": "isl17",
+     "weight": 4
+    },
+    {
+     "island": "isl18",
+     "weight": 2
+    },
+    {
+     "island": "isl15",
+     "weight": 2
+    },
+    {
+     "island": "isl10",
+     "weight": 2
+    },
+    {
+     "island": "isl04",
+     "weight": 2
+    },
+    {
+     "island": "isl16",
+     "weight": 1
+    },
+    {
+     "island": "isl19",
+     "weight": 1
+    },
+    {
+     "island": "isl20",
+     "weight": 1
+    },
+    {
+     "island": "isl14",
+     "weight": 1
+    }
+   ]
+  },
+  {
+   "id": "isl08",
+   "members": [
+    "adjacency-list-adjacency-matrix",
+    "application-switching",
+    "asset-streaming",
+    "binary-heap-priority-queue",
+    "binary-search-tree",
+    "bitmap-bitset",
+    "bitmap-index",
+    "bloom-filter",
+    "column-oriented-storage",
+    "component",
+    "compression",
+    "container-of",
+    "count-min-sketch",
+    "data-files",
+    "data-locality",
+    "delta-encoding",
+    "deque",
+    "dictionary-encoding",
+    "disjoint-set-union-find",
+    "dynamic-array",
+    "eager-acquisition",
+    "embedded-pointer",
+    "entity-component-system",
+    "fenwick-tree",
+    "gap-buffer",
+    "hash-array-mapped-trie-hamt",
+    "hash-table",
+    "hooks",
+    "hyperloglog",
+    "increase-resource-usage-efficiency",
+    "interval-tree",
+    "level-of-detail",
+    "linked-list",
+    "list-virtualization",
+    "memory-mapped-file-i-o",
+    "memory-overlay",
+    "minhash",
+    "multiple-representations",
+    "packed-data",
+    "paging",
+    "partial-acquisition",
+    "piece-table",
+    "pointer-swizzling",
+    "queue-fifo",
+    "read-only-memory",
+    "reporting-database",
+    "resource-files",
+    "rope",
+    "run-length-encoding",
+    "segment-tree",
+    "skip-list",
+    "slot-map",
+    "sparse-set",
+    "stack",
+    "suffix-array",
+    "t-digest",
+    "trie",
+    "varint",
+    "zigzag-encoding",
+    "zone-map"
+   ],
+   "size": 60,
+   "hub": "increase-resource-usage-efficiency",
+   "representatives": [
+    "dynamic-array",
+    "hash-table",
+    "linked-list"
+   ],
+   "family": "data",
+   "realm_split": {
+    "design": 57,
+    "architecture": 3
+   },
+   "top_kinds": [
+    [
+     "data-structures",
+     30
+    ],
+    [
+     "data-representation",
+     11
+    ],
+    [
+     "resource-management",
+     10
+    ],
+    [
+     "serialization-framing",
+     4
+    ],
+    [
+     "pattern",
+     2
+    ]
+   ],
+   "internal_edges": 124,
+   "neighbours": [
+    {
+     "island": "isl02",
+     "weight": 16
+    },
+    {
+     "island": "isl04",
+     "weight": 11
+    },
+    {
+     "island": "isl01",
+     "weight": 8
+    },
+    {
+     "island": "isl15",
+     "weight": 6
+    },
+    {
+     "island": "isl17",
+     "weight": 5
+    },
+    {
+     "island": "isl10",
+     "weight": 5
+    },
+    {
+     "island": "isl09",
+     "weight": 5
+    },
+    {
+     "island": "isl11",
+     "weight": 5
+    },
+    {
+     "island": "isl14",
+     "weight": 5
+    },
+    {
+     "island": "isl16",
+     "weight": 4
+    },
+    {
+     "island": "isl12",
+     "weight": 3
+    },
+    {
+     "island": "isl06",
+     "weight": 3
+    },
+    {
+     "island": "isl19",
+     "weight": 2
+    },
+    {
+     "island": "isl20",
+     "weight": 2
+    },
+    {
+     "island": "isl13",
+     "weight": 1
+    },
+    {
+     "island": "isl03",
+     "weight": 1
+    }
+   ]
+  },
+  {
+   "id": "isl09",
+   "members": [
+    "bound-queue-sizes",
+    "critical-region",
+    "cyclic-executive",
+    "debouncing",
+    "deferrable-work",
+    "deferred-interrupt-processing",
+    "dynamic-classification",
+    "dynamic-priority-scheduling",
+    "event-coalescing",
+    "event-triggered-architecture",
+    "fresh-work-before-stale",
+    "function-queue-scheduling-architecture",
+    "governor",
+    "idle-task-hook",
+    "interrupt-coalescing",
+    "interrupt-masking-critical-section",
+    "interrupt-service-routine",
+    "interrupt-vector-table",
+    "leaky-bucket",
+    "limit-event-response",
+    "load-shedding",
+    "manage-event-arrival",
+    "metering",
+    "multi-state-task",
+    "nested-interrupt-handling",
+    "polling",
+    "prioritize-events",
+    "priority-ceiling-protocol",
+    "priority-inheritance-protocol",
+    "protothread",
+    "reduce-usage",
+    "round-robin-scheduling",
+    "rtos-based-architecture",
+    "sandwich-delay",
+    "schedule-resources",
+    "schedule-table",
+    "sliding-window-rate-limiting",
+    "software-timer",
+    "static-classification",
+    "static-priority-scheduling",
+    "super-loop",
+    "superloop-architecture",
+    "system-tick",
+    "throttle",
+    "throttling-service-admission-control",
+    "tickless-idle",
+    "time-triggered-architecture",
+    "time-triggered-co-operative-scheduler",
+    "timer-wheel",
+    "token-bucket"
+   ],
+   "size": 50,
+   "hub": "limit-event-response",
+   "representatives": [
+    "rtos-based-architecture",
+    "schedule-resources",
+    "static-priority-scheduling"
+   ],
+   "family": "concurrency",
+   "realm_split": {
+    "architecture": 15,
+    "design": 35
+   },
+   "top_kinds": [
+    [
+     "scheduling-time",
+     19
+    ],
+    [
+     "tactic",
+     10
+    ],
+    [
+     "embedded-systems",
+     5
+    ],
+    [
+     "style",
+     5
+    ],
+    [
+     "synchronization-coordination",
+     4
+    ]
+   ],
+   "internal_edges": 107,
+   "neighbours": [
+    {
+     "island": "isl06",
+     "weight": 13
+    },
+    {
+     "island": "isl10",
+     "weight": 8
+    },
+    {
+     "island": "isl02",
+     "weight": 8
+    },
+    {
+     "island": "isl17",
+     "weight": 7
+    },
+    {
+     "island": "isl15",
+     "weight": 6
+    },
+    {
+     "island": "isl08",
+     "weight": 5
+    },
+    {
+     "island": "isl05",
+     "weight": 4
+    },
+    {
+     "island": "isl14",
+     "weight": 3
+    },
+    {
+     "island": "isl18",
+     "weight": 3
+    },
+    {
+     "island": "isl19",
+     "weight": 2
+    },
+    {
+     "island": "isl03",
+     "weight": 2
+    },
+    {
+     "island": "isl12",
+     "weight": 1
+    },
+    {
+     "island": "isl04",
+     "weight": 1
+    }
+   ]
+  },
+  {
+   "id": "isl10",
+   "members": [
+    "acknowledgement",
+    "backpressure",
+    "batch-sequential",
+    "bit-banging",
+    "chained-processors",
+    "chunked-transfer-encoding",
+    "credit-based-flow-control",
+    "data-binding",
+    "dataflow-architecture",
+    "dirty-checking",
+    "distributed-commit-log",
+    "distributed-snapshot",
+    "error-correcting-codes",
+    "event-time-watermark",
+    "flux",
+    "functional-reactive-programming",
+    "handshaking",
+    "hydration",
+    "immutable-value",
+    "interior-mutability",
+    "islands-architecture",
+    "kappa-architecture",
+    "lambda-architecture",
+    "lens",
+    "model-view-controller",
+    "model-view-intent",
+    "model-view-presenter",
+    "model-view-viewmodel",
+    "nagle-s-algorithm",
+    "observable-streams",
+    "persistent-data-structure",
+    "pipes-and-filters",
+    "presentation-abstraction-control",
+    "presentation-model",
+    "railway-oriented-programming",
+    "reactive-programming",
+    "reactive-signals",
+    "sliding-window-flow-control",
+    "stream-connector",
+    "stream-trigger",
+    "stream-windowing",
+    "streaming-dataflow-architecture",
+    "the-elm-architecture",
+    "update-batching",
+    "virtual-dom",
+    "zipper"
+   ],
+   "size": 46,
+   "hub": "streaming-dataflow-architecture",
+   "representatives": [
+    "reactive-signals",
+    "the-elm-architecture",
+    "dataflow-architecture"
+   ],
+   "family": "structure",
+   "realm_split": {
+    "design": 27,
+    "architecture": 19
+   },
+   "top_kinds": [
+    [
+     "pattern",
+     11
+    ],
+    [
+     "data-flow-buffering",
+     8
+    ],
+    [
+     "style",
+     7
+    ],
+    [
+     "communication",
+     6
+    ],
+    [
+     "state-management",
+     6
+    ]
+   ],
+   "internal_edges": 79,
+   "neighbours": [
+    {
+     "island": "isl01",
+     "weight": 8
+    },
+    {
+     "island": "isl09",
+     "weight": 8
+    },
+    {
+     "island": "isl06",
+     "weight": 7
+    },
+    {
+     "island": "isl08",
+     "weight": 5
+    },
+    {
+     "island": "isl12",
+     "weight": 4
+    },
+    {
+     "island": "isl04",
+     "weight": 4
+    },
+    {
+     "island": "isl02",
+     "weight": 3
+    },
+    {
+     "island": "isl11",
+     "weight": 3
+    },
+    {
+     "island": "isl17",
+     "weight": 2
+    },
+    {
+     "island": "isl14",
+     "weight": 2
+    },
+    {
+     "island": "isl05",
+     "weight": 2
+    },
+    {
+     "island": "isl07",
+     "weight": 2
+    },
+    {
+     "island": "isl16",
+     "weight": 2
+    },
+    {
+     "island": "isl13",
+     "weight": 2
+    },
+    {
+     "island": "isl18",
+     "weight": 2
+    },
+    {
+     "island": "isl03",
+     "weight": 2
+    },
+    {
+     "island": "isl20",
+     "weight": 1
+    },
+    {
+     "island": "isl15",
+     "weight": 1
+    }
+   ]
+  },
+  {
+   "id": "isl11",
+   "members": [
+    "abstract-syntax-tree",
+    "allowlist-input-validation",
+    "application-controller",
+    "bytecode",
+    "bytecode-virtual-machine",
+    "canonicalization-before-validation",
+    "deoptimization",
+    "embedded-domain-specific-language",
+    "escape-sequence",
+    "event-driven-parsing",
+    "expression-builder",
+    "fluent-interface",
+    "front-controller",
+    "hidden-class",
+    "html-sanitization",
+    "inline-caching",
+    "interpreter",
+    "interpreter-architectural-style",
+    "lexer",
+    "lr-parser",
+    "maximal-munch",
+    "multi-pass-compiler-pipeline",
+    "page-controller",
+    "panic-mode-error-recovery",
+    "parameterized-query",
+    "parser-combinator",
+    "pratt-parser",
+    "pretty-printer",
+    "read-eval-print-loop",
+    "recursive-descent-parser",
+    "regular-expressions",
+    "safepoint",
+    "scannerless-parsing",
+    "semantic-model",
+    "shunting-yard-algorithm",
+    "symbol-table",
+    "taint-checking",
+    "template-engine",
+    "template-view",
+    "threaded-code",
+    "transform-view",
+    "tree-walking-interpreter",
+    "two-step-view",
+    "validate-input",
+    "virtual-machine-architectural-style"
+   ],
+   "size": 45,
+   "hub": "multi-pass-compiler-pipeline",
+   "representatives": [
+    "interpreter-architectural-style",
+    "abstract-syntax-tree",
+    "lexer"
+   ],
+   "family": "foundations",
+   "realm_split": {
+    "design": 35,
+    "architecture": 10
+   },
+   "top_kinds": [
+    [
+     "parsing-text",
+     19
+    ],
+    [
+     "pattern",
+     6
+    ],
+    [
+     "robustness-security",
+     5
+    ],
+    [
+     "execution-concurrency",
+     3
+    ],
+    [
+     "construction-api",
+     3
+    ]
+   ],
+   "internal_edges": 91,
+   "neighbours": [
+    {
+     "island": "isl01",
+     "weight": 10
+    },
+    {
+     "island": "isl02",
+     "weight": 6
+    },
+    {
+     "island": "isl07",
+     "weight": 6
+    },
+    {
+     "island": "isl08",
+     "weight": 5
+    },
+    {
+     "island": "isl03",
+     "weight": 5
+    },
+    {
+     "island": "isl10",
+     "weight": 3
+    },
+    {
+     "island": "isl12",
+     "weight": 2
+    },
+    {
+     "island": "isl13",
+     "weight": 2
+    },
+    {
+     "island": "isl16",
+     "weight": 2
+    },
+    {
+     "island": "isl18",
+     "weight": 2
+    },
+    {
+     "island": "isl05",
+     "weight": 1
+    },
+    {
+     "island": "isl20",
+     "weight": 1
+    },
+    {
+     "island": "isl15",
+     "weight": 1
+    }
+   ]
+  },
+  {
+   "id": "isl12",
+   "members": [
+    "adapter-container",
+    "ambassador",
+    "autosar-virtual-function-bus-rte",
+    "callback",
+    "callback-with-context-pointer",
+    "choreography",
+    "context-object",
+    "data-access-connector",
+    "diagnostic-context",
+    "diagnostic-logger",
+    "distributed-tracing",
+    "distributor-connector",
+    "durable-subscriber",
+    "event-aggregator",
+    "event-based-implicit-invocation",
+    "event-carried-state-transfer",
+    "event-collaboration",
+    "event-connector",
+    "event-delegation",
+    "event-driven-architecture",
+    "interceptor",
+    "interface-definition-language",
+    "linkage-connector",
+    "log-aggregation",
+    "log-errors",
+    "main-program-and-subroutines",
+    "mapper",
+    "mediator",
+    "observer",
+    "orchestrate",
+    "procedure-call-connector",
+    "process-manager",
+    "publish-subscribe-architectural-style",
+    "publish-subscribe-channel",
+    "routing-slip",
+    "saga",
+    "scheduler-agent-supervisor",
+    "service-mesh",
+    "sidecar",
+    "signals-and-slots",
+    "temporal-firewall",
+    "time-triggered-bus",
+    "use-an-intermediary",
+    "view-handler",
+    "wire-tap"
+   ],
+   "size": 45,
+   "hub": "event-connector",
+   "representatives": [
+    "observer",
+    "publish-subscribe-architectural-style",
+    "event-based-implicit-invocation"
+   ],
+   "family": "communication",
+   "realm_split": {
+    "architecture": 29,
+    "design": 16
+   },
+   "top_kinds": [
+    [
+     "pattern",
+     10
+    ],
+    [
+     "connector",
+     8
+    ],
+    [
+     "communication",
+     7
+    ],
+    [
+     "oo-patterns",
+     5
+    ],
+    [
+     "deployment",
+     4
+    ]
+   ],
+   "internal_edges": 82,
+   "neighbours": [
+    {
+     "island": "isl01",
+     "weight": 11
+    },
+    {
+     "island": "isl06",
+     "weight": 11
+    },
+    {
+     "island": "isl14",
+     "weight": 10
+    },
+    {
+     "island": "isl16",
+     "weight": 6
+    },
+    {
+     "island": "isl15",
+     "weight": 5
+    },
+    {
+     "island": "isl07",
+     "weight": 5
+    },
+    {
+     "island": "isl05",
+     "weight": 5
+    },
+    {
+     "island": "isl13",
+     "weight": 4
+    },
+    {
+     "island": "isl10",
+     "weight": 4
+    },
+    {
+     "island": "isl17",
+     "weight": 4
+    },
+    {
+     "island": "isl02",
+     "weight": 3
+    },
+    {
+     "island": "isl08",
+     "weight": 3
+    },
+    {
+     "island": "isl11",
+     "weight": 2
+    },
+    {
+     "island": "isl19",
+     "weight": 2
+    },
+    {
+     "island": "isl03",
+     "weight": 2
+    },
+    {
+     "island": "isl04",
+     "weight": 2
+    },
+    {
+     "island": "isl21",
+     "weight": 2
+    },
+    {
+     "island": "isl20",
+     "weight": 2
+    },
+    {
+     "island": "isl09",
+     "weight": 1
+    }
+   ]
+  },
+  {
+   "id": "isl13",
+   "members": [
+    "active-record",
+    "aggregate",
+    "anti-corruption-layer",
+    "association-table-mapping",
+    "bounded-context",
+    "class-table-inheritance",
+    "comparand",
+    "concrete-table-inheritance",
+    "context-map",
+    "data-mapper",
+    "data-transfer-object",
+    "dependent-mapping",
+    "domain-event",
+    "domain-model",
+    "domain-service",
+    "embedded-value",
+    "entity",
+    "event-sourcing",
+    "event-sourcing-architecture-style",
+    "foreign-key-mapping",
+    "identity-field",
+    "identity-map",
+    "inheritance-mappers",
+    "layer-supertype",
+    "metadata-mapping",
+    "query-object",
+    "range",
+    "record-set",
+    "relationship-object",
+    "remote-facade",
+    "repository",
+    "row-data-gateway",
+    "serialization-proxy",
+    "serialized-lob",
+    "service-layer",
+    "single-table-inheritance",
+    "specification",
+    "table-data-gateway",
+    "table-module",
+    "temporal-property",
+    "transaction-script",
+    "unit-of-work",
+    "value-object"
+   ],
+   "size": 43,
+   "hub": "domain-model",
+   "representatives": [
+    "data-mapper",
+    "value-object",
+    "repository"
+   ],
+   "family": "data",
+   "realm_split": {
+    "design": 34,
+    "architecture": 9
+   },
+   "top_kinds": [
+    [
+     "persistence-durability",
+     18
+    ],
+    [
+     "data-representation",
+     8
+    ],
+    [
+     "pattern",
+     7
+    ],
+    [
+     "oo-patterns",
+     3
+    ],
+    [
+     "serialization-framing",
+     2
+    ]
+   ],
+   "internal_edges": 88,
+   "neighbours": [
+    {
+     "island": "isl01",
+     "weight": 7
+    },
+    {
+     "island": "isl14",
+     "weight": 5
+    },
+    {
+     "island": "isl12",
+     "weight": 4
+    },
+    {
+     "island": "isl02",
+     "weight": 4
+    },
+    {
+     "island": "isl16",
+     "weight": 4
+    },
+    {
+     "island": "isl04",
+     "weight": 4
+    },
+    {
+     "island": "isl18",
+     "weight": 3
+    },
+    {
+     "island": "isl17",
+     "weight": 2
+    },
+    {
+     "island": "isl06",
+     "weight": 2
+    },
+    {
+     "island": "isl11",
+     "weight": 2
+    },
+    {
+     "island": "isl10",
+     "weight": 2
+    },
+    {
+     "island": "isl08",
+     "weight": 1
+    },
+    {
+     "island": "isl15",
+     "weight": 1
+    },
+    {
+     "island": "isl05",
+     "weight": 1
+    },
+    {
+     "island": "isl21",
+     "weight": 1
+    },
+    {
+     "island": "isl19",
+     "weight": 1
+    },
+    {
+     "island": "isl20",
+     "weight": 1
+    }
+   ]
+  },
+  {
+   "id": "isl14",
+   "members": [
+    "acceptor-connector",
+    "asynchronous-completion-token",
+    "asynchronous-request-reply",
+    "authoritative-server",
+    "bodyguard",
+    "broker",
+    "claim-check",
+    "client-dispatcher-server",
+    "client-proxy-remoting",
+    "client-request-handler",
+    "client-server",
+    "client-side-prediction",
+    "correlation-identifier",
+    "dead-reckoning",
+    "deterministic-lockstep",
+    "discover",
+    "distributed-hash-table",
+    "distributed-objects",
+    "forwarder-receiver",
+    "half-object-plus-protocol",
+    "half-object-plus-protocol-arch",
+    "hla-federation",
+    "interest-management",
+    "invoker",
+    "jitter-buffer",
+    "lag-compensation",
+    "message",
+    "n-tier-client-server",
+    "peer-to-peer",
+    "proactor",
+    "proxy",
+    "reactor",
+    "remote-procedure-call",
+    "request-reply",
+    "requestor",
+    "resequencer",
+    "return-address",
+    "ring-buffer",
+    "rollback-netcode",
+    "serializer",
+    "server-request-handler",
+    "snapshot-interpolation",
+    "stream-buffer"
+   ],
+   "size": 43,
+   "hub": "broker",
+   "representatives": [
+    "authoritative-server",
+    "client-server",
+    "remote-procedure-call"
+   ],
+   "family": "communication",
+   "realm_split": {
+    "design": 26,
+    "architecture": 17
+   },
+   "top_kinds": [
+    [
+     "communication",
+     11
+    ],
+    [
+     "pattern",
+     10
+    ],
+    [
+     "style",
+     5
+    ],
+    [
+     "state-management",
+     5
+    ],
+    [
+     "data-flow-buffering",
+     5
+    ]
+   ],
+   "internal_edges": 74,
+   "neighbours": [
+    {
+     "island": "isl06",
+     "weight": 11
+    },
+    {
+     "island": "isl12",
+     "weight": 10
+    },
+    {
+     "island": "isl16",
+     "weight": 7
+    },
+    {
+     "island": "isl04",
+     "weight": 6
+    },
+    {
+     "island": "isl17",
+     "weight": 6
+    },
+    {
+     "island": "isl08",
+     "weight": 5
+    },
+    {
+     "island": "isl01",
+     "weight": 5
+    },
+    {
+     "island": "isl13",
+     "weight": 5
+    },
+    {
+     "island": "isl03",
+     "weight": 4
+    },
+    {
+     "island": "isl09",
+     "weight": 3
+    },
+    {
+     "island": "isl15",
+     "weight": 3
+    },
+    {
+     "island": "isl05",
+     "weight": 3
+    },
+    {
+     "island": "isl10",
+     "weight": 2
+    },
+    {
+     "island": "isl02",
+     "weight": 1
+    },
+    {
+     "island": "isl20",
+     "weight": 1
+    },
+    {
+     "island": "isl07",
+     "weight": 1
+    }
+   ]
+  },
+  {
+   "id": "isl15",
+   "members": [
+    "aba-mitigation-via-tagged-pointer",
+    "acquire-release-ordering",
+    "arbitrator-connector",
+    "balking",
+    "compare-and-swap-loop",
+    "condition-variable",
+    "direct-memory-access-dma-transfer",
+    "direct-to-task-notification",
+    "disruptor",
+    "double-checked-locking",
+    "epoch-based-reclamation",
+    "event-flags-group",
+    "eventcount",
+    "false-sharing-avoidance-via-cache-line-padding",
+    "futex",
+    "guarded-call",
+    "guarded-suspension",
+    "hazard-pointers",
+    "kernel-bypass-networking",
+    "latch",
+    "lmax-architecture",
+    "lock-free-fifo-queue-michael-scott",
+    "lock-free-stack-treiber",
+    "mcs-queue-lock",
+    "memory-barrier",
+    "read-copy-update",
+    "readers-writer-lock",
+    "rendezvous",
+    "safe-publication",
+    "scatter-gather-dma",
+    "scheduler",
+    "self-pipe-trick",
+    "semaphore",
+    "sequence-lock",
+    "spinlock",
+    "spsc-lock-free-ring-buffer",
+    "test-and-test-and-set-lock",
+    "thread-confinement",
+    "thread-per-connection-server",
+    "thread-specific-storage",
+    "ticket-lock",
+    "zero-copy-i-o"
+   ],
+   "size": 42,
+   "hub": "arbitrator-connector",
+   "representatives": [
+    "condition-variable",
+    "compare-and-swap-loop",
+    "futex"
+   ],
+   "family": "concurrency",
+   "realm_split": {
+    "design": 38,
+    "architecture": 4
+   },
+   "top_kinds": [
+    [
+     "synchronization-coordination",
+     26
+    ],
+    [
+     "data-flow-buffering",
+     4
+    ],
+    [
+     "resource-management",
+     2
+    ],
+    [
+     "execution-concurrency",
+     2
+    ],
+    [
+     "pattern",
+     2
+    ]
+   ],
+   "internal_edges": 80,
+   "neighbours": [
+    {
+     "island": "isl06",
+     "weight": 14
+    },
+    {
+     "island": "isl02",
+     "weight": 12
+    },
+    {
+     "island": "isl04",
+     "weight": 8
+    },
+    {
+     "island": "isl08",
+     "weight": 6
+    },
+    {
+     "island": "isl09",
+     "weight": 6
+    },
+    {
+     "island": "isl12",
+     "weight": 5
+    },
+    {
+     "island": "isl14",
+     "weight": 3
+    },
+    {
+     "island": "isl01",
+     "weight": 2
+    },
+    {
+     "island": "isl07",
+     "weight": 2
+    },
+    {
+     "island": "isl17",
+     "weight": 2
+    },
+    {
+     "island": "isl03",
+     "weight": 1
+    },
+    {
+     "island": "isl05",
+     "weight": 1
+    },
+    {
+     "island": "isl13",
+     "weight": 1
+    },
+    {
+     "island": "isl19",
+     "weight": 1
+    },
+    {
+     "island": "isl10",
+     "weight": 1
+    },
+    {
+     "island": "isl11",
+     "weight": 1
+    }
+   ]
+  },
+  {
+   "id": "isl16",
+   "members": [
+    "aggregator",
+    "api-composition",
+    "api-gateway",
+    "backends-for-frontends",
+    "binary-to-text-encoding",
+    "bit-stuffing",
+    "byte-stuffing",
+    "code-on-demand",
+    "consistent-overhead-byte-stuffing",
+    "cqrs",
+    "data-mesh",
+    "database-per-service",
+    "file-transfer",
+    "gateway-aggregation",
+    "gateway-offloading",
+    "gateway-routing",
+    "length-prefix-framing",
+    "magic-number-file-signature",
+    "materialized-view-architecture-pattern",
+    "messaging",
+    "micro-frontends",
+    "microservices",
+    "mobile-agent",
+    "modular-monolith",
+    "monolithic-architecture",
+    "percent-encoding",
+    "polyglot-persistence",
+    "protocol-layering",
+    "remote-evaluation",
+    "remote-procedure-invocation",
+    "rest-representational-state-transfer",
+    "scale-cube",
+    "scatter-gather",
+    "service-based-architecture",
+    "shared-database",
+    "space-based-architecture",
+    "static-content-hosting",
+    "strangler-fig",
+    "sync-word",
+    "type-length-value-encoding",
+    "valet-key"
+   ],
+   "size": 41,
+   "hub": "shared-database",
+   "representatives": [
+    "api-gateway",
+    "byte-stuffing",
+    "gateway-aggregation"
+   ],
+   "family": "structure",
+   "realm_split": {
+    "design": 11,
+    "architecture": 30
+   },
+   "top_kinds": [
+    [
+     "style",
+     15
+    ],
+    [
+     "pattern",
+     12
+    ],
+    [
+     "serialization-framing",
+     9
+    ],
+    [
+     "communication",
+     2
+    ],
+    [
+     "deployment",
+     2
+    ]
+   ],
+   "internal_edges": 64,
+   "neighbours": [
+    {
+     "island": "isl14",
+     "weight": 7
+    },
+    {
+     "island": "isl06",
+     "weight": 7
+    },
+    {
+     "island": "isl12",
+     "weight": 6
+    },
+    {
+     "island": "isl04",
+     "weight": 4
+    },
+    {
+     "island": "isl13",
+     "weight": 4
+    },
+    {
+     "island": "isl08",
+     "weight": 4
+    },
+    {
+     "island": "isl19",
+     "weight": 3
+    },
+    {
+     "island": "isl03",
+     "weight": 3
+    },
+    {
+     "island": "isl01",
+     "weight": 3
+    },
+    {
+     "island": "isl02",
+     "weight": 2
+    },
+    {
+     "island": "isl11",
+     "weight": 2
+    },
+    {
+     "island": "isl10",
+     "weight": 2
+    },
+    {
+     "island": "isl05",
+     "weight": 2
+    },
+    {
+     "island": "isl17",
+     "weight": 2
+    },
+    {
+     "island": "isl07",
+     "weight": 1
+    }
+   ]
+  },
+  {
+   "id": "isl17",
+   "members": [
+    "autosar-adaptive-platform",
+    "autosar-layered-software-architecture",
+    "board-support-package",
+    "bounding-volume-hierarchy",
+    "c2",
+    "clean-architecture",
+    "device-driver",
+    "domain-object-posa4",
+    "double-buffer",
+    "escaping-ifdef-hell",
+    "event-loop",
+    "five-layer-architecture-rtdp",
+    "fixed-timestep",
+    "game-loop",
+    "hardware-abstraction-layer",
+    "hardware-abstraction-layer-arch",
+    "hardware-proxy",
+    "hexagonal-architecture",
+    "include-guard",
+    "iohw-h-standard-hardware-i-o-interface",
+    "k-d-tree",
+    "layered-game-engine-architecture",
+    "layers",
+    "memory-mapped-register-access",
+    "navigation-mesh",
+    "organizing-files-in-modular-c-programs",
+    "ping-pong-buffer",
+    "quadtree-octree",
+    "r-tree",
+    "render-graph",
+    "scene-graph",
+    "self-contained-component",
+    "shadow-register",
+    "spatial-partition",
+    "typesafe-register-access-via-c-templates",
+    "uniform-spatial-hash-grid",
+    "update-method"
+   ],
+   "size": 37,
+   "hub": "hardware-abstraction-layer-arch",
+   "representatives": [
+    "layered-game-engine-architecture",
+    "layers",
+    "spatial-partition"
+   ],
+   "family": "resource",
+   "realm_split": {
+    "architecture": 12,
+    "design": 25
+   },
+   "top_kinds": [
+    [
+     "data-structures",
+     8
+    ],
+    [
+     "embedded-systems",
+     6
+    ],
+    [
+     "pattern",
+     5
+    ],
+    [
+     "style",
+     4
+    ],
+    [
+     "reference-architecture",
+     3
+    ]
+   ],
+   "internal_edges": 66,
+   "neighbours": [
+    {
+     "island": "isl01",
+     "weight": 9
+    },
+    {
+     "island": "isl06",
+     "weight": 8
+    },
+    {
+     "island": "isl09",
+     "weight": 7
+    },
+    {
+     "island": "isl14",
+     "weight": 6
+    },
+    {
+     "island": "isl08",
+     "weight": 5
+    },
+    {
+     "island": "isl02",
+     "weight": 4
+    },
+    {
+     "island": "isl07",
+     "weight": 4
+    },
+    {
+     "island": "isl12",
+     "weight": 4
+    },
+    {
+     "island": "isl13",
+     "weight": 2
+    },
+    {
+     "island": "isl10",
+     "weight": 2
+    },
+    {
+     "island": "isl03",
+     "weight": 2
+    },
+    {
+     "island": "isl16",
+     "weight": 2
+    },
+    {
+     "island": "isl15",
+     "weight": 2
+    },
+    {
+     "island": "isl04",
+     "weight": 1
+    },
+    {
+     "island": "isl18",
+     "weight": 1
+    },
+    {
+     "island": "isl19",
+     "weight": 1
+    }
+   ]
+  },
+  {
+   "id": "isl18",
+   "members": [
+    "arbitrary-precision-arithmetic",
+    "behavior-tree",
+    "channel-architecture",
+    "checked-arithmetic",
+    "collections-for-states",
+    "decomposed-and-state",
+    "deferred-event",
+    "finite-state-machine",
+    "fixed-point-arithmetic",
+    "hierarchical-control-rtdp",
+    "hierarchical-state-machine",
+    "interval-arithmetic",
+    "kahan-summation",
+    "methods-for-states",
+    "money",
+    "multiple-event-receptor",
+    "object-recursion",
+    "orthogonal-component",
+    "pid-controller",
+    "process-control-feedback-control-loop",
+    "recursive-containment-rtdp",
+    "recursive-control",
+    "reminder",
+    "rules-engine",
+    "run-to-completion-event-processing",
+    "saturation-arithmetic",
+    "sense-compute-control",
+    "single-event-receptor",
+    "state-transition-system-architectural-organization",
+    "subsumption-architecture",
+    "transition-to-history",
+    "ultimate-hook"
+   ],
+   "size": 32,
+   "hub": "state-transition-system-architectural-organization",
+   "representatives": [
+    "finite-state-machine",
+    "hierarchical-state-machine",
+    "hierarchical-control-rtdp"
+   ],
+   "family": "structure",
+   "realm_split": {
+    "design": 24,
+    "architecture": 8
+   },
+   "top_kinds": [
+    [
+     "state-management",
+     15
+    ],
+    [
+     "numeric-precision",
+     7
+    ],
+    [
+     "style",
+     5
+    ],
+    [
+     "pattern",
+     3
+    ],
+    [
+     "oo-patterns",
+     1
+    ]
+   ],
+   "internal_edges": 51,
+   "neighbours": [
+    {
+     "island": "isl01",
+     "weight": 8
+    },
+    {
+     "island": "isl09",
+     "weight": 3
+    },
+    {
+     "island": "isl02",
+     "weight": 3
+    },
+    {
+     "island": "isl13",
+     "weight": 3
+    },
+    {
+     "island": "isl07",
+     "weight": 2
+    },
+    {
+     "island": "isl06",
+     "weight": 2
+    },
+    {
+     "island": "isl03",
+     "weight": 2
+    },
+    {
+     "island": "isl10",
+     "weight": 2
+    },
+    {
+     "island": "isl11",
+     "weight": 2
+    },
+    {
+     "island": "isl05",
+     "weight": 1
+    },
+    {
+     "island": "isl17",
+     "weight": 1
+    },
+    {
+     "island": "isl04",
+     "weight": 1
+    }
+   ]
+  },
+  {
+   "id": "isl19",
+   "members": [
+    "activator",
+    "auto-scaling",
+    "blue-green-deployment",
+    "bulkhead-deployment-isolation",
+    "canary-release",
+    "cell-based-architecture",
+    "component-container",
+    "compute-resource-consolidation",
+    "deployment-pipeline",
+    "deployment-stamps",
+    "external-configuration-store",
+    "feature-flag",
+    "feature-flag-driven-release",
+    "feature-toggle",
+    "geodes",
+    "health-check-api",
+    "health-endpoint-monitoring",
+    "immutable-infrastructure",
+    "increase-resources",
+    "load-balancer",
+    "maintain-multiple-copies-of-computations",
+    "manage-service-interactions",
+    "os-container",
+    "package-dependencies",
+    "rollback-deployment",
+    "rolling-deployment",
+    "scale-rollouts",
+    "schema-evolution-via-field-tags",
+    "script-deployment-commands",
+    "serverless-function-as-a-service",
+    "tolerant-reader"
+   ],
+   "size": 31,
+   "hub": "load-balancer",
+   "representatives": [
+    "scale-rollouts",
+    "blue-green-deployment",
+    "canary-release"
+   ],
+   "family": "resource",
+   "realm_split": {
+    "architecture": 28,
+    "design": 3
+   },
+   "top_kinds": [
+    [
+     "deployment",
+     17
+    ],
+    [
+     "tactic",
+     8
+    ],
+    [
+     "pattern",
+     3
+    ],
+    [
+     "serialization-framing",
+     2
+    ],
+    [
+     "code-structure",
+     1
+    ]
+   ],
+   "internal_edges": 52,
+   "neighbours": [
+    {
+     "island": "isl05",
+     "weight": 5
+    },
+    {
+     "island": "isl01",
+     "weight": 4
+    },
+    {
+     "island": "isl03",
+     "weight": 4
+    },
+    {
+     "island": "isl16",
+     "weight": 3
+    },
+    {
+     "island": "isl12",
+     "weight": 2
+    },
+    {
+     "island": "isl08",
+     "weight": 2
+    },
+    {
+     "island": "isl09",
+     "weight": 2
+    },
+    {
+     "island": "isl06",
+     "weight": 2
+    },
+    {
+     "island": "isl15",
+     "weight": 1
+    },
+    {
+     "island": "isl02",
+     "weight": 1
+    },
+    {
+     "island": "isl04",
+     "weight": 1
+    },
+    {
+     "island": "isl17",
+     "weight": 1
+    },
+    {
+     "island": "isl07",
+     "weight": 1
+    },
+    {
+     "island": "isl13",
+     "weight": 1
+    }
+   ]
+  },
+  {
+   "id": "isl20",
+   "members": [
+    "aggregate-tactic",
+    "batch-method",
+    "cancel",
+    "combined-method",
+    "command",
+    "command-processor",
+    "enumeration-method",
+    "erase-remove",
+    "iterator",
+    "memento",
+    "pause-resume",
+    "undo",
+    "undo-redo-command-stack",
+    "vectorized-execution",
+    "volcano-iterator-model"
+   ],
+   "size": 15,
+   "hub": "undo",
+   "representatives": [
+    "command",
+    "iterator",
+    "memento"
+   ],
+   "family": "structure",
+   "realm_split": {
+    "architecture": 4,
+    "design": 11
+   },
+   "top_kinds": [
+    [
+     "tactic",
+     4
+    ],
+    [
+     "oo-patterns",
+     4
+    ],
+    [
+     "construction-api",
+     3
+    ],
+    [
+     "data-flow-buffering",
+     2
+    ],
+    [
+     "data-structures",
+     1
+    ]
+   ],
+   "internal_edges": 22,
+   "neighbours": [
+    {
+     "island": "isl01",
+     "weight": 6
+    },
+    {
+     "island": "isl04",
+     "weight": 2
+    },
+    {
+     "island": "isl02",
+     "weight": 2
+    },
+    {
+     "island": "isl08",
+     "weight": 2
+    },
+    {
+     "island": "isl12",
+     "weight": 2
+    },
+    {
+     "island": "isl10",
+     "weight": 1
+    },
+    {
+     "island": "isl06",
+     "weight": 1
+    },
+    {
+     "island": "isl11",
+     "weight": 1
+    },
+    {
+     "island": "isl07",
+     "weight": 1
+    },
+    {
+     "island": "isl14",
+     "weight": 1
+    },
+    {
+     "island": "isl13",
+     "weight": 1
+    }
+   ]
+  },
+  {
+   "id": "isl21",
+   "members": [
+    "4-1-view-model",
+    "allocation-view",
+    "architectural-perspective",
+    "architecture-decision-record",
+    "architecture-description",
+    "architecture-description-language",
+    "architecture-framework",
+    "architecture-view",
+    "architecture-viewpoint",
+    "component-and-connector-view",
+    "model-kind",
+    "module-view",
+    "rozanski-woods-viewpoint-catalog",
+    "stakeholder-concern"
+   ],
+   "size": 14,
+   "hub": "architecture-view",
+   "representatives": [
+    "architecture-viewpoint",
+    "architecture-framework",
+    "stakeholder-concern"
+   ],
+   "family": "foundations",
+   "realm_split": {
+    "architecture": 14
+   },
+   "top_kinds": [
+    [
+     "description",
+     14
+    ]
+   ],
+   "internal_edges": 25,
+   "neighbours": [
+    {
+     "island": "isl12",
+     "weight": 2
+    },
+    {
+     "island": "isl13",
+     "weight": 1
+    }
+   ]
+  }
+ ],
+ "routes": [
+  {
+   "from": "isl01",
+   "to": "isl02",
+   "weight": 15
+  },
+  {
+   "from": "isl01",
+   "to": "isl03",
+   "weight": 3
+  },
+  {
+   "from": "isl01",
+   "to": "isl04",
+   "weight": 4
+  },
+  {
+   "from": "isl01",
+   "to": "isl06",
+   "weight": 9
+  },
+  {
+   "from": "isl01",
+   "to": "isl07",
+   "weight": 20
+  },
+  {
+   "from": "isl01",
+   "to": "isl08",
+   "weight": 8
+  },
+  {
+   "from": "isl01",
+   "to": "isl10",
+   "weight": 8
+  },
+  {
+   "from": "isl01",
+   "to": "isl11",
+   "weight": 10
+  },
+  {
+   "from": "isl01",
+   "to": "isl12",
+   "weight": 11
+  },
+  {
+   "from": "isl01",
+   "to": "isl13",
+   "weight": 7
+  },
+  {
+   "from": "isl01",
+   "to": "isl14",
+   "weight": 5
+  },
+  {
+   "from": "isl01",
+   "to": "isl15",
+   "weight": 2
+  },
+  {
+   "from": "isl01",
+   "to": "isl16",
+   "weight": 3
+  },
+  {
+   "from": "isl01",
+   "to": "isl17",
+   "weight": 9
+  },
+  {
+   "from": "isl01",
+   "to": "isl18",
+   "weight": 8
+  },
+  {
+   "from": "isl01",
+   "to": "isl19",
+   "weight": 4
+  },
+  {
+   "from": "isl01",
+   "to": "isl20",
+   "weight": 6
+  },
+  {
+   "from": "isl02",
+   "to": "isl03",
+   "weight": 3
+  },
+  {
+   "from": "isl02",
+   "to": "isl04",
+   "weight": 16
+  },
+  {
+   "from": "isl02",
+   "to": "isl05",
+   "weight": 14
+  },
+  {
+   "from": "isl02",
+   "to": "isl06",
+   "weight": 2
+  },
+  {
+   "from": "isl02",
+   "to": "isl07",
+   "weight": 7
+  },
+  {
+   "from": "isl02",
+   "to": "isl08",
+   "weight": 16
+  },
+  {
+   "from": "isl02",
+   "to": "isl09",
+   "weight": 8
+  },
+  {
+   "from": "isl02",
+   "to": "isl10",
+   "weight": 3
+  },
+  {
+   "from": "isl02",
+   "to": "isl11",
+   "weight": 6
+  },
+  {
+   "from": "isl02",
+   "to": "isl12",
+   "weight": 3
+  },
+  {
+   "from": "isl02",
+   "to": "isl13",
+   "weight": 4
+  },
+  {
+   "from": "isl02",
+   "to": "isl14",
+   "weight": 1
+  },
+  {
+   "from": "isl02",
+   "to": "isl15",
+   "weight": 12
+  },
+  {
+   "from": "isl02",
+   "to": "isl16",
+   "weight": 2
+  },
+  {
+   "from": "isl02",
+   "to": "isl17",
+   "weight": 4
+  },
+  {
+   "from": "isl02",
+   "to": "isl18",
+   "weight": 3
+  },
+  {
+   "from": "isl02",
+   "to": "isl19",
+   "weight": 1
+  },
+  {
+   "from": "isl02",
+   "to": "isl20",
+   "weight": 2
+  },
+  {
+   "from": "isl03",
+   "to": "isl04",
+   "weight": 4
+  },
+  {
+   "from": "isl03",
+   "to": "isl05",
+   "weight": 6
+  },
+  {
+   "from": "isl03",
+   "to": "isl06",
+   "weight": 1
+  },
+  {
+   "from": "isl03",
+   "to": "isl07",
+   "weight": 4
+  },
+  {
+   "from": "isl03",
+   "to": "isl08",
+   "weight": 1
+  },
+  {
+   "from": "isl03",
+   "to": "isl09",
+   "weight": 2
+  },
+  {
+   "from": "isl03",
+   "to": "isl10",
+   "weight": 2
+  },
+  {
+   "from": "isl03",
+   "to": "isl11",
+   "weight": 5
+  },
+  {
+   "from": "isl03",
+   "to": "isl12",
+   "weight": 2
+  },
+  {
+   "from": "isl03",
+   "to": "isl14",
+   "weight": 4
+  },
+  {
+   "from": "isl03",
+   "to": "isl15",
+   "weight": 1
+  },
+  {
+   "from": "isl03",
+   "to": "isl16",
+   "weight": 3
+  },
+  {
+   "from": "isl03",
+   "to": "isl17",
+   "weight": 2
+  },
+  {
+   "from": "isl03",
+   "to": "isl18",
+   "weight": 2
+  },
+  {
+   "from": "isl03",
+   "to": "isl19",
+   "weight": 4
+  },
+  {
+   "from": "isl04",
+   "to": "isl05",
+   "weight": 11
+  },
+  {
+   "from": "isl04",
+   "to": "isl06",
+   "weight": 5
+  },
+  {
+   "from": "isl04",
+   "to": "isl07",
+   "weight": 2
+  },
+  {
+   "from": "isl04",
+   "to": "isl08",
+   "weight": 11
+  },
+  {
+   "from": "isl04",
+   "to": "isl09",
+   "weight": 1
+  },
+  {
+   "from": "isl04",
+   "to": "isl10",
+   "weight": 4
+  },
+  {
+   "from": "isl04",
+   "to": "isl12",
+   "weight": 2
+  },
+  {
+   "from": "isl04",
+   "to": "isl13",
+   "weight": 4
+  },
+  {
+   "from": "isl04",
+   "to": "isl14",
+   "weight": 6
+  },
+  {
+   "from": "isl04",
+   "to": "isl15",
+   "weight": 8
+  },
+  {
+   "from": "isl04",
+   "to": "isl16",
+   "weight": 4
+  },
+  {
+   "from": "isl04",
+   "to": "isl17",
+   "weight": 1
+  },
+  {
+   "from": "isl04",
+   "to": "isl18",
+   "weight": 1
+  },
+  {
+   "from": "isl04",
+   "to": "isl19",
+   "weight": 1
+  },
+  {
+   "from": "isl04",
+   "to": "isl20",
+   "weight": 2
+  },
+  {
+   "from": "isl05",
+   "to": "isl06",
+   "weight": 11
+  },
+  {
+   "from": "isl05",
+   "to": "isl07",
+   "weight": 8
+  },
+  {
+   "from": "isl05",
+   "to": "isl09",
+   "weight": 4
+  },
+  {
+   "from": "isl05",
+   "to": "isl10",
+   "weight": 2
+  },
+  {
+   "from": "isl05",
+   "to": "isl11",
+   "weight": 1
+  },
+  {
+   "from": "isl05",
+   "to": "isl12",
+   "weight": 5
+  },
+  {
+   "from": "isl05",
+   "to": "isl13",
+   "weight": 1
+  },
+  {
+   "from": "isl05",
+   "to": "isl14",
+   "weight": 3
+  },
+  {
+   "from": "isl05",
+   "to": "isl15",
+   "weight": 1
+  },
+  {
+   "from": "isl05",
+   "to": "isl16",
+   "weight": 2
+  },
+  {
+   "from": "isl05",
+   "to": "isl18",
+   "weight": 1
+  },
+  {
+   "from": "isl05",
+   "to": "isl19",
+   "weight": 5
+  },
+  {
+   "from": "isl06",
+   "to": "isl07",
+   "weight": 4
+  },
+  {
+   "from": "isl06",
+   "to": "isl08",
+   "weight": 3
+  },
+  {
+   "from": "isl06",
+   "to": "isl09",
+   "weight": 13
+  },
+  {
+   "from": "isl06",
+   "to": "isl10",
+   "weight": 7
+  },
+  {
+   "from": "isl06",
+   "to": "isl12",
+   "weight": 11
+  },
+  {
+   "from": "isl06",
+   "to": "isl13",
+   "weight": 2
+  },
+  {
+   "from": "isl06",
+   "to": "isl14",
+   "weight": 11
+  },
+  {
+   "from": "isl06",
+   "to": "isl15",
+   "weight": 14
+  },
+  {
+   "from": "isl06",
+   "to": "isl16",
+   "weight": 7
+  },
+  {
+   "from": "isl06",
+   "to": "isl17",
+   "weight": 8
+  },
+  {
+   "from": "isl06",
+   "to": "isl18",
+   "weight": 2
+  },
+  {
+   "from": "isl06",
+   "to": "isl19",
+   "weight": 2
+  },
+  {
+   "from": "isl06",
+   "to": "isl20",
+   "weight": 1
+  },
+  {
+   "from": "isl07",
+   "to": "isl10",
+   "weight": 2
+  },
+  {
+   "from": "isl07",
+   "to": "isl11",
+   "weight": 6
+  },
+  {
+   "from": "isl07",
+   "to": "isl12",
+   "weight": 5
+  },
+  {
+   "from": "isl07",
+   "to": "isl14",
+   "weight": 1
+  },
+  {
+   "from": "isl07",
+   "to": "isl15",
+   "weight": 2
+  },
+  {
+   "from": "isl07",
+   "to": "isl16",
+   "weight": 1
+  },
+  {
+   "from": "isl07",
+   "to": "isl17",
+   "weight": 4
+  },
+  {
+   "from": "isl07",
+   "to": "isl18",
+   "weight": 2
+  },
+  {
+   "from": "isl07",
+   "to": "isl19",
+   "weight": 1
+  },
+  {
+   "from": "isl07",
+   "to": "isl20",
+   "weight": 1
+  },
+  {
+   "from": "isl08",
+   "to": "isl09",
+   "weight": 5
+  },
+  {
+   "from": "isl08",
+   "to": "isl10",
+   "weight": 5
+  },
+  {
+   "from": "isl08",
+   "to": "isl11",
+   "weight": 5
+  },
+  {
+   "from": "isl08",
+   "to": "isl12",
+   "weight": 3
+  },
+  {
+   "from": "isl08",
+   "to": "isl13",
+   "weight": 1
+  },
+  {
+   "from": "isl08",
+   "to": "isl14",
+   "weight": 5
+  },
+  {
+   "from": "isl08",
+   "to": "isl15",
+   "weight": 6
+  },
+  {
+   "from": "isl08",
+   "to": "isl16",
+   "weight": 4
+  },
+  {
+   "from": "isl08",
+   "to": "isl17",
+   "weight": 5
+  },
+  {
+   "from": "isl08",
+   "to": "isl19",
+   "weight": 2
+  },
+  {
+   "from": "isl08",
+   "to": "isl20",
+   "weight": 2
+  },
+  {
+   "from": "isl09",
+   "to": "isl10",
+   "weight": 8
+  },
+  {
+   "from": "isl09",
+   "to": "isl12",
+   "weight": 1
+  },
+  {
+   "from": "isl09",
+   "to": "isl14",
+   "weight": 3
+  },
+  {
+   "from": "isl09",
+   "to": "isl15",
+   "weight": 6
+  },
+  {
+   "from": "isl09",
+   "to": "isl17",
+   "weight": 7
+  },
+  {
+   "from": "isl09",
+   "to": "isl18",
+   "weight": 3
+  },
+  {
+   "from": "isl09",
+   "to": "isl19",
+   "weight": 2
+  },
+  {
+   "from": "isl10",
+   "to": "isl11",
+   "weight": 3
+  },
+  {
+   "from": "isl10",
+   "to": "isl12",
+   "weight": 4
+  },
+  {
+   "from": "isl10",
+   "to": "isl13",
+   "weight": 2
+  },
+  {
+   "from": "isl10",
+   "to": "isl14",
+   "weight": 2
+  },
+  {
+   "from": "isl10",
+   "to": "isl15",
+   "weight": 1
+  },
+  {
+   "from": "isl10",
+   "to": "isl16",
+   "weight": 2
+  },
+  {
+   "from": "isl10",
+   "to": "isl17",
+   "weight": 2
+  },
+  {
+   "from": "isl10",
+   "to": "isl18",
+   "weight": 2
+  },
+  {
+   "from": "isl10",
+   "to": "isl20",
+   "weight": 1
+  },
+  {
+   "from": "isl11",
+   "to": "isl12",
+   "weight": 2
+  },
+  {
+   "from": "isl11",
+   "to": "isl13",
+   "weight": 2
+  },
+  {
+   "from": "isl11",
+   "to": "isl15",
+   "weight": 1
+  },
+  {
+   "from": "isl11",
+   "to": "isl16",
+   "weight": 2
+  },
+  {
+   "from": "isl11",
+   "to": "isl18",
+   "weight": 2
+  },
+  {
+   "from": "isl11",
+   "to": "isl20",
+   "weight": 1
+  },
+  {
+   "from": "isl12",
+   "to": "isl13",
+   "weight": 4
+  },
+  {
+   "from": "isl12",
+   "to": "isl14",
+   "weight": 10
+  },
+  {
+   "from": "isl12",
+   "to": "isl15",
+   "weight": 5
+  },
+  {
+   "from": "isl12",
+   "to": "isl16",
+   "weight": 6
+  },
+  {
+   "from": "isl12",
+   "to": "isl17",
+   "weight": 4
+  },
+  {
+   "from": "isl12",
+   "to": "isl19",
+   "weight": 2
+  },
+  {
+   "from": "isl12",
+   "to": "isl20",
+   "weight": 2
+  },
+  {
+   "from": "isl12",
+   "to": "isl21",
+   "weight": 2
+  },
+  {
+   "from": "isl13",
+   "to": "isl14",
+   "weight": 5
+  },
+  {
+   "from": "isl13",
+   "to": "isl15",
+   "weight": 1
+  },
+  {
+   "from": "isl13",
+   "to": "isl16",
+   "weight": 4
+  },
+  {
+   "from": "isl13",
+   "to": "isl17",
+   "weight": 2
+  },
+  {
+   "from": "isl13",
+   "to": "isl18",
+   "weight": 3
+  },
+  {
+   "from": "isl13",
+   "to": "isl19",
+   "weight": 1
+  },
+  {
+   "from": "isl13",
+   "to": "isl20",
+   "weight": 1
+  },
+  {
+   "from": "isl13",
+   "to": "isl21",
+   "weight": 1
+  },
+  {
+   "from": "isl14",
+   "to": "isl15",
+   "weight": 3
+  },
+  {
+   "from": "isl14",
+   "to": "isl16",
+   "weight": 7
+  },
+  {
+   "from": "isl14",
+   "to": "isl17",
+   "weight": 6
+  },
+  {
+   "from": "isl14",
+   "to": "isl20",
+   "weight": 1
+  },
+  {
+   "from": "isl15",
+   "to": "isl17",
+   "weight": 2
+  },
+  {
+   "from": "isl15",
+   "to": "isl19",
+   "weight": 1
+  },
+  {
+   "from": "isl16",
+   "to": "isl17",
+   "weight": 2
+  },
+  {
+   "from": "isl16",
+   "to": "isl19",
+   "weight": 3
+  },
+  {
+   "from": "isl17",
+   "to": "isl18",
+   "weight": 1
+  },
+  {
+   "from": "isl17",
+   "to": "isl19",
+   "weight": 1
+  }
+ ],
+ "membership": {
+  "abstract-common-services": "isl01",
+  "abstract-factory": "isl01",
+  "abstract-session": "isl01",
+  "adapter": "isl01",
+  "adaptive-object-model": "isl01",
+  "adaptor-connector": "isl01",
+  "adhere-to-standards": "isl01",
+  "aggregate-instance": "isl01",
+  "blackboard": "isl01",
+  "bridge": "isl01",
+  "builder": "isl01",
+  "bureaucracy": "isl01",
+  "callee-allocates": "isl01",
+  "caller-owned-buffer": "isl01",
+  "chain-of-responsibility": "isl01",
+  "client-session-state": "isl01",
+  "collecting-parameter": "isl01",
+  "collection-pipeline": "isl01",
+  "component-based-architecture": "isl01",
+  "component-configurator": "isl01",
+  "composite": "isl01",
+  "configure-behavior": "isl01",
+  "construct-on-first-use": "isl01",
+  "copied-value": "isl01",
+  "curiously-recurring-template-pattern-crtp": "isl01",
+  "currying-partial-application": "isl01",
+  "database-session-state": "isl01",
+  "decorator": "isl01",
+  "defensive-copy": "isl01",
+  "defer-binding": "isl01",
+  "delegation": "isl01",
+  "dependency-injection": "isl01",
+  "double-dispatch": "isl01",
+  "empty-base-optimization-ebo": "isl01",
+  "encapsulate": "isl01",
+  "envelope-letter": "isl01",
+  "explicit-interface": "isl01",
+  "expression-templates": "isl01",
+  "extension-interface": "isl01",
+  "extension-object": "isl01",
+  "external-polymorphism": "isl01",
+  "facade": "isl01",
+  "facade-backend-module-pattern": "isl01",
+  "factory-method": "isl01",
+  "flyweight": "isl01",
+  "function-control": "isl01",
+  "function-object": "isl01",
+  "function-pointer-dispatch-table": "isl01",
+  "functional-options": "isl01",
+  "generation-gap": "isl01",
+  "hardware-adapter": "isl01",
+  "hook-method": "isl01",
+  "immediate-mode-gui": "isl01",
+  "introspective-interface": "isl01",
+  "lifecycle-callback": "isl01",
+  "maintain-system-model": "isl01",
+  "maintain-task-model": "isl01",
+  "maintain-user-model": "isl01",
+  "microkernel": "isl01",
+  "mixin": "isl01",
+  "module-pattern": "isl01",
+  "monostate": "isl01",
+  "multiton": "isl01",
+  "named-parameter-idiom": "isl01",
+  "network-byte-order-handling": "isl01",
+  "nifty-counter": "isl01",
+  "non-virtual-interface-nvi": "isl01",
+  "object-orientation-in-c": "isl01",
+  "object-oriented-organization": "isl01",
+  "oo-in-c-via-explicit-vtable": "isl01",
+  "opaque-pointer": "isl01",
+  "out-parameters": "isl01",
+  "pluggable-selector": "isl01",
+  "plugin": "isl01",
+  "policy-based-design": "isl01",
+  "private-class-data": "isl01",
+  "product-trader": "isl01",
+  "prototype": "isl01",
+  "reflection": "isl01",
+  "registry": "isl01",
+  "repository-shared-data-style": "isl01",
+  "retained-mode-gui": "isl01",
+  "role-object": "isl01",
+  "rule-based-system": "isl01",
+  "separated-interface": "isl01",
+  "servant": "isl01",
+  "server-session-state": "isl01",
+  "service-locator": "isl01",
+  "service-registry": "isl01",
+  "sfinae": "isl01",
+  "singleton": "isl01",
+  "smart-constructor": "isl01",
+  "software-module-with-global-state": "isl01",
+  "sponsor-selector": "isl01",
+  "state": "isl01",
+  "state-transition-table": "isl01",
+  "stateless-software-module": "isl01",
+  "static-factory-method": "isl01",
+  "strategy": "isl01",
+  "tag-dispatching": "isl01",
+  "tailor-interface": "isl01",
+  "template-method": "isl01",
+  "thunk": "isl01",
+  "traits-class": "isl01",
+  "twin": "isl01",
+  "type-erasure": "isl01",
+  "type-object": "isl01",
+  "type-safe-enum": "isl01",
+  "typelist": "isl01",
+  "value-semantics": "isl01",
+  "visitor": "isl01",
+  "whole-part": "isl01",
+  "wrapper-facade": "isl01",
+  "x-macro": "isl01",
+  "allocation-wrapper": "isl02",
+  "bound-execution-times": "isl02",
+  "boundary-tags": "isl02",
+  "buddy-memory-allocation": "isl02",
+  "buffer-pool": "isl02",
+  "cache-aside": "isl02",
+  "cache-eviction-policy": "isl02",
+  "cache-stampede-protection": "isl02",
+  "caching": "isl02",
+  "captain-oates": "isl02",
+  "compaction": "isl02",
+  "copy-and-swap": "isl02",
+  "custom-allocator": "isl02",
+  "dedicated-ownership": "isl02",
+  "degradation": "isl02",
+  "dirty-flag": "isl02",
+  "dirty-rectangles": "isl02",
+  "dispose-pattern": "isl02",
+  "domain-specific-software-architecture": "isl02",
+  "draw-call-batching": "isl02",
+  "evictor": "isl02",
+  "exception-prevention": "isl02",
+  "exceptional-value": "isl02",
+  "execute-around-method": "isl02",
+  "fast-path": "isl02",
+  "federated-avionics-architecture": "isl02",
+  "fixed-capacity-container": "isl02",
+  "fixed-sized-buffer": "isl02",
+  "free-list": "isl02",
+  "garbage-collection": "isl02",
+  "gc-read-barrier": "isl02",
+  "gc-write-barrier": "isl02",
+  "health-monitor-arinc-653": "isl02",
+  "increase-competence-set": "isl02",
+  "integrated-modular-avionics": "isl02",
+  "lazy-cleanup": "isl02",
+  "leasing": "isl02",
+  "lookup": "isl02",
+  "lookup-table": "isl02",
+  "loop-timeout": "isl02",
+  "lru-cache": "isl02",
+  "maintain-multiple-copies-of-data": "isl02",
+  "manage-resources-integrability": "isl02",
+  "manage-sampling-rate": "isl02",
+  "meaningless-behavior": "isl02",
+  "memoization": "isl02",
+  "memory-arena": "isl02",
+  "memory-discard": "isl02",
+  "memory-limit": "isl02",
+  "monitor-object": "isl02",
+  "negative-caching": "isl02",
+  "newtype": "isl02",
+  "null-object": "isl02",
+  "object-manager": "isl02",
+  "ordered-locking": "isl02",
+  "packrat-parsing": "isl02",
+  "phantom-type": "isl02",
+  "pool-allocation": "isl02",
+  "pooling": "isl02",
+  "prefetching": "isl02",
+  "quantity": "isl02",
+  "raii-resource-acquisition-is-initialization": "isl02",
+  "read-through-cache": "isl02",
+  "reconfiguration": "isl02",
+  "reduce-computational-overhead": "isl02",
+  "reentrant-lock": "isl02",
+  "reference-counting": "isl02",
+  "refresh-ahead-cache": "isl02",
+  "resource-lifecycle-manager": "isl02",
+  "restartable-sequences": "isl02",
+  "rule-of-three-five-zero": "isl02",
+  "scope-guard": "isl02",
+  "scoped-locking": "isl02",
+  "simultaneous-locking": "isl02",
+  "slab-allocator": "isl02",
+  "small-buffer-optimization": "isl02",
+  "smart-pointer": "isl02",
+  "special-case": "isl02",
+  "stack-first": "isl02",
+  "static-allocation": "isl02",
+  "steady-state": "isl02",
+  "strategized-locking": "isl02",
+  "texture-atlas": "isl02",
+  "thread-safe-interface": "isl02",
+  "time-and-space-partitioning": "isl02",
+  "time-to-live-ttl": "isl02",
+  "two-level-segregated-fit-allocator-tlsf": "isl02",
+  "units-of-measure-types": "isl02",
+  "variable-allocation": "isl02",
+  "weak-reference": "isl02",
+  "write-behind-cache": "isl02",
+  "write-through-cache": "isl02",
+  "a-b-firmware-image-update": "isl03",
+  "access-control-list": "isl03",
+  "audit": "isl03",
+  "audit-log": "isl03",
+  "authenticate-actors": "isl03",
+  "authenticated-encryption": "isl03",
+  "authorization-security-pattern": "isl03",
+  "authorize-actors": "isl03",
+  "blockchain": "isl03",
+  "bootloader-application-split": "isl03",
+  "bootloader-boot-stage-architecture": "isl03",
+  "bootloader-jump-handoff": "isl03",
+  "canonical-serialization": "isl03",
+  "capability": "isl03",
+  "change-credential-settings": "isl03",
+  "check-point": "isl03",
+  "constant-time-comparison": "isl03",
+  "content-addressable-storage": "isl03",
+  "cryptographic-hash-function": "isl03",
+  "csprng": "isl03",
+  "defense-in-depth": "isl03",
+  "demilitarized-zone": "isl03",
+  "detect-intrusion": "isl03",
+  "detect-message-delay": "isl03",
+  "detect-service-denial": "isl03",
+  "encrypt-data": "isl03",
+  "failover": "isl03",
+  "federated-identity": "isl03",
+  "firewall": "isl03",
+  "full-view-with-errors": "isl03",
+  "gatekeeper": "isl03",
+  "hot-code-reload": "isl03",
+  "identify-actors": "isl03",
+  "inform-actors": "isl03",
+  "intrusion-detection-system": "isl03",
+  "limit-access": "isl03",
+  "limit-exposure": "isl03",
+  "limited-view": "isl03",
+  "merkle-tree": "isl03",
+  "message-authentication-code": "isl03",
+  "non-stop-forwarding": "isl03",
+  "nonce": "isl03",
+  "nonrepudiation": "isl03",
+  "policy-decision-point-policy-enforcement-point": "isl03",
+  "privilege-bracketing": "isl03",
+  "privilege-separation": "isl03",
+  "privilege-separation-arch": "isl03",
+  "proxy-based-firewall": "isl03",
+  "redundant-spare": "isl03",
+  "reference-monitor": "isl03",
+  "restrict-login": "isl03",
+  "revoke-access": "isl03",
+  "role-based-access-control": "isl03",
+  "salted-password-hashing": "isl03",
+  "sandbox": "isl03",
+  "secrets-management-service": "isl03",
+  "secure-access-layer": "isl03",
+  "secure-boot-image-verification": "isl03",
+  "secure-channel": "isl03",
+  "secure-zeroization": "isl03",
+  "security-session": "isl03",
+  "separate-entities": "isl03",
+  "serial-number-arithmetic": "isl03",
+  "shadow": "isl03",
+  "single-access-point": "isl03",
+  "single-sign-on": "isl03",
+  "software-upgrade": "isl03",
+  "state-resynchronization": "isl03",
+  "synchronizer-token": "isl03",
+  "timestamp": "isl03",
+  "trusted-execution-environment": "isl03",
+  "verify-message-integrity": "isl03",
+  "zero-trust-architecture": "isl03",
+  "analytic-redundancy": "isl04",
+  "b-tree": "isl04",
+  "checkpointing": "isl04",
+  "coarse-grained-lock": "isl04",
+  "comparison": "isl04",
+  "conflict-free-replicated-data-type-crdt": "isl04",
+  "consistent-hashing": "isl04",
+  "coordinator": "isl04",
+  "copy-on-write": "isl04",
+  "copy-on-write-b-tree": "isl04",
+  "deadlock-detection": "isl04",
+  "dual-core-lockstep": "isl04",
+  "eeprom-emulation-in-flash": "isl04",
+  "epsilon-ulp-float-comparison": "isl04",
+  "fault-tolerant-unit": "isl04",
+  "fencing-token": "isl04",
+  "flash-translation-layer": "isl04",
+  "flash-wear-leveling": "isl04",
+  "flat-combining": "isl04",
+  "functional-redundancy": "isl04",
+  "group-commit": "isl04",
+  "implicit-lock": "isl04",
+  "index-table": "isl04",
+  "inverted-index": "isl04",
+  "leader-election": "isl04",
+  "leaderless-replication": "isl04",
+  "lock-escalation": "isl04",
+  "lock-striping": "isl04",
+  "log-structured-storage": "isl04",
+  "logical-clock": "isl04",
+  "lsm-tree": "isl04",
+  "m-out-of-n-voting": "isl04",
+  "masking": "isl04",
+  "memory-image": "isl04",
+  "multi-granularity-locking": "isl04",
+  "multi-leader-replication": "isl04",
+  "multiversion-concurrency-control": "isl04",
+  "n-version-programming": "isl04",
+  "object-synchronizer": "isl04",
+  "operational-transformation": "isl04",
+  "optimistic-concurrency-control": "isl04",
+  "optimistic-offline-lock": "isl04",
+  "optimistic-ui-update": "isl04",
+  "pax-page-layout": "isl04",
+  "pessimistic-offline-lock": "isl04",
+  "primary-replica-replication": "isl04",
+  "process-pairs": "isl04",
+  "recovery-blocks": "isl04",
+  "relational-dbms-reference-architecture": "isl04",
+  "repair-state": "isl04",
+  "replicated-component-group": "isl04",
+  "replication": "isl04",
+  "roll-forward": "isl04",
+  "rollback": "isl04",
+  "rollback-tactic": "isl04",
+  "secondary-index": "isl04",
+  "shadow-paging": "isl04",
+  "sharding": "isl04",
+  "shared-nothing-architecture": "isl04",
+  "sharing": "isl04",
+  "slotted-page-layout": "isl04",
+  "snapshot-isolation": "isl04",
+  "software-transactional-memory": "isl04",
+  "timestamp-ordering-concurrency-control": "isl04",
+  "tombstone": "isl04",
+  "transactions": "isl04",
+  "triple-modular-redundancy": "isl04",
+  "two-phase-commit": "isl04",
+  "two-phase-locking": "isl04",
+  "voting": "isl04",
+  "write-ahead-log": "isl04",
+  "brown-out-handling": "isl05",
+  "built-in-self-test": "isl05",
+  "bulkhead": "isl05",
+  "circuit-breaker": "isl05",
+  "complete-parameter-checking": "isl05",
+  "condition-monitoring": "isl05",
+  "control-bus": "isl05",
+  "core-dump": "isl05",
+  "correcting-audits": "isl05",
+  "crash-only-software": "isl05",
+  "cyclic-redundancy-check": "isl05",
+  "dead-letter-channel": "isl05",
+  "deadline-propagation": "isl05",
+  "deferred-validation": "isl05",
+  "dual-channel": "isl05",
+  "error-kernel": "isl05",
+  "escalating-restart": "isl05",
+  "escalation": "isl05",
+  "fault-containment-region": "isl05",
+  "fault-observer": "isl05",
+  "guaranteed-delivery": "isl05",
+  "happy-eyeballs": "isl05",
+  "heartbeat": "isl05",
+  "heartbeat-tactic": "isl05",
+  "hedged-request": "isl05",
+  "idempotent-receiver": "isl05",
+  "ignore-faulty-behavior": "isl05",
+  "interlock": "isl05",
+  "leaky-bucket-counter": "isl05",
+  "let-it-crash": "isl05",
+  "maintenance-interface": "isl05",
+  "marked-data": "isl05",
+  "message-expiration": "isl05",
+  "monitor": "isl05",
+  "monitor-actuator": "isl05",
+  "one-s-complement-data-storage": "isl05",
+  "ping-echo": "isl05",
+  "pointer-check": "isl05",
+  "predictive-model": "isl05",
+  "program-sequence-monitoring": "isl05",
+  "protected-single-channel": "isl05",
+  "quarantine": "isl05",
+  "removal-from-service": "isl05",
+  "restart": "isl05",
+  "retry": "isl05",
+  "retry-budget": "isl05",
+  "retry-with-exponential-backoff-and-jitter": "isl05",
+  "riding-over-transients": "isl05",
+  "safe-state": "isl05",
+  "safety-executive": "isl05",
+  "sanity-check": "isl05",
+  "sanity-checking": "isl05",
+  "self-test": "isl05",
+  "smart-data": "isl05",
+  "software-rejuvenation": "isl05",
+  "someone-in-charge": "isl05",
+  "substitution": "isl05",
+  "supervision-tree-otp": "isl05",
+  "supervisor": "isl05",
+  "timeout": "isl05",
+  "timeout-tactic": "isl05",
+  "transactional-outbox": "isl05",
+  "typestate": "isl05",
+  "units-of-mitigation": "isl05",
+  "watchdog": "isl05",
+  "watchdog-architecture-pattern": "isl05",
+  "active-object": "isl06",
+  "actor-based-architecture": "isl06",
+  "async-await-model": "isl06",
+  "cancellation-token": "isl06",
+  "canonical-data-model": "isl06",
+  "channel-adapter": "isl06",
+  "competing-consumers": "isl06",
+  "competing-consumers-system-scale": "isl06",
+  "competing-consumers-system-topology": "isl06",
+  "content-based-router": "isl06",
+  "coroutine": "isl06",
+  "csp-channel": "isl06",
+  "data-bus-rtdp": "isl06",
+  "data-parallel-architecture": "isl06",
+  "datatype-channel": "isl06",
+  "distributed-processes": "isl06",
+  "enterprise-service-bus": "isl06",
+  "event-driven-consumer": "isl06",
+  "executor": "isl06",
+  "fork-join": "isl06",
+  "future-promise": "isl06",
+  "gateway": "isl06",
+  "green-threads": "isl06",
+  "half-sync-half-async": "isl06",
+  "half-sync-half-async-system-layering": "isl06",
+  "introduce-concurrency": "isl06",
+  "job-system": "isl06",
+  "leader-followers": "isl06",
+  "loop-parallelism": "isl06",
+  "mailbox": "isl06",
+  "mapreduce": "isl06",
+  "master-slave": "isl06",
+  "master-worker": "isl06",
+  "message-broker": "isl06",
+  "message-bus": "isl06",
+  "message-channel": "isl06",
+  "message-dispatcher": "isl06",
+  "message-endpoint": "isl06",
+  "message-filter": "isl06",
+  "message-queue": "isl06",
+  "message-router": "isl06",
+  "message-translator": "isl06",
+  "messaging-bridge": "isl06",
+  "parallel-reduction": "isl06",
+  "pipeline-parallelism": "isl06",
+  "polling-consumer": "isl06",
+  "preforked-prethreaded-server": "isl06",
+  "producer-consumer": "isl06",
+  "queue-based-load-leveling": "isl06",
+  "seda-staged-event-driven-architecture": "isl06",
+  "selective-consumer": "isl06",
+  "sequential-convoy": "isl06",
+  "service-oriented-architecture": "isl06",
+  "service-stub": "isl06",
+  "shared-memory-communication": "isl06",
+  "splitter": "isl06",
+  "spmd": "isl06",
+  "stencil": "isl06",
+  "structured-concurrency": "isl06",
+  "thread-pool": "isl06",
+  "two-phase-termination": "isl06",
+  "work-stealing": "isl06",
+  "abort": "isl07",
+  "abstract-data-sources": "isl07",
+  "acyclic-visitor": "isl07",
+  "cleanup-record": "isl07",
+  "composed-method": "isl07",
+  "continuation-passing-style": "isl07",
+  "defunctionalization": "isl07",
+  "design-by-contract": "isl07",
+  "effect-handler": "isl07",
+  "error-handler": "isl07",
+  "exception-detection": "isl07",
+  "exception-handling": "isl07",
+  "executable-assertions": "isl07",
+  "fail-fast": "isl07",
+  "four-phase-test": "isl07",
+  "free-monad": "isl07",
+  "functional-core-imperative-shell": "isl07",
+  "golden-master-testing": "isl07",
+  "goto-cleanup": "isl07",
+  "guard-clause": "isl07",
+  "guard-page": "isl07",
+  "humble-object": "isl07",
+  "limit-nondeterminism": "isl07",
+  "limit-structural-complexity": "isl07",
+  "localize-state-storage": "isl07",
+  "marker-interface": "isl07",
+  "memory-poisoning": "isl07",
+  "method-object": "isl07",
+  "monad": "isl07",
+  "notification": "isl07",
+  "object-mother": "isl07",
+  "option-type": "isl07",
+  "page-object": "isl07",
+  "parameter-fence": "isl07",
+  "parameter-typing": "isl07",
+  "parameterized-test": "isl07",
+  "pointer-tagging": "isl07",
+  "property-based-testing": "isl07",
+  "pseudorandom-number-generator": "isl07",
+  "record-playback": "isl07",
+  "redistribute-responsibilities": "isl07",
+  "restrict-communication-paths": "isl07",
+  "restrict-dependencies": "isl07",
+  "result-type": "isl07",
+  "return-status-code": "isl07",
+  "samurai-principle": "isl07",
+  "sealed-trait": "isl07",
+  "sentinel-value": "isl07",
+  "setjmp-longjmp-error-handling": "isl07",
+  "special-return-value": "isl07",
+  "specialized-interfaces": "isl07",
+  "split-module": "isl07",
+  "stack-canary": "isl07",
+  "stack-painting-watermarking": "isl07",
+  "subclass-sandbox": "isl07",
+  "tagged-union": "isl07",
+  "tagless-final": "isl07",
+  "test-data-builder": "isl07",
+  "test-double": "isl07",
+  "test-fixture": "isl07",
+  "trampoline": "isl07",
+  "adjacency-list-adjacency-matrix": "isl08",
+  "application-switching": "isl08",
+  "asset-streaming": "isl08",
+  "binary-heap-priority-queue": "isl08",
+  "binary-search-tree": "isl08",
+  "bitmap-bitset": "isl08",
+  "bitmap-index": "isl08",
+  "bloom-filter": "isl08",
+  "column-oriented-storage": "isl08",
+  "component": "isl08",
+  "compression": "isl08",
+  "container-of": "isl08",
+  "count-min-sketch": "isl08",
+  "data-files": "isl08",
+  "data-locality": "isl08",
+  "delta-encoding": "isl08",
+  "deque": "isl08",
+  "dictionary-encoding": "isl08",
+  "disjoint-set-union-find": "isl08",
+  "dynamic-array": "isl08",
+  "eager-acquisition": "isl08",
+  "embedded-pointer": "isl08",
+  "entity-component-system": "isl08",
+  "fenwick-tree": "isl08",
+  "gap-buffer": "isl08",
+  "hash-array-mapped-trie-hamt": "isl08",
+  "hash-table": "isl08",
+  "hooks": "isl08",
+  "hyperloglog": "isl08",
+  "increase-resource-usage-efficiency": "isl08",
+  "interval-tree": "isl08",
+  "level-of-detail": "isl08",
+  "linked-list": "isl08",
+  "list-virtualization": "isl08",
+  "memory-mapped-file-i-o": "isl08",
+  "memory-overlay": "isl08",
+  "minhash": "isl08",
+  "multiple-representations": "isl08",
+  "packed-data": "isl08",
+  "paging": "isl08",
+  "partial-acquisition": "isl08",
+  "piece-table": "isl08",
+  "pointer-swizzling": "isl08",
+  "queue-fifo": "isl08",
+  "read-only-memory": "isl08",
+  "reporting-database": "isl08",
+  "resource-files": "isl08",
+  "rope": "isl08",
+  "run-length-encoding": "isl08",
+  "segment-tree": "isl08",
+  "skip-list": "isl08",
+  "slot-map": "isl08",
+  "sparse-set": "isl08",
+  "stack": "isl08",
+  "suffix-array": "isl08",
+  "t-digest": "isl08",
+  "trie": "isl08",
+  "varint": "isl08",
+  "zigzag-encoding": "isl08",
+  "zone-map": "isl08",
+  "bound-queue-sizes": "isl09",
+  "critical-region": "isl09",
+  "cyclic-executive": "isl09",
+  "debouncing": "isl09",
+  "deferrable-work": "isl09",
+  "deferred-interrupt-processing": "isl09",
+  "dynamic-classification": "isl09",
+  "dynamic-priority-scheduling": "isl09",
+  "event-coalescing": "isl09",
+  "event-triggered-architecture": "isl09",
+  "fresh-work-before-stale": "isl09",
+  "function-queue-scheduling-architecture": "isl09",
+  "governor": "isl09",
+  "idle-task-hook": "isl09",
+  "interrupt-coalescing": "isl09",
+  "interrupt-masking-critical-section": "isl09",
+  "interrupt-service-routine": "isl09",
+  "interrupt-vector-table": "isl09",
+  "leaky-bucket": "isl09",
+  "limit-event-response": "isl09",
+  "load-shedding": "isl09",
+  "manage-event-arrival": "isl09",
+  "metering": "isl09",
+  "multi-state-task": "isl09",
+  "nested-interrupt-handling": "isl09",
+  "polling": "isl09",
+  "prioritize-events": "isl09",
+  "priority-ceiling-protocol": "isl09",
+  "priority-inheritance-protocol": "isl09",
+  "protothread": "isl09",
+  "reduce-usage": "isl09",
+  "round-robin-scheduling": "isl09",
+  "rtos-based-architecture": "isl09",
+  "sandwich-delay": "isl09",
+  "schedule-resources": "isl09",
+  "schedule-table": "isl09",
+  "sliding-window-rate-limiting": "isl09",
+  "software-timer": "isl09",
+  "static-classification": "isl09",
+  "static-priority-scheduling": "isl09",
+  "super-loop": "isl09",
+  "superloop-architecture": "isl09",
+  "system-tick": "isl09",
+  "throttle": "isl09",
+  "throttling-service-admission-control": "isl09",
+  "tickless-idle": "isl09",
+  "time-triggered-architecture": "isl09",
+  "time-triggered-co-operative-scheduler": "isl09",
+  "timer-wheel": "isl09",
+  "token-bucket": "isl09",
+  "acknowledgement": "isl10",
+  "backpressure": "isl10",
+  "batch-sequential": "isl10",
+  "bit-banging": "isl10",
+  "chained-processors": "isl10",
+  "chunked-transfer-encoding": "isl10",
+  "credit-based-flow-control": "isl10",
+  "data-binding": "isl10",
+  "dataflow-architecture": "isl10",
+  "dirty-checking": "isl10",
+  "distributed-commit-log": "isl10",
+  "distributed-snapshot": "isl10",
+  "error-correcting-codes": "isl10",
+  "event-time-watermark": "isl10",
+  "flux": "isl10",
+  "functional-reactive-programming": "isl10",
+  "handshaking": "isl10",
+  "hydration": "isl10",
+  "immutable-value": "isl10",
+  "interior-mutability": "isl10",
+  "islands-architecture": "isl10",
+  "kappa-architecture": "isl10",
+  "lambda-architecture": "isl10",
+  "lens": "isl10",
+  "model-view-controller": "isl10",
+  "model-view-intent": "isl10",
+  "model-view-presenter": "isl10",
+  "model-view-viewmodel": "isl10",
+  "nagle-s-algorithm": "isl10",
+  "observable-streams": "isl10",
+  "persistent-data-structure": "isl10",
+  "pipes-and-filters": "isl10",
+  "presentation-abstraction-control": "isl10",
+  "presentation-model": "isl10",
+  "railway-oriented-programming": "isl10",
+  "reactive-programming": "isl10",
+  "reactive-signals": "isl10",
+  "sliding-window-flow-control": "isl10",
+  "stream-connector": "isl10",
+  "stream-trigger": "isl10",
+  "stream-windowing": "isl10",
+  "streaming-dataflow-architecture": "isl10",
+  "the-elm-architecture": "isl10",
+  "update-batching": "isl10",
+  "virtual-dom": "isl10",
+  "zipper": "isl10",
+  "abstract-syntax-tree": "isl11",
+  "allowlist-input-validation": "isl11",
+  "application-controller": "isl11",
+  "bytecode": "isl11",
+  "bytecode-virtual-machine": "isl11",
+  "canonicalization-before-validation": "isl11",
+  "deoptimization": "isl11",
+  "embedded-domain-specific-language": "isl11",
+  "escape-sequence": "isl11",
+  "event-driven-parsing": "isl11",
+  "expression-builder": "isl11",
+  "fluent-interface": "isl11",
+  "front-controller": "isl11",
+  "hidden-class": "isl11",
+  "html-sanitization": "isl11",
+  "inline-caching": "isl11",
+  "interpreter": "isl11",
+  "interpreter-architectural-style": "isl11",
+  "lexer": "isl11",
+  "lr-parser": "isl11",
+  "maximal-munch": "isl11",
+  "multi-pass-compiler-pipeline": "isl11",
+  "page-controller": "isl11",
+  "panic-mode-error-recovery": "isl11",
+  "parameterized-query": "isl11",
+  "parser-combinator": "isl11",
+  "pratt-parser": "isl11",
+  "pretty-printer": "isl11",
+  "read-eval-print-loop": "isl11",
+  "recursive-descent-parser": "isl11",
+  "regular-expressions": "isl11",
+  "safepoint": "isl11",
+  "scannerless-parsing": "isl11",
+  "semantic-model": "isl11",
+  "shunting-yard-algorithm": "isl11",
+  "symbol-table": "isl11",
+  "taint-checking": "isl11",
+  "template-engine": "isl11",
+  "template-view": "isl11",
+  "threaded-code": "isl11",
+  "transform-view": "isl11",
+  "tree-walking-interpreter": "isl11",
+  "two-step-view": "isl11",
+  "validate-input": "isl11",
+  "virtual-machine-architectural-style": "isl11",
+  "adapter-container": "isl12",
+  "ambassador": "isl12",
+  "autosar-virtual-function-bus-rte": "isl12",
+  "callback": "isl12",
+  "callback-with-context-pointer": "isl12",
+  "choreography": "isl12",
+  "context-object": "isl12",
+  "data-access-connector": "isl12",
+  "diagnostic-context": "isl12",
+  "diagnostic-logger": "isl12",
+  "distributed-tracing": "isl12",
+  "distributor-connector": "isl12",
+  "durable-subscriber": "isl12",
+  "event-aggregator": "isl12",
+  "event-based-implicit-invocation": "isl12",
+  "event-carried-state-transfer": "isl12",
+  "event-collaboration": "isl12",
+  "event-connector": "isl12",
+  "event-delegation": "isl12",
+  "event-driven-architecture": "isl12",
+  "interceptor": "isl12",
+  "interface-definition-language": "isl12",
+  "linkage-connector": "isl12",
+  "log-aggregation": "isl12",
+  "log-errors": "isl12",
+  "main-program-and-subroutines": "isl12",
+  "mapper": "isl12",
+  "mediator": "isl12",
+  "observer": "isl12",
+  "orchestrate": "isl12",
+  "procedure-call-connector": "isl12",
+  "process-manager": "isl12",
+  "publish-subscribe-architectural-style": "isl12",
+  "publish-subscribe-channel": "isl12",
+  "routing-slip": "isl12",
+  "saga": "isl12",
+  "scheduler-agent-supervisor": "isl12",
+  "service-mesh": "isl12",
+  "sidecar": "isl12",
+  "signals-and-slots": "isl12",
+  "temporal-firewall": "isl12",
+  "time-triggered-bus": "isl12",
+  "use-an-intermediary": "isl12",
+  "view-handler": "isl12",
+  "wire-tap": "isl12",
+  "active-record": "isl13",
+  "aggregate": "isl13",
+  "anti-corruption-layer": "isl13",
+  "association-table-mapping": "isl13",
+  "bounded-context": "isl13",
+  "class-table-inheritance": "isl13",
+  "comparand": "isl13",
+  "concrete-table-inheritance": "isl13",
+  "context-map": "isl13",
+  "data-mapper": "isl13",
+  "data-transfer-object": "isl13",
+  "dependent-mapping": "isl13",
+  "domain-event": "isl13",
+  "domain-model": "isl13",
+  "domain-service": "isl13",
+  "embedded-value": "isl13",
+  "entity": "isl13",
+  "event-sourcing": "isl13",
+  "event-sourcing-architecture-style": "isl13",
+  "foreign-key-mapping": "isl13",
+  "identity-field": "isl13",
+  "identity-map": "isl13",
+  "inheritance-mappers": "isl13",
+  "layer-supertype": "isl13",
+  "metadata-mapping": "isl13",
+  "query-object": "isl13",
+  "range": "isl13",
+  "record-set": "isl13",
+  "relationship-object": "isl13",
+  "remote-facade": "isl13",
+  "repository": "isl13",
+  "row-data-gateway": "isl13",
+  "serialization-proxy": "isl13",
+  "serialized-lob": "isl13",
+  "service-layer": "isl13",
+  "single-table-inheritance": "isl13",
+  "specification": "isl13",
+  "table-data-gateway": "isl13",
+  "table-module": "isl13",
+  "temporal-property": "isl13",
+  "transaction-script": "isl13",
+  "unit-of-work": "isl13",
+  "value-object": "isl13",
+  "acceptor-connector": "isl14",
+  "asynchronous-completion-token": "isl14",
+  "asynchronous-request-reply": "isl14",
+  "authoritative-server": "isl14",
+  "bodyguard": "isl14",
+  "broker": "isl14",
+  "claim-check": "isl14",
+  "client-dispatcher-server": "isl14",
+  "client-proxy-remoting": "isl14",
+  "client-request-handler": "isl14",
+  "client-server": "isl14",
+  "client-side-prediction": "isl14",
+  "correlation-identifier": "isl14",
+  "dead-reckoning": "isl14",
+  "deterministic-lockstep": "isl14",
+  "discover": "isl14",
+  "distributed-hash-table": "isl14",
+  "distributed-objects": "isl14",
+  "forwarder-receiver": "isl14",
+  "half-object-plus-protocol": "isl14",
+  "half-object-plus-protocol-arch": "isl14",
+  "hla-federation": "isl14",
+  "interest-management": "isl14",
+  "invoker": "isl14",
+  "jitter-buffer": "isl14",
+  "lag-compensation": "isl14",
+  "message": "isl14",
+  "n-tier-client-server": "isl14",
+  "peer-to-peer": "isl14",
+  "proactor": "isl14",
+  "proxy": "isl14",
+  "reactor": "isl14",
+  "remote-procedure-call": "isl14",
+  "request-reply": "isl14",
+  "requestor": "isl14",
+  "resequencer": "isl14",
+  "return-address": "isl14",
+  "ring-buffer": "isl14",
+  "rollback-netcode": "isl14",
+  "serializer": "isl14",
+  "server-request-handler": "isl14",
+  "snapshot-interpolation": "isl14",
+  "stream-buffer": "isl14",
+  "aba-mitigation-via-tagged-pointer": "isl15",
+  "acquire-release-ordering": "isl15",
+  "arbitrator-connector": "isl15",
+  "balking": "isl15",
+  "compare-and-swap-loop": "isl15",
+  "condition-variable": "isl15",
+  "direct-memory-access-dma-transfer": "isl15",
+  "direct-to-task-notification": "isl15",
+  "disruptor": "isl15",
+  "double-checked-locking": "isl15",
+  "epoch-based-reclamation": "isl15",
+  "event-flags-group": "isl15",
+  "eventcount": "isl15",
+  "false-sharing-avoidance-via-cache-line-padding": "isl15",
+  "futex": "isl15",
+  "guarded-call": "isl15",
+  "guarded-suspension": "isl15",
+  "hazard-pointers": "isl15",
+  "kernel-bypass-networking": "isl15",
+  "latch": "isl15",
+  "lmax-architecture": "isl15",
+  "lock-free-fifo-queue-michael-scott": "isl15",
+  "lock-free-stack-treiber": "isl15",
+  "mcs-queue-lock": "isl15",
+  "memory-barrier": "isl15",
+  "read-copy-update": "isl15",
+  "readers-writer-lock": "isl15",
+  "rendezvous": "isl15",
+  "safe-publication": "isl15",
+  "scatter-gather-dma": "isl15",
+  "scheduler": "isl15",
+  "self-pipe-trick": "isl15",
+  "semaphore": "isl15",
+  "sequence-lock": "isl15",
+  "spinlock": "isl15",
+  "spsc-lock-free-ring-buffer": "isl15",
+  "test-and-test-and-set-lock": "isl15",
+  "thread-confinement": "isl15",
+  "thread-per-connection-server": "isl15",
+  "thread-specific-storage": "isl15",
+  "ticket-lock": "isl15",
+  "zero-copy-i-o": "isl15",
+  "aggregator": "isl16",
+  "api-composition": "isl16",
+  "api-gateway": "isl16",
+  "backends-for-frontends": "isl16",
+  "binary-to-text-encoding": "isl16",
+  "bit-stuffing": "isl16",
+  "byte-stuffing": "isl16",
+  "code-on-demand": "isl16",
+  "consistent-overhead-byte-stuffing": "isl16",
+  "cqrs": "isl16",
+  "data-mesh": "isl16",
+  "database-per-service": "isl16",
+  "file-transfer": "isl16",
+  "gateway-aggregation": "isl16",
+  "gateway-offloading": "isl16",
+  "gateway-routing": "isl16",
+  "length-prefix-framing": "isl16",
+  "magic-number-file-signature": "isl16",
+  "materialized-view-architecture-pattern": "isl16",
+  "messaging": "isl16",
+  "micro-frontends": "isl16",
+  "microservices": "isl16",
+  "mobile-agent": "isl16",
+  "modular-monolith": "isl16",
+  "monolithic-architecture": "isl16",
+  "percent-encoding": "isl16",
+  "polyglot-persistence": "isl16",
+  "protocol-layering": "isl16",
+  "remote-evaluation": "isl16",
+  "remote-procedure-invocation": "isl16",
+  "rest-representational-state-transfer": "isl16",
+  "scale-cube": "isl16",
+  "scatter-gather": "isl16",
+  "service-based-architecture": "isl16",
+  "shared-database": "isl16",
+  "space-based-architecture": "isl16",
+  "static-content-hosting": "isl16",
+  "strangler-fig": "isl16",
+  "sync-word": "isl16",
+  "type-length-value-encoding": "isl16",
+  "valet-key": "isl16",
+  "autosar-adaptive-platform": "isl17",
+  "autosar-layered-software-architecture": "isl17",
+  "board-support-package": "isl17",
+  "bounding-volume-hierarchy": "isl17",
+  "c2": "isl17",
+  "clean-architecture": "isl17",
+  "device-driver": "isl17",
+  "domain-object-posa4": "isl17",
+  "double-buffer": "isl17",
+  "escaping-ifdef-hell": "isl17",
+  "event-loop": "isl17",
+  "five-layer-architecture-rtdp": "isl17",
+  "fixed-timestep": "isl17",
+  "game-loop": "isl17",
+  "hardware-abstraction-layer": "isl17",
+  "hardware-abstraction-layer-arch": "isl17",
+  "hardware-proxy": "isl17",
+  "hexagonal-architecture": "isl17",
+  "include-guard": "isl17",
+  "iohw-h-standard-hardware-i-o-interface": "isl17",
+  "k-d-tree": "isl17",
+  "layered-game-engine-architecture": "isl17",
+  "layers": "isl17",
+  "memory-mapped-register-access": "isl17",
+  "navigation-mesh": "isl17",
+  "organizing-files-in-modular-c-programs": "isl17",
+  "ping-pong-buffer": "isl17",
+  "quadtree-octree": "isl17",
+  "r-tree": "isl17",
+  "render-graph": "isl17",
+  "scene-graph": "isl17",
+  "self-contained-component": "isl17",
+  "shadow-register": "isl17",
+  "spatial-partition": "isl17",
+  "typesafe-register-access-via-c-templates": "isl17",
+  "uniform-spatial-hash-grid": "isl17",
+  "update-method": "isl17",
+  "arbitrary-precision-arithmetic": "isl18",
+  "behavior-tree": "isl18",
+  "channel-architecture": "isl18",
+  "checked-arithmetic": "isl18",
+  "collections-for-states": "isl18",
+  "decomposed-and-state": "isl18",
+  "deferred-event": "isl18",
+  "finite-state-machine": "isl18",
+  "fixed-point-arithmetic": "isl18",
+  "hierarchical-control-rtdp": "isl18",
+  "hierarchical-state-machine": "isl18",
+  "interval-arithmetic": "isl18",
+  "kahan-summation": "isl18",
+  "methods-for-states": "isl18",
+  "money": "isl18",
+  "multiple-event-receptor": "isl18",
+  "object-recursion": "isl18",
+  "orthogonal-component": "isl18",
+  "pid-controller": "isl18",
+  "process-control-feedback-control-loop": "isl18",
+  "recursive-containment-rtdp": "isl18",
+  "recursive-control": "isl18",
+  "reminder": "isl18",
+  "rules-engine": "isl18",
+  "run-to-completion-event-processing": "isl18",
+  "saturation-arithmetic": "isl18",
+  "sense-compute-control": "isl18",
+  "single-event-receptor": "isl18",
+  "state-transition-system-architectural-organization": "isl18",
+  "subsumption-architecture": "isl18",
+  "transition-to-history": "isl18",
+  "ultimate-hook": "isl18",
+  "activator": "isl19",
+  "auto-scaling": "isl19",
+  "blue-green-deployment": "isl19",
+  "bulkhead-deployment-isolation": "isl19",
+  "canary-release": "isl19",
+  "cell-based-architecture": "isl19",
+  "component-container": "isl19",
+  "compute-resource-consolidation": "isl19",
+  "deployment-pipeline": "isl19",
+  "deployment-stamps": "isl19",
+  "external-configuration-store": "isl19",
+  "feature-flag": "isl19",
+  "feature-flag-driven-release": "isl19",
+  "feature-toggle": "isl19",
+  "geodes": "isl19",
+  "health-check-api": "isl19",
+  "health-endpoint-monitoring": "isl19",
+  "immutable-infrastructure": "isl19",
+  "increase-resources": "isl19",
+  "load-balancer": "isl19",
+  "maintain-multiple-copies-of-computations": "isl19",
+  "manage-service-interactions": "isl19",
+  "os-container": "isl19",
+  "package-dependencies": "isl19",
+  "rollback-deployment": "isl19",
+  "rolling-deployment": "isl19",
+  "scale-rollouts": "isl19",
+  "schema-evolution-via-field-tags": "isl19",
+  "script-deployment-commands": "isl19",
+  "serverless-function-as-a-service": "isl19",
+  "tolerant-reader": "isl19",
+  "aggregate-tactic": "isl20",
+  "batch-method": "isl20",
+  "cancel": "isl20",
+  "combined-method": "isl20",
+  "command": "isl20",
+  "command-processor": "isl20",
+  "enumeration-method": "isl20",
+  "erase-remove": "isl20",
+  "iterator": "isl20",
+  "memento": "isl20",
+  "pause-resume": "isl20",
+  "undo": "isl20",
+  "undo-redo-command-stack": "isl20",
+  "vectorized-execution": "isl20",
+  "volcano-iterator-model": "isl20",
+  "4-1-view-model": "isl21",
+  "allocation-view": "isl21",
+  "architectural-perspective": "isl21",
+  "architecture-decision-record": "isl21",
+  "architecture-description": "isl21",
+  "architecture-description-language": "isl21",
+  "architecture-framework": "isl21",
+  "architecture-view": "isl21",
+  "architecture-viewpoint": "isl21",
+  "component-and-connector-view": "isl21",
+  "model-kind": "isl21",
+  "module-view": "isl21",
+  "rozanski-woods-viewpoint-catalog": "isl21",
+  "stakeholder-concern": "isl21"
+ }
+}

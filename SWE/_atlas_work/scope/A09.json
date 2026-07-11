@@ -1,0 +1,419 @@
+{
+ "group": "A09",
+ "title": "Deployment & reference architectures",
+ "realm": "architecture",
+ "literature": "Deployment & infrastructure patterns (Nginx/container/orchestration); reference architectures (AUTOSAR, Lambda/Kappa, microservices RA, IoT RA); Bass deployment tactics.",
+ "member_count": 36,
+ "target_edges": 43,
+ "priority_ids": [
+  "activator",
+  "adapter-container",
+  "ambassador",
+  "auto-scaling",
+  "autosar-adaptive-platform",
+  "autosar-layered-software-architecture",
+  "blue-green-deployment",
+  "bootloader-application-split",
+  "bootloader-boot-stage-architecture",
+  "canary-release",
+  "cell-based-architecture",
+  "component-container",
+  "compute-resource-consolidation",
+  "data-mesh",
+  "deployment-pipeline",
+  "deployment-stamps",
+  "domain-specific-software-architecture",
+  "external-configuration-store",
+  "feature-flag-driven-release",
+  "federated-avionics-architecture",
+  "gatekeeper",
+  "geodes",
+  "hla-federation",
+  "immutable-infrastructure",
+  "integrated-modular-avionics",
+  "layered-game-engine-architecture",
+  "load-balancer",
+  "multi-pass-compiler-pipeline",
+  "os-container",
+  "relational-dbms-reference-architecture",
+  "rolling-deployment",
+  "scale-cube",
+  "serverless-function-as-a-service",
+  "service-mesh",
+  "sidecar",
+  "static-content-hosting"
+ ],
+ "members": [
+  {
+   "id": "activator",
+   "name": "Activator",
+   "kind": "deployment",
+   "aka": [
+    "on-demand activation",
+    "inetd-style activation",
+    "activate-on-request"
+   ],
+   "what": "A component that launches services or server processes on demand when a request arrives and can shut them down when idle, instead of keeping every service resident at all times."
+  },
+  {
+   "id": "adapter-container",
+   "name": "Adapter (container)",
+   "kind": "deployment",
+   "aka": [
+    "adapter pattern (container-level)"
+   ],
+   "what": "A sidecar variant that presents a standardized interface (e.g., uniform metrics/log format) over a heterogeneous application to the rest of the system."
+  },
+  {
+   "id": "ambassador",
+   "name": "Ambassador",
+   "kind": "deployment",
+   "aka": [
+    "ambassador container",
+    "ambassador proxy"
+   ],
+   "what": "A sidecar variant that proxies the application's outbound connections to the outside world, hiding discovery, sharding, or protocol detail."
+  },
+  {
+   "id": "auto-scaling",
+   "name": "Auto-Scaling",
+   "kind": "deployment",
+   "aka": [
+    "autoscaling",
+    "elastic scaling",
+    "horizontal pod autoscaling"
+   ],
+   "what": "The instance pool grows and shrinks automatically, driven by metrics or schedules evaluated against scaling policies."
+  },
+  {
+   "id": "autosar-adaptive-platform",
+   "name": "AUTOSAR Adaptive Platform",
+   "kind": "reference-architecture",
+   "aka": [
+    "ARA",
+    "AUTOSAR adaptive architecture",
+    "ara::com service-oriented communication"
+   ],
+   "what": "The POSIX-based automotive reference architecture for high-performance ECUs: dynamically scheduled applications communicate via service-oriented ara::com middleware (SOME/IP) instead of the Classic platform's static signal routing."
+  },
+  {
+   "id": "autosar-layered-software-architecture",
+   "name": "AUTOSAR Layered Software Architecture",
+   "kind": "reference-architecture",
+   "aka": [
+    "AUTOSAR Classic layered architecture",
+    "MCAL/ECU-abstraction/services layering",
+    "basic software (BSW) stack"
+   ],
+   "what": "The automotive reference layering for ECU software: application layer above the RTE, above basic software split into services, ECU abstraction, and microcontroller abstraction (MCAL) layers, plus complex device drivers as a sanctioned bypas"
+  },
+  {
+   "id": "blue-green-deployment",
+   "name": "Blue-Green Deployment",
+   "kind": "deployment",
+   "aka": [
+    "blue/green release",
+    "red-black deployment (Netflix)",
+    "A/B environment switch"
+   ],
+   "what": "Two identical production environments are maintained and releases go live by switching traffic from the active (blue) to the newly deployed (green) environment."
+  },
+  {
+   "id": "bootloader-application-split",
+   "name": "Bootloader-Application Split",
+   "kind": "deployment",
+   "aka": [
+    "staged boot architecture",
+    "boot architecture",
+    "bootloader + app images"
+   ],
+   "what": "Partitioning firmware into a small, rarely-changed bootloader image and one or more application images in separate flash regions, with the bootloader validating, selecting, updating, and jumping to the application."
+  },
+  {
+   "id": "bootloader-boot-stage-architecture",
+   "name": "Bootloader (boot-stage architecture)",
+   "kind": "deployment",
+   "aka": [
+    "boot loader",
+    "multi-stage boot",
+    "MCUboot-style secure bootloader"
+   ],
+   "what": "A dedicated boot-stage program that initializes the platform, selects/validates an application image, and hands off execution to it."
+  },
+  {
+   "id": "canary-release",
+   "name": "Canary Release",
+   "kind": "deployment",
+   "aka": [
+    "canary deployment",
+    "canarying",
+    "canary releasing"
+   ],
+   "what": "A new version is deployed to a small slice of production servers or users and observed before the rollout is widened to the whole fleet."
+  },
+  {
+   "id": "cell-based-architecture",
+   "name": "Cell-Based Architecture",
+   "kind": "deployment",
+   "aka": [
+    "cellular architecture",
+    "cells"
+   ],
+   "what": "Workload deployed as multiple isolated, self-sufficient instances (cells), each serving a partition of requests, with a thin router directing traffic to cells."
+  },
+  {
+   "id": "component-container",
+   "name": "Container",
+   "kind": "deployment",
+   "aka": [
+    "component container",
+    "application container",
+    "EJB/CCM-style container"
+   ],
+   "what": "An execution environment that hosts application components and transparently provides them the technical services they need - lifecycle, transactions, security, persistence, resource access - via contracts the components declare."
+  },
+  {
+   "id": "compute-resource-consolidation",
+   "name": "Compute Resource Consolidation",
+   "kind": "deployment",
+   "aka": [
+    "task packing into shared units"
+   ],
+   "what": "Multiple tasks or operations are consolidated into shared compute units to raise utilization and cut cost."
+  },
+  {
+   "id": "data-mesh",
+   "name": "Data Mesh",
+   "kind": "reference-architecture",
+   "aka": [],
+   "what": "Analytical data architecture decentralized into domain-owned data products with self-serve platform and federated governance, instead of one central lake/warehouse."
+  },
+  {
+   "id": "deployment-pipeline",
+   "name": "Deployment Pipeline",
+   "kind": "deployment",
+   "aka": [
+    "continuous delivery pipeline",
+    "build pipeline",
+    "staged release pipeline"
+   ],
+   "what": "An automated, staged structure through which every change flows from commit to production - build, automated test stages, and deployment stages, each gating promotion of the same artifact."
+  },
+  {
+   "id": "deployment-stamps",
+   "name": "Deployment Stamps",
+   "kind": "deployment",
+   "aka": [
+    "stamps",
+    "scale units",
+    "pods (Azure usage)"
+   ],
+   "what": "The full solution is replicated as identical scale-unit deployments (stamps), each hosting a subset of tenants/load, with routing in front."
+  },
+  {
+   "id": "domain-specific-software-architecture",
+   "name": "Domain-Specific Software Architecture",
+   "kind": "reference-architecture",
+   "aka": [
+    "DSSA",
+    "domain reference architecture"
+   ],
+   "what": "A reference structure specialized to one application domain (e.g. avionics, vehicle management) that fixes the component types, coordination model, and configuration rules that products in that domain instantiate."
+  },
+  {
+   "id": "external-configuration-store",
+   "name": "External Configuration Store",
+   "kind": "deployment",
+   "aka": [
+    "centralized configuration service"
+   ],
+   "what": "Configuration for all application instances is moved to a central external store fetched at startup/run time."
+  },
+  {
+   "id": "feature-flag-driven-release",
+   "name": "Feature-Flag-Driven Release",
+   "kind": "deployment",
+   "aka": [
+    "release toggle",
+    "dark launch",
+    "decoupling deploy from release"
+   ],
+   "what": "Code ships to production dark behind runtime toggles, and release becomes a configuration act - enabling the flag for cohorts, rings, or percentages - independent of deployment."
+  },
+  {
+   "id": "federated-avionics-architecture",
+   "name": "Federated Avionics Architecture",
+   "kind": "reference-architecture",
+   "aka": [
+    "federated architecture",
+    "one function one computer"
+   ],
+   "what": "The traditional avionics system structure in which each function runs on its own dedicated computer with private resources, integrated only through inter-box data buses."
+  },
+  {
+   "id": "gatekeeper",
+   "name": "Gatekeeper",
+   "kind": "deployment",
+   "aka": [
+    "validating front host"
+   ],
+   "what": "A dedicated hardened host between clients and backends validates and sanitizes all requests, holding no keys or sensitive data itself."
+  },
+  {
+   "id": "geodes",
+   "name": "Geodes",
+   "kind": "deployment",
+   "aka": [
+    "geographical node",
+    "geo-distributed active-active nodes"
+   ],
+   "what": "Identical active-active deployments distributed across geographic regions, each able to serve any user, backed by globally replicated data."
+  },
+  {
+   "id": "hla-federation",
+   "name": "HLA Federation",
+   "kind": "reference-architecture",
+   "aka": [
+    "High Level Architecture",
+    "IEEE 1516 RTI federation",
+    "federated simulation"
+   ],
+   "what": "Independent simulators (federates) interoperate through a Run-Time Infrastructure under a federation object model and interface specification."
+  },
+  {
+   "id": "immutable-infrastructure",
+   "name": "Immutable Infrastructure",
+   "kind": "deployment",
+   "aka": [
+    "immutable server",
+    "phoenix server",
+    "replace-not-patch deployment"
+   ],
+   "what": "Deployed servers/images are never modified in place; every change produces a new image that replaces the old instance wholesale."
+  },
+  {
+   "id": "integrated-modular-avionics",
+   "name": "Integrated Modular Avionics",
+   "kind": "reference-architecture",
+   "aka": [
+    "IMA",
+    "IMA platform architecture"
+   ],
+   "what": "A domain reference architecture in which multiple avionics functions, formerly on dedicated boxes, are hosted as partitioned applications on a shared set of common computing modules with standardized interfaces (ARINC 653 APEX) and defined "
+  },
+  {
+   "id": "layered-game-engine-architecture",
+   "name": "Layered Game Engine Architecture",
+   "kind": "reference-architecture",
+   "aka": [
+    "engine runtime layering",
+    "platform/core/resources/gameplay layering"
+   ],
+   "what": "The canonical layering of a game engine runtime: platform independence layer, core systems, resource management, rendering/physics/audio, gameplay foundations, game-specific code."
+  },
+  {
+   "id": "load-balancer",
+   "name": "Load Balancer",
+   "kind": "deployment",
+   "aka": [
+    "load-balanced pool",
+    "server farm behind a virtual IP",
+    "reverse-proxy load balancing"
+   ],
+   "what": "An intermediary distributes incoming requests across a pool of equivalent service instances, presenting the pool as one logical endpoint."
+  },
+  {
+   "id": "multi-pass-compiler-pipeline",
+   "name": "Multi-Pass Compiler Pipeline",
+   "kind": "reference-architecture",
+   "aka": [
+    "compilation phases",
+    "front-end / middle-end / back-end structure",
+    "lexer-parser-analyzer-codegen decomposition"
+   ],
+   "what": "The canonical decomposition of a compiler into sequential phases (lexical analysis, parsing, semantic analysis, IR optimization, code generation) over shared intermediate representations."
+  },
+  {
+   "id": "os-container",
+   "name": "OS Container",
+   "kind": "deployment",
+   "aka": [
+    "Linux container",
+    "Docker container",
+    "containerized deployment unit"
+   ],
+   "what": "An OS-level isolated execution unit packaging an application with its dependencies, sharing the host kernel, used as the standard unit of deployment and scheduling."
+  },
+  {
+   "id": "relational-dbms-reference-architecture",
+   "name": "Relational DBMS Reference Architecture",
+   "kind": "reference-architecture",
+   "aka": [
+    "anatomy of a database system",
+    "query processor / transactional storage manager decomposition"
+   ],
+   "what": "The canonical decomposition of a DBMS into process manager, query processor (parser, rewriter, optimizer, executor), transactional storage manager, and shared utilities."
+  },
+  {
+   "id": "rolling-deployment",
+   "name": "Rolling Deployment",
+   "kind": "deployment",
+   "aka": [
+    "rolling update",
+    "rolling upgrade",
+    "in-place incremental update"
+   ],
+   "what": "Instances in a load-balanced pool are replaced with the new version a few at a time, keeping the service up while old and new versions briefly coexist."
+  },
+  {
+   "id": "scale-cube",
+   "name": "Scale Cube",
+   "kind": "deployment",
+   "aka": [
+    "AKF scale cube",
+    "x/y/z-axis scaling",
+    "X-axis cloning / Y-axis functional decomposition / Z-axis data partitioning"
+   ],
+   "what": "A three-axis model of scaling structures: X - cloning identical instances behind a load balancer, Y - splitting by function/service, Z - partitioning by data/customer subset."
+  },
+  {
+   "id": "serverless-function-as-a-service",
+   "name": "Serverless / Function-as-a-Service",
+   "kind": "deployment",
+   "aka": [
+    "FaaS",
+    "serverless architecture",
+    "BaaS+FaaS"
+   ],
+   "what": "Application logic deployed as provider-managed, event-triggered ephemeral functions (plus managed backend services), with no server capacity owned by the team."
+  },
+  {
+   "id": "service-mesh",
+   "name": "Service Mesh",
+   "kind": "deployment",
+   "aka": [],
+   "what": "Dedicated infrastructure layer of per-service proxies (data plane) plus a control plane that transparently handles inter-service traffic: routing, retries, mTLS, telemetry."
+  },
+  {
+   "id": "sidecar",
+   "name": "Sidecar",
+   "kind": "deployment",
+   "aka": [
+    "sidekick container",
+    "sidecar container",
+    "sidekick pattern"
+   ],
+   "what": "A helper process/container co-deployed with an application instance, sharing its lifecycle and local resources to extend it (proxying, logging, config)."
+  },
+  {
+   "id": "static-content-hosting",
+   "name": "Static Content Hosting",
+   "kind": "deployment",
+   "aka": [
+    "static assets on storage/CDN"
+   ],
+   "what": "Static content is served from dedicated storage/CDN services instead of the application's compute instances."
+  }
+ ],
+ "existing_intra_edges": []
+}

@@ -1,0 +1,715 @@
+{
+ "group": "D04",
+ "title": "Resource management & lifetime",
+ "realm": "design",
+ "literature": "Stroustrup / Meyers Effective C++ (RAII, smart pointers); Alexandrescu Modern C++ Design; pool/arena literature; Preschern 'Fluent C' resource patterns.",
+ "member_count": 56,
+ "target_edges": 67,
+ "priority_ids": [
+  "allocation-wrapper",
+  "bulkhead",
+  "captain-oates",
+  "compaction",
+  "component-configurator",
+  "copy-on-write",
+  "custom-allocator",
+  "data-files",
+  "dedicated-ownership",
+  "fixed-sized-buffer",
+  "lazy-cleanup",
+  "leasing",
+  "lookup",
+  "memory-limit",
+  "memory-overlay",
+  "object-manager",
+  "paging",
+  "resource-files",
+  "resource-lifecycle-manager",
+  "sharing",
+  "small-buffer-optimization",
+  "stack-first",
+  "steady-state"
+ ],
+ "members": [
+  {
+   "id": "allocation-wrapper",
+   "name": "Allocation Wrapper",
+   "kind": "resource-management",
+   "aka": [
+    "malloc wrapper",
+    "xmalloc (GNU checked-allocation convention)"
+   ],
+   "what": "Wrap the raw allocation/deallocation calls (malloc/free) in your own functions so every allocation flows through one place that can check for failure, add statistics, tagging, debugging hooks, or alternative backing allocators."
+  },
+  {
+   "id": "asset-streaming",
+   "name": "Asset Streaming",
+   "kind": "resource-management",
+   "aka": [
+    "resource streaming",
+    "level streaming",
+    "world streaming"
+   ],
+   "what": "The engine loads and unloads game assets (geometry, textures, audio, world chunks) asynchronously in the background, keyed to player position or predicted need, keeping only a sliding working set resident within a memory budget."
+  },
+  {
+   "id": "boundary-tags",
+   "name": "Boundary Tags",
+   "kind": "resource-management",
+   "aka": [
+    "boundary tag coalescing",
+    "header/footer block tags"
+   ],
+   "what": "Size/status fields at both ends of each heap block let an allocator find and merge free neighbors in constant time on free."
+  },
+  {
+   "id": "buddy-memory-allocation",
+   "name": "Buddy Memory Allocation",
+   "kind": "resource-management",
+   "aka": [
+    "buddy system",
+    "binary buddy allocator"
+   ],
+   "what": "Manage memory in power-of-two-sized blocks that split into two 'buddies' on allocation and coalesce back with their buddy on free, found by address arithmetic."
+  },
+  {
+   "id": "bulkhead",
+   "name": "Bulkhead",
+   "kind": "resource-management",
+   "aka": [
+    "resource partitioning",
+    "bulkheading"
+   ],
+   "what": "Partition resources (thread pools, connection pools, memory) into isolated compartments per client or function so one compartment's exhaustion cannot sink the rest."
+  },
+  {
+   "id": "callee-allocates",
+   "name": "Callee Allocates",
+   "kind": "resource-management",
+   "aka": [
+    "callee-allocated result",
+    "library-allocated buffer with free function"
+   ],
+   "what": "The callee allocates the result buffer (of size only it knows) and returns it with a paired deallocation function the caller must invoke."
+  },
+  {
+   "id": "caller-owned-buffer",
+   "name": "Caller-Owned Buffer",
+   "kind": "resource-management",
+   "aka": [
+    "caller-allocates",
+    "user-supplied buffer"
+   ],
+   "what": "The caller allocates and owns the buffer, passing pointer and size for the callee to fill."
+  },
+  {
+   "id": "captain-oates",
+   "name": "Captain Oates",
+   "kind": "resource-management",
+   "aka": [
+    "memory sacrifice",
+    "cache shedding on pressure"
+   ],
+   "what": "On memory pressure, have less vital components voluntarily sacrifice their memory (caches, optional buffers) so more important tasks can proceed."
+  },
+  {
+   "id": "compaction",
+   "name": "Compaction",
+   "kind": "resource-management",
+   "aka": [
+    "memory compaction",
+    "defragmentation"
+   ],
+   "what": "Move live objects together in memory to squeeze out the unused gaps between them, recovering memory lost to fragmentation."
+  },
+  {
+   "id": "component-configurator",
+   "name": "Component Configurator",
+   "kind": "resource-management",
+   "aka": [
+    "Service Configurator"
+   ],
+   "what": "An application links and unlinks component implementations at runtime via a uniform component lifecycle interface (init, suspend, resume, fini) and a central configurator, without recompiling or restarting."
+  },
+  {
+   "id": "copy-on-write",
+   "name": "Copy-on-Write",
+   "kind": "resource-management",
+   "aka": [
+    "COW",
+    "lazy copy",
+    "COW string"
+   ],
+   "what": "Share an object between clients until one needs to modify it, then transparently copy it and let the writer mutate the private copy."
+  },
+  {
+   "id": "custom-allocator",
+   "name": "Custom Allocator",
+   "kind": "resource-management",
+   "aka": [
+    "pluggable allocator",
+    "allocator parameter",
+    "allocator model"
+   ],
+   "what": "Containers and subsystems take an allocator object/parameter so memory sourcing policy is chosen by the client, not hard-coded."
+  },
+  {
+   "id": "data-files",
+   "name": "Data Files",
+   "kind": "resource-management",
+   "aka": [
+    "streamed processing from secondary storage"
+   ],
+   "what": "Process data a little at a time from secondary storage, keeping only the current working portion in main memory."
+  },
+  {
+   "id": "dedicated-ownership",
+   "name": "Dedicated Ownership",
+   "kind": "resource-management",
+   "aka": [
+    "single owner",
+    "explicit ownership convention",
+    "Caller-Owned Instance (Fluent C)"
+   ],
+   "what": "Every allocation is assigned exactly one owner responsible for freeing it, with ownership transfer made explicit at API boundaries."
+  },
+  {
+   "id": "dispose-pattern",
+   "name": "Dispose Pattern",
+   "kind": "resource-management",
+   "aka": [
+    "IDisposable pattern",
+    "try-with-resources (Java)",
+    "using statement"
+   ],
+   "what": "Objects owning unmanaged resources expose an explicit Dispose/close method, invoked deterministically via language constructs (using / try-with-resources), with finalizers only as backstop."
+  },
+  {
+   "id": "eager-acquisition",
+   "name": "Eager Acquisition",
+   "kind": "resource-management",
+   "aka": [],
+   "what": "Resources are acquired up front, before actual use (at startup or configuration time), and handed out from the pre-acquired set at run time."
+  },
+  {
+   "id": "epoch-based-reclamation",
+   "name": "Epoch-Based Reclamation",
+   "kind": "resource-management",
+   "aka": [
+    "EBR",
+    "epoch GC"
+   ],
+   "what": "Threads announce a global epoch on entering read-side sections; retired nodes are freed only after all threads have advanced past the epoch in which the nodes were retired."
+  },
+  {
+   "id": "evictor",
+   "name": "Evictor",
+   "kind": "resource-management",
+   "aka": [],
+   "what": "An evictor monitors resource usage and, under a configurable strategy (LRU, LFU, priorities), releases or swaps out the least valuable resources to bound consumption."
+  },
+  {
+   "id": "execute-around-method",
+   "name": "Execute Around Method",
+   "kind": "resource-management",
+   "aka": [
+    "Execute-Around Object",
+    "Execute Around idiom",
+    "execute-around pointer (C++)"
+   ],
+   "what": "A method (or scoped object) performs guaranteed paired actions - acquire/release, open/close, begin/end - around a client-supplied block of code."
+  },
+  {
+   "id": "fixed-sized-buffer",
+   "name": "Fixed Sized Buffer",
+   "kind": "resource-management",
+   "aka": [
+    "fixed-size allocation"
+   ],
+   "what": "Allocate memory only in one (or a few) fixed sizes - sized for the worst case - so freed blocks are always exactly reusable."
+  },
+  {
+   "id": "free-list",
+   "name": "Free List",
+   "kind": "resource-management",
+   "aka": [
+    "available list",
+    "freelist",
+    "list of available space"
+   ],
+   "what": "Linked list threaded through unused memory blocks or object slots themselves, from which an allocator pops on allocate and onto which it pushes on free."
+  },
+  {
+   "id": "garbage-collection",
+   "name": "Garbage Collection",
+   "kind": "resource-management",
+   "aka": [
+    "automatic memory reclamation",
+    "garbage compactor",
+    "compacting collector"
+   ],
+   "what": "A runtime mechanism that finds no-longer-referenced allocations and reclaims (and, in compacting variants, relocates) them without explicit frees."
+  },
+  {
+   "id": "gc-read-barrier",
+   "name": "GC Read Barrier",
+   "kind": "resource-management",
+   "aka": [
+    "read barrier",
+    "load barrier"
+   ],
+   "what": "A small check or fixup executed on every (or selected) pointer load so a concurrent or moving collector can intercept reads of stale or unforwarded references."
+  },
+  {
+   "id": "gc-write-barrier",
+   "name": "GC Write Barrier",
+   "kind": "resource-management",
+   "aka": [
+    "write barrier",
+    "card table (folded implementation variant)",
+    "card marking"
+   ],
+   "what": "A small code sequence the compiler or runtime inserts on every pointer store that records or checks the mutated reference (e.g. by marking a card in a card table or appending to a remembered set), so the collector can find cross-generation "
+  },
+  {
+   "id": "hazard-pointers",
+   "name": "Hazard Pointers",
+   "kind": "resource-management",
+   "aka": [
+    "SMR via hazard pointers"
+   ],
+   "what": "Each thread publishes single-writer pointers naming the nodes it is currently accessing; reclaimers defer freeing any node named in a hazard pointer."
+  },
+  {
+   "id": "hooks",
+   "name": "Hooks",
+   "kind": "resource-management",
+   "aka": [
+    "indirection over ROM",
+    "patch table"
+   ],
+   "what": "Access read-only information through hooks (pointers or jump slots) held in writable storage, so changing the hooks gives the illusion of changing ROM content."
+  },
+  {
+   "id": "lazy-cleanup",
+   "name": "Lazy Cleanup",
+   "kind": "resource-management",
+   "aka": [
+    "no explicit deallocation",
+    "let the OS reclaim at exit"
+   ],
+   "what": "Deliberately never free dynamically allocated memory whose lifetime spans the whole program run, relying on the operating system to reclaim it at process exit."
+  },
+  {
+   "id": "leasing",
+   "name": "Leasing",
+   "kind": "resource-management",
+   "aka": [
+    "Lease",
+    "time-bounded lock",
+    "expiring grant"
+   ],
+   "what": "A resource is granted for a limited time; the holder must renew the lease to keep it, and expiry releases the resource automatically."
+  },
+  {
+   "id": "list-virtualization",
+   "name": "List Virtualization",
+   "kind": "resource-management",
+   "aka": [
+    "UI virtualization",
+    "virtual scrolling",
+    "view recycling"
+   ],
+   "what": "Renders only the subset of a long scrollable list that is visible in the viewport (plus a small buffer), creating, recycling, and repositioning a fixed pool of item views as the user scrolls."
+  },
+  {
+   "id": "lookup",
+   "name": "Lookup",
+   "kind": "resource-management",
+   "aka": [],
+   "what": "Resource providers register references with a lookup service under known names or properties; users query the service to find and access the resources."
+  },
+  {
+   "id": "memory-arena",
+   "name": "Memory Arena",
+   "kind": "resource-management",
+   "aka": [
+    "arena allocator",
+    "region-based memory management",
+    "region allocator"
+   ],
+   "what": "Allocate objects by bumping a pointer through a large block and free them all at once by resetting or discarding the whole arena."
+  },
+  {
+   "id": "memory-discard",
+   "name": "Memory Discard",
+   "kind": "resource-management",
+   "aka": [
+    "region allocation",
+    "arena discard",
+    "scratch workspace"
+   ],
+   "what": "Allocate temporary objects from a temporary workspace and reclaim them all at once by discarding the whole workspace."
+  },
+  {
+   "id": "memory-limit",
+   "name": "Memory Limit",
+   "kind": "resource-management",
+   "aka": [
+    "memory budget",
+    "per-component quota"
+   ],
+   "what": "Set an explicit memory budget for each component and fail allocations that would exceed the component's limit."
+  },
+  {
+   "id": "memory-overlay",
+   "name": "Memory Overlay",
+   "kind": "resource-management",
+   "aka": [
+    "overlays",
+    "code overlaying",
+    "overlay manager"
+   ],
+   "what": "Divide a program into sections that share the same memory region, loading each overlay from secondary storage into the shared region only when its code/data is needed."
+  },
+  {
+   "id": "object-manager",
+   "name": "Object Manager",
+   "kind": "resource-management",
+   "aka": [],
+   "what": "A manager component separate from both clients and managed objects controls the objects' creation, access, and destruction, issuing references while owning the lifecycle."
+  },
+  {
+   "id": "paging",
+   "name": "Paging",
+   "kind": "resource-management",
+   "aka": [
+    "data paging",
+    "demand paging (application-level)"
+   ],
+   "what": "Keep code and data on secondary storage and move fixed-size pages in and out of main memory on demand, giving the illusion of more memory."
+  },
+  {
+   "id": "partial-acquisition",
+   "name": "Partial Acquisition",
+   "kind": "resource-management",
+   "aka": [],
+   "what": "A large resource is acquired in stages - only the part needed now, with further parts acquired progressively (e.g. lazy-loading pages of an image or file)."
+  },
+  {
+   "id": "pool-allocation",
+   "name": "Pool Allocation",
+   "kind": "resource-management",
+   "aka": [
+    "memory pool",
+    "fixed-block allocator",
+    "block pool"
+   ],
+   "what": "Pre-allocated pools of fixed-size blocks (often one pool per object type/size) from which objects are checked out and returned in O(1)."
+  },
+  {
+   "id": "pooling",
+   "name": "Pooling",
+   "kind": "resource-management",
+   "aka": [
+    "Resource Pool",
+    "Object Pool",
+    "Connection Pool"
+   ],
+   "what": "Released resources are recycled into a pool and handed out again on demand, amortizing acquisition/release cost across many uses; the pool manages size and eviction."
+  },
+  {
+   "id": "raii-resource-acquisition-is-initialization",
+   "name": "RAII (Resource Acquisition Is Initialization)",
+   "kind": "resource-management",
+   "aka": [
+    "scope-bound resource management",
+    "RAII guard (Rust)",
+    "constructor acquires, destructor releases (CADRe)"
+   ],
+   "what": "Tie a resource's lifetime to an object's lifetime so acquisition happens in the constructor and release happens deterministically in the destructor at scope exit."
+  },
+  {
+   "id": "read-only-memory",
+   "name": "Read-Only Memory",
+   "kind": "resource-management",
+   "aka": [
+    "ROMable data",
+    "const-in-ROM"
+   ],
+   "what": "Place read-only code and constant data in ROM/flash rather than RAM, reserving scarce writable memory for mutable state."
+  },
+  {
+   "id": "reference-counting",
+   "name": "Reference Counting",
+   "kind": "resource-management",
+   "aka": [
+    "Counted Body",
+    "Counted Pointer",
+    "Counting Handle"
+   ],
+   "what": "A handle class embeds a reference counter in (or beside) a dynamically allocated body object, updating it on copy/assignment/destruction and deleting the body when the count reaches zero."
+  },
+  {
+   "id": "resource-files",
+   "name": "Resource Files",
+   "kind": "resource-management",
+   "aka": [
+    "resource bundle",
+    "on-demand configuration loading"
+   ],
+   "what": "Keep configuration data and read-only resources in files on secondary storage, loading and discarding each item as needed."
+  },
+  {
+   "id": "resource-lifecycle-manager",
+   "name": "Resource Lifecycle Manager",
+   "kind": "resource-management",
+   "aka": [
+    "RLM"
+   ],
+   "what": "A dedicated manager component centrally controls the whole lifecycle of a class of resources - acquisition, coordination, optimization, and release - decoupling lifecycle from resource use."
+  },
+  {
+   "id": "rule-of-three-five-zero",
+   "name": "Rule of Three/Five/Zero",
+   "kind": "resource-management",
+   "aka": [
+    "rule of three",
+    "rule of five",
+    "rule of zero"
+   ],
+   "what": "If a class defines any of destructor/copy/move special members it should deliberately define the whole set (three/five) - or own no resources directly and define none (zero)."
+  },
+  {
+   "id": "scope-guard",
+   "name": "Scope Guard",
+   "kind": "resource-management",
+   "aka": [
+    "ScopeGuard",
+    "defer (Go/Zig analog)",
+    "gsl::finally"
+   ],
+   "what": "An ad-hoc RAII object that runs an arbitrary cleanup or rollback action when a scope exits, optionally dismissible on success."
+  },
+  {
+   "id": "sharing",
+   "name": "Sharing",
+   "kind": "resource-management",
+   "aka": [
+    "shared instances",
+    "interning",
+    "String Interning"
+   ],
+   "what": "Store one copy of identical information and reference it from everywhere it is needed instead of duplicating it."
+  },
+  {
+   "id": "slab-allocator",
+   "name": "Slab Allocator",
+   "kind": "resource-management",
+   "aka": [
+    "object-caching allocator",
+    "slab cache"
+   ],
+   "what": "Carve memory into per-type slabs of preconstructed, fixed-size objects and cache freed objects in initialized state for immediate reuse."
+  },
+  {
+   "id": "small-buffer-optimization",
+   "name": "Small Buffer Optimization",
+   "kind": "resource-management",
+   "aka": [
+    "small object optimization (SOO)",
+    "small string optimization (SSO)",
+    "inline storage"
+   ],
+   "what": "A container or wrapper embeds a small fixed-size buffer inside itself and only falls back to heap allocation when contents exceed it."
+  },
+  {
+   "id": "smart-pointer",
+   "name": "Smart Pointer",
+   "kind": "resource-management",
+   "aka": [],
+   "what": "A pointer-like object that wraps a raw pointer, validity-checks access, and manages the pointee's lifetime (typically by reference counting), releasing it when the last reference disappears."
+  },
+  {
+   "id": "stack-first",
+   "name": "Stack First",
+   "kind": "resource-management",
+   "aka": [
+    "prefer automatic storage"
+   ],
+   "what": "Default data placement on the call stack (automatic storage), reaching for static or heap storage only when lifetime or size demands it."
+  },
+  {
+   "id": "static-allocation",
+   "name": "Static Allocation",
+   "kind": "resource-management",
+   "aka": [
+    "compile-time allocation",
+    "no-heap allocation",
+    "Fixed Allocation"
+   ],
+   "what": "All objects and buffers are allocated at compile/link time or once at startup, and the heap is never used afterwards."
+  },
+  {
+   "id": "steady-state",
+   "name": "Steady State",
+   "kind": "resource-management",
+   "aka": [
+    "resource recycling",
+    "log rotation discipline"
+   ],
+   "what": "For every mechanism that accumulates a resource (log files, cache entries, rows, temp files), pair a mechanism that recycles or purges it, so the program can run indefinitely without human cleanup."
+  },
+  {
+   "id": "two-level-segregated-fit-allocator-tlsf",
+   "name": "Two-Level Segregated Fit Allocator (TLSF)",
+   "kind": "resource-management",
+   "aka": [
+    "TLSF"
+   ],
+   "what": "A dynamic allocator using a two-level bitmap-indexed segregated-fit structure giving O(1) worst-case malloc and free."
+  },
+  {
+   "id": "variable-allocation",
+   "name": "Variable Allocation",
+   "kind": "resource-management",
+   "aka": [
+    "dynamic allocation"
+   ],
+   "what": "Allocate and deallocate variable-sized objects on demand from a heap as the program needs them."
+  },
+  {
+   "id": "weak-reference",
+   "name": "Weak Reference",
+   "kind": "resource-management",
+   "aka": [
+    "weak pointer",
+    "weak_ptr",
+    "WeakReference"
+   ],
+   "what": "A reference that does not keep its target alive: it can be dereferenced only while the target still exists and observably lapses when the target is reclaimed."
+  }
+ ],
+ "existing_intra_edges": [
+  {
+   "from": "asset-streaming",
+   "kind": "specializes",
+   "to": "partial-acquisition"
+  },
+  {
+   "from": "boundary-tags",
+   "kind": "composes-with",
+   "to": "variable-allocation"
+  },
+  {
+   "from": "buddy-memory-allocation",
+   "kind": "alternative-to",
+   "to": "two-level-segregated-fit-allocator-tlsf"
+  },
+  {
+   "from": "caller-owned-buffer",
+   "kind": "alternative-to",
+   "to": "callee-allocates"
+  },
+  {
+   "from": "eager-acquisition",
+   "kind": "composes-with",
+   "to": "pooling"
+  },
+  {
+   "from": "epoch-based-reclamation",
+   "kind": "alternative-to",
+   "to": "hazard-pointers"
+  },
+  {
+   "from": "evictor",
+   "kind": "composes-with",
+   "to": "pooling"
+  },
+  {
+   "from": "execute-around-method",
+   "kind": "alternative-to",
+   "to": "raii-resource-acquisition-is-initialization"
+  },
+  {
+   "from": "free-list",
+   "kind": "composes-with",
+   "to": "pool-allocation"
+  },
+  {
+   "from": "gc-read-barrier",
+   "kind": "implements",
+   "to": "garbage-collection"
+  },
+  {
+   "from": "gc-write-barrier",
+   "kind": "implements",
+   "to": "garbage-collection"
+  },
+  {
+   "from": "hooks",
+   "kind": "composes-with",
+   "to": "read-only-memory"
+  },
+  {
+   "from": "list-virtualization",
+   "kind": "specializes",
+   "to": "partial-acquisition"
+  },
+  {
+   "from": "memory-arena",
+   "kind": "implements",
+   "to": "memory-discard"
+  },
+  {
+   "from": "pool-allocation",
+   "kind": "specializes",
+   "to": "pooling"
+  },
+  {
+   "from": "raii-resource-acquisition-is-initialization",
+   "kind": "implements",
+   "to": "dispose-pattern"
+  },
+  {
+   "from": "reference-counting",
+   "kind": "alternative-to",
+   "to": "garbage-collection"
+  },
+  {
+   "from": "rule-of-three-five-zero",
+   "kind": "composes-with",
+   "to": "raii-resource-acquisition-is-initialization"
+  },
+  {
+   "from": "scope-guard",
+   "kind": "implements",
+   "to": "raii-resource-acquisition-is-initialization"
+  },
+  {
+   "from": "slab-allocator",
+   "kind": "specializes",
+   "to": "pool-allocation"
+  },
+  {
+   "from": "smart-pointer",
+   "kind": "implements",
+   "to": "raii-resource-acquisition-is-initialization"
+  },
+  {
+   "from": "static-allocation",
+   "kind": "alternative-to",
+   "to": "variable-allocation"
+  },
+  {
+   "from": "two-level-segregated-fit-allocator-tlsf",
+   "kind": "composes-with",
+   "to": "free-list"
+  },
+  {
+   "from": "weak-reference",
+   "kind": "composes-with",
+   "to": "reference-counting"
+  }
+ ]
+}

@@ -1,0 +1,521 @@
+{
+ "group": "A06",
+ "title": "Distributed systems & messaging patterns",
+ "realm": "architecture",
+ "literature": "POSA1 & POSA4 (distributed-object, broker, proxy); Hohpe & Woolf EIP (channels, routing, transformation, endpoints); Coulouris/Tanenbaum distributed systems; each pattern realizes/refines a style and relates to sibling patterns.",
+ "member_count": 46,
+ "target_edges": 55,
+ "priority_ids": [
+  "api-composition",
+  "authoritative-server",
+  "bodyguard",
+  "client-proxy-remoting",
+  "client-request-handler",
+  "competing-consumers-system-topology",
+  "cqrs",
+  "crash-only-software",
+  "data-bus-rtdp",
+  "database-per-service",
+  "datatype-channel",
+  "demilitarized-zone",
+  "distributed-hash-table",
+  "distributed-snapshot",
+  "domain-object-posa4",
+  "durable-subscriber",
+  "event-carried-state-transfer",
+  "event-collaboration",
+  "fault-containment-region",
+  "fault-tolerant-unit",
+  "firewall",
+  "guaranteed-delivery",
+  "half-object-plus-protocol-arch",
+  "invoker",
+  "kernel-bypass-networking",
+  "leader-election",
+  "leaderless-replication",
+  "message-broker",
+  "message-endpoint",
+  "message-router",
+  "multi-leader-replication",
+  "object-synchronizer",
+  "policy-decision-point-policy-enforcement-point",
+  "preforked-prethreaded-server",
+  "presentation-abstraction-control",
+  "primary-replica-replication",
+  "process-pairs",
+  "proxy-based-firewall",
+  "reflection",
+  "remote-facade",
+  "replicated-component-group",
+  "requestor",
+  "server-request-handler",
+  "sharding",
+  "thread-per-connection-server",
+  "two-phase-commit"
+ ],
+ "members": [
+  {
+   "id": "api-composition",
+   "name": "API Composition",
+   "kind": "pattern",
+   "aka": [
+    "composite service",
+    "aggregator service"
+   ],
+   "what": "A composer queries multiple services and joins their results in memory to answer a query that spans service-owned databases."
+  },
+  {
+   "id": "authoritative-server",
+   "name": "Authoritative Server",
+   "kind": "pattern",
+   "aka": [
+    "server-authoritative simulation",
+    "client-server netcode with prediction"
+   ],
+   "what": "One server owns the true game/simulation state; clients send inputs and locally predict, then reconcile against authoritative snapshots."
+  },
+  {
+   "id": "bodyguard",
+   "name": "Bodyguard",
+   "kind": "pattern",
+   "aka": [],
+   "what": "Shares objects across address spaces without full RPC by attaching a guard that intercepts and validates operations on the shared object."
+  },
+  {
+   "id": "client-proxy-remoting",
+   "name": "Client Proxy (remoting)",
+   "kind": "pattern",
+   "aka": [
+    "stub",
+    "remote proxy (middleware role)"
+   ],
+   "what": "A local object presenting the remote component's interface inside the client process, forwarding invocations to the remoting machinery."
+  },
+  {
+   "id": "client-request-handler",
+   "name": "Client Request Handler",
+   "kind": "pattern",
+   "aka": [
+    "client-side transport handler"
+   ],
+   "what": "Client-side middleware component that manages network resources, sends request messages and receives replies for requestors."
+  },
+  {
+   "id": "competing-consumers-system-topology",
+   "name": "Competing Consumers (system topology)",
+   "kind": "pattern",
+   "aka": [
+    "consumer group",
+    "worker fleet on a queue"
+   ],
+   "what": "Multiple independently deployed consumer instances pull from one shared message channel, so load spreads and any instance's failure is absorbed by the rest."
+  },
+  {
+   "id": "cqrs",
+   "name": "CQRS",
+   "kind": "pattern",
+   "aka": [
+    "Command Query Responsibility Segregation",
+    "read/write model split"
+   ],
+   "what": "The system's write model (commands) and read model (queries) are separated into distinct models, often with distinct stores kept in sync asynchronously."
+  },
+  {
+   "id": "crash-only-software",
+   "name": "Crash-Only Software",
+   "kind": "pattern",
+   "aka": [
+    "crash-only design",
+    "microreboot architecture",
+    "recovery-oriented crash-restart structure"
+   ],
+   "what": "A system is structured so its components have exactly one stop method (crash) and one start method (recover), making crash-restart the universal, well-tested recovery path."
+  },
+  {
+   "id": "data-bus-rtdp",
+   "name": "Data Bus (RTDP)",
+   "kind": "pattern",
+   "aka": [
+    "shared data bus backbone",
+    "common data exchange bus"
+   ],
+   "what": "A system-wide shared bus abstraction through which components publish and read common data instead of holding pairwise links."
+  },
+  {
+   "id": "database-per-service",
+   "name": "Database per Service",
+   "kind": "pattern",
+   "aka": [
+    "private database per service"
+   ],
+   "what": "Each service exclusively owns its persistent data; other services access it only through the service's API."
+  },
+  {
+   "id": "datatype-channel",
+   "name": "Datatype Channel",
+   "kind": "pattern",
+   "aka": [
+    "channel-per-datatype",
+    "typed channel organization",
+    "channel-per-type"
+   ],
+   "what": "The channel topology is organized so each channel carries messages of exactly one data type, letting receivers know a message's type from the channel it arrived on."
+  },
+  {
+   "id": "demilitarized-zone",
+   "name": "Demilitarized Zone",
+   "kind": "pattern",
+   "aka": [
+    "DMZ",
+    "perimeter network",
+    "screened subnet"
+   ],
+   "what": "Externally reachable services are placed in a separate network segment between two firewall layers, isolating them from both the internet and the internal network."
+  },
+  {
+   "id": "distributed-hash-table",
+   "name": "Distributed Hash Table",
+   "kind": "pattern",
+   "aka": [
+    "DHT",
+    "structured peer-to-peer overlay",
+    "Chord ring"
+   ],
+   "what": "Nodes form a self-organizing overlay in which consistent-hashing-based routing locates the node responsible for any key in O(log n) hops."
+  },
+  {
+   "id": "distributed-snapshot",
+   "name": "Distributed Snapshot",
+   "kind": "pattern",
+   "aka": [
+    "Chandy-Lamport algorithm",
+    "checkpoint barrier",
+    "asynchronous barrier snapshotting (Flink)"
+   ],
+   "what": "Marker messages flow through a distributed system's channels so each node records a mutually consistent cut of global state without stopping the world."
+  },
+  {
+   "id": "domain-object-posa4",
+   "name": "Domain Object (POSA4)",
+   "kind": "pattern",
+   "aka": [
+    "self-contained domain component"
+   ],
+   "what": "Encapsulates each distinct unit of application functionality as a self-contained component behind an explicit interface, as the root partitioning move of a distributed design."
+  },
+  {
+   "id": "durable-subscriber",
+   "name": "Durable Subscriber",
+   "kind": "pattern",
+   "aka": [
+    "durable subscription",
+    "persistent subscription"
+   ],
+   "what": "The messaging infrastructure persists a subscriber's subscription so that messages published while the subscriber is disconnected are saved and delivered when it reconnects."
+  },
+  {
+   "id": "event-carried-state-transfer",
+   "name": "Event-Carried State Transfer",
+   "kind": "pattern",
+   "aka": [
+    "ECST"
+   ],
+   "what": "Events carry the full changed state so consumers maintain local replicas and need not call back to the source system."
+  },
+  {
+   "id": "event-collaboration",
+   "name": "Event Collaboration",
+   "kind": "pattern",
+   "aka": [
+    "event-based component collaboration"
+   ],
+   "what": "Components collaborate by broadcasting events about what happened rather than requesting each other to act, each maintaining its own state from the stream."
+  },
+  {
+   "id": "fault-containment-region",
+   "name": "Fault Containment Region",
+   "kind": "pattern",
+   "aka": [
+    "FCR",
+    "fault containment unit",
+    "FCU"
+   ],
+   "what": "A set of components (typically a node computer) engineered so that the immediate consequences of an internal fault stay inside the region's boundary, which is defined and enforced architecturally."
+  },
+  {
+   "id": "fault-tolerant-unit",
+   "name": "Fault-Tolerant Unit",
+   "kind": "pattern",
+   "aka": [
+    "FTU",
+    "replicated node group"
+   ],
+   "what": "A group of replica-deterministic fault containment regions that produce the same outputs so that the failure of a member is masked by the remaining replicas (duplex fail-silent or triplicated voting configurations)."
+  },
+  {
+   "id": "firewall",
+   "name": "Firewall",
+   "kind": "pattern",
+   "aka": [
+    "access barrier",
+    "packet filter firewall",
+    "stateful firewall"
+   ],
+   "what": "A barrier that restricts access to designated resources (typically processors, memory, and network connections); a specific realization of the security Limit Access tactic used to keep unsafe effects from propagating."
+  },
+  {
+   "id": "guaranteed-delivery",
+   "name": "Guaranteed Delivery",
+   "kind": "pattern",
+   "aka": [
+    "persistent messaging",
+    "store-and-forward delivery"
+   ],
+   "what": "The messaging system persists every message to a local data store at each hop before acknowledging, and deletes it only after successful handoff to the next store, so messages survive crashes and outages end to end."
+  },
+  {
+   "id": "half-object-plus-protocol-arch",
+   "name": "Half-Object plus Protocol (distribution structure)",
+   "kind": "pattern",
+   "aka": [
+    "HOPP"
+   ],
+   "what": "Splits one logical object into coordinated halves in two address spaces with a private protocol keeping them consistent."
+  },
+  {
+   "id": "invoker",
+   "name": "Invoker",
+   "kind": "pattern",
+   "aka": [
+    "server-side dispatch machinery"
+   ],
+   "what": "Server-side middleware component that receives invocations, unmarshals them and dispatches to the target remote object's method."
+  },
+  {
+   "id": "kernel-bypass-networking",
+   "name": "Kernel-Bypass Networking",
+   "kind": "pattern",
+   "aka": [
+    "user-space networking",
+    "DPDK-style dataplane",
+    "OS-bypass I/O"
+   ],
+   "what": "Restructures the I/O path so the application drives the NIC from user space via polled queues, bypassing the kernel network stack."
+  },
+  {
+   "id": "leader-election",
+   "name": "Leader Election",
+   "kind": "pattern",
+   "aka": [
+    "coordinator election",
+    "master election",
+    "bully/ring algorithms (realizations)"
+   ],
+   "what": "Cooperating instances select exactly one of themselves as coordinator for a role, and re-elect when the leader fails."
+  },
+  {
+   "id": "leaderless-replication",
+   "name": "Leaderless Replication",
+   "kind": "pattern",
+   "aka": [
+    "Dynamo-style replication",
+    "quorum replication"
+   ],
+   "what": "Clients (or coordinators) write to and read from multiple replicas directly, using read/write quorums, read repair, and hinted handoff instead of a leader."
+  },
+  {
+   "id": "message-broker",
+   "name": "Message Broker",
+   "kind": "pattern",
+   "aka": [
+    "hub-and-spoke topology",
+    "integration broker",
+    "broker topology (messaging)"
+   ],
+   "what": "A central intermediary receives messages from all senders and routes (and often transforms) them to the appropriate receivers, so every application couples only to the hub."
+  },
+  {
+   "id": "message-endpoint",
+   "name": "Message Endpoint",
+   "kind": "pattern",
+   "aka": [
+    "messaging gateway boundary (relative)"
+   ],
+   "what": "The component that connects an application to a messaging channel, encapsulating send/receive mechanics at the application boundary."
+  },
+  {
+   "id": "message-router",
+   "name": "Message Router",
+   "kind": "pattern",
+   "aka": [
+    "routing component"
+   ],
+   "what": "A component that consumes messages from one channel and republishes them to different channels according to routing conditions."
+  },
+  {
+   "id": "multi-leader-replication",
+   "name": "Multi-Leader Replication",
+   "kind": "pattern",
+   "aka": [
+    "master-master replication",
+    "active-active replication"
+   ],
+   "what": "Several nodes accept writes concurrently and asynchronously replicate to each other, requiring conflict resolution."
+  },
+  {
+   "id": "object-synchronizer",
+   "name": "Object Synchronizer",
+   "kind": "pattern",
+   "aka": [
+    "distributed object synchronization policy"
+   ],
+   "what": "Decouples object replicas' synchronization policy from their functionality, coordinating state updates between distributed replicas."
+  },
+  {
+   "id": "policy-decision-point-policy-enforcement-point",
+   "name": "Policy Decision Point / Policy Enforcement Point",
+   "kind": "pattern",
+   "aka": [
+    "PDP/PEP",
+    "externalized authorization",
+    "centralized authorization service"
+   ],
+   "what": "Authorization is externalized: enforcement points embedded at resource boundaries defer every access decision to a central policy decision point that evaluates declarative policy."
+  },
+  {
+   "id": "preforked-prethreaded-server",
+   "name": "Preforked / Prethreaded Server",
+   "kind": "pattern",
+   "aka": [
+    "prefork worker pool",
+    "prethreaded server",
+    "worker-pool server (Apache prefork MPM)"
+   ],
+   "what": "The server creates a pool of processes or threads at startup that take turns accepting and serving connections."
+  },
+  {
+   "id": "presentation-abstraction-control",
+   "name": "Presentation-Abstraction-Control",
+   "kind": "pattern",
+   "aka": [
+    "PAC",
+    "PAC agents",
+    "agent hierarchy (Coutaz lineage)"
+   ],
+   "what": "Structures an interactive system as a hierarchy of cooperating agents, each with its own presentation, abstraction, and control facet, communicating only through the control facets."
+  },
+  {
+   "id": "primary-replica-replication",
+   "name": "Primary-Replica Replication",
+   "kind": "pattern",
+   "aka": [
+    "single-leader replication",
+    "leader-based replication",
+    "master-slave replication"
+   ],
+   "what": "One node accepts all writes and streams its change log to replicas, which serve reads and can be promoted on failure."
+  },
+  {
+   "id": "process-pairs",
+   "name": "Process Pairs",
+   "kind": "pattern",
+   "aka": [
+    "primary/backup process pair",
+    "takeover pair (Tandem)",
+    "checkpointing process pair"
+   ],
+   "what": "A primary process executes while a backup process on another node receives checkpoints and takes over transparently when the primary fails."
+  },
+  {
+   "id": "proxy-based-firewall",
+   "name": "Proxy-Based Firewall",
+   "kind": "pattern",
+   "aka": [
+    "application-level gateway",
+    "Firewall Proxy (POSA4)"
+   ],
+   "what": "A firewall that terminates connections and re-issues them via per-protocol proxies, inspecting traffic at application level."
+  },
+  {
+   "id": "reflection",
+   "name": "Reflection",
+   "kind": "pattern",
+   "aka": [
+    "meta-level architecture",
+    "open implementation",
+    "metaobject protocol (architecture-scale)"
+   ],
+   "what": "Splits a system into a base level doing the application work and a meta level holding a self-representation (metaobjects) whose modification changes the base level's behavior and structure at runtime."
+  },
+  {
+   "id": "remote-facade",
+   "name": "Remote Facade",
+   "kind": "pattern",
+   "aka": [
+    "coarse-grained remote facade"
+   ],
+   "what": "A coarse-grained facade over fine-grained objects provides the remote interface, bundling many small interactions into few large calls."
+  },
+  {
+   "id": "replicated-component-group",
+   "name": "Replicated Component Group",
+   "kind": "pattern",
+   "aka": [
+    "component replica group"
+   ],
+   "what": "Deploys a component as a coordinated group of replicas presented as one logical component, for availability or load distribution."
+  },
+  {
+   "id": "requestor",
+   "name": "Requestor",
+   "kind": "pattern",
+   "aka": [
+    "client-side invocation machinery"
+   ],
+   "what": "Client-side middleware component that constructs and sends remote invocations on behalf of proxies, handling marshaling and result delivery."
+  },
+  {
+   "id": "server-request-handler",
+   "name": "Server Request Handler",
+   "kind": "pattern",
+   "aka": [
+    "server-side transport handler"
+   ],
+   "what": "Server-side middleware component that accepts connections, receives request messages and hands them to invokers, returning replies."
+  },
+  {
+   "id": "sharding",
+   "name": "Sharding",
+   "kind": "pattern",
+   "aka": [
+    "partitioning",
+    "horizontal partitioning",
+    "data partitioning"
+   ],
+   "what": "A dataset is split by key across nodes (range or hash partitioning) so each shard is stored and served independently, with rebalancing and request routing."
+  },
+  {
+   "id": "thread-per-connection-server",
+   "name": "Thread-per-Connection Server",
+   "kind": "pattern",
+   "aka": [
+    "one-thread-per-client",
+    "process-per-connection",
+    "fork-per-connection"
+   ],
+   "what": "The server dedicates a freshly created process or thread to each accepted connection for its lifetime."
+  },
+  {
+   "id": "two-phase-commit",
+   "name": "Two-Phase Commit",
+   "kind": "pattern",
+   "aka": [
+    "2PC",
+    "XA transactions (standardized realization)",
+    "atomic commitment protocol"
+   ],
+   "what": "A coordinator drives distributed atomic commit: participants first vote prepared, then all commit or all abort on the coordinator's decision."
+  }
+ ],
+ "existing_intra_edges": []
+}

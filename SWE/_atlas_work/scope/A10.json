@@ -1,0 +1,475 @@
+{
+ "group": "A10",
+ "title": "Web, cloud, microservices & integration patterns",
+ "realm": "architecture",
+ "literature": "Richardson 'Microservices Patterns'; cloud design patterns (Azure/AWS well-architected); Fowler; API gateway/BFF/service mesh/observability; web application patterns; each pattern realizes/refines a style and relates to siblings.",
+ "member_count": 43,
+ "target_edges": 52,
+ "priority_ids": [
+  "anti-corruption-layer",
+  "api-gateway",
+  "application-controller",
+  "asynchronous-request-reply",
+  "backends-for-frontends",
+  "bulkhead-deployment-isolation",
+  "canonical-data-model",
+  "channel-adapter",
+  "choreography",
+  "client-session-state",
+  "competing-consumers-system-scale",
+  "control-bus",
+  "database-session-state",
+  "distributed-tracing",
+  "fault-observer",
+  "federated-identity",
+  "flux",
+  "front-controller",
+  "gateway-aggregation",
+  "gateway-offloading",
+  "gateway-routing",
+  "health-check-api",
+  "health-endpoint-monitoring",
+  "index-table",
+  "intrusion-detection-system",
+  "islands-architecture",
+  "log-aggregation",
+  "maintenance-interface",
+  "messaging-bridge",
+  "page-controller",
+  "process-manager",
+  "routing-slip",
+  "saga",
+  "scheduler-agent-supervisor",
+  "secrets-management-service",
+  "sequential-convoy",
+  "server-session-state",
+  "service-registry",
+  "template-view",
+  "transactional-outbox",
+  "transform-view",
+  "two-step-view",
+  "valet-key"
+ ],
+ "members": [
+  {
+   "id": "anti-corruption-layer",
+   "name": "Anti-Corruption Layer",
+   "kind": "pattern",
+   "aka": [
+    "ACL",
+    "Anticorruption Layer",
+    "ACL (DDD)"
+   ],
+   "what": "An isolating translation layer between two bounded contexts (typically new model and legacy/external system) that converts between the two models."
+  },
+  {
+   "id": "api-gateway",
+   "name": "API Gateway",
+   "kind": "pattern",
+   "aka": [
+    "gateway aggregation (folded)",
+    "gateway routing (folded)",
+    "gateway offloading (folded)"
+   ],
+   "what": "Single entry point that routes, composes, and adapts client requests to backend services, and absorbs cross-cutting edge concerns (auth, TLS, rate limits)."
+  },
+  {
+   "id": "application-controller",
+   "name": "Application Controller",
+   "kind": "pattern",
+   "aka": [
+    "screen/action flow controller"
+   ],
+   "what": "A centralized component owns the application's screen navigation and action flow, deciding which domain logic and view follow each input."
+  },
+  {
+   "id": "asynchronous-request-reply",
+   "name": "Asynchronous Request-Reply",
+   "kind": "pattern",
+   "aka": [
+    "async request-reply with status endpoint",
+    "202-accepted polling"
+   ],
+   "what": "A client-facing request is accepted immediately with a status/result endpoint while backend processing completes asynchronously."
+  },
+  {
+   "id": "backends-for-frontends",
+   "name": "Backends for Frontends",
+   "kind": "pattern",
+   "aka": [
+    "BFF"
+   ],
+   "what": "One purpose-built edge/API backend per frontend type (mobile, web, ...), each owned by the corresponding frontend team."
+  },
+  {
+   "id": "bulkhead-deployment-isolation",
+   "name": "Bulkhead (deployment isolation)",
+   "kind": "pattern",
+   "aka": [
+    "resource isolation partitions",
+    "failure domain partitioning",
+    "Bulkhead (deployment partitioning)"
+   ],
+   "what": "System capacity (instances, pools, clusters) is partitioned into isolated compartments per client, workload, or function so one compartment's failure cannot exhaust the rest."
+  },
+  {
+   "id": "canonical-data-model",
+   "name": "Canonical Data Model",
+   "kind": "pattern",
+   "aka": [
+    "common data model",
+    "canonical message format",
+    "enterprise message model"
+   ],
+   "what": "An application-independent shared data model for the messages exchanged across an integration solution; every application translates only between its internal format and the canonical one."
+  },
+  {
+   "id": "channel-adapter",
+   "name": "Channel Adapter",
+   "kind": "pattern",
+   "aka": [
+    "application adapter",
+    "endpoint adapter"
+   ],
+   "what": "A component that connects an application never built for messaging to the messaging system, translating between the application's API/data/database/UI surface and messages on a channel."
+  },
+  {
+   "id": "choreography",
+   "name": "Choreography",
+   "kind": "pattern",
+   "aka": [
+    "choreography-based saga",
+    "event choreography",
+    "decentralized coordination (vs orchestration)"
+   ],
+   "what": "Multi-service workflows emerge from services publishing and reacting to each other's events, with no central coordinator."
+  },
+  {
+   "id": "client-session-state",
+   "name": "Client Session State",
+   "kind": "pattern",
+   "aka": [
+    "state on the client"
+   ],
+   "what": "Session state is held on the client (cookies, hidden fields, client storage) and sent with each request; servers stay stateless."
+  },
+  {
+   "id": "competing-consumers-system-scale",
+   "name": "Competing Consumers (system scale)",
+   "kind": "pattern",
+   "aka": [
+    "consumer group scaling"
+   ],
+   "what": "Multiple service instances concurrently consume from one shared channel, each message going to exactly one of them."
+  },
+  {
+   "id": "control-bus",
+   "name": "Control Bus",
+   "kind": "pattern",
+   "aka": [
+    "management bus",
+    "administration channel overlay",
+    "management channel overlay"
+   ],
+   "what": "A separate messaging channel overlay used to send configuration, heartbeat, test, and monitoring traffic to every component of a distributed messaging solution, distinct from the application-data channels."
+  },
+  {
+   "id": "database-session-state",
+   "name": "Database Session State",
+   "kind": "pattern",
+   "aka": [
+    "persisted session state",
+    "persisted session"
+   ],
+   "what": "Session state is committed to shared persistent storage between requests, keyed by session, readable by any server instance."
+  },
+  {
+   "id": "distributed-tracing",
+   "name": "Distributed Tracing",
+   "kind": "pattern",
+   "aka": [
+    "request tracing",
+    "trace-context propagation (mechanism aspect)"
+   ],
+   "what": "Every external request gets a trace id propagated through all service hops; per-hop spans are collected centrally to reconstruct the end-to-end path."
+  },
+  {
+   "id": "fault-observer",
+   "name": "Fault Observer",
+   "kind": "pattern",
+   "aka": [
+    "fault report collector"
+   ],
+   "what": "A system-wide component that collects fault reports from everywhere and publishes them to interested parties (operators, loggers, recovery agents)."
+  },
+  {
+   "id": "federated-identity",
+   "name": "Federated Identity",
+   "kind": "pattern",
+   "aka": [
+    "single sign-on (SSO)",
+    "identity provider / relying party topology",
+    "claims-based identity"
+   ],
+   "what": "Authentication is delegated to a separate identity provider that the application trusts, receiving identity claims/tokens instead of managing credentials itself."
+  },
+  {
+   "id": "flux",
+   "name": "Flux",
+   "kind": "pattern",
+   "aka": [
+    "unidirectional data flow (umbrella name, annotated)",
+    "Redux (derived realization)",
+    "unidirectional data flow architecture"
+   ],
+   "what": "App structure with a strict one-way cycle: views dispatch actions, a dispatcher routes them to stores, stores update and re-render views."
+  },
+  {
+   "id": "front-controller",
+   "name": "Front Controller",
+   "kind": "pattern",
+   "aka": [
+    "single entry handler"
+   ],
+   "what": "One handler receives every request for a web application, performing common processing and dispatching to per-request commands or handlers."
+  },
+  {
+   "id": "gateway-aggregation",
+   "name": "Gateway Aggregation",
+   "kind": "pattern",
+   "aka": [],
+   "what": "A gateway fans one client request out to multiple backend services and aggregates their results into a single response."
+  },
+  {
+   "id": "gateway-offloading",
+   "name": "Gateway Offloading",
+   "kind": "pattern",
+   "aka": [],
+   "what": "Shared edge functionality (TLS termination, authentication, compression) is offloaded from services into the gateway."
+  },
+  {
+   "id": "gateway-routing",
+   "name": "Gateway Routing",
+   "kind": "pattern",
+   "aka": [],
+   "what": "A gateway routes requests to different backend services from a single endpoint based on request attributes."
+  },
+  {
+   "id": "health-check-api",
+   "name": "Health Check API",
+   "kind": "pattern",
+   "aka": [
+    "health endpoint monitoring"
+   ],
+   "what": "Each service exposes an endpoint reporting its own liveness/readiness, polled by orchestrators and load balancers to route around unhealthy instances."
+  },
+  {
+   "id": "health-endpoint-monitoring",
+   "name": "Health Endpoint Monitoring",
+   "kind": "pattern",
+   "aka": [
+    "health check API (Richardson)",
+    "health endpoint",
+    "liveness/readiness probes (Kubernetes realization)"
+   ],
+   "what": "Services expose endpoints reporting their own health; external agents (monitors, orchestrators, load balancers) probe them to route or restart."
+  },
+  {
+   "id": "index-table",
+   "name": "Index Table",
+   "kind": "pattern",
+   "aka": [
+    "secondary index table (storage-level)"
+   ],
+   "what": "Maintains separate tables keyed by frequently queried fields over a data store that lacks native secondary indexes."
+  },
+  {
+   "id": "intrusion-detection-system",
+   "name": "Intrusion Detection System",
+   "kind": "pattern",
+   "aka": [
+    "IDS",
+    "NIDS/HIDS",
+    "intrusion detection and prevention (IDPS)"
+   ],
+   "what": "A dedicated component observes network traffic or host activity and flags (or blocks, as IPS) patterns indicating attack or misuse."
+  },
+  {
+   "id": "islands-architecture",
+   "name": "Islands Architecture",
+   "kind": "pattern",
+   "aka": [
+    "component islands",
+    "partial hydration page structure"
+   ],
+   "what": "Server-rendered pages contain isolated interactive islands that hydrate independently, leaving the rest static HTML."
+  },
+  {
+   "id": "log-aggregation",
+   "name": "Log Aggregation",
+   "kind": "pattern",
+   "aka": [
+    "centralized logging"
+   ],
+   "what": "All services ship logs to a central searchable store rather than keeping them on individual hosts."
+  },
+  {
+   "id": "maintenance-interface",
+   "name": "Maintenance Interface",
+   "kind": "pattern",
+   "aka": [
+    "management interface",
+    "out-of-band administration channel"
+   ],
+   "what": "A separate interface/channel dedicated to administration, diagnosis and maintenance, distinct from the application service interface."
+  },
+  {
+   "id": "messaging-bridge",
+   "name": "Messaging Bridge",
+   "kind": "pattern",
+   "aka": [
+    "broker bridge",
+    "cross-broker connection",
+    "bridge between messaging systems"
+   ],
+   "what": "A set of connected channel pairs (or a broker-to-broker connector) that replicates messages between two distinct messaging systems so each behaves as an extension of the other."
+  },
+  {
+   "id": "page-controller",
+   "name": "Page Controller",
+   "kind": "pattern",
+   "aka": [
+    "controller-per-page"
+   ],
+   "what": "Each page or action of a web application has its own controller object handling its requests."
+  },
+  {
+   "id": "process-manager",
+   "name": "Process Manager",
+   "kind": "pattern",
+   "aka": [
+    "orchestrator",
+    "orchestration engine",
+    "central process control"
+   ],
+   "what": "A central component maintains the state of each multi-step process instance and determines, step by step, which processing unit to invoke next based on intermediate results."
+  },
+  {
+   "id": "routing-slip",
+   "name": "Routing Slip",
+   "kind": "pattern",
+   "aka": [
+    "itinerary-based routing",
+    "itinerary pattern"
+   ],
+   "what": "Each message carries its own list of processing steps; every step consumes its entry and forwards the message to the next step on the slip, so the route is decided once up front and no central router is consulted en route."
+  },
+  {
+   "id": "saga",
+   "name": "Saga",
+   "kind": "pattern",
+   "aka": [
+    "long-lived transaction (Gray lineage)",
+    "compensating-transaction sequence",
+    "long-lived transaction with compensations"
+   ],
+   "what": "A multi-step business transaction implemented as a sequence of local transactions, each with a compensating action to semantically undo it on failure."
+  },
+  {
+   "id": "scheduler-agent-supervisor",
+   "name": "Scheduler Agent Supervisor",
+   "kind": "pattern",
+   "aka": [],
+   "what": "A scheduler drives distributed steps via agents while a supervisor tracks step state and triggers recovery or compensation for failed steps."
+  },
+  {
+   "id": "secrets-management-service",
+   "name": "Secrets Management Service",
+   "kind": "pattern",
+   "aka": [
+    "secrets vault",
+    "vault",
+    "central secrets store"
+   ],
+   "what": "Credentials, keys, and tokens are held in a dedicated hardened service that issues them to workloads at runtime under authentication, audit, and rotation policies."
+  },
+  {
+   "id": "sequential-convoy",
+   "name": "Sequential Convoy",
+   "kind": "pattern",
+   "aka": [
+    "ordered message group processing"
+   ],
+   "what": "Related messages are grouped into convoys processed in order by a single consumer, while unrelated convoys proceed in parallel."
+  },
+  {
+   "id": "server-session-state",
+   "name": "Server Session State",
+   "kind": "pattern",
+   "aka": [
+    "in-memory session state",
+    "in-memory session"
+   ],
+   "what": "Session state is kept in the application server's memory (possibly serialized or replicated) between requests."
+  },
+  {
+   "id": "service-registry",
+   "name": "Service Registry",
+   "kind": "pattern",
+   "aka": [
+    "service discovery",
+    "service directory"
+   ],
+   "what": "A continually-updated database of available service instances and their network locations, which instances register with on startup and which clients or routers query to discover where to send requests."
+  },
+  {
+   "id": "template-view",
+   "name": "Template View",
+   "kind": "pattern",
+   "aka": [
+    "server page rendering",
+    "markup with embedded markers"
+   ],
+   "what": "Renders web pages from static markup templates with embedded markers that are filled with dynamic content."
+  },
+  {
+   "id": "transactional-outbox",
+   "name": "Transactional Outbox",
+   "kind": "pattern",
+   "aka": [
+    "outbox pattern",
+    "application events (Richardson's earlier name)",
+    "application events via outbox relay"
+   ],
+   "what": "Service writes outgoing messages into an outbox table within the local database transaction; a relay publishes them to the broker afterwards."
+  },
+  {
+   "id": "transform-view",
+   "name": "Transform View",
+   "kind": "pattern",
+   "aka": [
+    "element-by-element transform rendering"
+   ],
+   "what": "Renders output by programmatically transforming each domain data element into its presentation form."
+  },
+  {
+   "id": "two-step-view",
+   "name": "Two Step View",
+   "kind": "pattern",
+   "aka": [
+    "logical page then formatting"
+   ],
+   "what": "Renders pages in two stages: first a logical presentation independent of look, then a formatting stage applying the site appearance."
+  },
+  {
+   "id": "valet-key",
+   "name": "Valet Key",
+   "kind": "pattern",
+   "aka": [
+    "token-scoped direct resource access"
+   ],
+   "what": "The application issues clients a restricted token granting direct, time-limited access to a specific resource or store, bypassing the application for data transfer."
+  }
+ ],
+ "existing_intra_edges": []
+}

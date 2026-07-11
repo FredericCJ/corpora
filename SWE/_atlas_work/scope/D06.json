@@ -1,0 +1,598 @@
+{
+ "group": "D06",
+ "title": "Error handling & fault resilience",
+ "realm": "design",
+ "literature": "Preschern error-handling patterns (Fluent C); Nygard Release It! (stability patterns); POSA3; exception-safety (Sutter Exceptional C++); Erlang/OTP supervision.",
+ "member_count": 50,
+ "target_edges": 60,
+ "priority_ids": [
+  "built-in-self-test",
+  "copy-and-swap",
+  "core-dump",
+  "dead-letter-channel",
+  "diagnostic-context",
+  "diagnostic-logger",
+  "error-handler",
+  "error-kernel",
+  "escalation",
+  "happy-eyeballs",
+  "heartbeat",
+  "log-errors",
+  "loop-timeout",
+  "notification",
+  "quarantine",
+  "restart",
+  "retry-budget",
+  "retry-with-exponential-backoff-and-jitter",
+  "return-status-code",
+  "samurai-principle",
+  "setjmp-longjmp-error-handling",
+  "software-rejuvenation"
+ ],
+ "members": [
+  {
+   "id": "brown-out-handling",
+   "name": "Brown-Out Handling",
+   "kind": "error-handling",
+   "aka": [
+    "brown-out detection",
+    "BOD",
+    "brown-out reset (BOR)"
+   ],
+   "what": "Detect supply voltage sagging below a safe threshold (via an on-chip or external detector) and hold the MCU in reset or run a controlled shutdown until power is reliable."
+  },
+  {
+   "id": "built-in-self-test",
+   "name": "Built-In Self-Test",
+   "kind": "error-handling",
+   "aka": [
+    "BIST",
+    "power-on self-test (POST)",
+    "startup self-test"
+   ],
+   "what": "Firmware routines that exercise and verify the system's own hardware (RAM patterns, ROM checksums, register/ALU checks, peripheral loopbacks) at startup or periodically."
+  },
+  {
+   "id": "circuit-breaker",
+   "name": "Circuit Breaker",
+   "kind": "error-handling",
+   "aka": [],
+   "what": "A stateful wrapper around a failure-prone operation that trips open after a failure threshold, rejects calls while open, and probes recovery via a half-open state."
+  },
+  {
+   "id": "cleanup-record",
+   "name": "Cleanup Record",
+   "kind": "error-handling",
+   "aka": [
+    "acquisition tracking record"
+   ],
+   "what": "A variable records which acquisition steps succeeded so a single cleanup path can conditionally release exactly what was obtained."
+  },
+  {
+   "id": "complete-parameter-checking",
+   "name": "Complete Parameter Checking",
+   "kind": "error-handling",
+   "aka": [
+    "defensive interface validation"
+   ],
+   "what": "Validate all parameters and inputs at component boundaries every time, detecting errors close to their source at the cost of some performance."
+  },
+  {
+   "id": "copy-and-swap",
+   "name": "Copy-and-Swap",
+   "kind": "error-handling",
+   "aka": [
+    "create-a-temporary-and-swap"
+   ],
+   "what": "Implement assignment by constructing a copy and swapping its guts with *this via a non-throwing swap, so the operation either fully succeeds or leaves the object untouched."
+  },
+  {
+   "id": "core-dump",
+   "name": "Core Dump",
+   "kind": "error-handling",
+   "aka": [
+    "crash dump",
+    "coredump capture",
+    "minidump"
+   ],
+   "what": "On a fatal fault, a handler serializes the program's execution state (registers, stack, selected memory regions, fault status) to persistent storage or a host channel for postmortem analysis."
+  },
+  {
+   "id": "correcting-audits",
+   "name": "Correcting Audits",
+   "kind": "error-handling",
+   "aka": [
+    "data audits",
+    "audit programs"
+   ],
+   "what": "Routinely scan in-memory or stored data for structural and semantic errors and repair them (rebuild links, reset invalid fields) as they are found."
+  },
+  {
+   "id": "cyclic-redundancy-check",
+   "name": "Cyclic Redundancy Check",
+   "kind": "error-handling",
+   "aka": [
+    "CRC",
+    "cyclic code checksum",
+    "CRC Integrity Check"
+   ],
+   "what": "Data blocks carry a checksum computed by polynomial division over GF(2); the receiver/reader recomputes it to detect corruption in storage or transit."
+  },
+  {
+   "id": "dead-letter-channel",
+   "name": "Dead Letter Channel",
+   "kind": "error-handling",
+   "aka": [
+    "dead letter queue",
+    "DLQ"
+   ],
+   "what": "A designated channel to which the messaging layer moves messages that cannot be delivered or processed, instead of dropping or endlessly retrying them."
+  },
+  {
+   "id": "deferred-validation",
+   "name": "Deferred Validation",
+   "kind": "error-handling",
+   "aka": [
+    "validate on use",
+    "delayed integrity checking"
+   ],
+   "what": "Delay comprehensive validity checking of captured data until an action requires it, scaling the rigor of the check to the consequences of that action (edit freely, validate on save/commit/publish)."
+  },
+  {
+   "id": "diagnostic-context",
+   "name": "Diagnostic Context",
+   "kind": "error-handling",
+   "aka": [
+    "mapped diagnostic context (MDC)",
+    "nested diagnostic context (NDC)",
+    "log context"
+   ],
+   "what": "Attach per-thread/per-request key-value context (transaction id, user, request id) to a stash that the logging system automatically appends to every message emitted within that scope."
+  },
+  {
+   "id": "diagnostic-logger",
+   "name": "Diagnostic Logger",
+   "kind": "error-handling",
+   "aka": [
+    "logger",
+    "logging facility",
+    "centralized diagnostic logging"
+   ],
+   "what": "Route all diagnostic messages through a dedicated logger object that decouples message producers from output destinations, formats, and severity filtering."
+  },
+  {
+   "id": "error-handler",
+   "name": "Error Handler",
+   "kind": "error-handling",
+   "aka": [
+    "separated error-processing code"
+   ],
+   "what": "Concentrate error-processing logic in dedicated handler components/blocks separate from normal-flow code, invoked when errors are detected."
+  },
+  {
+   "id": "error-kernel",
+   "name": "Error Kernel",
+   "kind": "error-handling",
+   "aka": [],
+   "what": "Keep the irreplaceable state and critical logic in a small, maximally simple core, delegating risky or failure-prone work to expendable child components that can crash and be restarted."
+  },
+  {
+   "id": "escalation",
+   "name": "Escalation",
+   "kind": "error-handling",
+   "aka": [
+    "recovery escalation ladder"
+   ],
+   "what": "When a recovery action fails to clear an error, escalate to a progressively more drastic action (retry -> restart task -> restart process -> reboot) up a defined ladder."
+  },
+  {
+   "id": "exceptional-value",
+   "name": "Exceptional Value",
+   "kind": "error-handling",
+   "aka": [
+    "exceptional value object",
+    "distinguished out-of-range value"
+   ],
+   "what": "A distinguished value object representing missing or invalid input that flows through the domain model, absorbing or rejecting messages instead of raising errors."
+  },
+  {
+   "id": "fail-fast",
+   "name": "Fail Fast",
+   "kind": "error-handling",
+   "aka": [
+    "precondition rejection"
+   ],
+   "what": "Check preconditions and resource availability up front and report failure immediately, rather than doing work that is doomed to fail slowly."
+  },
+  {
+   "id": "goto-cleanup",
+   "name": "Goto Cleanup",
+   "kind": "error-handling",
+   "aka": [
+    "goto error handling (Fluent C)",
+    "centralized exiting of functions (Linux kernel)",
+    "goto chain"
+   ],
+   "what": "On failure, jump forward to a single labeled cleanup section at the end of the function that releases resources in reverse acquisition order."
+  },
+  {
+   "id": "guard-clause",
+   "name": "Guard Clause",
+   "kind": "error-handling",
+   "aka": [
+    "early return",
+    "replace nested conditional with guard clauses",
+    "bouncer pattern"
+   ],
+   "what": "Check preconditions/special cases at the top of a function and return immediately, keeping the main path unindented."
+  },
+  {
+   "id": "happy-eyeballs",
+   "name": "Happy Eyeballs",
+   "kind": "error-handling",
+   "aka": [
+    "fast fallback",
+    "connection racing",
+    "dual-stack connection attempts"
+   ],
+   "what": "Race connection attempts over alternative paths (canonically IPv6 vs IPv4) with small staggered delays, keep the first to succeed, and cancel the rest."
+  },
+  {
+   "id": "heartbeat",
+   "name": "Heartbeat",
+   "kind": "error-handling",
+   "aka": [
+    "liveness ping",
+    "keepalive",
+    "TCP keepalive"
+   ],
+   "what": "A monitored component emits (or answers) a periodic signal; missing beats mark it as failed and trigger recovery."
+  },
+  {
+   "id": "leaky-bucket-counter",
+   "name": "Leaky Bucket Counter",
+   "kind": "error-handling",
+   "aka": [
+    "decaying error counter"
+   ],
+   "what": "An error counter incremented on each fault and decremented ('leaked') periodically; recovery escalates only when the count crosses a threshold, i.e. errors arrive faster than they drain."
+  },
+  {
+   "id": "let-it-crash",
+   "name": "Let It Crash",
+   "kind": "error-handling",
+   "aka": [
+    "crash-only software",
+    "fail and restart"
+   ],
+   "what": "On unexpected error, abandon in-process recovery: let the failing unit die immediately and rely on an external mechanism (supervisor, restart) to recreate it in a known-good state."
+  },
+  {
+   "id": "log-errors",
+   "name": "Log Errors",
+   "kind": "error-handling",
+   "aka": [
+    "error logging",
+    "diagnostic error logging channel"
+   ],
+   "what": "Record error details on a separate diagnostic channel (log file, console, trace buffer) at the point where the error occurs, instead of forcing all debug information through return values to the caller."
+  },
+  {
+   "id": "loop-timeout",
+   "name": "Loop Timeout",
+   "kind": "error-handling",
+   "aka": [
+    "hardware timeout (timer-based variant)",
+    "timeout-protected polling loop"
+   ],
+   "what": "Bound every polling/wait loop with a software counter or hardware timer so the loop cannot hang forever if the awaited hardware condition never occurs."
+  },
+  {
+   "id": "marked-data",
+   "name": "Marked Data",
+   "kind": "error-handling",
+   "aka": [
+    "data poisoning flag",
+    "corrupt-data marking"
+   ],
+   "what": "Tag data elements known or suspected to be erroneous so subsequent processing can skip, repair, or handle them specially instead of propagating the corruption."
+  },
+  {
+   "id": "meaningless-behavior",
+   "name": "Meaningless Behavior",
+   "kind": "error-handling",
+   "aka": [
+    "let meaningless computations fail quietly"
+   ],
+   "what": "Write domain methods without defensive input checks; let computations on exceptional/missing values fail or yield meaningless results, and have the input/output boundary recover (e.g. display blank) instead."
+  },
+  {
+   "id": "n-version-programming",
+   "name": "N-Version Programming",
+   "kind": "error-handling",
+   "aka": [
+    "multiversion programming",
+    "design diversity with voting"
+   ],
+   "what": "Run N independently developed implementations of the same specification and adjudicate their outputs by a voter to mask residual design faults."
+  },
+  {
+   "id": "notification",
+   "name": "Notification",
+   "kind": "error-handling",
+   "aka": [
+    "error-collecting parameter object"
+   ],
+   "what": "An object that accumulates errors and messages during an operation (typically validation) and is returned or passed across a layer boundary instead of throwing on first failure."
+  },
+  {
+   "id": "quarantine",
+   "name": "Quarantine",
+   "kind": "error-handling",
+   "aka": [
+    "fault isolation of a unit"
+   ],
+   "what": "Isolate a faulty element from the rest of the system - stop routing work to it, fence its outputs - so its errors cannot spread while diagnosis or recovery proceeds."
+  },
+  {
+   "id": "railway-oriented-programming",
+   "name": "Railway-Oriented Programming",
+   "kind": "error-handling",
+   "aka": [
+    "two-track error handling",
+    "Result chaining",
+    "Kleisli composition of Results"
+   ],
+   "what": "Composing a workflow as a chain of functions over a two-track success/failure type, where any failure switches the rest of the pipeline onto the error track automatically."
+  },
+  {
+   "id": "recovery-blocks",
+   "name": "Recovery Blocks",
+   "kind": "error-handling",
+   "aka": [
+    "recovery block scheme"
+   ],
+   "what": "Execute a primary algorithm, validate its result with an acceptance test, and on failure roll back and run an alternate implementation of the same function."
+  },
+  {
+   "id": "restart",
+   "name": "Restart",
+   "kind": "error-handling",
+   "aka": [
+    "microreboot",
+    "component restart"
+   ],
+   "what": "Recover from an unhandled or unrecoverable error by reinitializing the affected unit (task, process, component, or whole program) to its known-good initial state."
+  },
+  {
+   "id": "result-type",
+   "name": "Result Type",
+   "kind": "error-handling",
+   "aka": [
+    "Either type",
+    "Try",
+    "error union"
+   ],
+   "what": "A sum type carrying either a success value or an error value, returned instead of throwing, so failure is part of the function's signature."
+  },
+  {
+   "id": "retry-budget",
+   "name": "Retry Budget",
+   "kind": "error-handling",
+   "aka": [
+    "retry ratio cap",
+    "per-client retry quota"
+   ],
+   "what": "Cap retries globally as a fraction of primary requests (e.g. retries may add at most 10% extra load), disabling retry when the budget is exhausted."
+  },
+  {
+   "id": "retry-with-exponential-backoff-and-jitter",
+   "name": "Retry with Exponential Backoff and Jitter",
+   "kind": "error-handling",
+   "aka": [
+    "exponential backoff",
+    "truncated binary exponential backoff",
+    "retry with jitter"
+   ],
+   "what": "Retry a failed operation a bounded number of times, doubling the wait between attempts and randomizing (jittering) it to avoid synchronized retry storms."
+  },
+  {
+   "id": "return-status-code",
+   "name": "Return Status Code",
+   "kind": "error-handling",
+   "aka": [
+    "error code return convention",
+    "errno-style status (related convention)",
+    "return relevant errors"
+   ],
+   "what": "Functions return a numeric/enum status indicating success or a specific failure, delivering actual results through out-parameters."
+  },
+  {
+   "id": "riding-over-transients",
+   "name": "Riding Over Transients",
+   "kind": "error-handling",
+   "aka": [
+    "transient fault filtering"
+   ],
+   "what": "Deliberately ignore errors that are momentary and self-clearing, acting only when an error persists or recurs beyond a threshold."
+  },
+  {
+   "id": "roll-forward",
+   "name": "Roll-Forward",
+   "kind": "error-handling",
+   "aka": [
+    "forward error recovery"
+   ],
+   "what": "Recover from an error by advancing the system to a new consistent state ahead of the error point, reconstructing or discarding in-flight work rather than returning to a checkpoint."
+  },
+  {
+   "id": "rollback",
+   "name": "Rollback",
+   "kind": "error-handling",
+   "aka": [
+    "backward error recovery"
+   ],
+   "what": "Recover from an error by restoring the system to a previously saved consistent state (a checkpoint) and resuming from there."
+  },
+  {
+   "id": "safe-state",
+   "name": "Safe State",
+   "kind": "error-handling",
+   "aka": [
+    "fail-safe state",
+    "safe state transition"
+   ],
+   "what": "A predefined operating condition without unreasonable risk that the system deliberately enters on fault detection (outputs de-energized, actuators parked, subsystem disabled)."
+  },
+  {
+   "id": "samurai-principle",
+   "name": "Samurai Principle",
+   "kind": "error-handling",
+   "aka": [
+    "return victorious or not at all",
+    "crash early (related, Pragmatic Programmer)"
+   ],
+   "what": "For errors the caller cannot meaningfully handle, do not return an error code - assert/abort at the failure point instead."
+  },
+  {
+   "id": "sentinel-value",
+   "name": "Sentinel Value",
+   "kind": "error-handling",
+   "aka": [
+    "flag value",
+    "rogue value",
+    "signal value"
+   ],
+   "what": "A special in-band value, distinct from all legal data, used to signal a condition such as end-of-data, absence, or failure (NUL terminator, -1, null pointer)."
+  },
+  {
+   "id": "setjmp-longjmp-error-handling",
+   "name": "setjmp/longjmp Error Handling",
+   "kind": "error-handling",
+   "aka": [
+    "CException",
+    "TRY/EXCEPT macros in C",
+    "non-local jump error handling"
+   ],
+   "what": "Macro-wrapped setjmp/longjmp implementing raise-and-catch non-local control transfer as an exception facility in C."
+  },
+  {
+   "id": "software-rejuvenation",
+   "name": "Software Rejuvenation",
+   "kind": "error-handling",
+   "aka": [
+    "proactive restart",
+    "planned rejuvenation"
+   ],
+   "what": "Proactively restart or reinitialize a long-running process on a schedule or on resource-degradation signals, before software aging (leaks, fragmentation, drift) causes failure."
+  },
+  {
+   "id": "special-return-value",
+   "name": "Special Return Value",
+   "kind": "error-handling",
+   "aka": [
+    "in-band error value",
+    "sentinel return (NULL, -1, EOF)"
+   ],
+   "what": "Reserve one or more values of the normal return domain (NULL, -1, EOF) to signal failure in-band, avoiding a separate status channel."
+  },
+  {
+   "id": "stack-painting-watermarking",
+   "name": "Stack Painting / Watermarking",
+   "kind": "error-handling",
+   "aka": [
+    "stack high-water mark",
+    "stack fill pattern",
+    "stack usage watermarking"
+   ],
+   "what": "Fill each stack with a known pattern at startup and later scan for the deepest overwritten address to measure worst-case stack usage and detect near-overflow."
+  },
+  {
+   "id": "supervisor",
+   "name": "Supervisor",
+   "kind": "error-handling",
+   "aka": [
+    "supervision tree",
+    "supervisor hierarchy"
+   ],
+   "what": "A component whose only job is to monitor child workers and apply a declared restart strategy (one-for-one, one-for-all, escalation to its own supervisor) when they crash."
+  },
+  {
+   "id": "timeout",
+   "name": "Timeout",
+   "kind": "error-handling",
+   "aka": [
+    "timed wait",
+    "deadline on blocking call"
+   ],
+   "what": "Bound every blocking wait on an external resource or call with a maximum duration, treating expiry as failure."
+  }
+ ],
+ "existing_intra_edges": [
+  {
+   "from": "brown-out-handling",
+   "kind": "composes-with",
+   "to": "safe-state"
+  },
+  {
+   "from": "cleanup-record",
+   "kind": "alternative-to",
+   "to": "goto-cleanup"
+  },
+  {
+   "from": "deferred-validation",
+   "kind": "alternative-to",
+   "to": "complete-parameter-checking"
+  },
+  {
+   "from": "exceptional-value",
+   "kind": "composes-with",
+   "to": "meaningless-behavior"
+  },
+  {
+   "from": "guard-clause",
+   "kind": "implements",
+   "to": "fail-fast"
+  },
+  {
+   "from": "leaky-bucket-counter",
+   "kind": "composes-with",
+   "to": "riding-over-transients"
+  },
+  {
+   "from": "let-it-crash",
+   "kind": "composes-with",
+   "to": "supervisor"
+  },
+  {
+   "from": "marked-data",
+   "kind": "composes-with",
+   "to": "correcting-audits"
+  },
+  {
+   "from": "n-version-programming",
+   "kind": "alternative-to",
+   "to": "recovery-blocks"
+  },
+  {
+   "from": "railway-oriented-programming",
+   "kind": "composes-with",
+   "to": "result-type"
+  },
+  {
+   "from": "roll-forward",
+   "kind": "alternative-to",
+   "to": "rollback"
+  },
+  {
+   "from": "special-return-value",
+   "kind": "specializes",
+   "to": "sentinel-value"
+  },
+  {
+   "from": "timeout",
+   "kind": "composes-with",
+   "to": "circuit-breaker"
+  }
+ ]
+}

@@ -1,0 +1,325 @@
+{
+ "group": "D11",
+ "title": "Object construction & API design",
+ "realm": "design",
+ "literature": "GoF creational; Effective Java (Bloch) builders/factories; fluent-interface (Fowler); Alexandrescu policy-based construction; dependency injection (Fowler).",
+ "member_count": 29,
+ "target_edges": 35,
+ "priority_ids": [
+  "aggregate-instance",
+  "batch-method",
+  "combined-method",
+  "construct-on-first-use",
+  "design-by-contract",
+  "embedded-domain-specific-language",
+  "enumeration-method",
+  "explicit-interface",
+  "extension-interface",
+  "facade-backend-module-pattern",
+  "function-control",
+  "functional-options",
+  "hardware-abstraction-layer",
+  "introspective-interface",
+  "lifecycle-callback",
+  "nifty-counter",
+  "out-parameters",
+  "plugin",
+  "product-trader",
+  "smart-constructor",
+  "static-factory-method",
+  "wrapper-facade"
+ ],
+ "members": [
+  {
+   "id": "aggregate-instance",
+   "name": "Aggregate Instance",
+   "kind": "construction-api",
+   "aka": [
+    "return struct by value",
+    "parameter/result object in C"
+   ],
+   "what": "Bundle multiple related values into a struct and pass/return that aggregate by value instead of using several out-parameters."
+  },
+  {
+   "id": "batch-method",
+   "name": "Batch Method",
+   "kind": "construction-api",
+   "aka": [],
+   "what": "An interface method operates on a whole set of elements per call (bulk get/set) rather than requiring one call per element."
+  },
+  {
+   "id": "combined-method",
+   "name": "Combined Method",
+   "kind": "construction-api",
+   "aka": [],
+   "what": "Operations that clients commonly invoke as a sequence are combined into a single interface method executed as one unit (e.g. put-if-absent, open-and-read)."
+  },
+  {
+   "id": "construct-on-first-use",
+   "name": "Construct On First Use",
+   "kind": "construction-api",
+   "aka": [
+    "Meyers singleton",
+    "function-local static",
+    "lazy static initialization"
+   ],
+   "what": "Access a static object only through a function that holds it as a function-local static, so it is constructed on the first call."
+  },
+  {
+   "id": "dependency-injection",
+   "name": "Dependency Injection",
+   "kind": "construction-api",
+   "aka": [
+    "DI",
+    "constructor injection",
+    "setter injection"
+   ],
+   "what": "An assembler supplies a component's dependencies from outside (via constructor, setter, or interface) instead of the component constructing or locating them itself."
+  },
+  {
+   "id": "design-by-contract",
+   "name": "Design by Contract",
+   "kind": "construction-api",
+   "aka": [
+    "contracts",
+    "preconditions/postconditions/invariants",
+    "programming by contract"
+   ],
+   "what": "Specify each routine's obligations as executable preconditions, postconditions, and class invariants, checked at runtime, with blame assigned by which side's clause failed."
+  },
+  {
+   "id": "embedded-domain-specific-language",
+   "name": "Embedded Domain-Specific Language",
+   "kind": "construction-api",
+   "aka": [
+    "EDSL",
+    "internal DSL",
+    "domain-specific embedded language"
+   ],
+   "what": "A domain-specific vocabulary implemented as a library within a host language, reusing the host's syntax, types, and tooling instead of a separate parser."
+  },
+  {
+   "id": "enumeration-method",
+   "name": "Enumeration Method",
+   "kind": "construction-api",
+   "aka": [
+    "Internal Iterator",
+    "Callback Iterator (Fluent C)"
+   ],
+   "what": "A collection owner exposes a method that applies a client-supplied operation to each element internally, instead of handing out an external iterator."
+  },
+  {
+   "id": "explicit-interface",
+   "name": "Explicit Interface",
+   "kind": "construction-api",
+   "aka": [],
+   "what": "A component's usage contract is captured in an interface type explicitly separated from any implementation class, so clients depend only on the declared interface."
+  },
+  {
+   "id": "expression-builder",
+   "name": "Expression Builder",
+   "kind": "construction-api",
+   "aka": [],
+   "what": "An object, or family of objects, that provides a fluent interface layered over a normal command-query API, translating chained expression-style calls into calls on the underlying objects."
+  },
+  {
+   "id": "extension-interface",
+   "name": "Extension Interface",
+   "kind": "construction-api",
+   "aka": [],
+   "what": "A component exports multiple role-specific interfaces reachable through a root interface (QueryInterface-style), rather than one ever-growing interface."
+  },
+  {
+   "id": "facade-backend-module-pattern",
+   "name": "Facade/Backend Module Pattern",
+   "kind": "construction-api",
+   "aka": [
+    "pw facade pattern",
+    "link-time facade",
+    "compile-time facade"
+   ],
+   "what": "A module exposes a fixed facade API whose backend implementation is selected at build/link time per target platform."
+  },
+  {
+   "id": "fluent-interface",
+   "name": "Fluent Interface",
+   "kind": "construction-api",
+   "aka": [
+    "fluent API",
+    "method chaining (enabling technique)"
+   ],
+   "what": "An API designed so chained method calls read like flowing prose, building configuration or computation as an internal domain-specific language."
+  },
+  {
+   "id": "function-control",
+   "name": "Function Control",
+   "kind": "construction-api",
+   "aka": [
+    "control parameter",
+    "flag argument",
+    "mode parameter"
+   ],
+   "what": "Add a data parameter (enum, flag, mode value) to a function that selects which of several behaviors the function performs, letting one API entry point cover a family of variants without passing function pointers."
+  },
+  {
+   "id": "functional-options",
+   "name": "Functional Options",
+   "kind": "construction-api",
+   "aka": [
+    "functional options pattern",
+    "self-referential functions as options",
+    "option functions"
+   ],
+   "what": "A constructor takes a variadic list of option functions, each of which mutates the value being configured; options are first-class values that can be composed, defaulted, and added without breaking callers."
+  },
+  {
+   "id": "hardware-abstraction-layer",
+   "name": "Hardware Abstraction Layer",
+   "kind": "construction-api",
+   "aka": [
+    "HAL",
+    "driver abstraction interface",
+    "MCU peripheral abstraction"
+   ],
+   "what": "A stable set of interfaces that isolates application and middleware code from register-level hardware detail, so the same firmware runs across MCUs by swapping the layer beneath."
+  },
+  {
+   "id": "immediate-mode-gui",
+   "name": "Immediate-Mode GUI",
+   "kind": "construction-api",
+   "aka": [
+    "IMGUI",
+    "immediate mode (graphics API)"
+   ],
+   "what": "A GUI API style where user code re-declares the widgets to draw every frame inside the input/render loop (DoButton() each frame rather than CreateButton() once), with the library retaining little or no widget object state."
+  },
+  {
+   "id": "introspective-interface",
+   "name": "Introspective Interface",
+   "kind": "construction-api",
+   "aka": [],
+   "what": "A component offers a separate interface through which clients can query metadata about its capabilities, properties, and configuration at runtime."
+  },
+  {
+   "id": "lifecycle-callback",
+   "name": "Lifecycle Callback",
+   "kind": "construction-api",
+   "aka": [
+    "Lifecycle Hooks"
+   ],
+   "what": "A framework or container invokes designated component methods at defined lifecycle transitions (initialize, activate, passivate, destroy), inverting control of lifecycle handling."
+  },
+  {
+   "id": "named-parameter-idiom",
+   "name": "Named Parameter Idiom",
+   "kind": "construction-api",
+   "aka": [
+    "method chaining for parameters",
+    "named parameters via proxy object"
+   ],
+   "what": "Replace long positional parameter lists with a parameter object whose chained setter calls name each argument, passed to the real function."
+  },
+  {
+   "id": "nifty-counter",
+   "name": "Nifty Counter",
+   "kind": "construction-api",
+   "aka": [
+    "Schwarz counter"
+   ],
+   "what": "A per-translation-unit static counter object ensures a shared static resource (e.g. std::cout) is initialized before first use and destroyed after last use across translation units."
+  },
+  {
+   "id": "out-parameters",
+   "name": "Out-Parameters",
+   "kind": "construction-api",
+   "aka": [
+    "output arguments",
+    "result via pointer parameter"
+   ],
+   "what": "Return data by writing through caller-supplied pointers, keeping the return value free for status."
+  },
+  {
+   "id": "plugin",
+   "name": "Plugin",
+   "kind": "construction-api",
+   "aka": [],
+   "what": "Links classes to an abstraction during configuration rather than compilation, so behavior is selected per deployment via configuration."
+  },
+  {
+   "id": "product-trader",
+   "name": "Product Trader",
+   "kind": "construction-api",
+   "aka": [
+    "creation by specification"
+   ],
+   "what": "Clients create objects by naming an abstract product class plus a specification; a trader maps specifications to concrete product classes and performs the instantiation."
+  },
+  {
+   "id": "retained-mode-gui",
+   "name": "Retained-Mode GUI",
+   "kind": "construction-api",
+   "aka": [
+    "retained mode",
+    "scene-graph GUI"
+   ],
+   "what": "A GUI/graphics API style where the library retains a persistent object model of the scene (widget tree/scene graph) that client code creates once and mutates, with the library handling redraws from the retained model."
+  },
+  {
+   "id": "service-locator",
+   "name": "Service Locator",
+   "kind": "construction-api",
+   "aka": [
+    "service registry (in-process)"
+   ],
+   "what": "Provide a global access point to a service through a locator that resolves the concrete provider at runtime, hiding both the provider's class and the lookup process."
+  },
+  {
+   "id": "smart-constructor",
+   "name": "Smart Constructor",
+   "kind": "construction-api",
+   "aka": [
+    "validating constructor function"
+   ],
+   "what": "A function that is the only exported way to build a value of an abstract type, performing validation or normalization so every constructed value satisfies the type's invariants."
+  },
+  {
+   "id": "static-factory-method",
+   "name": "Static Factory Method",
+   "kind": "construction-api",
+   "aka": [
+    "named constructor (C++ analog)",
+    "valueOf/of/from conventions"
+   ],
+   "what": "A public static method returns instances instead of a public constructor, allowing naming, caching, subtype return, and non-instantiation."
+  },
+  {
+   "id": "wrapper-facade",
+   "name": "Wrapper Facade",
+   "kind": "construction-api",
+   "aka": [],
+   "what": "Concise, cohesive, type-safe class interfaces encapsulate low-level, non-portable system APIs (sockets, threads, mutexes) and their associated data."
+  }
+ ],
+ "existing_intra_edges": [
+  {
+   "from": "expression-builder",
+   "kind": "implements",
+   "to": "fluent-interface"
+  },
+  {
+   "from": "immediate-mode-gui",
+   "kind": "alternative-to",
+   "to": "retained-mode-gui"
+  },
+  {
+   "from": "named-parameter-idiom",
+   "kind": "implements",
+   "to": "fluent-interface"
+  },
+  {
+   "from": "service-locator",
+   "kind": "alternative-to",
+   "to": "dependency-injection"
+  }
+ ]
+}

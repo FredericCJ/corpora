@@ -22,7 +22,7 @@ REPORTS = os.path.normpath(os.path.join(HERE, '..', '..'))   # SWE/  (the delive
 
 CROSS = {'realizes', 'enables'}          # design -> architecture
 CROSS_REV = {'constrains'}               # architecture -> design
-WITHIN = {'specializes', 'composes-with', 'alternative-to'}
+WITHIN = {'specializes', 'composes-with', 'alternative-to', 'uses'}   # within-realm ('uses' added in the atlas enrichment)
 IMPL = {'implements'}                     # design -> design
 EDGE_KINDS = CROSS | CROSS_REV | WITHIN | IMPL
 REALM_LABEL = {'design': 'Design elements', 'architecture': 'Architecture elements'}
@@ -116,7 +116,7 @@ def run(DATA):
     cens = {
         'design': _census(os.path.join(REPORTS, 'design_elements_catalog_v1_0.md'), 'elements'),
         'arch': _census(os.path.join(REPORTS, 'architecture_elements_catalog_v1_0.md'), 'elements'),
-        'edges': _census(os.path.join(REPORTS, 'design_elements_bridge_v1_0.md'), 'edges'),
+        'edges': _census(os.path.join(REPORTS, 'design_elements_bridge_v1_1.md'), 'edges'),
     }
     print('PHASE 4 (elements): %d design + %d architecture = %d elements; %d edges; %d works referenced.'
           % (len(design_ids), len(arch_ids), len(nodes), len(edges), len(works)))

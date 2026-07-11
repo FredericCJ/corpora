@@ -95,8 +95,8 @@ A distinct node kind added by the ELEMENT-layer mission: the *concepts themselve
 **design** (implementation-level mechanisms, below software architecture and above raw syntax) and
 **architecture** (styles, tactics, patterns, connectors, deployment/reference structures, description
 constructs). The realms are wired by a typed, provenance-tagged **bridge** (`realizes`, `enables`,
-`constrains` cross-realm; `implements`, `specializes`, `composes-with`, `alternative-to`). Pure
-computations live in `logic/core_elements.js` (`SWE.coreEl`). Page/inner scroll is authorized for
+`constrains` cross-realm; `implements`, `specializes`, `composes-with`, `alternative-to`, and — after
+the atlas enrichment — `uses`). Pure computations live in `logic/core_elements.js` (`SWE.coreEl`). Page/inner scroll is authorized for
 these four views (element-scale navigability); the five work models keep the strict single-viewport
 form.
 
@@ -117,7 +117,7 @@ form.
 ### View 8 — Element relations (`el-graph`)
 - **Semantic.** The typed element relation graph; a focused ego-network with cycle-safe closure.
 - **Question.** "What realizes, specializes, composes-with, or is an alternative to what?"
-- **Computation (`coreEl.closure` over the 1132-edge adjacency).** A focus element's direct
+- **Computation (`coreEl.closure` over the 2811-edge adjacency).** A focus element's direct
   neighbourhood laid out design-left / architecture-right; click any neighbour to re-focus. (A full
   1083-node graph is unreadable; the ego-graph is the scale-appropriate form.)
 
@@ -127,6 +127,31 @@ form.
 - **Computation (`coreEl.coverageBuckets` + the element→works inversion).** Coverage buckets
   (gap = 0 works, thin = 1, covered ≥ 2) and works ranked by element density; the 3 gap elements
   surfaced honestly.
+
+## The atlas — a map of the whole element space (views 10–11)
+
+Added by the ATLAS endeavour. After WS1 densified the element graph to **2811 relations** (see
+`design_elements_bridge_v1_1.md`), WS2 consolidated it into **21 named, emergent islands**, and WS3
+draws it as a **"graph as map" with semantic zoom** (touchstone: *GMap*). All geography is precomputed
+and deterministic (`data/atlas.json`, byte-identical across builds); pure computations live in
+`logic/core_atlas.js` (`SWE.coreAtlas`). Full model: `SWE/ATLAS_SPEC.md`.
+
+### View 10 — Atlas / the archipelago (`el-atlas`)
+- **Semantic.** The 1083 elements as ~21 island bubbles on a sea, at three zoom levels with one breadcrumb.
+- **Question.** "What is the terrain — what clusters exist, how do they sit, and where is element X?"
+- **Computation.** **L0** island bubbles (size = members, tint = one of 7 families) laid out by a
+  seeded force layout, sea-routes = aggregated cross-island relations (thresholded to avoid a hairball);
+  **L1** one island, hub-centred radial with its WS1-enriched intra-island edges drawn and labelled
+  rim **ports** to neighbours (each port points toward that island's real position on the L0 map);
+  **L2** a selected node lights its ego edges and the inspector shows full element detail. Search
+  **teleports**: a query highlights matching islands and offers a fly-to. A minimap shows "you are here".
+
+### View 11 — Bridge-Flow (`el-bridgeflow`)
+- **Semantic.** The faithful big picture of the cross-realm mapping as a bipartite flow.
+- **Question.** "How does design realize architecture — which families flow into which anchors, and how heavily?"
+- **Computation (`atlas.bridgeFlow`).** Seven design **families** (left) flow into the busiest
+  architecture **anchors** (right); each ribbon's thickness = the number of realizing design elements.
+  Hover isolates a family's or anchor's flows; click an anchor for its detail.
 
 ## Cross-cutting lenses (not separate models)
 

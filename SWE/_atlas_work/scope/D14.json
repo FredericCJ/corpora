@@ -1,0 +1,329 @@
+{
+ "group": "D14",
+ "title": "Functional & type-system idioms",
+ "realm": "design",
+ "literature": "Okasaki; Wadler (monads/functors); Scott Programming Language Pragmatics; typeclass/trait idioms; functional error handling (Option/Either); persistent structures.",
+ "member_count": 26,
+ "target_edges": 31,
+ "priority_ids": [
+  "collection-pipeline",
+  "currying-partial-application",
+  "expression-templates",
+  "functional-core-imperative-shell",
+  "lens",
+  "module-pattern",
+  "sealed-trait",
+  "sfinae",
+  "thunk",
+  "type-erasure",
+  "typelist"
+ ],
+ "members": [
+  {
+   "id": "collection-pipeline",
+   "name": "Collection Pipeline",
+   "kind": "functional-type-idioms",
+   "aka": [
+    "method chaining over collections",
+    "streams pipeline",
+    "LINQ pipeline"
+   ],
+   "what": "Organizes a computation as a sequence of operations (filter, map, reduce, and kin) each taking a collection from the previous stage and feeding one to the next."
+  },
+  {
+   "id": "continuation-passing-style",
+   "name": "Continuation-Passing Style",
+   "kind": "functional-type-idioms",
+   "aka": [
+    "CPS",
+    "callback-passing style"
+   ],
+   "what": "Writing functions to take an explicit continuation - a callback receiving the result - instead of returning, making control flow a first-class value."
+  },
+  {
+   "id": "copied-value",
+   "name": "Copied Value",
+   "kind": "functional-type-idioms",
+   "aka": [
+    "Value Object (copy semantics)"
+   ],
+   "what": "Value-typed objects are passed and stored by copy, so each holder owns an independent instance and mutation cannot cause aliasing surprises."
+  },
+  {
+   "id": "currying-partial-application",
+   "name": "Currying / Partial Application",
+   "kind": "functional-type-idioms",
+   "aka": [
+    "curried function",
+    "curry",
+    "partial application"
+   ],
+   "what": "Transform a multi-argument function into a chain of single-argument functions (currying), or fix a subset of a function's arguments to produce a new function of the remainder (partial application)."
+  },
+  {
+   "id": "defunctionalization",
+   "name": "Defunctionalization",
+   "kind": "functional-type-idioms",
+   "aka": [
+    "defunctionalisation",
+    "closure conversion by tags"
+   ],
+   "what": "Replacing first-class functions with a tagged-union of the closures that actually occur plus an apply function that dispatches on the tag."
+  },
+  {
+   "id": "effect-handler",
+   "name": "Effect Handler",
+   "kind": "functional-type-idioms",
+   "aka": [
+    "algebraic effect handler",
+    "algebraic effects and handlers"
+   ],
+   "what": "A construct that intercepts declared effect operations performed by a computation and decides how to interpret them and how to resume the suspended computation."
+  },
+  {
+   "id": "expression-templates",
+   "name": "Expression Templates",
+   "kind": "functional-type-idioms",
+   "aka": [
+    "lazy expression trees via templates"
+   ],
+   "what": "Overloaded operators build compile-time expression trees instead of computing eagerly, letting whole expressions be evaluated in one fused pass."
+  },
+  {
+   "id": "free-monad",
+   "name": "Free Monad",
+   "kind": "functional-type-idioms",
+   "aka": [
+    "free monad interpreter pattern",
+    "program-as-data"
+   ],
+   "what": "Representing a computation as a data structure of instructions (built from a functor) that is later run by separately-defined interpreters."
+  },
+  {
+   "id": "function-object",
+   "name": "Function Object",
+   "kind": "functional-type-idioms",
+   "aka": [
+    "functor",
+    "callable object",
+    "lambda object (modern form)"
+   ],
+   "what": "An object overloading the call operator so it can be invoked like a function while carrying state and being inlinable through templates."
+  },
+  {
+   "id": "functional-core-imperative-shell",
+   "name": "Functional Core, Imperative Shell",
+   "kind": "functional-type-idioms",
+   "aka": [
+    "impureim sandwich"
+   ],
+   "what": "Structuring a component as a pure decision-making core wrapped by a thin imperative layer that performs all IO and mutation."
+  },
+  {
+   "id": "lens",
+   "name": "Lens",
+   "kind": "functional-type-idioms",
+   "aka": [
+    "optics",
+    "functional reference",
+    "prism"
+   ],
+   "what": "A first-class, composable pair of getter and updater focused on a part of an immutable structure, so nested reads and copy-with-change updates compose like functions."
+  },
+  {
+   "id": "module-pattern",
+   "name": "Module Pattern",
+   "kind": "functional-type-idioms",
+   "aka": [
+    "revealing module pattern"
+   ],
+   "what": "Use a closure (classically an IIFE) to create private state and functions, returning an object that exposes only the intended public interface."
+  },
+  {
+   "id": "monad",
+   "name": "Monad",
+   "kind": "functional-type-idioms",
+   "aka": [
+    "computation builder",
+    "Kleisli triple"
+   ],
+   "what": "An interface (unit/return plus bind) for sequencing computations inside a context - optionality, failure, state, IO - so effectful steps compose like plain functions."
+  },
+  {
+   "id": "option-type",
+   "name": "Option Type",
+   "kind": "functional-type-idioms",
+   "aka": [
+    "Maybe type",
+    "Optional",
+    "nullable type"
+   ],
+   "what": "A sum type with exactly two cases - a present value (Some/Just) or absence (None/Nothing) - making optionality explicit in the type."
+  },
+  {
+   "id": "phantom-type",
+   "name": "Phantom Type",
+   "kind": "functional-type-idioms",
+   "aka": [
+    "phantom type parameter",
+    "marker type parameter"
+   ],
+   "what": "A type parameter that appears in a type's signature but not in its runtime representation, used purely to encode compile-time distinctions or states."
+  },
+  {
+   "id": "sealed-trait",
+   "name": "Sealed Trait",
+   "kind": "functional-type-idioms",
+   "aka": [
+    "C-SEALED",
+    "private supertrait sealing",
+    "closed trait hierarchy"
+   ],
+   "what": "A public trait made unimplementable outside its crate via an unnameable private supertrait, keeping the set of implementors closed."
+  },
+  {
+   "id": "sfinae",
+   "name": "SFINAE",
+   "kind": "functional-type-idioms",
+   "aka": [
+    "Substitution Failure Is Not An Error",
+    "enable_if",
+    "detection idiom / member detector"
+   ],
+   "what": "Exploit the rule that invalid template-argument substitution removes a candidate from overload resolution to enable/disable overloads based on type properties."
+  },
+  {
+   "id": "tag-dispatching",
+   "name": "Tag Dispatching",
+   "kind": "functional-type-idioms",
+   "aka": [
+    "tag dispatch",
+    "Int2Type/Type2Type (Alexandrescu forms)",
+    "iterator-category dispatch"
+   ],
+   "what": "Select among overloads at compile time by passing an extra empty 'tag' type argument that encodes a property of the inputs."
+  },
+  {
+   "id": "tagless-final",
+   "name": "Tagless Final",
+   "kind": "functional-type-idioms",
+   "aka": [
+    "finally tagless",
+    "final encoding",
+    "object algebra (OO cousin)"
+   ],
+   "what": "Encoding an embedded language's operations as a parameterized interface (type class/trait) so programs are polymorphic terms interpretable by any implementation."
+  },
+  {
+   "id": "thunk",
+   "name": "Thunk",
+   "kind": "functional-type-idioms",
+   "aka": [
+    "suspension",
+    "delayed evaluation",
+    "lazy evaluation"
+   ],
+   "what": "A zero-argument closure standing in for a not-yet-computed value, forced (evaluated) on first demand and typically cached thereafter."
+  },
+  {
+   "id": "traits-class",
+   "name": "Traits Class",
+   "kind": "functional-type-idioms",
+   "aka": [
+    "traits",
+    "type traits",
+    "traits template"
+   ],
+   "what": "A template that associates compile-time information (types, constants, operations) with a type non-intrusively, specialized per type."
+  },
+  {
+   "id": "type-erasure",
+   "name": "Type Erasure",
+   "kind": "functional-type-idioms",
+   "aka": [
+    "duck-typed value wrapper",
+    "std::function/std::any technique",
+    "erased value wrapper"
+   ],
+   "what": "Wrap arbitrary concrete types satisfying an interface behind a single value type, hiding the concrete type via an internal vtable/template bridge."
+  },
+  {
+   "id": "typelist",
+   "name": "Typelist",
+   "kind": "functional-type-idioms",
+   "aka": [
+    "type list",
+    "compile-time type sequence"
+   ],
+   "what": "A compile-time list of types built from nested templates (or variadic packs), manipulated by metafunctions to generate code over type collections."
+  },
+  {
+   "id": "typestate",
+   "name": "Typestate",
+   "kind": "functional-type-idioms",
+   "aka": [
+    "typestate programming",
+    "phantom-type state encoding",
+    "compile-time state machine API"
+   ],
+   "what": "Encode an object's protocol state in its static type (consuming and returning distinct types per transition) so illegal operations for the current state do not compile."
+  },
+  {
+   "id": "units-of-measure-types",
+   "name": "Units-of-Measure Types",
+   "kind": "functional-type-idioms",
+   "aka": [
+    "units of measure (F#)",
+    "dimension types",
+    "dimensional analysis in the type system"
+   ],
+   "what": "Encode physical units and dimensions as type-level annotations so the compiler checks unit correctness and infers result units through arithmetic, with no runtime cost."
+  },
+  {
+   "id": "value-semantics",
+   "name": "Value Semantics",
+   "kind": "functional-type-idioms",
+   "aka": [
+    "regular types"
+   ],
+   "what": "Designing types to behave like built-in values - copyable, comparable, independent after copy - rather than as aliased reference-semantic objects."
+  }
+ ],
+ "existing_intra_edges": [
+  {
+   "from": "continuation-passing-style",
+   "kind": "composes-with",
+   "to": "defunctionalization"
+  },
+  {
+   "from": "copied-value",
+   "kind": "implements",
+   "to": "value-semantics"
+  },
+  {
+   "from": "effect-handler",
+   "kind": "alternative-to",
+   "to": "free-monad"
+  },
+  {
+   "from": "free-monad",
+   "kind": "specializes",
+   "to": "monad"
+  },
+  {
+   "from": "phantom-type",
+   "kind": "implements",
+   "to": "typestate"
+  },
+  {
+   "from": "tag-dispatching",
+   "kind": "composes-with",
+   "to": "traits-class"
+  },
+  {
+   "from": "tagless-final",
+   "kind": "alternative-to",
+   "to": "free-monad"
+  }
+ ]
+}

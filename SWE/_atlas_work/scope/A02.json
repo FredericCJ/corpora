@@ -1,0 +1,275 @@
+{
+ "group": "A02",
+ "title": "Security & safety tactics",
+ "realm": "architecture",
+ "literature": "Bass-Clements-Kazman security & safety tactic trees (detect/resist/react/recover); NIST; Schumacher security patterns; IEC 61508 / ISO 26262 safety mechanisms; Leveson Engineering a Safer World.",
+ "member_count": 25,
+ "target_edges": 30,
+ "priority_ids": [
+  "abort",
+  "audit",
+  "authenticate-actors",
+  "authorize-actors",
+  "change-credential-settings",
+  "comparison",
+  "defense-in-depth",
+  "detect-intrusion",
+  "detect-message-delay",
+  "detect-service-denial",
+  "encrypt-data",
+  "identify-actors",
+  "inform-actors",
+  "interlock",
+  "limit-access",
+  "limit-exposure",
+  "masking",
+  "nonrepudiation",
+  "repair-state",
+  "restrict-login",
+  "revoke-access",
+  "separate-entities",
+  "substitution",
+  "validate-input",
+  "verify-message-integrity"
+ ],
+ "members": [
+  {
+   "id": "abort",
+   "name": "Abort",
+   "kind": "tactic",
+   "aka": [
+    "fail-safe termination"
+   ],
+   "what": "If an operation is determined to be unsafe, terminate it before it causes damage — the conceptually simplest way to make a system fail safely."
+  },
+  {
+   "id": "audit",
+   "name": "Audit",
+   "kind": "tactic",
+   "aka": [
+    "audit trail (mechanism: see design-realm audit-log)"
+   ],
+   "what": "Record user and system actions and their effects so an attacker's actions can be traced and identified, supporting prosecution and improved future defenses."
+  },
+  {
+   "id": "authenticate-actors",
+   "name": "Authenticate Actors",
+   "kind": "tactic",
+   "aka": [
+    "authentication"
+   ],
+   "what": "Ensure an actor actually is who or what it claims to be, via passwords, one-time passwords, digital certificates, two-factor authentication, biometrics, or CAPTCHA challenges, possibly with periodic re-authentication."
+  },
+  {
+   "id": "authorize-actors",
+   "name": "Authorize Actors",
+   "kind": "tactic",
+   "aka": [
+    "authorization",
+    "access control"
+   ],
+   "what": "Ensure an authenticated actor has the rights to access and modify data or services, via access control mechanisms assigned per actor, actor class, or role."
+  },
+  {
+   "id": "change-credential-settings",
+   "name": "Change Credential Settings",
+   "kind": "tactic",
+   "aka": [
+    "change default settings (3rd ed name)",
+    "credential rotation"
+   ],
+   "what": "Force users to change default security settings and credentials on delivered systems, and require periodic password changes."
+  },
+  {
+   "id": "comparison",
+   "name": "Comparison",
+   "kind": "tactic",
+   "aka": [
+    "redundant-output comparison"
+   ],
+   "what": "Detect potentially unsafe states by comparing the outputs of redundant components and flagging divergence."
+  },
+  {
+   "id": "defense-in-depth",
+   "name": "Defense in Depth",
+   "kind": "tactic",
+   "aka": [
+    "layered security",
+    "layered defense",
+    "security in depth"
+   ],
+   "what": "Multiple independent security controls are layered along the path to an asset so that compromising any single control does not compromise the system."
+  },
+  {
+   "id": "detect-intrusion",
+   "name": "Detect Intrusion",
+   "kind": "tactic",
+   "aka": [
+    "signature-based intrusion detection"
+   ],
+   "what": "Compare network traffic or service request patterns within a system against a database of signatures or known patterns of malicious behavior (protocol, payload size, source/destination address, port)."
+  },
+  {
+   "id": "detect-message-delay",
+   "name": "Detect Message Delay",
+   "kind": "tactic",
+   "aka": [
+    "detect message delivery anomalies",
+    "timing-based MITM detection"
+   ],
+   "what": "Detect potential man-in-the-middle attacks by checking the time taken to deliver or receive messages against normally stable delivery times, and by watching for anomalous connect/disconnect counts."
+  },
+  {
+   "id": "detect-service-denial",
+   "name": "Detect Service Denial",
+   "kind": "tactic",
+   "aka": [
+    "DoS detection"
+   ],
+   "what": "Compare the pattern or signature of incoming network traffic against historical profiles of known denial-of-service attacks."
+  },
+  {
+   "id": "encrypt-data",
+   "name": "Encrypt Data",
+   "kind": "tactic",
+   "aka": [
+    "encryption",
+    "symmetric/asymmetric encryption"
+   ],
+   "what": "Apply encryption (symmetric or asymmetric) to stored data and to communication, providing confidentiality beyond authorization controls — and the sole protection on links that have none."
+  },
+  {
+   "id": "identify-actors",
+   "name": "Identify Actors",
+   "kind": "tactic",
+   "aka": [
+    "actor identification"
+   ],
+   "what": "Identify the source of any external input to the system — users by user IDs; other systems by access codes, IP addresses, protocols, or ports."
+  },
+  {
+   "id": "inform-actors",
+   "name": "Inform Actors",
+   "kind": "tactic",
+   "aka": [
+    "attack notification"
+   ],
+   "what": "When the system detects an attack, notify the relevant set of actors — operators, other personnel, or cooperating systems — so they can act."
+  },
+  {
+   "id": "interlock",
+   "name": "Interlock",
+   "kind": "tactic",
+   "aka": [
+    "sequence enforcement"
+   ],
+   "what": "Protect against failures arising from incorrect event ordering by controlling all access to protected components, including enforcing the correct sequencing of events affecting them."
+  },
+  {
+   "id": "limit-access",
+   "name": "Limit Access",
+   "kind": "tactic",
+   "aka": [
+    "attack-surface reduction",
+    "DMZ (realization)"
+   ],
+   "what": "Restrict access to computing resources by limiting the number of access points and/or the types of traffic allowed through them — e.g. a demilitarized zone between internet and intranet bounded by a pair of firewalls."
+  },
+  {
+   "id": "limit-exposure",
+   "name": "Limit Exposure",
+   "kind": "tactic",
+   "aka": [
+    "minimize single-point exposure"
+   ],
+   "what": "Minimize the damage a successful attack can do by reducing the amount of data or services reachable through any single access point — a passive defense that compartmentalizes value."
+  },
+  {
+   "id": "masking",
+   "name": "Masking",
+   "kind": "tactic",
+   "aka": [
+    "fault masking by voting"
+   ],
+   "what": "Mask a fault by comparing the results of several redundant components and using a voting procedure when they differ, so the faulty result never propagates; requires a simple, highly reliable voter."
+  },
+  {
+   "id": "nonrepudiation",
+   "name": "Nonrepudiation",
+   "kind": "tactic",
+   "aka": [
+    "non-repudiation"
+   ],
+   "what": "Guarantee that the sender of a message cannot later deny sending it and the receiver cannot deny receiving it, via some combination of digital signatures and trusted third-party certification."
+  },
+  {
+   "id": "repair-state",
+   "name": "Repair State",
+   "kind": "tactic",
+   "aka": [
+    "state correction"
+   ],
+   "what": "Repair an erroneous state — effectively enlarging the set of states the component handles competently — and continue execution, e.g. lane-keeping assist steering a drifting vehicle back between the lane lines."
+  },
+  {
+   "id": "restrict-login",
+   "name": "Restrict Login",
+   "kind": "tactic",
+   "aka": [
+    "account lockout",
+    "login throttling"
+   ],
+   "what": "Limit access from a computer after repeated failed login attempts to an account, typically for a bounded period, sometimes doubling the lockout after each further failure."
+  },
+  {
+   "id": "revoke-access",
+   "name": "Revoke Access",
+   "kind": "tactic",
+   "aka": [
+    "emergency access restriction"
+   ],
+   "what": "When an attack is believed to be underway, severely limit access to sensitive resources — even for normally legitimate users — until the threat is removed."
+  },
+  {
+   "id": "separate-entities",
+   "name": "Separate Entities",
+   "kind": "tactic",
+   "aka": [
+    "physical separation",
+    "air gap",
+    "data segregation"
+   ],
+   "what": "Limit the scope of an attack by separating entities — physical separation onto different servers/networks, virtual machines, air gaps, and keeping sensitive data apart from non-sensitive data."
+  },
+  {
+   "id": "substitution",
+   "name": "Substitution",
+   "kind": "tactic",
+   "aka": [
+    "hardware substitution for software safety functions"
+   ],
+   "what": "Replace potentially hazardous software design features with protection mechanisms — typically hardware devices such as watchdogs, monitors, and interlocks — that provide and control their own resources."
+  },
+  {
+   "id": "validate-input",
+   "name": "Validate Input",
+   "kind": "tactic",
+   "aka": [
+    "input sanitization",
+    "input filtering"
+   ],
+   "what": "Sanitize and check input as it is received — filtering, canonicalization, and cleansing, typically via a security framework or validation classes — as an early line of defense."
+  },
+  {
+   "id": "verify-message-integrity",
+   "name": "Verify Message Integrity",
+   "kind": "tactic",
+   "aka": [
+    "checksum verification",
+    "hash verification"
+   ],
+   "what": "Use checksums or hash values to verify the integrity of messages, resource files, deployment files, and configuration files, maintaining the redundant verification information separately."
+  }
+ ],
+ "existing_intra_edges": []
+}

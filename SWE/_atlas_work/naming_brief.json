@@ -1,0 +1,1146 @@
+[
+ {
+  "id": "isl01",
+  "family": "structure",
+  "size": 114,
+  "realm_split": {
+   "architecture": 22,
+   "design": 92
+  },
+  "hub": "Defer Binding",
+  "top_kinds": [
+   [
+    "oo-patterns",
+    44
+   ],
+   [
+    "construction-api",
+    21
+   ],
+   [
+    "functional-type-idioms",
+    13
+   ],
+   [
+    "tactic",
+    9
+   ],
+   [
+    "style",
+    7
+   ]
+  ],
+  "members": [
+   "Defer Binding",
+   "Encapsulate",
+   "Strategy",
+   "Abstract Factory",
+   "Abstract Common Services",
+   "Abstract Session",
+   "Adapter",
+   "Adaptive Object Model",
+   "Adaptor Connector",
+   "Adhere to Standards",
+   "Aggregate Instance",
+   "Blackboard",
+   "Bridge",
+   "Builder",
+   "Bureaucracy",
+   "Callee Allocates",
+   "Caller-Owned Buffer",
+   "Chain of Responsibility",
+   "Client Session State",
+   "Collecting Parameter",
+   "Collection Pipeline",
+   "Component-Based Architecture"
+  ]
+ },
+ {
+  "id": "isl02",
+  "family": "resource",
+  "size": 92,
+  "realm_split": {
+   "design": 78,
+   "architecture": 14
+  },
+  "hub": "Exception Prevention",
+  "top_kinds": [
+   [
+    "resource-management",
+    38
+   ],
+   [
+    "caching-memoization",
+    14
+   ],
+   [
+    "tactic",
+    9
+   ],
+   [
+    "synchronization-coordination",
+    7
+   ],
+   [
+    "error-handling",
+    4
+   ]
+  ],
+  "members": [
+   "Exception Prevention",
+   "Maintain Multiple Copies of Data",
+   "Reduce Computational Overhead",
+   "Caching",
+   "Allocation Wrapper",
+   "Bound Execution Times",
+   "Boundary Tags",
+   "Buddy Memory Allocation",
+   "Buffer Pool",
+   "Cache-Aside",
+   "Cache Eviction Policy",
+   "Cache Stampede Protection",
+   "Captain Oates",
+   "Compaction",
+   "Copy-and-Swap",
+   "Custom Allocator",
+   "Dedicated Ownership",
+   "Degradation",
+   "Dirty Flag",
+   "Dirty Rectangles",
+   "Dispose Pattern",
+   "Domain-Specific Software Architecture"
+  ]
+ },
+ {
+  "id": "isl03",
+  "family": "reliability",
+  "size": 73,
+  "realm_split": {
+   "design": 30,
+   "architecture": 43
+  },
+  "hub": "Authenticate Actors",
+  "top_kinds": [
+   [
+    "tactic",
+    25
+   ],
+   [
+    "robustness-security",
+    23
+   ],
+   [
+    "pattern",
+    12
+   ],
+   [
+    "deployment",
+    3
+   ],
+   [
+    "embedded-systems",
+    2
+   ]
+  ],
+  "members": [
+   "Authenticate Actors",
+   "Authorize Actors",
+   "Verify Message Integrity",
+   "Check Point",
+   "A/B Firmware Image Update",
+   "Access Control List",
+   "Audit",
+   "Audit Log",
+   "Authenticated Encryption",
+   "Authorization (security pattern)",
+   "Blockchain",
+   "Bootloader-Application Split",
+   "Bootloader (boot-stage architecture)",
+   "Bootloader Jump / Handoff",
+   "Canonical Serialization",
+   "Capability",
+   "Change Credential Settings",
+   "Constant-Time Comparison",
+   "Content-Addressable Storage",
+   "Cryptographic Hash Function",
+   "Cryptographically Secure Pseudorandom Number Generator",
+   "Defense in Depth"
+  ]
+ },
+ {
+  "id": "isl04",
+  "family": "data",
+  "size": 71,
+  "realm_split": {
+   "architecture": 25,
+   "design": 46
+  },
+  "hub": "Transactions",
+  "top_kinds": [
+   [
+    "synchronization-coordination",
+    19
+   ],
+   [
+    "pattern",
+    16
+   ],
+   [
+    "persistence-durability",
+    10
+   ],
+   [
+    "tactic",
+    7
+   ],
+   [
+    "data-structures",
+    7
+   ]
+  ],
+  "members": [
+   "Transactions",
+   "Relational DBMS Reference Architecture",
+   "Voting",
+   "Optimistic Concurrency Control",
+   "Analytic Redundancy",
+   "B-tree",
+   "Checkpointing",
+   "Coarse-Grained Lock",
+   "Comparison",
+   "Conflict-free Replicated Data Type (CRDT)",
+   "Consistent Hashing",
+   "Coordinator",
+   "Copy-on-Write",
+   "Copy-on-Write B-Tree",
+   "Deadlock Detection",
+   "Dual-Core Lockstep",
+   "EEPROM Emulation in Flash",
+   "Epsilon/ULP Floating-Point Comparison",
+   "Fault-Tolerant Unit",
+   "Fencing Token",
+   "Flash Translation Layer",
+   "Flash Wear Leveling"
+  ]
+ },
+ {
+  "id": "isl05",
+  "family": "reliability",
+  "size": 66,
+  "realm_split": {
+   "design": 39,
+   "architecture": 27
+  },
+  "hub": "Monitor",
+  "top_kinds": [
+   [
+    "error-handling",
+    25
+   ],
+   [
+    "tactic",
+    14
+   ],
+   [
+    "pattern",
+    13
+   ],
+   [
+    "robustness-security",
+    8
+   ],
+   [
+    "communication",
+    3
+   ]
+  ],
+  "members": [
+   "Monitor",
+   "Restart",
+   "Retry with Exponential Backoff and Jitter",
+   "Condition Monitoring",
+   "Brown-Out Handling",
+   "Built-In Self-Test",
+   "Bulkhead",
+   "Circuit Breaker",
+   "Complete Parameter Checking",
+   "Control Bus",
+   "Core Dump",
+   "Correcting Audits",
+   "Crash-Only Software",
+   "Cyclic Redundancy Check",
+   "Dead Letter Channel",
+   "Deadline Propagation",
+   "Deferred Validation",
+   "Dual Channel",
+   "Error Kernel",
+   "Escalating Restart",
+   "Escalation",
+   "Fault Containment Region"
+  ]
+ },
+ {
+  "id": "isl06",
+  "family": "communication",
+  "size": 62,
+  "realm_split": {
+   "design": 37,
+   "architecture": 25
+  },
+  "hub": "Thread Pool",
+  "top_kinds": [
+   [
+    "execution-concurrency",
+    21
+   ],
+   [
+    "pattern",
+    14
+   ],
+   [
+    "communication",
+    14
+   ],
+   [
+    "style",
+    7
+   ],
+   [
+    "connector",
+    2
+   ]
+  ],
+  "members": [
+   "Thread Pool",
+   "Introduce Concurrency",
+   "Message Queue",
+   "Competing Consumers",
+   "Active Object",
+   "Actor-Based Architecture",
+   "Async-Await Model",
+   "Cancellation Token",
+   "Canonical Data Model",
+   "Channel Adapter",
+   "Competing Consumers (system scale)",
+   "Competing Consumers (system topology)",
+   "Content-Based Router",
+   "Coroutine",
+   "CSP Channel",
+   "Data Bus (RTDP)",
+   "Data-Parallel Architecture",
+   "Datatype Channel",
+   "Distributed Processes",
+   "Enterprise Service Bus",
+   "Event-Driven Consumer",
+   "Executor"
+  ]
+ },
+ {
+  "id": "isl07",
+  "family": "reliability",
+  "size": 61,
+  "realm_split": {
+   "architecture": 16,
+   "design": 45
+  },
+  "hub": "Exception Handling",
+  "top_kinds": [
+   [
+    "tactic",
+    16
+   ],
+   [
+    "error-handling",
+    13
+   ],
+   [
+    "testing-constructs",
+    10
+   ],
+   [
+    "functional-type-idioms",
+    9
+   ],
+   [
+    "oo-patterns",
+    3
+   ]
+  ],
+  "members": [
+   "Exception Handling",
+   "Limit Structural Complexity",
+   "Exception Detection",
+   "Monad",
+   "Abort",
+   "Abstract Data Sources",
+   "Acyclic Visitor",
+   "Cleanup Record",
+   "Composed Method",
+   "Continuation-Passing Style",
+   "Defunctionalization",
+   "Design by Contract",
+   "Effect Handler",
+   "Error Handler",
+   "Executable Assertions",
+   "Fail Fast",
+   "Four-Phase Test",
+   "Free Monad",
+   "Functional Core, Imperative Shell",
+   "Golden Master Testing",
+   "Goto Cleanup",
+   "Guard Clause"
+  ]
+ },
+ {
+  "id": "isl08",
+  "family": "data",
+  "size": 60,
+  "realm_split": {
+   "design": 57,
+   "architecture": 3
+  },
+  "hub": "Increase Resource Usage Efficiency",
+  "top_kinds": [
+   [
+    "data-structures",
+    30
+   ],
+   [
+    "data-representation",
+    11
+   ],
+   [
+    "resource-management",
+    10
+   ],
+   [
+    "serialization-framing",
+    4
+   ],
+   [
+    "pattern",
+    2
+   ]
+  ],
+  "members": [
+   "Increase Resource Usage Efficiency",
+   "Dynamic Array",
+   "Hash Table",
+   "Linked List",
+   "Adjacency List / Adjacency Matrix",
+   "Application Switching",
+   "Asset Streaming",
+   "Binary Heap (Priority Queue)",
+   "Binary Search Tree",
+   "Bitmap / Bitset",
+   "Bitmap Index",
+   "Bloom Filter",
+   "Column-Oriented Storage",
+   "Component",
+   "Compression",
+   "container_of",
+   "Count-Min Sketch",
+   "Data Files",
+   "Data Locality",
+   "Delta Encoding",
+   "Deque",
+   "Dictionary Encoding"
+  ]
+ },
+ {
+  "id": "isl09",
+  "family": "concurrency",
+  "size": 50,
+  "realm_split": {
+   "architecture": 15,
+   "design": 35
+  },
+  "hub": "Limit Event Response",
+  "top_kinds": [
+   [
+    "scheduling-time",
+    19
+   ],
+   [
+    "tactic",
+    10
+   ],
+   [
+    "embedded-systems",
+    5
+   ],
+   [
+    "style",
+    5
+   ],
+   [
+    "synchronization-coordination",
+    4
+   ]
+  ],
+  "members": [
+   "Limit Event Response",
+   "RTOS-Based Architecture",
+   "Schedule Resources",
+   "Static Priority Scheduling",
+   "Bound Queue Sizes",
+   "Critical Region",
+   "Cyclic Executive",
+   "Debouncing",
+   "Deferrable Work",
+   "Deferred Interrupt Processing",
+   "Dynamic Classification",
+   "Dynamic Priority Scheduling",
+   "Event Coalescing",
+   "Event-Triggered Architecture",
+   "Fresh Work Before Stale",
+   "Function-Queue-Scheduling Architecture",
+   "Governor",
+   "Idle Task Hook",
+   "Interrupt Coalescing",
+   "Interrupt-Masking Critical Section",
+   "Interrupt Service Routine",
+   "Interrupt Vector Table"
+  ]
+ },
+ {
+  "id": "isl10",
+  "family": "structure",
+  "size": 46,
+  "realm_split": {
+   "design": 27,
+   "architecture": 19
+  },
+  "hub": "Streaming Dataflow Architecture",
+  "top_kinds": [
+   [
+    "pattern",
+    11
+   ],
+   [
+    "data-flow-buffering",
+    8
+   ],
+   [
+    "style",
+    7
+   ],
+   [
+    "communication",
+    6
+   ],
+   [
+    "state-management",
+    6
+   ]
+  ],
+  "members": [
+   "Streaming Dataflow Architecture",
+   "Signals (fine-grained reactivity)",
+   "The Elm Architecture",
+   "Dataflow Architecture",
+   "Acknowledgement",
+   "Backpressure",
+   "Batch Sequential",
+   "Bit Banging",
+   "Chained Processors",
+   "Chunked Transfer Encoding",
+   "Credit-Based Flow Control",
+   "Data Binding",
+   "Dirty Checking",
+   "Distributed Commit Log",
+   "Distributed Snapshot",
+   "Error-Correcting Codes",
+   "Watermark (Event-Time)",
+   "Flux",
+   "Functional Reactive Programming",
+   "Handshaking",
+   "Hydration",
+   "Immutable Value"
+  ]
+ },
+ {
+  "id": "isl11",
+  "family": "foundations",
+  "size": 45,
+  "realm_split": {
+   "design": 35,
+   "architecture": 10
+  },
+  "hub": "Multi-Pass Compiler Pipeline",
+  "top_kinds": [
+   [
+    "parsing-text",
+    19
+   ],
+   [
+    "pattern",
+    6
+   ],
+   [
+    "robustness-security",
+    5
+   ],
+   [
+    "execution-concurrency",
+    3
+   ],
+   [
+    "construction-api",
+    3
+   ]
+  ],
+  "members": [
+   "Multi-Pass Compiler Pipeline",
+   "Interpreter (Architectural Style)",
+   "Abstract Syntax Tree",
+   "Lexer",
+   "Allowlist Input Validation",
+   "Application Controller",
+   "Bytecode",
+   "Bytecode Virtual Machine",
+   "Canonicalization Before Validation",
+   "Deoptimization",
+   "Embedded Domain-Specific Language",
+   "Escape Sequence",
+   "Event-Driven Parsing",
+   "Expression Builder",
+   "Fluent Interface",
+   "Front Controller",
+   "Hidden Class",
+   "HTML Sanitization",
+   "Inline Caching",
+   "Interpreter",
+   "LR Parser",
+   "Maximal Munch"
+  ]
+ },
+ {
+  "id": "isl12",
+  "family": "communication",
+  "size": 45,
+  "realm_split": {
+   "architecture": 29,
+   "design": 16
+  },
+  "hub": "Event Connector",
+  "top_kinds": [
+   [
+    "pattern",
+    10
+   ],
+   [
+    "connector",
+    8
+   ],
+   [
+    "communication",
+    7
+   ],
+   [
+    "oo-patterns",
+    5
+   ],
+   [
+    "deployment",
+    4
+   ]
+  ],
+  "members": [
+   "Event Connector",
+   "Observer",
+   "Publish-Subscribe (Architectural Style)",
+   "Event-Based Implicit Invocation",
+   "Adapter (container)",
+   "Ambassador",
+   "AUTOSAR Virtual Function Bus / RTE",
+   "Callback",
+   "Callback with Context Pointer",
+   "Choreography",
+   "Context Object",
+   "Data Access Connector",
+   "Diagnostic Context",
+   "Diagnostic Logger",
+   "Distributed Tracing",
+   "Distributor Connector",
+   "Durable Subscriber",
+   "Event Aggregator",
+   "Event-Carried State Transfer",
+   "Event Collaboration",
+   "Event Delegation",
+   "Event-Driven Architecture"
+  ]
+ },
+ {
+  "id": "isl13",
+  "family": "data",
+  "size": 43,
+  "realm_split": {
+   "design": 34,
+   "architecture": 9
+  },
+  "hub": "Domain Model",
+  "top_kinds": [
+   [
+    "persistence-durability",
+    18
+   ],
+   [
+    "data-representation",
+    8
+   ],
+   [
+    "pattern",
+    7
+   ],
+   [
+    "oo-patterns",
+    3
+   ],
+   [
+    "serialization-framing",
+    2
+   ]
+  ],
+  "members": [
+   "Domain Model",
+   "Data Mapper",
+   "Value Object",
+   "Repository",
+   "Active Record",
+   "Aggregate",
+   "Anti-Corruption Layer",
+   "Association Table Mapping",
+   "Bounded Context",
+   "Class Table Inheritance",
+   "Comparand",
+   "Concrete Table Inheritance",
+   "Context Map",
+   "Data Transfer Object",
+   "Dependent Mapping",
+   "Domain Event",
+   "Domain Service",
+   "Embedded Value",
+   "Entity",
+   "Event Sourcing",
+   "Event Sourcing (architecture style)",
+   "Foreign Key Mapping"
+  ]
+ },
+ {
+  "id": "isl14",
+  "family": "communication",
+  "size": 43,
+  "realm_split": {
+   "design": 26,
+   "architecture": 17
+  },
+  "hub": "Broker",
+  "top_kinds": [
+   [
+    "communication",
+    11
+   ],
+   [
+    "pattern",
+    10
+   ],
+   [
+    "style",
+    5
+   ],
+   [
+    "state-management",
+    5
+   ],
+   [
+    "data-flow-buffering",
+    5
+   ]
+  ],
+  "members": [
+   "Broker",
+   "Authoritative Server",
+   "Client-Server",
+   "Remote Procedure Call",
+   "Acceptor-Connector",
+   "Asynchronous Completion Token",
+   "Asynchronous Request-Reply",
+   "Bodyguard",
+   "Claim Check",
+   "Client-Dispatcher-Server",
+   "Client Proxy (remoting)",
+   "Client Request Handler",
+   "Client-Side Prediction",
+   "Correlation Identifier",
+   "Dead Reckoning",
+   "Deterministic Lockstep",
+   "Discover",
+   "Distributed Hash Table",
+   "Distributed Objects",
+   "Forwarder-Receiver",
+   "Half-Object plus Protocol",
+   "Half-Object plus Protocol (distribution structure)"
+  ]
+ },
+ {
+  "id": "isl15",
+  "family": "concurrency",
+  "size": 42,
+  "realm_split": {
+   "design": 38,
+   "architecture": 4
+  },
+  "hub": "Arbitrator Connector",
+  "top_kinds": [
+   [
+    "synchronization-coordination",
+    26
+   ],
+   [
+    "data-flow-buffering",
+    4
+   ],
+   [
+    "resource-management",
+    2
+   ],
+   [
+    "execution-concurrency",
+    2
+   ],
+   [
+    "pattern",
+    2
+   ]
+  ],
+  "members": [
+   "Arbitrator Connector",
+   "Condition Variable",
+   "Compare-and-Swap Loop",
+   "Futex",
+   "ABA Mitigation via Tagged Pointer",
+   "Acquire-Release Ordering",
+   "Balking",
+   "Direct Memory Access (DMA) Transfer",
+   "Direct-to-Task Notification",
+   "Disruptor",
+   "Double-Checked Locking",
+   "Epoch-Based Reclamation",
+   "Event Flags Group",
+   "Eventcount",
+   "False-Sharing Avoidance via Cache-Line Padding",
+   "Guarded Call",
+   "Guarded Suspension",
+   "Hazard Pointers",
+   "Kernel-Bypass Networking",
+   "Latch",
+   "LMAX Architecture",
+   "Lock-Free FIFO Queue (Michael-Scott)"
+  ]
+ },
+ {
+  "id": "isl16",
+  "family": "structure",
+  "size": 41,
+  "realm_split": {
+   "design": 11,
+   "architecture": 30
+  },
+  "hub": "Shared Database",
+  "top_kinds": [
+   [
+    "style",
+    15
+   ],
+   [
+    "pattern",
+    12
+   ],
+   [
+    "serialization-framing",
+    9
+   ],
+   [
+    "communication",
+    2
+   ],
+   [
+    "deployment",
+    2
+   ]
+  ],
+  "members": [
+   "Shared Database",
+   "API Gateway",
+   "Byte Stuffing",
+   "Gateway Aggregation",
+   "Aggregator",
+   "API Composition",
+   "Backends for Frontends",
+   "Binary-to-Text Encoding",
+   "Bit Stuffing",
+   "Code-on-Demand",
+   "Consistent Overhead Byte Stuffing",
+   "CQRS",
+   "Data Mesh",
+   "Database per Service",
+   "File Transfer",
+   "Gateway Offloading",
+   "Gateway Routing",
+   "Length-Prefix Framing",
+   "Magic Number (File Signature)",
+   "Materialized View (architecture pattern)",
+   "Messaging",
+   "Micro Frontends"
+  ]
+ },
+ {
+  "id": "isl17",
+  "family": "resource",
+  "size": 37,
+  "realm_split": {
+   "architecture": 12,
+   "design": 25
+  },
+  "hub": "Hardware Abstraction Layer (architectural layer)",
+  "top_kinds": [
+   [
+    "data-structures",
+    8
+   ],
+   [
+    "embedded-systems",
+    6
+   ],
+   [
+    "pattern",
+    5
+   ],
+   [
+    "style",
+    4
+   ],
+   [
+    "reference-architecture",
+    3
+   ]
+  ],
+  "members": [
+   "Hardware Abstraction Layer (architectural layer)",
+   "Layered Game Engine Architecture",
+   "Layers",
+   "Spatial Partition",
+   "AUTOSAR Adaptive Platform",
+   "AUTOSAR Layered Software Architecture",
+   "Board Support Package",
+   "Bounding Volume Hierarchy",
+   "C2",
+   "Clean Architecture",
+   "Device Driver",
+   "Domain Object (POSA4)",
+   "Double Buffer",
+   "Escaping #ifdef Hell",
+   "Event Loop",
+   "Five-Layer Architecture (RTDP)",
+   "Fixed Timestep",
+   "Game Loop",
+   "Hardware Abstraction Layer",
+   "Hardware Proxy",
+   "Hexagonal Architecture",
+   "Include Guard"
+  ]
+ },
+ {
+  "id": "isl18",
+  "family": "structure",
+  "size": 32,
+  "realm_split": {
+   "design": 24,
+   "architecture": 8
+  },
+  "hub": "State Transition System (Architectural Organization)",
+  "top_kinds": [
+   [
+    "state-management",
+    15
+   ],
+   [
+    "numeric-precision",
+    7
+   ],
+   [
+    "style",
+    5
+   ],
+   [
+    "pattern",
+    3
+   ],
+   [
+    "oo-patterns",
+    1
+   ]
+  ],
+  "members": [
+   "State Transition System (Architectural Organization)",
+   "Finite State Machine",
+   "Hierarchical State Machine",
+   "Hierarchical Control (RTDP)",
+   "Arbitrary-Precision Arithmetic",
+   "Behavior Tree",
+   "Channel Architecture",
+   "Checked Arithmetic",
+   "Collections for States",
+   "Decomposed AND-State",
+   "Deferred Event",
+   "Fixed-Point Arithmetic",
+   "Interval Arithmetic",
+   "Kahan Summation",
+   "Methods for States",
+   "Money",
+   "Multiple Event Receptor",
+   "Object Recursion",
+   "Orthogonal Component",
+   "PID Controller",
+   "Process Control (Feedback Control Loop)",
+   "Recursive Containment (RTDP)"
+  ]
+ },
+ {
+  "id": "isl19",
+  "family": "resource",
+  "size": 31,
+  "realm_split": {
+   "architecture": 28,
+   "design": 3
+  },
+  "hub": "Load Balancer",
+  "top_kinds": [
+   [
+    "deployment",
+    17
+   ],
+   [
+    "tactic",
+    8
+   ],
+   [
+    "pattern",
+    3
+   ],
+   [
+    "serialization-framing",
+    2
+   ],
+   [
+    "code-structure",
+    1
+   ]
+  ],
+  "members": [
+   "Load Balancer",
+   "Scale Rollouts",
+   "Blue-Green Deployment",
+   "Canary Release",
+   "Activator",
+   "Auto-Scaling",
+   "Bulkhead (deployment isolation)",
+   "Cell-Based Architecture",
+   "Container",
+   "Compute Resource Consolidation",
+   "Deployment Pipeline",
+   "Deployment Stamps",
+   "External Configuration Store",
+   "Feature Flag",
+   "Feature-Flag-Driven Release",
+   "Feature Toggle",
+   "Geodes",
+   "Health Check API",
+   "Health Endpoint Monitoring",
+   "Immutable Infrastructure",
+   "Increase Resources",
+   "Maintain Multiple Copies of Computations"
+  ]
+ },
+ {
+  "id": "isl20",
+  "family": "structure",
+  "size": 15,
+  "realm_split": {
+   "architecture": 4,
+   "design": 11
+  },
+  "hub": "Undo",
+  "top_kinds": [
+   [
+    "tactic",
+    4
+   ],
+   [
+    "oo-patterns",
+    4
+   ],
+   [
+    "construction-api",
+    3
+   ],
+   [
+    "data-flow-buffering",
+    2
+   ],
+   [
+    "data-structures",
+    1
+   ]
+  ],
+  "members": [
+   "Undo",
+   "Command",
+   "Iterator",
+   "Memento",
+   "Aggregate",
+   "Batch Method",
+   "Cancel",
+   "Combined Method",
+   "Command Processor",
+   "Enumeration Method",
+   "Erase-Remove",
+   "Pause/Resume",
+   "Undo/Redo Command Stack",
+   "Vectorized Execution",
+   "Volcano Iterator Model"
+  ]
+ },
+ {
+  "id": "isl21",
+  "family": "foundations",
+  "size": 14,
+  "realm_split": {
+   "architecture": 14
+  },
+  "hub": "Architecture View",
+  "top_kinds": [
+   [
+    "description",
+    14
+   ]
+  ],
+  "members": [
+   "Architecture View",
+   "Architecture Viewpoint",
+   "Architecture Framework",
+   "Stakeholder Concern",
+   "4+1 View Model",
+   "Allocation View",
+   "Architectural Perspective",
+   "Architecture Decision Record",
+   "Architecture Description",
+   "Architecture Description Language",
+   "Component-and-Connector View",
+   "Model Kind",
+   "Module View",
+   "Rozanski–Woods Viewpoint Catalog"
+  ]
+ }
+]

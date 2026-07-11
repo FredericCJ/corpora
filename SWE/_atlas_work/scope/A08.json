@@ -1,0 +1,346 @@
+{
+ "group": "A08",
+ "title": "Connectors & architecture description",
+ "realm": "architecture",
+ "literature": "Taylor, Medvidovic & Dashofy connector taxonomy (procedure-call, event, data-access, linkage, stream, arbitrator, adaptor, distributor); Mehta et al. 'Towards a Taxonomy of Software Connectors'; ADLs (ACME, xADL, Wright).",
+ "member_count": 30,
+ "target_edges": 36,
+ "priority_ids": [
+  "4-1-view-model",
+  "adaptor-connector",
+  "allocation-view",
+  "arbitrator-connector",
+  "architectural-perspective",
+  "architecture-decision-record",
+  "architecture-description",
+  "architecture-description-language",
+  "architecture-framework",
+  "architecture-view",
+  "architecture-viewpoint",
+  "autosar-virtual-function-bus-rte",
+  "component-and-connector-view",
+  "context-map",
+  "data-access-connector",
+  "distributor-connector",
+  "enterprise-service-bus",
+  "event-connector",
+  "interface-definition-language",
+  "linkage-connector",
+  "message-channel",
+  "model-kind",
+  "module-view",
+  "procedure-call-connector",
+  "rozanski-woods-viewpoint-catalog",
+  "secure-channel",
+  "stakeholder-concern",
+  "stream-connector",
+  "temporal-firewall",
+  "time-triggered-bus"
+ ],
+ "members": [
+  {
+   "id": "4-1-view-model",
+   "name": "4+1 View Model",
+   "kind": "description",
+   "aka": [
+    "4+1 architectural view model",
+    "Kruchten 4+1"
+   ],
+   "what": "A fixed viewpoint set — logical, process, development, and physical views, plus scenarios (the +1) that tie them together — for describing a software architecture."
+  },
+  {
+   "id": "adaptor-connector",
+   "name": "Adaptor Connector",
+   "kind": "connector",
+   "aka": [
+    "adaptor (connector type)",
+    "adapter connector",
+    "wrapper connector"
+   ],
+   "what": "A connector that converts between mismatched interaction policies, interfaces, or data formats of components not designed to interoperate - wrappers, transformers, and protocol converters."
+  },
+  {
+   "id": "allocation-view",
+   "name": "Allocation View",
+   "kind": "description",
+   "aka": [
+    "allocation viewtype",
+    "mapping view"
+   ],
+   "what": "A view type mapping software elements onto structures in the system's environment — hardware and networks (deployment), file systems (implementation), and teams (work assignment)."
+  },
+  {
+   "id": "arbitrator-connector",
+   "name": "Arbitrator Connector",
+   "kind": "connector",
+   "aka": [
+    "arbitrator (connector type)",
+    "arbitration connector"
+   ],
+   "what": "A connector that resolves conflicts and redirects control among components with conflicting needs, providing concurrency control (locks, semaphores), scheduling, load balancing, and fault-handling negotiation."
+  },
+  {
+   "id": "architectural-perspective",
+   "name": "Architectural Perspective",
+   "kind": "description",
+   "aka": [
+    "perspective (Rozanski–Woods)",
+    "quality perspective"
+   ],
+   "what": "A collection of activities, tactics, and guidelines for ensuring that a system exhibits a particular quality property, applied across all of a description's views rather than forming a view of its own."
+  },
+  {
+   "id": "architecture-decision-record",
+   "name": "Architecture Decision Record",
+   "kind": "description",
+   "aka": [
+    "ADR",
+    "architectural decision record",
+    "decision record"
+   ],
+   "what": "A short, versioned document capturing one architecturally significant decision together with its context, status, and consequences."
+  },
+  {
+   "id": "architecture-description",
+   "name": "Architecture Description",
+   "kind": "description",
+   "aka": [
+    "AD",
+    "architectural description"
+   ],
+   "what": "The concrete work product (documents, models, views) used to express the architecture of a system of interest."
+  },
+  {
+   "id": "architecture-description-language",
+   "name": "Architecture Description Language",
+   "kind": "description",
+   "aka": [
+    "ADL"
+   ],
+   "what": "A formal notation whose first-class constructs are architectural — components, connectors, configurations — used to model and analyze a software architecture."
+  },
+  {
+   "id": "architecture-framework",
+   "name": "Architecture Framework",
+   "kind": "description",
+   "aka": [
+    "architecture description framework",
+    "ADF"
+   ],
+   "what": "An established package of conventions, principles, viewpoints, and practices for architecture description within a specific domain or stakeholder community."
+  },
+  {
+   "id": "architecture-view",
+   "name": "Architecture View",
+   "kind": "description",
+   "aka": [
+    "view",
+    "architectural view"
+   ],
+   "what": "A representation of a system's architecture from the perspective of a related set of concerns, composed of one or more architecture models."
+  },
+  {
+   "id": "architecture-viewpoint",
+   "name": "Architecture Viewpoint",
+   "kind": "description",
+   "aka": [
+    "viewpoint"
+   ],
+   "what": "A reusable work product establishing the conventions — model kinds, notations, methods — for constructing, interpreting, and using views that frame a specific set of stakeholder concerns."
+  },
+  {
+   "id": "autosar-virtual-function-bus-rte",
+   "name": "AUTOSAR Virtual Function Bus / RTE",
+   "kind": "connector",
+   "aka": [
+    "VFB",
+    "runtime environment",
+    "RTE"
+   ],
+   "what": "A communication abstraction in which software components interact through typed ports on a virtual bus, generated per-ECU as the runtime environment (RTE) that maps port communication to intra-ECU calls or network signals."
+  },
+  {
+   "id": "component-and-connector-view",
+   "name": "Component-and-Connector View",
+   "kind": "description",
+   "aka": [
+    "C&C view",
+    "component-and-connector viewtype",
+    "runtime view"
+   ],
+   "what": "A view type documenting the system's runtime elements (components) and their interaction pathways (connectors) — pipes-and-filters, client-server, publish-subscribe structures and the like."
+  },
+  {
+   "id": "context-map",
+   "name": "Context Map",
+   "kind": "description",
+   "aka": [
+    "bounded-context relationship map"
+   ],
+   "what": "A documented map of the system's bounded contexts and the relationship type at each seam (partnership, customer-supplier, conformist, ACL, ...)."
+  },
+  {
+   "id": "data-access-connector",
+   "name": "Data Access Connector",
+   "kind": "connector",
+   "aka": [
+    "data access (connector type)",
+    "shared-data connector",
+    "query connector"
+   ],
+   "what": "A connector through which a component reads or writes data maintained by a data store or another component, covering repository access, database queries, and accessor operations, often with translation/conversion."
+  },
+  {
+   "id": "distributor-connector",
+   "name": "Distributor Connector",
+   "kind": "connector",
+   "aka": [
+    "distributor (connector type)",
+    "routing connector"
+   ],
+   "what": "A connector that identifies interaction paths and routes communication among components - naming, registration/lookup, and delivery services such as DNS-style naming, routing, and multicast distribution."
+  },
+  {
+   "id": "enterprise-service-bus",
+   "name": "Enterprise Service Bus",
+   "kind": "connector",
+   "aka": [
+    "ESB"
+   ],
+   "what": "A shared messaging backbone providing routing, transformation, protocol bridging, and orchestration between enterprise applications."
+  },
+  {
+   "id": "event-connector",
+   "name": "Event Connector",
+   "kind": "connector",
+   "aka": [
+    "event (connector type)",
+    "event notification connector"
+   ],
+   "what": "A connector that transfers control and data by delivering occurrences (events) from producers to registered observers, with dimensions for cardinality, delivery guarantees, synchronicity, and notification mode."
+  },
+  {
+   "id": "interface-definition-language",
+   "name": "Interface Definition Language",
+   "kind": "description",
+   "aka": [
+    "IDL",
+    "schema-first contract",
+    ".proto contract"
+   ],
+   "what": "A language-neutral contract describing component interfaces and data types from which stubs, skeletons and serializers are generated."
+  },
+  {
+   "id": "linkage-connector",
+   "name": "Linkage Connector",
+   "kind": "connector",
+   "aka": [
+    "linkage (connector type)",
+    "binding connector"
+   ],
+   "what": "A connector that ties system elements together by establishing and enforcing associations - name bindings, imports/exports, and compile- or load-time linking - enabling other connectors to act at runtime."
+  },
+  {
+   "id": "message-channel",
+   "name": "Message Channel",
+   "kind": "connector",
+   "aka": [
+    "messaging channel",
+    "virtual pipe between applications"
+   ],
+   "what": "A named logical conduit of the messaging system that senders write messages to and receivers read from."
+  },
+  {
+   "id": "model-kind",
+   "name": "Model Kind",
+   "kind": "description",
+   "aka": [
+    "architecture model kind"
+   ],
+   "what": "The conventions (notation, modeling template, analytic methods) for one type of architecture model used within a viewpoint, e.g. a state-machine or dataflow model kind."
+  },
+  {
+   "id": "module-view",
+   "name": "Module View",
+   "kind": "description",
+   "aka": [
+    "module viewtype",
+    "module structure view"
+   ],
+   "what": "A view type documenting the system's units of implementation (modules) and their static relations — decomposition, uses, layering, generalization, data-model."
+  },
+  {
+   "id": "procedure-call-connector",
+   "name": "Procedure Call Connector",
+   "kind": "connector",
+   "aka": [
+    "procedure call (connector type)",
+    "method invocation connector",
+    "RPC (distributed composite variant)"
+   ],
+   "what": "A connector that transfers control and data between components through invocation with parameters and (usually) a return, spanning local calls, method invocations, callbacks, and system calls."
+  },
+  {
+   "id": "rozanski-woods-viewpoint-catalog",
+   "name": "Rozanski–Woods Viewpoint Catalog",
+   "kind": "description",
+   "aka": [
+    "viewpoint catalog (Rozanski–Woods)"
+   ],
+   "what": "A catalog of seven viewpoints — context, functional, information, concurrency, development, deployment, operational — for describing information-system architectures."
+  },
+  {
+   "id": "secure-channel",
+   "name": "Secure Channel",
+   "kind": "connector",
+   "aka": [
+    "secure pipe",
+    "TLS/mTLS connection",
+    "encrypted transport link"
+   ],
+   "what": "A connector type in which communication between components crosses an authenticated, encrypted transport so confidentiality and integrity hold over untrusted networks."
+  },
+  {
+   "id": "stakeholder-concern",
+   "name": "Stakeholder Concern",
+   "kind": "description",
+   "aka": [
+    "concern",
+    "architecture concern"
+   ],
+   "what": "An interest in the system relevant to one or more stakeholders, used to scope which viewpoints and views an architecture description must provide."
+  },
+  {
+   "id": "stream-connector",
+   "name": "Stream Connector",
+   "kind": "connector",
+   "aka": [
+    "stream (connector type)",
+    "data stream connector"
+   ],
+   "what": "A connector that transfers sequences of data between autonomous processes, covering pipes, sockets, and other bounded/unbounded, buffered, structured or raw data flows."
+  },
+  {
+   "id": "temporal-firewall",
+   "name": "Temporal Firewall",
+   "kind": "connector",
+   "aka": [
+    "temporally firewalled interface",
+    "state-message interface"
+   ],
+   "what": "A unidirectional, time-controlled shared-memory interface between subsystems: the sender deposits temporally accurate state data that the receiver reads at predefined instants, with no control signals crossing the interface in either direct"
+  },
+  {
+   "id": "time-triggered-bus",
+   "name": "Time-Triggered Bus",
+   "kind": "connector",
+   "aka": [
+    "TDMA bus schedule",
+    "TTP/C bus",
+    "FlexRay static segment"
+   ],
+   "what": "A broadcast communication channel whose access is governed by a static TDMA schedule: each node owns pre-assigned slots in a cyclic schedule known to all nodes, so message timing is known a priori."
+  }
+ ],
+ "existing_intra_edges": []
+}

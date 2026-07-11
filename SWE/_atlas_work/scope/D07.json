@@ -1,0 +1,511 @@
+{
+ "group": "D07",
+ "title": "Robustness & security idioms",
+ "realm": "design",
+ "literature": "Secure design patterns (Schumacher POSA-security); OWASP; Viega & McGraw Building Secure Software; Saltzer & Schroeder principles; sandboxing/isolation idioms.",
+ "member_count": 40,
+ "target_edges": 48,
+ "priority_ids": [
+  "allowlist-input-validation",
+  "audit-log",
+  "canonicalization-before-validation",
+  "constant-time-comparison",
+  "csprng",
+  "defensive-copy",
+  "html-sanitization",
+  "parameterized-query",
+  "pointer-check",
+  "program-sequence-monitoring",
+  "reference-monitor",
+  "sanity-check",
+  "secure-access-layer",
+  "secure-boot-image-verification",
+  "secure-zeroization",
+  "smart-data",
+  "taint-checking",
+  "watchdog"
+ ],
+ "members": [
+  {
+   "id": "access-control-list",
+   "name": "Access Control List",
+   "kind": "robustness-security",
+   "aka": [
+    "ACL",
+    "per-object permission list",
+    "access matrix by column"
+   ],
+   "what": "Store, with each protected object, the list of subjects and the operations each may perform on it; checks consult the object's list."
+  },
+  {
+   "id": "allowlist-input-validation",
+   "name": "Allowlist Input Validation",
+   "kind": "robustness-security",
+   "aka": [
+    "whitelist validation",
+    "positive validation",
+    "positive security model"
+   ],
+   "what": "Validate untrusted input by accepting only what matches an explicit specification of the known-good (type, length, range, grammar) and rejecting everything else."
+  },
+  {
+   "id": "audit-log",
+   "name": "Audit Log",
+   "kind": "robustness-security",
+   "aka": [
+    "audit trail",
+    "security event log",
+    "Secure Logger (Core Security Patterns)"
+   ],
+   "what": "An append-only record of security-relevant events (who did what, when, from where), written at the point of action for later reconstruction and accountability."
+  },
+  {
+   "id": "authenticated-encryption",
+   "name": "Authenticated Encryption",
+   "kind": "robustness-security",
+   "aka": [
+    "AEAD",
+    "authenticated encryption with associated data",
+    "encrypt-then-MAC (generic construction)"
+   ],
+   "what": "Encrypt and authenticate a message in one construction (optionally binding unencrypted associated data), so ciphertext cannot be undetectably modified."
+  },
+  {
+   "id": "canonicalization-before-validation",
+   "name": "Canonicalization Before Validation",
+   "kind": "robustness-security",
+   "aka": [
+    "input canonicalization",
+    "normalize before validate",
+    "path canonicalization"
+   ],
+   "what": "Reduce input (paths, URLs, Unicode strings) to its single canonical form before applying validation or access checks, so equivalent encodings cannot slip past the check."
+  },
+  {
+   "id": "capability",
+   "name": "Capability",
+   "kind": "robustness-security",
+   "aka": [
+    "capability list",
+    "object-capability",
+    "unforgeable reference"
+   ],
+   "what": "An unforgeable token/reference that both designates an object and carries the authority to use it; possession is permission (the row-slice of the access matrix)."
+  },
+  {
+   "id": "check-point",
+   "name": "Check Point",
+   "kind": "robustness-security",
+   "aka": [
+    "Access Verification",
+    "Validation and Penalization"
+   ],
+   "what": "A single configurable object/component that concentrates authentication, authorization and violation-response decisions, so the security policy can change without touching callers."
+  },
+  {
+   "id": "constant-time-comparison",
+   "name": "Constant-Time Comparison",
+   "kind": "robustness-security",
+   "aka": [
+    "timing-safe equality",
+    "constant-time programming"
+   ],
+   "what": "Compare secret-dependent data (MACs, tokens, passwords hashes) with an algorithm whose running time and memory access pattern are independent of the data values."
+  },
+  {
+   "id": "cryptographic-hash-function",
+   "name": "Cryptographic Hash Function",
+   "kind": "robustness-security",
+   "aka": [
+    "message digest",
+    "one-way hash",
+    "collision-resistant hash"
+   ],
+   "what": "A fixed-size digest function that is one-way and collision-resistant, used for integrity fingerprints, content addressing, commitment, and as a building block for MACs and signatures."
+  },
+  {
+   "id": "csprng",
+   "name": "Cryptographically Secure Pseudorandom Number Generator",
+   "kind": "robustness-security",
+   "aka": [
+    "CSPRNG",
+    "DRBG (deterministic random bit generator)",
+    "secure random source"
+   ],
+   "what": "A random generator whose output is computationally unpredictable even to an observer of prior output, seeded from real entropy, for keys, tokens, nonces and salts."
+  },
+  {
+   "id": "defensive-copy",
+   "name": "Defensive Copy",
+   "kind": "robustness-security",
+   "aka": [
+    "defensive copying",
+    "copy-in/copy-out at trust boundaries"
+   ],
+   "what": "Copy mutable inputs on receipt and mutable internal state on return, so external aliases can never mutate an object's invariant-protected state."
+  },
+  {
+   "id": "dual-channel",
+   "name": "Dual Channel",
+   "kind": "robustness-security",
+   "aka": [
+    "homogeneous/heterogeneous dual channel"
+   ],
+   "what": "Two parallel channels (identical or diversely implemented) process the same inputs, with comparison or switchover logic detecting faults and continuing or safing on disagreement."
+  },
+  {
+   "id": "full-view-with-errors",
+   "name": "Full View With Errors",
+   "kind": "robustness-security",
+   "aka": [
+    "Full Access with Errors"
+   ],
+   "what": "Show users the complete set of operations/data and reject unauthorized attempts with explicit errors at use time."
+  },
+  {
+   "id": "guard-page",
+   "name": "Guard Page",
+   "kind": "robustness-security",
+   "aka": [
+    "red zone",
+    "redzone",
+    "guard region"
+   ],
+   "what": "Place an inaccessible (or trap-on-touch) memory page or poisoned band adjacent to a stack or allocation so that overrun/overflow faults immediately at the boundary instead of corrupting neighbors."
+  },
+  {
+   "id": "html-sanitization",
+   "name": "HTML Sanitization",
+   "kind": "robustness-security",
+   "aka": [
+    "markup sanitization",
+    "HTML sanitizer",
+    "DOM-based sanitization"
+   ],
+   "what": "Parse untrusted markup into a DOM and rebuild it keeping only an allowlist of safe elements/attributes, yielding markup that renders but cannot execute script."
+  },
+  {
+   "id": "limited-view",
+   "name": "Limited View",
+   "kind": "robustness-security",
+   "aka": [
+    "Limited Access"
+   ],
+   "what": "Present users only the operations and data their permissions allow, so unauthorized actions cannot even be attempted."
+  },
+  {
+   "id": "memory-poisoning",
+   "name": "Memory Poisoning",
+   "kind": "robustness-security",
+   "aka": [
+    "poison values",
+    "fill patterns",
+    "magic debug values"
+   ],
+   "what": "Fills freed or uninitialized memory with a recognizable poison pattern and verifies it later (on reallocation or access), so stale reads, use-after-free, and buffer overruns surface as the pattern or its corruption."
+  },
+  {
+   "id": "message-authentication-code",
+   "name": "Message Authentication Code",
+   "kind": "robustness-security",
+   "aka": [
+    "MAC",
+    "HMAC",
+    "keyed hash"
+   ],
+   "what": "A keyed digest over a message that only holders of the secret key can produce or verify, authenticating both integrity and origin."
+  },
+  {
+   "id": "nonce",
+   "name": "Nonce",
+   "kind": "robustness-security",
+   "aka": [
+    "number used once",
+    "anti-replay counter (monotonic variant)",
+    "challenge value (challenge-response usage)"
+   ],
+   "what": "A value used exactly once within a security context (random, counter, or timestamp-based) so that replayed or duplicated messages/operations are detectable and rejected."
+  },
+  {
+   "id": "one-s-complement-data-storage",
+   "name": "One's Complement Data Storage",
+   "kind": "robustness-security",
+   "aka": [
+    "One's Complement Pattern",
+    "inverted duplicate storage"
+   ],
+   "what": "Critical data is stored twice - once normally, once bit-inverted - and every read verifies the pair still complement each other before use."
+  },
+  {
+   "id": "parameterized-query",
+   "name": "Parameterized Query",
+   "kind": "robustness-security",
+   "aka": [
+    "prepared statement",
+    "bind variables",
+    "placeholders"
+   ],
+   "what": "Send the query text and the data values to the interpreter separately, so values are bound as data and can never be parsed as code."
+  },
+  {
+   "id": "pointer-check",
+   "name": "Pointer Check",
+   "kind": "robustness-security",
+   "aka": [
+    "NULL-after-free discipline",
+    "explicit pointer invalidation and check"
+   ],
+   "what": "Explicitly set pointers to an invalid value (NULL) when uninitialized or freed, and check pointers against that invalid value before dereferencing them."
+  },
+  {
+   "id": "privilege-bracketing",
+   "name": "Privilege Bracketing",
+   "kind": "robustness-security",
+   "aka": [
+    "privilege drop/restore",
+    "temporary privilege elevation",
+    "drop privileges"
+   ],
+   "what": "Hold elevated privilege only across the exact operations that need it: raise at the last possible moment, perform the action, drop immediately after (and permanently once never needed again)."
+  },
+  {
+   "id": "privilege-separation",
+   "name": "Privilege Separation",
+   "kind": "robustness-security",
+   "aka": [
+    "privsep",
+    "privileged monitor / unprivileged worker split",
+    "OpenSSH privilege separation"
+   ],
+   "what": "Split one application into a small privileged process and unprivileged worker processes that request sensitive operations over a narrow IPC interface, so a compromise of the exposed code yields no privileges."
+  },
+  {
+   "id": "program-sequence-monitoring",
+   "name": "Program Sequence Monitoring",
+   "kind": "robustness-security",
+   "aka": [
+    "control flow monitoring",
+    "logical program flow monitoring",
+    "logical supervision (AUTOSAR WdgM)"
+   ],
+   "what": "Instrument checkpoints along required execution paths and have a monitor (often the watchdog manager) verify that checkpoints occur in the legal order and cadence."
+  },
+  {
+   "id": "protected-single-channel",
+   "name": "Protected Single Channel",
+   "kind": "robustness-security",
+   "aka": [],
+   "what": "A single end-to-end data/processing channel augmented with integrity checks at one or more points (CRCs, range checks, monitoring) so faults are detected even without redundant channels."
+  },
+  {
+   "id": "reference-monitor",
+   "name": "Reference Monitor",
+   "kind": "robustness-security",
+   "aka": [
+    "security kernel (hardened realization)",
+    "policy enforcement point / policy decision point (operational split)",
+    "Controlled Object Monitor (object-level variant)"
+   ],
+   "what": "A component that mediates every access by subjects to protected objects, checking each request against the authorization rules before allowing it."
+  },
+  {
+   "id": "role-based-access-control",
+   "name": "Role-Based Access Control",
+   "kind": "robustness-security",
+   "aka": [
+    "RBAC",
+    "Roles (Yoder & Barcalow)",
+    "role hierarchy"
+   ],
+   "what": "Authorization is granted to named roles rather than individual users; users acquire permissions by role membership, with optional role hierarchies."
+  },
+  {
+   "id": "salted-password-hashing",
+   "name": "Salted Password Hashing",
+   "kind": "robustness-security",
+   "aka": [
+    "salt",
+    "key stretching",
+    "adaptive one-way function"
+   ],
+   "what": "Store passwords only as the output of a deliberately slow one-way function over password plus per-entry random salt, so verification is possible but recovery and precomputation are not."
+  },
+  {
+   "id": "sanity-check",
+   "name": "Sanity Check",
+   "kind": "robustness-security",
+   "aka": [
+    "reasonableness check",
+    "plausibility check",
+    "Runtime Assertion"
+   ],
+   "what": "A lightweight independent monitor verifies that outputs or system state remain within physically/logically plausible bounds, triggering fault handling when they do not."
+  },
+  {
+   "id": "secure-access-layer",
+   "name": "Secure Access Layer",
+   "kind": "robustness-security",
+   "aka": [],
+   "what": "An application-internal layer that wraps the security mechanisms of the platforms it sits on (OS, database, network APIs), giving the application one coherent security interface."
+  },
+  {
+   "id": "secure-boot-image-verification",
+   "name": "Secure Boot Image Verification",
+   "kind": "robustness-security",
+   "aka": [
+    "verified boot",
+    "authenticated boot",
+    "firmware signature verification"
+   ],
+   "what": "Before transferring control, the bootloader cryptographically verifies the next stage or application image against a trusted public key, refusing or falling back on failure."
+  },
+  {
+   "id": "secure-zeroization",
+   "name": "Secure Zeroization",
+   "kind": "robustness-security",
+   "aka": [
+    "memset_s",
+    "explicit_bzero",
+    "sensitive-data scrubbing"
+   ],
+   "what": "Erase sensitive data (keys, passwords) from memory using an operation the compiler cannot optimize away, immediately after last use."
+  },
+  {
+   "id": "security-session",
+   "name": "Security Session",
+   "kind": "robustness-security",
+   "aka": [
+    "Session (Yoder & Barcalow)",
+    "authenticated session object",
+    "session token (realization)"
+   ],
+   "what": "An object holding an authenticated subject's identity and security attributes across a sequence of actions, so each request need not re-authenticate or re-derive permissions."
+  },
+  {
+   "id": "single-access-point",
+   "name": "Single Access Point",
+   "kind": "robustness-security",
+   "aka": [
+    "one entry point for security checks",
+    "login window (web/GUI realization)"
+   ],
+   "what": "Route all entry into a program or module through one guarded entry point where identity and validity checks run before anything else executes."
+  },
+  {
+   "id": "smart-data",
+   "name": "Smart Data",
+   "kind": "robustness-security",
+   "aka": [
+    "self-checking data",
+    "range-checked type"
+   ],
+   "what": "Data types that carry their own validity metadata (ranges, units, CRC) and check every set/get operation, rejecting or flagging out-of-range values."
+  },
+  {
+   "id": "stack-canary",
+   "name": "Stack Canary",
+   "kind": "robustness-security",
+   "aka": [
+    "stack cookie",
+    "stack-smashing protector",
+    "StackGuard canary"
+   ],
+   "what": "Place a secret guard value between a stack frame's buffers and its control data (return address); verify it before returning, aborting if a buffer overflow overwrote it."
+  },
+  {
+   "id": "synchronizer-token",
+   "name": "Synchronizer Token Pattern",
+   "kind": "robustness-security",
+   "aka": [
+    "anti-CSRF token",
+    "CSRF token",
+    "double-submit cookie (stateless variant)"
+   ],
+   "what": "Embed a per-session (or per-request) unpredictable token in each legitimate form/request and verify it server-side, so cross-site forged requests lacking the token are rejected."
+  },
+  {
+   "id": "taint-checking",
+   "name": "Taint Checking",
+   "kind": "robustness-security",
+   "aka": [
+    "taint mode",
+    "taint tracking",
+    "taint propagation"
+   ],
+   "what": "Mark data from untrusted sources as tainted, propagate the mark through computations, and refuse (or flag) its use in sensitive sinks until it passes an explicit untainting step."
+  },
+  {
+   "id": "watchdog",
+   "name": "Watchdog",
+   "kind": "robustness-security",
+   "aka": [
+    "watchdog timer",
+    "WDT",
+    "COP timer"
+   ],
+   "what": "A hardware or software timer that must be periodically serviced ('kicked') by correctly running software; missing the deadline triggers reset or a safety action."
+  }
+ ],
+ "existing_intra_edges": [
+  {
+   "from": "access-control-list",
+   "kind": "alternative-to",
+   "to": "capability"
+  },
+  {
+   "from": "full-view-with-errors",
+   "kind": "alternative-to",
+   "to": "limited-view"
+  },
+  {
+   "from": "guard-page",
+   "kind": "alternative-to",
+   "to": "stack-canary"
+  },
+  {
+   "from": "message-authentication-code",
+   "kind": "composes-with",
+   "to": "authenticated-encryption"
+  },
+  {
+   "from": "nonce",
+   "kind": "composes-with",
+   "to": "authenticated-encryption"
+  },
+  {
+   "from": "privilege-bracketing",
+   "kind": "composes-with",
+   "to": "privilege-separation"
+  },
+  {
+   "from": "protected-single-channel",
+   "kind": "alternative-to",
+   "to": "dual-channel"
+  },
+  {
+   "from": "role-based-access-control",
+   "kind": "alternative-to",
+   "to": "access-control-list"
+  },
+  {
+   "from": "salted-password-hashing",
+   "kind": "composes-with",
+   "to": "cryptographic-hash-function"
+  },
+  {
+   "from": "security-session",
+   "kind": "composes-with",
+   "to": "check-point"
+  },
+  {
+   "from": "single-access-point",
+   "kind": "composes-with",
+   "to": "check-point"
+  },
+  {
+   "from": "synchronizer-token",
+   "kind": "specializes",
+   "to": "nonce"
+  }
+ ]
+}

@@ -1,0 +1,6500 @@
+[
+{
+"id": "4-1-view-model",
+"name": "4+1 View Model",
+"kind": "description",
+"realm": "architecture"
+},
+{
+"id": "a-b-firmware-image-update",
+"name": "A/B Firmware Image Update",
+"kind": "embedded-systems",
+"realm": "design"
+},
+{
+"id": "aba-mitigation-via-tagged-pointer",
+"name": "ABA Mitigation via Tagged Pointer",
+"kind": "synchronization-coordination",
+"realm": "design"
+},
+{
+"id": "abort",
+"name": "Abort",
+"kind": "tactic",
+"realm": "architecture"
+},
+{
+"id": "abstract-common-services",
+"name": "Abstract Common Services",
+"kind": "tactic",
+"realm": "architecture"
+},
+{
+"id": "abstract-data-sources",
+"name": "Abstract Data Sources",
+"kind": "tactic",
+"realm": "architecture"
+},
+{
+"id": "abstract-factory",
+"name": "Abstract Factory",
+"kind": "oo-patterns",
+"realm": "design"
+},
+{
+"id": "abstract-session",
+"name": "Abstract Session",
+"kind": "oo-patterns",
+"realm": "design"
+},
+{
+"id": "abstract-syntax-tree",
+"name": "Abstract Syntax Tree",
+"kind": "parsing-text",
+"realm": "design"
+},
+{
+"id": "acceptor-connector",
+"name": "Acceptor-Connector",
+"kind": "communication",
+"realm": "design"
+},
+{
+"id": "access-control-list",
+"name": "Access Control List",
+"kind": "robustness-security",
+"realm": "design"
+},
+{
+"id": "acknowledgement",
+"name": "Acknowledgement",
+"kind": "communication",
+"realm": "design"
+},
+{
+"id": "acquire-release-ordering",
+"name": "Acquire-Release Ordering",
+"kind": "synchronization-coordination",
+"realm": "design"
+},
+{
+"id": "activator",
+"name": "Activator",
+"kind": "deployment",
+"realm": "architecture"
+},
+{
+"id": "active-object",
+"name": "Active Object",
+"kind": "execution-concurrency",
+"realm": "design"
+},
+{
+"id": "active-record",
+"name": "Active Record",
+"kind": "persistence-durability",
+"realm": "design"
+},
+{
+"id": "actor-based-architecture",
+"name": "Actor-Based Architecture",
+"kind": "style",
+"realm": "architecture"
+},
+{
+"id": "acyclic-visitor",
+"name": "Acyclic Visitor",
+"kind": "oo-patterns",
+"realm": "design"
+},
+{
+"id": "adapter",
+"name": "Adapter",
+"kind": "oo-patterns",
+"realm": "design"
+},
+{
+"id": "adapter-container",
+"name": "Adapter (container)",
+"kind": "deployment",
+"realm": "architecture"
+},
+{
+"id": "adaptive-object-model",
+"name": "Adaptive Object Model",
+"kind": "style",
+"realm": "architecture"
+},
+{
+"id": "adaptor-connector",
+"name": "Adaptor Connector",
+"kind": "connector",
+"realm": "architecture"
+},
+{
+"id": "adhere-to-standards",
+"name": "Adhere to Standards",
+"kind": "tactic",
+"realm": "architecture"
+},
+{
+"id": "adjacency-list-adjacency-matrix",
+"name": "Adjacency List / Adjacency Matrix",
+"kind": "data-representation",
+"realm": "design"
+},
+{
+"id": "aggregate",
+"name": "Aggregate",
+"kind": "state-management",
+"realm": "design"
+},
+{
+"id": "aggregate-instance",
+"name": "Aggregate Instance",
+"kind": "construction-api",
+"realm": "design"
+},
+{
+"id": "aggregate-tactic",
+"name": "Aggregate",
+"kind": "tactic",
+"realm": "architecture"
+},
+{
+"id": "aggregator",
+"name": "Aggregator",
+"kind": "communication",
+"realm": "design"
+},
+{
+"id": "allocation-view",
+"name": "Allocation View",
+"kind": "description",
+"realm": "architecture"
+},
+{
+"id": "allocation-wrapper",
+"name": "Allocation Wrapper",
+"kind": "resource-management",
+"realm": "design"
+},
+{
+"id": "allowlist-input-validation",
+"name": "Allowlist Input Validation",
+"kind": "robustness-security",
+"realm": "design"
+},
+{
+"id": "ambassador",
+"name": "Ambassador",
+"kind": "deployment",
+"realm": "architecture"
+},
+{
+"id": "analytic-redundancy",
+"name": "Analytic Redundancy",
+"kind": "tactic",
+"realm": "architecture"
+},
+{
+"id": "anti-corruption-layer",
+"name": "Anti-Corruption Layer",
+"kind": "pattern",
+"realm": "architecture"
+},
+{
+"id": "api-composition",
+"name": "API Composition",
+"kind": "pattern",
+"realm": "architecture"
+},
+{
+"id": "api-gateway",
+"name": "API Gateway",
+"kind": "pattern",
+"realm": "architecture"
+},
+{
+"id": "application-controller",
+"name": "Application Controller",
+"kind": "pattern",
+"realm": "architecture"
+},
+{
+"id": "application-switching",
+"name": "Application Switching",
+"kind": "pattern",
+"realm": "architecture"
+},
+{
+"id": "arbitrary-precision-arithmetic",
+"name": "Arbitrary-Precision Arithmetic",
+"kind": "numeric-precision",
+"realm": "design"
+},
+{
+"id": "arbitrator-connector",
+"name": "Arbitrator Connector",
+"kind": "connector",
+"realm": "architecture"
+},
+{
+"id": "architectural-perspective",
+"name": "Architectural Perspective",
+"kind": "description",
+"realm": "architecture"
+},
+{
+"id": "architecture-decision-record",
+"name": "Architecture Decision Record",
+"kind": "description",
+"realm": "architecture"
+},
+{
+"id": "architecture-description",
+"name": "Architecture Description",
+"kind": "description",
+"realm": "architecture"
+},
+{
+"id": "architecture-description-language",
+"name": "Architecture Description Language",
+"kind": "description",
+"realm": "architecture"
+},
+{
+"id": "architecture-framework",
+"name": "Architecture Framework",
+"kind": "description",
+"realm": "architecture"
+},
+{
+"id": "architecture-view",
+"name": "Architecture View",
+"kind": "description",
+"realm": "architecture"
+},
+{
+"id": "architecture-viewpoint",
+"name": "Architecture Viewpoint",
+"kind": "description",
+"realm": "architecture"
+},
+{
+"id": "asset-streaming",
+"name": "Asset Streaming",
+"kind": "resource-management",
+"realm": "design"
+},
+{
+"id": "association-table-mapping",
+"name": "Association Table Mapping",
+"kind": "persistence-durability",
+"realm": "design"
+},
+{
+"id": "async-await-model",
+"name": "Async-Await Model",
+"kind": "execution-concurrency",
+"realm": "design"
+},
+{
+"id": "asynchronous-completion-token",
+"name": "Asynchronous Completion Token",
+"kind": "execution-concurrency",
+"realm": "design"
+},
+{
+"id": "asynchronous-request-reply",
+"name": "Asynchronous Request-Reply",
+"kind": "pattern",
+"realm": "architecture"
+},
+{
+"id": "audit",
+"name": "Audit",
+"kind": "tactic",
+"realm": "architecture"
+},
+{
+"id": "audit-log",
+"name": "Audit Log",
+"kind": "robustness-security",
+"realm": "design"
+},
+{
+"id": "authenticate-actors",
+"name": "Authenticate Actors",
+"kind": "tactic",
+"realm": "architecture"
+},
+{
+"id": "authenticated-encryption",
+"name": "Authenticated Encryption",
+"kind": "robustness-security",
+"realm": "design"
+},
+{
+"id": "authoritative-server",
+"name": "Authoritative Server",
+"kind": "pattern",
+"realm": "architecture"
+},
+{
+"id": "authorization-security-pattern",
+"name": "Authorization (security pattern)",
+"kind": "pattern",
+"realm": "architecture"
+},
+{
+"id": "authorize-actors",
+"name": "Authorize Actors",
+"kind": "tactic",
+"realm": "architecture"
+},
+{
+"id": "auto-scaling",
+"name": "Auto-Scaling",
+"kind": "deployment",
+"realm": "architecture"
+},
+{
+"id": "autosar-adaptive-platform",
+"name": "AUTOSAR Adaptive Platform",
+"kind": "reference-architecture",
+"realm": "architecture"
+},
+{
+"id": "autosar-layered-software-architecture",
+"name": "AUTOSAR Layered Software Architecture",
+"kind": "reference-architecture",
+"realm": "architecture"
+},
+{
+"id": "autosar-virtual-function-bus-rte",
+"name": "AUTOSAR Virtual Function Bus / RTE",
+"kind": "connector",
+"realm": "architecture"
+},
+{
+"id": "b-tree",
+"name": "B-tree",
+"kind": "data-structures",
+"realm": "design"
+},
+{
+"id": "backends-for-frontends",
+"name": "Backends for Frontends",
+"kind": "pattern",
+"realm": "architecture"
+},
+{
+"id": "backpressure",
+"name": "Backpressure",
+"kind": "data-flow-buffering",
+"realm": "design"
+},
+{
+"id": "balking",
+"name": "Balking",
+"kind": "synchronization-coordination",
+"realm": "design"
+},
+{
+"id": "batch-method",
+"name": "Batch Method",
+"kind": "construction-api",
+"realm": "design"
+},
+{
+"id": "batch-sequential",
+"name": "Batch Sequential",
+"kind": "style",
+"realm": "architecture"
+},
+{
+"id": "behavior-tree",
+"name": "Behavior Tree",
+"kind": "state-management",
+"realm": "design"
+},
+{
+"id": "binary-heap-priority-queue",
+"name": "Binary Heap (Priority Queue)",
+"kind": "data-structures",
+"realm": "design"
+},
+{
+"id": "binary-search-tree",
+"name": "Binary Search Tree",
+"kind": "data-structures",
+"realm": "design"
+},
+{
+"id": "binary-to-text-encoding",
+"name": "Binary-to-Text Encoding",
+"kind": "serialization-framing",
+"realm": "design"
+},
+{
+"id": "bit-banging",
+"name": "Bit Banging",
+"kind": "communication",
+"realm": "design"
+},
+{
+"id": "bit-stuffing",
+"name": "Bit Stuffing",
+"kind": "serialization-framing",
+"realm": "design"
+},
+{
+"id": "bitmap-bitset",
+"name": "Bitmap / Bitset",
+"kind": "data-structures",
+"realm": "design"
+},
+{
+"id": "bitmap-index",
+"name": "Bitmap Index",
+"kind": "data-structures",
+"realm": "design"
+},
+{
+"id": "blackboard",
+"name": "Blackboard",
+"kind": "style",
+"realm": "architecture"
+},
+{
+"id": "blockchain",
+"name": "Blockchain",
+"kind": "style",
+"realm": "architecture"
+},
+{
+"id": "bloom-filter",
+"name": "Bloom Filter",
+"kind": "data-structures",
+"realm": "design"
+},
+{
+"id": "blue-green-deployment",
+"name": "Blue-Green Deployment",
+"kind": "deployment",
+"realm": "architecture"
+},
+{
+"id": "board-support-package",
+"name": "Board Support Package",
+"kind": "pattern",
+"realm": "architecture"
+},
+{
+"id": "bodyguard",
+"name": "Bodyguard",
+"kind": "pattern",
+"realm": "architecture"
+},
+{
+"id": "bootloader-application-split",
+"name": "Bootloader-Application Split",
+"kind": "deployment",
+"realm": "architecture"
+},
+{
+"id": "bootloader-boot-stage-architecture",
+"name": "Bootloader (boot-stage architecture)",
+"kind": "deployment",
+"realm": "architecture"
+},
+{
+"id": "bootloader-jump-handoff",
+"name": "Bootloader Jump / Handoff",
+"kind": "embedded-systems",
+"realm": "design"
+},
+{
+"id": "bound-execution-times",
+"name": "Bound Execution Times",
+"kind": "tactic",
+"realm": "architecture"
+},
+{
+"id": "bound-queue-sizes",
+"name": "Bound Queue Sizes",
+"kind": "tactic",
+"realm": "architecture"
+},
+{
+"id": "boundary-tags",
+"name": "Boundary Tags",
+"kind": "resource-management",
+"realm": "design"
+},
+{
+"id": "bounded-context",
+"name": "Bounded Context",
+"kind": "pattern",
+"realm": "architecture"
+},
+{
+"id": "bounding-volume-hierarchy",
+"name": "Bounding Volume Hierarchy",
+"kind": "data-structures",
+"realm": "design"
+},
+{
+"id": "bridge",
+"name": "Bridge",
+"kind": "oo-patterns",
+"realm": "design"
+},
+{
+"id": "broker",
+"name": "Broker",
+"kind": "style",
+"realm": "architecture"
+},
+{
+"id": "brown-out-handling",
+"name": "Brown-Out Handling",
+"kind": "error-handling",
+"realm": "design"
+},
+{
+"id": "buddy-memory-allocation",
+"name": "Buddy Memory Allocation",
+"kind": "resource-management",
+"realm": "design"
+},
+{
+"id": "buffer-pool",
+"name": "Buffer Pool",
+"kind": "caching-memoization",
+"realm": "design"
+},
+{
+"id": "builder",
+"name": "Builder",
+"kind": "oo-patterns",
+"realm": "design"
+},
+{
+"id": "built-in-self-test",
+"name": "Built-In Self-Test",
+"kind": "error-handling",
+"realm": "design"
+},
+{
+"id": "bulkhead",
+"name": "Bulkhead",
+"kind": "resource-management",
+"realm": "design"
+},
+{
+"id": "bulkhead-deployment-isolation",
+"name": "Bulkhead (deployment isolation)",
+"kind": "pattern",
+"realm": "architecture"
+},
+{
+"id": "bureaucracy",
+"name": "Bureaucracy",
+"kind": "oo-patterns",
+"realm": "design"
+},
+{
+"id": "byte-stuffing",
+"name": "Byte Stuffing",
+"kind": "serialization-framing",
+"realm": "design"
+},
+{
+"id": "bytecode",
+"name": "Bytecode",
+"kind": "data-representation",
+"realm": "design"
+},
+{
+"id": "bytecode-virtual-machine",
+"name": "Bytecode Virtual Machine",
+"kind": "execution-concurrency",
+"realm": "design"
+},
+{
+"id": "c2",
+"name": "C2",
+"kind": "style",
+"realm": "architecture"
+},
+{
+"id": "cache-aside",
+"name": "Cache-Aside",
+"kind": "caching-memoization",
+"realm": "design"
+},
+{
+"id": "cache-eviction-policy",
+"name": "Cache Eviction Policy",
+"kind": "caching-memoization",
+"realm": "design"
+},
+{
+"id": "cache-stampede-protection",
+"name": "Cache Stampede Protection",
+"kind": "caching-memoization",
+"realm": "design"
+},
+{
+"id": "caching",
+"name": "Caching",
+"kind": "caching-memoization",
+"realm": "design"
+},
+{
+"id": "callback",
+"name": "Callback",
+"kind": "communication",
+"realm": "design"
+},
+{
+"id": "callback-with-context-pointer",
+"name": "Callback with Context Pointer",
+"kind": "communication",
+"realm": "design"
+},
+{
+"id": "callee-allocates",
+"name": "Callee Allocates",
+"kind": "resource-management",
+"realm": "design"
+},
+{
+"id": "caller-owned-buffer",
+"name": "Caller-Owned Buffer",
+"kind": "resource-management",
+"realm": "design"
+},
+{
+"id": "canary-release",
+"name": "Canary Release",
+"kind": "deployment",
+"realm": "architecture"
+},
+{
+"id": "cancel",
+"name": "Cancel",
+"kind": "tactic",
+"realm": "architecture"
+},
+{
+"id": "cancellation-token",
+"name": "Cancellation Token",
+"kind": "execution-concurrency",
+"realm": "design"
+},
+{
+"id": "canonical-data-model",
+"name": "Canonical Data Model",
+"kind": "pattern",
+"realm": "architecture"
+},
+{
+"id": "canonical-serialization",
+"name": "Canonical Serialization",
+"kind": "serialization-framing",
+"realm": "design"
+},
+{
+"id": "canonicalization-before-validation",
+"name": "Canonicalization Before Validation",
+"kind": "robustness-security",
+"realm": "design"
+},
+{
+"id": "capability",
+"name": "Capability",
+"kind": "robustness-security",
+"realm": "design"
+},
+{
+"id": "captain-oates",
+"name": "Captain Oates",
+"kind": "resource-management",
+"realm": "design"
+},
+{
+"id": "cell-based-architecture",
+"name": "Cell-Based Architecture",
+"kind": "deployment",
+"realm": "architecture"
+},
+{
+"id": "chain-of-responsibility",
+"name": "Chain of Responsibility",
+"kind": "oo-patterns",
+"realm": "design"
+},
+{
+"id": "chained-processors",
+"name": "Chained Processors",
+"kind": "pattern",
+"realm": "architecture"
+},
+{
+"id": "change-credential-settings",
+"name": "Change Credential Settings",
+"kind": "tactic",
+"realm": "architecture"
+},
+{
+"id": "channel-adapter",
+"name": "Channel Adapter",
+"kind": "pattern",
+"realm": "architecture"
+},
+{
+"id": "channel-architecture",
+"name": "Channel Architecture",
+"kind": "style",
+"realm": "architecture"
+},
+{
+"id": "check-point",
+"name": "Check Point",
+"kind": "robustness-security",
+"realm": "design"
+},
+{
+"id": "checked-arithmetic",
+"name": "Checked Arithmetic",
+"kind": "numeric-precision",
+"realm": "design"
+},
+{
+"id": "checkpointing",
+"name": "Checkpointing",
+"kind": "persistence-durability",
+"realm": "design"
+},
+{
+"id": "choreography",
+"name": "Choreography",
+"kind": "pattern",
+"realm": "architecture"
+},
+{
+"id": "chunked-transfer-encoding",
+"name": "Chunked Transfer Encoding",
+"kind": "serialization-framing",
+"realm": "design"
+},
+{
+"id": "circuit-breaker",
+"name": "Circuit Breaker",
+"kind": "error-handling",
+"realm": "design"
+},
+{
+"id": "claim-check",
+"name": "Claim Check",
+"kind": "communication",
+"realm": "design"
+},
+{
+"id": "class-table-inheritance",
+"name": "Class Table Inheritance",
+"kind": "persistence-durability",
+"realm": "design"
+},
+{
+"id": "clean-architecture",
+"name": "Clean Architecture",
+"kind": "style",
+"realm": "architecture"
+},
+{
+"id": "cleanup-record",
+"name": "Cleanup Record",
+"kind": "error-handling",
+"realm": "design"
+},
+{
+"id": "client-dispatcher-server",
+"name": "Client-Dispatcher-Server",
+"kind": "communication",
+"realm": "design"
+},
+{
+"id": "client-proxy-remoting",
+"name": "Client Proxy (remoting)",
+"kind": "pattern",
+"realm": "architecture"
+},
+{
+"id": "client-request-handler",
+"name": "Client Request Handler",
+"kind": "pattern",
+"realm": "architecture"
+},
+{
+"id": "client-server",
+"name": "Client-Server",
+"kind": "style",
+"realm": "architecture"
+},
+{
+"id": "client-session-state",
+"name": "Client Session State",
+"kind": "pattern",
+"realm": "architecture"
+},
+{
+"id": "client-side-prediction",
+"name": "Client-Side Prediction",
+"kind": "state-management",
+"realm": "design"
+},
+{
+"id": "coarse-grained-lock",
+"name": "Coarse-Grained Lock",
+"kind": "synchronization-coordination",
+"realm": "design"
+},
+{
+"id": "code-on-demand",
+"name": "Code-on-Demand",
+"kind": "style",
+"realm": "architecture"
+},
+{
+"id": "collecting-parameter",
+"name": "Collecting Parameter",
+"kind": "oo-patterns",
+"realm": "design"
+},
+{
+"id": "collection-pipeline",
+"name": "Collection Pipeline",
+"kind": "functional-type-idioms",
+"realm": "design"
+},
+{
+"id": "collections-for-states",
+"name": "Collections for States",
+"kind": "state-management",
+"realm": "design"
+},
+{
+"id": "column-oriented-storage",
+"name": "Column-Oriented Storage",
+"kind": "data-representation",
+"realm": "design"
+},
+{
+"id": "combined-method",
+"name": "Combined Method",
+"kind": "construction-api",
+"realm": "design"
+},
+{
+"id": "command",
+"name": "Command",
+"kind": "oo-patterns",
+"realm": "design"
+},
+{
+"id": "command-processor",
+"name": "Command Processor",
+"kind": "oo-patterns",
+"realm": "design"
+},
+{
+"id": "compaction",
+"name": "Compaction",
+"kind": "resource-management",
+"realm": "design"
+},
+{
+"id": "comparand",
+"name": "Comparand",
+"kind": "data-representation",
+"realm": "design"
+},
+{
+"id": "compare-and-swap-loop",
+"name": "Compare-and-Swap Loop",
+"kind": "synchronization-coordination",
+"realm": "design"
+},
+{
+"id": "comparison",
+"name": "Comparison",
+"kind": "tactic",
+"realm": "architecture"
+},
+{
+"id": "competing-consumers",
+"name": "Competing Consumers",
+"kind": "execution-concurrency",
+"realm": "design"
+},
+{
+"id": "competing-consumers-system-scale",
+"name": "Competing Consumers (system scale)",
+"kind": "pattern",
+"realm": "architecture"
+},
+{
+"id": "competing-consumers-system-topology",
+"name": "Competing Consumers (system topology)",
+"kind": "pattern",
+"realm": "architecture"
+},
+{
+"id": "complete-parameter-checking",
+"name": "Complete Parameter Checking",
+"kind": "error-handling",
+"realm": "design"
+},
+{
+"id": "component",
+"name": "Component",
+"kind": "oo-patterns",
+"realm": "design"
+},
+{
+"id": "component-and-connector-view",
+"name": "Component-and-Connector View",
+"kind": "description",
+"realm": "architecture"
+},
+{
+"id": "component-based-architecture",
+"name": "Component-Based Architecture",
+"kind": "style",
+"realm": "architecture"
+},
+{
+"id": "component-configurator",
+"name": "Component Configurator",
+"kind": "resource-management",
+"realm": "design"
+},
+{
+"id": "component-container",
+"name": "Container",
+"kind": "deployment",
+"realm": "architecture"
+},
+{
+"id": "composed-method",
+"name": "Composed Method",
+"kind": "code-structure",
+"realm": "design"
+},
+{
+"id": "composite",
+"name": "Composite",
+"kind": "oo-patterns",
+"realm": "design"
+},
+{
+"id": "compression",
+"name": "Compression",
+"kind": "data-representation",
+"realm": "design"
+},
+{
+"id": "compute-resource-consolidation",
+"name": "Compute Resource Consolidation",
+"kind": "deployment",
+"realm": "architecture"
+},
+{
+"id": "concrete-table-inheritance",
+"name": "Concrete Table Inheritance",
+"kind": "persistence-durability",
+"realm": "design"
+},
+{
+"id": "condition-monitoring",
+"name": "Condition Monitoring",
+"kind": "tactic",
+"realm": "architecture"
+},
+{
+"id": "condition-variable",
+"name": "Condition Variable",
+"kind": "synchronization-coordination",
+"realm": "design"
+},
+{
+"id": "configure-behavior",
+"name": "Configure Behavior",
+"kind": "tactic",
+"realm": "architecture"
+},
+{
+"id": "conflict-free-replicated-data-type-crdt",
+"name": "Conflict-free Replicated Data Type (CRDT)",
+"kind": "data-structures",
+"realm": "design"
+},
+{
+"id": "consistent-hashing",
+"name": "Consistent Hashing",
+"kind": "data-structures",
+"realm": "design"
+},
+{
+"id": "consistent-overhead-byte-stuffing",
+"name": "Consistent Overhead Byte Stuffing",
+"kind": "serialization-framing",
+"realm": "design"
+},
+{
+"id": "constant-time-comparison",
+"name": "Constant-Time Comparison",
+"kind": "robustness-security",
+"realm": "design"
+},
+{
+"id": "construct-on-first-use",
+"name": "Construct On First Use",
+"kind": "construction-api",
+"realm": "design"
+},
+{
+"id": "container-of",
+"name": "container_of",
+"kind": "data-representation",
+"realm": "design"
+},
+{
+"id": "content-addressable-storage",
+"name": "Content-Addressable Storage",
+"kind": "persistence-durability",
+"realm": "design"
+},
+{
+"id": "content-based-router",
+"name": "Content-Based Router",
+"kind": "communication",
+"realm": "design"
+},
+{
+"id": "context-map",
+"name": "Context Map",
+"kind": "description",
+"realm": "architecture"
+},
+{
+"id": "context-object",
+"name": "Context Object",
+"kind": "state-management",
+"realm": "design"
+},
+{
+"id": "continuation-passing-style",
+"name": "Continuation-Passing Style",
+"kind": "functional-type-idioms",
+"realm": "design"
+},
+{
+"id": "control-bus",
+"name": "Control Bus",
+"kind": "pattern",
+"realm": "architecture"
+},
+{
+"id": "coordinator",
+"name": "Coordinator",
+"kind": "synchronization-coordination",
+"realm": "design"
+},
+{
+"id": "copied-value",
+"name": "Copied Value",
+"kind": "functional-type-idioms",
+"realm": "design"
+},
+{
+"id": "copy-and-swap",
+"name": "Copy-and-Swap",
+"kind": "error-handling",
+"realm": "design"
+},
+{
+"id": "copy-on-write",
+"name": "Copy-on-Write",
+"kind": "resource-management",
+"realm": "design"
+},
+{
+"id": "copy-on-write-b-tree",
+"name": "Copy-on-Write B-Tree",
+"kind": "data-structures",
+"realm": "design"
+},
+{
+"id": "core-dump",
+"name": "Core Dump",
+"kind": "error-handling",
+"realm": "design"
+},
+{
+"id": "coroutine",
+"name": "Coroutine",
+"kind": "execution-concurrency",
+"realm": "design"
+},
+{
+"id": "correcting-audits",
+"name": "Correcting Audits",
+"kind": "error-handling",
+"realm": "design"
+},
+{
+"id": "correlation-identifier",
+"name": "Correlation Identifier",
+"kind": "communication",
+"realm": "design"
+},
+{
+"id": "count-min-sketch",
+"name": "Count-Min Sketch",
+"kind": "data-structures",
+"realm": "design"
+},
+{
+"id": "cqrs",
+"name": "CQRS",
+"kind": "pattern",
+"realm": "architecture"
+},
+{
+"id": "crash-only-software",
+"name": "Crash-Only Software",
+"kind": "pattern",
+"realm": "architecture"
+},
+{
+"id": "credit-based-flow-control",
+"name": "Credit-Based Flow Control",
+"kind": "data-flow-buffering",
+"realm": "design"
+},
+{
+"id": "critical-region",
+"name": "Critical Region",
+"kind": "synchronization-coordination",
+"realm": "design"
+},
+{
+"id": "cryptographic-hash-function",
+"name": "Cryptographic Hash Function",
+"kind": "robustness-security",
+"realm": "design"
+},
+{
+"id": "csp-channel",
+"name": "CSP Channel",
+"kind": "communication",
+"realm": "design"
+},
+{
+"id": "csprng",
+"name": "Cryptographically Secure Pseudorandom Number Generator",
+"kind": "robustness-security",
+"realm": "design"
+},
+{
+"id": "curiously-recurring-template-pattern-crtp",
+"name": "Curiously Recurring Template Pattern (CRTP)",
+"kind": "oo-patterns",
+"realm": "design"
+},
+{
+"id": "currying-partial-application",
+"name": "Currying / Partial Application",
+"kind": "functional-type-idioms",
+"realm": "design"
+},
+{
+"id": "custom-allocator",
+"name": "Custom Allocator",
+"kind": "resource-management",
+"realm": "design"
+},
+{
+"id": "cyclic-executive",
+"name": "Cyclic Executive",
+"kind": "scheduling-time",
+"realm": "design"
+},
+{
+"id": "cyclic-redundancy-check",
+"name": "Cyclic Redundancy Check",
+"kind": "error-handling",
+"realm": "design"
+},
+{
+"id": "data-access-connector",
+"name": "Data Access Connector",
+"kind": "connector",
+"realm": "architecture"
+},
+{
+"id": "data-binding",
+"name": "Data Binding",
+"kind": "state-management",
+"realm": "design"
+},
+{
+"id": "data-bus-rtdp",
+"name": "Data Bus (RTDP)",
+"kind": "pattern",
+"realm": "architecture"
+},
+{
+"id": "data-files",
+"name": "Data Files",
+"kind": "resource-management",
+"realm": "design"
+},
+{
+"id": "data-locality",
+"name": "Data Locality",
+"kind": "data-representation",
+"realm": "design"
+},
+{
+"id": "data-mapper",
+"name": "Data Mapper",
+"kind": "persistence-durability",
+"realm": "design"
+},
+{
+"id": "data-mesh",
+"name": "Data Mesh",
+"kind": "reference-architecture",
+"realm": "architecture"
+},
+{
+"id": "data-parallel-architecture",
+"name": "Data-Parallel Architecture",
+"kind": "style",
+"realm": "architecture"
+},
+{
+"id": "data-transfer-object",
+"name": "Data Transfer Object",
+"kind": "data-representation",
+"realm": "design"
+},
+{
+"id": "database-per-service",
+"name": "Database per Service",
+"kind": "pattern",
+"realm": "architecture"
+},
+{
+"id": "database-session-state",
+"name": "Database Session State",
+"kind": "pattern",
+"realm": "architecture"
+},
+{
+"id": "dataflow-architecture",
+"name": "Dataflow Architecture",
+"kind": "style",
+"realm": "architecture"
+},
+{
+"id": "datatype-channel",
+"name": "Datatype Channel",
+"kind": "pattern",
+"realm": "architecture"
+},
+{
+"id": "dead-letter-channel",
+"name": "Dead Letter Channel",
+"kind": "error-handling",
+"realm": "design"
+},
+{
+"id": "dead-reckoning",
+"name": "Dead Reckoning",
+"kind": "state-management",
+"realm": "design"
+},
+{
+"id": "deadline-propagation",
+"name": "Deadline Propagation",
+"kind": "scheduling-time",
+"realm": "design"
+},
+{
+"id": "deadlock-detection",
+"name": "Deadlock Detection",
+"kind": "synchronization-coordination",
+"realm": "design"
+},
+{
+"id": "debouncing",
+"name": "Debouncing",
+"kind": "scheduling-time",
+"realm": "design"
+},
+{
+"id": "decomposed-and-state",
+"name": "Decomposed AND-State",
+"kind": "state-management",
+"realm": "design"
+},
+{
+"id": "decorator",
+"name": "Decorator",
+"kind": "oo-patterns",
+"realm": "design"
+},
+{
+"id": "dedicated-ownership",
+"name": "Dedicated Ownership",
+"kind": "resource-management",
+"realm": "design"
+},
+{
+"id": "defense-in-depth",
+"name": "Defense in Depth",
+"kind": "tactic",
+"realm": "architecture"
+},
+{
+"id": "defensive-copy",
+"name": "Defensive Copy",
+"kind": "robustness-security",
+"realm": "design"
+},
+{
+"id": "defer-binding",
+"name": "Defer Binding",
+"kind": "tactic",
+"realm": "architecture"
+},
+{
+"id": "deferrable-work",
+"name": "Deferrable Work",
+"kind": "scheduling-time",
+"realm": "design"
+},
+{
+"id": "deferred-event",
+"name": "Deferred Event",
+"kind": "state-management",
+"realm": "design"
+},
+{
+"id": "deferred-interrupt-processing",
+"name": "Deferred Interrupt Processing",
+"kind": "embedded-systems",
+"realm": "design"
+},
+{
+"id": "deferred-validation",
+"name": "Deferred Validation",
+"kind": "error-handling",
+"realm": "design"
+},
+{
+"id": "defunctionalization",
+"name": "Defunctionalization",
+"kind": "functional-type-idioms",
+"realm": "design"
+},
+{
+"id": "degradation",
+"name": "Degradation",
+"kind": "tactic",
+"realm": "architecture"
+},
+{
+"id": "delegation",
+"name": "Delegation",
+"kind": "oo-patterns",
+"realm": "design"
+},
+{
+"id": "delta-encoding",
+"name": "Delta Encoding",
+"kind": "serialization-framing",
+"realm": "design"
+},
+{
+"id": "demilitarized-zone",
+"name": "Demilitarized Zone",
+"kind": "pattern",
+"realm": "architecture"
+},
+{
+"id": "deoptimization",
+"name": "Deoptimization",
+"kind": "execution-concurrency",
+"realm": "design"
+},
+{
+"id": "dependency-injection",
+"name": "Dependency Injection",
+"kind": "construction-api",
+"realm": "design"
+},
+{
+"id": "dependent-mapping",
+"name": "Dependent Mapping",
+"kind": "persistence-durability",
+"realm": "design"
+},
+{
+"id": "deployment-pipeline",
+"name": "Deployment Pipeline",
+"kind": "deployment",
+"realm": "architecture"
+},
+{
+"id": "deployment-stamps",
+"name": "Deployment Stamps",
+"kind": "deployment",
+"realm": "architecture"
+},
+{
+"id": "deque",
+"name": "Deque",
+"kind": "data-structures",
+"realm": "design"
+},
+{
+"id": "design-by-contract",
+"name": "Design by Contract",
+"kind": "construction-api",
+"realm": "design"
+},
+{
+"id": "detect-intrusion",
+"name": "Detect Intrusion",
+"kind": "tactic",
+"realm": "architecture"
+},
+{
+"id": "detect-message-delay",
+"name": "Detect Message Delay",
+"kind": "tactic",
+"realm": "architecture"
+},
+{
+"id": "detect-service-denial",
+"name": "Detect Service Denial",
+"kind": "tactic",
+"realm": "architecture"
+},
+{
+"id": "deterministic-lockstep",
+"name": "Deterministic Lockstep",
+"kind": "state-management",
+"realm": "design"
+},
+{
+"id": "device-driver",
+"name": "Device Driver",
+"kind": "embedded-systems",
+"realm": "design"
+},
+{
+"id": "diagnostic-context",
+"name": "Diagnostic Context",
+"kind": "error-handling",
+"realm": "design"
+},
+{
+"id": "diagnostic-logger",
+"name": "Diagnostic Logger",
+"kind": "error-handling",
+"realm": "design"
+},
+{
+"id": "dictionary-encoding",
+"name": "Dictionary Encoding",
+"kind": "data-representation",
+"realm": "design"
+},
+{
+"id": "direct-memory-access-dma-transfer",
+"name": "Direct Memory Access (DMA) Transfer",
+"kind": "embedded-systems",
+"realm": "design"
+},
+{
+"id": "direct-to-task-notification",
+"name": "Direct-to-Task Notification",
+"kind": "synchronization-coordination",
+"realm": "design"
+},
+{
+"id": "dirty-checking",
+"name": "Dirty Checking",
+"kind": "state-management",
+"realm": "design"
+},
+{
+"id": "dirty-flag",
+"name": "Dirty Flag",
+"kind": "state-management",
+"realm": "design"
+},
+{
+"id": "dirty-rectangles",
+"name": "Dirty Rectangles",
+"kind": "state-management",
+"realm": "design"
+},
+{
+"id": "discover",
+"name": "Discover",
+"kind": "tactic",
+"realm": "architecture"
+},
+{
+"id": "disjoint-set-union-find",
+"name": "Disjoint-Set (Union-Find)",
+"kind": "data-structures",
+"realm": "design"
+},
+{
+"id": "dispose-pattern",
+"name": "Dispose Pattern",
+"kind": "resource-management",
+"realm": "design"
+},
+{
+"id": "disruptor",
+"name": "Disruptor",
+"kind": "data-flow-buffering",
+"realm": "design"
+},
+{
+"id": "distributed-commit-log",
+"name": "Distributed Commit Log",
+"kind": "style",
+"realm": "architecture"
+},
+{
+"id": "distributed-hash-table",
+"name": "Distributed Hash Table",
+"kind": "pattern",
+"realm": "architecture"
+},
+{
+"id": "distributed-objects",
+"name": "Distributed Objects",
+"kind": "style",
+"realm": "architecture"
+},
+{
+"id": "distributed-processes",
+"name": "Distributed Processes",
+"kind": "style",
+"realm": "architecture"
+},
+{
+"id": "distributed-snapshot",
+"name": "Distributed Snapshot",
+"kind": "pattern",
+"realm": "architecture"
+},
+{
+"id": "distributed-tracing",
+"name": "Distributed Tracing",
+"kind": "pattern",
+"realm": "architecture"
+},
+{
+"id": "distributor-connector",
+"name": "Distributor Connector",
+"kind": "connector",
+"realm": "architecture"
+},
+{
+"id": "domain-event",
+"name": "Domain Event",
+"kind": "communication",
+"realm": "design"
+},
+{
+"id": "domain-model",
+"name": "Domain Model",
+"kind": "pattern",
+"realm": "architecture"
+},
+{
+"id": "domain-object-posa4",
+"name": "Domain Object (POSA4)",
+"kind": "pattern",
+"realm": "architecture"
+},
+{
+"id": "domain-service",
+"name": "Domain Service",
+"kind": "oo-patterns",
+"realm": "design"
+},
+{
+"id": "domain-specific-software-architecture",
+"name": "Domain-Specific Software Architecture",
+"kind": "reference-architecture",
+"realm": "architecture"
+},
+{
+"id": "double-buffer",
+"name": "Double Buffer",
+"kind": "data-flow-buffering",
+"realm": "design"
+},
+{
+"id": "double-checked-locking",
+"name": "Double-Checked Locking",
+"kind": "synchronization-coordination",
+"realm": "design"
+},
+{
+"id": "double-dispatch",
+"name": "Double Dispatch",
+"kind": "oo-patterns",
+"realm": "design"
+},
+{
+"id": "draw-call-batching",
+"name": "Draw-Call Batching",
+"kind": "data-flow-buffering",
+"realm": "design"
+},
+{
+"id": "dual-channel",
+"name": "Dual Channel",
+"kind": "robustness-security",
+"realm": "design"
+},
+{
+"id": "dual-core-lockstep",
+"name": "Dual-Core Lockstep",
+"kind": "pattern",
+"realm": "architecture"
+},
+{
+"id": "durable-subscriber",
+"name": "Durable Subscriber",
+"kind": "pattern",
+"realm": "architecture"
+},
+{
+"id": "dynamic-array",
+"name": "Dynamic Array",
+"kind": "data-structures",
+"realm": "design"
+},
+{
+"id": "dynamic-classification",
+"name": "Dynamic Classification",
+"kind": "tactic",
+"realm": "architecture"
+},
+{
+"id": "dynamic-priority-scheduling",
+"name": "Dynamic Priority Scheduling",
+"kind": "scheduling-time",
+"realm": "design"
+},
+{
+"id": "eager-acquisition",
+"name": "Eager Acquisition",
+"kind": "resource-management",
+"realm": "design"
+},
+{
+"id": "eeprom-emulation-in-flash",
+"name": "EEPROM Emulation in Flash",
+"kind": "persistence-durability",
+"realm": "design"
+},
+{
+"id": "effect-handler",
+"name": "Effect Handler",
+"kind": "functional-type-idioms",
+"realm": "design"
+},
+{
+"id": "embedded-domain-specific-language",
+"name": "Embedded Domain-Specific Language",
+"kind": "construction-api",
+"realm": "design"
+},
+{
+"id": "embedded-pointer",
+"name": "Embedded Pointer",
+"kind": "data-structures",
+"realm": "design"
+},
+{
+"id": "embedded-value",
+"name": "Embedded Value",
+"kind": "persistence-durability",
+"realm": "design"
+},
+{
+"id": "empty-base-optimization-ebo",
+"name": "Empty Base Optimization (EBO)",
+"kind": "data-representation",
+"realm": "design"
+},
+{
+"id": "encapsulate",
+"name": "Encapsulate",
+"kind": "tactic",
+"realm": "architecture"
+},
+{
+"id": "encrypt-data",
+"name": "Encrypt Data",
+"kind": "tactic",
+"realm": "architecture"
+},
+{
+"id": "enterprise-service-bus",
+"name": "Enterprise Service Bus",
+"kind": "connector",
+"realm": "architecture"
+},
+{
+"id": "entity",
+"name": "Entity",
+"kind": "data-representation",
+"realm": "design"
+},
+{
+"id": "entity-component-system",
+"name": "Entity Component System",
+"kind": "data-representation",
+"realm": "design"
+},
+{
+"id": "enumeration-method",
+"name": "Enumeration Method",
+"kind": "construction-api",
+"realm": "design"
+},
+{
+"id": "envelope-letter",
+"name": "Envelope-Letter",
+"kind": "oo-patterns",
+"realm": "design"
+},
+{
+"id": "epoch-based-reclamation",
+"name": "Epoch-Based Reclamation",
+"kind": "resource-management",
+"realm": "design"
+},
+{
+"id": "epsilon-ulp-float-comparison",
+"name": "Epsilon/ULP Floating-Point Comparison",
+"kind": "numeric-precision",
+"realm": "design"
+},
+{
+"id": "erase-remove",
+"name": "Erase-Remove",
+"kind": "data-structures",
+"realm": "design"
+},
+{
+"id": "error-correcting-codes",
+"name": "Error-Correcting Codes",
+"kind": "data-representation",
+"realm": "design"
+},
+{
+"id": "error-handler",
+"name": "Error Handler",
+"kind": "error-handling",
+"realm": "design"
+},
+{
+"id": "error-kernel",
+"name": "Error Kernel",
+"kind": "error-handling",
+"realm": "design"
+},
+{
+"id": "escalating-restart",
+"name": "Escalating Restart",
+"kind": "tactic",
+"realm": "architecture"
+},
+{
+"id": "escalation",
+"name": "Escalation",
+"kind": "error-handling",
+"realm": "design"
+},
+{
+"id": "escape-sequence",
+"name": "Escape Sequence",
+"kind": "parsing-text",
+"realm": "design"
+},
+{
+"id": "escaping-ifdef-hell",
+"name": "Escaping #ifdef Hell",
+"kind": "code-structure",
+"realm": "design"
+},
+{
+"id": "event-aggregator",
+"name": "Event Aggregator",
+"kind": "communication",
+"realm": "design"
+},
+{
+"id": "event-based-implicit-invocation",
+"name": "Event-Based Implicit Invocation",
+"kind": "style",
+"realm": "architecture"
+},
+{
+"id": "event-carried-state-transfer",
+"name": "Event-Carried State Transfer",
+"kind": "pattern",
+"realm": "architecture"
+},
+{
+"id": "event-coalescing",
+"name": "Event Coalescing",
+"kind": "data-flow-buffering",
+"realm": "design"
+},
+{
+"id": "event-collaboration",
+"name": "Event Collaboration",
+"kind": "pattern",
+"realm": "architecture"
+},
+{
+"id": "event-connector",
+"name": "Event Connector",
+"kind": "connector",
+"realm": "architecture"
+},
+{
+"id": "event-delegation",
+"name": "Event Delegation",
+"kind": "communication",
+"realm": "design"
+},
+{
+"id": "event-driven-architecture",
+"name": "Event-Driven Architecture",
+"kind": "style",
+"realm": "architecture"
+},
+{
+"id": "event-driven-consumer",
+"name": "Event-Driven Consumer",
+"kind": "communication",
+"realm": "design"
+},
+{
+"id": "event-driven-parsing",
+"name": "Event-Driven Parsing",
+"kind": "parsing-text",
+"realm": "design"
+},
+{
+"id": "event-flags-group",
+"name": "Event Flags Group",
+"kind": "synchronization-coordination",
+"realm": "design"
+},
+{
+"id": "event-loop",
+"name": "Event Loop",
+"kind": "execution-concurrency",
+"realm": "design"
+},
+{
+"id": "event-sourcing",
+"name": "Event Sourcing",
+"kind": "persistence-durability",
+"realm": "design"
+},
+{
+"id": "event-sourcing-architecture-style",
+"name": "Event Sourcing (architecture style)",
+"kind": "style",
+"realm": "architecture"
+},
+{
+"id": "event-time-watermark",
+"name": "Watermark (Event-Time)",
+"kind": "data-flow-buffering",
+"realm": "design"
+},
+{
+"id": "event-triggered-architecture",
+"name": "Event-Triggered Architecture",
+"kind": "style",
+"realm": "architecture"
+},
+{
+"id": "eventcount",
+"name": "Eventcount",
+"kind": "synchronization-coordination",
+"realm": "design"
+},
+{
+"id": "evictor",
+"name": "Evictor",
+"kind": "resource-management",
+"realm": "design"
+},
+{
+"id": "exception-detection",
+"name": "Exception Detection",
+"kind": "tactic",
+"realm": "architecture"
+},
+{
+"id": "exception-handling",
+"name": "Exception Handling",
+"kind": "tactic",
+"realm": "architecture"
+},
+{
+"id": "exception-prevention",
+"name": "Exception Prevention",
+"kind": "tactic",
+"realm": "architecture"
+},
+{
+"id": "exceptional-value",
+"name": "Exceptional Value",
+"kind": "error-handling",
+"realm": "design"
+},
+{
+"id": "executable-assertions",
+"name": "Executable Assertions",
+"kind": "tactic",
+"realm": "architecture"
+},
+{
+"id": "execute-around-method",
+"name": "Execute Around Method",
+"kind": "resource-management",
+"realm": "design"
+},
+{
+"id": "executor",
+"name": "Executor",
+"kind": "execution-concurrency",
+"realm": "design"
+},
+{
+"id": "explicit-interface",
+"name": "Explicit Interface",
+"kind": "construction-api",
+"realm": "design"
+},
+{
+"id": "expression-builder",
+"name": "Expression Builder",
+"kind": "construction-api",
+"realm": "design"
+},
+{
+"id": "expression-templates",
+"name": "Expression Templates",
+"kind": "functional-type-idioms",
+"realm": "design"
+},
+{
+"id": "extension-interface",
+"name": "Extension Interface",
+"kind": "construction-api",
+"realm": "design"
+},
+{
+"id": "extension-object",
+"name": "Extension Object",
+"kind": "oo-patterns",
+"realm": "design"
+},
+{
+"id": "external-configuration-store",
+"name": "External Configuration Store",
+"kind": "deployment",
+"realm": "architecture"
+},
+{
+"id": "external-polymorphism",
+"name": "External Polymorphism",
+"kind": "oo-patterns",
+"realm": "design"
+},
+{
+"id": "facade",
+"name": "Facade",
+"kind": "oo-patterns",
+"realm": "design"
+},
+{
+"id": "facade-backend-module-pattern",
+"name": "Facade/Backend Module Pattern",
+"kind": "construction-api",
+"realm": "design"
+},
+{
+"id": "factory-method",
+"name": "Factory Method",
+"kind": "oo-patterns",
+"realm": "design"
+},
+{
+"id": "fail-fast",
+"name": "Fail Fast",
+"kind": "error-handling",
+"realm": "design"
+},
+{
+"id": "failover",
+"name": "Failover",
+"kind": "tactic",
+"realm": "architecture"
+},
+{
+"id": "false-sharing-avoidance-via-cache-line-padding",
+"name": "False-Sharing Avoidance via Cache-Line Padding",
+"kind": "execution-concurrency",
+"realm": "design"
+},
+{
+"id": "fast-path",
+"name": "Fast Path",
+"kind": "execution-concurrency",
+"realm": "design"
+},
+{
+"id": "fault-containment-region",
+"name": "Fault Containment Region",
+"kind": "pattern",
+"realm": "architecture"
+},
+{
+"id": "fault-observer",
+"name": "Fault Observer",
+"kind": "pattern",
+"realm": "architecture"
+},
+{
+"id": "fault-tolerant-unit",
+"name": "Fault-Tolerant Unit",
+"kind": "pattern",
+"realm": "architecture"
+},
+{
+"id": "feature-flag",
+"name": "Feature Flag",
+"kind": "code-structure",
+"realm": "design"
+},
+{
+"id": "feature-flag-driven-release",
+"name": "Feature-Flag-Driven Release",
+"kind": "deployment",
+"realm": "architecture"
+},
+{
+"id": "feature-toggle",
+"name": "Feature Toggle",
+"kind": "tactic",
+"realm": "architecture"
+},
+{
+"id": "federated-avionics-architecture",
+"name": "Federated Avionics Architecture",
+"kind": "reference-architecture",
+"realm": "architecture"
+},
+{
+"id": "federated-identity",
+"name": "Federated Identity",
+"kind": "pattern",
+"realm": "architecture"
+},
+{
+"id": "fencing-token",
+"name": "Fencing Token",
+"kind": "synchronization-coordination",
+"realm": "design"
+},
+{
+"id": "fenwick-tree",
+"name": "Fenwick Tree",
+"kind": "data-structures",
+"realm": "design"
+},
+{
+"id": "file-transfer",
+"name": "File Transfer",
+"kind": "style",
+"realm": "architecture"
+},
+{
+"id": "finite-state-machine",
+"name": "Finite State Machine",
+"kind": "state-management",
+"realm": "design"
+},
+{
+"id": "firewall",
+"name": "Firewall",
+"kind": "pattern",
+"realm": "architecture"
+},
+{
+"id": "five-layer-architecture-rtdp",
+"name": "Five-Layer Architecture (RTDP)",
+"kind": "pattern",
+"realm": "architecture"
+},
+{
+"id": "fixed-capacity-container",
+"name": "Fixed-Capacity Container",
+"kind": "data-structures",
+"realm": "design"
+},
+{
+"id": "fixed-point-arithmetic",
+"name": "Fixed-Point Arithmetic",
+"kind": "numeric-precision",
+"realm": "design"
+},
+{
+"id": "fixed-sized-buffer",
+"name": "Fixed Sized Buffer",
+"kind": "resource-management",
+"realm": "design"
+},
+{
+"id": "fixed-timestep",
+"name": "Fixed Timestep",
+"kind": "scheduling-time",
+"realm": "design"
+},
+{
+"id": "flash-translation-layer",
+"name": "Flash Translation Layer",
+"kind": "persistence-durability",
+"realm": "design"
+},
+{
+"id": "flash-wear-leveling",
+"name": "Flash Wear Leveling",
+"kind": "persistence-durability",
+"realm": "design"
+},
+{
+"id": "flat-combining",
+"name": "Flat Combining",
+"kind": "synchronization-coordination",
+"realm": "design"
+},
+{
+"id": "fluent-interface",
+"name": "Fluent Interface",
+"kind": "construction-api",
+"realm": "design"
+},
+{
+"id": "flux",
+"name": "Flux",
+"kind": "pattern",
+"realm": "architecture"
+},
+{
+"id": "flyweight",
+"name": "Flyweight",
+"kind": "oo-patterns",
+"realm": "design"
+},
+{
+"id": "foreign-key-mapping",
+"name": "Foreign Key Mapping",
+"kind": "persistence-durability",
+"realm": "design"
+},
+{
+"id": "fork-join",
+"name": "Fork-Join",
+"kind": "execution-concurrency",
+"realm": "design"
+},
+{
+"id": "forwarder-receiver",
+"name": "Forwarder-Receiver",
+"kind": "communication",
+"realm": "design"
+},
+{
+"id": "four-phase-test",
+"name": "Four-Phase Test",
+"kind": "testing-constructs",
+"realm": "design"
+},
+{
+"id": "free-list",
+"name": "Free List",
+"kind": "resource-management",
+"realm": "design"
+},
+{
+"id": "free-monad",
+"name": "Free Monad",
+"kind": "functional-type-idioms",
+"realm": "design"
+},
+{
+"id": "fresh-work-before-stale",
+"name": "Fresh Work Before Stale",
+"kind": "data-flow-buffering",
+"realm": "design"
+},
+{
+"id": "front-controller",
+"name": "Front Controller",
+"kind": "pattern",
+"realm": "architecture"
+},
+{
+"id": "full-view-with-errors",
+"name": "Full View With Errors",
+"kind": "robustness-security",
+"realm": "design"
+},
+{
+"id": "function-control",
+"name": "Function Control",
+"kind": "construction-api",
+"realm": "design"
+},
+{
+"id": "function-object",
+"name": "Function Object",
+"kind": "functional-type-idioms",
+"realm": "design"
+},
+{
+"id": "function-pointer-dispatch-table",
+"name": "Function Pointer Dispatch Table",
+"kind": "oo-patterns",
+"realm": "design"
+},
+{
+"id": "function-queue-scheduling-architecture",
+"name": "Function-Queue-Scheduling Architecture",
+"kind": "style",
+"realm": "architecture"
+},
+{
+"id": "functional-core-imperative-shell",
+"name": "Functional Core, Imperative Shell",
+"kind": "functional-type-idioms",
+"realm": "design"
+},
+{
+"id": "functional-options",
+"name": "Functional Options",
+"kind": "construction-api",
+"realm": "design"
+},
+{
+"id": "functional-reactive-programming",
+"name": "Functional Reactive Programming",
+"kind": "data-flow-buffering",
+"realm": "design"
+},
+{
+"id": "functional-redundancy",
+"name": "Functional Redundancy",
+"kind": "pattern",
+"realm": "architecture"
+},
+{
+"id": "futex",
+"name": "Futex",
+"kind": "synchronization-coordination",
+"realm": "design"
+},
+{
+"id": "future-promise",
+"name": "Future / Promise",
+"kind": "execution-concurrency",
+"realm": "design"
+},
+{
+"id": "game-loop",
+"name": "Game Loop",
+"kind": "execution-concurrency",
+"realm": "design"
+},
+{
+"id": "gap-buffer",
+"name": "Gap Buffer",
+"kind": "data-structures",
+"realm": "design"
+},
+{
+"id": "garbage-collection",
+"name": "Garbage Collection",
+"kind": "resource-management",
+"realm": "design"
+},
+{
+"id": "gatekeeper",
+"name": "Gatekeeper",
+"kind": "deployment",
+"realm": "architecture"
+},
+{
+"id": "gateway",
+"name": "Gateway",
+"kind": "communication",
+"realm": "design"
+},
+{
+"id": "gateway-aggregation",
+"name": "Gateway Aggregation",
+"kind": "pattern",
+"realm": "architecture"
+},
+{
+"id": "gateway-offloading",
+"name": "Gateway Offloading",
+"kind": "pattern",
+"realm": "architecture"
+},
+{
+"id": "gateway-routing",
+"name": "Gateway Routing",
+"kind": "pattern",
+"realm": "architecture"
+},
+{
+"id": "gc-read-barrier",
+"name": "GC Read Barrier",
+"kind": "resource-management",
+"realm": "design"
+},
+{
+"id": "gc-write-barrier",
+"name": "GC Write Barrier",
+"kind": "resource-management",
+"realm": "design"
+},
+{
+"id": "generation-gap",
+"name": "Generation Gap",
+"kind": "code-structure",
+"realm": "design"
+},
+{
+"id": "geodes",
+"name": "Geodes",
+"kind": "deployment",
+"realm": "architecture"
+},
+{
+"id": "golden-master-testing",
+"name": "Golden Master Testing",
+"kind": "testing-constructs",
+"realm": "design"
+},
+{
+"id": "goto-cleanup",
+"name": "Goto Cleanup",
+"kind": "error-handling",
+"realm": "design"
+},
+{
+"id": "governor",
+"name": "Governor",
+"kind": "scheduling-time",
+"realm": "design"
+},
+{
+"id": "green-threads",
+"name": "Green Threads",
+"kind": "execution-concurrency",
+"realm": "design"
+},
+{
+"id": "group-commit",
+"name": "Group Commit",
+"kind": "persistence-durability",
+"realm": "design"
+},
+{
+"id": "guaranteed-delivery",
+"name": "Guaranteed Delivery",
+"kind": "pattern",
+"realm": "architecture"
+},
+{
+"id": "guard-clause",
+"name": "Guard Clause",
+"kind": "error-handling",
+"realm": "design"
+},
+{
+"id": "guard-page",
+"name": "Guard Page",
+"kind": "robustness-security",
+"realm": "design"
+},
+{
+"id": "guarded-call",
+"name": "Guarded Call",
+"kind": "synchronization-coordination",
+"realm": "design"
+},
+{
+"id": "guarded-suspension",
+"name": "Guarded Suspension",
+"kind": "synchronization-coordination",
+"realm": "design"
+},
+{
+"id": "half-object-plus-protocol",
+"name": "Half-Object plus Protocol",
+"kind": "communication",
+"realm": "design"
+},
+{
+"id": "half-object-plus-protocol-arch",
+"name": "Half-Object plus Protocol (distribution structure)",
+"kind": "pattern",
+"realm": "architecture"
+},
+{
+"id": "half-sync-half-async",
+"name": "Half-Sync/Half-Async",
+"kind": "execution-concurrency",
+"realm": "design"
+},
+{
+"id": "half-sync-half-async-system-layering",
+"name": "Half-Sync/Half-Async (system layering)",
+"kind": "pattern",
+"realm": "architecture"
+},
+{
+"id": "handshaking",
+"name": "Handshaking",
+"kind": "communication",
+"realm": "design"
+},
+{
+"id": "happy-eyeballs",
+"name": "Happy Eyeballs",
+"kind": "error-handling",
+"realm": "design"
+},
+{
+"id": "hardware-abstraction-layer",
+"name": "Hardware Abstraction Layer",
+"kind": "construction-api",
+"realm": "design"
+},
+{
+"id": "hardware-abstraction-layer-arch",
+"name": "Hardware Abstraction Layer (architectural layer)",
+"kind": "pattern",
+"realm": "architecture"
+},
+{
+"id": "hardware-adapter",
+"name": "Hardware Adapter",
+"kind": "embedded-systems",
+"realm": "design"
+},
+{
+"id": "hardware-proxy",
+"name": "Hardware Proxy",
+"kind": "embedded-systems",
+"realm": "design"
+},
+{
+"id": "hash-array-mapped-trie-hamt",
+"name": "Hash Array Mapped Trie (HAMT)",
+"kind": "data-structures",
+"realm": "design"
+},
+{
+"id": "hash-table",
+"name": "Hash Table",
+"kind": "data-structures",
+"realm": "design"
+},
+{
+"id": "hazard-pointers",
+"name": "Hazard Pointers",
+"kind": "resource-management",
+"realm": "design"
+},
+{
+"id": "health-check-api",
+"name": "Health Check API",
+"kind": "pattern",
+"realm": "architecture"
+},
+{
+"id": "health-endpoint-monitoring",
+"name": "Health Endpoint Monitoring",
+"kind": "pattern",
+"realm": "architecture"
+},
+{
+"id": "health-monitor-arinc-653",
+"name": "Health Monitor (ARINC 653)",
+"kind": "pattern",
+"realm": "architecture"
+},
+{
+"id": "heartbeat",
+"name": "Heartbeat",
+"kind": "error-handling",
+"realm": "design"
+},
+{
+"id": "heartbeat-tactic",
+"name": "Heartbeat",
+"kind": "tactic",
+"realm": "architecture"
+},
+{
+"id": "hedged-request",
+"name": "Hedged Request",
+"kind": "communication",
+"realm": "design"
+},
+{
+"id": "hexagonal-architecture",
+"name": "Hexagonal Architecture",
+"kind": "style",
+"realm": "architecture"
+},
+{
+"id": "hidden-class",
+"name": "Hidden Class",
+"kind": "data-representation",
+"realm": "design"
+},
+{
+"id": "hierarchical-control-rtdp",
+"name": "Hierarchical Control (RTDP)",
+"kind": "pattern",
+"realm": "architecture"
+},
+{
+"id": "hierarchical-state-machine",
+"name": "Hierarchical State Machine",
+"kind": "state-management",
+"realm": "design"
+},
+{
+"id": "hla-federation",
+"name": "HLA Federation",
+"kind": "reference-architecture",
+"realm": "architecture"
+},
+{
+"id": "hook-method",
+"name": "Hook Method",
+"kind": "oo-patterns",
+"realm": "design"
+},
+{
+"id": "hooks",
+"name": "Hooks",
+"kind": "resource-management",
+"realm": "design"
+},
+{
+"id": "hot-code-reload",
+"name": "Hot Code Reload",
+"kind": "code-structure",
+"realm": "design"
+},
+{
+"id": "html-sanitization",
+"name": "HTML Sanitization",
+"kind": "robustness-security",
+"realm": "design"
+},
+{
+"id": "humble-object",
+"name": "Humble Object",
+"kind": "testing-constructs",
+"realm": "design"
+},
+{
+"id": "hydration",
+"name": "Hydration",
+"kind": "state-management",
+"realm": "design"
+},
+{
+"id": "hyperloglog",
+"name": "HyperLogLog",
+"kind": "data-structures",
+"realm": "design"
+},
+{
+"id": "idempotent-receiver",
+"name": "Idempotent Receiver",
+"kind": "communication",
+"realm": "design"
+},
+{
+"id": "identify-actors",
+"name": "Identify Actors",
+"kind": "tactic",
+"realm": "architecture"
+},
+{
+"id": "identity-field",
+"name": "Identity Field",
+"kind": "persistence-durability",
+"realm": "design"
+},
+{
+"id": "identity-map",
+"name": "Identity Map",
+"kind": "caching-memoization",
+"realm": "design"
+},
+{
+"id": "idle-task-hook",
+"name": "Idle Task Hook",
+"kind": "scheduling-time",
+"realm": "design"
+},
+{
+"id": "ignore-faulty-behavior",
+"name": "Ignore Faulty Behavior",
+"kind": "tactic",
+"realm": "architecture"
+},
+{
+"id": "immediate-mode-gui",
+"name": "Immediate-Mode GUI",
+"kind": "construction-api",
+"realm": "design"
+},
+{
+"id": "immutable-infrastructure",
+"name": "Immutable Infrastructure",
+"kind": "deployment",
+"realm": "architecture"
+},
+{
+"id": "immutable-value",
+"name": "Immutable Value",
+"kind": "state-management",
+"realm": "design"
+},
+{
+"id": "implicit-lock",
+"name": "Implicit Lock",
+"kind": "synchronization-coordination",
+"realm": "design"
+},
+{
+"id": "include-guard",
+"name": "Include Guard",
+"kind": "code-structure",
+"realm": "design"
+},
+{
+"id": "increase-competence-set",
+"name": "Increase Competence Set",
+"kind": "tactic",
+"realm": "architecture"
+},
+{
+"id": "increase-resource-usage-efficiency",
+"name": "Increase Resource Usage Efficiency",
+"kind": "tactic",
+"realm": "architecture"
+},
+{
+"id": "increase-resources",
+"name": "Increase Resources",
+"kind": "tactic",
+"realm": "architecture"
+},
+{
+"id": "index-table",
+"name": "Index Table",
+"kind": "pattern",
+"realm": "architecture"
+},
+{
+"id": "inform-actors",
+"name": "Inform Actors",
+"kind": "tactic",
+"realm": "architecture"
+},
+{
+"id": "inheritance-mappers",
+"name": "Inheritance Mappers",
+"kind": "persistence-durability",
+"realm": "design"
+},
+{
+"id": "inline-caching",
+"name": "Inline Caching",
+"kind": "caching-memoization",
+"realm": "design"
+},
+{
+"id": "integrated-modular-avionics",
+"name": "Integrated Modular Avionics",
+"kind": "reference-architecture",
+"realm": "architecture"
+},
+{
+"id": "interceptor",
+"name": "Interceptor",
+"kind": "oo-patterns",
+"realm": "design"
+},
+{
+"id": "interest-management",
+"name": "Interest Management",
+"kind": "communication",
+"realm": "design"
+},
+{
+"id": "interface-definition-language",
+"name": "Interface Definition Language",
+"kind": "description",
+"realm": "architecture"
+},
+{
+"id": "interior-mutability",
+"name": "Interior Mutability",
+"kind": "state-management",
+"realm": "design"
+},
+{
+"id": "interlock",
+"name": "Interlock",
+"kind": "tactic",
+"realm": "architecture"
+},
+{
+"id": "interpreter",
+"name": "Interpreter",
+"kind": "oo-patterns",
+"realm": "design"
+},
+{
+"id": "interpreter-architectural-style",
+"name": "Interpreter (Architectural Style)",
+"kind": "style",
+"realm": "architecture"
+},
+{
+"id": "interrupt-coalescing",
+"name": "Interrupt Coalescing",
+"kind": "scheduling-time",
+"realm": "design"
+},
+{
+"id": "interrupt-masking-critical-section",
+"name": "Interrupt-Masking Critical Section",
+"kind": "synchronization-coordination",
+"realm": "design"
+},
+{
+"id": "interrupt-service-routine",
+"name": "Interrupt Service Routine",
+"kind": "embedded-systems",
+"realm": "design"
+},
+{
+"id": "interrupt-vector-table",
+"name": "Interrupt Vector Table",
+"kind": "embedded-systems",
+"realm": "design"
+},
+{
+"id": "interval-arithmetic",
+"name": "Interval Arithmetic",
+"kind": "numeric-precision",
+"realm": "design"
+},
+{
+"id": "interval-tree",
+"name": "Interval Tree",
+"kind": "data-structures",
+"realm": "design"
+},
+{
+"id": "introduce-concurrency",
+"name": "Introduce Concurrency",
+"kind": "tactic",
+"realm": "architecture"
+},
+{
+"id": "introspective-interface",
+"name": "Introspective Interface",
+"kind": "construction-api",
+"realm": "design"
+},
+{
+"id": "intrusion-detection-system",
+"name": "Intrusion Detection System",
+"kind": "pattern",
+"realm": "architecture"
+},
+{
+"id": "inverted-index",
+"name": "Inverted Index",
+"kind": "data-structures",
+"realm": "design"
+},
+{
+"id": "invoker",
+"name": "Invoker",
+"kind": "pattern",
+"realm": "architecture"
+},
+{
+"id": "iohw-h-standard-hardware-i-o-interface",
+"name": "iohw.h Standard Hardware I/O Interface",
+"kind": "embedded-systems",
+"realm": "design"
+},
+{
+"id": "islands-architecture",
+"name": "Islands Architecture",
+"kind": "pattern",
+"realm": "architecture"
+},
+{
+"id": "iterator",
+"name": "Iterator",
+"kind": "oo-patterns",
+"realm": "design"
+},
+{
+"id": "jitter-buffer",
+"name": "Jitter Buffer",
+"kind": "data-flow-buffering",
+"realm": "design"
+},
+{
+"id": "job-system",
+"name": "Job System",
+"kind": "execution-concurrency",
+"realm": "design"
+},
+{
+"id": "k-d-tree",
+"name": "k-d Tree",
+"kind": "data-structures",
+"realm": "design"
+},
+{
+"id": "kahan-summation",
+"name": "Kahan Summation",
+"kind": "numeric-precision",
+"realm": "design"
+},
+{
+"id": "kappa-architecture",
+"name": "Kappa Architecture",
+"kind": "style",
+"realm": "architecture"
+},
+{
+"id": "kernel-bypass-networking",
+"name": "Kernel-Bypass Networking",
+"kind": "pattern",
+"realm": "architecture"
+},
+{
+"id": "lag-compensation",
+"name": "Lag Compensation",
+"kind": "state-management",
+"realm": "design"
+},
+{
+"id": "lambda-architecture",
+"name": "Lambda Architecture",
+"kind": "style",
+"realm": "architecture"
+},
+{
+"id": "latch",
+"name": "Latch",
+"kind": "synchronization-coordination",
+"realm": "design"
+},
+{
+"id": "layer-supertype",
+"name": "Layer Supertype",
+"kind": "oo-patterns",
+"realm": "design"
+},
+{
+"id": "layered-game-engine-architecture",
+"name": "Layered Game Engine Architecture",
+"kind": "reference-architecture",
+"realm": "architecture"
+},
+{
+"id": "layers",
+"name": "Layers",
+"kind": "style",
+"realm": "architecture"
+},
+{
+"id": "lazy-cleanup",
+"name": "Lazy Cleanup",
+"kind": "resource-management",
+"realm": "design"
+},
+{
+"id": "leader-election",
+"name": "Leader Election",
+"kind": "pattern",
+"realm": "architecture"
+},
+{
+"id": "leader-followers",
+"name": "Leader/Followers",
+"kind": "execution-concurrency",
+"realm": "design"
+},
+{
+"id": "leaderless-replication",
+"name": "Leaderless Replication",
+"kind": "pattern",
+"realm": "architecture"
+},
+{
+"id": "leaky-bucket",
+"name": "Leaky Bucket",
+"kind": "scheduling-time",
+"realm": "design"
+},
+{
+"id": "leaky-bucket-counter",
+"name": "Leaky Bucket Counter",
+"kind": "error-handling",
+"realm": "design"
+},
+{
+"id": "leasing",
+"name": "Leasing",
+"kind": "resource-management",
+"realm": "design"
+},
+{
+"id": "length-prefix-framing",
+"name": "Length-Prefix Framing",
+"kind": "serialization-framing",
+"realm": "design"
+},
+{
+"id": "lens",
+"name": "Lens",
+"kind": "functional-type-idioms",
+"realm": "design"
+},
+{
+"id": "let-it-crash",
+"name": "Let It Crash",
+"kind": "error-handling",
+"realm": "design"
+},
+{
+"id": "level-of-detail",
+"name": "Level of Detail",
+"kind": "data-representation",
+"realm": "design"
+},
+{
+"id": "lexer",
+"name": "Lexer",
+"kind": "parsing-text",
+"realm": "design"
+},
+{
+"id": "lifecycle-callback",
+"name": "Lifecycle Callback",
+"kind": "construction-api",
+"realm": "design"
+},
+{
+"id": "limit-access",
+"name": "Limit Access",
+"kind": "tactic",
+"realm": "architecture"
+},
+{
+"id": "limit-event-response",
+"name": "Limit Event Response",
+"kind": "tactic",
+"realm": "architecture"
+},
+{
+"id": "limit-exposure",
+"name": "Limit Exposure",
+"kind": "tactic",
+"realm": "architecture"
+},
+{
+"id": "limit-nondeterminism",
+"name": "Limit Nondeterminism",
+"kind": "tactic",
+"realm": "architecture"
+},
+{
+"id": "limit-structural-complexity",
+"name": "Limit Structural Complexity",
+"kind": "tactic",
+"realm": "architecture"
+},
+{
+"id": "limited-view",
+"name": "Limited View",
+"kind": "robustness-security",
+"realm": "design"
+},
+{
+"id": "linkage-connector",
+"name": "Linkage Connector",
+"kind": "connector",
+"realm": "architecture"
+},
+{
+"id": "linked-list",
+"name": "Linked List",
+"kind": "data-structures",
+"realm": "design"
+},
+{
+"id": "list-virtualization",
+"name": "List Virtualization",
+"kind": "resource-management",
+"realm": "design"
+},
+{
+"id": "lmax-architecture",
+"name": "LMAX Architecture",
+"kind": "style",
+"realm": "architecture"
+},
+{
+"id": "load-balancer",
+"name": "Load Balancer",
+"kind": "deployment",
+"realm": "architecture"
+},
+{
+"id": "load-shedding",
+"name": "Load Shedding",
+"kind": "data-flow-buffering",
+"realm": "design"
+},
+{
+"id": "localize-state-storage",
+"name": "Localize State Storage",
+"kind": "tactic",
+"realm": "architecture"
+},
+{
+"id": "lock-escalation",
+"name": "Lock Escalation",
+"kind": "synchronization-coordination",
+"realm": "design"
+},
+{
+"id": "lock-free-fifo-queue-michael-scott",
+"name": "Lock-Free FIFO Queue (Michael-Scott)",
+"kind": "data-structures",
+"realm": "design"
+},
+{
+"id": "lock-free-stack-treiber",
+"name": "Lock-Free Stack (Treiber)",
+"kind": "data-structures",
+"realm": "design"
+},
+{
+"id": "lock-striping",
+"name": "Lock Striping",
+"kind": "synchronization-coordination",
+"realm": "design"
+},
+{
+"id": "log-aggregation",
+"name": "Log Aggregation",
+"kind": "pattern",
+"realm": "architecture"
+},
+{
+"id": "log-errors",
+"name": "Log Errors",
+"kind": "error-handling",
+"realm": "design"
+},
+{
+"id": "log-structured-storage",
+"name": "Log-Structured Storage",
+"kind": "persistence-durability",
+"realm": "design"
+},
+{
+"id": "logical-clock",
+"name": "Logical Clock",
+"kind": "synchronization-coordination",
+"realm": "design"
+},
+{
+"id": "lookup",
+"name": "Lookup",
+"kind": "resource-management",
+"realm": "design"
+},
+{
+"id": "lookup-table",
+"name": "Lookup Table",
+"kind": "caching-memoization",
+"realm": "design"
+},
+{
+"id": "loop-parallelism",
+"name": "Loop Parallelism",
+"kind": "execution-concurrency",
+"realm": "design"
+},
+{
+"id": "loop-timeout",
+"name": "Loop Timeout",
+"kind": "error-handling",
+"realm": "design"
+},
+{
+"id": "lr-parser",
+"name": "LR Parser",
+"kind": "parsing-text",
+"realm": "design"
+},
+{
+"id": "lru-cache",
+"name": "LRU Cache",
+"kind": "caching-memoization",
+"realm": "design"
+},
+{
+"id": "lsm-tree",
+"name": "LSM Tree",
+"kind": "data-structures",
+"realm": "design"
+},
+{
+"id": "m-out-of-n-voting",
+"name": "MooN Voting Architecture",
+"kind": "pattern",
+"realm": "architecture"
+},
+{
+"id": "magic-number-file-signature",
+"name": "Magic Number (File Signature)",
+"kind": "serialization-framing",
+"realm": "design"
+},
+{
+"id": "mailbox",
+"name": "Mailbox",
+"kind": "communication",
+"realm": "design"
+},
+{
+"id": "main-program-and-subroutines",
+"name": "Main Program and Subroutines",
+"kind": "style",
+"realm": "architecture"
+},
+{
+"id": "maintain-multiple-copies-of-computations",
+"name": "Maintain Multiple Copies of Computations",
+"kind": "tactic",
+"realm": "architecture"
+},
+{
+"id": "maintain-multiple-copies-of-data",
+"name": "Maintain Multiple Copies of Data",
+"kind": "tactic",
+"realm": "architecture"
+},
+{
+"id": "maintain-system-model",
+"name": "Maintain System Model",
+"kind": "tactic",
+"realm": "architecture"
+},
+{
+"id": "maintain-task-model",
+"name": "Maintain Task Model",
+"kind": "tactic",
+"realm": "architecture"
+},
+{
+"id": "maintain-user-model",
+"name": "Maintain User Model",
+"kind": "tactic",
+"realm": "architecture"
+},
+{
+"id": "maintenance-interface",
+"name": "Maintenance Interface",
+"kind": "pattern",
+"realm": "architecture"
+},
+{
+"id": "manage-event-arrival",
+"name": "Manage Event Arrival",
+"kind": "tactic",
+"realm": "architecture"
+},
+{
+"id": "manage-resources-integrability",
+"name": "Manage Resources (Integrability)",
+"kind": "tactic",
+"realm": "architecture"
+},
+{
+"id": "manage-sampling-rate",
+"name": "Manage Sampling Rate",
+"kind": "tactic",
+"realm": "architecture"
+},
+{
+"id": "manage-service-interactions",
+"name": "Manage Service Interactions",
+"kind": "tactic",
+"realm": "architecture"
+},
+{
+"id": "mapper",
+"name": "Mapper",
+"kind": "oo-patterns",
+"realm": "design"
+},
+{
+"id": "mapreduce",
+"name": "MapReduce",
+"kind": "style",
+"realm": "architecture"
+},
+{
+"id": "marked-data",
+"name": "Marked Data",
+"kind": "error-handling",
+"realm": "design"
+},
+{
+"id": "marker-interface",
+"name": "Marker Interface",
+"kind": "oo-patterns",
+"realm": "design"
+},
+{
+"id": "masking",
+"name": "Masking",
+"kind": "tactic",
+"realm": "architecture"
+},
+{
+"id": "master-slave",
+"name": "Master-Slave",
+"kind": "execution-concurrency",
+"realm": "design"
+},
+{
+"id": "master-worker",
+"name": "Master-Worker",
+"kind": "pattern",
+"realm": "architecture"
+},
+{
+"id": "materialized-view-architecture-pattern",
+"name": "Materialized View (architecture pattern)",
+"kind": "pattern",
+"realm": "architecture"
+},
+{
+"id": "maximal-munch",
+"name": "Maximal Munch",
+"kind": "parsing-text",
+"realm": "design"
+},
+{
+"id": "mcs-queue-lock",
+"name": "MCS Queue Lock",
+"kind": "synchronization-coordination",
+"realm": "design"
+},
+{
+"id": "meaningless-behavior",
+"name": "Meaningless Behavior",
+"kind": "error-handling",
+"realm": "design"
+},
+{
+"id": "mediator",
+"name": "Mediator",
+"kind": "oo-patterns",
+"realm": "design"
+},
+{
+"id": "memento",
+"name": "Memento",
+"kind": "oo-patterns",
+"realm": "design"
+},
+{
+"id": "memoization",
+"name": "Memoization",
+"kind": "caching-memoization",
+"realm": "design"
+},
+{
+"id": "memory-arena",
+"name": "Memory Arena",
+"kind": "resource-management",
+"realm": "design"
+},
+{
+"id": "memory-barrier",
+"name": "Memory Barrier",
+"kind": "synchronization-coordination",
+"realm": "design"
+},
+{
+"id": "memory-discard",
+"name": "Memory Discard",
+"kind": "resource-management",
+"realm": "design"
+},
+{
+"id": "memory-image",
+"name": "Memory Image",
+"kind": "persistence-durability",
+"realm": "design"
+},
+{
+"id": "memory-limit",
+"name": "Memory Limit",
+"kind": "resource-management",
+"realm": "design"
+},
+{
+"id": "memory-mapped-file-i-o",
+"name": "Memory-Mapped File I/O",
+"kind": "data-flow-buffering",
+"realm": "design"
+},
+{
+"id": "memory-mapped-register-access",
+"name": "Memory-Mapped Register Access",
+"kind": "embedded-systems",
+"realm": "design"
+},
+{
+"id": "memory-overlay",
+"name": "Memory Overlay",
+"kind": "resource-management",
+"realm": "design"
+},
+{
+"id": "memory-poisoning",
+"name": "Memory Poisoning",
+"kind": "robustness-security",
+"realm": "design"
+},
+{
+"id": "merkle-tree",
+"name": "Merkle Tree",
+"kind": "data-structures",
+"realm": "design"
+},
+{
+"id": "message",
+"name": "Message",
+"kind": "communication",
+"realm": "design"
+},
+{
+"id": "message-authentication-code",
+"name": "Message Authentication Code",
+"kind": "robustness-security",
+"realm": "design"
+},
+{
+"id": "message-broker",
+"name": "Message Broker",
+"kind": "pattern",
+"realm": "architecture"
+},
+{
+"id": "message-bus",
+"name": "Message Bus",
+"kind": "style",
+"realm": "architecture"
+},
+{
+"id": "message-channel",
+"name": "Message Channel",
+"kind": "connector",
+"realm": "architecture"
+},
+{
+"id": "message-dispatcher",
+"name": "Message Dispatcher",
+"kind": "communication",
+"realm": "design"
+},
+{
+"id": "message-endpoint",
+"name": "Message Endpoint",
+"kind": "pattern",
+"realm": "architecture"
+},
+{
+"id": "message-expiration",
+"name": "Message Expiration",
+"kind": "communication",
+"realm": "design"
+},
+{
+"id": "message-filter",
+"name": "Message Filter",
+"kind": "communication",
+"realm": "design"
+},
+{
+"id": "message-queue",
+"name": "Message Queue",
+"kind": "communication",
+"realm": "design"
+},
+{
+"id": "message-router",
+"name": "Message Router",
+"kind": "pattern",
+"realm": "architecture"
+},
+{
+"id": "message-translator",
+"name": "Message Translator",
+"kind": "communication",
+"realm": "design"
+},
+{
+"id": "messaging",
+"name": "Messaging",
+"kind": "style",
+"realm": "architecture"
+},
+{
+"id": "messaging-bridge",
+"name": "Messaging Bridge",
+"kind": "pattern",
+"realm": "architecture"
+},
+{
+"id": "metadata-mapping",
+"name": "Metadata Mapping",
+"kind": "persistence-durability",
+"realm": "design"
+},
+{
+"id": "metering",
+"name": "Metering",
+"kind": "tactic",
+"realm": "architecture"
+},
+{
+"id": "method-object",
+"name": "Method Object",
+"kind": "code-structure",
+"realm": "design"
+},
+{
+"id": "methods-for-states",
+"name": "Methods for States",
+"kind": "state-management",
+"realm": "design"
+},
+{
+"id": "micro-frontends",
+"name": "Micro Frontends",
+"kind": "style",
+"realm": "architecture"
+},
+{
+"id": "microkernel",
+"name": "Microkernel",
+"kind": "style",
+"realm": "architecture"
+},
+{
+"id": "microservices",
+"name": "Microservices",
+"kind": "style",
+"realm": "architecture"
+},
+{
+"id": "minhash",
+"name": "MinHash",
+"kind": "data-structures",
+"realm": "design"
+},
+{
+"id": "mixin",
+"name": "Mixin",
+"kind": "oo-patterns",
+"realm": "design"
+},
+{
+"id": "mobile-agent",
+"name": "Mobile Agent",
+"kind": "style",
+"realm": "architecture"
+},
+{
+"id": "model-kind",
+"name": "Model Kind",
+"kind": "description",
+"realm": "architecture"
+},
+{
+"id": "model-view-controller",
+"name": "Model-View-Controller",
+"kind": "pattern",
+"realm": "architecture"
+},
+{
+"id": "model-view-intent",
+"name": "Model-View-Intent",
+"kind": "pattern",
+"realm": "architecture"
+},
+{
+"id": "model-view-presenter",
+"name": "Model-View-Presenter",
+"kind": "pattern",
+"realm": "architecture"
+},
+{
+"id": "model-view-viewmodel",
+"name": "Model-View-ViewModel",
+"kind": "pattern",
+"realm": "architecture"
+},
+{
+"id": "modular-monolith",
+"name": "Modular Monolith",
+"kind": "style",
+"realm": "architecture"
+},
+{
+"id": "module-pattern",
+"name": "Module Pattern",
+"kind": "functional-type-idioms",
+"realm": "design"
+},
+{
+"id": "module-view",
+"name": "Module View",
+"kind": "description",
+"realm": "architecture"
+},
+{
+"id": "monad",
+"name": "Monad",
+"kind": "functional-type-idioms",
+"realm": "design"
+},
+{
+"id": "money",
+"name": "Money",
+"kind": "numeric-precision",
+"realm": "design"
+},
+{
+"id": "monitor",
+"name": "Monitor",
+"kind": "tactic",
+"realm": "architecture"
+},
+{
+"id": "monitor-actuator",
+"name": "Monitor-Actuator",
+"kind": "pattern",
+"realm": "architecture"
+},
+{
+"id": "monitor-object",
+"name": "Monitor Object",
+"kind": "synchronization-coordination",
+"realm": "design"
+},
+{
+"id": "monolithic-architecture",
+"name": "Monolithic Architecture",
+"kind": "style",
+"realm": "architecture"
+},
+{
+"id": "monostate",
+"name": "Monostate",
+"kind": "oo-patterns",
+"realm": "design"
+},
+{
+"id": "multi-granularity-locking",
+"name": "Multi-Granularity Locking",
+"kind": "synchronization-coordination",
+"realm": "design"
+},
+{
+"id": "multi-leader-replication",
+"name": "Multi-Leader Replication",
+"kind": "pattern",
+"realm": "architecture"
+},
+{
+"id": "multi-pass-compiler-pipeline",
+"name": "Multi-Pass Compiler Pipeline",
+"kind": "reference-architecture",
+"realm": "architecture"
+},
+{
+"id": "multi-state-task",
+"name": "Multi-State Task",
+"kind": "execution-concurrency",
+"realm": "design"
+},
+{
+"id": "multiple-event-receptor",
+"name": "Multiple Event Receptor",
+"kind": "state-management",
+"realm": "design"
+},
+{
+"id": "multiple-representations",
+"name": "Multiple Representations",
+"kind": "data-representation",
+"realm": "design"
+},
+{
+"id": "multiton",
+"name": "Multiton",
+"kind": "oo-patterns",
+"realm": "design"
+},
+{
+"id": "multiversion-concurrency-control",
+"name": "Multiversion Concurrency Control",
+"kind": "synchronization-coordination",
+"realm": "design"
+},
+{
+"id": "n-tier-client-server",
+"name": "N-Tier Client-Server",
+"kind": "style",
+"realm": "architecture"
+},
+{
+"id": "n-version-programming",
+"name": "N-Version Programming",
+"kind": "error-handling",
+"realm": "design"
+},
+{
+"id": "nagle-s-algorithm",
+"name": "Nagle's Algorithm",
+"kind": "communication",
+"realm": "design"
+},
+{
+"id": "named-parameter-idiom",
+"name": "Named Parameter Idiom",
+"kind": "construction-api",
+"realm": "design"
+},
+{
+"id": "navigation-mesh",
+"name": "Navigation Mesh",
+"kind": "data-structures",
+"realm": "design"
+},
+{
+"id": "negative-caching",
+"name": "Negative Caching",
+"kind": "caching-memoization",
+"realm": "design"
+},
+{
+"id": "nested-interrupt-handling",
+"name": "Nested Interrupt Handling",
+"kind": "execution-concurrency",
+"realm": "design"
+},
+{
+"id": "network-byte-order-handling",
+"name": "Network Byte Order Handling",
+"kind": "serialization-framing",
+"realm": "design"
+},
+{
+"id": "newtype",
+"name": "Newtype",
+"kind": "data-representation",
+"realm": "design"
+},
+{
+"id": "nifty-counter",
+"name": "Nifty Counter",
+"kind": "construction-api",
+"realm": "design"
+},
+{
+"id": "non-stop-forwarding",
+"name": "Non-Stop Forwarding",
+"kind": "tactic",
+"realm": "architecture"
+},
+{
+"id": "non-virtual-interface-nvi",
+"name": "Non-Virtual Interface (NVI)",
+"kind": "oo-patterns",
+"realm": "design"
+},
+{
+"id": "nonce",
+"name": "Nonce",
+"kind": "robustness-security",
+"realm": "design"
+},
+{
+"id": "nonrepudiation",
+"name": "Nonrepudiation",
+"kind": "tactic",
+"realm": "architecture"
+},
+{
+"id": "notification",
+"name": "Notification",
+"kind": "error-handling",
+"realm": "design"
+},
+{
+"id": "null-object",
+"name": "Null Object",
+"kind": "oo-patterns",
+"realm": "design"
+},
+{
+"id": "object-manager",
+"name": "Object Manager",
+"kind": "resource-management",
+"realm": "design"
+},
+{
+"id": "object-mother",
+"name": "Object Mother",
+"kind": "testing-constructs",
+"realm": "design"
+},
+{
+"id": "object-orientation-in-c",
+"name": "Object Orientation in C",
+"kind": "oo-patterns",
+"realm": "design"
+},
+{
+"id": "object-oriented-organization",
+"name": "Object-Oriented Organization",
+"kind": "style",
+"realm": "architecture"
+},
+{
+"id": "object-recursion",
+"name": "Object Recursion",
+"kind": "oo-patterns",
+"realm": "design"
+},
+{
+"id": "object-synchronizer",
+"name": "Object Synchronizer",
+"kind": "pattern",
+"realm": "architecture"
+},
+{
+"id": "observable-streams",
+"name": "Observable Streams",
+"kind": "communication",
+"realm": "design"
+},
+{
+"id": "observer",
+"name": "Observer",
+"kind": "oo-patterns",
+"realm": "design"
+},
+{
+"id": "one-s-complement-data-storage",
+"name": "One's Complement Data Storage",
+"kind": "robustness-security",
+"realm": "design"
+},
+{
+"id": "oo-in-c-via-explicit-vtable",
+"name": "OO in C via Explicit Vtable",
+"kind": "oo-patterns",
+"realm": "design"
+},
+{
+"id": "opaque-pointer",
+"name": "Opaque Pointer",
+"kind": "data-representation",
+"realm": "design"
+},
+{
+"id": "operational-transformation",
+"name": "Operational Transformation",
+"kind": "synchronization-coordination",
+"realm": "design"
+},
+{
+"id": "optimistic-concurrency-control",
+"name": "Optimistic Concurrency Control",
+"kind": "synchronization-coordination",
+"realm": "design"
+},
+{
+"id": "optimistic-offline-lock",
+"name": "Optimistic Offline Lock",
+"kind": "synchronization-coordination",
+"realm": "design"
+},
+{
+"id": "optimistic-ui-update",
+"name": "Optimistic UI Update",
+"kind": "state-management",
+"realm": "design"
+},
+{
+"id": "option-type",
+"name": "Option Type",
+"kind": "functional-type-idioms",
+"realm": "design"
+},
+{
+"id": "orchestrate",
+"name": "Orchestrate",
+"kind": "tactic",
+"realm": "architecture"
+},
+{
+"id": "ordered-locking",
+"name": "Ordered Locking",
+"kind": "synchronization-coordination",
+"realm": "design"
+},
+{
+"id": "organizing-files-in-modular-c-programs",
+"name": "Organizing Files in Modular C Programs",
+"kind": "code-structure",
+"realm": "design"
+},
+{
+"id": "orthogonal-component",
+"name": "Orthogonal Component",
+"kind": "state-management",
+"realm": "design"
+},
+{
+"id": "os-container",
+"name": "OS Container",
+"kind": "deployment",
+"realm": "architecture"
+},
+{
+"id": "out-parameters",
+"name": "Out-Parameters",
+"kind": "construction-api",
+"realm": "design"
+},
+{
+"id": "package-dependencies",
+"name": "Package Dependencies",
+"kind": "tactic",
+"realm": "architecture"
+},
+{
+"id": "packed-data",
+"name": "Packed Data",
+"kind": "data-representation",
+"realm": "design"
+},
+{
+"id": "packrat-parsing",
+"name": "Packrat Parsing",
+"kind": "parsing-text",
+"realm": "design"
+},
+{
+"id": "page-controller",
+"name": "Page Controller",
+"kind": "pattern",
+"realm": "architecture"
+},
+{
+"id": "page-object",
+"name": "Page Object",
+"kind": "testing-constructs",
+"realm": "design"
+},
+{
+"id": "paging",
+"name": "Paging",
+"kind": "resource-management",
+"realm": "design"
+},
+{
+"id": "panic-mode-error-recovery",
+"name": "Panic-Mode Error Recovery",
+"kind": "parsing-text",
+"realm": "design"
+},
+{
+"id": "parallel-reduction",
+"name": "Parallel Reduction",
+"kind": "execution-concurrency",
+"realm": "design"
+},
+{
+"id": "parameter-fence",
+"name": "Parameter Fence",
+"kind": "tactic",
+"realm": "architecture"
+},
+{
+"id": "parameter-typing",
+"name": "Parameter Typing",
+"kind": "tactic",
+"realm": "architecture"
+},
+{
+"id": "parameterized-query",
+"name": "Parameterized Query",
+"kind": "robustness-security",
+"realm": "design"
+},
+{
+"id": "parameterized-test",
+"name": "Parameterized Test",
+"kind": "testing-constructs",
+"realm": "design"
+},
+{
+"id": "parser-combinator",
+"name": "Parser Combinator",
+"kind": "parsing-text",
+"realm": "design"
+},
+{
+"id": "partial-acquisition",
+"name": "Partial Acquisition",
+"kind": "resource-management",
+"realm": "design"
+},
+{
+"id": "pause-resume",
+"name": "Pause/Resume",
+"kind": "tactic",
+"realm": "architecture"
+},
+{
+"id": "pax-page-layout",
+"name": "PAX Page Layout",
+"kind": "data-representation",
+"realm": "design"
+},
+{
+"id": "peer-to-peer",
+"name": "Peer-to-Peer",
+"kind": "style",
+"realm": "architecture"
+},
+{
+"id": "percent-encoding",
+"name": "Percent-Encoding",
+"kind": "serialization-framing",
+"realm": "design"
+},
+{
+"id": "persistent-data-structure",
+"name": "Persistent Data Structure",
+"kind": "data-structures",
+"realm": "design"
+},
+{
+"id": "pessimistic-offline-lock",
+"name": "Pessimistic Offline Lock",
+"kind": "synchronization-coordination",
+"realm": "design"
+},
+{
+"id": "phantom-type",
+"name": "Phantom Type",
+"kind": "functional-type-idioms",
+"realm": "design"
+},
+{
+"id": "pid-controller",
+"name": "PID Controller",
+"kind": "embedded-systems",
+"realm": "design"
+},
+{
+"id": "piece-table",
+"name": "Piece Table",
+"kind": "data-structures",
+"realm": "design"
+},
+{
+"id": "ping-echo",
+"name": "Ping/Echo",
+"kind": "tactic",
+"realm": "architecture"
+},
+{
+"id": "ping-pong-buffer",
+"name": "Ping-Pong Buffer",
+"kind": "data-flow-buffering",
+"realm": "design"
+},
+{
+"id": "pipeline-parallelism",
+"name": "Pipeline Parallelism",
+"kind": "execution-concurrency",
+"realm": "design"
+},
+{
+"id": "pipes-and-filters",
+"name": "Pipes and Filters",
+"kind": "style",
+"realm": "architecture"
+},
+{
+"id": "pluggable-selector",
+"name": "Pluggable Selector",
+"kind": "oo-patterns",
+"realm": "design"
+},
+{
+"id": "plugin",
+"name": "Plugin",
+"kind": "construction-api",
+"realm": "design"
+},
+{
+"id": "pointer-check",
+"name": "Pointer Check",
+"kind": "robustness-security",
+"realm": "design"
+},
+{
+"id": "pointer-swizzling",
+"name": "Pointer Swizzling",
+"kind": "data-representation",
+"realm": "design"
+},
+{
+"id": "pointer-tagging",
+"name": "Pointer Tagging",
+"kind": "data-representation",
+"realm": "design"
+},
+{
+"id": "policy-based-design",
+"name": "Policy-Based Design",
+"kind": "oo-patterns",
+"realm": "design"
+},
+{
+"id": "policy-decision-point-policy-enforcement-point",
+"name": "Policy Decision Point / Policy Enforcement Point",
+"kind": "pattern",
+"realm": "architecture"
+},
+{
+"id": "polling",
+"name": "Polling",
+"kind": "embedded-systems",
+"realm": "design"
+},
+{
+"id": "polling-consumer",
+"name": "Polling Consumer",
+"kind": "communication",
+"realm": "design"
+},
+{
+"id": "polyglot-persistence",
+"name": "Polyglot Persistence",
+"kind": "pattern",
+"realm": "architecture"
+},
+{
+"id": "pool-allocation",
+"name": "Pool Allocation",
+"kind": "resource-management",
+"realm": "design"
+},
+{
+"id": "pooling",
+"name": "Pooling",
+"kind": "resource-management",
+"realm": "design"
+},
+{
+"id": "pratt-parser",
+"name": "Pratt Parser",
+"kind": "parsing-text",
+"realm": "design"
+},
+{
+"id": "predictive-model",
+"name": "Predictive Model",
+"kind": "tactic",
+"realm": "architecture"
+},
+{
+"id": "prefetching",
+"name": "Prefetching",
+"kind": "caching-memoization",
+"realm": "design"
+},
+{
+"id": "preforked-prethreaded-server",
+"name": "Preforked / Prethreaded Server",
+"kind": "pattern",
+"realm": "architecture"
+},
+{
+"id": "presentation-abstraction-control",
+"name": "Presentation-Abstraction-Control",
+"kind": "pattern",
+"realm": "architecture"
+},
+{
+"id": "presentation-model",
+"name": "Presentation Model",
+"kind": "pattern",
+"realm": "architecture"
+},
+{
+"id": "pretty-printer",
+"name": "Pretty-Printer",
+"kind": "parsing-text",
+"realm": "design"
+},
+{
+"id": "primary-replica-replication",
+"name": "Primary-Replica Replication",
+"kind": "pattern",
+"realm": "architecture"
+},
+{
+"id": "prioritize-events",
+"name": "Prioritize Events",
+"kind": "tactic",
+"realm": "architecture"
+},
+{
+"id": "priority-ceiling-protocol",
+"name": "Priority Ceiling Protocol",
+"kind": "synchronization-coordination",
+"realm": "design"
+},
+{
+"id": "priority-inheritance-protocol",
+"name": "Priority Inheritance Protocol",
+"kind": "synchronization-coordination",
+"realm": "design"
+},
+{
+"id": "private-class-data",
+"name": "Private Class Data",
+"kind": "oo-patterns",
+"realm": "design"
+},
+{
+"id": "privilege-bracketing",
+"name": "Privilege Bracketing",
+"kind": "robustness-security",
+"realm": "design"
+},
+{
+"id": "privilege-separation",
+"name": "Privilege Separation",
+"kind": "robustness-security",
+"realm": "design"
+},
+{
+"id": "privilege-separation-arch",
+"name": "Privilege Separation",
+"kind": "pattern",
+"realm": "architecture"
+},
+{
+"id": "proactor",
+"name": "Proactor",
+"kind": "execution-concurrency",
+"realm": "design"
+},
+{
+"id": "procedure-call-connector",
+"name": "Procedure Call Connector",
+"kind": "connector",
+"realm": "architecture"
+},
+{
+"id": "process-control-feedback-control-loop",
+"name": "Process Control (Feedback Control Loop)",
+"kind": "style",
+"realm": "architecture"
+},
+{
+"id": "process-manager",
+"name": "Process Manager",
+"kind": "pattern",
+"realm": "architecture"
+},
+{
+"id": "process-pairs",
+"name": "Process Pairs",
+"kind": "pattern",
+"realm": "architecture"
+},
+{
+"id": "producer-consumer",
+"name": "Producer-Consumer",
+"kind": "communication",
+"realm": "design"
+},
+{
+"id": "product-trader",
+"name": "Product Trader",
+"kind": "construction-api",
+"realm": "design"
+},
+{
+"id": "program-sequence-monitoring",
+"name": "Program Sequence Monitoring",
+"kind": "robustness-security",
+"realm": "design"
+},
+{
+"id": "property-based-testing",
+"name": "Property-Based Testing",
+"kind": "testing-constructs",
+"realm": "design"
+},
+{
+"id": "protected-single-channel",
+"name": "Protected Single Channel",
+"kind": "robustness-security",
+"realm": "design"
+},
+{
+"id": "protocol-layering",
+"name": "Protocol Layering",
+"kind": "style",
+"realm": "architecture"
+},
+{
+"id": "protothread",
+"name": "Protothreads",
+"kind": "execution-concurrency",
+"realm": "design"
+},
+{
+"id": "prototype",
+"name": "Prototype",
+"kind": "oo-patterns",
+"realm": "design"
+},
+{
+"id": "proxy",
+"name": "Proxy",
+"kind": "oo-patterns",
+"realm": "design"
+},
+{
+"id": "proxy-based-firewall",
+"name": "Proxy-Based Firewall",
+"kind": "pattern",
+"realm": "architecture"
+},
+{
+"id": "pseudorandom-number-generator",
+"name": "Pseudorandom Number Generator",
+"kind": "numeric-precision",
+"realm": "design"
+},
+{
+"id": "publish-subscribe-architectural-style",
+"name": "Publish-Subscribe (Architectural Style)",
+"kind": "style",
+"realm": "architecture"
+},
+{
+"id": "publish-subscribe-channel",
+"name": "Publish-Subscribe Channel",
+"kind": "communication",
+"realm": "design"
+},
+{
+"id": "quadtree-octree",
+"name": "Quadtree / Octree",
+"kind": "data-structures",
+"realm": "design"
+},
+{
+"id": "quantity",
+"name": "Quantity",
+"kind": "data-representation",
+"realm": "design"
+},
+{
+"id": "quarantine",
+"name": "Quarantine",
+"kind": "error-handling",
+"realm": "design"
+},
+{
+"id": "query-object",
+"name": "Query Object",
+"kind": "persistence-durability",
+"realm": "design"
+},
+{
+"id": "queue-based-load-leveling",
+"name": "Queue-Based Load Leveling",
+"kind": "tactic",
+"realm": "architecture"
+},
+{
+"id": "queue-fifo",
+"name": "Queue (FIFO)",
+"kind": "data-structures",
+"realm": "design"
+},
+{
+"id": "r-tree",
+"name": "R-tree",
+"kind": "data-structures",
+"realm": "design"
+},
+{
+"id": "raii-resource-acquisition-is-initialization",
+"name": "RAII (Resource Acquisition Is Initialization)",
+"kind": "resource-management",
+"realm": "design"
+},
+{
+"id": "railway-oriented-programming",
+"name": "Railway-Oriented Programming",
+"kind": "error-handling",
+"realm": "design"
+},
+{
+"id": "range",
+"name": "Range",
+"kind": "data-representation",
+"realm": "design"
+},
+{
+"id": "reactive-programming",
+"name": "Reactive Programming",
+"kind": "data-flow-buffering",
+"realm": "design"
+},
+{
+"id": "reactive-signals",
+"name": "Signals (fine-grained reactivity)",
+"kind": "state-management",
+"realm": "design"
+},
+{
+"id": "reactor",
+"name": "Reactor",
+"kind": "execution-concurrency",
+"realm": "design"
+},
+{
+"id": "read-copy-update",
+"name": "Read-Copy-Update",
+"kind": "synchronization-coordination",
+"realm": "design"
+},
+{
+"id": "read-eval-print-loop",
+"name": "Read-Eval-Print Loop",
+"kind": "parsing-text",
+"realm": "design"
+},
+{
+"id": "read-only-memory",
+"name": "Read-Only Memory",
+"kind": "resource-management",
+"realm": "design"
+},
+{
+"id": "read-through-cache",
+"name": "Read-Through Cache",
+"kind": "caching-memoization",
+"realm": "design"
+},
+{
+"id": "readers-writer-lock",
+"name": "Readers-Writer Lock",
+"kind": "synchronization-coordination",
+"realm": "design"
+},
+{
+"id": "reconfiguration",
+"name": "Reconfiguration",
+"kind": "tactic",
+"realm": "architecture"
+},
+{
+"id": "record-playback",
+"name": "Record/Playback",
+"kind": "tactic",
+"realm": "architecture"
+},
+{
+"id": "record-set",
+"name": "Record Set",
+"kind": "data-representation",
+"realm": "design"
+},
+{
+"id": "recovery-blocks",
+"name": "Recovery Blocks",
+"kind": "error-handling",
+"realm": "design"
+},
+{
+"id": "recursive-containment-rtdp",
+"name": "Recursive Containment (RTDP)",
+"kind": "pattern",
+"realm": "architecture"
+},
+{
+"id": "recursive-control",
+"name": "Recursive Control",
+"kind": "pattern",
+"realm": "architecture"
+},
+{
+"id": "recursive-descent-parser",
+"name": "Recursive Descent Parser",
+"kind": "parsing-text",
+"realm": "design"
+},
+{
+"id": "redistribute-responsibilities",
+"name": "Redistribute Responsibilities",
+"kind": "tactic",
+"realm": "architecture"
+},
+{
+"id": "reduce-computational-overhead",
+"name": "Reduce Computational Overhead",
+"kind": "tactic",
+"realm": "architecture"
+},
+{
+"id": "reduce-usage",
+"name": "Reduce Usage",
+"kind": "tactic",
+"realm": "architecture"
+},
+{
+"id": "redundant-spare",
+"name": "Redundant Spare",
+"kind": "tactic",
+"realm": "architecture"
+},
+{
+"id": "reentrant-lock",
+"name": "Reentrant Lock",
+"kind": "synchronization-coordination",
+"realm": "design"
+},
+{
+"id": "reference-counting",
+"name": "Reference Counting",
+"kind": "resource-management",
+"realm": "design"
+},
+{
+"id": "reference-monitor",
+"name": "Reference Monitor",
+"kind": "robustness-security",
+"realm": "design"
+},
+{
+"id": "reflection",
+"name": "Reflection",
+"kind": "pattern",
+"realm": "architecture"
+},
+{
+"id": "refresh-ahead-cache",
+"name": "Refresh-Ahead Cache",
+"kind": "caching-memoization",
+"realm": "design"
+},
+{
+"id": "registry",
+"name": "Registry",
+"kind": "oo-patterns",
+"realm": "design"
+},
+{
+"id": "regular-expressions",
+"name": "Regular Expressions",
+"kind": "parsing-text",
+"realm": "design"
+},
+{
+"id": "relational-dbms-reference-architecture",
+"name": "Relational DBMS Reference Architecture",
+"kind": "reference-architecture",
+"realm": "architecture"
+},
+{
+"id": "relationship-object",
+"name": "Relationship Object",
+"kind": "data-representation",
+"realm": "design"
+},
+{
+"id": "reminder",
+"name": "Reminder",
+"kind": "state-management",
+"realm": "design"
+},
+{
+"id": "remote-evaluation",
+"name": "Remote Evaluation",
+"kind": "style",
+"realm": "architecture"
+},
+{
+"id": "remote-facade",
+"name": "Remote Facade",
+"kind": "pattern",
+"realm": "architecture"
+},
+{
+"id": "remote-procedure-call",
+"name": "Remote Procedure Call",
+"kind": "communication",
+"realm": "design"
+},
+{
+"id": "remote-procedure-invocation",
+"name": "Remote Procedure Invocation",
+"kind": "style",
+"realm": "architecture"
+},
+{
+"id": "removal-from-service",
+"name": "Removal from Service",
+"kind": "tactic",
+"realm": "architecture"
+},
+{
+"id": "render-graph",
+"name": "Render Graph",
+"kind": "data-flow-buffering",
+"realm": "design"
+},
+{
+"id": "rendezvous",
+"name": "Rendezvous",
+"kind": "synchronization-coordination",
+"realm": "design"
+},
+{
+"id": "repair-state",
+"name": "Repair State",
+"kind": "tactic",
+"realm": "architecture"
+},
+{
+"id": "replicated-component-group",
+"name": "Replicated Component Group",
+"kind": "pattern",
+"realm": "architecture"
+},
+{
+"id": "replication",
+"name": "Replication",
+"kind": "pattern",
+"realm": "architecture"
+},
+{
+"id": "reporting-database",
+"name": "Reporting Database",
+"kind": "pattern",
+"realm": "architecture"
+},
+{
+"id": "repository",
+"name": "Repository",
+"kind": "persistence-durability",
+"realm": "design"
+},
+{
+"id": "repository-shared-data-style",
+"name": "Repository (Shared Data) Style",
+"kind": "style",
+"realm": "architecture"
+},
+{
+"id": "request-reply",
+"name": "Request-Reply",
+"kind": "communication",
+"realm": "design"
+},
+{
+"id": "requestor",
+"name": "Requestor",
+"kind": "pattern",
+"realm": "architecture"
+},
+{
+"id": "resequencer",
+"name": "Resequencer",
+"kind": "data-flow-buffering",
+"realm": "design"
+},
+{
+"id": "resource-files",
+"name": "Resource Files",
+"kind": "resource-management",
+"realm": "design"
+},
+{
+"id": "resource-lifecycle-manager",
+"name": "Resource Lifecycle Manager",
+"kind": "resource-management",
+"realm": "design"
+},
+{
+"id": "rest-representational-state-transfer",
+"name": "REST (Representational State Transfer)",
+"kind": "style",
+"realm": "architecture"
+},
+{
+"id": "restart",
+"name": "Restart",
+"kind": "error-handling",
+"realm": "design"
+},
+{
+"id": "restartable-sequences",
+"name": "Restartable Sequences",
+"kind": "execution-concurrency",
+"realm": "design"
+},
+{
+"id": "restrict-communication-paths",
+"name": "Restrict Communication Paths",
+"kind": "tactic",
+"realm": "architecture"
+},
+{
+"id": "restrict-dependencies",
+"name": "Restrict Dependencies",
+"kind": "tactic",
+"realm": "architecture"
+},
+{
+"id": "restrict-login",
+"name": "Restrict Login",
+"kind": "tactic",
+"realm": "architecture"
+},
+{
+"id": "result-type",
+"name": "Result Type",
+"kind": "error-handling",
+"realm": "design"
+},
+{
+"id": "retained-mode-gui",
+"name": "Retained-Mode GUI",
+"kind": "construction-api",
+"realm": "design"
+},
+{
+"id": "retry",
+"name": "Retry",
+"kind": "tactic",
+"realm": "architecture"
+},
+{
+"id": "retry-budget",
+"name": "Retry Budget",
+"kind": "error-handling",
+"realm": "design"
+},
+{
+"id": "retry-with-exponential-backoff-and-jitter",
+"name": "Retry with Exponential Backoff and Jitter",
+"kind": "error-handling",
+"realm": "design"
+},
+{
+"id": "return-address",
+"name": "Return Address",
+"kind": "communication",
+"realm": "design"
+},
+{
+"id": "return-status-code",
+"name": "Return Status Code",
+"kind": "error-handling",
+"realm": "design"
+},
+{
+"id": "revoke-access",
+"name": "Revoke Access",
+"kind": "tactic",
+"realm": "architecture"
+},
+{
+"id": "riding-over-transients",
+"name": "Riding Over Transients",
+"kind": "error-handling",
+"realm": "design"
+},
+{
+"id": "ring-buffer",
+"name": "Ring Buffer",
+"kind": "data-flow-buffering",
+"realm": "design"
+},
+{
+"id": "role-based-access-control",
+"name": "Role-Based Access Control",
+"kind": "robustness-security",
+"realm": "design"
+},
+{
+"id": "role-object",
+"name": "Role Object",
+"kind": "oo-patterns",
+"realm": "design"
+},
+{
+"id": "roll-forward",
+"name": "Roll-Forward",
+"kind": "error-handling",
+"realm": "design"
+},
+{
+"id": "rollback",
+"name": "Rollback",
+"kind": "error-handling",
+"realm": "design"
+},
+{
+"id": "rollback-deployment",
+"name": "Rollback (Deployment)",
+"kind": "tactic",
+"realm": "architecture"
+},
+{
+"id": "rollback-netcode",
+"name": "Rollback Netcode",
+"kind": "state-management",
+"realm": "design"
+},
+{
+"id": "rollback-tactic",
+"name": "Rollback",
+"kind": "tactic",
+"realm": "architecture"
+},
+{
+"id": "rolling-deployment",
+"name": "Rolling Deployment",
+"kind": "deployment",
+"realm": "architecture"
+},
+{
+"id": "rope",
+"name": "Rope",
+"kind": "data-structures",
+"realm": "design"
+},
+{
+"id": "round-robin-scheduling",
+"name": "Round Robin Scheduling",
+"kind": "scheduling-time",
+"realm": "design"
+},
+{
+"id": "routing-slip",
+"name": "Routing Slip",
+"kind": "pattern",
+"realm": "architecture"
+},
+{
+"id": "row-data-gateway",
+"name": "Row Data Gateway",
+"kind": "persistence-durability",
+"realm": "design"
+},
+{
+"id": "rozanski-woods-viewpoint-catalog",
+"name": "Rozanski–Woods Viewpoint Catalog",
+"kind": "description",
+"realm": "architecture"
+},
+{
+"id": "rtos-based-architecture",
+"name": "RTOS-Based Architecture",
+"kind": "style",
+"realm": "architecture"
+},
+{
+"id": "rule-based-system",
+"name": "Rule-Based System",
+"kind": "style",
+"realm": "architecture"
+},
+{
+"id": "rule-of-three-five-zero",
+"name": "Rule of Three/Five/Zero",
+"kind": "resource-management",
+"realm": "design"
+},
+{
+"id": "rules-engine",
+"name": "Rules Engine",
+"kind": "state-management",
+"realm": "design"
+},
+{
+"id": "run-length-encoding",
+"name": "Run-Length Encoding",
+"kind": "serialization-framing",
+"realm": "design"
+},
+{
+"id": "run-to-completion-event-processing",
+"name": "Run-to-Completion Event Processing",
+"kind": "state-management",
+"realm": "design"
+},
+{
+"id": "safe-publication",
+"name": "Safe Publication",
+"kind": "synchronization-coordination",
+"realm": "design"
+},
+{
+"id": "safe-state",
+"name": "Safe State",
+"kind": "error-handling",
+"realm": "design"
+},
+{
+"id": "safepoint",
+"name": "Safepoint",
+"kind": "synchronization-coordination",
+"realm": "design"
+},
+{
+"id": "safety-executive",
+"name": "Safety Executive",
+"kind": "pattern",
+"realm": "architecture"
+},
+{
+"id": "saga",
+"name": "Saga",
+"kind": "pattern",
+"realm": "architecture"
+},
+{
+"id": "salted-password-hashing",
+"name": "Salted Password Hashing",
+"kind": "robustness-security",
+"realm": "design"
+},
+{
+"id": "samurai-principle",
+"name": "Samurai Principle",
+"kind": "error-handling",
+"realm": "design"
+},
+{
+"id": "sandbox",
+"name": "Sandbox",
+"kind": "pattern",
+"realm": "architecture"
+},
+{
+"id": "sandwich-delay",
+"name": "Sandwich Delay",
+"kind": "scheduling-time",
+"realm": "design"
+},
+{
+"id": "sanity-check",
+"name": "Sanity Check",
+"kind": "robustness-security",
+"realm": "design"
+},
+{
+"id": "sanity-checking",
+"name": "Sanity Checking",
+"kind": "tactic",
+"realm": "architecture"
+},
+{
+"id": "saturation-arithmetic",
+"name": "Saturation Arithmetic",
+"kind": "numeric-precision",
+"realm": "design"
+},
+{
+"id": "scale-cube",
+"name": "Scale Cube",
+"kind": "deployment",
+"realm": "architecture"
+},
+{
+"id": "scale-rollouts",
+"name": "Scale Rollouts",
+"kind": "tactic",
+"realm": "architecture"
+},
+{
+"id": "scannerless-parsing",
+"name": "Scannerless Parsing",
+"kind": "parsing-text",
+"realm": "design"
+},
+{
+"id": "scatter-gather",
+"name": "Scatter-Gather",
+"kind": "communication",
+"realm": "design"
+},
+{
+"id": "scatter-gather-dma",
+"name": "Scatter-Gather DMA",
+"kind": "data-flow-buffering",
+"realm": "design"
+},
+{
+"id": "scene-graph",
+"name": "Scene Graph",
+"kind": "data-structures",
+"realm": "design"
+},
+{
+"id": "schedule-resources",
+"name": "Schedule Resources",
+"kind": "tactic",
+"realm": "architecture"
+},
+{
+"id": "schedule-table",
+"name": "Schedule Table",
+"kind": "scheduling-time",
+"realm": "design"
+},
+{
+"id": "scheduler",
+"name": "Scheduler",
+"kind": "scheduling-time",
+"realm": "design"
+},
+{
+"id": "scheduler-agent-supervisor",
+"name": "Scheduler Agent Supervisor",
+"kind": "pattern",
+"realm": "architecture"
+},
+{
+"id": "schema-evolution-via-field-tags",
+"name": "Schema Evolution via Field Tags",
+"kind": "serialization-framing",
+"realm": "design"
+},
+{
+"id": "scope-guard",
+"name": "Scope Guard",
+"kind": "resource-management",
+"realm": "design"
+},
+{
+"id": "scoped-locking",
+"name": "Scoped Locking",
+"kind": "synchronization-coordination",
+"realm": "design"
+},
+{
+"id": "script-deployment-commands",
+"name": "Script Deployment Commands",
+"kind": "tactic",
+"realm": "architecture"
+},
+{
+"id": "sealed-trait",
+"name": "Sealed Trait",
+"kind": "functional-type-idioms",
+"realm": "design"
+},
+{
+"id": "secondary-index",
+"name": "Secondary Index",
+"kind": "data-structures",
+"realm": "design"
+},
+{
+"id": "secrets-management-service",
+"name": "Secrets Management Service",
+"kind": "pattern",
+"realm": "architecture"
+},
+{
+"id": "secure-access-layer",
+"name": "Secure Access Layer",
+"kind": "robustness-security",
+"realm": "design"
+},
+{
+"id": "secure-boot-image-verification",
+"name": "Secure Boot Image Verification",
+"kind": "robustness-security",
+"realm": "design"
+},
+{
+"id": "secure-channel",
+"name": "Secure Channel",
+"kind": "connector",
+"realm": "architecture"
+},
+{
+"id": "secure-zeroization",
+"name": "Secure Zeroization",
+"kind": "robustness-security",
+"realm": "design"
+},
+{
+"id": "security-session",
+"name": "Security Session",
+"kind": "robustness-security",
+"realm": "design"
+},
+{
+"id": "seda-staged-event-driven-architecture",
+"name": "SEDA (Staged Event-Driven Architecture)",
+"kind": "style",
+"realm": "architecture"
+},
+{
+"id": "segment-tree",
+"name": "Segment Tree",
+"kind": "data-structures",
+"realm": "design"
+},
+{
+"id": "selective-consumer",
+"name": "Selective Consumer",
+"kind": "communication",
+"realm": "design"
+},
+{
+"id": "self-contained-component",
+"name": "Self-Contained Component",
+"kind": "pattern",
+"realm": "architecture"
+},
+{
+"id": "self-pipe-trick",
+"name": "Self-Pipe Trick",
+"kind": "synchronization-coordination",
+"realm": "design"
+},
+{
+"id": "self-test",
+"name": "Self-Test",
+"kind": "tactic",
+"realm": "architecture"
+},
+{
+"id": "semantic-model",
+"name": "Semantic Model",
+"kind": "parsing-text",
+"realm": "design"
+},
+{
+"id": "semaphore",
+"name": "Semaphore",
+"kind": "synchronization-coordination",
+"realm": "design"
+},
+{
+"id": "sense-compute-control",
+"name": "Sense-Compute-Control",
+"kind": "style",
+"realm": "architecture"
+},
+{
+"id": "sentinel-value",
+"name": "Sentinel Value",
+"kind": "error-handling",
+"realm": "design"
+},
+{
+"id": "separate-entities",
+"name": "Separate Entities",
+"kind": "tactic",
+"realm": "architecture"
+},
+{
+"id": "separated-interface",
+"name": "Separated Interface",
+"kind": "oo-patterns",
+"realm": "design"
+},
+{
+"id": "sequence-lock",
+"name": "Sequence Lock",
+"kind": "synchronization-coordination",
+"realm": "design"
+},
+{
+"id": "sequential-convoy",
+"name": "Sequential Convoy",
+"kind": "pattern",
+"realm": "architecture"
+},
+{
+"id": "serial-number-arithmetic",
+"name": "Serial Number Arithmetic",
+"kind": "numeric-precision",
+"realm": "design"
+},
+{
+"id": "serialization-proxy",
+"name": "Serialization Proxy",
+"kind": "serialization-framing",
+"realm": "design"
+},
+{
+"id": "serialized-lob",
+"name": "Serialized LOB",
+"kind": "serialization-framing",
+"realm": "design"
+},
+{
+"id": "serializer",
+"name": "Serializer",
+"kind": "serialization-framing",
+"realm": "design"
+},
+{
+"id": "servant",
+"name": "Servant",
+"kind": "oo-patterns",
+"realm": "design"
+},
+{
+"id": "server-request-handler",
+"name": "Server Request Handler",
+"kind": "pattern",
+"realm": "architecture"
+},
+{
+"id": "server-session-state",
+"name": "Server Session State",
+"kind": "pattern",
+"realm": "architecture"
+},
+{
+"id": "serverless-function-as-a-service",
+"name": "Serverless / Function-as-a-Service",
+"kind": "deployment",
+"realm": "architecture"
+},
+{
+"id": "service-based-architecture",
+"name": "Service-Based Architecture",
+"kind": "style",
+"realm": "architecture"
+},
+{
+"id": "service-layer",
+"name": "Service Layer",
+"kind": "pattern",
+"realm": "architecture"
+},
+{
+"id": "service-locator",
+"name": "Service Locator",
+"kind": "construction-api",
+"realm": "design"
+},
+{
+"id": "service-mesh",
+"name": "Service Mesh",
+"kind": "deployment",
+"realm": "architecture"
+},
+{
+"id": "service-oriented-architecture",
+"name": "Service-Oriented Architecture",
+"kind": "style",
+"realm": "architecture"
+},
+{
+"id": "service-registry",
+"name": "Service Registry",
+"kind": "pattern",
+"realm": "architecture"
+},
+{
+"id": "service-stub",
+"name": "Service Stub",
+"kind": "testing-constructs",
+"realm": "design"
+},
+{
+"id": "setjmp-longjmp-error-handling",
+"name": "setjmp/longjmp Error Handling",
+"kind": "error-handling",
+"realm": "design"
+},
+{
+"id": "sfinae",
+"name": "SFINAE",
+"kind": "functional-type-idioms",
+"realm": "design"
+},
+{
+"id": "shadow",
+"name": "Shadow",
+"kind": "tactic",
+"realm": "architecture"
+},
+{
+"id": "shadow-paging",
+"name": "Shadow Paging",
+"kind": "persistence-durability",
+"realm": "design"
+},
+{
+"id": "shadow-register",
+"name": "Shadow Register",
+"kind": "embedded-systems",
+"realm": "design"
+},
+{
+"id": "sharding",
+"name": "Sharding",
+"kind": "pattern",
+"realm": "architecture"
+},
+{
+"id": "shared-database",
+"name": "Shared Database",
+"kind": "style",
+"realm": "architecture"
+},
+{
+"id": "shared-memory-communication",
+"name": "Shared Memory Communication",
+"kind": "communication",
+"realm": "design"
+},
+{
+"id": "shared-nothing-architecture",
+"name": "Shared-Nothing Architecture",
+"kind": "style",
+"realm": "architecture"
+},
+{
+"id": "sharing",
+"name": "Sharing",
+"kind": "resource-management",
+"realm": "design"
+},
+{
+"id": "shunting-yard-algorithm",
+"name": "Shunting-Yard Algorithm",
+"kind": "parsing-text",
+"realm": "design"
+},
+{
+"id": "sidecar",
+"name": "Sidecar",
+"kind": "deployment",
+"realm": "architecture"
+},
+{
+"id": "signals-and-slots",
+"name": "Signals and Slots",
+"kind": "communication",
+"realm": "design"
+},
+{
+"id": "simultaneous-locking",
+"name": "Simultaneous Locking",
+"kind": "synchronization-coordination",
+"realm": "design"
+},
+{
+"id": "single-access-point",
+"name": "Single Access Point",
+"kind": "robustness-security",
+"realm": "design"
+},
+{
+"id": "single-event-receptor",
+"name": "Single Event Receptor",
+"kind": "state-management",
+"realm": "design"
+},
+{
+"id": "single-sign-on",
+"name": "Single Sign-On",
+"kind": "pattern",
+"realm": "architecture"
+},
+{
+"id": "single-table-inheritance",
+"name": "Single Table Inheritance",
+"kind": "persistence-durability",
+"realm": "design"
+},
+{
+"id": "singleton",
+"name": "Singleton",
+"kind": "oo-patterns",
+"realm": "design"
+},
+{
+"id": "skip-list",
+"name": "Skip List",
+"kind": "data-structures",
+"realm": "design"
+},
+{
+"id": "slab-allocator",
+"name": "Slab Allocator",
+"kind": "resource-management",
+"realm": "design"
+},
+{
+"id": "sliding-window-flow-control",
+"name": "Sliding Window Flow Control",
+"kind": "communication",
+"realm": "design"
+},
+{
+"id": "sliding-window-rate-limiting",
+"name": "Sliding-Window Rate Limiting",
+"kind": "data-flow-buffering",
+"realm": "design"
+},
+{
+"id": "slot-map",
+"name": "Slot Map",
+"kind": "data-structures",
+"realm": "design"
+},
+{
+"id": "slotted-page-layout",
+"name": "Slotted Page Layout",
+"kind": "data-representation",
+"realm": "design"
+},
+{
+"id": "small-buffer-optimization",
+"name": "Small Buffer Optimization",
+"kind": "resource-management",
+"realm": "design"
+},
+{
+"id": "smart-constructor",
+"name": "Smart Constructor",
+"kind": "construction-api",
+"realm": "design"
+},
+{
+"id": "smart-data",
+"name": "Smart Data",
+"kind": "robustness-security",
+"realm": "design"
+},
+{
+"id": "smart-pointer",
+"name": "Smart Pointer",
+"kind": "resource-management",
+"realm": "design"
+},
+{
+"id": "snapshot-interpolation",
+"name": "Snapshot Interpolation",
+"kind": "data-flow-buffering",
+"realm": "design"
+},
+{
+"id": "snapshot-isolation",
+"name": "Snapshot Isolation",
+"kind": "synchronization-coordination",
+"realm": "design"
+},
+{
+"id": "software-module-with-global-state",
+"name": "Software-Module with Global State",
+"kind": "code-structure",
+"realm": "design"
+},
+{
+"id": "software-rejuvenation",
+"name": "Software Rejuvenation",
+"kind": "error-handling",
+"realm": "design"
+},
+{
+"id": "software-timer",
+"name": "Software Timer",
+"kind": "scheduling-time",
+"realm": "design"
+},
+{
+"id": "software-transactional-memory",
+"name": "Software Transactional Memory",
+"kind": "synchronization-coordination",
+"realm": "design"
+},
+{
+"id": "software-upgrade",
+"name": "Software Upgrade",
+"kind": "tactic",
+"realm": "architecture"
+},
+{
+"id": "someone-in-charge",
+"name": "Someone in Charge",
+"kind": "pattern",
+"realm": "architecture"
+},
+{
+"id": "space-based-architecture",
+"name": "Space-Based Architecture",
+"kind": "style",
+"realm": "architecture"
+},
+{
+"id": "sparse-set",
+"name": "Sparse Set",
+"kind": "data-structures",
+"realm": "design"
+},
+{
+"id": "spatial-partition",
+"name": "Spatial Partition",
+"kind": "data-structures",
+"realm": "design"
+},
+{
+"id": "special-case",
+"name": "Special Case",
+"kind": "oo-patterns",
+"realm": "design"
+},
+{
+"id": "special-return-value",
+"name": "Special Return Value",
+"kind": "error-handling",
+"realm": "design"
+},
+{
+"id": "specialized-interfaces",
+"name": "Specialized Interfaces",
+"kind": "tactic",
+"realm": "architecture"
+},
+{
+"id": "specification",
+"name": "Specification",
+"kind": "oo-patterns",
+"realm": "design"
+},
+{
+"id": "spinlock",
+"name": "Spinlock",
+"kind": "synchronization-coordination",
+"realm": "design"
+},
+{
+"id": "split-module",
+"name": "Split Module",
+"kind": "tactic",
+"realm": "architecture"
+},
+{
+"id": "splitter",
+"name": "Splitter",
+"kind": "communication",
+"realm": "design"
+},
+{
+"id": "spmd",
+"name": "SPMD",
+"kind": "execution-concurrency",
+"realm": "design"
+},
+{
+"id": "sponsor-selector",
+"name": "Sponsor-Selector",
+"kind": "oo-patterns",
+"realm": "design"
+},
+{
+"id": "spsc-lock-free-ring-buffer",
+"name": "SPSC Lock-Free Ring Buffer",
+"kind": "data-flow-buffering",
+"realm": "design"
+},
+{
+"id": "stack",
+"name": "Stack",
+"kind": "data-structures",
+"realm": "design"
+},
+{
+"id": "stack-canary",
+"name": "Stack Canary",
+"kind": "robustness-security",
+"realm": "design"
+},
+{
+"id": "stack-first",
+"name": "Stack First",
+"kind": "resource-management",
+"realm": "design"
+},
+{
+"id": "stack-painting-watermarking",
+"name": "Stack Painting / Watermarking",
+"kind": "error-handling",
+"realm": "design"
+},
+{
+"id": "stakeholder-concern",
+"name": "Stakeholder Concern",
+"kind": "description",
+"realm": "architecture"
+},
+{
+"id": "state",
+"name": "State",
+"kind": "oo-patterns",
+"realm": "design"
+},
+{
+"id": "state-resynchronization",
+"name": "State Resynchronization",
+"kind": "tactic",
+"realm": "architecture"
+},
+{
+"id": "state-transition-system-architectural-organization",
+"name": "State Transition System (Architectural Organization)",
+"kind": "style",
+"realm": "architecture"
+},
+{
+"id": "state-transition-table",
+"name": "State Transition Table",
+"kind": "state-management",
+"realm": "design"
+},
+{
+"id": "stateless-software-module",
+"name": "Stateless Software-Module",
+"kind": "code-structure",
+"realm": "design"
+},
+{
+"id": "static-allocation",
+"name": "Static Allocation",
+"kind": "resource-management",
+"realm": "design"
+},
+{
+"id": "static-classification",
+"name": "Static Classification",
+"kind": "tactic",
+"realm": "architecture"
+},
+{
+"id": "static-content-hosting",
+"name": "Static Content Hosting",
+"kind": "deployment",
+"realm": "architecture"
+},
+{
+"id": "static-factory-method",
+"name": "Static Factory Method",
+"kind": "construction-api",
+"realm": "design"
+},
+{
+"id": "static-priority-scheduling",
+"name": "Static Priority Scheduling",
+"kind": "scheduling-time",
+"realm": "design"
+},
+{
+"id": "steady-state",
+"name": "Steady State",
+"kind": "resource-management",
+"realm": "design"
+},
+{
+"id": "stencil",
+"name": "Stencil",
+"kind": "execution-concurrency",
+"realm": "design"
+},
+{
+"id": "strangler-fig",
+"name": "Strangler Fig",
+"kind": "pattern",
+"realm": "architecture"
+},
+{
+"id": "strategized-locking",
+"name": "Strategized Locking",
+"kind": "synchronization-coordination",
+"realm": "design"
+},
+{
+"id": "strategy",
+"name": "Strategy",
+"kind": "oo-patterns",
+"realm": "design"
+},
+{
+"id": "stream-buffer",
+"name": "Stream Buffer",
+"kind": "data-flow-buffering",
+"realm": "design"
+},
+{
+"id": "stream-connector",
+"name": "Stream Connector",
+"kind": "connector",
+"realm": "architecture"
+},
+{
+"id": "stream-trigger",
+"name": "Trigger (Stream Processing)",
+"kind": "data-flow-buffering",
+"realm": "design"
+},
+{
+"id": "stream-windowing",
+"name": "Stream Windowing",
+"kind": "data-flow-buffering",
+"realm": "design"
+},
+{
+"id": "streaming-dataflow-architecture",
+"name": "Streaming Dataflow Architecture",
+"kind": "style",
+"realm": "architecture"
+},
+{
+"id": "structured-concurrency",
+"name": "Structured Concurrency",
+"kind": "execution-concurrency",
+"realm": "design"
+},
+{
+"id": "subclass-sandbox",
+"name": "Subclass Sandbox",
+"kind": "oo-patterns",
+"realm": "design"
+},
+{
+"id": "substitution",
+"name": "Substitution",
+"kind": "tactic",
+"realm": "architecture"
+},
+{
+"id": "subsumption-architecture",
+"name": "Subsumption Architecture",
+"kind": "style",
+"realm": "architecture"
+},
+{
+"id": "suffix-array",
+"name": "Suffix Array",
+"kind": "data-structures",
+"realm": "design"
+},
+{
+"id": "super-loop",
+"name": "Super Loop",
+"kind": "embedded-systems",
+"realm": "design"
+},
+{
+"id": "superloop-architecture",
+"name": "Superloop Architecture",
+"kind": "style",
+"realm": "architecture"
+},
+{
+"id": "supervision-tree-otp",
+"name": "Supervision Tree (OTP)",
+"kind": "pattern",
+"realm": "architecture"
+},
+{
+"id": "supervisor",
+"name": "Supervisor",
+"kind": "error-handling",
+"realm": "design"
+},
+{
+"id": "symbol-table",
+"name": "Symbol Table",
+"kind": "parsing-text",
+"realm": "design"
+},
+{
+"id": "sync-word",
+"name": "Sync Word",
+"kind": "serialization-framing",
+"realm": "design"
+},
+{
+"id": "synchronizer-token",
+"name": "Synchronizer Token Pattern",
+"kind": "robustness-security",
+"realm": "design"
+},
+{
+"id": "system-tick",
+"name": "System Tick",
+"kind": "scheduling-time",
+"realm": "design"
+},
+{
+"id": "t-digest",
+"name": "t-digest",
+"kind": "data-structures",
+"realm": "design"
+},
+{
+"id": "table-data-gateway",
+"name": "Table Data Gateway",
+"kind": "persistence-durability",
+"realm": "design"
+},
+{
+"id": "table-module",
+"name": "Table Module",
+"kind": "pattern",
+"realm": "architecture"
+},
+{
+"id": "tag-dispatching",
+"name": "Tag Dispatching",
+"kind": "functional-type-idioms",
+"realm": "design"
+},
+{
+"id": "tagged-union",
+"name": "Tagged Union",
+"kind": "data-representation",
+"realm": "design"
+},
+{
+"id": "tagless-final",
+"name": "Tagless Final",
+"kind": "functional-type-idioms",
+"realm": "design"
+},
+{
+"id": "tailor-interface",
+"name": "Tailor Interface",
+"kind": "tactic",
+"realm": "architecture"
+},
+{
+"id": "taint-checking",
+"name": "Taint Checking",
+"kind": "robustness-security",
+"realm": "design"
+},
+{
+"id": "template-engine",
+"name": "Template Engine",
+"kind": "parsing-text",
+"realm": "design"
+},
+{
+"id": "template-method",
+"name": "Template Method",
+"kind": "oo-patterns",
+"realm": "design"
+},
+{
+"id": "template-view",
+"name": "Template View",
+"kind": "pattern",
+"realm": "architecture"
+},
+{
+"id": "temporal-firewall",
+"name": "Temporal Firewall",
+"kind": "connector",
+"realm": "architecture"
+},
+{
+"id": "temporal-property",
+"name": "Temporal Property",
+"kind": "data-representation",
+"realm": "design"
+},
+{
+"id": "test-and-test-and-set-lock",
+"name": "Test-and-Test-and-Set Lock",
+"kind": "synchronization-coordination",
+"realm": "design"
+},
+{
+"id": "test-data-builder",
+"name": "Test Data Builder",
+"kind": "testing-constructs",
+"realm": "design"
+},
+{
+"id": "test-double",
+"name": "Test Double",
+"kind": "testing-constructs",
+"realm": "design"
+},
+{
+"id": "test-fixture",
+"name": "Test Fixture",
+"kind": "testing-constructs",
+"realm": "design"
+},
+{
+"id": "texture-atlas",
+"name": "Texture Atlas",
+"kind": "data-representation",
+"realm": "design"
+},
+{
+"id": "the-elm-architecture",
+"name": "The Elm Architecture",
+"kind": "pattern",
+"realm": "architecture"
+},
+{
+"id": "thread-confinement",
+"name": "Thread Confinement",
+"kind": "synchronization-coordination",
+"realm": "design"
+},
+{
+"id": "thread-per-connection-server",
+"name": "Thread-per-Connection Server",
+"kind": "pattern",
+"realm": "architecture"
+},
+{
+"id": "thread-pool",
+"name": "Thread Pool",
+"kind": "execution-concurrency",
+"realm": "design"
+},
+{
+"id": "thread-safe-interface",
+"name": "Thread-Safe Interface",
+"kind": "synchronization-coordination",
+"realm": "design"
+},
+{
+"id": "thread-specific-storage",
+"name": "Thread-Specific Storage",
+"kind": "execution-concurrency",
+"realm": "design"
+},
+{
+"id": "threaded-code",
+"name": "Threaded Code",
+"kind": "execution-concurrency",
+"realm": "design"
+},
+{
+"id": "throttle",
+"name": "Throttle",
+"kind": "scheduling-time",
+"realm": "design"
+},
+{
+"id": "throttling-service-admission-control",
+"name": "Throttling (service admission control)",
+"kind": "tactic",
+"realm": "architecture"
+},
+{
+"id": "thunk",
+"name": "Thunk",
+"kind": "functional-type-idioms",
+"realm": "design"
+},
+{
+"id": "ticket-lock",
+"name": "Ticket Lock",
+"kind": "synchronization-coordination",
+"realm": "design"
+},
+{
+"id": "tickless-idle",
+"name": "Tickless Idle",
+"kind": "scheduling-time",
+"realm": "design"
+},
+{
+"id": "time-and-space-partitioning",
+"name": "Time and Space Partitioning",
+"kind": "pattern",
+"realm": "architecture"
+},
+{
+"id": "time-to-live-ttl",
+"name": "Time to Live (TTL)",
+"kind": "scheduling-time",
+"realm": "design"
+},
+{
+"id": "time-triggered-architecture",
+"name": "Time-Triggered Architecture",
+"kind": "style",
+"realm": "architecture"
+},
+{
+"id": "time-triggered-bus",
+"name": "Time-Triggered Bus",
+"kind": "connector",
+"realm": "architecture"
+},
+{
+"id": "time-triggered-co-operative-scheduler",
+"name": "Time-Triggered Co-operative Scheduler",
+"kind": "scheduling-time",
+"realm": "design"
+},
+{
+"id": "timeout",
+"name": "Timeout",
+"kind": "error-handling",
+"realm": "design"
+},
+{
+"id": "timeout-tactic",
+"name": "Timeout",
+"kind": "tactic",
+"realm": "architecture"
+},
+{
+"id": "timer-wheel",
+"name": "Timer Wheel",
+"kind": "scheduling-time",
+"realm": "design"
+},
+{
+"id": "timestamp",
+"name": "Timestamp",
+"kind": "tactic",
+"realm": "architecture"
+},
+{
+"id": "timestamp-ordering-concurrency-control",
+"name": "Timestamp-Ordering Concurrency Control",
+"kind": "synchronization-coordination",
+"realm": "design"
+},
+{
+"id": "token-bucket",
+"name": "Token Bucket",
+"kind": "scheduling-time",
+"realm": "design"
+},
+{
+"id": "tolerant-reader",
+"name": "Tolerant Reader",
+"kind": "serialization-framing",
+"realm": "design"
+},
+{
+"id": "tombstone",
+"name": "Tombstone",
+"kind": "persistence-durability",
+"realm": "design"
+},
+{
+"id": "traits-class",
+"name": "Traits Class",
+"kind": "functional-type-idioms",
+"realm": "design"
+},
+{
+"id": "trampoline",
+"name": "Trampoline",
+"kind": "execution-concurrency",
+"realm": "design"
+},
+{
+"id": "transaction-script",
+"name": "Transaction Script",
+"kind": "pattern",
+"realm": "architecture"
+},
+{
+"id": "transactional-outbox",
+"name": "Transactional Outbox",
+"kind": "pattern",
+"realm": "architecture"
+},
+{
+"id": "transactions",
+"name": "Transactions",
+"kind": "tactic",
+"realm": "architecture"
+},
+{
+"id": "transform-view",
+"name": "Transform View",
+"kind": "pattern",
+"realm": "architecture"
+},
+{
+"id": "transition-to-history",
+"name": "Transition to History",
+"kind": "state-management",
+"realm": "design"
+},
+{
+"id": "tree-walking-interpreter",
+"name": "Tree-Walking Interpreter",
+"kind": "parsing-text",
+"realm": "design"
+},
+{
+"id": "trie",
+"name": "Trie",
+"kind": "data-structures",
+"realm": "design"
+},
+{
+"id": "triple-modular-redundancy",
+"name": "Triple Modular Redundancy",
+"kind": "pattern",
+"realm": "architecture"
+},
+{
+"id": "trusted-execution-environment",
+"name": "Trusted Execution Environment",
+"kind": "pattern",
+"realm": "architecture"
+},
+{
+"id": "twin",
+"name": "Twin",
+"kind": "oo-patterns",
+"realm": "design"
+},
+{
+"id": "two-level-segregated-fit-allocator-tlsf",
+"name": "Two-Level Segregated Fit Allocator (TLSF)",
+"kind": "resource-management",
+"realm": "design"
+},
+{
+"id": "two-phase-commit",
+"name": "Two-Phase Commit",
+"kind": "pattern",
+"realm": "architecture"
+},
+{
+"id": "two-phase-locking",
+"name": "Two-Phase Locking",
+"kind": "synchronization-coordination",
+"realm": "design"
+},
+{
+"id": "two-phase-termination",
+"name": "Two-Phase Termination",
+"kind": "execution-concurrency",
+"realm": "design"
+},
+{
+"id": "two-step-view",
+"name": "Two Step View",
+"kind": "pattern",
+"realm": "architecture"
+},
+{
+"id": "type-erasure",
+"name": "Type Erasure",
+"kind": "functional-type-idioms",
+"realm": "design"
+},
+{
+"id": "type-length-value-encoding",
+"name": "Type-Length-Value Encoding",
+"kind": "serialization-framing",
+"realm": "design"
+},
+{
+"id": "type-object",
+"name": "Type Object",
+"kind": "oo-patterns",
+"realm": "design"
+},
+{
+"id": "type-safe-enum",
+"name": "Type-Safe Enum",
+"kind": "data-representation",
+"realm": "design"
+},
+{
+"id": "typelist",
+"name": "Typelist",
+"kind": "functional-type-idioms",
+"realm": "design"
+},
+{
+"id": "typesafe-register-access-via-c-templates",
+"name": "Typesafe Register Access via C++ Templates",
+"kind": "embedded-systems",
+"realm": "design"
+},
+{
+"id": "typestate",
+"name": "Typestate",
+"kind": "functional-type-idioms",
+"realm": "design"
+},
+{
+"id": "ultimate-hook",
+"name": "Ultimate Hook",
+"kind": "state-management",
+"realm": "design"
+},
+{
+"id": "undo",
+"name": "Undo",
+"kind": "tactic",
+"realm": "architecture"
+},
+{
+"id": "undo-redo-command-stack",
+"name": "Undo/Redo Command Stack",
+"kind": "state-management",
+"realm": "design"
+},
+{
+"id": "uniform-spatial-hash-grid",
+"name": "Uniform Spatial Hash Grid",
+"kind": "data-structures",
+"realm": "design"
+},
+{
+"id": "unit-of-work",
+"name": "Unit of Work",
+"kind": "persistence-durability",
+"realm": "design"
+},
+{
+"id": "units-of-measure-types",
+"name": "Units-of-Measure Types",
+"kind": "functional-type-idioms",
+"realm": "design"
+},
+{
+"id": "units-of-mitigation",
+"name": "Units of Mitigation",
+"kind": "pattern",
+"realm": "architecture"
+},
+{
+"id": "update-batching",
+"name": "Update Batching",
+"kind": "data-flow-buffering",
+"realm": "design"
+},
+{
+"id": "update-method",
+"name": "Update Method",
+"kind": "scheduling-time",
+"realm": "design"
+},
+{
+"id": "use-an-intermediary",
+"name": "Use an Intermediary",
+"kind": "tactic",
+"realm": "architecture"
+},
+{
+"id": "valet-key",
+"name": "Valet Key",
+"kind": "pattern",
+"realm": "architecture"
+},
+{
+"id": "validate-input",
+"name": "Validate Input",
+"kind": "tactic",
+"realm": "architecture"
+},
+{
+"id": "value-object",
+"name": "Value Object",
+"kind": "data-representation",
+"realm": "design"
+},
+{
+"id": "value-semantics",
+"name": "Value Semantics",
+"kind": "functional-type-idioms",
+"realm": "design"
+},
+{
+"id": "variable-allocation",
+"name": "Variable Allocation",
+"kind": "resource-management",
+"realm": "design"
+},
+{
+"id": "varint",
+"name": "Varint",
+"kind": "serialization-framing",
+"realm": "design"
+},
+{
+"id": "vectorized-execution",
+"name": "Vectorized Execution",
+"kind": "data-flow-buffering",
+"realm": "design"
+},
+{
+"id": "verify-message-integrity",
+"name": "Verify Message Integrity",
+"kind": "tactic",
+"realm": "architecture"
+},
+{
+"id": "view-handler",
+"name": "View Handler",
+"kind": "oo-patterns",
+"realm": "design"
+},
+{
+"id": "virtual-dom",
+"name": "Virtual DOM",
+"kind": "data-representation",
+"realm": "design"
+},
+{
+"id": "virtual-machine-architectural-style",
+"name": "Virtual Machine (architectural style)",
+"kind": "style",
+"realm": "architecture"
+},
+{
+"id": "visitor",
+"name": "Visitor",
+"kind": "oo-patterns",
+"realm": "design"
+},
+{
+"id": "volcano-iterator-model",
+"name": "Volcano Iterator Model",
+"kind": "data-flow-buffering",
+"realm": "design"
+},
+{
+"id": "voting",
+"name": "Voting",
+"kind": "tactic",
+"realm": "architecture"
+},
+{
+"id": "watchdog",
+"name": "Watchdog",
+"kind": "robustness-security",
+"realm": "design"
+},
+{
+"id": "watchdog-architecture-pattern",
+"name": "Watchdog (architecture pattern)",
+"kind": "pattern",
+"realm": "architecture"
+},
+{
+"id": "weak-reference",
+"name": "Weak Reference",
+"kind": "resource-management",
+"realm": "design"
+},
+{
+"id": "whole-part",
+"name": "Whole-Part",
+"kind": "oo-patterns",
+"realm": "design"
+},
+{
+"id": "wire-tap",
+"name": "Wire Tap",
+"kind": "communication",
+"realm": "design"
+},
+{
+"id": "work-stealing",
+"name": "Work Stealing",
+"kind": "scheduling-time",
+"realm": "design"
+},
+{
+"id": "wrapper-facade",
+"name": "Wrapper Facade",
+"kind": "construction-api",
+"realm": "design"
+},
+{
+"id": "write-ahead-log",
+"name": "Write-Ahead Log",
+"kind": "persistence-durability",
+"realm": "design"
+},
+{
+"id": "write-behind-cache",
+"name": "Write-Behind Cache",
+"kind": "caching-memoization",
+"realm": "design"
+},
+{
+"id": "write-through-cache",
+"name": "Write-Through Cache",
+"kind": "caching-memoization",
+"realm": "design"
+},
+{
+"id": "x-macro",
+"name": "X-Macro",
+"kind": "code-structure",
+"realm": "design"
+},
+{
+"id": "zero-copy-i-o",
+"name": "Zero-Copy I/O",
+"kind": "data-flow-buffering",
+"realm": "design"
+},
+{
+"id": "zero-trust-architecture",
+"name": "Zero Trust Architecture",
+"kind": "style",
+"realm": "architecture"
+},
+{
+"id": "zigzag-encoding",
+"name": "ZigZag Encoding",
+"kind": "serialization-framing",
+"realm": "design"
+},
+{
+"id": "zipper",
+"name": "Zipper",
+"kind": "data-structures",
+"realm": "design"
+},
+{
+"id": "zone-map",
+"name": "Zone Map",
+"kind": "data-structures",
+"realm": "design"
+}
+]

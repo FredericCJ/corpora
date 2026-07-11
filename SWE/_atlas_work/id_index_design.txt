@@ -1,0 +1,710 @@
+# 709 design element ids — use these EXACT ids as edge endpoints (this realm only)
+a-b-firmware-image-update	A/B Firmware Image Update	embedded-systems
+aba-mitigation-via-tagged-pointer	ABA Mitigation via Tagged Pointer	synchronization-coordination
+abstract-factory	Abstract Factory	oo-patterns
+abstract-session	Abstract Session	oo-patterns
+abstract-syntax-tree	Abstract Syntax Tree	parsing-text
+acceptor-connector	Acceptor-Connector	communication
+access-control-list	Access Control List	robustness-security
+acknowledgement	Acknowledgement	communication
+acquire-release-ordering	Acquire-Release Ordering	synchronization-coordination
+active-object	Active Object	execution-concurrency
+active-record	Active Record	persistence-durability
+acyclic-visitor	Acyclic Visitor	oo-patterns
+adapter	Adapter	oo-patterns
+adjacency-list-adjacency-matrix	Adjacency List / Adjacency Matrix	data-representation
+aggregate	Aggregate	state-management
+aggregate-instance	Aggregate Instance	construction-api
+aggregator	Aggregator	communication
+allocation-wrapper	Allocation Wrapper	resource-management
+allowlist-input-validation	Allowlist Input Validation	robustness-security
+arbitrary-precision-arithmetic	Arbitrary-Precision Arithmetic	numeric-precision
+asset-streaming	Asset Streaming	resource-management
+association-table-mapping	Association Table Mapping	persistence-durability
+async-await-model	Async-Await Model	execution-concurrency
+asynchronous-completion-token	Asynchronous Completion Token	execution-concurrency
+audit-log	Audit Log	robustness-security
+authenticated-encryption	Authenticated Encryption	robustness-security
+b-tree	B-tree	data-structures
+backpressure	Backpressure	data-flow-buffering
+balking	Balking	synchronization-coordination
+batch-method	Batch Method	construction-api
+behavior-tree	Behavior Tree	state-management
+binary-heap-priority-queue	Binary Heap (Priority Queue)	data-structures
+binary-search-tree	Binary Search Tree	data-structures
+binary-to-text-encoding	Binary-to-Text Encoding	serialization-framing
+bit-banging	Bit Banging	communication
+bit-stuffing	Bit Stuffing	serialization-framing
+bitmap-bitset	Bitmap / Bitset	data-structures
+bitmap-index	Bitmap Index	data-structures
+bloom-filter	Bloom Filter	data-structures
+bootloader-jump-handoff	Bootloader Jump / Handoff	embedded-systems
+boundary-tags	Boundary Tags	resource-management
+bounding-volume-hierarchy	Bounding Volume Hierarchy	data-structures
+bridge	Bridge	oo-patterns
+brown-out-handling	Brown-Out Handling	error-handling
+buddy-memory-allocation	Buddy Memory Allocation	resource-management
+buffer-pool	Buffer Pool	caching-memoization
+builder	Builder	oo-patterns
+built-in-self-test	Built-In Self-Test	error-handling
+bulkhead	Bulkhead	resource-management
+bureaucracy	Bureaucracy	oo-patterns
+byte-stuffing	Byte Stuffing	serialization-framing
+bytecode	Bytecode	data-representation
+bytecode-virtual-machine	Bytecode Virtual Machine	execution-concurrency
+cache-aside	Cache-Aside	caching-memoization
+cache-eviction-policy	Cache Eviction Policy	caching-memoization
+cache-stampede-protection	Cache Stampede Protection	caching-memoization
+caching	Caching	caching-memoization
+callback	Callback	communication
+callback-with-context-pointer	Callback with Context Pointer	communication
+callee-allocates	Callee Allocates	resource-management
+caller-owned-buffer	Caller-Owned Buffer	resource-management
+cancellation-token	Cancellation Token	execution-concurrency
+canonical-serialization	Canonical Serialization	serialization-framing
+canonicalization-before-validation	Canonicalization Before Validation	robustness-security
+capability	Capability	robustness-security
+captain-oates	Captain Oates	resource-management
+chain-of-responsibility	Chain of Responsibility	oo-patterns
+check-point	Check Point	robustness-security
+checked-arithmetic	Checked Arithmetic	numeric-precision
+checkpointing	Checkpointing	persistence-durability
+chunked-transfer-encoding	Chunked Transfer Encoding	serialization-framing
+circuit-breaker	Circuit Breaker	error-handling
+claim-check	Claim Check	communication
+class-table-inheritance	Class Table Inheritance	persistence-durability
+cleanup-record	Cleanup Record	error-handling
+client-dispatcher-server	Client-Dispatcher-Server	communication
+client-side-prediction	Client-Side Prediction	state-management
+coarse-grained-lock	Coarse-Grained Lock	synchronization-coordination
+collecting-parameter	Collecting Parameter	oo-patterns
+collection-pipeline	Collection Pipeline	functional-type-idioms
+collections-for-states	Collections for States	state-management
+column-oriented-storage	Column-Oriented Storage	data-representation
+combined-method	Combined Method	construction-api
+command	Command	oo-patterns
+command-processor	Command Processor	oo-patterns
+compaction	Compaction	resource-management
+comparand	Comparand	data-representation
+compare-and-swap-loop	Compare-and-Swap Loop	synchronization-coordination
+competing-consumers	Competing Consumers	execution-concurrency
+complete-parameter-checking	Complete Parameter Checking	error-handling
+component	Component	oo-patterns
+component-configurator	Component Configurator	resource-management
+composed-method	Composed Method	code-structure
+composite	Composite	oo-patterns
+compression	Compression	data-representation
+concrete-table-inheritance	Concrete Table Inheritance	persistence-durability
+condition-variable	Condition Variable	synchronization-coordination
+conflict-free-replicated-data-type-crdt	Conflict-free Replicated Data Type (CRDT)	data-structures
+consistent-hashing	Consistent Hashing	data-structures
+consistent-overhead-byte-stuffing	Consistent Overhead Byte Stuffing	serialization-framing
+constant-time-comparison	Constant-Time Comparison	robustness-security
+construct-on-first-use	Construct On First Use	construction-api
+container-of	container_of	data-representation
+content-addressable-storage	Content-Addressable Storage	persistence-durability
+content-based-router	Content-Based Router	communication
+context-object	Context Object	state-management
+continuation-passing-style	Continuation-Passing Style	functional-type-idioms
+coordinator	Coordinator	synchronization-coordination
+copied-value	Copied Value	functional-type-idioms
+copy-and-swap	Copy-and-Swap	error-handling
+copy-on-write	Copy-on-Write	resource-management
+copy-on-write-b-tree	Copy-on-Write B-Tree	data-structures
+core-dump	Core Dump	error-handling
+coroutine	Coroutine	execution-concurrency
+correcting-audits	Correcting Audits	error-handling
+correlation-identifier	Correlation Identifier	communication
+count-min-sketch	Count-Min Sketch	data-structures
+credit-based-flow-control	Credit-Based Flow Control	data-flow-buffering
+critical-region	Critical Region	synchronization-coordination
+cryptographic-hash-function	Cryptographic Hash Function	robustness-security
+csp-channel	CSP Channel	communication
+csprng	Cryptographically Secure Pseudorandom Number Generator	robustness-security
+curiously-recurring-template-pattern-crtp	Curiously Recurring Template Pattern (CRTP)	oo-patterns
+currying-partial-application	Currying / Partial Application	functional-type-idioms
+custom-allocator	Custom Allocator	resource-management
+cyclic-executive	Cyclic Executive	scheduling-time
+cyclic-redundancy-check	Cyclic Redundancy Check	error-handling
+data-binding	Data Binding	state-management
+data-files	Data Files	resource-management
+data-locality	Data Locality	data-representation
+data-mapper	Data Mapper	persistence-durability
+data-transfer-object	Data Transfer Object	data-representation
+dead-letter-channel	Dead Letter Channel	error-handling
+dead-reckoning	Dead Reckoning	state-management
+deadline-propagation	Deadline Propagation	scheduling-time
+deadlock-detection	Deadlock Detection	synchronization-coordination
+debouncing	Debouncing	scheduling-time
+decomposed-and-state	Decomposed AND-State	state-management
+decorator	Decorator	oo-patterns
+dedicated-ownership	Dedicated Ownership	resource-management
+defensive-copy	Defensive Copy	robustness-security
+deferrable-work	Deferrable Work	scheduling-time
+deferred-event	Deferred Event	state-management
+deferred-interrupt-processing	Deferred Interrupt Processing	embedded-systems
+deferred-validation	Deferred Validation	error-handling
+defunctionalization	Defunctionalization	functional-type-idioms
+delegation	Delegation	oo-patterns
+delta-encoding	Delta Encoding	serialization-framing
+deoptimization	Deoptimization	execution-concurrency
+dependency-injection	Dependency Injection	construction-api
+dependent-mapping	Dependent Mapping	persistence-durability
+deque	Deque	data-structures
+design-by-contract	Design by Contract	construction-api
+deterministic-lockstep	Deterministic Lockstep	state-management
+device-driver	Device Driver	embedded-systems
+diagnostic-context	Diagnostic Context	error-handling
+diagnostic-logger	Diagnostic Logger	error-handling
+dictionary-encoding	Dictionary Encoding	data-representation
+direct-memory-access-dma-transfer	Direct Memory Access (DMA) Transfer	embedded-systems
+direct-to-task-notification	Direct-to-Task Notification	synchronization-coordination
+dirty-checking	Dirty Checking	state-management
+dirty-flag	Dirty Flag	state-management
+dirty-rectangles	Dirty Rectangles	state-management
+disjoint-set-union-find	Disjoint-Set (Union-Find)	data-structures
+dispose-pattern	Dispose Pattern	resource-management
+disruptor	Disruptor	data-flow-buffering
+domain-event	Domain Event	communication
+domain-service	Domain Service	oo-patterns
+double-buffer	Double Buffer	data-flow-buffering
+double-checked-locking	Double-Checked Locking	synchronization-coordination
+double-dispatch	Double Dispatch	oo-patterns
+draw-call-batching	Draw-Call Batching	data-flow-buffering
+dual-channel	Dual Channel	robustness-security
+dynamic-array	Dynamic Array	data-structures
+dynamic-priority-scheduling	Dynamic Priority Scheduling	scheduling-time
+eager-acquisition	Eager Acquisition	resource-management
+eeprom-emulation-in-flash	EEPROM Emulation in Flash	persistence-durability
+effect-handler	Effect Handler	functional-type-idioms
+embedded-domain-specific-language	Embedded Domain-Specific Language	construction-api
+embedded-pointer	Embedded Pointer	data-structures
+embedded-value	Embedded Value	persistence-durability
+empty-base-optimization-ebo	Empty Base Optimization (EBO)	data-representation
+entity	Entity	data-representation
+entity-component-system	Entity Component System	data-representation
+enumeration-method	Enumeration Method	construction-api
+envelope-letter	Envelope-Letter	oo-patterns
+epoch-based-reclamation	Epoch-Based Reclamation	resource-management
+epsilon-ulp-float-comparison	Epsilon/ULP Floating-Point Comparison	numeric-precision
+erase-remove	Erase-Remove	data-structures
+error-correcting-codes	Error-Correcting Codes	data-representation
+error-handler	Error Handler	error-handling
+error-kernel	Error Kernel	error-handling
+escalation	Escalation	error-handling
+escape-sequence	Escape Sequence	parsing-text
+escaping-ifdef-hell	Escaping #ifdef Hell	code-structure
+event-aggregator	Event Aggregator	communication
+event-coalescing	Event Coalescing	data-flow-buffering
+event-delegation	Event Delegation	communication
+event-driven-consumer	Event-Driven Consumer	communication
+event-driven-parsing	Event-Driven Parsing	parsing-text
+event-flags-group	Event Flags Group	synchronization-coordination
+event-loop	Event Loop	execution-concurrency
+event-sourcing	Event Sourcing	persistence-durability
+event-time-watermark	Watermark (Event-Time)	data-flow-buffering
+eventcount	Eventcount	synchronization-coordination
+evictor	Evictor	resource-management
+exceptional-value	Exceptional Value	error-handling
+execute-around-method	Execute Around Method	resource-management
+executor	Executor	execution-concurrency
+explicit-interface	Explicit Interface	construction-api
+expression-builder	Expression Builder	construction-api
+expression-templates	Expression Templates	functional-type-idioms
+extension-interface	Extension Interface	construction-api
+extension-object	Extension Object	oo-patterns
+external-polymorphism	External Polymorphism	oo-patterns
+facade	Facade	oo-patterns
+facade-backend-module-pattern	Facade/Backend Module Pattern	construction-api
+factory-method	Factory Method	oo-patterns
+fail-fast	Fail Fast	error-handling
+false-sharing-avoidance-via-cache-line-padding	False-Sharing Avoidance via Cache-Line Padding	execution-concurrency
+fast-path	Fast Path	execution-concurrency
+feature-flag	Feature Flag	code-structure
+fencing-token	Fencing Token	synchronization-coordination
+fenwick-tree	Fenwick Tree	data-structures
+finite-state-machine	Finite State Machine	state-management
+fixed-capacity-container	Fixed-Capacity Container	data-structures
+fixed-point-arithmetic	Fixed-Point Arithmetic	numeric-precision
+fixed-sized-buffer	Fixed Sized Buffer	resource-management
+fixed-timestep	Fixed Timestep	scheduling-time
+flash-translation-layer	Flash Translation Layer	persistence-durability
+flash-wear-leveling	Flash Wear Leveling	persistence-durability
+flat-combining	Flat Combining	synchronization-coordination
+fluent-interface	Fluent Interface	construction-api
+flyweight	Flyweight	oo-patterns
+foreign-key-mapping	Foreign Key Mapping	persistence-durability
+fork-join	Fork-Join	execution-concurrency
+forwarder-receiver	Forwarder-Receiver	communication
+four-phase-test	Four-Phase Test	testing-constructs
+free-list	Free List	resource-management
+free-monad	Free Monad	functional-type-idioms
+fresh-work-before-stale	Fresh Work Before Stale	data-flow-buffering
+full-view-with-errors	Full View With Errors	robustness-security
+function-control	Function Control	construction-api
+function-object	Function Object	functional-type-idioms
+function-pointer-dispatch-table	Function Pointer Dispatch Table	oo-patterns
+functional-core-imperative-shell	Functional Core, Imperative Shell	functional-type-idioms
+functional-options	Functional Options	construction-api
+functional-reactive-programming	Functional Reactive Programming	data-flow-buffering
+futex	Futex	synchronization-coordination
+future-promise	Future / Promise	execution-concurrency
+game-loop	Game Loop	execution-concurrency
+gap-buffer	Gap Buffer	data-structures
+garbage-collection	Garbage Collection	resource-management
+gateway	Gateway	communication
+gc-read-barrier	GC Read Barrier	resource-management
+gc-write-barrier	GC Write Barrier	resource-management
+generation-gap	Generation Gap	code-structure
+golden-master-testing	Golden Master Testing	testing-constructs
+goto-cleanup	Goto Cleanup	error-handling
+governor	Governor	scheduling-time
+green-threads	Green Threads	execution-concurrency
+group-commit	Group Commit	persistence-durability
+guard-clause	Guard Clause	error-handling
+guard-page	Guard Page	robustness-security
+guarded-call	Guarded Call	synchronization-coordination
+guarded-suspension	Guarded Suspension	synchronization-coordination
+half-object-plus-protocol	Half-Object plus Protocol	communication
+half-sync-half-async	Half-Sync/Half-Async	execution-concurrency
+handshaking	Handshaking	communication
+happy-eyeballs	Happy Eyeballs	error-handling
+hardware-abstraction-layer	Hardware Abstraction Layer	construction-api
+hardware-adapter	Hardware Adapter	embedded-systems
+hardware-proxy	Hardware Proxy	embedded-systems
+hash-array-mapped-trie-hamt	Hash Array Mapped Trie (HAMT)	data-structures
+hash-table	Hash Table	data-structures
+hazard-pointers	Hazard Pointers	resource-management
+heartbeat	Heartbeat	error-handling
+hedged-request	Hedged Request	communication
+hidden-class	Hidden Class	data-representation
+hierarchical-state-machine	Hierarchical State Machine	state-management
+hook-method	Hook Method	oo-patterns
+hooks	Hooks	resource-management
+hot-code-reload	Hot Code Reload	code-structure
+html-sanitization	HTML Sanitization	robustness-security
+humble-object	Humble Object	testing-constructs
+hydration	Hydration	state-management
+hyperloglog	HyperLogLog	data-structures
+idempotent-receiver	Idempotent Receiver	communication
+identity-field	Identity Field	persistence-durability
+identity-map	Identity Map	caching-memoization
+idle-task-hook	Idle Task Hook	scheduling-time
+immediate-mode-gui	Immediate-Mode GUI	construction-api
+immutable-value	Immutable Value	state-management
+implicit-lock	Implicit Lock	synchronization-coordination
+include-guard	Include Guard	code-structure
+inheritance-mappers	Inheritance Mappers	persistence-durability
+inline-caching	Inline Caching	caching-memoization
+interceptor	Interceptor	oo-patterns
+interest-management	Interest Management	communication
+interior-mutability	Interior Mutability	state-management
+interpreter	Interpreter	oo-patterns
+interrupt-coalescing	Interrupt Coalescing	scheduling-time
+interrupt-masking-critical-section	Interrupt-Masking Critical Section	synchronization-coordination
+interrupt-service-routine	Interrupt Service Routine	embedded-systems
+interrupt-vector-table	Interrupt Vector Table	embedded-systems
+interval-arithmetic	Interval Arithmetic	numeric-precision
+interval-tree	Interval Tree	data-structures
+introspective-interface	Introspective Interface	construction-api
+inverted-index	Inverted Index	data-structures
+iohw-h-standard-hardware-i-o-interface	iohw.h Standard Hardware I/O Interface	embedded-systems
+iterator	Iterator	oo-patterns
+jitter-buffer	Jitter Buffer	data-flow-buffering
+job-system	Job System	execution-concurrency
+k-d-tree	k-d Tree	data-structures
+kahan-summation	Kahan Summation	numeric-precision
+lag-compensation	Lag Compensation	state-management
+latch	Latch	synchronization-coordination
+layer-supertype	Layer Supertype	oo-patterns
+lazy-cleanup	Lazy Cleanup	resource-management
+leader-followers	Leader/Followers	execution-concurrency
+leaky-bucket	Leaky Bucket	scheduling-time
+leaky-bucket-counter	Leaky Bucket Counter	error-handling
+leasing	Leasing	resource-management
+length-prefix-framing	Length-Prefix Framing	serialization-framing
+lens	Lens	functional-type-idioms
+let-it-crash	Let It Crash	error-handling
+level-of-detail	Level of Detail	data-representation
+lexer	Lexer	parsing-text
+lifecycle-callback	Lifecycle Callback	construction-api
+limited-view	Limited View	robustness-security
+linked-list	Linked List	data-structures
+list-virtualization	List Virtualization	resource-management
+load-shedding	Load Shedding	data-flow-buffering
+lock-escalation	Lock Escalation	synchronization-coordination
+lock-free-fifo-queue-michael-scott	Lock-Free FIFO Queue (Michael-Scott)	data-structures
+lock-free-stack-treiber	Lock-Free Stack (Treiber)	data-structures
+lock-striping	Lock Striping	synchronization-coordination
+log-errors	Log Errors	error-handling
+log-structured-storage	Log-Structured Storage	persistence-durability
+logical-clock	Logical Clock	synchronization-coordination
+lookup	Lookup	resource-management
+lookup-table	Lookup Table	caching-memoization
+loop-parallelism	Loop Parallelism	execution-concurrency
+loop-timeout	Loop Timeout	error-handling
+lr-parser	LR Parser	parsing-text
+lru-cache	LRU Cache	caching-memoization
+lsm-tree	LSM Tree	data-structures
+magic-number-file-signature	Magic Number (File Signature)	serialization-framing
+mailbox	Mailbox	communication
+mapper	Mapper	oo-patterns
+marked-data	Marked Data	error-handling
+marker-interface	Marker Interface	oo-patterns
+master-slave	Master-Slave	execution-concurrency
+maximal-munch	Maximal Munch	parsing-text
+mcs-queue-lock	MCS Queue Lock	synchronization-coordination
+meaningless-behavior	Meaningless Behavior	error-handling
+mediator	Mediator	oo-patterns
+memento	Memento	oo-patterns
+memoization	Memoization	caching-memoization
+memory-arena	Memory Arena	resource-management
+memory-barrier	Memory Barrier	synchronization-coordination
+memory-discard	Memory Discard	resource-management
+memory-image	Memory Image	persistence-durability
+memory-limit	Memory Limit	resource-management
+memory-mapped-file-i-o	Memory-Mapped File I/O	data-flow-buffering
+memory-mapped-register-access	Memory-Mapped Register Access	embedded-systems
+memory-overlay	Memory Overlay	resource-management
+memory-poisoning	Memory Poisoning	robustness-security
+merkle-tree	Merkle Tree	data-structures
+message	Message	communication
+message-authentication-code	Message Authentication Code	robustness-security
+message-dispatcher	Message Dispatcher	communication
+message-expiration	Message Expiration	communication
+message-filter	Message Filter	communication
+message-queue	Message Queue	communication
+message-translator	Message Translator	communication
+metadata-mapping	Metadata Mapping	persistence-durability
+method-object	Method Object	code-structure
+methods-for-states	Methods for States	state-management
+minhash	MinHash	data-structures
+mixin	Mixin	oo-patterns
+module-pattern	Module Pattern	functional-type-idioms
+monad	Monad	functional-type-idioms
+money	Money	numeric-precision
+monitor-object	Monitor Object	synchronization-coordination
+monostate	Monostate	oo-patterns
+multi-granularity-locking	Multi-Granularity Locking	synchronization-coordination
+multi-state-task	Multi-State Task	execution-concurrency
+multiple-event-receptor	Multiple Event Receptor	state-management
+multiple-representations	Multiple Representations	data-representation
+multiton	Multiton	oo-patterns
+multiversion-concurrency-control	Multiversion Concurrency Control	synchronization-coordination
+n-version-programming	N-Version Programming	error-handling
+nagle-s-algorithm	Nagle's Algorithm	communication
+named-parameter-idiom	Named Parameter Idiom	construction-api
+navigation-mesh	Navigation Mesh	data-structures
+negative-caching	Negative Caching	caching-memoization
+nested-interrupt-handling	Nested Interrupt Handling	execution-concurrency
+network-byte-order-handling	Network Byte Order Handling	serialization-framing
+newtype	Newtype	data-representation
+nifty-counter	Nifty Counter	construction-api
+non-virtual-interface-nvi	Non-Virtual Interface (NVI)	oo-patterns
+nonce	Nonce	robustness-security
+notification	Notification	error-handling
+null-object	Null Object	oo-patterns
+object-manager	Object Manager	resource-management
+object-mother	Object Mother	testing-constructs
+object-orientation-in-c	Object Orientation in C	oo-patterns
+object-recursion	Object Recursion	oo-patterns
+observable-streams	Observable Streams	communication
+observer	Observer	oo-patterns
+one-s-complement-data-storage	One's Complement Data Storage	robustness-security
+oo-in-c-via-explicit-vtable	OO in C via Explicit Vtable	oo-patterns
+opaque-pointer	Opaque Pointer	data-representation
+operational-transformation	Operational Transformation	synchronization-coordination
+optimistic-concurrency-control	Optimistic Concurrency Control	synchronization-coordination
+optimistic-offline-lock	Optimistic Offline Lock	synchronization-coordination
+optimistic-ui-update	Optimistic UI Update	state-management
+option-type	Option Type	functional-type-idioms
+ordered-locking	Ordered Locking	synchronization-coordination
+organizing-files-in-modular-c-programs	Organizing Files in Modular C Programs	code-structure
+orthogonal-component	Orthogonal Component	state-management
+out-parameters	Out-Parameters	construction-api
+packed-data	Packed Data	data-representation
+packrat-parsing	Packrat Parsing	parsing-text
+page-object	Page Object	testing-constructs
+paging	Paging	resource-management
+panic-mode-error-recovery	Panic-Mode Error Recovery	parsing-text
+parallel-reduction	Parallel Reduction	execution-concurrency
+parameterized-query	Parameterized Query	robustness-security
+parameterized-test	Parameterized Test	testing-constructs
+parser-combinator	Parser Combinator	parsing-text
+partial-acquisition	Partial Acquisition	resource-management
+pax-page-layout	PAX Page Layout	data-representation
+percent-encoding	Percent-Encoding	serialization-framing
+persistent-data-structure	Persistent Data Structure	data-structures
+pessimistic-offline-lock	Pessimistic Offline Lock	synchronization-coordination
+phantom-type	Phantom Type	functional-type-idioms
+pid-controller	PID Controller	embedded-systems
+piece-table	Piece Table	data-structures
+ping-pong-buffer	Ping-Pong Buffer	data-flow-buffering
+pipeline-parallelism	Pipeline Parallelism	execution-concurrency
+pluggable-selector	Pluggable Selector	oo-patterns
+plugin	Plugin	construction-api
+pointer-check	Pointer Check	robustness-security
+pointer-swizzling	Pointer Swizzling	data-representation
+pointer-tagging	Pointer Tagging	data-representation
+policy-based-design	Policy-Based Design	oo-patterns
+polling	Polling	embedded-systems
+polling-consumer	Polling Consumer	communication
+pool-allocation	Pool Allocation	resource-management
+pooling	Pooling	resource-management
+pratt-parser	Pratt Parser	parsing-text
+prefetching	Prefetching	caching-memoization
+pretty-printer	Pretty-Printer	parsing-text
+priority-ceiling-protocol	Priority Ceiling Protocol	synchronization-coordination
+priority-inheritance-protocol	Priority Inheritance Protocol	synchronization-coordination
+private-class-data	Private Class Data	oo-patterns
+privilege-bracketing	Privilege Bracketing	robustness-security
+privilege-separation	Privilege Separation	robustness-security
+proactor	Proactor	execution-concurrency
+producer-consumer	Producer-Consumer	communication
+product-trader	Product Trader	construction-api
+program-sequence-monitoring	Program Sequence Monitoring	robustness-security
+property-based-testing	Property-Based Testing	testing-constructs
+protected-single-channel	Protected Single Channel	robustness-security
+protothread	Protothreads	execution-concurrency
+prototype	Prototype	oo-patterns
+proxy	Proxy	oo-patterns
+pseudorandom-number-generator	Pseudorandom Number Generator	numeric-precision
+publish-subscribe-channel	Publish-Subscribe Channel	communication
+quadtree-octree	Quadtree / Octree	data-structures
+quantity	Quantity	data-representation
+quarantine	Quarantine	error-handling
+query-object	Query Object	persistence-durability
+queue-fifo	Queue (FIFO)	data-structures
+r-tree	R-tree	data-structures
+raii-resource-acquisition-is-initialization	RAII (Resource Acquisition Is Initialization)	resource-management
+railway-oriented-programming	Railway-Oriented Programming	error-handling
+range	Range	data-representation
+reactive-programming	Reactive Programming	data-flow-buffering
+reactive-signals	Signals (fine-grained reactivity)	state-management
+reactor	Reactor	execution-concurrency
+read-copy-update	Read-Copy-Update	synchronization-coordination
+read-eval-print-loop	Read-Eval-Print Loop	parsing-text
+read-only-memory	Read-Only Memory	resource-management
+read-through-cache	Read-Through Cache	caching-memoization
+readers-writer-lock	Readers-Writer Lock	synchronization-coordination
+record-set	Record Set	data-representation
+recovery-blocks	Recovery Blocks	error-handling
+recursive-descent-parser	Recursive Descent Parser	parsing-text
+reentrant-lock	Reentrant Lock	synchronization-coordination
+reference-counting	Reference Counting	resource-management
+reference-monitor	Reference Monitor	robustness-security
+refresh-ahead-cache	Refresh-Ahead Cache	caching-memoization
+registry	Registry	oo-patterns
+regular-expressions	Regular Expressions	parsing-text
+relationship-object	Relationship Object	data-representation
+reminder	Reminder	state-management
+remote-procedure-call	Remote Procedure Call	communication
+render-graph	Render Graph	data-flow-buffering
+rendezvous	Rendezvous	synchronization-coordination
+repository	Repository	persistence-durability
+request-reply	Request-Reply	communication
+resequencer	Resequencer	data-flow-buffering
+resource-files	Resource Files	resource-management
+resource-lifecycle-manager	Resource Lifecycle Manager	resource-management
+restart	Restart	error-handling
+restartable-sequences	Restartable Sequences	execution-concurrency
+result-type	Result Type	error-handling
+retained-mode-gui	Retained-Mode GUI	construction-api
+retry-budget	Retry Budget	error-handling
+retry-with-exponential-backoff-and-jitter	Retry with Exponential Backoff and Jitter	error-handling
+return-address	Return Address	communication
+return-status-code	Return Status Code	error-handling
+riding-over-transients	Riding Over Transients	error-handling
+ring-buffer	Ring Buffer	data-flow-buffering
+role-based-access-control	Role-Based Access Control	robustness-security
+role-object	Role Object	oo-patterns
+roll-forward	Roll-Forward	error-handling
+rollback	Rollback	error-handling
+rollback-netcode	Rollback Netcode	state-management
+rope	Rope	data-structures
+round-robin-scheduling	Round Robin Scheduling	scheduling-time
+row-data-gateway	Row Data Gateway	persistence-durability
+rule-of-three-five-zero	Rule of Three/Five/Zero	resource-management
+rules-engine	Rules Engine	state-management
+run-length-encoding	Run-Length Encoding	serialization-framing
+run-to-completion-event-processing	Run-to-Completion Event Processing	state-management
+safe-publication	Safe Publication	synchronization-coordination
+safe-state	Safe State	error-handling
+safepoint	Safepoint	synchronization-coordination
+salted-password-hashing	Salted Password Hashing	robustness-security
+samurai-principle	Samurai Principle	error-handling
+sandwich-delay	Sandwich Delay	scheduling-time
+sanity-check	Sanity Check	robustness-security
+saturation-arithmetic	Saturation Arithmetic	numeric-precision
+scannerless-parsing	Scannerless Parsing	parsing-text
+scatter-gather	Scatter-Gather	communication
+scatter-gather-dma	Scatter-Gather DMA	data-flow-buffering
+scene-graph	Scene Graph	data-structures
+schedule-table	Schedule Table	scheduling-time
+scheduler	Scheduler	scheduling-time
+schema-evolution-via-field-tags	Schema Evolution via Field Tags	serialization-framing
+scope-guard	Scope Guard	resource-management
+scoped-locking	Scoped Locking	synchronization-coordination
+sealed-trait	Sealed Trait	functional-type-idioms
+secondary-index	Secondary Index	data-structures
+secure-access-layer	Secure Access Layer	robustness-security
+secure-boot-image-verification	Secure Boot Image Verification	robustness-security
+secure-zeroization	Secure Zeroization	robustness-security
+security-session	Security Session	robustness-security
+segment-tree	Segment Tree	data-structures
+selective-consumer	Selective Consumer	communication
+self-pipe-trick	Self-Pipe Trick	synchronization-coordination
+semantic-model	Semantic Model	parsing-text
+semaphore	Semaphore	synchronization-coordination
+sentinel-value	Sentinel Value	error-handling
+separated-interface	Separated Interface	oo-patterns
+sequence-lock	Sequence Lock	synchronization-coordination
+serial-number-arithmetic	Serial Number Arithmetic	numeric-precision
+serialization-proxy	Serialization Proxy	serialization-framing
+serialized-lob	Serialized LOB	serialization-framing
+serializer	Serializer	serialization-framing
+servant	Servant	oo-patterns
+service-locator	Service Locator	construction-api
+service-stub	Service Stub	testing-constructs
+setjmp-longjmp-error-handling	setjmp/longjmp Error Handling	error-handling
+sfinae	SFINAE	functional-type-idioms
+shadow-paging	Shadow Paging	persistence-durability
+shadow-register	Shadow Register	embedded-systems
+shared-memory-communication	Shared Memory Communication	communication
+sharing	Sharing	resource-management
+shunting-yard-algorithm	Shunting-Yard Algorithm	parsing-text
+signals-and-slots	Signals and Slots	communication
+simultaneous-locking	Simultaneous Locking	synchronization-coordination
+single-access-point	Single Access Point	robustness-security
+single-event-receptor	Single Event Receptor	state-management
+single-table-inheritance	Single Table Inheritance	persistence-durability
+singleton	Singleton	oo-patterns
+skip-list	Skip List	data-structures
+slab-allocator	Slab Allocator	resource-management
+sliding-window-flow-control	Sliding Window Flow Control	communication
+sliding-window-rate-limiting	Sliding-Window Rate Limiting	data-flow-buffering
+slot-map	Slot Map	data-structures
+slotted-page-layout	Slotted Page Layout	data-representation
+small-buffer-optimization	Small Buffer Optimization	resource-management
+smart-constructor	Smart Constructor	construction-api
+smart-data	Smart Data	robustness-security
+smart-pointer	Smart Pointer	resource-management
+snapshot-interpolation	Snapshot Interpolation	data-flow-buffering
+snapshot-isolation	Snapshot Isolation	synchronization-coordination
+software-module-with-global-state	Software-Module with Global State	code-structure
+software-rejuvenation	Software Rejuvenation	error-handling
+software-timer	Software Timer	scheduling-time
+software-transactional-memory	Software Transactional Memory	synchronization-coordination
+sparse-set	Sparse Set	data-structures
+spatial-partition	Spatial Partition	data-structures
+special-case	Special Case	oo-patterns
+special-return-value	Special Return Value	error-handling
+specification	Specification	oo-patterns
+spinlock	Spinlock	synchronization-coordination
+splitter	Splitter	communication
+spmd	SPMD	execution-concurrency
+sponsor-selector	Sponsor-Selector	oo-patterns
+spsc-lock-free-ring-buffer	SPSC Lock-Free Ring Buffer	data-flow-buffering
+stack	Stack	data-structures
+stack-canary	Stack Canary	robustness-security
+stack-first	Stack First	resource-management
+stack-painting-watermarking	Stack Painting / Watermarking	error-handling
+state	State	oo-patterns
+state-transition-table	State Transition Table	state-management
+stateless-software-module	Stateless Software-Module	code-structure
+static-allocation	Static Allocation	resource-management
+static-factory-method	Static Factory Method	construction-api
+static-priority-scheduling	Static Priority Scheduling	scheduling-time
+steady-state	Steady State	resource-management
+stencil	Stencil	execution-concurrency
+strategized-locking	Strategized Locking	synchronization-coordination
+strategy	Strategy	oo-patterns
+stream-buffer	Stream Buffer	data-flow-buffering
+stream-trigger	Trigger (Stream Processing)	data-flow-buffering
+stream-windowing	Stream Windowing	data-flow-buffering
+structured-concurrency	Structured Concurrency	execution-concurrency
+subclass-sandbox	Subclass Sandbox	oo-patterns
+suffix-array	Suffix Array	data-structures
+super-loop	Super Loop	embedded-systems
+supervisor	Supervisor	error-handling
+symbol-table	Symbol Table	parsing-text
+sync-word	Sync Word	serialization-framing
+synchronizer-token	Synchronizer Token Pattern	robustness-security
+system-tick	System Tick	scheduling-time
+t-digest	t-digest	data-structures
+table-data-gateway	Table Data Gateway	persistence-durability
+tag-dispatching	Tag Dispatching	functional-type-idioms
+tagged-union	Tagged Union	data-representation
+tagless-final	Tagless Final	functional-type-idioms
+taint-checking	Taint Checking	robustness-security
+template-engine	Template Engine	parsing-text
+template-method	Template Method	oo-patterns
+temporal-property	Temporal Property	data-representation
+test-and-test-and-set-lock	Test-and-Test-and-Set Lock	synchronization-coordination
+test-data-builder	Test Data Builder	testing-constructs
+test-double	Test Double	testing-constructs
+test-fixture	Test Fixture	testing-constructs
+texture-atlas	Texture Atlas	data-representation
+thread-confinement	Thread Confinement	synchronization-coordination
+thread-pool	Thread Pool	execution-concurrency
+thread-safe-interface	Thread-Safe Interface	synchronization-coordination
+thread-specific-storage	Thread-Specific Storage	execution-concurrency
+threaded-code	Threaded Code	execution-concurrency
+throttle	Throttle	scheduling-time
+thunk	Thunk	functional-type-idioms
+ticket-lock	Ticket Lock	synchronization-coordination
+tickless-idle	Tickless Idle	scheduling-time
+time-to-live-ttl	Time to Live (TTL)	scheduling-time
+time-triggered-co-operative-scheduler	Time-Triggered Co-operative Scheduler	scheduling-time
+timeout	Timeout	error-handling
+timer-wheel	Timer Wheel	scheduling-time
+timestamp-ordering-concurrency-control	Timestamp-Ordering Concurrency Control	synchronization-coordination
+token-bucket	Token Bucket	scheduling-time
+tolerant-reader	Tolerant Reader	serialization-framing
+tombstone	Tombstone	persistence-durability
+traits-class	Traits Class	functional-type-idioms
+trampoline	Trampoline	execution-concurrency
+transition-to-history	Transition to History	state-management
+tree-walking-interpreter	Tree-Walking Interpreter	parsing-text
+trie	Trie	data-structures
+twin	Twin	oo-patterns
+two-level-segregated-fit-allocator-tlsf	Two-Level Segregated Fit Allocator (TLSF)	resource-management
+two-phase-locking	Two-Phase Locking	synchronization-coordination
+two-phase-termination	Two-Phase Termination	execution-concurrency
+type-erasure	Type Erasure	functional-type-idioms
+type-length-value-encoding	Type-Length-Value Encoding	serialization-framing
+type-object	Type Object	oo-patterns
+type-safe-enum	Type-Safe Enum	data-representation
+typelist	Typelist	functional-type-idioms
+typesafe-register-access-via-c-templates	Typesafe Register Access via C++ Templates	embedded-systems
+typestate	Typestate	functional-type-idioms
+ultimate-hook	Ultimate Hook	state-management
+undo-redo-command-stack	Undo/Redo Command Stack	state-management
+uniform-spatial-hash-grid	Uniform Spatial Hash Grid	data-structures
+unit-of-work	Unit of Work	persistence-durability
+units-of-measure-types	Units-of-Measure Types	functional-type-idioms
+update-batching	Update Batching	data-flow-buffering
+update-method	Update Method	scheduling-time
+value-object	Value Object	data-representation
+value-semantics	Value Semantics	functional-type-idioms
+variable-allocation	Variable Allocation	resource-management
+varint	Varint	serialization-framing
+vectorized-execution	Vectorized Execution	data-flow-buffering
+view-handler	View Handler	oo-patterns
+virtual-dom	Virtual DOM	data-representation
+visitor	Visitor	oo-patterns
+volcano-iterator-model	Volcano Iterator Model	data-flow-buffering
+watchdog	Watchdog	robustness-security
+weak-reference	Weak Reference	resource-management
+whole-part	Whole-Part	oo-patterns
+wire-tap	Wire Tap	communication
+work-stealing	Work Stealing	scheduling-time
+wrapper-facade	Wrapper Facade	construction-api
+write-ahead-log	Write-Ahead Log	persistence-durability
+write-behind-cache	Write-Behind Cache	caching-memoization
+write-through-cache	Write-Through Cache	caching-memoization
+x-macro	X-Macro	code-structure
+zero-copy-i-o	Zero-Copy I/O	data-flow-buffering
+zigzag-encoding	ZigZag Encoding	serialization-framing
+zipper	Zipper	data-structures
+zone-map	Zone Map	data-structures

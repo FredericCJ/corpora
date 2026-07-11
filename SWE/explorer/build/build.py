@@ -289,3 +289,14 @@ print(f'PHASE 3: {len(E)} edges ({dict(srcs)}); kinds={len(kinds)}; JS modules e
 # + the bridging rule (fails loud on mismatch), emitting data/elements.{json,js}.
 import build_elements
 build_elements.run(DATA)
+
+# ---------------- PHASE 5 — atlas layer (islands + precomputed geography over the element graph) ----
+# The atlas is a semantic-zoom MAP over the enriched element graph (WS1 relations + WS2 consolidation).
+# build_atlas.py consumes build/element_src/atlas.json, validates placement/coordinates/referential
+# integrity (fails loud), and emits data/atlas.{json,js}. Absent atlas.json → skipped (element layer
+# still builds); present → the two atlas views light up.
+if os.path.exists(os.path.join(HERE, 'element_src', 'atlas.json')):
+    import build_atlas
+    build_atlas.run(DATA)
+else:
+    print('PHASE 5 (atlas): element_src/atlas.json absent — skipped (run the WS2 consolidation to enable).')

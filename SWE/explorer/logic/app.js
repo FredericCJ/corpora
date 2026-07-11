@@ -7,7 +7,10 @@
   const log = SWE.log.consoleLogger('swe', 'debug');
   const WORK_VIEWS = ['graph', 'facets', 'timeline', 'overlap', 'anchors'];
   const EL_VIEWS = ['el-taxonomy', 'el-bridge', 'el-graph', 'el-coverage'];
-  const VIEW_ORDER = WORK_VIEWS.concat(EL_VIEWS);
+  // The atlas views mount only when the atlas layer was built (data/atlas.js present); the explorer
+  // degrades gracefully to the nine work+element views otherwise.
+  const ATLAS_VIEWS = (window.SWE && window.SWE.atlas) ? ['el-atlas', 'el-bridgeflow'] : [];
+  const VIEW_ORDER = WORK_VIEWS.concat(EL_VIEWS).concat(ATLAS_VIEWS);
 
   window.addEventListener('error', (ev) => log.error('uncaught error escaped every boundary', { message: ev.message, src: ev.filename, line: ev.lineno }));
   window.addEventListener('unhandledrejection', (ev) => log.error('unhandled promise rejection', { reason: String(ev.reason) }));
@@ -29,10 +32,13 @@
     SWE.core.buildIndex(corpus);
     const elements = SWE.parse.parseElements(window.SWE && window.SWE.elements);
     const elIndex = SWE.coreEl.buildIndex(elements);
+    const atlas = ATLAS_VIEWS.length ? SWE.parse.parseAtlas(window.SWE.atlas) : null;
+    const atlasIndex = atlas ? SWE.coreAtlas.buildIndex(atlas) : null;
     log.info('data parsed', { nodes: corpus.nodes.length, edges: relations.edges.length,
-      elements: elements.nodes.length, elementEdges: elements.edges.length });
+      elements: elements.nodes.length, elementEdges: elements.edges.length,
+      islands: atlas ? atlas.islands.length : 0 });
 
-    const ctx = { corpus, relations, elements, elIndex, log };
+    const ctx = { corpus, relations, elements, elIndex, atlas, atlasIndex, log };
 
     // corpus filter options
     const fc = $('fcorpus');
@@ -42,6 +48,7 @@
     const tabs = $('tabs');
     VIEW_ORDER.forEach((id, i) => {
       if (id === EL_VIEWS[0]) tabs.appendChild(U.el('span', { class: 'tab-sep', 'aria-hidden': 'true', text: 'elements' }));
+      if (ATLAS_VIEWS.length && id === ATLAS_VIEWS[0]) tabs.appendChild(U.el('span', { class: 'tab-sep', 'aria-hidden': 'true', text: 'atlas' }));
       tabs.appendChild(U.el('button', { role: 'tab', id: 'tab-' + id, 'aria-selected': 'false',
         text: (i + 1) + ' · ' + SWE.views[id].label, onclick: () => S.set({ view: id }) }));
     });
@@ -80,6 +87,7 @@
       if (changed.includes('view')) mountView(s.view);
       if (['q', 'ver', 'corpus'].some((k) => changed.includes(k))) { syncControls(s); if (current && current.applyFilters) current.applyFilters(); }
       if (changed.includes('sel') && current && current.onSelect) current.onSelect(s.sel);
+      if (['atlas', 'island'].some((k) => changed.includes(k)) && current && current.onNav) current.onNav();
     });
 
     // keyboard

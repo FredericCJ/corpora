@@ -1,0 +1,503 @@
+{
+ "group": "A07",
+ "title": "Enterprise, data, embedded & security patterns",
+ "realm": "architecture",
+ "literature": "Fowler PoEAA (enterprise/data source/domain logic); POSA; embedded/real-time patterns (Douglass Real-Time Design Patterns; Pont); security patterns; each pattern realizes/refines a style.",
+ "member_count": 44,
+ "target_edges": 53,
+ "priority_ids": [
+  "application-switching",
+  "authorization-security-pattern",
+  "board-support-package",
+  "bounded-context",
+  "chained-processors",
+  "domain-model",
+  "dual-core-lockstep",
+  "five-layer-architecture-rtdp",
+  "functional-redundancy",
+  "half-sync-half-async-system-layering",
+  "hardware-abstraction-layer-arch",
+  "health-monitor-arinc-653",
+  "hierarchical-control-rtdp",
+  "m-out-of-n-voting",
+  "master-worker",
+  "materialized-view-architecture-pattern",
+  "model-view-controller",
+  "model-view-intent",
+  "model-view-presenter",
+  "model-view-viewmodel",
+  "monitor-actuator",
+  "polyglot-persistence",
+  "presentation-model",
+  "privilege-separation-arch",
+  "recursive-containment-rtdp",
+  "recursive-control",
+  "replication",
+  "reporting-database",
+  "safety-executive",
+  "sandbox",
+  "self-contained-component",
+  "service-layer",
+  "single-sign-on",
+  "someone-in-charge",
+  "strangler-fig",
+  "supervision-tree-otp",
+  "table-module",
+  "the-elm-architecture",
+  "time-and-space-partitioning",
+  "transaction-script",
+  "triple-modular-redundancy",
+  "trusted-execution-environment",
+  "units-of-mitigation",
+  "watchdog-architecture-pattern"
+ ],
+ "members": [
+  {
+   "id": "application-switching",
+   "name": "Application Switching",
+   "kind": "pattern",
+   "aka": [
+    "one-program-at-a-time structure"
+   ],
+   "what": "Splits the system into independent executables of which only one runs at a time, each fitting the memory budget alone."
+  },
+  {
+   "id": "authorization-security-pattern",
+   "name": "Authorization (security pattern)",
+   "kind": "pattern",
+   "aka": [
+    "access control policy structure",
+    "subject-object rights model"
+   ],
+   "what": "A system-level structure defining which subjects may perform which actions on which protected resources, enforced at guarded access points."
+  },
+  {
+   "id": "board-support-package",
+   "name": "Board Support Package",
+   "kind": "pattern",
+   "aka": [
+    "BSP",
+    "board port",
+    "platform support package"
+   ],
+   "what": "The packaging of all board-specific software - boot code, clock and pin configuration, device drivers, memory maps - into one named unit that adapts an OS or firmware stack to a particular hardware board."
+  },
+  {
+   "id": "bounded-context",
+   "name": "Bounded Context",
+   "kind": "pattern",
+   "aka": [
+    "context boundary (strategic DDD)"
+   ],
+   "what": "An explicit boundary within which a domain model and its ubiquitous language apply consistently; large systems are partitioned into several."
+  },
+  {
+   "id": "chained-processors",
+   "name": "Chained Processors",
+   "kind": "pattern",
+   "aka": [
+    "processor chaining",
+    "always-on coprocessor front end"
+   ],
+   "what": "Arranges multiple processors in a chain where a small always-on processor handles front-line work and wakes or feeds larger downstream processors only when needed."
+  },
+  {
+   "id": "domain-model",
+   "name": "Domain Model",
+   "kind": "pattern",
+   "aka": [
+    "rich object domain layer"
+   ],
+   "what": "Organizes domain logic as an interconnected object model where each object carries the data and behavior of one domain concept."
+  },
+  {
+   "id": "dual-core-lockstep",
+   "name": "Dual-Core Lockstep",
+   "kind": "pattern",
+   "aka": [
+    "DCLS",
+    "lockstep execution",
+    "core lockstep"
+   ],
+   "what": "Two identical processor cores execute the same instruction stream cycle-aligned (one delayed a few cycles) while comparators check their outputs every cycle, signaling a fault on any divergence."
+  },
+  {
+   "id": "five-layer-architecture-rtdp",
+   "name": "Five-Layer Architecture (RTDP)",
+   "kind": "pattern",
+   "aka": [
+    "five-layer embedded architecture"
+   ],
+   "what": "A concrete whole-system layering template for real-time embedded applications (application, UI, communication, abstract OS, abstract hardware)."
+  },
+  {
+   "id": "functional-redundancy",
+   "name": "Functional Redundancy",
+   "kind": "pattern",
+   "aka": [
+    "design diversity",
+    "diverse redundancy",
+    "Heterogeneous Redundancy"
+   ],
+   "what": "Provide redundant components that are diversely designed and implemented but must produce the same output for the same input."
+  },
+  {
+   "id": "half-sync-half-async-system-layering",
+   "name": "Half-Sync/Half-Async (system layering)",
+   "kind": "pattern",
+   "aka": [],
+   "what": "Layers a concurrent system into a synchronous service layer and an asynchronous event layer mediated by a queueing layer."
+  },
+  {
+   "id": "hardware-abstraction-layer-arch",
+   "name": "Hardware Abstraction Layer (architectural layer)",
+   "kind": "pattern",
+   "aka": [
+    "HAL",
+    "MCU abstraction layer",
+    "peripheral abstraction layer"
+   ],
+   "what": "A dedicated layer in the firmware stack that presents hardware-independent interfaces for all peripheral and processor access, so every layer above it is portable across boards and silicon."
+  },
+  {
+   "id": "health-monitor-arinc-653",
+   "name": "Health Monitor (ARINC 653)",
+   "kind": "pattern",
+   "aka": [
+    "HM",
+    "partition health monitoring",
+    "multi-level health monitoring"
+   ],
+   "what": "A standardized architectural function that detects and reports faults at process, partition, and module level and applies configured recovery actions (restart, stop, switch) per level, defined by configuration tables rather than application"
+  },
+  {
+   "id": "hierarchical-control-rtdp",
+   "name": "Hierarchical Control (RTDP)",
+   "kind": "pattern",
+   "aka": [
+    "control hierarchy",
+    "hierarchy of controllers"
+   ],
+   "what": "Distributes control policy across a hierarchy in which upper controllers set goals/modes and lower controllers execute them locally."
+  },
+  {
+   "id": "m-out-of-n-voting",
+   "name": "MooN Voting Architecture",
+   "kind": "pattern",
+   "aka": [
+    "1oo2",
+    "2oo3",
+    "M-out-of-N architecture"
+   ],
+   "what": "The safety-instrumented channel topologies named MooN in IEC 61508: N channels of which M must agree/demand for the safety function to act (1oo1, 1oo2, 2oo2, 2oo3, 1oo2D...), each with defined diagnostic and voting arrangements."
+  },
+  {
+   "id": "master-worker",
+   "name": "Master-Worker",
+   "kind": "pattern",
+   "aka": [
+    "task farm",
+    "master/worker",
+    "boss/worker"
+   ],
+   "what": "A master component partitions work into independent tasks and dispatches them to a pool of identical worker components, then collects and combines their results."
+  },
+  {
+   "id": "materialized-view-architecture-pattern",
+   "name": "Materialized View (architecture pattern)",
+   "kind": "pattern",
+   "aka": [
+    "precomputed view",
+    "derived read store",
+    "Materialized View"
+   ],
+   "what": "Precomputed, query-shaped copies of data are generated and refreshed from source-of-truth stores to serve reads the source format handles poorly."
+  },
+  {
+   "id": "model-view-controller",
+   "name": "Model-View-Controller",
+   "kind": "pattern",
+   "aka": [
+    "MVC",
+    "Model/View/Controller (Smalltalk-80, Reenskaug lineage)",
+    "Model/View/Controller (Smalltalk-80)"
+   ],
+   "what": "Decomposes an interactive application into a model holding core data and logic, views presenting it, and controllers handling user input, with a change-propagation mechanism keeping them consistent."
+  },
+  {
+   "id": "model-view-intent",
+   "name": "Model-View-Intent",
+   "kind": "pattern",
+   "aka": [
+    "MVI"
+   ],
+   "what": "Structures the app as a reactive cycle: intents (user input streams) feed a model function producing state streams that the view renders."
+  },
+  {
+   "id": "model-view-presenter",
+   "name": "Model-View-Presenter",
+   "kind": "pattern",
+   "aka": [
+    "MVP",
+    "supervising controller (variant)",
+    "passive view (variant)"
+   ],
+   "what": "UI structure where a presenter mediates all interaction between a (possibly passive) view and the model, absorbing presentation logic."
+  },
+  {
+   "id": "model-view-viewmodel",
+   "name": "Model-View-ViewModel",
+   "kind": "pattern",
+   "aka": [
+    "MVVM"
+   ],
+   "what": "UI structure where a view binds declaratively (data binding) to a view-model exposing view-shaped state and commands over the model."
+  },
+  {
+   "id": "monitor-actuator",
+   "name": "Monitor-Actuator",
+   "kind": "pattern",
+   "aka": [
+    "monitor-actuator pair",
+    "actuation channel with independent monitor",
+    "monitor-actuator channel pair"
+   ],
+   "what": "A two-channel structure separating the actuation channel from an independent monitoring channel that checks the actuator's physical effect against setpoints and forces a fail-safe state on divergence."
+  },
+  {
+   "id": "polyglot-persistence",
+   "name": "Polyglot Persistence",
+   "kind": "pattern",
+   "aka": [
+    "per-need datastore selection"
+   ],
+   "what": "A system deliberately uses multiple storage technologies, matching each data-management need to the store best suited for it."
+  },
+  {
+   "id": "presentation-model",
+   "name": "Presentation Model",
+   "kind": "pattern",
+   "aka": [
+    "application model (Smalltalk lineage)",
+    "view state abstraction"
+   ],
+   "what": "A self-contained class holding all view state and behavior, which the view synchronizes with; the toolkit-independent predecessor of MVVM."
+  },
+  {
+   "id": "privilege-separation-arch",
+   "name": "Privilege Separation",
+   "kind": "pattern",
+   "aka": [
+    "privsep",
+    "monitor/slave process split",
+    "Privilege Separation (process topology)"
+   ],
+   "what": "Splits a program into a small privileged monitor process and unprivileged worker processes that request privileged operations over a narrow channel."
+  },
+  {
+   "id": "recursive-containment-rtdp",
+   "name": "Recursive Containment (RTDP)",
+   "kind": "pattern",
+   "aka": [
+    "recursive decomposition of subsystems"
+   ],
+   "what": "Decomposes the system recursively into parts that are themselves structured like systems, to any needed depth."
+  },
+  {
+   "id": "recursive-control",
+   "name": "Recursive Control",
+   "kind": "pattern",
+   "aka": [
+    "hierarchical control components (Selic)"
+   ],
+   "what": "Structures a real-time control system as a recursive hierarchy in which every component pairs its functional part with a control part, uniformly at all levels."
+  },
+  {
+   "id": "replication",
+   "name": "Replication",
+   "kind": "pattern",
+   "aka": [
+    "identical redundancy",
+    "clones",
+    "Homogeneous Redundancy"
+   ],
+   "what": "Provide multiple identical copies of a component so their results can be voted on or a copy can take over; effective against random hardware faults."
+  },
+  {
+   "id": "reporting-database",
+   "name": "Reporting Database",
+   "kind": "pattern",
+   "aka": [
+    "reporting replica",
+    "analytics offload database"
+   ],
+   "what": "A separate database, fed from the operational store, structured and indexed for reporting/analytics queries."
+  },
+  {
+   "id": "safety-executive",
+   "name": "Safety Executive",
+   "kind": "pattern",
+   "aka": [
+    "safety kernel (Douglass usage)",
+    "centralized safety monitor",
+    "safety kernel (coordinator sense)"
+   ],
+   "what": "A centralized component that tracks safety-relevant events and coordinates all shutdown, recovery, and fail-safe transitions for the system, separating safety policy from the functional channels it supervises."
+  },
+  {
+   "id": "sandbox",
+   "name": "Sandbox",
+   "kind": "pattern",
+   "aka": [
+    "sandboxing",
+    "resource virtualization (form)",
+    "process sandbox"
+   ],
+   "what": "Isolate an instance of the system from the real world so it can be experimented on without permanent consequences, including virtualizing uncontrollable resources (system clock, memory, battery, network); stubs, mocks, and dependency inject"
+  },
+  {
+   "id": "self-contained-component",
+   "name": "Self-Contained Component",
+   "kind": "pattern",
+   "aka": [
+    "component directory structure (Fluent C)"
+   ],
+   "what": "Organizes code into components each owning its directory, exposing one header interface, with dependencies pointing only toward more fundamental components."
+  },
+  {
+   "id": "service-layer",
+   "name": "Service Layer",
+   "kind": "pattern",
+   "aka": [
+    "application service layer",
+    "application facade layer"
+   ],
+   "what": "A layer of application services defines the system's available operations, coordinating domain logic, transactions and responses per operation."
+  },
+  {
+   "id": "single-sign-on",
+   "name": "Single Sign-On",
+   "kind": "pattern",
+   "aka": [
+    "SSO",
+    "third-party authentication topology",
+    "Kerberos/OAuth/OIDC federation (realizations)"
+   ],
+   "what": "One authentication event with a trusted authority yields tokens/tickets accepted by many independent systems."
+  },
+  {
+   "id": "someone-in-charge",
+   "name": "Someone in Charge",
+   "kind": "pattern",
+   "aka": [
+    "designated fault-handling authority"
+   ],
+   "what": "For every fault-tolerance activity some identified component is in charge of seeing it through to completion."
+  },
+  {
+   "id": "strangler-fig",
+   "name": "Strangler Fig",
+   "kind": "pattern",
+   "aka": [
+    "strangler application",
+    "strangler pattern",
+    "StranglerFigApplication (Fowler 2004)"
+   ],
+   "what": "Incrementally build the new system around the edges of the old, intercepting and redirecting functionality until the legacy system is fully displaced."
+  },
+  {
+   "id": "supervision-tree-otp",
+   "name": "Supervision Tree (OTP)",
+   "kind": "pattern",
+   "aka": [
+    "supervisor hierarchy",
+    "OTP supervision principles"
+   ],
+   "what": "Workers are organized under a tree of supervisors whose only job is to monitor children and apply restart strategies (one-for-one, one-for-all, rest-for-one)."
+  },
+  {
+   "id": "table-module",
+   "name": "Table Module",
+   "kind": "pattern",
+   "aka": [
+    "one class per table organization"
+   ],
+   "what": "Organizes domain logic with one class per database table, each instance handling all rows of its table."
+  },
+  {
+   "id": "the-elm-architecture",
+   "name": "The Elm Architecture",
+   "kind": "pattern",
+   "aka": [
+    "Model-View-Update",
+    "MVU",
+    "TEA"
+   ],
+   "what": "App structured as an immutable model, a pure update function folding messages into the model, and a pure view function rendering it."
+  },
+  {
+   "id": "time-and-space-partitioning",
+   "name": "Time and Space Partitioning",
+   "kind": "pattern",
+   "aka": [
+    "robust partitioning",
+    "partitioned RTOS architecture",
+    "ARINC 653 partitioning"
+   ],
+   "what": "An operating-system-enforced structure in which applications run in partitions with statically allocated memory regions (space) and fixed cyclic execution windows (time), so no partition can affect another's resources or timing."
+  },
+  {
+   "id": "transaction-script",
+   "name": "Transaction Script",
+   "kind": "pattern",
+   "aka": [
+    "procedure-per-request organization"
+   ],
+   "what": "Organizes all domain logic as one procedure per business transaction, each handling its request from presentation to database."
+  },
+  {
+   "id": "triple-modular-redundancy",
+   "name": "Triple Modular Redundancy",
+   "kind": "pattern",
+   "aka": [
+    "TMR",
+    "triplex voting",
+    "2-out-of-3 masking redundancy"
+   ],
+   "what": "Three identical channels compute in parallel and a voter forwards the majority result, masking any single channel failure without interruption of service."
+  },
+  {
+   "id": "trusted-execution-environment",
+   "name": "Trusted Execution Environment",
+   "kind": "pattern",
+   "aka": [
+    "TEE",
+    "secure enclave",
+    "TrustZone secure world"
+   ],
+   "what": "A hardware-isolated execution partition runs security-critical code and holds secrets, exposing only a narrow call interface to the untrusted rich OS beside it."
+  },
+  {
+   "id": "units-of-mitigation",
+   "name": "Units of Mitigation",
+   "kind": "pattern",
+   "aka": [
+    "recovery unit decomposition",
+    "error-recovery granule"
+   ],
+   "what": "Divides the system into the units within which errors are contained and recovery is performed - the granularity of restart and repair."
+  },
+  {
+   "id": "watchdog-architecture-pattern",
+   "name": "Watchdog (architecture pattern)",
+   "kind": "pattern",
+   "aka": [
+    "watchdog pattern (RTDP)",
+    "watchdog-supervised architecture",
+    "task supervision structure"
+   ],
+   "what": "A system-level supervision structure: an independent watchdog component (often on separate hardware with its own time base) receives liveness/sanity evidence from the supervised channels and initiates recovery or fail-safe shutdown when evi"
+  }
+ ],
+ "existing_intra_edges": []
+}

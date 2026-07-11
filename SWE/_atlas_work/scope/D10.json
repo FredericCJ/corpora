@@ -1,0 +1,427 @@
+{
+ "group": "D10",
+ "title": "State management",
+ "realm": "design",
+ "literature": "GoF State/Memento; Nystrom (state machines, snapshot); Fowler event sourcing; state-management UI (flux/redux lineage); immutable state idioms.",
+ "member_count": 33,
+ "target_edges": 40,
+ "priority_ids": [
+  "aggregate",
+  "context-object",
+  "hydration",
+  "immutable-value",
+  "interior-mutability",
+  "lag-compensation",
+  "optimistic-ui-update",
+  "rules-engine",
+  "run-to-completion-event-processing",
+  "undo-redo-command-stack"
+ ],
+ "members": [
+  {
+   "id": "aggregate",
+   "name": "Aggregate",
+   "kind": "state-management",
+   "aka": [],
+   "what": "A cluster of associated objects treated as a single unit for data changes, with one root entity through which all external references and modifications must pass."
+  },
+  {
+   "id": "behavior-tree",
+   "name": "Behavior Tree",
+   "kind": "state-management",
+   "aka": [
+    "BT",
+    "behaviour tree",
+    "behavior DAG (Isla)"
+   ],
+   "what": "AI decision logic is structured as a tree of composable nodes (sequence, selector/fallback, parallel, decorators, leaf tasks) evaluated by periodic ticks that return success/failure/running, giving reactive hierarchical behavior without exp"
+  },
+  {
+   "id": "client-side-prediction",
+   "name": "Client-Side Prediction",
+   "kind": "state-management",
+   "aka": [
+    "prediction and reconciliation",
+    "server reconciliation (companion mechanism)",
+    "input prediction"
+   ],
+   "what": "The client applies its own inputs to a locally predicted copy of authoritative state immediately, tags each input with a sequence number, and on receiving authoritative server state rewinds to it and replays still-unacknowledged inputs."
+  },
+  {
+   "id": "collections-for-states",
+   "name": "Collections for States",
+   "kind": "state-management",
+   "aka": [],
+   "what": "Objects are placed in per-state collections; an object's state is encoded by which collection currently holds it, and state transitions move it between collections."
+  },
+  {
+   "id": "context-object",
+   "name": "Context Object",
+   "kind": "state-management",
+   "aka": [],
+   "what": "Execution-scoped state (security principal, transaction, locale, request data) is bundled into one context object passed along the processing path instead of via globals or long parameter lists."
+  },
+  {
+   "id": "data-binding",
+   "name": "Data Binding",
+   "kind": "state-management",
+   "aka": [
+    "property binding",
+    "one-way binding",
+    "two-way binding"
+   ],
+   "what": "Declaratively connects a UI element's displayed value to a data source so changes propagate automatically instead of via hand-written synchronization code."
+  },
+  {
+   "id": "dead-reckoning",
+   "name": "Dead Reckoning",
+   "kind": "state-management",
+   "aka": [
+    "dead reckoning models",
+    "predictive extrapolation of entity state",
+    "DIS dead reckoning"
+   ],
+   "what": "Each node extrapolates remote entities' current state from their last received kinematic update (position, velocity, acceleration) via an agreed model, and senders transmit a new update only when their real state diverges from the shared mo"
+  },
+  {
+   "id": "decomposed-and-state",
+   "name": "Decomposed AND-State",
+   "kind": "state-management",
+   "aka": [
+    "AND-state decomposition",
+    "orthogonal regions implementation"
+   ],
+   "what": "Implementing a statechart's concurrent (AND) regions by decomposing them into separate coordinated state machine objects, each handling its region's events."
+  },
+  {
+   "id": "deferred-event",
+   "name": "Deferred Event",
+   "kind": "state-management",
+   "aka": [
+    "event deferral"
+   ],
+   "what": "Events that arrive at an inconvenient state are set aside in a deferral queue and recalled for processing when the machine reaches a state that can handle them."
+  },
+  {
+   "id": "deterministic-lockstep",
+   "name": "Deterministic Lockstep",
+   "kind": "state-management",
+   "aka": [
+    "lockstep simulation",
+    "lockstep protocol",
+    "input-synchronous simulation"
+   ],
+   "what": "Peers run bit-identical deterministic simulations from the same seed and exchange only per-tick inputs; each side advances a tick only once all participants' inputs for that tick have arrived."
+  },
+  {
+   "id": "dirty-checking",
+   "name": "Dirty Checking",
+   "kind": "state-management",
+   "aka": [
+    "change detection by comparison",
+    "digest cycle (AngularJS)"
+   ],
+   "what": "Detects state changes by re-evaluating watched expressions and comparing new values against stored previous values in a check loop (repeated until stable), rather than by intercepting writes."
+  },
+  {
+   "id": "dirty-flag",
+   "name": "Dirty Flag",
+   "kind": "state-management",
+   "aka": [
+    "dirty bit"
+   ],
+   "what": "Track whether derived data is out of sync with its primary source using a boolean flag, and recompute the derived data only when it is both dirty and needed."
+  },
+  {
+   "id": "dirty-rectangles",
+   "name": "Dirty Rectangles",
+   "kind": "state-management",
+   "aka": [
+    "dirty-rectangle animation",
+    "dirty region tracking",
+    "damage rectangles"
+   ],
+   "what": "Track the screen regions modified since the last frame and redraw or recomposite only those rectangles instead of the whole display."
+  },
+  {
+   "id": "finite-state-machine",
+   "name": "Finite State Machine",
+   "kind": "state-management",
+   "aka": [
+    "FSM",
+    "finite automaton",
+    "state machine"
+   ],
+   "what": "Behavior modeled as a finite set of states, events, and transitions, where the reaction to an event depends on the current state."
+  },
+  {
+   "id": "hierarchical-state-machine",
+   "name": "Hierarchical State Machine",
+   "kind": "state-management",
+   "aka": [
+    "statechart",
+    "HSM",
+    "Harel statechart"
+   ],
+   "what": "A state machine extended with nested states (behavioral inheritance of transitions from enclosing states), orthogonal regions, and history, per Harel's statechart formalism."
+  },
+  {
+   "id": "hydration",
+   "name": "Hydration",
+   "kind": "state-management",
+   "aka": [
+    "client-side hydration",
+    "rehydration"
+   ],
+   "what": "Attaches client-side behavior (event listeners, component state) to server-rendered static markup by re-running component logic and adopting the existing DOM instead of re-creating it."
+  },
+  {
+   "id": "immutable-value",
+   "name": "Immutable Value",
+   "kind": "state-management",
+   "aka": [
+    "Immutable Object",
+    "Immutable",
+    "value object (overlapping)"
+   ],
+   "what": "Value objects are made unmodifiable after construction, so they can be freely shared and aliased - including across threads - without copying or locking."
+  },
+  {
+   "id": "interior-mutability",
+   "name": "Interior Mutability",
+   "kind": "state-management",
+   "aka": [
+    "Cell/RefCell pattern",
+    "shared mutability behind immutable references"
+   ],
+   "what": "Types like Cell/RefCell/Mutex allow controlled mutation through shared (immutable) references by moving aliasing checks to runtime or hardware."
+  },
+  {
+   "id": "lag-compensation",
+   "name": "Lag Compensation",
+   "kind": "state-management",
+   "aka": [
+    "server-side rewind",
+    "backward reconciliation",
+    "lag-compensated hit detection"
+   ],
+   "what": "The server keeps a short history of world state and, when processing a client's time-stamped action, temporarily rewinds targets to where the acting client saw them at the moment of the action before adjudicating it."
+  },
+  {
+   "id": "methods-for-states",
+   "name": "Methods for States",
+   "kind": "state-management",
+   "aka": [],
+   "what": "Modal behavior is realized by swapping function/method references (or delegates) as the mode changes, so dispatch selects the current mode's behavior without conditionals."
+  },
+  {
+   "id": "multiple-event-receptor",
+   "name": "Multiple Event Receptor",
+   "kind": "state-management",
+   "aka": [
+    "multiple event receptor state machine"
+   ],
+   "what": "A state machine implementation exposing one function per event type, each dispatching internally on the current state."
+  },
+  {
+   "id": "optimistic-ui-update",
+   "name": "Optimistic UI Update",
+   "kind": "state-management",
+   "aka": [
+    "optimistic updates"
+   ],
+   "what": "Applies the expected result of a user action to local UI state immediately, before server confirmation, then reconciles with the authoritative response - rolling back if the operation fails."
+  },
+  {
+   "id": "orthogonal-component",
+   "name": "Orthogonal Component",
+   "kind": "state-management",
+   "aka": [
+    "orthogonal component state pattern"
+   ],
+   "what": "Independent concurrent behaviors are implemented as separate state-machine components contained by (and exchanging events with) a container machine, instead of as orthogonal regions of one chart."
+  },
+  {
+   "id": "reactive-signals",
+   "name": "Signals (fine-grained reactivity)",
+   "kind": "state-management",
+   "aka": [
+    "reactive signals",
+    "observable values with dependency tracking",
+    "computed/derivations"
+   ],
+   "what": "State cells that automatically track which computations read them and re-run exactly those computations (computeds/effects) when the cell changes, giving fine-grained dependency-graph updates without diffing."
+  },
+  {
+   "id": "reminder",
+   "name": "Reminder",
+   "kind": "state-management",
+   "aka": [
+    "reminder event"
+   ],
+   "what": "The state machine posts an event to itself to convert an internal condition into an explicit event that triggers further transitions."
+  },
+  {
+   "id": "rollback-netcode",
+   "name": "Rollback Netcode",
+   "kind": "state-management",
+   "aka": [
+    "rollback networking",
+    "GGPO-style netcode",
+    "predict-and-rollback"
+   ],
+   "what": "Peers advance a deterministic simulation without waiting for remote inputs by predicting them; when actual remote inputs arrive and differ from the prediction, the engine restores a saved earlier state and re-simulates the intervening frame"
+  },
+  {
+   "id": "rules-engine",
+   "name": "Rules Engine",
+   "kind": "state-management",
+   "aka": [
+    "production rule system",
+    "business rules engine",
+    "inference engine (forward-chaining)"
+   ],
+   "what": "A component that evaluates a collection of independent condition-action (production) rules against working state, with the engine — not imperative code order — deciding which rules fire, including chaining when one rule's action changes ano"
+  },
+  {
+   "id": "run-to-completion-event-processing",
+   "name": "Run-to-Completion Event Processing",
+   "kind": "state-management",
+   "aka": [
+    "RTC step",
+    "run-to-completion semantics"
+   ],
+   "what": "Each event is processed fully - all transitions, entry/exit actions - before the next event is dequeued, so the machine is never observed mid-transition."
+  },
+  {
+   "id": "single-event-receptor",
+   "name": "Single Event Receptor",
+   "kind": "state-management",
+   "aka": [
+    "single event receptor state machine"
+   ],
+   "what": "A state machine implementation exposing one event-receptor function that takes a parameterized event object and dispatches on current state and event type (synchronously or via a queue)."
+  },
+  {
+   "id": "state-transition-table",
+   "name": "State Transition Table",
+   "kind": "state-management",
+   "aka": [
+    "State Table Pattern",
+    "table-driven state machine"
+   ],
+   "what": "The state machine's transitions are encoded as a state x event table of handler/next-state entries, and a generic engine indexes the table to dispatch events."
+  },
+  {
+   "id": "transition-to-history",
+   "name": "Transition to History",
+   "kind": "state-management",
+   "aka": [
+    "history state",
+    "deep history",
+    "shallow history"
+   ],
+   "what": "The most recently active substate of a composite state is recorded on exit so a later transition can return to where the machine left off rather than to the default initial substate."
+  },
+  {
+   "id": "ultimate-hook",
+   "name": "Ultimate Hook",
+   "kind": "state-management",
+   "aka": [],
+   "what": "A composite (super)state provides default event handling that nested substates inherit and may selectively override, mirroring how a GUI framework's default window procedure works."
+  },
+  {
+   "id": "undo-redo-command-stack",
+   "name": "Undo/Redo Command Stack",
+   "kind": "state-management",
+   "aka": [
+    "command history",
+    "undo stack",
+    "undo history"
+   ],
+   "what": "Records executed operations as command objects (with state backups or inverse operations) on a history stack, so popping replays/reverts them to implement undo and redo."
+  }
+ ],
+ "existing_intra_edges": [
+  {
+   "from": "dirty-checking",
+   "kind": "implements",
+   "to": "data-binding"
+  },
+  {
+   "from": "rollback-netcode",
+   "kind": "specializes",
+   "to": "deterministic-lockstep"
+  },
+  {
+   "from": "hierarchical-state-machine",
+   "kind": "specializes",
+   "to": "finite-state-machine"
+  },
+  {
+   "from": "state-transition-table",
+   "kind": "implements",
+   "to": "finite-state-machine"
+  },
+  {
+   "from": "single-event-receptor",
+   "kind": "implements",
+   "to": "finite-state-machine"
+  },
+  {
+   "from": "multiple-event-receptor",
+   "kind": "implements",
+   "to": "finite-state-machine"
+  },
+  {
+   "from": "methods-for-states",
+   "kind": "implements",
+   "to": "finite-state-machine"
+  },
+  {
+   "from": "collections-for-states",
+   "kind": "implements",
+   "to": "finite-state-machine"
+  },
+  {
+   "from": "decomposed-and-state",
+   "kind": "implements",
+   "to": "hierarchical-state-machine"
+  },
+  {
+   "from": "deferred-event",
+   "kind": "implements",
+   "to": "hierarchical-state-machine"
+  },
+  {
+   "from": "reminder",
+   "kind": "implements",
+   "to": "hierarchical-state-machine"
+  },
+  {
+   "from": "transition-to-history",
+   "kind": "implements",
+   "to": "hierarchical-state-machine"
+  },
+  {
+   "from": "ultimate-hook",
+   "kind": "implements",
+   "to": "hierarchical-state-machine"
+  },
+  {
+   "from": "orthogonal-component",
+   "kind": "implements",
+   "to": "hierarchical-state-machine"
+  },
+  {
+   "from": "behavior-tree",
+   "kind": "alternative-to",
+   "to": "finite-state-machine"
+  },
+  {
+   "from": "dirty-rectangles",
+   "kind": "specializes",
+   "to": "dirty-flag"
+  }
+ ]
+}

@@ -1,0 +1,638 @@
+{
+ "group": "D05",
+ "title": "Data structures",
+ "realm": "design",
+ "literature": "CLRS; Sedgewick; Okasaki Purely Functional Data Structures; Knuth TAOCP; database index structures (B-tree/LSM) DDIA.",
+ "member_count": 52,
+ "target_edges": 62,
+ "priority_ids": [
+  "binary-heap-priority-queue",
+  "bitmap-bitset",
+  "bitmap-index",
+  "conflict-free-replicated-data-type-crdt",
+  "consistent-hashing",
+  "count-min-sketch",
+  "deque",
+  "disjoint-set-union-find",
+  "dynamic-array",
+  "erase-remove",
+  "fenwick-tree",
+  "fixed-capacity-container",
+  "hash-table",
+  "hyperloglog",
+  "interval-tree",
+  "lock-free-fifo-queue-michael-scott",
+  "lock-free-stack-treiber",
+  "merkle-tree",
+  "minhash",
+  "navigation-mesh",
+  "queue-fifo",
+  "r-tree",
+  "rope",
+  "scene-graph",
+  "segment-tree",
+  "slot-map",
+  "sparse-set",
+  "stack",
+  "suffix-array",
+  "t-digest",
+  "trie",
+  "zone-map"
+ ],
+ "members": [
+  {
+   "id": "b-tree",
+   "name": "B-tree",
+   "kind": "data-structures",
+   "aka": [
+    "B+ tree (leaf-linked variant)"
+   ],
+   "what": "Self-balancing wide-fanout search tree whose nodes hold many keys sized to a block/page, keeping the tree shallow; B+ trees keep all values in linked leaves for range scans."
+  },
+  {
+   "id": "binary-heap-priority-queue",
+   "name": "Binary Heap (Priority Queue)",
+   "kind": "data-structures",
+   "aka": [
+    "priority queue",
+    "min-heap",
+    "max-heap"
+   ],
+   "what": "Implicit complete binary tree stored in an array maintaining the heap order property, giving O(log n) insert and extract-min/max with no pointers."
+  },
+  {
+   "id": "binary-search-tree",
+   "name": "Binary Search Tree",
+   "kind": "data-structures",
+   "aka": [
+    "BST",
+    "self-balancing BST",
+    "red-black tree (balanced variant)"
+   ],
+   "what": "Binary tree maintaining the search-order invariant (left < node < right); self-balancing variants (red-black, AVL) guarantee O(log n) ordered operations."
+  },
+  {
+   "id": "bitmap-bitset",
+   "name": "Bitmap / Bitset",
+   "kind": "data-structures",
+   "aka": [
+    "bit array",
+    "bit vector",
+    "bitset"
+   ],
+   "what": "Dense array of bits representing set membership or boolean flags by index, supporting bulk bitwise set operations word-at-a-time; compressed variants (Roaring, WAH) handle sparse ranges."
+  },
+  {
+   "id": "bitmap-index",
+   "name": "Bitmap Index",
+   "kind": "data-structures",
+   "aka": [
+    "bit-map index",
+    "bitmapped index",
+    "bit-sliced index (variant)"
+   ],
+   "what": "An index that keeps, for each distinct value (or value range) of a column, a bitmap with one bit per row; multi-predicate queries are answered by bitwise AND/OR/NOT over the bitmaps before touching any rows."
+  },
+  {
+   "id": "bloom-filter",
+   "name": "Bloom Filter",
+   "kind": "data-structures",
+   "aka": [
+    "counting Bloom filter (deletable variant)",
+    "blocked Bloom filter",
+    "cuckoo filter (alternative with deletion)"
+   ],
+   "what": "Bit array plus k hash functions answering approximate set membership with no false negatives and a tunable false-positive rate."
+  },
+  {
+   "id": "bounding-volume-hierarchy",
+   "name": "Bounding Volume Hierarchy",
+   "kind": "data-structures",
+   "aka": [
+    "BVH",
+    "AABB tree"
+   ],
+   "what": "Tree whose nodes are bounding volumes (typically AABBs) enclosing their children, with scene objects at the leaves, letting intersection queries prune whole subtrees."
+  },
+  {
+   "id": "conflict-free-replicated-data-type-crdt",
+   "name": "Conflict-free Replicated Data Type (CRDT)",
+   "kind": "data-structures",
+   "aka": [
+    "convergent replicated data type (CvRDT)",
+    "commutative replicated data type (CmRDT)",
+    "G-Counter / PN-Counter / G-Set / OR-Set / LWW-Register / RGA (family members, folded)"
+   ],
+   "what": "Family of replicated data types (counters, sets, registers, sequences) whose merge operations are commutative/associative/idempotent, so concurrently edited replicas converge without coordination."
+  },
+  {
+   "id": "consistent-hashing",
+   "name": "Consistent Hashing",
+   "kind": "data-structures",
+   "aka": [
+    "hash ring",
+    "rendezvous hashing (alternative)",
+    "jump consistent hash (variant)"
+   ],
+   "what": "Hashing scheme placing keys and buckets on the same ring so each key maps to the nearest bucket, remapping only ~1/n of keys when a bucket joins or leaves; virtual nodes smooth the load."
+  },
+  {
+   "id": "copy-on-write-b-tree",
+   "name": "Copy-on-Write B-Tree",
+   "kind": "data-structures",
+   "aka": [
+    "CoW B-tree",
+    "append-only B-tree"
+   ],
+   "what": "A B-tree whose updates never modify pages in place: changed pages and their ancestors up to the root are rewritten to new locations, and commit is an atomic root swap."
+  },
+  {
+   "id": "count-min-sketch",
+   "name": "Count-Min Sketch",
+   "kind": "data-structures",
+   "aka": [],
+   "what": "Sub-linear 2-D counter array indexed by multiple hash functions that answers approximate frequency queries over a stream, with one-sided (over-count) error."
+  },
+  {
+   "id": "deque",
+   "name": "Deque",
+   "kind": "data-structures",
+   "aka": [
+    "double-ended queue"
+   ],
+   "what": "Sequence container supporting O(1) insertion and removal at both ends, typically as a ring buffer or blocked array."
+  },
+  {
+   "id": "disjoint-set-union-find",
+   "name": "Disjoint-Set (Union-Find)",
+   "kind": "data-structures",
+   "aka": [
+    "union-find",
+    "merge-find set",
+    "disjoint-set forest"
+   ],
+   "what": "Forest of trees tracking a partition of elements into disjoint sets, with union-by-rank and path compression making find/union near-constant amortized."
+  },
+  {
+   "id": "dynamic-array",
+   "name": "Dynamic Array",
+   "kind": "data-structures",
+   "aka": [
+    "growable array",
+    "dynamic table",
+    "resizable array"
+   ],
+   "what": "Contiguous array that grows by amortized capacity doubling (and optionally shrinks), preserving O(1) amortized append and O(1) random access."
+  },
+  {
+   "id": "embedded-pointer",
+   "name": "Embedded Pointer",
+   "kind": "data-structures",
+   "aka": [
+    "intrusive links",
+    "intrusive linked list",
+    "intrusive container"
+   ],
+   "what": "Embed the pointers that maintain a collection directly into each member object instead of allocating external link nodes."
+  },
+  {
+   "id": "erase-remove",
+   "name": "Erase-Remove",
+   "kind": "data-structures",
+   "aka": [
+    "remove-erase idiom"
+   ],
+   "what": "Combine std::remove/remove_if (which compacts kept elements) with container erase to actually delete matching elements from a sequence container."
+  },
+  {
+   "id": "fenwick-tree",
+   "name": "Fenwick Tree",
+   "kind": "data-structures",
+   "aka": [
+    "binary indexed tree",
+    "BIT"
+   ],
+   "what": "Implicit array-based tree exploiting binary index decomposition to maintain prefix sums with O(log n) point update and prefix query in n words of memory."
+  },
+  {
+   "id": "fixed-capacity-container",
+   "name": "Fixed-Capacity Container",
+   "kind": "data-structures",
+   "aka": [
+    "static container",
+    "no-heap container",
+    "etl::vector-style container"
+   ],
+   "what": "STL-style containers whose maximum capacity is a compile-time parameter, storing elements in embedded (static or stack) storage with no heap use."
+  },
+  {
+   "id": "gap-buffer",
+   "name": "Gap Buffer",
+   "kind": "data-structures",
+   "aka": [],
+   "what": "Contiguous text buffer with a movable gap of free space at the cursor position, making localized insertions and deletions O(1) until the gap moves or fills."
+  },
+  {
+   "id": "hash-array-mapped-trie-hamt",
+   "name": "Hash Array Mapped Trie (HAMT)",
+   "kind": "data-structures",
+   "aka": [
+    "ideal hash tree",
+    "persistent hash map",
+    "CHAMP (variant)"
+   ],
+   "what": "Trie over hash-code bit chunks using per-node bitmaps to compress sparse children, giving an efficiently persistent (structurally shared, immutable) hash map."
+  },
+  {
+   "id": "hash-table",
+   "name": "Hash Table",
+   "kind": "data-structures",
+   "aka": [
+    "hash map",
+    "dictionary",
+    "associative array"
+   ],
+   "what": "Key-value store mapping keys through a hash function into an array of buckets, with collisions resolved by separate chaining or open addressing (linear/quadratic probing, Robin Hood, cuckoo, Swiss-table variants folded here)."
+  },
+  {
+   "id": "hyperloglog",
+   "name": "HyperLogLog",
+   "kind": "data-structures",
+   "aka": [
+    "LogLog (predecessor)",
+    "HLL++"
+   ],
+   "what": "Cardinality-estimation sketch that hashes items and records maximum leading-zero runs in a small register array, estimating distinct counts within a few percent using kilobytes."
+  },
+  {
+   "id": "interval-tree",
+   "name": "Interval Tree",
+   "kind": "data-structures",
+   "aka": [
+    "augmented interval tree",
+    "centered interval tree"
+   ],
+   "what": "Search tree over intervals (typically a BST augmented with subtree max-endpoints) answering which stored intervals overlap a query point or interval in O(log n + k)."
+  },
+  {
+   "id": "inverted-index",
+   "name": "Inverted Index",
+   "kind": "data-structures",
+   "aka": [
+    "postings list",
+    "inverted file"
+   ],
+   "what": "Mapping from each term to the sorted list of documents (and positions) containing it, the core structure of full-text search engines."
+  },
+  {
+   "id": "k-d-tree",
+   "name": "k-d Tree",
+   "kind": "data-structures",
+   "aka": [
+    "k-dimensional tree"
+   ],
+   "what": "Binary space-partitioning tree that splits points on alternating coordinate axes, supporting nearest-neighbor and orthogonal range queries in low dimensions."
+  },
+  {
+   "id": "linked-list",
+   "name": "Linked List",
+   "kind": "data-structures",
+   "aka": [
+    "singly linked list",
+    "doubly linked list",
+    "circular linked list"
+   ],
+   "what": "Sequence of nodes each holding an element and a pointer to the next (and optionally previous) node, giving O(1) insertion/removal at a known position without element movement."
+  },
+  {
+   "id": "lock-free-fifo-queue-michael-scott",
+   "name": "Lock-Free FIFO Queue (Michael-Scott)",
+   "kind": "data-structures",
+   "aka": [
+    "Michael-Scott queue",
+    "MS queue",
+    "nonblocking concurrent queue"
+   ],
+   "what": "A linked-list MPMC queue where enqueue and dequeue advance head/tail with CAS, and threads help complete a lagging tail swing before proceeding."
+  },
+  {
+   "id": "lock-free-stack-treiber",
+   "name": "Lock-Free Stack (Treiber)",
+   "kind": "data-structures",
+   "aka": [
+    "Treiber stack",
+    "nonblocking LIFO",
+    "IBM freelist"
+   ],
+   "what": "A linked LIFO where push and pop swing the top-of-stack pointer with a CAS retry loop (with an ABA guard when nodes are recycled)."
+  },
+  {
+   "id": "lsm-tree",
+   "name": "LSM Tree",
+   "kind": "data-structures",
+   "aka": [
+    "log-structured merge-tree",
+    "memtable + SSTable"
+   ],
+   "what": "Write-optimized index that batches writes in an in-memory table, flushes them as sorted immutable runs (SSTables), and merges runs in the background via compaction."
+  },
+  {
+   "id": "merkle-tree",
+   "name": "Merkle Tree",
+   "kind": "data-structures",
+   "aka": [
+    "hash tree"
+   ],
+   "what": "Tree whose leaves are hashes of data blocks and whose internal nodes hash their children, so one root hash authenticates the whole set and any block is verifiable with a log-length path."
+  },
+  {
+   "id": "minhash",
+   "name": "MinHash",
+   "kind": "data-structures",
+   "aka": [
+    "min-wise independent permutations",
+    "MinHash LSH (composition)"
+   ],
+   "what": "Similarity sketch storing the minimum hash values of a set under many hash functions, so sketch agreement estimates Jaccard similarity between sets."
+  },
+  {
+   "id": "navigation-mesh",
+   "name": "Navigation Mesh",
+   "kind": "data-structures",
+   "aka": [
+    "navmesh",
+    "walkable-surface mesh"
+   ],
+   "what": "A data structure representing an environment's walkable space as connected convex polygons, over which agents path-find polygon-to-polygon and then smooth (e.g. string-pulling/funnel) within the free space."
+  },
+  {
+   "id": "persistent-data-structure",
+   "name": "Persistent Data Structure",
+   "kind": "data-structures",
+   "aka": [
+    "immutable data structure",
+    "structural sharing",
+    "purely functional data structure"
+   ],
+   "what": "A data structure whose update operations return a new version while old versions remain valid, sharing unchanged substructure between versions."
+  },
+  {
+   "id": "piece-table",
+   "name": "Piece Table",
+   "kind": "data-structures",
+   "aka": [
+    "piece chain",
+    "piece tree (VS Code variant)"
+   ],
+   "what": "Edit representation keeping the original file and an append-only add buffer immutable, with the document described as a sequence of pieces (spans) into the two buffers."
+  },
+  {
+   "id": "quadtree-octree",
+   "name": "Quadtree / Octree",
+   "kind": "data-structures",
+   "aka": [
+    "octree (3D analogue)",
+    "region quadtree",
+    "point quadtree"
+   ],
+   "what": "Hierarchical spatial partition recursively subdividing 2D space into four quadrants (or 3D into eight octants) until cells meet an occupancy or depth bound."
+  },
+  {
+   "id": "queue-fifo",
+   "name": "Queue (FIFO)",
+   "kind": "data-structures",
+   "aka": [
+    "FIFO",
+    "first-in-first-out queue"
+   ],
+   "what": "First-in-first-out collection with enqueue at the tail and dequeue at the head, array- or list-backed."
+  },
+  {
+   "id": "r-tree",
+   "name": "R-tree",
+   "kind": "data-structures",
+   "aka": [
+    "R*-tree (variant)",
+    "Hilbert R-tree (variant)"
+   ],
+   "what": "Balanced B-tree-like index of minimum bounding rectangles that may overlap, grouping nearby spatial objects for disk-friendly window and containment queries."
+  },
+  {
+   "id": "rope",
+   "name": "Rope",
+   "kind": "data-structures",
+   "aka": [
+    "cord"
+   ],
+   "what": "Balanced binary tree of string fragments representing a long string, making concatenation, insertion, and splitting O(log n) instead of O(n) copies."
+  },
+  {
+   "id": "scene-graph",
+   "name": "Scene Graph",
+   "kind": "data-structures",
+   "aka": [
+    "transform hierarchy",
+    "scene tree"
+   ],
+   "what": "Represent a scene as a hierarchy of nodes whose spatial transforms (and other attributes) compose parent-to-child, so moving a parent moves its whole subtree."
+  },
+  {
+   "id": "secondary-index",
+   "name": "Secondary Index",
+   "kind": "data-structures",
+   "aka": [
+    "non-clustered index",
+    "alternate-key index"
+   ],
+   "what": "An auxiliary structure mapping non-primary-key attribute values to record locations (or primary keys), maintained alongside the base data on every write."
+  },
+  {
+   "id": "segment-tree",
+   "name": "Segment Tree",
+   "kind": "data-structures",
+   "aka": [
+    "statistic tree",
+    "segment tree with lazy propagation (variant)"
+   ],
+   "what": "Complete binary tree over an array where each node stores an aggregate (sum, min, max) of its range, giving O(log n) range queries and point/range updates."
+  },
+  {
+   "id": "skip-list",
+   "name": "Skip List",
+   "kind": "data-structures",
+   "aka": [],
+   "what": "Sorted linked list augmented with probabilistic express lanes at multiple levels, giving expected O(log n) search/insert/delete without rebalancing."
+  },
+  {
+   "id": "slot-map",
+   "name": "Slot Map",
+   "kind": "data-structures",
+   "aka": [
+    "generational arena",
+    "generational index array",
+    "handle map"
+   ],
+   "what": "Contiguous object pool addressed by stable keys that pair a slot index with a generation counter, so freed-and-reused slots invalidate stale handles while keeping O(1) access and dense iteration."
+  },
+  {
+   "id": "sparse-set",
+   "name": "Sparse Set",
+   "kind": "data-structures",
+   "aka": [
+    "sparse-dense set"
+   ],
+   "what": "Pair of arrays (dense packed elements plus sparse index-by-value) representing an integer set with O(1) insert, delete, membership, and clear, and cache-friendly iteration over only the members."
+  },
+  {
+   "id": "spatial-partition",
+   "name": "Spatial Partition",
+   "kind": "data-structures",
+   "aka": [
+    "spatial partitioning",
+    "spatial index"
+   ],
+   "what": "Store objects in a data structure organized by their spatial position (grid, quadtree, BSP, etc.) so that location-based queries need only examine nearby cells."
+  },
+  {
+   "id": "stack",
+   "name": "Stack",
+   "kind": "data-structures",
+   "aka": [
+    "LIFO",
+    "pushdown list"
+   ],
+   "what": "Last-in-first-out collection with push/pop/peek at one end, whether array- or list-backed."
+  },
+  {
+   "id": "suffix-array",
+   "name": "Suffix Array",
+   "kind": "data-structures",
+   "aka": [
+    "suffix tree (heavier predecessor, folded)",
+    "FM-index (compressed successor, noted)"
+   ],
+   "what": "Sorted array of all suffix start positions of a text, supporting binary-search substring queries; the array-based, cache-friendly successor to the suffix tree."
+  },
+  {
+   "id": "t-digest",
+   "name": "t-digest",
+   "kind": "data-structures",
+   "aka": [
+    "quantile sketch (role)",
+    "GK sketch / KLL sketch (alternatives, noted)"
+   ],
+   "what": "Mergeable sketch of a numeric distribution built from size-varying centroid clusters, estimating quantiles (esp. extreme percentiles) accurately in constant memory."
+  },
+  {
+   "id": "trie",
+   "name": "Trie",
+   "kind": "data-structures",
+   "aka": [
+    "prefix tree",
+    "digital tree",
+    "radix tree (path-compressed variant)"
+   ],
+   "what": "Tree keyed by successive symbols of the key, so all descendants of a node share a common prefix; radix/Patricia variants compress single-child chains into one edge."
+  },
+  {
+   "id": "uniform-spatial-hash-grid",
+   "name": "Uniform Spatial Hash Grid",
+   "kind": "data-structures",
+   "aka": [
+    "spatial hashing",
+    "uniform grid",
+    "bin-lattice"
+   ],
+   "what": "Partition of space into uniform cells whose coordinates hash into buckets of contained objects, so neighborhood queries examine only nearby cells."
+  },
+  {
+   "id": "zipper",
+   "name": "Zipper",
+   "kind": "data-structures",
+   "aka": [
+    "Huet zipper",
+    "focused data structure",
+    "one-hole context"
+   ],
+   "what": "A representation of a position inside an immutable structure as the focused element plus its inverted surrounding context, allowing O(1) local edits and navigation."
+  },
+  {
+   "id": "zone-map",
+   "name": "Zone Map",
+   "kind": "data-structures",
+   "aka": [
+    "small materialized aggregates",
+    "SMA",
+    "min-max index"
+   ],
+   "what": "A tiny per-block summary (typically min/max, optionally count/sum) kept for each zone of contiguously stored tuples; scans consult the summaries first and skip every block whose value range cannot satisfy the predicate."
+  }
+ ],
+ "existing_intra_edges": [
+  {
+   "from": "b-tree",
+   "kind": "alternative-to",
+   "to": "lsm-tree"
+  },
+  {
+   "from": "bloom-filter",
+   "kind": "composes-with",
+   "to": "lsm-tree"
+  },
+  {
+   "from": "bounding-volume-hierarchy",
+   "kind": "specializes",
+   "to": "spatial-partition"
+  },
+  {
+   "from": "copy-on-write-b-tree",
+   "kind": "specializes",
+   "to": "b-tree"
+  },
+  {
+   "from": "embedded-pointer",
+   "kind": "implements",
+   "to": "linked-list"
+  },
+  {
+   "from": "gap-buffer",
+   "kind": "alternative-to",
+   "to": "piece-table"
+  },
+  {
+   "from": "hash-array-mapped-trie-hamt",
+   "kind": "implements",
+   "to": "persistent-data-structure"
+  },
+  {
+   "from": "inverted-index",
+   "kind": "specializes",
+   "to": "secondary-index"
+  },
+  {
+   "from": "k-d-tree",
+   "kind": "specializes",
+   "to": "spatial-partition"
+  },
+  {
+   "from": "quadtree-octree",
+   "kind": "specializes",
+   "to": "spatial-partition"
+  },
+  {
+   "from": "skip-list",
+   "kind": "alternative-to",
+   "to": "binary-search-tree"
+  },
+  {
+   "from": "uniform-spatial-hash-grid",
+   "kind": "specializes",
+   "to": "spatial-partition"
+  },
+  {
+   "from": "zipper",
+   "kind": "composes-with",
+   "to": "persistent-data-structure"
+  }
+ ]
+}

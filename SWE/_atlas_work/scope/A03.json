@@ -1,0 +1,206 @@
+{
+ "group": "A03",
+ "title": "Performance, scalability & energy tactics",
+ "realm": "architecture",
+ "literature": "Bass-Clements-Kazman performance tactics (control resource demand / manage resources); scalability tactics; energy-efficiency tactics; Smith & Williams Performance Solutions.",
+ "member_count": 18,
+ "target_edges": 22,
+ "priority_ids": [
+  "bound-execution-times",
+  "bound-queue-sizes",
+  "discover",
+  "dynamic-classification",
+  "increase-resource-usage-efficiency",
+  "increase-resources",
+  "introduce-concurrency",
+  "limit-event-response",
+  "maintain-multiple-copies-of-computations",
+  "maintain-multiple-copies-of-data",
+  "manage-event-arrival",
+  "manage-sampling-rate",
+  "metering",
+  "prioritize-events",
+  "reduce-computational-overhead",
+  "reduce-usage",
+  "schedule-resources",
+  "static-classification"
+ ],
+ "members": [
+  {
+   "id": "bound-execution-times",
+   "name": "Bound Execution Times",
+   "kind": "tactic",
+   "aka": [
+    "limit execution time",
+    "iteration bounds"
+   ],
+   "what": "Place a limit on how much execution time is used to respond to an event — e.g. bounding iteration counts in data-dependent iterative algorithms — trading computational accuracy for bounded latency."
+  },
+  {
+   "id": "bound-queue-sizes",
+   "name": "Bound Queue Sizes",
+   "kind": "tactic",
+   "aka": [
+    "limit queue sizes"
+   ],
+   "what": "Control the maximum number of queued arrivals, and thereby the resources used to process them, with an explicit policy for what happens when queues overflow."
+  },
+  {
+   "id": "discover",
+   "name": "Discover",
+   "kind": "tactic",
+   "aka": [
+    "service discovery",
+    "discovery service",
+    "service registry"
+   ],
+   "what": "Match service requests to service providers at runtime through a discovery service, enabling identification and remote invocation of providers that were not bound at build time; in the energy context, requests can be annotated so providers "
+  },
+  {
+   "id": "dynamic-classification",
+   "name": "Dynamic Classification",
+   "kind": "tactic",
+   "aka": [
+    "dynamic energy model"
+   ],
+   "what": "Estimate energy consumption with a dynamic model — a table lookup, a regression over past executions, or a simulation — that accounts for transient conditions such as workload."
+  },
+  {
+   "id": "increase-resource-usage-efficiency",
+   "name": "Increase Resource Usage Efficiency",
+   "kind": "tactic",
+   "aka": [
+    "increase efficiency",
+    "algorithmic optimization"
+   ],
+   "what": "Improve the efficiency of the algorithms used in critical areas to decrease latency and improve throughput and resource consumption."
+  },
+  {
+   "id": "increase-resources",
+   "name": "Increase Resources",
+   "kind": "tactic",
+   "aka": [
+    "scale up",
+    "add capacity"
+   ],
+   "what": "Add or upgrade resources — faster processors, additional processors, more memory, faster networks — to improve performance."
+  },
+  {
+   "id": "introduce-concurrency",
+   "name": "Introduce Concurrency",
+   "kind": "tactic",
+   "aka": [
+    "parallel processing of requests"
+   ],
+   "what": "Process requests in parallel — different event streams on different threads, or additional threads for different activity sets — to reduce blocked time, then choose a scheduling policy via Schedule Resources."
+  },
+  {
+   "id": "limit-event-response",
+   "name": "Limit Event Response",
+   "kind": "tactic",
+   "aka": [
+    "maximum processing rate",
+    "event throttling"
+   ],
+   "what": "Process events only up to a set maximum rate, queueing or deliberately dropping events that arrive faster, triggered by queue size, processor utilization, or SLA violation."
+  },
+  {
+   "id": "maintain-multiple-copies-of-computations",
+   "name": "Maintain Multiple Copies of Computations",
+   "kind": "tactic",
+   "aka": [
+    "replicated services",
+    "server pool"
+   ],
+   "what": "Run multiple replicas of a computation (replicated services in a microservice architecture, replicated web servers in a pool) with a load balancer assigning new work among them."
+  },
+  {
+   "id": "maintain-multiple-copies-of-data",
+   "name": "Maintain Multiple Copies of Data",
+   "kind": "tactic",
+   "aka": [
+    "caching (realization)",
+    "data replication (realization)"
+   ],
+   "what": "Keep copies of data — replication (separate identical copies to reduce contention) or caching (copies, possibly subsets, on storage with different access speeds, possibly predictively prefetched) — accepting the burden of keeping copies con"
+  },
+  {
+   "id": "manage-event-arrival",
+   "name": "Manage Event Arrival",
+   "kind": "tactic",
+   "aka": [
+    "manage work requests (parent grouping)",
+    "SLA-based arrival control"
+   ],
+   "what": "Control the arrival rate of events from external systems, canonically by setting a service level agreement that fixes the maximum event rate the system will support, constraining both system and clients."
+  },
+  {
+   "id": "manage-sampling-rate",
+   "name": "Manage Sampling Rate",
+   "kind": "tactic",
+   "aka": [
+    "reduce sampling frequency",
+    "adaptive sampling"
+   ],
+   "what": "Reduce (possibly dynamically) the frequency at which environmental input is sampled — sensor data rates, video frames per second — trading fidelity for predictable latency."
+  },
+  {
+   "id": "metering",
+   "name": "Metering",
+   "kind": "tactic",
+   "aka": [
+    "energy metering"
+   ],
+   "what": "Collect data about the energy consumption of computing resources in near real time via a sensor infrastructure — from data-center meters down to metered rack PDUs, ASICs, or battery management systems."
+  },
+  {
+   "id": "prioritize-events",
+   "name": "Prioritize Events",
+   "kind": "tactic",
+   "aka": [
+    "event prioritization"
+   ],
+   "what": "Impose a priority scheme ordering events by importance of servicing them, so that under resource pressure low-priority events may be ignored at minimal cost."
+  },
+  {
+   "id": "reduce-computational-overhead",
+   "name": "Reduce Computational Overhead",
+   "kind": "tactic",
+   "aka": [
+    "reduce indirection",
+    "co-locate communicating resources",
+    "periodic cleaning"
+   ],
+   "what": "Reduce the work spent per event by removing costly indirection (while ideally preserving encapsulation through code optimization or proxy-established direct communication), co-locating communicating components (same processor, same runtime,"
+  },
+  {
+   "id": "reduce-usage",
+   "name": "Reduce Usage",
+   "kind": "tactic",
+   "aka": [
+    "device power reduction",
+    "consolidation"
+   ],
+   "what": "Reduce energy use by device-level actions (lower refresh rate, dim display), removing or deactivating unneeded resources (spin down disks, power off CPUs/servers, reduce clock rate), consolidating VMs onto fewer physical servers, or offload"
+  },
+  {
+   "id": "schedule-resources",
+   "name": "Schedule Resources",
+   "kind": "tactic",
+   "aka": [
+    "scheduling policy selection"
+   ],
+   "what": "When resources (processors, buffers, networks) are contended, choose and apply a scheduling policy — priority assignment plus dispatching, e.g. FIFO, fixed-priority (semantic importance, deadline-monotonic, rate-monotonic), dynamic-priority"
+  },
+  {
+   "id": "static-classification",
+   "name": "Static Classification",
+   "kind": "tactic",
+   "aka": [
+    "static energy model"
+   ],
+   "what": "Estimate energy consumption by cataloging the computing resources used and their known static energy characteristics (from benchmarks or manufacturer specifications), e.g. energy per disk read."
+  }
+ ],
+ "existing_intra_edges": []
+}

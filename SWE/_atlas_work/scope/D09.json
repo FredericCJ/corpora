@@ -1,0 +1,660 @@
+{
+ "group": "D09",
+ "title": "Data representation & serialization",
+ "realm": "design",
+ "literature": "Serialization/wire-format literature (Protocol Buffers, ASN.1); parsing framing; Martin Data representation; endianness/marshalling idioms; TLV.",
+ "member_count": 54,
+ "target_edges": 65,
+ "priority_ids": [
+  "adjacency-list-adjacency-matrix",
+  "binary-to-text-encoding",
+  "bytecode",
+  "canonical-serialization",
+  "comparand",
+  "compression",
+  "container-of",
+  "data-transfer-object",
+  "delta-encoding",
+  "error-correcting-codes",
+  "hidden-class",
+  "level-of-detail",
+  "magic-number-file-signature",
+  "multiple-representations",
+  "network-byte-order-handling",
+  "newtype",
+  "opaque-pointer",
+  "packed-data",
+  "pointer-swizzling",
+  "pointer-tagging",
+  "record-set",
+  "relationship-object",
+  "run-length-encoding",
+  "serialization-proxy",
+  "serialized-lob",
+  "serializer",
+  "sync-word",
+  "temporal-property",
+  "texture-atlas",
+  "type-safe-enum",
+  "virtual-dom"
+ ],
+ "members": [
+  {
+   "id": "adjacency-list-adjacency-matrix",
+   "name": "Adjacency List / Adjacency Matrix",
+   "kind": "data-representation",
+   "aka": [
+    "adjacency-list representation",
+    "adjacency-matrix representation",
+    "compressed sparse row (CSR, packed variant)"
+   ],
+   "what": "The two canonical in-memory graph representations: per-vertex edge lists (sparse-friendly, Theta(V+E) space) versus a V-by-V boolean/weight matrix (dense-friendly, O(1) edge test)."
+  },
+  {
+   "id": "binary-to-text-encoding",
+   "name": "Binary-to-Text Encoding",
+   "kind": "serialization-framing",
+   "aka": [
+    "Base64",
+    "Base32",
+    "Base16/hex encoding"
+   ],
+   "what": "Re-encoding arbitrary bytes into a restricted printable-character alphabet (e.g. 6 bits per Base64 character, with padding) so binary data can traverse text-only channels."
+  },
+  {
+   "id": "bit-stuffing",
+   "name": "Bit Stuffing",
+   "kind": "serialization-framing",
+   "aka": [
+    "zero-bit insertion",
+    "HDLC bit stuffing"
+   ],
+   "what": "Inserting a 0 bit after every run of five consecutive 1 bits in payload so the flag pattern 01111110 can never occur inside a frame; the receiver removes stuffed bits."
+  },
+  {
+   "id": "byte-stuffing",
+   "name": "Byte Stuffing",
+   "kind": "serialization-framing",
+   "aka": [
+    "character stuffing",
+    "delimiter framing with escaping",
+    "SLIP ESC framing"
+   ],
+   "what": "Framing messages with a reserved delimiter byte (e.g. SLIP END 0xC0) and escaping any payload occurrence of the delimiter or escape byte via a substitution sequence, reversed on receive."
+  },
+  {
+   "id": "bytecode",
+   "name": "Bytecode",
+   "kind": "data-representation",
+   "aka": [],
+   "what": "Encode behavior as instructions for a small purpose-built virtual machine and execute it with an interpreter, instead of hard-coding it in the host language."
+  },
+  {
+   "id": "canonical-serialization",
+   "name": "Canonical Serialization",
+   "kind": "serialization-framing",
+   "aka": [
+    "deterministic encoding",
+    "distinguished encoding (DER)",
+    "canonicalization (JSON Canonicalization Scheme)"
+   ],
+   "what": "Constraining a serialization format so each abstract value has exactly one legal byte encoding (fixed key order, minimal-length integers, normalized escapes), making encodings byte-comparable."
+  },
+  {
+   "id": "chunked-transfer-encoding",
+   "name": "Chunked Transfer Encoding",
+   "kind": "serialization-framing",
+   "aka": [
+    "chunked transfer coding",
+    "chunked framing"
+   ],
+   "what": "Framing a stream of unknown total length as a sequence of length-prefixed chunks terminated by a zero-length chunk, optionally followed by trailers."
+  },
+  {
+   "id": "column-oriented-storage",
+   "name": "Column-Oriented Storage",
+   "kind": "data-representation",
+   "aka": [
+    "columnar storage",
+    "column store layout",
+    "DSM (decomposition storage model)"
+   ],
+   "what": "Store all values of each column contiguously (rather than row by row), typically with per-column compression, so queries read only the columns they touch."
+  },
+  {
+   "id": "comparand",
+   "name": "Comparand",
+   "kind": "data-representation",
+   "aka": [
+    "dedicated comparison value",
+    "cheap identity testing value"
+   ],
+   "what": "Equip objects with a dedicated comparand value used solely for cheap identity/equality testing, avoiding expensive structural comparison or unreliable address comparison."
+  },
+  {
+   "id": "compression",
+   "name": "Compression",
+   "kind": "data-representation",
+   "aka": [
+    "Table Compression",
+    "Difference Coding",
+    "Adaptive Compression"
+   ],
+   "what": "Store data in a compressed representation in memory or storage, decompressing on access, to fit more data in less space."
+  },
+  {
+   "id": "consistent-overhead-byte-stuffing",
+   "name": "Consistent Overhead Byte Stuffing",
+   "kind": "serialization-framing",
+   "aka": [
+    "COBS",
+    "byte stuffing (refines SLIP/HDLC-style escaping)"
+   ],
+   "what": "Encode packets so the frame delimiter byte never appears in the payload, with a small, fixed worst-case overhead, enabling unambiguous packet boundaries on byte streams."
+  },
+  {
+   "id": "container-of",
+   "name": "container_of",
+   "kind": "data-representation",
+   "aka": [
+    "intrusive back-pointer recovery",
+    "offsetof-based container access"
+   ],
+   "what": "Recover a pointer to the enclosing struct from a pointer to one of its embedded members via offsetof arithmetic, enabling intrusive/generic embedded nodes."
+  },
+  {
+   "id": "data-locality",
+   "name": "Data Locality",
+   "kind": "data-representation",
+   "aka": [
+    "cache-friendly data layout",
+    "structure of arrays / array of structures (SoA/AoS)"
+   ],
+   "what": "Arrange data contiguously in memory in the order it is processed (e.g. packed homogeneous arrays instead of pointer-linked heap objects) to exploit CPU caching."
+  },
+  {
+   "id": "data-transfer-object",
+   "name": "Data Transfer Object",
+   "kind": "data-representation",
+   "aka": [
+    "DTO",
+    "Transfer Object"
+   ],
+   "what": "An object that carries data between processes or layers in a single package, with serialization support and no behavior beyond storage."
+  },
+  {
+   "id": "delta-encoding",
+   "name": "Delta Encoding",
+   "kind": "serialization-framing",
+   "aka": [
+    "delta compression",
+    "differencing",
+    "delta timestamps"
+   ],
+   "what": "Storing or transmitting values as differences from a predecessor or baseline (previous sample, previous version, base frame) instead of absolute values."
+  },
+  {
+   "id": "dictionary-encoding",
+   "name": "Dictionary Encoding",
+   "kind": "data-representation",
+   "aka": [
+    "dictionary compression",
+    "domain encoding",
+    "dictionary encoding with patching (variant)"
+   ],
+   "what": "Replace repeated wide values in a column with small fixed-width integer codes indexing a dictionary of the distinct values; operators can often work directly on the codes."
+  },
+  {
+   "id": "empty-base-optimization-ebo",
+   "name": "Empty Base Optimization (EBO)",
+   "kind": "data-representation",
+   "aka": [
+    "empty member optimization",
+    "EBCO"
+   ],
+   "what": "Inherit from (rather than store) an empty policy/allocator class so it occupies zero bytes in the derived object's layout."
+  },
+  {
+   "id": "entity",
+   "name": "Entity",
+   "kind": "data-representation",
+   "aka": [
+    "Reference Object"
+   ],
+   "what": "A domain object defined primarily by a thread of continuity and identity rather than by its attributes, with identity maintained across state changes and representations."
+  },
+  {
+   "id": "entity-component-system",
+   "name": "Entity Component System",
+   "kind": "data-representation",
+   "aka": [
+    "ECS",
+    "entity system",
+    "component entity system"
+   ],
+   "what": "Organize a simulation as plain-id entities, pure-data components stored in contiguous per-type arrays, and systems that iterate over all entities holding a given component set."
+  },
+  {
+   "id": "error-correcting-codes",
+   "name": "Error-Correcting Codes",
+   "kind": "data-representation",
+   "aka": [
+    "ECC",
+    "Hamming code",
+    "forward error correction"
+   ],
+   "what": "Encode data with structured redundancy so that a bounded number of bit errors can be not only detected but corrected on read/receive."
+  },
+  {
+   "id": "hidden-class",
+   "name": "Hidden Class",
+   "kind": "data-representation",
+   "aka": [
+    "maps (Self, original name)",
+    "shapes (SpiderMonkey)",
+    "Structures (JavaScriptCore)"
+   ],
+   "what": "The runtime assigns each object a shared internal layout descriptor (map/shape/hidden class) recording its property names and slot offsets, transitioning objects between descriptors as properties are added, so objects created the same way s"
+  },
+  {
+   "id": "length-prefix-framing",
+   "name": "Length-Prefix Framing",
+   "kind": "serialization-framing",
+   "aka": [
+    "length-delimited encoding",
+    "length field framing",
+    "netstring"
+   ],
+   "what": "Prefixing each message or field with its byte length so a receiver knows exactly how many bytes to read, delimiting records in a byte stream without inspecting payload content."
+  },
+  {
+   "id": "level-of-detail",
+   "name": "Level of Detail",
+   "kind": "data-representation",
+   "aka": [
+    "LOD",
+    "discrete LOD",
+    "continuous LOD (variant)"
+   ],
+   "what": "Maintain multiple representations of an object at different fidelities and select the cheapest one whose error is imperceptible given current importance (typically distance from the viewer)."
+  },
+  {
+   "id": "magic-number-file-signature",
+   "name": "Magic Number (File Signature)",
+   "kind": "serialization-framing",
+   "aka": [
+    "file signature",
+    "magic bytes",
+    "format identifier"
+   ],
+   "what": "A fixed constant placed at the start of a file or message (0x7F'ELF', %PDF, 0xCAFEBABE) that identifies the format independent of names or metadata, often paired with a version field."
+  },
+  {
+   "id": "multiple-representations",
+   "name": "Multiple Representations",
+   "kind": "data-representation",
+   "aka": [],
+   "what": "Provide several implementations of an object, each optimized for different size/speed trade-offs, behind one common interface."
+  },
+  {
+   "id": "network-byte-order-handling",
+   "name": "Network Byte Order Handling",
+   "kind": "serialization-framing",
+   "aka": [
+    "endianness conversion",
+    "big-endian wire order",
+    "htons/ntohl idiom"
+   ],
+   "what": "Fixing a single byte order (conventionally big-endian) for multi-byte values on the wire or in files, with explicit host-to-wire conversion at serialization boundaries."
+  },
+  {
+   "id": "newtype",
+   "name": "Newtype",
+   "kind": "data-representation",
+   "aka": [
+    "wrapper type",
+    "strong typedef (C++)",
+    "tiny types"
+   ],
+   "what": "Wrap an existing type in a distinct single-field type so the compiler distinguishes semantically different values (Miles vs Kilometers) and the wrapper can carry its own invariants and trait implementations."
+  },
+  {
+   "id": "opaque-pointer",
+   "name": "Opaque Pointer",
+   "kind": "data-representation",
+   "aka": [
+    "opaque handle",
+    "incomplete type idiom",
+    "Handle (Fluent C)"
+   ],
+   "what": "An API exposes only a forward-declared struct pointer whose definition lives in the implementation file, so clients cannot see or touch the representation."
+  },
+  {
+   "id": "packed-data",
+   "name": "Packed Data",
+   "kind": "data-representation",
+   "aka": [
+    "bit packing",
+    "bit-fields",
+    "struct packing"
+   ],
+   "what": "Pack data items within a structure (bit-fields, smaller types, eliminated padding) so they occupy minimum space."
+  },
+  {
+   "id": "pax-page-layout",
+   "name": "PAX Page Layout",
+   "kind": "data-representation",
+   "aka": [
+    "PAX",
+    "Partition Attributes Across",
+    "cache-conscious page layout"
+   ],
+   "what": "Within each fixed-size storage page, values are grouped per attribute into minipages instead of being stored row-contiguously, keeping a page's records together on disk while making each attribute cache-line-contiguous in memory."
+  },
+  {
+   "id": "percent-encoding",
+   "name": "Percent-Encoding",
+   "kind": "serialization-framing",
+   "aka": [
+    "URL encoding",
+    "URI escaping"
+   ],
+   "what": "Encoding reserved or non-ASCII octets in a URI component as a percent sign followed by two hex digits, with context-dependent reserved sets per component."
+  },
+  {
+   "id": "pointer-swizzling",
+   "name": "Pointer Swizzling",
+   "kind": "data-representation",
+   "aka": [
+    "swizzling",
+    "unswizzling (inverse)",
+    "swizzling at page-fault time (eager variant)"
+   ],
+   "what": "Converts persistent references (file offsets, object IDs, page-relative addresses) into raw in-memory pointers when data is loaded, and back again on write-out."
+  },
+  {
+   "id": "pointer-tagging",
+   "name": "Pointer Tagging",
+   "kind": "data-representation",
+   "aka": [
+    "tagged pointer",
+    "tag bits",
+    "immediate values"
+   ],
+   "what": "Encodes type or other metadata in otherwise-unused bits of a pointer-sized word (low alignment bits, high address bits, or unused NaN payload space), so small values carry their own type tag and need no heap allocation."
+  },
+  {
+   "id": "quantity",
+   "name": "Quantity",
+   "kind": "data-representation",
+   "aka": [
+    "measure",
+    "amount with unit"
+   ],
+   "what": "A value type pairing a number with its unit of measure, with arithmetic and comparisons that respect unit compatibility and conversion."
+  },
+  {
+   "id": "range",
+   "name": "Range",
+   "kind": "data-representation",
+   "aka": [
+    "interval object"
+   ],
+   "what": "A value object representing an interval by its start and end (with open/closed ends), answering inclusion, overlap, and abutment queries."
+  },
+  {
+   "id": "record-set",
+   "name": "Record Set",
+   "kind": "data-representation",
+   "aka": [],
+   "what": "An in-memory representation of tabular data that looks and acts like the result of a database query but can be built and manipulated disconnected from the database."
+  },
+  {
+   "id": "relationship-object",
+   "name": "Relationship Object",
+   "kind": "data-representation",
+   "aka": [
+    "association object",
+    "relationship as full object",
+    "reified relationship"
+   ],
+   "what": "Reify a relationship between objects as a first-class object that stores the participants plus the relationship's own attributes and behavior, instead of encoding the link as mutual references."
+  },
+  {
+   "id": "run-length-encoding",
+   "name": "Run-Length Encoding",
+   "kind": "serialization-framing",
+   "aka": [
+    "RLE",
+    "run-length compression"
+   ],
+   "what": "Replacing runs of repeated values with a (count, value) pair, the simplest lossless compression scheme designers hand-roll for run-heavy data."
+  },
+  {
+   "id": "schema-evolution-via-field-tags",
+   "name": "Schema Evolution via Field Tags",
+   "kind": "serialization-framing",
+   "aka": [
+    "tagged fields",
+    "field numbers",
+    "forward/backward-compatible encoding"
+   ],
+   "what": "Identifying each serialized field by a stable numeric tag rather than by position or name, so encoders and decoders built against different schema versions can skip unknown tags and default missing ones."
+  },
+  {
+   "id": "serialization-proxy",
+   "name": "Serialization Proxy",
+   "kind": "serialization-framing",
+   "aka": [],
+   "what": "Serialize a small dedicated proxy object representing the logical state instead of the real object, reconstructing the real object through its public constructors on read."
+  },
+  {
+   "id": "serialized-lob",
+   "name": "Serialized LOB",
+   "kind": "serialization-framing",
+   "aka": [],
+   "what": "Persists an object graph by serializing it into a single large object (BLOB/CLOB) stored in one database field."
+  },
+  {
+   "id": "serializer",
+   "name": "Serializer",
+   "kind": "serialization-framing",
+   "aka": [],
+   "what": "Stream objects into and out of arbitrary backends by pairing a Reader/Writer protocol with backend-specific concrete serializers, keeping the object graph traversal generic."
+  },
+  {
+   "id": "slotted-page-layout",
+   "name": "Slotted Page Layout",
+   "kind": "data-representation",
+   "aka": [
+    "slotted pages",
+    "slot directory",
+    "slot array page"
+   ],
+   "what": "A page format with a slot directory growing from one end and variable-length records growing from the other, so records are addressed by stable slot number rather than byte offset."
+  },
+  {
+   "id": "sync-word",
+   "name": "Sync Word",
+   "kind": "serialization-framing",
+   "aka": [
+    "syncword",
+    "preamble",
+    "start-of-frame delimiter"
+   ],
+   "what": "A known byte/bit sequence placed at the start of each frame that a receiver scans for to acquire frame (and sometimes clock) alignment in an undifferentiated stream."
+  },
+  {
+   "id": "tagged-union",
+   "name": "Tagged Union",
+   "kind": "data-representation",
+   "aka": [
+    "sum type",
+    "discriminated union",
+    "variant"
+   ],
+   "what": "A data type whose value is exactly one of several named alternatives, carrying a tag that identifies which alternative is present."
+  },
+  {
+   "id": "temporal-property",
+   "name": "Temporal Property",
+   "kind": "data-representation",
+   "aka": [
+    "temporal object (whole-object variant)",
+    "historic mapping",
+    "effectivity (validity-interval variant)"
+   ],
+   "what": "Represent an attribute (or whole object) as a time-indexed collection of values so the model can answer 'what was/is/will be the value at time T' rather than only the current value."
+  },
+  {
+   "id": "texture-atlas",
+   "name": "Texture Atlas",
+   "kind": "data-representation",
+   "aka": [
+    "sprite sheet",
+    "sprite atlas",
+    "texture packing"
+   ],
+   "what": "Pack many small images into one large texture and remap each user's texture coordinates into its sub-rectangle, so a single bound resource serves many logical images."
+  },
+  {
+   "id": "tolerant-reader",
+   "name": "Tolerant Reader",
+   "kind": "serialization-framing",
+   "aka": [],
+   "what": "A consumer-side reading strategy that extracts only the data elements it needs from a payload, ignores unknown or extra content, and makes minimal assumptions about structure."
+  },
+  {
+   "id": "type-length-value-encoding",
+   "name": "Type-Length-Value Encoding",
+   "kind": "serialization-framing",
+   "aka": [
+    "TLV",
+    "tag-length-value",
+    "KLV (key-length-value)"
+   ],
+   "what": "Encoding each data item as a type/tag code, a byte length, and the value bytes, so records are self-describing enough to be skipped, reordered, or extended without a shared positional layout."
+  },
+  {
+   "id": "type-safe-enum",
+   "name": "Type-Safe Enum",
+   "kind": "data-representation",
+   "aka": [
+    "enum pattern",
+    "typesafe enum pattern",
+    "enum class precursor"
+   ],
+   "what": "Represent an enumerated type as a class with a fixed set of public static final instances and a private constructor, giving type safety, namespacing, and behavior per constant."
+  },
+  {
+   "id": "value-object",
+   "name": "Value Object",
+   "kind": "data-representation",
+   "aka": [],
+   "what": "A small immutable object, such as a date or money amount, whose equality is based on its attribute values rather than on identity."
+  },
+  {
+   "id": "varint",
+   "name": "Varint",
+   "kind": "serialization-framing",
+   "aka": [
+    "variable-length integer",
+    "LEB128",
+    "variable-length quantity (VLQ)"
+   ],
+   "what": "Encoding an integer in base 128 using 7 payload bits per byte with a continuation bit, so small values take one byte and the encoding is self-delimiting."
+  },
+  {
+   "id": "virtual-dom",
+   "name": "Virtual DOM",
+   "kind": "data-representation",
+   "aka": [
+    "VDOM",
+    "virtual DOM diffing",
+    "reconciliation"
+   ],
+   "what": "Keeps a lightweight in-memory tree describing the desired UI, diffs it against the previous tree on every update, and applies only the minimal set of mutations (reconciliation) to the real, expensive display tree."
+  },
+  {
+   "id": "zigzag-encoding",
+   "name": "ZigZag Encoding",
+   "kind": "serialization-framing",
+   "aka": [
+    "zig-zag integer encoding"
+   ],
+   "what": "Mapping signed integers to unsigned by interleaving positive and negative values (p -> 2p, n -> 2|n|-1) so small-magnitude negatives encode to small unsigned values."
+  }
+ ],
+ "existing_intra_edges": [
+  {
+   "from": "dictionary-encoding",
+   "kind": "composes-with",
+   "to": "column-oriented-storage"
+  },
+  {
+   "from": "entity-component-system",
+   "kind": "composes-with",
+   "to": "data-locality"
+  },
+  {
+   "from": "pax-page-layout",
+   "kind": "alternative-to",
+   "to": "slotted-page-layout"
+  },
+  {
+   "from": "quantity",
+   "kind": "specializes",
+   "to": "value-object"
+  },
+  {
+   "from": "range",
+   "kind": "specializes",
+   "to": "value-object"
+  },
+  {
+   "from": "value-object",
+   "kind": "alternative-to",
+   "to": "entity"
+  },
+  {
+   "from": "bit-stuffing",
+   "kind": "alternative-to",
+   "to": "byte-stuffing"
+  },
+  {
+   "from": "chunked-transfer-encoding",
+   "kind": "specializes",
+   "to": "length-prefix-framing"
+  },
+  {
+   "from": "consistent-overhead-byte-stuffing",
+   "kind": "specializes",
+   "to": "byte-stuffing"
+  },
+  {
+   "from": "length-prefix-framing",
+   "kind": "alternative-to",
+   "to": "byte-stuffing"
+  },
+  {
+   "from": "schema-evolution-via-field-tags",
+   "kind": "composes-with",
+   "to": "tolerant-reader"
+  },
+  {
+   "from": "type-length-value-encoding",
+   "kind": "composes-with",
+   "to": "length-prefix-framing"
+  },
+  {
+   "from": "varint",
+   "kind": "composes-with",
+   "to": "schema-evolution-via-field-tags"
+  },
+  {
+   "from": "zigzag-encoding",
+   "kind": "composes-with",
+   "to": "varint"
+  }
+ ]
+}

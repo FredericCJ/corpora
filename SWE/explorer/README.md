@@ -2,17 +2,21 @@
 
 A single-page explorer of a **unified embedded-software research corpus** — seven research passes of
 *works* merged into one fact layer (five relational models), plus a two-realm layer of the *concepts
-themselves* — the **design + architecture elements** — wired to the works and to each other and
-navigable through **four element views**. Nine views over two fact layers.
+themselves* — the **design + architecture elements** — wired to the works and to each other,
+navigable through **four element views** and a **two-view atlas** that maps the whole element space.
+Eleven views over two fact layers.
 
 - **Works:** 468 resources · 7 corpora · 261 typed edges (86 swa + 57 sim + 50 derived + 19 editorial + 49 proc) ·
   354 verified / 114 unverified · 82 cross-corpus works.
-- **Elements (the ELEMENT-layer mission):** **709 design + 374 architecture = 1083 elements**, wired by
-  **1132 typed bridge edges** (703/709 design elements bridged to a specific architecture element,
-  6 unbridged; 328 sourced : 804 editorial). Element→work coverage from **pass 8** (399 works;
-  706/709 design elements reach a catalog-grade work). Deliverables: `../design_elements_catalog_v1_0.md`,
+- **Elements (the ELEMENT-layer mission + atlas enrichment):** **709 design + 374 architecture = 1083
+  elements**, wired by **2811 typed relations** (v1.1): the 878 cross-realm bridge edges (703/709 design
+  elements bridged, 6 unbridged) plus a dense within-realm fabric (1267 design-sibling + 666
+  architecture-sibling edges) researched by the atlas endeavour; 1023 sourced : 1788 editorial.
+  Element→work coverage from **pass 8** (399 works; 706/709 design elements reach a catalog-grade work).
+- **Atlas:** the enriched graph consolidated into **21 named emergent islands** (`../ATLAS_SPEC.md`),
+  drawn as a semantic-zoom map. Deliverables: `../design_elements_catalog_v1_0.md`,
   `../architecture_elements_catalog_v1_0.md`, `../design_elements_corpus_v1_0.md`,
-  `../design_elements_bridge_v1_0.md`.
+  `../design_elements_bridge_v1_1.md`, `../ATLAS_SPEC.md`.
 - Pass 7 (`swe-process`) adds 47 nodes + 48 memberships on a `language` facet. See `../swe_process_corpus_v1_0.md`.
 - Raw HTML/CSS/JS, no framework, no build step at view time, opens from `file://`. The five work
   models keep the strict **single 16:9 4K viewport, no page scroll**; the four element views
@@ -34,6 +38,13 @@ navigable through **four element views**. Nine views over two fact layers.
 8. **Element relations** — a focused ego-graph over the typed edges; click a neighbour to re-focus.
 9. **Element coverage** — which works teach which elements (pass 8); thin/gap coverage surfaced.
 
+## The atlas (10–11) — a map of the element space
+
+10. **Atlas** — the archipelago: ~21 emergent islands with semantic zoom (L0 map → L1 island → L2 node),
+    coloured by family, joined by aggregated relations; breadcrumb, rim ports, minimap, search-teleport.
+11. **Bridge-Flow** — a bipartite flow map: seven design families → the busiest architecture anchors,
+    ribbon thickness = realizing-element count.
+
 A persistent inspector dock shows the active view's method + legend, or — when you select a **work**
 — its citation, memberships, tags, relations, and the elements it teaches; when you select an
 **element** — its definition, aliases, realm, kind, covering works, and every typed relation
@@ -47,7 +58,8 @@ covering work links to the work corpus, and a work links back to the elements it
 
 ## Use it
 
-- **Tabs `1–9`** switch views (1–5 work models · 6–9 element views) · **`/`** search · **`v`** cycles verification · **`Esc`** clears.
+- **Tabs `1–9`** switch the first nine views (1–5 work models · 6–9 element views); the **atlas** (10) and
+  **Bridge-Flow** (11) are reached by the tab bar or **←/→**. **`/`** search (and atlas teleport) · **`v`** cycles verification · **`Esc`** clears.
 - Hover/focus a node in the graph to trace its closure; click any resource or element anywhere for its detail.
 - The **verification** and **corpus** selectors filter the work models; the element views filter by realm/kind in-view; **reset** clears all.
 

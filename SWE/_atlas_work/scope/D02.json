@@ -1,0 +1,744 @@
+{
+ "group": "D02",
+ "title": "Synchronization & coordination primitives",
+ "realm": "design",
+ "literature": "Little Book of Semaphores (Downey); Butenhof POSIX Threads; Herlihy & Shavit Art of Multiprocessor Programming; Java Concurrency in Practice; POSA2 concurrency patterns.",
+ "member_count": 57,
+ "target_edges": 68,
+ "priority_ids": [
+  "coordinator",
+  "event-flags-group",
+  "eventcount",
+  "fencing-token",
+  "flat-combining",
+  "futex",
+  "latch",
+  "lock-striping",
+  "logical-clock",
+  "operational-transformation",
+  "rendezvous",
+  "safepoint",
+  "self-pipe-trick",
+  "thread-confinement"
+ ],
+ "members": [
+  {
+   "id": "aba-mitigation-via-tagged-pointer",
+   "name": "ABA Mitigation via Tagged Pointer",
+   "kind": "synchronization-coordination",
+   "aka": [
+    "version counter",
+    "modification counter",
+    "stamped reference"
+   ],
+   "what": "Pair the CAS-protected word with a monotonically increasing tag/version so a value that was changed and changed back still fails the CAS."
+  },
+  {
+   "id": "acquire-release-ordering",
+   "name": "Acquire-Release Ordering",
+   "kind": "synchronization-coordination",
+   "aka": [
+    "acquire/release semantics",
+    "release-acquire pairing",
+    "publication safety"
+   ],
+   "what": "Pair a release-ordered store by the producer with an acquire-ordered load by the consumer so everything written before the release is visible after the acquire, without full fences."
+  },
+  {
+   "id": "balking",
+   "name": "Balking",
+   "kind": "synchronization-coordination",
+   "aka": [
+    "balk"
+   ],
+   "what": "A method that immediately returns (or reports failure) instead of waiting when the object is not in an appropriate state to execute the request."
+  },
+  {
+   "id": "coarse-grained-lock",
+   "name": "Coarse-Grained Lock",
+   "kind": "synchronization-coordination",
+   "aka": [],
+   "what": "Locks a group of related objects with a single lock (often a shared version object or a lock on an aggregate root) instead of locking each member."
+  },
+  {
+   "id": "compare-and-swap-loop",
+   "name": "Compare-and-Swap Loop",
+   "kind": "synchronization-coordination",
+   "aka": [
+    "CAS",
+    "atomic variables",
+    "atomic read-modify-write"
+   ],
+   "what": "The nonblocking update idiom: read the current value, compute a new value, and atomically install it only if the location still holds the value read, retrying on failure."
+  },
+  {
+   "id": "condition-variable",
+   "name": "Condition Variable",
+   "kind": "synchronization-coordination",
+   "aka": [
+    "condition queue",
+    "wait/notify condition"
+   ],
+   "what": "A queue on which threads wait, releasing an associated lock, until another thread signals that a state predicate may now hold; woken threads re-acquire the lock and re-test the predicate."
+  },
+  {
+   "id": "coordinator",
+   "name": "Coordinator",
+   "kind": "synchronization-coordination",
+   "aka": [
+    "Task Coordinator"
+   ],
+   "what": "A coordinator drives a task spanning multiple participants through prepare and commit phases so either all participants complete their work or none do."
+  },
+  {
+   "id": "critical-region",
+   "name": "Critical Region",
+   "kind": "synchronization-coordination",
+   "aka": [
+    "critical section",
+    "interrupt masking",
+    "Mutex"
+   ],
+   "what": "Making a code region atomic by disabling interrupts or task switching (or holding a global lock) for its duration."
+  },
+  {
+   "id": "deadlock-detection",
+   "name": "Deadlock Detection",
+   "kind": "synchronization-coordination",
+   "aka": [
+    "waits-for graph detection",
+    "cycle detection in wait graph",
+    "deadlock victim selection"
+   ],
+   "what": "Maintain a waits-for graph of which transactions block which, periodically detect cycles, and break them by aborting a chosen victim (alternatives: timeouts, wound-wait/wait-die prevention)."
+  },
+  {
+   "id": "direct-to-task-notification",
+   "name": "Direct-to-Task Notification",
+   "kind": "synchronization-coordination",
+   "aka": [
+    "task notification",
+    "notification value",
+    "thread flags (CMSIS-RTOS2 analog)"
+   ],
+   "what": "Each task carries built-in notification slots (a 32-bit value plus pending state) that other tasks or ISRs can set, increment, overwrite, or OR bits into, letting the task block on its own notification instead of on a separate kernel object"
+  },
+  {
+   "id": "double-checked-locking",
+   "name": "Double-Checked Locking",
+   "kind": "synchronization-coordination",
+   "aka": [
+    "DCLP",
+    "Double-Checked Locking Optimization",
+    "Lock Hint"
+   ],
+   "what": "Code checks a condition (typically 'initialized?') before and again after acquiring a lock, so the common already-initialized path skips locking entirely."
+  },
+  {
+   "id": "event-flags-group",
+   "name": "Event Flags Group",
+   "kind": "synchronization-coordination",
+   "aka": [
+    "event group (FreeRTOS)",
+    "event flags (CMSIS-RTOS2, ThreadX, uC/OS)",
+    "event register"
+   ],
+   "what": "A kernel object holding a word of boolean event bits that tasks and ISRs set or clear atomically and that tasks block on with AND/OR combinations of bits, optionally auto-clearing the bits on wake."
+  },
+  {
+   "id": "eventcount",
+   "name": "Eventcount",
+   "kind": "synchronization-coordination",
+   "aka": [
+    "eventcounts and sequencers",
+    "event count with sequencer"
+   ],
+   "what": "A monotonically increasing counter that threads can read, advance, and await reaching a value, letting a lock-free fast path add blocking ('sleep until something changed') without locks."
+  },
+  {
+   "id": "fencing-token",
+   "name": "Fencing Token",
+   "kind": "synchronization-coordination",
+   "aka": [
+    "fencing",
+    "monotonic lock token"
+   ],
+   "what": "Attach a monotonically increasing token to each lock/lease grant; resources reject requests bearing a token older than one already seen, fencing off stale holders."
+  },
+  {
+   "id": "flat-combining",
+   "name": "Flat Combining",
+   "kind": "synchronization-coordination",
+   "aka": [
+    "combining funnel (ancestor)",
+    "delegation via combiner"
+   ],
+   "what": "Threads publish operation requests to a shared list; one thread acquires a global lock and applies everyone's pending operations in a batch on their behalf."
+  },
+  {
+   "id": "futex",
+   "name": "Futex",
+   "kind": "synchronization-coordination",
+   "aka": [
+    "fast userspace mutex",
+    "futex-based blocking"
+   ],
+   "what": "Synchronization objects keep their state in a plain userspace word manipulated with atomics; the kernel is invoked only to sleep on or wake waiters when the fast path fails."
+  },
+  {
+   "id": "guarded-call",
+   "name": "Guarded Call",
+   "kind": "synchronization-coordination",
+   "aka": [
+    "mutex-protected call",
+    "protected synchronous call"
+   ],
+   "what": "Cross-thread service invocation performed synchronously but guarded by a mutual-exclusion semaphore so only one caller executes the service at a time."
+  },
+  {
+   "id": "guarded-suspension",
+   "name": "Guarded Suspension",
+   "kind": "synchronization-coordination",
+   "aka": [
+    "guarded wait",
+    "guarded methods"
+   ],
+   "what": "A method that suspends the calling thread until a precondition (guard) over the object's state becomes true, then executes; the wait-loop-on-condition-variable pattern form."
+  },
+  {
+   "id": "implicit-lock",
+   "name": "Implicit Lock",
+   "kind": "synchronization-coordination",
+   "aka": [],
+   "what": "Has framework or layer-supertype code acquire the needed offline locks automatically so application code cannot forget them."
+  },
+  {
+   "id": "interrupt-masking-critical-section",
+   "name": "Interrupt-Masking Critical Section",
+   "kind": "synchronization-coordination",
+   "aka": [
+    "disabling interrupts",
+    "interrupt lock",
+    "PRIMASK/BASEPRI critical section"
+   ],
+   "what": "Protect data shared between mainline code and ISRs by briefly disabling (or priority-masking) interrupts around the access."
+  },
+  {
+   "id": "latch",
+   "name": "Latch",
+   "kind": "synchronization-coordination",
+   "aka": [
+    "countdown latch",
+    "gate",
+    "one-shot barrier"
+   ],
+   "what": "A one-shot synchronizer that blocks waiting threads until it reaches its terminal (open) state - typically when a count of prerequisite events reaches zero - and then stays open forever."
+  },
+  {
+   "id": "lock-escalation",
+   "name": "Lock Escalation",
+   "kind": "synchronization-coordination",
+   "aka": [
+    "lock promotion to coarser granularity"
+   ],
+   "what": "When a transaction holds too many fine-grained locks, the lock manager replaces them with a single coarser-granularity lock to cap lock-table memory."
+  },
+  {
+   "id": "lock-striping",
+   "name": "Lock Striping",
+   "kind": "synchronization-coordination",
+   "aka": [
+    "striped locking",
+    "lock splitting (coarser sibling)",
+    "striped locks"
+   ],
+   "what": "Partitioning a data structure's protection across an array of locks (e.g., one per hash-bucket group) so independent operations contend only on their stripe."
+  },
+  {
+   "id": "logical-clock",
+   "name": "Logical Clock",
+   "kind": "synchronization-coordination",
+   "aka": [
+    "Lamport clock",
+    "Lamport timestamp",
+    "vector clock"
+   ],
+   "what": "A per-process counter (scalar or vector) advanced on local events and merged on message receipt so that timestamp order respects causal (happened-before) order without synchronized physical clocks."
+  },
+  {
+   "id": "mcs-queue-lock",
+   "name": "MCS Queue Lock",
+   "kind": "synchronization-coordination",
+   "aka": [
+    "MCS lock",
+    "queue-based spinlock",
+    "CLH lock (variant)"
+   ],
+   "what": "Waiters enqueue a per-thread node and spin only on their own node's flag; the releaser hands the lock to its queue successor."
+  },
+  {
+   "id": "memory-barrier",
+   "name": "Memory Barrier",
+   "kind": "synchronization-coordination",
+   "aka": [
+    "memory fence",
+    "smp_mb",
+    "full fence"
+   ],
+   "what": "An explicit instruction or compiler directive that constrains the order in which memory operations before and after it may become visible to other processors."
+  },
+  {
+   "id": "monitor-object",
+   "name": "Monitor Object",
+   "kind": "synchronization-coordination",
+   "aka": [
+    "Monitor",
+    "synchronized object"
+   ],
+   "what": "An object synchronizes its own method execution with an internal lock plus condition variables, so at most one method runs at a time and methods can wait for state conditions inside the object."
+  },
+  {
+   "id": "multi-granularity-locking",
+   "name": "Multi-Granularity Locking",
+   "kind": "synchronization-coordination",
+   "aka": [
+    "intention locks",
+    "intent locks",
+    "hierarchical locking"
+   ],
+   "what": "Locks are taken at multiple granularities (database, table, page, row) with intention modes (IS, IX, SIX) on ancestors advertising finer-grained locks below."
+  },
+  {
+   "id": "multiversion-concurrency-control",
+   "name": "Multiversion Concurrency Control",
+   "kind": "synchronization-coordination",
+   "aka": [
+    "MVCC",
+    "multi-version concurrency control",
+    "versioned records"
+   ],
+   "what": "Keep multiple timestamped versions of each data item so readers see a consistent older version while writers create new ones, with obsolete versions garbage-collected later."
+  },
+  {
+   "id": "operational-transformation",
+   "name": "Operational Transformation",
+   "kind": "synchronization-coordination",
+   "aka": [
+    "OT",
+    "dOPT (original algorithm)"
+   ],
+   "what": "Keep concurrently edited replicas consistent by transforming each incoming operation against the concurrent operations already applied locally, preserving intention and causality without locking."
+  },
+  {
+   "id": "optimistic-concurrency-control",
+   "name": "Optimistic Concurrency Control",
+   "kind": "synchronization-coordination",
+   "aka": [
+    "OCC",
+    "optimistic concurrency control",
+    "optimistic locking"
+   ],
+   "what": "Proceed without locks, recording versions of the data read; at commit time re-check the versions and retry the whole operation if anything changed."
+  },
+  {
+   "id": "optimistic-offline-lock",
+   "name": "Optimistic Offline Lock",
+   "kind": "synchronization-coordination",
+   "aka": [],
+   "what": "Prevents conflicts between concurrent business transactions by validating at commit time (typically via a version field) that no other session changed the data since it was read."
+  },
+  {
+   "id": "ordered-locking",
+   "name": "Ordered Locking",
+   "kind": "synchronization-coordination",
+   "aka": [
+    "lock ordering",
+    "lock hierarchy",
+    "resource ordering"
+   ],
+   "what": "Every lockable resource gets a global order/ID and all tasks must acquire locks in strictly increasing order, making circular wait impossible."
+  },
+  {
+   "id": "pessimistic-offline-lock",
+   "name": "Pessimistic Offline Lock",
+   "kind": "synchronization-coordination",
+   "aka": [],
+   "what": "Prevents conflicts between concurrent business transactions by acquiring an application-managed lock on data before working with it, forcing other sessions to wait or be refused."
+  },
+  {
+   "id": "priority-ceiling-protocol",
+   "name": "Priority Ceiling Protocol",
+   "kind": "synchronization-coordination",
+   "aka": [
+    "Priority Ceiling Pattern",
+    "PCP",
+    "Highest Locker Pattern"
+   ],
+   "what": "Each resource is assigned a ceiling priority equal to the highest priority of any task that may lock it, and locking rules built on the ceilings bound blocking to one critical section and prevent deadlock."
+  },
+  {
+   "id": "priority-inheritance-protocol",
+   "name": "Priority Inheritance Protocol",
+   "kind": "synchronization-coordination",
+   "aka": [
+    "priority inheritance",
+    "PIP"
+   ],
+   "what": "A task holding a lock temporarily inherits the highest priority of any task blocked on that lock, releasing the boost when it unlocks."
+  },
+  {
+   "id": "read-copy-update",
+   "name": "Read-Copy-Update",
+   "kind": "synchronization-coordination",
+   "aka": [
+    "RCU",
+    "quiescent-state-based reclamation",
+    "QSBR"
+   ],
+   "what": "Readers traverse shared data with essentially zero synchronization while updaters publish new versions atomically and defer reclamation of old versions until all pre-existing readers have finished (a grace period)."
+  },
+  {
+   "id": "readers-writer-lock",
+   "name": "Readers-Writer Lock",
+   "kind": "synchronization-coordination",
+   "aka": [
+    "read-write lock",
+    "shared-exclusive lock",
+    "RW lock"
+   ],
+   "what": "A lock admitting either many concurrent readers or one exclusive writer, exploiting the fact that reads do not conflict with each other."
+  },
+  {
+   "id": "reentrant-lock",
+   "name": "Reentrant Lock",
+   "kind": "synchronization-coordination",
+   "aka": [
+    "recursive lock",
+    "recursive mutex"
+   ],
+   "what": "A mutex variant that the holding thread may re-acquire without deadlocking, tracked by owner and hold count; charter-noted as a variant of the plain mutex kept separate for its distinct semantics."
+  },
+  {
+   "id": "rendezvous",
+   "name": "Rendezvous",
+   "kind": "synchronization-coordination",
+   "aka": [
+    "barrier synchronization",
+    "synchronization point",
+    "extended rendezvous"
+   ],
+   "what": "An explicit synchronization object at which multiple tasks wait until a predetermined condition (e.g., all parties arrived) is met, then proceed together."
+  },
+  {
+   "id": "safe-publication",
+   "name": "Safe Publication",
+   "kind": "synchronization-coordination",
+   "aka": [
+    "safe object publication"
+   ],
+   "what": "The set of idioms (final fields, volatile references, locks, initialized statics, concurrent collections) that make an object and its state visible to other threads in a fully constructed form."
+  },
+  {
+   "id": "safepoint",
+   "name": "Safepoint",
+   "kind": "synchronization-coordination",
+   "aka": [
+    "GC point",
+    "GC-safe point",
+    "safepoint poll (polling-page / poll-instruction mechanism)"
+   ],
+   "what": "A designated point in generated or interpreted code at which a thread's state (GC roots, stack maps) is fully described and the thread can be safely blocked; the runtime brings all threads to safepoints (via polls, page-protection tricks, o"
+  },
+  {
+   "id": "scoped-locking",
+   "name": "Scoped Locking",
+   "kind": "synchronization-coordination",
+   "aka": [
+    "Synchronized Block idiom",
+    "Guard idiom"
+   ],
+   "what": "A guard object acquires a lock in its constructor and releases it in its destructor, so every exit path from a scope (including exceptions) releases the lock."
+  },
+  {
+   "id": "self-pipe-trick",
+   "name": "Self-Pipe Trick",
+   "kind": "synchronization-coordination",
+   "aka": [
+    "self-pipe",
+    "wakeup pipe"
+   ],
+   "what": "A process writes a byte to a pipe it also polls, converting an asynchronous event (typically a signal) into a file-descriptor readiness event handled in the main event loop."
+  },
+  {
+   "id": "semaphore",
+   "name": "Semaphore",
+   "kind": "synchronization-coordination",
+   "aka": [
+    "counting semaphore",
+    "binary semaphore",
+    "P/V operations"
+   ],
+   "what": "An integer counter with atomic wait (decrement-or-block) and signal (increment-and-wake) operations, used to control access to a pool of permits."
+  },
+  {
+   "id": "sequence-lock",
+   "name": "Sequence Lock",
+   "kind": "synchronization-coordination",
+   "aka": [
+    "seqlock",
+    "sequence counter",
+    "seqcount"
+   ],
+   "what": "A writer increments a sequence counter before and after updating; readers retry their lock-free read if the counter was odd or changed across the read."
+  },
+  {
+   "id": "simultaneous-locking",
+   "name": "Simultaneous Locking",
+   "kind": "synchronization-coordination",
+   "aka": [
+    "all-or-none resource locking"
+   ],
+   "what": "A task acquires all resources it will need in one atomic all-or-none step (releasing everything on partial failure), so it never holds some while waiting for others."
+  },
+  {
+   "id": "snapshot-isolation",
+   "name": "Snapshot Isolation",
+   "kind": "synchronization-coordination",
+   "aka": [
+    "SI"
+   ],
+   "what": "A transaction reads from a consistent snapshot taken at its start and commits only if no concurrent committed transaction wrote the same items (first-committer-wins)."
+  },
+  {
+   "id": "software-transactional-memory",
+   "name": "Software Transactional Memory",
+   "kind": "synchronization-coordination",
+   "aka": [
+    "STM",
+    "atomic blocks",
+    "transactional memory (software)"
+   ],
+   "what": "Shared-memory operations grouped into transactions that execute optimistically and commit atomically, aborting and retrying on conflict, giving composable lock-free-style synchronization."
+  },
+  {
+   "id": "spinlock",
+   "name": "Spinlock",
+   "kind": "synchronization-coordination",
+   "aka": [
+    "busy-wait lock",
+    "spin lock",
+    "test-and-set lock"
+   ],
+   "what": "A lock acquired by busy-waiting (repeatedly testing an atomic flag) instead of blocking, trading CPU cycles for elimination of scheduler round-trips."
+  },
+  {
+   "id": "strategized-locking",
+   "name": "Strategized Locking",
+   "kind": "synchronization-coordination",
+   "aka": [],
+   "what": "The synchronization mechanism a component uses is a pluggable strategy (template parameter or polymorphic lock object), including a null lock for single-threaded configurations."
+  },
+  {
+   "id": "test-and-test-and-set-lock",
+   "name": "Test-and-Test-and-Set Lock",
+   "kind": "synchronization-coordination",
+   "aka": [
+    "TTAS lock",
+    "spin-on-read spinlock",
+    "TTAS with exponential backoff"
+   ],
+   "what": "Spin reading the lock word from cache until it appears free, and only then attempt the atomic test-and-set; typically combined with exponential backoff between attempts."
+  },
+  {
+   "id": "thread-confinement",
+   "name": "Thread Confinement",
+   "kind": "synchronization-coordination",
+   "aka": [
+    "stack confinement",
+    "serial thread confinement"
+   ],
+   "what": "Restricting all access to mutable data to a single thread, making synchronization unnecessary for that data."
+  },
+  {
+   "id": "thread-safe-interface",
+   "name": "Thread-Safe Interface",
+   "kind": "synchronization-coordination",
+   "aka": [],
+   "what": "Public interface methods acquire the component's lock and then delegate to non-locking private implementation methods; implementation methods never call locking interface methods."
+  },
+  {
+   "id": "ticket-lock",
+   "name": "Ticket Lock",
+   "kind": "synchronization-coordination",
+   "aka": [
+    "ticket spinlock",
+    "bakery-style spinlock"
+   ],
+   "what": "A spinlock built from two counters: acquirers atomically take a ticket and spin until the now-serving counter reaches it."
+  },
+  {
+   "id": "timestamp-ordering-concurrency-control",
+   "name": "Timestamp-Ordering Concurrency Control",
+   "kind": "synchronization-coordination",
+   "aka": [
+    "T/O",
+    "timestamp ordering",
+    "basic timestamp ordering"
+   ],
+   "what": "Assign each transaction a unique timestamp at start and enforce that all conflicting reads and writes execute in timestamp order, aborting operations that arrive too late."
+  },
+  {
+   "id": "two-phase-locking",
+   "name": "Two-Phase Locking",
+   "kind": "synchronization-coordination",
+   "aka": [
+    "2PL",
+    "strict two-phase locking",
+    "S2PL"
+   ],
+   "what": "A locking discipline in which a transaction acquires all its locks before releasing any (growing then shrinking phase), which suffices to guarantee serializable executions."
+  }
+ ],
+ "existing_intra_edges": [
+  {
+   "from": "aba-mitigation-via-tagged-pointer",
+   "kind": "composes-with",
+   "to": "compare-and-swap-loop"
+  },
+  {
+   "from": "balking",
+   "kind": "alternative-to",
+   "to": "guarded-suspension"
+  },
+  {
+   "from": "coarse-grained-lock",
+   "kind": "composes-with",
+   "to": "optimistic-offline-lock"
+  },
+  {
+   "from": "condition-variable",
+   "kind": "implements",
+   "to": "guarded-suspension"
+  },
+  {
+   "from": "deadlock-detection",
+   "kind": "composes-with",
+   "to": "two-phase-locking"
+  },
+  {
+   "from": "direct-to-task-notification",
+   "kind": "alternative-to",
+   "to": "semaphore"
+  },
+  {
+   "from": "double-checked-locking",
+   "kind": "composes-with",
+   "to": "safe-publication"
+  },
+  {
+   "from": "guarded-call",
+   "kind": "composes-with",
+   "to": "semaphore"
+  },
+  {
+   "from": "implicit-lock",
+   "kind": "composes-with",
+   "to": "pessimistic-offline-lock"
+  },
+  {
+   "from": "interrupt-masking-critical-section",
+   "kind": "specializes",
+   "to": "critical-region"
+  },
+  {
+   "from": "lock-escalation",
+   "kind": "composes-with",
+   "to": "multi-granularity-locking"
+  },
+  {
+   "from": "mcs-queue-lock",
+   "kind": "specializes",
+   "to": "spinlock"
+  },
+  {
+   "from": "memory-barrier",
+   "kind": "implements",
+   "to": "acquire-release-ordering"
+  },
+  {
+   "from": "monitor-object",
+   "kind": "composes-with",
+   "to": "condition-variable"
+  },
+  {
+   "from": "monitor-object",
+   "kind": "composes-with",
+   "to": "scoped-locking"
+  },
+  {
+   "from": "multiversion-concurrency-control",
+   "kind": "implements",
+   "to": "snapshot-isolation"
+  },
+  {
+   "from": "optimistic-offline-lock",
+   "kind": "specializes",
+   "to": "optimistic-concurrency-control"
+  },
+  {
+   "from": "pessimistic-offline-lock",
+   "kind": "alternative-to",
+   "to": "optimistic-offline-lock"
+  },
+  {
+   "from": "priority-ceiling-protocol",
+   "kind": "alternative-to",
+   "to": "priority-inheritance-protocol"
+  },
+  {
+   "from": "read-copy-update",
+   "kind": "alternative-to",
+   "to": "readers-writer-lock"
+  },
+  {
+   "from": "scoped-locking",
+   "kind": "composes-with",
+   "to": "strategized-locking"
+  },
+  {
+   "from": "sequence-lock",
+   "kind": "specializes",
+   "to": "optimistic-concurrency-control"
+  },
+  {
+   "from": "simultaneous-locking",
+   "kind": "alternative-to",
+   "to": "ordered-locking"
+  },
+  {
+   "from": "software-transactional-memory",
+   "kind": "specializes",
+   "to": "optimistic-concurrency-control"
+  },
+  {
+   "from": "test-and-test-and-set-lock",
+   "kind": "specializes",
+   "to": "spinlock"
+  },
+  {
+   "from": "thread-safe-interface",
+   "kind": "alternative-to",
+   "to": "reentrant-lock"
+  },
+  {
+   "from": "ticket-lock",
+   "kind": "specializes",
+   "to": "spinlock"
+  },
+  {
+   "from": "timestamp-ordering-concurrency-control",
+   "kind": "alternative-to",
+   "to": "two-phase-locking"
+  }
+ ]
+}

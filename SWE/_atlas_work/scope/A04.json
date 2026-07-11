@@ -1,0 +1,358 @@
+{
+ "group": "A04",
+ "title": "Modifiability, integrability, deployability, testability & usability tactics",
+ "realm": "architecture",
+ "literature": "Bass-Clements-Kazman modifiability/deployability/testability/usability/integrability tactic trees (localize changes, defer binding, restrict dependencies, etc.).",
+ "member_count": 33,
+ "target_edges": 40,
+ "priority_ids": [
+  "abstract-common-services",
+  "abstract-data-sources",
+  "adhere-to-standards",
+  "aggregate-tactic",
+  "cancel",
+  "configure-behavior",
+  "defer-binding",
+  "encapsulate",
+  "executable-assertions",
+  "feature-toggle",
+  "limit-nondeterminism",
+  "limit-structural-complexity",
+  "localize-state-storage",
+  "maintain-system-model",
+  "maintain-task-model",
+  "maintain-user-model",
+  "manage-resources-integrability",
+  "manage-service-interactions",
+  "orchestrate",
+  "package-dependencies",
+  "pause-resume",
+  "record-playback",
+  "redistribute-responsibilities",
+  "restrict-communication-paths",
+  "restrict-dependencies",
+  "rollback-deployment",
+  "scale-rollouts",
+  "script-deployment-commands",
+  "specialized-interfaces",
+  "split-module",
+  "tailor-interface",
+  "undo",
+  "use-an-intermediary"
+ ],
+ "members": [
+  {
+   "id": "abstract-common-services",
+   "name": "Abstract Common Services",
+   "kind": "tactic",
+   "aka": [
+    "factor common services"
+   ],
+   "what": "Where elements provide similar services, factor the similarity into a single more general/abstract service used by all, hiding the specifics of the variants."
+  },
+  {
+   "id": "abstract-data-sources",
+   "name": "Abstract Data Sources",
+   "kind": "tactic",
+   "aka": [
+    "swappable data sources"
+   ],
+   "what": "Abstract the interfaces to a program's input data so test data can be substituted easily — e.g. repointing the system from a production customer database to test databases or data files without changing functional code."
+  },
+  {
+   "id": "adhere-to-standards",
+   "name": "Adhere to Standards",
+   "kind": "tactic",
+   "aka": [
+    "follow standards",
+    "standards conformance"
+   ],
+   "what": "Conform to published interface, protocol, and data standards so that elements built independently can interoperate with less adaptation."
+  },
+  {
+   "id": "aggregate-tactic",
+   "name": "Aggregate",
+   "kind": "tactic",
+   "aka": [
+    "group operations"
+   ],
+   "what": "Provide the ability to aggregate lower-level objects into a group so an operation applies to the whole group, e.g. selecting all slide objects and setting one font size."
+  },
+  {
+   "id": "cancel",
+   "name": "Cancel",
+   "kind": "tactic",
+   "aka": [
+    "user cancel support"
+   ],
+   "what": "Support user-issued cancellation: a listener not blocked by the operation being cancelled, termination of the activity, release of its resources, and notification of collaborating components so they act appropriately."
+  },
+  {
+   "id": "configure-behavior",
+   "name": "Configure Behavior",
+   "kind": "tactic",
+   "aka": [
+    "behavioral configuration"
+   ],
+   "what": "Build components so their behavior can be configured — during build, deployment/startup, or runtime — to operate in the modes an integrating system expects."
+  },
+  {
+   "id": "defer-binding",
+   "name": "Defer Binding",
+   "kind": "tactic",
+   "aka": [
+    "late binding",
+    "defer binding time"
+   ],
+   "what": "Bind values and choices as late in the life cycle as cost-effective: at compile/build time (component replacement, compile-time parameterization, aspects), at deployment/startup (configuration-time binding, resource files), or at runtime (d"
+  },
+  {
+   "id": "encapsulate",
+   "name": "Encapsulate",
+   "kind": "tactic",
+   "aka": [
+    "introduce explicit interface"
+   ],
+   "what": "Introduce an explicit interface to an element and hide its internals so that other elements depend only on the interface, reducing the strength of coupling and the syntactic/semantic distance to be bridged."
+  },
+  {
+   "id": "executable-assertions",
+   "name": "Executable Assertions",
+   "kind": "tactic",
+   "aka": [
+    "embedded assertions",
+    "pre/postconditions and invariants"
+   ],
+   "what": "Hand-code assertions checking that data values satisfy specified constraints — placed wherever the data is referenced or modified, expressible as method pre/postconditions or class invariants — so the program flags when and where it enters "
+  },
+  {
+   "id": "feature-toggle",
+   "name": "Feature Toggle",
+   "kind": "tactic",
+   "aka": [
+    "kill switch",
+    "feature flag (design-realm realization)"
+   ],
+   "what": "Integrate a runtime 'kill switch' for new features so a deployed feature can be automatically disabled without initiating a new deployment."
+  },
+  {
+   "id": "limit-nondeterminism",
+   "name": "Limit Nondeterminism",
+   "kind": "tactic",
+   "aka": [
+    "determinism enforcement"
+   ],
+   "what": "Find and, where possible, eliminate sources of behavioral nondeterminism such as unconstrained parallelism; where unavoidable (e.g. multithreaded response to unpredictable events), manage it with tactics like record/playback."
+  },
+  {
+   "id": "limit-structural-complexity",
+   "name": "Limit Structural Complexity",
+   "kind": "tactic",
+   "aka": [
+    "structural simplification for test"
+   ],
+   "what": "Keep the structure simple enough to test: avoid or resolve cyclic dependencies, isolate and encapsulate environmental dependencies, reduce inter-component coupling, constrain inheritance depth/fan-out and polymorphism, and track metrics suc"
+  },
+  {
+   "id": "localize-state-storage",
+   "name": "Localize State Storage",
+   "kind": "tactic",
+   "aka": [
+    "externalized state",
+    "state machine as state store"
+   ],
+   "what": "Store system/subsystem/component state in a single place — conveniently a state machine object tracking and reporting the current state — so tests can start the system in any desired state, at whatever granularity testing needs."
+  },
+  {
+   "id": "maintain-system-model",
+   "name": "Maintain System Model",
+   "kind": "tactic",
+   "aka": [
+    "system self-model",
+    "progress bar (manifestation)"
+   ],
+   "what": "The system maintains an explicit model of itself to determine expected system behavior and give users appropriate feedback — the progress bar predicting time to completion is the canonical manifestation."
+  },
+  {
+   "id": "maintain-task-model",
+   "name": "Maintain Task Model",
+   "kind": "tactic",
+   "aka": [
+    "task model"
+   ],
+   "what": "Maintain a model of the task the user is performing so the system can infer context and assist — e.g. predictive type-ahead in search engines, spell correction in mail clients."
+  },
+  {
+   "id": "maintain-user-model",
+   "name": "Maintain User Model",
+   "kind": "tactic",
+   "aka": [
+    "user model"
+   ],
+   "what": "Maintain an explicit model of a user or user class — their knowledge of the system, expected response-time behavior, error patterns — updated dynamically or offline; user-interface customization is a special case where users edit the model "
+  },
+  {
+   "id": "manage-resources-integrability",
+   "name": "Manage Resources (Integrability)",
+   "kind": "tactic",
+   "aka": [
+    "resource manager"
+   ],
+   "what": "Interpose an explicit resource manager that mediates access to shared computing resources (memory, threads, hardware devices) so independently developed components can share them safely."
+  },
+  {
+   "id": "manage-service-interactions",
+   "name": "Manage Service Interactions",
+   "kind": "tactic",
+   "aka": [
+    "version-coexistence management"
+   ],
+   "what": "Allow multiple versions of system services to be deployed and executed simultaneously, with client requests routed to any version, coordinating inter-service interactions to proactively avoid version incompatibilities."
+  },
+  {
+   "id": "orchestrate",
+   "name": "Orchestrate",
+   "kind": "tactic",
+   "aka": [
+    "orchestration (tactic)",
+    "orchestrator-based coordination",
+    "orchestration-based saga"
+   ],
+   "what": "Introduce a control mechanism (e.g. an orchestration engine or workflow controller) that coordinates, sequences, and invokes otherwise independent services so they work together."
+  },
+  {
+   "id": "package-dependencies",
+   "name": "Package Dependencies",
+   "kind": "tactic",
+   "aka": [
+    "dependency bundling",
+    "containerize dependencies"
+   ],
+   "what": "Package an element together with its dependencies (libraries, OS version, utility containers) — via containers, pods, or virtual machines — so they deploy together and dependency versions stay consistent from development to production."
+  },
+  {
+   "id": "pause-resume",
+   "name": "Pause/Resume",
+   "kind": "tactic",
+   "aka": [
+    "suspend and resume"
+   ],
+   "what": "Let users pause and later resume long-running operations (e.g. large downloads), temporarily freeing resources for reallocation to other tasks."
+  },
+  {
+   "id": "record-playback",
+   "name": "Record/Playback",
+   "kind": "tactic",
+   "aka": [
+    "capture/replay"
+   ],
+   "what": "Record information as it crosses interfaces and use the recorded state to 'play the system back', recreating the fault-inducing state as input to further tests."
+  },
+  {
+   "id": "redistribute-responsibilities",
+   "name": "Redistribute Responsibilities",
+   "kind": "tactic",
+   "aka": [
+    "increase semantic coherence (3rd ed name)"
+   ],
+   "what": "Move similar responsibilities scattered across several modules into one module (existing or new), guided by change scenarios showing which responsibilities move together."
+  },
+  {
+   "id": "restrict-communication-paths",
+   "name": "Restrict Communication Paths",
+   "kind": "tactic",
+   "aka": [
+    "limit communication paths"
+   ],
+   "what": "Restrict the set of elements with which a given element can communicate, so the number of potential interaction points that must be understood and integrated stays small."
+  },
+  {
+   "id": "restrict-dependencies",
+   "name": "Restrict Dependencies",
+   "kind": "tactic",
+   "aka": [
+    "limit dependencies",
+    "visibility restriction"
+   ],
+   "what": "Restrict which modules a given module may interact with or depend on, in practice via interface visibility and authorization; seen in layered architectures (a layer may use only lower layers) and wrappers (outsiders see only the wrapper)."
+  },
+  {
+   "id": "rollback-deployment",
+   "name": "Rollback (Deployment)",
+   "kind": "tactic",
+   "aka": [
+    "deployment rollback",
+    "revert deployment"
+   ],
+   "what": "Revert a defective or disappointing deployment to its prior state, tracking or being able to reverse the coordinated updates to multiple services and their data, ideally fully automatically."
+  },
+  {
+   "id": "scale-rollouts",
+   "name": "Scale Rollouts",
+   "kind": "tactic",
+   "aka": [
+    "gradual rollout",
+    "incremental rollout"
+   ],
+   "what": "Deploy a new version of a service gradually to controlled subsets of the user population rather than to everyone at once, monitoring effects and rolling back if needed; blue/green deployment and rolling upgrade are pattern realizations."
+  },
+  {
+   "id": "script-deployment-commands",
+   "name": "Script Deployment Commands",
+   "kind": "tactic",
+   "aka": [
+    "scripted deployment",
+    "deployment-as-code"
+   ],
+   "what": "Capture the many precisely ordered, coordinated deployment steps as scripts that are treated like code — documented, reviewed, tested, version-controlled — and executed by a script engine."
+  },
+  {
+   "id": "specialized-interfaces",
+   "name": "Specialized Interfaces",
+   "kind": "tactic",
+   "aka": [
+    "test interfaces",
+    "set/get/report/reset methods"
+   ],
+   "what": "Provide dedicated test interfaces — set/get methods for important variables, report methods returning full object state, reset methods forcing a given internal state, verbose/logging/instrumentation switches — clearly separated from functio"
+  },
+  {
+   "id": "split-module",
+   "name": "Split Module",
+   "kind": "tactic",
+   "aka": [
+    "module refactoring by responsibility"
+   ],
+   "what": "Refactor a module whose responsibilities are not cohesive into several modules that are each individually cohesive — not an arbitrary bisection, but a principled separation of responsibilities."
+  },
+  {
+   "id": "tailor-interface",
+   "name": "Tailor Interface",
+   "kind": "tactic",
+   "aka": [
+    "interface tailoring"
+   ],
+   "what": "Add capabilities to or hide capabilities of an interface without changing the underlying implementation — e.g. adding buffering, data transformation, or masking functions (adapter/decorator-like mechanisms at the architectural boundary)."
+  },
+  {
+   "id": "undo",
+   "name": "Undo",
+   "kind": "tactic",
+   "aka": [
+    "multi-level undo"
+   ],
+   "what": "Maintain sufficient information about earlier system state — snapshots/checkpoints or sets of reversible operations, with detailed change records where operations are not invertible — to restore it on user request, in single- or multi-level"
+  },
+  {
+   "id": "use-an-intermediary",
+   "name": "Use an Intermediary",
+   "kind": "tactic",
+   "aka": [
+    "insert intermediary",
+    "broker/bus (realizations)"
+   ],
+   "what": "Break a dependency between elements by interposing an intermediary (broker, publish-subscribe bus, name server, etc.) that manages the interaction on their behalf."
+  }
+ ],
+ "existing_intra_edges": []
+}

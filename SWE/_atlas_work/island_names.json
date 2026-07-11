@@ -1,0 +1,86 @@
+{
+  "isl01": {
+    "name": "Object-Oriented Design Patterns",
+    "blurb": "GoF creational, structural and behavioral patterns plus abstraction and encapsulation idioms for flexible objects."
+  },
+  "isl02": {
+    "name": "Memory Management & Caching",
+    "blurb": "Allocators, buffer pools, ownership and disposal, plus caching and memoization to manage memory and cut overhead."
+  },
+  "isl03": {
+    "name": "Security, Auth & Cryptography",
+    "blurb": "Authentication, authorization, cryptographic primitives, secure boot, and audit tactics for trustworthy systems."
+  },
+  "isl04": {
+    "name": "Transactions & Durable Storage",
+    "blurb": "Transactions, locking, replication and storage structures (B-trees, flash) keeping data consistent under faults."
+  },
+  "isl05": {
+    "name": "Fault Tolerance & Recovery",
+    "blurb": "Fault detection, recovery and containment: monitors, retries, circuit breakers, restarts, bulkheads, error kernels."
+  },
+  "isl06": {
+    "name": "Concurrent Execution & Messaging",
+    "blurb": "Thread pools, actors, coroutines and async models with message queues, channels and routers for concurrency."
+  },
+  "isl07": {
+    "name": "Exceptions, Contracts & Testing",
+    "blurb": "Exception handling, guard clauses, contracts, assertions, functional effect idioms, and test structures."
+  },
+  "isl08": {
+    "name": "Data Structures & Encoding",
+    "blurb": "Core data structures (arrays, hash tables, trees, heaps, sketches) plus compression and compact encodings."
+  },
+  "isl09": {
+    "name": "Real-Time Scheduling & Interrupts",
+    "blurb": "RTOS scheduling policies, interrupt handling, and timing tactics for real-time and embedded systems."
+  },
+  "isl10": {
+    "name": "Dataflow & Reactive Streams",
+    "blurb": "Streaming dataflow, reactive UI (signals, FRP, Elm/Flux), and backpressure and flow-control mechanisms."
+  },
+  "isl11": {
+    "name": "Parsing, Compilers & Interpreters",
+    "blurb": "Lexers, parsers, ASTs, bytecode VMs and interpreters, plus input validation and sanitization."
+  },
+  "isl12": {
+    "name": "Event Notification & Pub-Sub",
+    "blurb": "Observers, callbacks, pub-sub and event-driven architecture, with event aggregation and tracing."
+  },
+  "isl13": {
+    "name": "Domain Modeling & Persistence",
+    "blurb": "Domain-driven design and object-relational mapping: entities, value objects, repositories, aggregates."
+  },
+  "isl14": {
+    "name": "Distributed Communication & Remoting",
+    "blurb": "Client-server, RPC, brokers and remoting, plus networked-game state sync (prediction, lockstep)."
+  },
+  "isl15": {
+    "name": "Locks, Atomics & Lock-Free",
+    "blurb": "Low-level synchronization: mutexes, condition variables, atomics, memory ordering, and lock-free structures."
+  },
+  "isl16": {
+    "name": "Microservices & API Gateways",
+    "blurb": "Service-decomposition styles (API gateways, BFF, CQRS, database-per-service) plus byte-stream wire framing."
+  },
+  "isl17": {
+    "name": "Layering & Platform Abstraction",
+    "blurb": "Layered architectures (Clean, Hexagonal), hardware abstraction (HAL, BSP, drivers), and game-engine loops."
+  },
+  "isl18": {
+    "name": "State Machines & Numeric Precision",
+    "blurb": "Finite and hierarchical state machines and control loops, plus numeric-precision arithmetic idioms."
+  },
+  "isl19": {
+    "name": "Deployment, Scaling & Release",
+    "blurb": "Load balancing, auto-scaling, blue-green/canary releases, feature flags, and deployment infrastructure."
+  },
+  "isl20": {
+    "name": "Commands & Iteration",
+    "blurb": "Command objects, undo/redo stacks, and iteration idioms: iterators, enumeration and batch methods."
+  },
+  "isl21": {
+    "name": "Architecture Description & Views",
+    "blurb": "Architecture viewpoints, views, frameworks and decision records for describing and documenting systems."
+  }
+}

@@ -1,0 +1,531 @@
+{
+ "group": "D12",
+ "title": "Persistence, durability & caching",
+ "realm": "design",
+ "literature": "DDIA (Kleppmann) storage & retrieval; write-ahead log / LSM; caching patterns (cache-aside, write-through); ORM patterns (Fowler PoEAA).",
+ "member_count": 45,
+ "target_edges": 54,
+ "priority_ids": [
+  "association-table-mapping",
+  "buffer-pool",
+  "cache-stampede-protection",
+  "concrete-table-inheritance",
+  "content-addressable-storage",
+  "dependent-mapping",
+  "eeprom-emulation-in-flash",
+  "embedded-value",
+  "flash-wear-leveling",
+  "foreign-key-mapping",
+  "group-commit",
+  "identity-field",
+  "inheritance-mappers",
+  "inline-caching",
+  "lookup-table",
+  "metadata-mapping",
+  "prefetching",
+  "row-data-gateway",
+  "table-data-gateway"
+ ],
+ "members": [
+  {
+   "id": "active-record",
+   "name": "Active Record",
+   "kind": "persistence-durability",
+   "aka": [],
+   "what": "An object that wraps one row of a database table, encapsulating the database access and adding domain logic on that data."
+  },
+  {
+   "id": "association-table-mapping",
+   "name": "Association Table Mapping",
+   "kind": "persistence-durability",
+   "aka": [
+    "join table mapping"
+   ],
+   "what": "Maps a many-to-many association to a separate table holding pairs of foreign keys into the two associated tables."
+  },
+  {
+   "id": "buffer-pool",
+   "name": "Buffer Pool",
+   "kind": "caching-memoization",
+   "aka": [
+    "page cache",
+    "buffer manager",
+    "buffer cache"
+   ],
+   "what": "A fixed set of in-memory frames that caches disk pages, tracks pin counts and dirty state, and mediates all page reads and writes between the storage layer and disk."
+  },
+  {
+   "id": "cache-aside",
+   "name": "Cache-Aside",
+   "kind": "caching-memoization",
+   "aka": [
+    "lazy loading",
+    "look-aside cache",
+    "lazy caching"
+   ],
+   "what": "Application code checks the cache first, loads from the backing store on a miss, populates the cache itself, and invalidates or updates the entry when it writes the store."
+  },
+  {
+   "id": "cache-eviction-policy",
+   "name": "Cache Eviction Policy",
+   "kind": "caching-memoization",
+   "aka": [
+    "cache replacement policy",
+    "page replacement policy",
+    "LRU"
+   ],
+   "what": "The rule a bounded cache uses to choose which resident entry to discard when admitting a new one, approximating 'least likely to be needed again' (recency-, frequency-, or clock-based)."
+  },
+  {
+   "id": "cache-stampede-protection",
+   "name": "Cache Stampede Protection",
+   "kind": "caching-memoization",
+   "aka": [
+    "dog-pile prevention",
+    "dogpile effect mitigation",
+    "cache stampede prevention"
+   ],
+   "what": "Mechanisms ensuring that when a popular cache entry expires, only one computation regenerates it - concurrent requesters are coalesced onto the in-flight computation (singleflight/lock) or expirations are jittered via probabilistic early re"
+  },
+  {
+   "id": "caching",
+   "name": "Caching",
+   "kind": "caching-memoization",
+   "aka": [
+    "Resource Cache",
+    "Cache"
+   ],
+   "what": "Released or fetched resources are kept in fast intermediate storage so re-acquisition is served from the cache instead of the expensive source, under an invalidation/consistency policy."
+  },
+  {
+   "id": "checkpointing",
+   "name": "Checkpointing",
+   "kind": "persistence-durability",
+   "aka": [
+    "checkpoint",
+    "fuzzy checkpoint",
+    "database checkpoint"
+   ],
+   "what": "Periodically record a consistent marker of which logged changes have reached the main data store, bounding how far back crash recovery must scan the log."
+  },
+  {
+   "id": "class-table-inheritance",
+   "name": "Class Table Inheritance",
+   "kind": "persistence-durability",
+   "aka": [],
+   "what": "Maps each class in an inheritance hierarchy to its own table holding only that class's fields, joined by shared primary key."
+  },
+  {
+   "id": "concrete-table-inheritance",
+   "name": "Concrete Table Inheritance",
+   "kind": "persistence-durability",
+   "aka": [
+    "leaf table inheritance"
+   ],
+   "what": "Maps each concrete class in an inheritance hierarchy to its own table containing all its fields, inherited and declared."
+  },
+  {
+   "id": "content-addressable-storage",
+   "name": "Content-Addressable Storage",
+   "kind": "persistence-durability",
+   "aka": [
+    "content addressing",
+    "content-addressed store",
+    "CAS (storage sense)"
+   ],
+   "what": "Store immutable blocks/objects keyed by a cryptographic hash of their contents, so identical data coalesces, references are self-verifying, and writes are idempotent."
+  },
+  {
+   "id": "data-mapper",
+   "name": "Data Mapper",
+   "kind": "persistence-durability",
+   "aka": [],
+   "what": "A layer of mapper objects that moves data between in-memory objects and the database while keeping the two schemas independent of each other."
+  },
+  {
+   "id": "dependent-mapping",
+   "name": "Dependent Mapping",
+   "kind": "persistence-durability",
+   "aka": [],
+   "what": "Has one class (the owner) perform the database mapping for a child class whose objects are accessed only through it."
+  },
+  {
+   "id": "eeprom-emulation-in-flash",
+   "name": "EEPROM Emulation in Flash",
+   "kind": "persistence-durability",
+   "aka": [
+    "flash-based parameter storage",
+    "emulated EEPROM"
+   ],
+   "what": "Emulate byte-updatable EEPROM semantics on page-erasable flash by journaling variable records across reserved pages and swapping/compacting pages when full."
+  },
+  {
+   "id": "embedded-value",
+   "name": "Embedded Value",
+   "kind": "persistence-durability",
+   "aka": [
+    "aggregate mapping",
+    "composer"
+   ],
+   "what": "Maps a value object into the columns of its owner's table rather than giving it a table of its own."
+  },
+  {
+   "id": "event-sourcing",
+   "name": "Event Sourcing",
+   "kind": "persistence-durability",
+   "aka": [],
+   "what": "Captures every change to application state as an immutable event in an append-only log, so current state is derived by replaying the events rather than stored destructively."
+  },
+  {
+   "id": "flash-translation-layer",
+   "name": "Flash Translation Layer",
+   "kind": "persistence-durability",
+   "aka": [
+    "FTL",
+    "logical-to-physical flash mapping",
+    "flash mapping layer"
+   ],
+   "what": "A firmware layer that remaps logical block writes to out-of-place physical flash pages, maintaining a logical-to-physical mapping table plus garbage collection so erase-constrained flash presents an ordinary rewritable block device."
+  },
+  {
+   "id": "flash-wear-leveling",
+   "name": "Flash Wear Leveling",
+   "kind": "persistence-durability",
+   "aka": [
+    "wear levelling",
+    "erase-cycle balancing"
+   ],
+   "what": "Distribute writes and erases evenly across flash pages/blocks (via remapping or rotation) so no single block exhausts its limited erase endurance prematurely."
+  },
+  {
+   "id": "foreign-key-mapping",
+   "name": "Foreign Key Mapping",
+   "kind": "persistence-durability",
+   "aka": [],
+   "what": "Maps an object reference between objects to a foreign key column in the referring object's table."
+  },
+  {
+   "id": "group-commit",
+   "name": "Group Commit",
+   "kind": "persistence-durability",
+   "aka": [
+    "batch commit"
+   ],
+   "what": "Accumulate the log records of several concurrently committing transactions and flush them to stable storage with a single synchronous write."
+  },
+  {
+   "id": "identity-field",
+   "name": "Identity Field",
+   "kind": "persistence-durability",
+   "aka": [],
+   "what": "Saves the database identity (primary key) as a field in the in-memory object to maintain the correspondence between object and row."
+  },
+  {
+   "id": "identity-map",
+   "name": "Identity Map",
+   "kind": "caching-memoization",
+   "aka": [],
+   "what": "Keeps every object loaded from the database in a map keyed by identity so each record is materialized as exactly one in-memory object."
+  },
+  {
+   "id": "inheritance-mappers",
+   "name": "Inheritance Mappers",
+   "kind": "persistence-durability",
+   "aka": [],
+   "what": "A structure of mapper classes mirroring an inheritance hierarchy, so each domain class has a mapper that handles its own fields and delegates inherited ones upward."
+  },
+  {
+   "id": "inline-caching",
+   "name": "Inline Caching",
+   "kind": "caching-memoization",
+   "aka": [
+    "monomorphic inline cache",
+    "polymorphic inline cache",
+    "PIC"
+   ],
+   "what": "Caches the result of dynamic method/property lookup at each individual call site (classically by patching the call instruction itself), so repeated dispatch at that site becomes a type-guard check plus a direct jump."
+  },
+  {
+   "id": "log-structured-storage",
+   "name": "Log-Structured Storage",
+   "kind": "persistence-durability",
+   "aka": [
+    "log-structured file system",
+    "LFS",
+    "append-only storage with segment cleaning"
+   ],
+   "what": "All updates are written as appends to the head of a sequential log divided into large segments; live data is never overwritten in place, and a cleaner process copies still-live records out of old segments to reclaim them."
+  },
+  {
+   "id": "lookup-table",
+   "name": "Lookup Table",
+   "kind": "caching-memoization",
+   "aka": [
+    "LUT",
+    "precomputed table",
+    "interpolated lookup table (variant)"
+   ],
+   "what": "Replace runtime computation with indexing into a precomputed table of results, optionally interpolating between entries for continuous functions."
+  },
+  {
+   "id": "lru-cache",
+   "name": "LRU Cache",
+   "kind": "caching-memoization",
+   "aka": [
+    "least-recently-used cache"
+   ],
+   "what": "Bounded map coupling a hash table with a recency-ordered doubly linked list so lookup, insert, and evict-least-recently-used are all O(1)."
+  },
+  {
+   "id": "memoization",
+   "name": "Memoization",
+   "kind": "caching-memoization",
+   "aka": [
+    "memo function",
+    "tabling",
+    "function result caching"
+   ],
+   "what": "Caching a function's results keyed by its arguments so repeated calls with the same inputs return the stored answer instead of recomputing."
+  },
+  {
+   "id": "memory-image",
+   "name": "Memory Image",
+   "kind": "persistence-durability",
+   "aka": [
+    "system prevalence",
+    "object prevalence",
+    "prevalent system (Prevayler)"
+   ],
+   "what": "Keep the authoritative application state entirely in main memory and obtain durability by logging every state-changing event to persistent storage, replaying the log (accelerated by periodic snapshots) to rebuild state after restart."
+  },
+  {
+   "id": "metadata-mapping",
+   "name": "Metadata Mapping",
+   "kind": "persistence-durability",
+   "aka": [],
+   "what": "Holds the object-relational mapping details as metadata (tables/files or annotations) interpreted or code-generated at runtime, instead of hand-coding each mapper."
+  },
+  {
+   "id": "negative-caching",
+   "name": "Negative Caching",
+   "kind": "caching-memoization",
+   "aka": [
+    "negative cache",
+    "negative result caching",
+    "caching of misses/failures"
+   ],
+   "what": "Caching the fact that a lookup failed (name does not exist, entry not found, call errored) with its own, usually shorter, TTL so repeated misses are answered from cache."
+  },
+  {
+   "id": "prefetching",
+   "name": "Prefetching",
+   "kind": "caching-memoization",
+   "aka": [
+    "readahead",
+    "read-ahead",
+    "anticipatory fetching"
+   ],
+   "what": "Fetch data into a cache or buffer before it is requested, based on a predicted access pattern (most commonly sequential readahead), overlapping fetch latency with useful work."
+  },
+  {
+   "id": "query-object",
+   "name": "Query Object",
+   "kind": "persistence-durability",
+   "aka": [],
+   "what": "An object that represents a database query as a structure of criteria referring to domain classes, later translated into SQL."
+  },
+  {
+   "id": "read-through-cache",
+   "name": "Read-Through Cache",
+   "kind": "caching-memoization",
+   "aka": [
+    "read-through caching"
+   ],
+   "what": "The cache itself, not the application, loads missing entries from the backing store via a pluggable loader when a get misses, then returns and retains the value."
+  },
+  {
+   "id": "refresh-ahead-cache",
+   "name": "Refresh-Ahead Cache",
+   "kind": "caching-memoization",
+   "aka": [
+    "refresh-ahead caching",
+    "proactive refresh"
+   ],
+   "what": "When a cached entry is read close to its expiry, the cache returns the current value and asynchronously reloads a fresh one from the backing store before it expires."
+  },
+  {
+   "id": "repository",
+   "name": "Repository",
+   "kind": "persistence-durability",
+   "aka": [],
+   "what": "Mediates between the domain and data-mapping layers using a collection-like interface for accessing and querying domain objects."
+  },
+  {
+   "id": "row-data-gateway",
+   "name": "Row Data Gateway",
+   "kind": "persistence-durability",
+   "aka": [],
+   "what": "An object that acts as a gateway to a single database row, one instance per row, exposing the row's fields and its insert/update/delete operations."
+  },
+  {
+   "id": "shadow-paging",
+   "name": "Shadow Paging",
+   "kind": "persistence-durability",
+   "aka": [
+    "shadow pages",
+    "shadow copy update"
+   ],
+   "what": "Perform updates on copies of pages and atomically switch a page-table root from the old (shadow) versions to the new ones at commit, never overwriting committed state in place."
+  },
+  {
+   "id": "single-table-inheritance",
+   "name": "Single Table Inheritance",
+   "kind": "persistence-durability",
+   "aka": [],
+   "what": "Maps all classes of an inheritance hierarchy to one table whose columns are the union of all fields, with a type discriminator column."
+  },
+  {
+   "id": "table-data-gateway",
+   "name": "Table Data Gateway",
+   "kind": "persistence-durability",
+   "aka": [],
+   "what": "An object that acts as the single gateway to a database table, with one instance handling all the rows and methods for the table's SQL."
+  },
+  {
+   "id": "tombstone",
+   "name": "Tombstone",
+   "kind": "persistence-durability",
+   "aka": [
+    "deletion marker",
+    "delete marker",
+    "timestamped deletion record"
+   ],
+   "what": "A persisted marker record written in place of an actual deletion in append-only or replicated storage, treated as a write that shadows earlier data and purged later by compaction after a grace period."
+  },
+  {
+   "id": "unit-of-work",
+   "name": "Unit of Work",
+   "kind": "persistence-durability",
+   "aka": [],
+   "what": "Maintains a list of objects affected by a business transaction and coordinates writing out the changes and resolving concurrency problems in one commit."
+  },
+  {
+   "id": "write-ahead-log",
+   "name": "Write-Ahead Log",
+   "kind": "persistence-durability",
+   "aka": [
+    "WAL",
+    "write-ahead logging",
+    "redo log"
+   ],
+   "what": "Append every intended change to a sequential durable log and force it to stable storage before the corresponding in-place data update, so committed work can be redone and uncommitted work undone after a crash."
+  },
+  {
+   "id": "write-behind-cache",
+   "name": "Write-Behind Cache",
+   "kind": "caching-memoization",
+   "aka": [
+    "write-back cache",
+    "deferred write",
+    "write-behind caching"
+   ],
+   "what": "Writes are acknowledged once they hit the cache and are propagated to the backing store asynchronously, often batched and coalesced, after a delay."
+  },
+  {
+   "id": "write-through-cache",
+   "name": "Write-Through Cache",
+   "kind": "caching-memoization",
+   "aka": [
+    "write-through caching"
+   ],
+   "what": "Writes go to the cache, which synchronously propagates them to the backing store before acknowledging, keeping cache and store consistent at all times."
+  }
+ ],
+ "existing_intra_edges": [
+  {
+   "from": "cache-aside",
+   "kind": "specializes",
+   "to": "caching"
+  },
+  {
+   "from": "read-through-cache",
+   "kind": "specializes",
+   "to": "caching"
+  },
+  {
+   "from": "refresh-ahead-cache",
+   "kind": "specializes",
+   "to": "caching"
+  },
+  {
+   "from": "write-through-cache",
+   "kind": "specializes",
+   "to": "caching"
+  },
+  {
+   "from": "write-behind-cache",
+   "kind": "specializes",
+   "to": "caching"
+  },
+  {
+   "from": "identity-map",
+   "kind": "composes-with",
+   "to": "unit-of-work"
+  },
+  {
+   "from": "lru-cache",
+   "kind": "implements",
+   "to": "cache-eviction-policy"
+  },
+  {
+   "from": "memoization",
+   "kind": "specializes",
+   "to": "caching"
+  },
+  {
+   "from": "negative-caching",
+   "kind": "specializes",
+   "to": "caching"
+  },
+  {
+   "from": "active-record",
+   "kind": "alternative-to",
+   "to": "data-mapper"
+  },
+  {
+   "from": "checkpointing",
+   "kind": "composes-with",
+   "to": "write-ahead-log"
+  },
+  {
+   "from": "class-table-inheritance",
+   "kind": "alternative-to",
+   "to": "single-table-inheritance"
+  },
+  {
+   "from": "event-sourcing",
+   "kind": "composes-with",
+   "to": "checkpointing"
+  },
+  {
+   "from": "flash-translation-layer",
+   "kind": "specializes",
+   "to": "log-structured-storage"
+  },
+  {
+   "from": "memory-image",
+   "kind": "composes-with",
+   "to": "event-sourcing"
+  },
+  {
+   "from": "query-object",
+   "kind": "composes-with",
+   "to": "repository"
+  },
+  {
+   "from": "shadow-paging",
+   "kind": "alternative-to",
+   "to": "write-ahead-log"
+  }
+ ]
+}

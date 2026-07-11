@@ -1,0 +1,644 @@
+{
+ "group": "D13",
+ "title": "Data flow, buffering & parsing",
+ "realm": "design",
+ "literature": "Reactive Streams; pipes-and-filters idioms; buffering (ring/double buffer); backpressure; tokenizer/lexer/parser pipelines; Nystrom data locality.",
+ "member_count": 48,
+ "target_edges": 58,
+ "priority_ids": [
+  "draw-call-batching",
+  "event-coalescing",
+  "event-driven-parsing",
+  "jitter-buffer",
+  "panic-mode-error-recovery",
+  "pretty-printer",
+  "read-eval-print-loop",
+  "render-graph",
+  "resequencer",
+  "sliding-window-rate-limiting",
+  "symbol-table",
+  "template-engine",
+  "update-batching"
+ ],
+ "members": [
+  {
+   "id": "abstract-syntax-tree",
+   "name": "Abstract Syntax Tree",
+   "kind": "parsing-text",
+   "aka": [
+    "AST",
+    "syntax tree"
+   ],
+   "what": "A tree representation of parsed input that keeps semantic structure (operators, operands, constructs) while dropping concrete-syntax artifacts like punctuation and grouping tokens."
+  },
+  {
+   "id": "backpressure",
+   "name": "Backpressure",
+   "kind": "data-flow-buffering",
+   "aka": [
+    "Create Back Pressure",
+    "flow control",
+    "Back Pressure (Nygard)"
+   ],
+   "what": "Propagate 'slow down' signals upstream - via bounded queues, blocking, or demand signaling - so producers cannot outrun consumers."
+  },
+  {
+   "id": "credit-based-flow-control",
+   "name": "Credit-Based Flow Control",
+   "kind": "data-flow-buffering",
+   "aka": [
+    "credit scheme",
+    "Leaky Bucket of Credits (Meszaros)",
+    "demand signaling (Reactive Streams request(n))"
+   ],
+   "what": "A receiver grants the sender explicit credits, each authorizing transmission of one unit; the sender stops when credits run out and resumes as the receiver replenishes them from freed buffer space."
+  },
+  {
+   "id": "disruptor",
+   "name": "Disruptor",
+   "kind": "data-flow-buffering",
+   "aka": [
+    "LMAX Disruptor",
+    "ring buffer with sequence barriers",
+    "mechanical-sympathy ring buffer"
+   ],
+   "what": "A pre-allocated ring buffer where producers and consumers coordinate through monotonic sequence counters and sequence barriers instead of locks, supporting dependency graphs of consumers over the same entries."
+  },
+  {
+   "id": "double-buffer",
+   "name": "Double Buffer",
+   "kind": "data-flow-buffering",
+   "aka": [
+    "double buffering",
+    "page flipping"
+   ],
+   "what": "Maintain two copies of a piece of state - one being read/displayed while the other is written - and swap them atomically when the write completes."
+  },
+  {
+   "id": "draw-call-batching",
+   "name": "Draw-Call Batching",
+   "kind": "data-flow-buffering",
+   "aka": [
+    "batching (rendering)",
+    "static batching",
+    "dynamic batching"
+   ],
+   "what": "Merge many draw submissions that share render state into fewer, larger GPU submissions — by pre-combining static geometry, transforming and appending small dynamic meshes into a shared buffer, or issuing one instanced call for many copies."
+  },
+  {
+   "id": "escape-sequence",
+   "name": "Escape Sequence",
+   "kind": "parsing-text",
+   "aka": [
+    "character escaping",
+    "escape character",
+    "entity encoding (HTML/XML variant)"
+   ],
+   "what": "Representing characters that are unrepresentable or syntactically significant in a textual context by a marker character followed by an encoded form (\\n, \\\", &lt;), with matching unescaping on read."
+  },
+  {
+   "id": "event-coalescing",
+   "name": "Event Coalescing",
+   "kind": "data-flow-buffering",
+   "aka": [
+    "coalesced events",
+    "input event merging"
+   ],
+   "what": "Merges multiple fine-grained input events that occur within one processing frame into a single delivered event, optionally exposing the merged raw events on demand."
+  },
+  {
+   "id": "event-driven-parsing",
+   "name": "Event-Driven Parsing",
+   "kind": "parsing-text",
+   "aka": [
+    "SAX-style parsing",
+    "push parsing",
+    "streaming parsing"
+   ],
+   "what": "A parser that emits a stream of callbacks/events (start-element, text, end-element) as it consumes input, instead of materializing a full document tree."
+  },
+  {
+   "id": "event-time-watermark",
+   "name": "Watermark (Event-Time)",
+   "kind": "data-flow-buffering",
+   "aka": [
+    "low watermark",
+    "event-time watermark",
+    "perfect watermark / heuristic watermark (variants)"
+   ],
+   "what": "A monotonic progress signal flowing through a stream processor asserting that no events with timestamps older than T will arrive, used to decide when buffered event-time computations (windows, timers) are complete and may fire."
+  },
+  {
+   "id": "fresh-work-before-stale",
+   "name": "Fresh Work Before Stale",
+   "kind": "data-flow-buffering",
+   "aka": [
+    "adaptive LIFO",
+    "newest-first queue discipline"
+   ],
+   "what": "Under overload, serve the newest requests first (LIFO) because the oldest queued requests have likely already timed out or been abandoned by their requesters."
+  },
+  {
+   "id": "functional-reactive-programming",
+   "name": "Functional Reactive Programming",
+   "kind": "data-flow-buffering",
+   "aka": [
+    "FRP",
+    "behaviors and events",
+    "reactive combinators"
+   ],
+   "what": "Programming with first-class time-varying values (behaviors/signals) and event streams composed declaratively, with the runtime propagating changes through the dependency graph."
+  },
+  {
+   "id": "jitter-buffer",
+   "name": "Jitter Buffer",
+   "kind": "data-flow-buffering",
+   "aka": [
+    "playout buffer",
+    "de-jitter buffer",
+    "playout delay buffer"
+   ],
+   "what": "Buffer arriving media packets briefly and release them on a steady clock (reordering by sequence number), absorbing variation in network transit time."
+  },
+  {
+   "id": "lexer",
+   "name": "Lexer",
+   "kind": "parsing-text",
+   "aka": [
+    "lexical analyzer",
+    "tokenizer",
+    "scanner"
+   ],
+   "what": "A component that converts a raw character stream into a stream of classified tokens (identifiers, literals, operators), usually via maximal-munch matching driven by a finite automaton or hand-written switch."
+  },
+  {
+   "id": "load-shedding",
+   "name": "Load Shedding",
+   "kind": "data-flow-buffering",
+   "aka": [
+    "Shed Load"
+   ],
+   "what": "When offered load exceeds capacity, deliberately reject or drop a portion of incoming work (cheaply and early) so accepted work still completes within acceptable time."
+  },
+  {
+   "id": "lr-parser",
+   "name": "LR Parser",
+   "kind": "parsing-text",
+   "aka": [
+    "shift-reduce parser",
+    "bottom-up parser",
+    "table-driven parser"
+   ],
+   "what": "Bottom-up table-driven parsing: a state stack plus action/goto tables shifts input tokens and reduces recognized handles to grammar nonterminals."
+  },
+  {
+   "id": "maximal-munch",
+   "name": "Maximal Munch",
+   "kind": "parsing-text",
+   "aka": [
+    "longest match rule",
+    "longest-prefix tokenization",
+    "maximal munch tokenization"
+   ],
+   "what": "The lexing rule that each token consumed is the longest prefix of the remaining input that matches any token pattern, restarting the automaton after each match (with backtracking or tabulation when a long attempt fails)."
+  },
+  {
+   "id": "memory-mapped-file-i-o",
+   "name": "Memory-Mapped File I/O",
+   "kind": "data-flow-buffering",
+   "aka": [
+    "mmap",
+    "file mapping",
+    "memory-mapped I/O (file)"
+   ],
+   "what": "Map a file's contents into the process address space so it is read and written through ordinary memory access, with the OS paging data in and out on demand."
+  },
+  {
+   "id": "packrat-parsing",
+   "name": "Packrat Parsing",
+   "kind": "parsing-text",
+   "aka": [
+    "PEG parsing",
+    "memoized recursive descent",
+    "parsing expression grammar parser"
+   ],
+   "what": "Recursive descent over a parsing expression grammar (ordered choice, unlimited lookahead) with per-position memoization of intermediate results, giving linear-time parsing despite backtracking."
+  },
+  {
+   "id": "panic-mode-error-recovery",
+   "name": "Panic-Mode Error Recovery",
+   "kind": "parsing-text",
+   "aka": [
+    "error synchronization",
+    "synchronizing tokens",
+    "error productions (related technique)"
+   ],
+   "what": "On a syntax error, the parser discards input tokens until it reaches a designated synchronizing token (statement end, closing brace), then resumes parsing to report further errors in one pass."
+  },
+  {
+   "id": "parser-combinator",
+   "name": "Parser Combinator",
+   "kind": "parsing-text",
+   "aka": [
+    "combinator parsing",
+    "monadic parsing",
+    "monadic parser"
+   ],
+   "what": "Building parsers as first-class values composed with higher-order functions (sequence, choice, repetition), so the grammar is expressed directly as executable code."
+  },
+  {
+   "id": "ping-pong-buffer",
+   "name": "Ping-Pong Buffer",
+   "kind": "data-flow-buffering",
+   "aka": [
+    "ping-pong buffering",
+    "buffer role swapping"
+   ],
+   "what": "Two buffers alternate roles between a producer and a consumer: while one is being filled the other is processed, and the roles swap on completion."
+  },
+  {
+   "id": "pratt-parser",
+   "name": "Pratt Parser",
+   "kind": "parsing-text",
+   "aka": [
+    "top-down operator precedence parser",
+    "operator-precedence parser",
+    "precedence climbing"
+   ],
+   "what": "An expression parser that associates binding powers and parse functions (prefix/infix handlers) with token types, looping on precedence instead of encoding one grammar level per function."
+  },
+  {
+   "id": "pretty-printer",
+   "name": "Pretty-Printer",
+   "kind": "parsing-text",
+   "aka": [
+    "prettyprinting",
+    "code formatter",
+    "unparser"
+   ],
+   "what": "A component that renders structured data or an AST back to formatted text, choosing line breaks and indentation against a target line width using grouping/fill primitives."
+  },
+  {
+   "id": "reactive-programming",
+   "name": "Reactive Programming",
+   "kind": "data-flow-buffering",
+   "aka": [
+    "reactive programming model",
+    "dataflow-style change propagation"
+   ],
+   "what": "A programming model in which programs are expressed as dataflows of time-varying values and the runtime automatically propagates changes through the dependency graph, as in a spreadsheet."
+  },
+  {
+   "id": "read-eval-print-loop",
+   "name": "Read-Eval-Print Loop",
+   "kind": "parsing-text",
+   "aka": [
+    "REPL",
+    "interactive interpreter",
+    "language shell"
+   ],
+   "what": "An interactive loop that reads one expression from the user, evaluates it in a persistent environment, prints the result, and repeats."
+  },
+  {
+   "id": "recursive-descent-parser",
+   "name": "Recursive Descent Parser",
+   "kind": "parsing-text",
+   "aka": [
+    "predictive parser (LL(1) special case)"
+   ],
+   "what": "A top-down parser written as a set of mutually recursive procedures, one per grammar nonterminal, each consuming the tokens its rule derives."
+  },
+  {
+   "id": "regular-expressions",
+   "name": "Regular Expressions",
+   "kind": "parsing-text",
+   "aka": [
+    "regex",
+    "regexp",
+    "pattern matching over text"
+   ],
+   "what": "A declarative pattern notation for regular languages, compiled to a finite automaton (NFA/DFA) or backtracking matcher, used to search, validate, split, and rewrite text."
+  },
+  {
+   "id": "render-graph",
+   "name": "Render Graph",
+   "kind": "data-flow-buffering",
+   "aka": [
+    "frame graph",
+    "FrameGraph",
+    "render dependency graph (RDG)"
+   ],
+   "what": "Render passes declare their input/output resources up front, building a per-frame DAG that the engine compiles into an execution schedule with automatic barrier placement and transient resource memory aliasing."
+  },
+  {
+   "id": "resequencer",
+   "name": "Resequencer",
+   "kind": "data-flow-buffering",
+   "aka": [],
+   "what": "A stateful buffer that holds out-of-order messages and releases them downstream in the correct sequence based on a sequence number."
+  },
+  {
+   "id": "ring-buffer",
+   "name": "Ring Buffer",
+   "kind": "data-flow-buffering",
+   "aka": [
+    "circular buffer",
+    "circular queue",
+    "cyclic buffer"
+   ],
+   "what": "Fixed-size array with wrapping head and tail indices forming a FIFO that never moves data or allocates, naturally overwriting or blocking when full."
+  },
+  {
+   "id": "scannerless-parsing",
+   "name": "Scannerless Parsing",
+   "kind": "parsing-text",
+   "aka": [
+    "scannerless generalized-LR parsing",
+    "SGLR",
+    "lexer-less parsing"
+   ],
+   "what": "Parsing without a separate lexer: lexical and context-free syntax are integrated into one grammar and the parser consumes individual characters, resolving token-level ambiguity with grammar-level disambiguation (follow restrictions, reject "
+  },
+  {
+   "id": "scatter-gather-dma",
+   "name": "Scatter-Gather DMA",
+   "kind": "data-flow-buffering",
+   "aka": [
+    "DMA descriptor chaining",
+    "chained DMA",
+    "vectored DMA"
+   ],
+   "what": "Program the DMA controller with a chain of descriptors so one logical transfer moves data to/from multiple non-contiguous memory regions without CPU intervention between segments."
+  },
+  {
+   "id": "semantic-model",
+   "name": "Semantic Model",
+   "kind": "parsing-text",
+   "aka": [],
+   "what": "The in-memory model that a DSL parse populates and that the rest of the system executes against, kept deliberately separate from the parser and from any syntax tree."
+  },
+  {
+   "id": "shunting-yard-algorithm",
+   "name": "Shunting-Yard Algorithm",
+   "kind": "parsing-text",
+   "aka": [
+    "shunting yard",
+    "operator-stack expression parsing",
+    "two-stack infix parsing"
+   ],
+   "what": "An iterative expression parser that uses an explicit operator stack (and output queue/operand stack) to convert infix input to postfix order or an AST, shunting operators aside until higher-precedence work completes."
+  },
+  {
+   "id": "sliding-window-rate-limiting",
+   "name": "Sliding-Window Rate Limiting",
+   "kind": "data-flow-buffering",
+   "aka": [
+    "sliding window counter",
+    "sliding window log",
+    "fixed window counter"
+   ],
+   "what": "Admit a request only if the count of requests in the trailing time window is below a limit, tracked by a per-window counter, a timestamp log, or a weighted blend of adjacent windows."
+  },
+  {
+   "id": "snapshot-interpolation",
+   "name": "Snapshot Interpolation",
+   "kind": "data-flow-buffering",
+   "aka": [
+    "entity interpolation",
+    "state snapshot buffering"
+   ],
+   "what": "Buffer received snapshots of remote simulation state for a short delay and render by interpolating between two slightly-past snapshots, reconstructing smooth motion from discrete, jittery updates."
+  },
+  {
+   "id": "spsc-lock-free-ring-buffer",
+   "name": "SPSC Lock-Free Ring Buffer",
+   "kind": "data-flow-buffering",
+   "aka": [
+    "single-producer single-consumer queue",
+    "Lamport queue",
+    "wait-free bounded buffer"
+   ],
+   "what": "A bounded circular buffer where one producer owns the write index and one consumer owns the read index, so each side progresses wait-free with only acquire/release ordering and no atomic RMW."
+  },
+  {
+   "id": "stream-buffer",
+   "name": "Stream Buffer",
+   "kind": "data-flow-buffering",
+   "aka": [
+    "message buffer (framed variant)",
+    "FreeRTOS stream buffer",
+    "byte stream buffer"
+   ],
+   "what": "RTOS kernel object providing a single-writer single-reader byte stream (message-buffer variant: discrete variable-length messages) with blocking send/receive and a trigger level controlling how many bytes must arrive before the reader unblo"
+  },
+  {
+   "id": "stream-trigger",
+   "name": "Trigger (Stream Processing)",
+   "kind": "data-flow-buffering",
+   "aka": [
+    "triggers",
+    "watermark trigger",
+    "processing-time trigger"
+   ],
+   "what": "A declarative mechanism that decides WHEN the accumulated contents of a window are materialized and emitted, driven by signals such as watermark passage, processing time, element count, or composites of these."
+  },
+  {
+   "id": "stream-windowing",
+   "name": "Stream Windowing",
+   "kind": "data-flow-buffering",
+   "aka": [
+    "tumbling window",
+    "fixed window",
+    "sliding window"
+   ],
+   "what": "Partitions an unbounded event stream into finite time- or count-based buckets (fixed, sliding, session) that scope aggregations, with per-window state buffered until the window closes or triggers."
+  },
+  {
+   "id": "symbol-table",
+   "name": "Symbol Table",
+   "kind": "parsing-text",
+   "aka": [
+    "scope table",
+    "environment (interpreter environments)"
+   ],
+   "what": "A map from names to their declarations/attributes (type, storage, scope), typically organized as a stack or chain of per-scope tables to resolve lexically scoped lookups."
+  },
+  {
+   "id": "template-engine",
+   "name": "Template Engine",
+   "kind": "parsing-text",
+   "aka": [
+    "template processor",
+    "text templating",
+    "templating engine"
+   ],
+   "what": "Produce output text by interpolating data-model values and evaluating restricted directives (conditionals, loops, includes) inside a template document that fixes the static structure of the output."
+  },
+  {
+   "id": "tree-walking-interpreter",
+   "name": "Tree-Walking Interpreter",
+   "kind": "parsing-text",
+   "aka": [
+    "AST interpreter",
+    "tree-walk interpreter"
+   ],
+   "what": "An interpreter that executes a program by recursively traversing its abstract syntax tree, evaluating each node directly against a runtime environment."
+  },
+  {
+   "id": "update-batching",
+   "name": "Update Batching",
+   "kind": "data-flow-buffering",
+   "aka": [
+    "automatic batching",
+    "async update queue",
+    "microtask-deferred flush"
+   ],
+   "what": "Buffers multiple state mutations occurring in one synchronous turn and flushes their downstream effects (re-render, DOM patch) once, typically on the next microtask or tick, deduplicating redundant work."
+  },
+  {
+   "id": "vectorized-execution",
+   "name": "Vectorized Execution",
+   "kind": "data-flow-buffering",
+   "aka": [
+    "batch-at-a-time execution",
+    "vectorized query processing",
+    "vector-at-a-time model"
+   ],
+   "what": "Query operators pass batches (vectors) of hundreds or thousands of values per next() call instead of single tuples, running tight primitive loops over each batch."
+  },
+  {
+   "id": "volcano-iterator-model",
+   "name": "Volcano Iterator Model",
+   "kind": "data-flow-buffering",
+   "aka": [
+    "iterator model",
+    "open-next-close model",
+    "pull-based query execution"
+   ],
+   "what": "Every query operator implements a uniform open/next/close iterator interface and pulls one tuple at a time from its children, composing arbitrary operator trees into demand-driven pipelines."
+  },
+  {
+   "id": "zero-copy-i-o",
+   "name": "Zero-Copy I/O",
+   "kind": "data-flow-buffering",
+   "aka": [
+    "zero-copy",
+    "sendfile",
+    "splice"
+   ],
+   "what": "Move data between endpoints (file, socket, device) without copying it through intermediate user-space buffers, via DMA, page remapping, or in-kernel transfer."
+  }
+ ],
+ "existing_intra_edges": [
+  {
+   "from": "disruptor",
+   "kind": "specializes",
+   "to": "ring-buffer"
+  },
+  {
+   "from": "spsc-lock-free-ring-buffer",
+   "kind": "specializes",
+   "to": "ring-buffer"
+  },
+  {
+   "from": "stream-buffer",
+   "kind": "specializes",
+   "to": "ring-buffer"
+  },
+  {
+   "from": "ping-pong-buffer",
+   "kind": "specializes",
+   "to": "double-buffer"
+  },
+  {
+   "from": "credit-based-flow-control",
+   "kind": "specializes",
+   "to": "backpressure"
+  },
+  {
+   "from": "functional-reactive-programming",
+   "kind": "specializes",
+   "to": "reactive-programming"
+  },
+  {
+   "from": "memory-mapped-file-i-o",
+   "kind": "composes-with",
+   "to": "zero-copy-i-o"
+  },
+  {
+   "from": "scatter-gather-dma",
+   "kind": "composes-with",
+   "to": "zero-copy-i-o"
+  },
+  {
+   "from": "event-time-watermark",
+   "kind": "composes-with",
+   "to": "stream-windowing"
+  },
+  {
+   "from": "stream-trigger",
+   "kind": "composes-with",
+   "to": "stream-windowing"
+  },
+  {
+   "from": "fresh-work-before-stale",
+   "kind": "composes-with",
+   "to": "load-shedding"
+  },
+  {
+   "from": "vectorized-execution",
+   "kind": "alternative-to",
+   "to": "volcano-iterator-model"
+  },
+  {
+   "from": "lr-parser",
+   "kind": "alternative-to",
+   "to": "recursive-descent-parser"
+  },
+  {
+   "from": "maximal-munch",
+   "kind": "composes-with",
+   "to": "lexer"
+  },
+  {
+   "from": "packrat-parsing",
+   "kind": "specializes",
+   "to": "recursive-descent-parser"
+  },
+  {
+   "from": "parser-combinator",
+   "kind": "implements",
+   "to": "recursive-descent-parser"
+  },
+  {
+   "from": "pratt-parser",
+   "kind": "specializes",
+   "to": "recursive-descent-parser"
+  },
+  {
+   "from": "pratt-parser",
+   "kind": "alternative-to",
+   "to": "shunting-yard-algorithm"
+  },
+  {
+   "from": "regular-expressions",
+   "kind": "composes-with",
+   "to": "lexer"
+  },
+  {
+   "from": "scannerless-parsing",
+   "kind": "alternative-to",
+   "to": "lexer"
+  },
+  {
+   "from": "semantic-model",
+   "kind": "composes-with",
+   "to": "abstract-syntax-tree"
+  },
+  {
+   "from": "tree-walking-interpreter",
+   "kind": "composes-with",
+   "to": "abstract-syntax-tree"
+  }
+ ]
+}

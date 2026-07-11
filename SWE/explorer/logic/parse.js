@@ -59,7 +59,7 @@ SWE.parse = (function () {
     return /** @type {Relations} */ (r);
   }
 
-  const EL_KINDS = new Set(['realizes', 'enables', 'constrains', 'implements', 'specializes', 'composes-with', 'alternative-to']);
+  const EL_KINDS = new Set(['realizes', 'enables', 'constrains', 'implements', 'specializes', 'composes-with', 'alternative-to', 'uses']);
   const REALMS = new Set(['design', 'architecture']);
   /**
    * The element layer (design + architecture realms + the bridge). Inward boundary — a stale
@@ -88,5 +88,30 @@ SWE.parse = (function () {
     return e;
   }
 
-  return { ValidationError, parseCorpus, parseRelations, parseElements };
+  /**
+   * The atlas layer (islands + precomputed geography). Inward boundary — a stale data/atlas.js must
+   * fail loud here. @param {unknown} raw @returns {any} */
+  function parseAtlas(raw) {
+    if (!isObj(raw)) throw new ValidationError('atlas: not an object');
+    const a = /** @type {any} */ (raw);
+    if (!isObj(a.meta) || !Array.isArray(a.meta.families)) throw new ValidationError('atlas.meta.families missing');
+    const seen = new Set();
+    for (const isl of arr(a.islands, 'atlas.islands')) {
+      if (!isObj(isl)) throw new ValidationError('island: not an object');
+      str(isl.id, 'island.id'); str(isl.name, 'island.name'); str(isl.family, 'island.family');
+      if (typeof isl.cx !== 'number' || typeof isl.cy !== 'number' || typeof isl.r !== 'number')
+        throw new ValidationError(`island ${isl.id}: bad geometry`);
+      for (const m of arr(isl.members, `island ${isl.id}.members`)) {
+        str(m.id, 'island member.id');
+        if (typeof m.x !== 'number' || typeof m.y !== 'number') throw new ValidationError(`member ${m.id}: bad coords`);
+      }
+      if (seen.has(isl.id)) throw new ValidationError('atlas: duplicate island ' + isl.id);
+      seen.add(isl.id);
+    }
+    arr(a.routes, 'atlas.routes');
+    if (!isObj(a.bridgeFlow)) throw new ValidationError('atlas.bridgeFlow missing');
+    return a;
+  }
+
+  return { ValidationError, parseCorpus, parseRelations, parseElements, parseAtlas };
 })();

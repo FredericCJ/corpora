@@ -1,0 +1,757 @@
+{
+ "group": "A05",
+ "title": "Architecture styles (boxology family tree)",
+ "realm": "architecture",
+ "literature": "Shaw & Garlan 'Software Architecture: Perspectives'; Garlan & Shaw 'Intro to Software Architecture' boxology; Taylor, Medvidovic & Dashofy style taxonomy; Fielding REST; dataflow/call-return/repository/layered/event families.",
+ "member_count": 66,
+ "target_edges": 79,
+ "priority_ids": [
+  "actor-based-architecture",
+  "adaptive-object-model",
+  "batch-sequential",
+  "blackboard",
+  "blockchain",
+  "broker",
+  "c2",
+  "channel-architecture",
+  "clean-architecture",
+  "client-server",
+  "code-on-demand",
+  "component-based-architecture",
+  "dataflow-architecture",
+  "distributed-commit-log",
+  "distributed-objects",
+  "distributed-processes",
+  "event-based-implicit-invocation",
+  "event-sourcing-architecture-style",
+  "event-triggered-architecture",
+  "file-transfer",
+  "function-queue-scheduling-architecture",
+  "hexagonal-architecture",
+  "interpreter-architectural-style",
+  "kappa-architecture",
+  "lambda-architecture",
+  "layers",
+  "lmax-architecture",
+  "main-program-and-subroutines",
+  "message-bus",
+  "messaging",
+  "micro-frontends",
+  "microkernel",
+  "microservices",
+  "mobile-agent",
+  "modular-monolith",
+  "monolithic-architecture",
+  "n-tier-client-server",
+  "object-oriented-organization",
+  "peer-to-peer",
+  "pipes-and-filters",
+  "process-control-feedback-control-loop",
+  "protocol-layering",
+  "publish-subscribe-architectural-style",
+  "remote-evaluation",
+  "remote-procedure-invocation",
+  "repository-shared-data-style",
+  "rest-representational-state-transfer",
+  "rtos-based-architecture",
+  "rule-based-system",
+  "sense-compute-control",
+  "service-based-architecture",
+  "service-oriented-architecture",
+  "shared-database",
+  "shared-nothing-architecture",
+  "space-based-architecture",
+  "state-transition-system-architectural-organization",
+  "streaming-dataflow-architecture",
+  "subsumption-architecture",
+  "superloop-architecture",
+  "time-triggered-architecture",
+  "virtual-machine-architectural-style",
+  "zero-trust-architecture"
+ ],
+ "members": [
+  {
+   "id": "actor-based-architecture",
+   "name": "Actor-Based Architecture",
+   "kind": "style",
+   "aka": [
+    "actor system",
+    "active-object framework",
+    "run-to-completion kernel (QP-style)"
+   ],
+   "what": "Organizes the whole system as actors that own their state and interact only via asynchronous messages processed run-to-completion from per-actor mailboxes."
+  },
+  {
+   "id": "adaptive-object-model",
+   "name": "Adaptive Object Model",
+   "kind": "style",
+   "aka": [
+    "Dynamic Object Model",
+    "Active Object-Model",
+    "user-defined domain model architecture"
+   ],
+   "what": "Represents classes, attributes and rules as runtime data (metadata) interpreted by a generic engine, so the domain model is changed by users, not by code."
+  },
+  {
+   "id": "batch-sequential",
+   "name": "Batch Sequential",
+   "kind": "style",
+   "aka": [
+    "batch sequential processing"
+   ],
+   "what": "A degenerate data-flow organization in which each processing step runs to completion on the entire data set before passing the complete result to the next step."
+  },
+  {
+   "id": "blackboard",
+   "name": "Blackboard",
+   "kind": "style",
+   "aka": [
+    "blackboard system",
+    "blackboard model (HEARSAY-II lineage)",
+    "blackboard model"
+   ],
+   "what": "Independent specialized knowledge sources cooperate by reading and writing partial solutions on a shared data structure (the blackboard) under a control component's opportunistic scheduling."
+  },
+  {
+   "id": "blockchain",
+   "name": "Blockchain",
+   "kind": "style",
+   "aka": [
+    "distributed ledger",
+    "Merkle-chained ledger with consensus"
+   ],
+   "what": "A peer-to-peer system maintains a replicated append-only ledger of Merkle-chained blocks agreed by a consensus mechanism."
+  },
+  {
+   "id": "broker",
+   "name": "Broker",
+   "kind": "style",
+   "aka": [
+    "object request broker",
+    "ORB architecture",
+    "distributed object middleware"
+   ],
+   "what": "Structures a distributed system around an intermediary component that coordinates remote service invocations - locating servers, marshalling requests/replies, and reporting errors - so clients and servers stay decoupled from location and tr"
+  },
+  {
+   "id": "c2",
+   "name": "C2",
+   "kind": "style",
+   "aka": [
+    "component-and-message architecture (GUI)"
+   ],
+   "what": "A layered, message-based style in which components communicate only through explicit connectors via asynchronous notifications (downward) and requests (upward), under a strict substrate-independence rule: a component may know services above"
+  },
+  {
+   "id": "channel-architecture",
+   "name": "Channel Architecture",
+   "kind": "style",
+   "aka": [
+    "channels of transformation",
+    "Channel Architecture (RTDP)",
+    "data transformation channels"
+   ],
+   "what": "Organizing the system as one or more end-to-end channels, each a sequential chain of data transformations from sensing to actuation, so that redundancy and safety measures can be applied per-channel."
+  },
+  {
+   "id": "clean-architecture",
+   "name": "Clean Architecture",
+   "kind": "style",
+   "aka": [
+    "Onion Architecture (Palermo, 2008; folded)",
+    "the Dependency Rule"
+   ],
+   "what": "Concentric layers (entities, use cases, interface adapters, frameworks) with all source dependencies pointing inward toward policy."
+  },
+  {
+   "id": "client-server",
+   "name": "Client-Server",
+   "kind": "style",
+   "aka": [
+    "client/server model",
+    "two-tier client-server",
+    "requester-provider topology"
+   ],
+   "what": "Server components provide services at known locations while client components initiate requests for them, typically via remote procedure call or request/response protocols, with the server unaware of client identities in advance."
+  },
+  {
+   "id": "code-on-demand",
+   "name": "Code-on-Demand",
+   "kind": "style",
+   "aka": [
+    "COD",
+    "downloaded code style"
+   ],
+   "what": "A mobile-code style in which a client that has the data and processing resources requests executable code (know-how) from a remote server and runs it locally, as with scripts delivered to a browser."
+  },
+  {
+   "id": "component-based-architecture",
+   "name": "Component-Based Architecture",
+   "kind": "style",
+   "aka": [
+    "ROOM pattern",
+    "component-and-connector organization",
+    "CBSE structuring"
+   ],
+   "what": "Structures the whole system as replaceable components with explicit provided/required interfaces (ROOM: capsules with ports and protocols)."
+  },
+  {
+   "id": "data-parallel-architecture",
+   "name": "Data-Parallel Architecture",
+   "kind": "style",
+   "aka": [
+    "SPMD",
+    "single program multiple data",
+    "data parallelism"
+   ],
+   "what": "The same program is applied concurrently across partitions of a large regular data set, each unit of execution running identical code over its own data slice (SPMD / geometric decomposition)."
+  },
+  {
+   "id": "dataflow-architecture",
+   "name": "Dataflow Architecture",
+   "kind": "style",
+   "aka": [
+    "dataflow systems (Shaw-Garlan)",
+    "dataflow programming (system paradigm)"
+   ],
+   "what": "Organizes the whole system around the availability and movement of data through transforming nodes rather than control flow."
+  },
+  {
+   "id": "distributed-commit-log",
+   "name": "Distributed Commit Log",
+   "kind": "style",
+   "aka": [
+    "replicated log",
+    "Kafka-style log",
+    "log-centric architecture"
+   ],
+   "what": "A partitioned, replicated append-only log serves as the system's ordering and integration backbone; producers append, consumers replay at their own pace."
+  },
+  {
+   "id": "distributed-objects",
+   "name": "Distributed Objects",
+   "kind": "style",
+   "aka": [
+    "CORBA-style architecture",
+    "broker-mediated objects"
+   ],
+   "what": "System functionality is partitioned into objects whose methods can be invoked across process and machine boundaries through proxies and an object request broker, preserving OO interfaces over the network."
+  },
+  {
+   "id": "distributed-processes",
+   "name": "Distributed Processes",
+   "kind": "style",
+   "aka": [
+    "communicating processes",
+    "communicating sequential processes organization",
+    "independent components (family)"
+   ],
+   "what": "The system is a set of independent processes, typically on multiple processors, interacting by message passing under some topological organization (ring, star, arbitrary graph)."
+  },
+  {
+   "id": "event-based-implicit-invocation",
+   "name": "Event-Based Implicit Invocation",
+   "kind": "style",
+   "aka": [
+    "implicit invocation",
+    "event-based integration",
+    "selective broadcast"
+   ],
+   "what": "Components announce (broadcast) events instead of invoking procedures directly; the system implicitly invokes every procedure registered as interested in that event."
+  },
+  {
+   "id": "event-driven-architecture",
+   "name": "Event-Driven Architecture",
+   "kind": "style",
+   "aka": [
+    "EDA",
+    "event-driven system",
+    "broker/mediator event topology"
+   ],
+   "what": "The system is organized around the production, detection, and asynchronous reaction to events, with components emitting and subscribing to event notifications through a mediator or broker rather than calling each other directly."
+  },
+  {
+   "id": "event-sourcing-architecture-style",
+   "name": "Event Sourcing (architecture style)",
+   "kind": "style",
+   "aka": [
+    "event-sourced system",
+    "event store as system of record"
+   ],
+   "what": "System-level persistence strategy where the event log is the source of truth for whole services and downstream projections/read models are derived from it."
+  },
+  {
+   "id": "event-triggered-architecture",
+   "name": "Event-Triggered Architecture",
+   "kind": "style",
+   "aka": [
+    "ET architecture",
+    "event-triggered system"
+   ],
+   "what": "System-level organization in which communication and task activation are initiated by the occurrence of significant events (interrupts, message arrivals) rather than by a global clock; Kopetz names it as the counterpoint to time-triggered c"
+  },
+  {
+   "id": "file-transfer",
+   "name": "File Transfer",
+   "kind": "style",
+   "aka": [
+    "file-based integration",
+    "batch file exchange",
+    "File Transfer (integration style)"
+   ],
+   "what": "Applications integrate by one producing files of shared data and others consuming them, with an agreed format and transfer/processing cadence."
+  },
+  {
+   "id": "function-queue-scheduling-architecture",
+   "name": "Function-Queue-Scheduling Architecture",
+   "kind": "style",
+   "aka": [
+    "function pointer queue architecture",
+    "run-to-completion dispatcher architecture"
+   ],
+   "what": "A system structure in which interrupts enqueue pointers to task functions and the main loop dequeues and runs them to completion, allowing priority ordering of the queue without a preemptive kernel."
+  },
+  {
+   "id": "hexagonal-architecture",
+   "name": "Hexagonal Architecture",
+   "kind": "style",
+   "aka": [
+    "Ports and Adapters"
+   ],
+   "what": "Application core exposes technology-neutral ports; adapters translate between each external actor (UI, DB, tests, other systems) and the ports."
+  },
+  {
+   "id": "interpreter-architectural-style",
+   "name": "Interpreter (Architectural Style)",
+   "kind": "style",
+   "aka": [
+    "table-driven interpreter",
+    "virtual machine style",
+    "interpreter/virtual machine"
+   ],
+   "what": "The system is organized as a virtual machine: an interpretation engine, the pseudo-program it executes, and the engine's and program's state, closing the gap between the execution platform and the desired semantics."
+  },
+  {
+   "id": "kappa-architecture",
+   "name": "Kappa Architecture",
+   "kind": "style",
+   "aka": [],
+   "what": "Everything is a stream: a single stream-processing pipeline over a replayable log serves both real-time and reprocessing needs, eliminating the separate batch layer."
+  },
+  {
+   "id": "lambda-architecture",
+   "name": "Lambda Architecture",
+   "kind": "style",
+   "aka": [],
+   "what": "Data system split into a batch layer (immutable master dataset, recomputed views), a speed layer (incremental real-time views), and a serving layer merging both."
+  },
+  {
+   "id": "layers",
+   "name": "Layers",
+   "kind": "style",
+   "aka": [
+    "layered architecture",
+    "strict/relaxed layering",
+    "abstraction layering"
+   ],
+   "what": "Structures a whole system as a hierarchy of abstraction levels in which each layer offers services to the layer above and uses only the layer(s) below."
+  },
+  {
+   "id": "lmax-architecture",
+   "name": "LMAX Architecture",
+   "kind": "style",
+   "aka": [
+    "business logic processor with input/output disruptors"
+   ],
+   "what": "A single-threaded in-memory business logic processor is fed and drained by ring-buffer (Disruptor) pipelines, with event sourcing for durability."
+  },
+  {
+   "id": "main-program-and-subroutines",
+   "name": "Main Program and Subroutines",
+   "kind": "style",
+   "aka": [
+    "main program/subroutine organization",
+    "call-and-return organization"
+   ],
+   "what": "A single main program drives the system by calling a hierarchy of subroutines, with control returning up the call tree after each call."
+  },
+  {
+   "id": "mapreduce",
+   "name": "MapReduce",
+   "kind": "style",
+   "aka": [
+    "map-reduce",
+    "map-reduce framework"
+   ],
+   "what": "Batch computation structured as a parallel map phase over partitioned input, a shuffle, and a reduce phase, scheduled across a cluster by a framework."
+  },
+  {
+   "id": "message-bus",
+   "name": "Message Bus",
+   "kind": "style",
+   "aka": [
+    "bus topology (messaging)",
+    "service bus",
+    "enterprise service bus (ESB, productized form)"
+   ],
+   "what": "A shared messaging backbone - common channels, a common data model, and a common command set - that all applications plug into to interoperate, joining or leaving without affecting the others."
+  },
+  {
+   "id": "messaging",
+   "name": "Messaging",
+   "kind": "style",
+   "aka": [
+    "message-based integration",
+    "asynchronous messaging (integration style)",
+    "Messaging (integration style)"
+   ],
+   "what": "Applications integrate by exchanging discrete asynchronous messages over channels provided by a messaging infrastructure, decoupling senders from receivers in time and availability."
+  },
+  {
+   "id": "micro-frontends",
+   "name": "Micro Frontends",
+   "kind": "style",
+   "aka": [],
+   "what": "Frontend decomposed into independently built and deployed UI fragments owned end-to-end by the teams owning the corresponding backend services."
+  },
+  {
+   "id": "microkernel",
+   "name": "Microkernel",
+   "kind": "style",
+   "aka": [
+    "plug-in architecture",
+    "minimal core plus extensions",
+    "Microkernel Architecture Pattern (RTDP)"
+   ],
+   "what": "Separates a minimal functional core (fundamental services, communication, extension management) from extended functionality delivered as internal/external servers or plug-ins loaded onto the core."
+  },
+  {
+   "id": "microservices",
+   "name": "Microservices",
+   "kind": "style",
+   "aka": [
+    "fine-grained SOA"
+   ],
+   "what": "Suite of small, independently deployable services, each owning its data, communicating over lightweight network mechanisms, organized around business capabilities."
+  },
+  {
+   "id": "mobile-agent",
+   "name": "Mobile Agent",
+   "kind": "style",
+   "aka": [
+    "migrating computation"
+   ],
+   "what": "A mobile-code style in which an entire computational unit - code, execution state, and data - migrates itself from site to site, resuming execution at each destination."
+  },
+  {
+   "id": "modular-monolith",
+   "name": "Modular Monolith",
+   "kind": "style",
+   "aka": [],
+   "what": "Single deployable unit whose interior is decomposed into strictly encapsulated modules with enforced boundaries."
+  },
+  {
+   "id": "monolithic-architecture",
+   "name": "Monolithic Architecture",
+   "kind": "style",
+   "aka": [
+    "monolith",
+    "single-process deployment"
+   ],
+   "what": "The whole application is built and deployed as a single deployable unit."
+  },
+  {
+   "id": "n-tier-client-server",
+   "name": "N-Tier Client-Server",
+   "kind": "style",
+   "aka": [
+    "three-tier architecture",
+    "multi-tier architecture",
+    "tiered architecture"
+   ],
+   "what": "Client-server generalized to a chain of tiers (e.g. presentation, business logic, data management), each acting as server to the tier before it and client of the tier after it, deployable on separate machines."
+  },
+  {
+   "id": "object-oriented-organization",
+   "name": "Object-Oriented Organization",
+   "kind": "style",
+   "aka": [
+    "data abstraction and object-oriented organization",
+    "abstract data type style",
+    "ADT style"
+   ],
+   "what": "The system is organized as a collection of abstract-data-type instances (objects) that hide their representations and interact by invoking each other's operations."
+  },
+  {
+   "id": "peer-to-peer",
+   "name": "Peer-to-Peer",
+   "kind": "style",
+   "aka": [
+    "P2P",
+    "symmetric client-server"
+   ],
+   "what": "Networked components (peers) act as both clients and servers of one another, discovering and exchanging services directly without a distinguished central server."
+  },
+  {
+   "id": "pipes-and-filters",
+   "name": "Pipes and Filters",
+   "kind": "style",
+   "aka": [
+    "pipeline architecture",
+    "pipes-and-filters (EIP integration style)",
+    "dataflow pipeline (system-scale)"
+   ],
+   "what": "Organizes a processing system as a chain of independent filter components connected by pipes that carry a data stream from source to sink."
+  },
+  {
+   "id": "process-control-feedback-control-loop",
+   "name": "Process Control (Feedback Control Loop)",
+   "kind": "style",
+   "aka": [
+    "closed-loop control architecture",
+    "feedback control loop style",
+    "control loop"
+   ],
+   "what": "The system is organized around a control loop: a controller reads process variables from sensors, compares them to set points, and adjusts manipulated variables to keep a physical or continuing process on target."
+  },
+  {
+   "id": "protocol-layering",
+   "name": "Protocol Layering",
+   "kind": "style",
+   "aka": [
+    "encapsulation stack",
+    "OSI layering",
+    "protocol stack"
+   ],
+   "what": "Structures communication software as a stack of protocol layers, each providing services to the layer above and encapsulating its PDU inside the layer below."
+  },
+  {
+   "id": "publish-subscribe-architectural-style",
+   "name": "Publish-Subscribe (Architectural Style)",
+   "kind": "style",
+   "aka": [
+    "pub-sub style",
+    "topic-based messaging architecture",
+    "event notification (system-scale)"
+   ],
+   "what": "Publishers emit messages classified by topic or content to an intermediary event service, which delivers them to all components that have subscribed, so producers and consumers never address each other."
+  },
+  {
+   "id": "remote-evaluation",
+   "name": "Remote Evaluation",
+   "kind": "style",
+   "aka": [
+    "REV",
+    "remote execution of shipped code"
+   ],
+   "what": "A mobile-code style in which a component that has the know-how sends code to a remote site that has the resources and data, where it executes and returns results."
+  },
+  {
+   "id": "remote-procedure-invocation",
+   "name": "Remote Procedure Invocation",
+   "kind": "style",
+   "aka": [
+    "RPI",
+    "RPC-based integration",
+    "remote invocation integration"
+   ],
+   "what": "Applications integrate by exposing procedures/services that other applications invoke synchronously over the network to exchange data and trigger behavior."
+  },
+  {
+   "id": "repository-shared-data-style",
+   "name": "Repository (Shared Data) Style",
+   "kind": "style",
+   "aka": [
+    "shared data style",
+    "data-centered architecture",
+    "shared repository"
+   ],
+   "what": "A central data structure represents the system state while a collection of independent components operate on it, coordinating only through the shared store."
+  },
+  {
+   "id": "rest-representational-state-transfer",
+   "name": "REST (Representational State Transfer)",
+   "kind": "style",
+   "aka": [
+    "representational state transfer",
+    "RESTful architecture"
+   ],
+   "what": "A hybrid network-based style constraining client-server interaction to be stateless, cacheable, layered, and mediated by a uniform interface over resources identified by URIs and manipulated via exchanged representations, optionally extende"
+  },
+  {
+   "id": "rtos-based-architecture",
+   "name": "RTOS-Based Architecture",
+   "kind": "style",
+   "aka": [
+    "real-time operating system architecture",
+    "task-based architecture",
+    "multitasking RTOS structure"
+   ],
+   "what": "A whole-system structure in which the application is decomposed into prioritized, preemptively scheduled RTOS tasks communicating through kernel objects (queues, semaphores, events), with response times set by priority rather than loop posi"
+  },
+  {
+   "id": "rule-based-system",
+   "name": "Rule-Based System",
+   "kind": "style",
+   "aka": [
+    "production system",
+    "rule-based interpreter"
+   ],
+   "what": "An interpreter specialization in which a rule engine (inference/interpretation engine) selects and fires condition-action rules from a knowledge base against working memory."
+  },
+  {
+   "id": "seda-staged-event-driven-architecture",
+   "name": "SEDA (Staged Event-Driven Architecture)",
+   "kind": "style",
+   "aka": [
+    "staged event-driven architecture",
+    "SEDA"
+   ],
+   "what": "Service structured as a network of event-driven stages connected by explicit queues, each stage with its own thread pool and admission control."
+  },
+  {
+   "id": "sense-compute-control",
+   "name": "Sense-Compute-Control",
+   "kind": "style",
+   "aka": [
+    "SCC",
+    "sense-plan-act (robotics variant)"
+   ],
+   "what": "An embedded-systems organization structured as a repeating loop of sensor reading, computation over the sensed values plus internal state, and actuator commands controlling the environment."
+  },
+  {
+   "id": "service-based-architecture",
+   "name": "Service-Based Architecture",
+   "kind": "style",
+   "aka": [],
+   "what": "Small number of coarse-grained, separately deployed domain services sharing a single database, typically fronted by one UI."
+  },
+  {
+   "id": "service-oriented-architecture",
+   "name": "Service-Oriented Architecture",
+   "kind": "style",
+   "aka": [
+    "SOA",
+    "orchestration-driven service-oriented architecture",
+    "service orientation"
+   ],
+   "what": "Enterprise organized as coarse-grained reusable business/enterprise services coordinated through a mediating integration layer (often an ESB/orchestrator)."
+  },
+  {
+   "id": "shared-database",
+   "name": "Shared Database",
+   "kind": "style",
+   "aka": [
+    "shared data integration",
+    "integration database",
+    "Shared Database (integration style)"
+   ],
+   "what": "Multiple applications integrate by reading and writing the same database schema, making one store the single point of data agreement."
+  },
+  {
+   "id": "shared-nothing-architecture",
+   "name": "Shared-Nothing Architecture",
+   "kind": "style",
+   "aka": [
+    "SN parallel architecture"
+   ],
+   "what": "Nodes own disjoint partitions of data and memory and coordinate only by messages; no shared disk or shared memory."
+  },
+  {
+   "id": "space-based-architecture",
+   "name": "Space-Based Architecture",
+   "kind": "style",
+   "aka": [
+    "tuple-space architecture",
+    "cloud architecture pattern (Richards' earlier name)"
+   ],
+   "what": "Processing units with replicated in-memory data grids, synchronized asynchronously to persistent storage, so the database is out of the request path."
+  },
+  {
+   "id": "state-transition-system-architectural-organization",
+   "name": "State Transition System (Architectural Organization)",
+   "kind": "style",
+   "aka": [
+    "state-transition organization",
+    "reactive system organization"
+   ],
+   "what": "A whole reactive system is organized as a set of states plus named transitions that move the system between them, making the state machine the top-level structure rather than an internal mechanism."
+  },
+  {
+   "id": "streaming-dataflow-architecture",
+   "name": "Streaming Dataflow Architecture",
+   "kind": "style",
+   "aka": [
+    "stream processing topology",
+    "streaming pipeline (Beam/Flink model)",
+    "unbounded dataflow processing"
+   ],
+   "what": "Structures data processing as a long-running dataflow graph over unbounded streams with windowing, watermarks and triggers."
+  },
+  {
+   "id": "subsumption-architecture",
+   "name": "Subsumption Architecture",
+   "kind": "style",
+   "aka": [
+    "behavior-based layered control"
+   ],
+   "what": "Layers of behavior-producing modules run concurrently, with higher layers subsuming (suppressing/overriding) the outputs of lower ones instead of a central planner."
+  },
+  {
+   "id": "superloop-architecture",
+   "name": "Superloop Architecture",
+   "kind": "style",
+   "aka": [
+    "super loop (system architecture)",
+    "round-robin architecture",
+    "foreground/background system"
+   ],
+   "what": "A whole-system structure with no operating system: one endless main loop polls and services every task in turn, optionally with interrupts as the foreground layer feeding flags/buffers to the background loop."
+  },
+  {
+   "id": "time-triggered-architecture",
+   "name": "Time-Triggered Architecture",
+   "kind": "style",
+   "aka": [
+    "TTA",
+    "time-triggered system architecture",
+    "TT architecture"
+   ],
+   "what": "System-level organization in which all communication and computation are driven by the progression of a fault-tolerant global time base, with statically planned activation instants known a priori at all nodes."
+  },
+  {
+   "id": "virtual-machine-architectural-style",
+   "name": "Virtual Machine (architectural style)",
+   "kind": "style",
+   "aka": [
+    "interpreter style",
+    "abstract machine",
+    "Virtual Machine Pattern (RTDP)"
+   ],
+   "what": "Builds the system atop an abstract machine whose instruction set is interpreted, decoupling applications from the physical platform."
+  },
+  {
+   "id": "zero-trust-architecture",
+   "name": "Zero Trust Architecture",
+   "kind": "style",
+   "aka": [
+    "ZTA",
+    "perimeterless security model",
+    "BeyondCorp (Google realization)"
+   ],
+   "what": "A security architecture in which no implicit trust is granted by network location; every access to a resource is individually authenticated and authorized per session via policy decision/enforcement points."
+  }
+ ],
+ "existing_intra_edges": [
+  {
+   "from": "seda-staged-event-driven-architecture",
+   "kind": "specializes",
+   "to": "event-driven-architecture"
+  },
+  {
+   "from": "mapreduce",
+   "kind": "specializes",
+   "to": "data-parallel-architecture"
+  }
+ ]
+}

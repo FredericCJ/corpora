@@ -193,6 +193,67 @@ table.matrix td.hot{background:var(--c-cpp-bg);font-weight:700;color:var(--c-cpp
 .el-count{font-family:var(--serif);font-size:1.1rem;color:var(--ink)}
 .el-legend{font-size:.66rem;color:var(--mut);display:flex;gap:.8rem;flex-wrap:wrap;margin-top:.2rem}
 
+/* ── atlas layer: the archipelago map (L0/L1) + the bridge-flow ── */
+.atlas-board{overflow:hidden}
+.atlas-svg{position:absolute;inset:0;width:100%;height:100%;display:block}
+.atlas-crumb{display:flex;gap:.35rem;align-items:baseline;flex-wrap:wrap;font-size:.74rem;margin-top:.15rem}
+.atlas-step{cursor:pointer;color:var(--mut)}
+.atlas-step:hover{color:var(--ink)}
+.atlas-step.active{color:var(--ink);font-weight:600;cursor:default}
+.atlas-sep{color:var(--faint)}
+/* L0 island bubbles */
+.atlas-island{cursor:pointer}
+.atlas-island circle{fill-opacity:.20;stroke-width:1.5;stroke-opacity:.85;transition:fill-opacity .15s,stroke-width .15s}
+.atlas-island:hover circle,.atlas-island:focus-visible circle{fill-opacity:.40;stroke-width:2.6}
+.atlas-island.dim{opacity:.28}
+.atlas-island.hit circle{fill-opacity:.52;stroke-width:3}
+.atlas-island text{pointer-events:none;font-family:var(--sans)}
+.atlas-ilabel{font-weight:600;font-size:13px;fill:var(--ink)}
+.atlas-icount{font-family:var(--mono);font-size:10px;fill:var(--mut)}
+.atlas-island:focus-visible{outline:none}
+/* L0 sea-routes */
+.atlas-route{fill:none;stroke:var(--faint);opacity:.20;transition:opacity .13s}
+.atlas-route.hl{opacity:.8;stroke:var(--accent)}
+/* L1 island interior */
+.atlas-hull{fill-opacity:.10;stroke-opacity:.35;stroke-width:2}
+.atlas-edge{stroke:var(--mut);stroke-width:1;opacity:.34}
+.atlas-edge.soft{stroke-dasharray:2 4;opacity:.26}
+.atlas-edge.ego{stroke:var(--accent);opacity:.95;stroke-width:1.8}
+.atlas-edge.faded{opacity:.05}
+.atlas-node{cursor:pointer}
+.atlas-node circle{fill-opacity:.88;stroke-width:1}
+.atlas-node.hub circle{fill-opacity:1;stroke:var(--ink);stroke-width:1.5}
+.atlas-node.sel circle{stroke:var(--ink);stroke-width:2.6}
+.atlas-node:focus-visible circle{stroke:var(--accent);stroke-width:2.6}
+.atlas-node.dim{opacity:.18}
+.atlas-node.faded{opacity:.22}
+.atlas-node text{pointer-events:none;font-family:var(--sans);font-size:10px;fill:var(--ink)}
+.atlas-nlabel.hub{font-weight:700}
+/* L1 rim ports */
+.atlas-port{cursor:pointer}
+.atlas-port circle{stroke:var(--panel);stroke-width:1.5}
+.atlas-port:hover circle,.atlas-port:focus-visible circle{stroke:var(--ink)}
+.atlas-plabel{font-family:var(--sans);font-size:10.5px;fill:var(--mut);font-weight:600}
+.atlas-port:hover .atlas-plabel{fill:var(--ink)}
+/* overlays: legend, minimap, teleport hint */
+.atlas-legend{position:absolute;left:.55rem;bottom:.5rem;background:color-mix(in srgb,var(--panel) 86%,transparent);border:1px solid var(--line-2);border-radius:var(--rad-sm);padding:.35rem .5rem;display:flex;flex-direction:column;gap:.14rem;font-size:.6rem;color:var(--mut);pointer-events:none}
+.atlas-legrow{display:flex;gap:.34rem;align-items:center}
+.atlas-swatch{width:9px;height:9px;border-radius:2px;display:inline-block;flex:none}
+/* higher specificity + inset:auto so the general `.board svg{inset:0;width:100%}` rule doesn't stretch the minimap to fill the board */
+.board svg.atlas-minimap{inset:auto;right:.55rem;top:.55rem;width:104px;height:104px;background:color-mix(in srgb,var(--panel) 80%,transparent);border:1px solid var(--line);border-radius:var(--rad-sm)}
+.atlas-mmdot{cursor:pointer}
+.atlas-teleport{position:absolute;left:50%;bottom:.7rem;transform:translateX(-50%);background:var(--accent);color:#fff;border:none;border-radius:var(--rad-sm);padding:.3rem .75rem;font-size:.72rem;cursor:pointer;box-shadow:var(--shadow)}
+/* bridge-flow */
+.bf-ribbon{fill:none;opacity:.30;transition:opacity .12s}
+.bf-ribbon.hl{opacity:.92}
+.bf-ribbon.mute{opacity:.05}
+.bf-flabel{fill:#fff;font-family:var(--sans);font-size:12px;font-weight:600;pointer-events:none}
+.bf-fcount{fill:#fff;font-family:var(--mono);font-size:11px;opacity:.9;pointer-events:none}
+.bf-anc{cursor:pointer}
+.bf-alabel{font-family:var(--sans);font-size:11px;fill:var(--ink)}
+.bf-anc:hover .bf-alabel{fill:var(--accent);font-weight:600}
+.bf-anc.sel .bf-alabel{fill:var(--accent);font-weight:700}
+
 /* graceful degradation on small screens (not the target) */
 @media (max-width:900px){
   body{overflow:auto;height:auto}

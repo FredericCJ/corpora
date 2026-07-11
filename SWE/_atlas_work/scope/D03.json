@@ -1,0 +1,824 @@
+{
+ "group": "D03",
+ "title": "Execution, concurrency & scheduling",
+ "realm": "design",
+ "literature": "POSA2 (Reactor/Proactor/Active Object/Half-Sync); Nystrom Game Programming Patterns (game loop, update); Schmidt et al.; real-time scheduling (Liu, Buttazzo).",
+ "member_count": 62,
+ "target_edges": 74,
+ "priority_ids": [
+  "cancellation-token",
+  "competing-consumers",
+  "deadline-propagation",
+  "deferrable-work",
+  "false-sharing-avoidance-via-cache-line-padding",
+  "green-threads",
+  "interrupt-coalescing",
+  "multi-state-task",
+  "nested-interrupt-handling",
+  "pipeline-parallelism",
+  "round-robin-scheduling",
+  "sandwich-delay",
+  "schedule-table",
+  "scheduler",
+  "structured-concurrency",
+  "thread-specific-storage",
+  "time-to-live-ttl",
+  "trampoline",
+  "two-phase-termination"
+ ],
+ "members": [
+  {
+   "id": "active-object",
+   "name": "Active Object",
+   "kind": "execution-concurrency",
+   "aka": [
+    "Concurrent Object",
+    "Actor Model",
+    "actors"
+   ],
+   "what": "Method invocation is decoupled from method execution: calls are reified as requests on an activation queue and executed by the object's own thread via a scheduler, with futures for results."
+  },
+  {
+   "id": "async-await-model",
+   "name": "Async-Await Model",
+   "kind": "execution-concurrency",
+   "aka": [
+    "async workflows",
+    "async functions",
+    "awaitable model"
+   ],
+   "what": "A language-level model in which functions marked async are compiled into continuation/state-machine form so that awaiting an asynchronous result suspends the function without blocking its thread."
+  },
+  {
+   "id": "asynchronous-completion-token",
+   "name": "Asynchronous Completion Token",
+   "kind": "execution-concurrency",
+   "aka": [
+    "ACT"
+   ],
+   "what": "The initiator of an asynchronous operation passes along an opaque token that comes back with the completion event, letting the response be demultiplexed to the right state and actions in constant time."
+  },
+  {
+   "id": "bytecode-virtual-machine",
+   "name": "Bytecode Virtual Machine",
+   "kind": "execution-concurrency",
+   "aka": [
+    "bytecode interpreter",
+    "VM",
+    "stack machine / register machine (implementation variants)"
+   ],
+   "what": "An interpreter that first compiles source to a compact linear instruction encoding (bytecode) and then executes it in a dispatch loop over a virtual instruction set, usually with an operand stack or virtual registers."
+  },
+  {
+   "id": "cancellation-token",
+   "name": "Cancellation Token",
+   "kind": "execution-concurrency",
+   "aka": [
+    "cancellation context",
+    "context propagation (Go context.Context)",
+    "CancellationToken / CancellationTokenSource (.NET)"
+   ],
+   "what": "An explicit token/context object threaded through the call graph that carries a cancellation signal (and often a deadline) which long-running operations poll or subscribe to, exiting cooperatively when it fires."
+  },
+  {
+   "id": "competing-consumers",
+   "name": "Competing Consumers",
+   "kind": "execution-concurrency",
+   "aka": [],
+   "what": "Multiple concurrent consumers receive from the same point-to-point channel, each message going to exactly one of them, so throughput scales with consumer count."
+  },
+  {
+   "id": "coroutine",
+   "name": "Coroutine",
+   "kind": "execution-concurrency",
+   "aka": [
+    "cooperative routine",
+    "generator (restricted form)"
+   ],
+   "what": "A routine that can suspend its own execution at yield points and later be resumed with its local state intact, enabling cooperative multitasking on one thread."
+  },
+  {
+   "id": "cyclic-executive",
+   "name": "Cyclic Executive",
+   "kind": "scheduling-time",
+   "aka": [
+    "timeline scheduling",
+    "main-loop scheduler",
+    "frame-based executive"
+   ],
+   "what": "A fixed infinite loop that runs each task to completion in a predetermined order every cycle, with no preemption."
+  },
+  {
+   "id": "deadline-propagation",
+   "name": "Deadline Propagation",
+   "kind": "scheduling-time",
+   "aka": [
+    "propagated deadlines",
+    "cascading timeout budget"
+   ],
+   "what": "Carry an absolute deadline (or remaining budget) with each request and pass it down the call chain; every stage checks it and aborts work whose deadline has already passed."
+  },
+  {
+   "id": "debouncing",
+   "name": "Debouncing",
+   "kind": "scheduling-time",
+   "aka": [
+    "debounce",
+    "switch debouncing",
+    "contact debouncing"
+   ],
+   "what": "Filtering the intermittent make/break bounce of mechanical inputs (or noisy edges generally) by accepting a state change only after it is stable for a defined interval."
+  },
+  {
+   "id": "deferrable-work",
+   "name": "Deferrable Work",
+   "kind": "scheduling-time",
+   "aka": [
+    "deferred non-critical processing"
+   ],
+   "what": "Classify work as essential vs deferrable and, under overload, postpone deferrable tasks (audits, housekeeping, statistics) until load subsides."
+  },
+  {
+   "id": "deoptimization",
+   "name": "Deoptimization",
+   "kind": "execution-concurrency",
+   "aka": [
+    "dynamic deoptimization",
+    "deopt",
+    "on-stack replacement (OSR, the frame-replacement mechanism, folded)"
+   ],
+   "what": "The runtime invalidates speculatively optimized compiled code and transfers a running activation back to unoptimized code (interpreter or baseline), reconstructing the equivalent stack frames and local state at a mapped program point; the s"
+  },
+  {
+   "id": "dynamic-priority-scheduling",
+   "name": "Dynamic Priority Scheduling",
+   "kind": "scheduling-time",
+   "aka": [
+    "earliest deadline first",
+    "EDF",
+    "Dynamic Priority Pattern"
+   ],
+   "what": "Task priorities are recomputed at runtime from urgency - classically earliest-deadline-first, where the task with the nearest deadline runs."
+  },
+  {
+   "id": "event-loop",
+   "name": "Event Loop",
+   "kind": "execution-concurrency",
+   "aka": [
+    "message loop",
+    "message pump",
+    "dispatch loop"
+   ],
+   "what": "A single loop that waits for events (I/O readiness, messages, timers) and dispatches each to its handler, serializing all handler execution on one thread."
+  },
+  {
+   "id": "executor",
+   "name": "Executor",
+   "kind": "execution-concurrency",
+   "aka": [
+    "executor service",
+    "task-queue execution model",
+    "task executor"
+   ],
+   "what": "An abstraction that decouples task submission from the policy of task execution (which thread, when, in what order), typically backed by a work queue and thread pool."
+  },
+  {
+   "id": "false-sharing-avoidance-via-cache-line-padding",
+   "name": "False-Sharing Avoidance via Cache-Line Padding",
+   "kind": "execution-concurrency",
+   "aka": [
+    "cache-line alignment",
+    "padding to cache line",
+    "hardware_destructive_interference_size"
+   ],
+   "what": "Pad or align independently-written shared variables so no two of them share a cache line."
+  },
+  {
+   "id": "fast-path",
+   "name": "Fast Path",
+   "kind": "execution-concurrency",
+   "aka": [
+    "fast path / slow path split",
+    "Parallel Fastpath (McKenney)",
+    "Optimize High-Runner Cases (Meszaros)"
+   ],
+   "what": "Provide a short, cheap code path for the common case (often lock-free or per-CPU) and fall back to a general, heavier slow path for the rare or complex cases."
+  },
+  {
+   "id": "fixed-timestep",
+   "name": "Fixed Timestep",
+   "kind": "scheduling-time",
+   "aka": [
+    "fixed time step",
+    "timestep accumulator loop",
+    "semi-fixed timestep (variant)"
+   ],
+   "what": "Advance the simulation in constant-size time increments driven by an accumulator of elapsed real time, decoupling the simulation rate from the (variable) render rate, typically with interpolation of the leftover fraction for display."
+  },
+  {
+   "id": "fork-join",
+   "name": "Fork-Join",
+   "kind": "execution-concurrency",
+   "aka": [
+    "fork/join parallelism",
+    "divide-and-conquer parallelism"
+   ],
+   "what": "A task forks subtasks that run in parallel and then joins on their completion, typically applied recursively to divide-and-conquer problems."
+  },
+  {
+   "id": "future-promise",
+   "name": "Future / Promise",
+   "kind": "execution-concurrency",
+   "aka": [
+    "future",
+    "promise",
+    "deferred"
+   ],
+   "what": "A placeholder object representing the eventual result of an asynchronous computation, which consumers can query, wait on, or attach continuations to."
+  },
+  {
+   "id": "game-loop",
+   "name": "Game Loop",
+   "kind": "execution-concurrency",
+   "aka": [
+    "fixed timestep loop",
+    "update-render loop"
+   ],
+   "what": "A continuous loop that processes input without blocking, updates the simulation, and renders, decoupling the progression of game time from user input and processor speed."
+  },
+  {
+   "id": "governor",
+   "name": "Governor",
+   "kind": "scheduling-time",
+   "aka": [
+    "automation rate limiter"
+   ],
+   "what": "Cap the rate or scope of automated actions (restarts, scale-downs, config pushes) so automation cannot do damage faster than humans can react."
+  },
+  {
+   "id": "green-threads",
+   "name": "Green Threads",
+   "kind": "execution-concurrency",
+   "aka": [
+    "fibers",
+    "user-level threads",
+    "lightweight threads"
+   ],
+   "what": "Threads scheduled by a runtime or library in user space rather than by the operating system, multiplexed onto a smaller number of kernel threads."
+  },
+  {
+   "id": "half-sync-half-async",
+   "name": "Half-Sync/Half-Async",
+   "kind": "execution-concurrency",
+   "aka": [],
+   "what": "Concurrent processing is split into an asynchronous layer (interrupt/event-driven) and a synchronous layer (blocking service threads) mediated by a queueing layer between them."
+  },
+  {
+   "id": "idle-task-hook",
+   "name": "Idle Task Hook",
+   "kind": "scheduling-time",
+   "aka": [
+    "idle hook",
+    "vApplicationIdleHook",
+    "idle callback"
+   ],
+   "what": "A user callback invoked repeatedly from the RTOS idle task (the lowest-priority always-ready task), used to run work that should consume only otherwise-idle cycles: low-power sleep entry, background self-tests, stack watermark checks."
+  },
+  {
+   "id": "interrupt-coalescing",
+   "name": "Interrupt Coalescing",
+   "kind": "scheduling-time",
+   "aka": [
+    "interrupt moderation",
+    "interrupt throttling",
+    "interrupt blanking"
+   ],
+   "what": "Hold back events that would each raise an interrupt until a count threshold or timeout is reached, then deliver one interrupt for the whole batch."
+  },
+  {
+   "id": "job-system",
+   "name": "Job System",
+   "kind": "execution-concurrency",
+   "aka": [
+    "task graph",
+    "job scheduler",
+    "fiber-based job system"
+   ],
+   "what": "The engine decomposes each frame's work into many small jobs with declared dependencies (a task DAG) and schedules them onto a fixed pool of worker threads (often via fibers and work-stealing), instead of dedicating threads to subsystems."
+  },
+  {
+   "id": "leader-followers",
+   "name": "Leader/Followers",
+   "kind": "execution-concurrency",
+   "aka": [],
+   "what": "A pool of threads takes turns: one leader waits for and demultiplexes an event, promotes a follower to be the new leader, then processes the event itself before rejoining the followers."
+  },
+  {
+   "id": "leaky-bucket",
+   "name": "Leaky Bucket",
+   "kind": "scheduling-time",
+   "aka": [
+    "leaky bucket algorithm",
+    "traffic shaper queue",
+    "leaky bucket as a meter/queue"
+   ],
+   "what": "Arriving work enters a bounded bucket that drains at a constant rate; overflow is rejected, converting bursty input into a smooth constant-rate output."
+  },
+  {
+   "id": "loop-parallelism",
+   "name": "Loop Parallelism",
+   "kind": "execution-concurrency",
+   "aka": [
+    "parallel loop",
+    "parallel-for"
+   ],
+   "what": "Distributing the iterations of a (semantically independent) loop across threads, typically via compiler directives or a parallel-for library construct."
+  },
+  {
+   "id": "master-slave",
+   "name": "Master-Slave",
+   "kind": "execution-concurrency",
+   "aka": [
+    "Master-Worker",
+    "master-slave (parallel form)",
+    "manager-workers"
+   ],
+   "what": "A master component partitions work into semantically identical sub-tasks, delegates them to interchangeable slave components, and combines their results into the final answer."
+  },
+  {
+   "id": "multi-state-task",
+   "name": "Multi-State Task",
+   "kind": "execution-concurrency",
+   "aka": [
+    "state-machine task",
+    "non-blocking task decomposition"
+   ],
+   "what": "Implement a long-running activity as a state machine that advances one short step per scheduler invocation instead of blocking or busy-waiting."
+  },
+  {
+   "id": "nested-interrupt-handling",
+   "name": "Nested Interrupt Handling",
+   "kind": "execution-concurrency",
+   "aka": [
+    "interrupt nesting",
+    "preemptive interrupt priorities"
+   ],
+   "what": "Allow a higher-priority interrupt to preempt a running lower-priority ISR by re-enabling interrupts (or relying on NVIC priority hardware) inside handlers."
+  },
+  {
+   "id": "parallel-reduction",
+   "name": "Parallel Reduction",
+   "kind": "execution-concurrency",
+   "aka": [
+    "reduce (parallel pattern)",
+    "reduction tree",
+    "tree reduction"
+   ],
+   "what": "Combine a collection of values into one result with an associative operator arranged as a tree of partial reductions computed in parallel, then merged."
+  },
+  {
+   "id": "pipeline-parallelism",
+   "name": "Pipeline Parallelism",
+   "kind": "execution-concurrency",
+   "aka": [
+    "pipeline pattern",
+    "software pipeline",
+    "pipelining"
+   ],
+   "what": "Decomposing a computation into ordered stages, each run by its own thread(s) and connected by queues, so different data items are processed in different stages simultaneously."
+  },
+  {
+   "id": "proactor",
+   "name": "Proactor",
+   "kind": "execution-concurrency",
+   "aka": [],
+   "what": "Applications initiate asynchronous operations and a completion dispatcher later invokes the matching completion handlers when the OS finishes the operations."
+  },
+  {
+   "id": "protothread",
+   "name": "Protothreads",
+   "kind": "execution-concurrency",
+   "aka": [
+    "stackless threads",
+    "local continuations",
+    "local-continuation threads"
+   ],
+   "what": "Extremely lightweight stackless thread abstraction for C that gives event-driven code a sequential blocking-style structure, implemented with switch-based local continuations."
+  },
+  {
+   "id": "reactor",
+   "name": "Reactor",
+   "kind": "execution-concurrency",
+   "aka": [
+    "Dispatcher",
+    "Notifier"
+   ],
+   "what": "A synchronous event demultiplexer (select/poll) waits on multiple event sources and dispatches ready events to registered handler objects, serially, in one thread of control."
+  },
+  {
+   "id": "restartable-sequences",
+   "name": "Restartable Sequences",
+   "kind": "execution-concurrency",
+   "aka": [
+    "rseq",
+    "per-CPU critical sections"
+   ],
+   "what": "Short userspace critical sections over per-CPU data registered with the kernel, which aborts and restarts the sequence if the thread is preempted or migrated mid-section."
+  },
+  {
+   "id": "round-robin-scheduling",
+   "name": "Round Robin Scheduling",
+   "kind": "scheduling-time",
+   "aka": [
+    "time-slicing"
+   ],
+   "what": "The scheduler grants each ready task a turn (optionally a fixed time slice) in rotating order, giving fairness rather than urgency-driven preference."
+  },
+  {
+   "id": "sandwich-delay",
+   "name": "Sandwich Delay",
+   "kind": "scheduling-time",
+   "aka": [
+    "fixed-duration code section",
+    "jitter-equalizing delay"
+   ],
+   "what": "Wrap a code section between a hardware-timer start and a wait-for-timer end so the section always consumes the same wall-clock duration regardless of path taken."
+  },
+  {
+   "id": "schedule-table",
+   "name": "Schedule Table",
+   "kind": "scheduling-time",
+   "aka": [
+    "time-triggered schedule table",
+    "OSEKtime dispatch table",
+    "AUTOSAR schedule table"
+   ],
+   "what": "A statically configured table of expiry points on a counter, each releasing tasks or setting events at fixed offsets, cyclically or once, as an OS-level time-triggered dispatch mechanism."
+  },
+  {
+   "id": "scheduler",
+   "name": "Scheduler",
+   "kind": "scheduling-time",
+   "aka": [],
+   "what": "An object that explicitly sequences waiting threads' access to a resource according to a scheduling policy (FIFO, priority, deadline) instead of leaving the order to the lock implementation."
+  },
+  {
+   "id": "software-timer",
+   "name": "Software Timer",
+   "kind": "scheduling-time",
+   "aka": [
+    "RTOS timer",
+    "kernel timer",
+    "timer object"
+   ],
+   "what": "Kernel facility multiplexing many logical one-shot or auto-reload callback timers onto a single hardware tick/timer, with expiry callbacks typically executed by a timer-service (daemon) task rather than in interrupt context."
+  },
+  {
+   "id": "spmd",
+   "name": "SPMD",
+   "kind": "execution-concurrency",
+   "aka": [
+    "single program multiple data"
+   ],
+   "what": "All processing elements run the same program, using their unique id to select the data partition and branch to role-specific behavior."
+  },
+  {
+   "id": "static-priority-scheduling",
+   "name": "Static Priority Scheduling",
+   "kind": "scheduling-time",
+   "aka": [
+    "fixed-priority preemptive scheduling",
+    "rate-monotonic priority assignment",
+    "Rate-Monotonic Scheduling"
+   ],
+   "what": "Tasks receive fixed, design-time priorities and a preemptive scheduler always runs the highest-priority ready task; rate-monotonic assignment (priority by period) is the classic policy."
+  },
+  {
+   "id": "stencil",
+   "name": "Stencil",
+   "kind": "execution-concurrency",
+   "aka": [
+    "stencil computation",
+    "structured-grid pattern",
+    "neighborhood computation"
+   ],
+   "what": "Update every element of a regular grid as a fixed function of its spatial neighborhood, typically double-buffered between generations and tiled/parallelized over the grid."
+  },
+  {
+   "id": "structured-concurrency",
+   "name": "Structured Concurrency",
+   "kind": "execution-concurrency",
+   "aka": [
+    "nursery pattern",
+    "task scope",
+    "scoped concurrency"
+   ],
+   "what": "Concurrent tasks may only be spawned inside a lexical scope (nursery / task scope) that cannot be exited until all child tasks complete, so errors and cancellation propagate through a tree of scopes."
+  },
+  {
+   "id": "system-tick",
+   "name": "System Tick",
+   "kind": "scheduling-time",
+   "aka": [
+    "tick interrupt",
+    "RTOS tick",
+    "SysTick"
+   ],
+   "what": "A periodic timer interrupt increments a monotonic tick counter that serves as the system's software time base, driving timekeeping, timeouts, and scheduler preemption decisions."
+  },
+  {
+   "id": "thread-pool",
+   "name": "Thread Pool",
+   "kind": "execution-concurrency",
+   "aka": [
+    "worker pool",
+    "pooled threads"
+   ],
+   "what": "A fixed or bounded set of pre-created worker threads that repeatedly take tasks from a queue and execute them, amortizing thread creation cost."
+  },
+  {
+   "id": "thread-specific-storage",
+   "name": "Thread-Specific Storage",
+   "kind": "execution-concurrency",
+   "aka": [
+    "Thread-Local Storage",
+    "TLS",
+    "per-thread data"
+   ],
+   "what": "Each thread gets its own copy of a logically global datum, accessed through one 'global' access point that transparently resolves to the calling thread's instance."
+  },
+  {
+   "id": "threaded-code",
+   "name": "Threaded Code",
+   "kind": "execution-concurrency",
+   "aka": [
+    "direct threading",
+    "indirect threading",
+    "computed-goto dispatch"
+   ],
+   "what": "An interpreter code representation where the program is a sequence of addresses of operation routines, each routine jumping directly to the next, eliminating a central decode-dispatch loop."
+  },
+  {
+   "id": "throttle",
+   "name": "Throttle",
+   "kind": "scheduling-time",
+   "aka": [
+    "throttling",
+    "function rate limiting",
+    "rate limiting (of handlers)"
+   ],
+   "what": "Ensure a function or action executes at most once per interval, discarding or coalescing invocations that arrive faster."
+  },
+  {
+   "id": "tickless-idle",
+   "name": "Tickless Idle",
+   "kind": "scheduling-time",
+   "aka": [
+    "tickless kernel",
+    "dynamic tick suppression"
+   ],
+   "what": "Suppress the periodic scheduler tick during idle, program a one-shot wakeup for the next deadline, and sleep the CPU in a low-power mode until then."
+  },
+  {
+   "id": "time-to-live-ttl",
+   "name": "Time to Live (TTL)",
+   "kind": "scheduling-time",
+   "aka": [
+    "expiry",
+    "expiration timestamp",
+    "hop limit"
+   ],
+   "what": "Attach a lifetime to a datum, message, or entry; holders treat it as invalid (and evict or drop it) once the lifetime elapses."
+  },
+  {
+   "id": "time-triggered-co-operative-scheduler",
+   "name": "Time-Triggered Co-operative Scheduler",
+   "kind": "scheduling-time",
+   "aka": [
+    "TTC scheduler",
+    "cooperative scheduler",
+    "tick-driven task scheduler"
+   ],
+   "what": "Dispatch short run-to-completion tasks from a timer-tick-driven table at fixed periods and offsets, with no preemption between tasks."
+  },
+  {
+   "id": "timer-wheel",
+   "name": "Timer Wheel",
+   "kind": "scheduling-time",
+   "aka": [
+    "timing wheel",
+    "hashed timing wheel",
+    "hierarchical timing wheel"
+   ],
+   "what": "A circular array of time slots, each holding the timers expiring in that tick; a pointer advances per tick, making start/stop/expire O(1) for large timer populations."
+  },
+  {
+   "id": "token-bucket",
+   "name": "Token Bucket",
+   "kind": "scheduling-time",
+   "aka": [
+    "token bucket filter",
+    "committed rate limiting",
+    "committed access rate"
+   ],
+   "what": "Tokens accrue in a bucket at a fixed rate up to a capacity; each admitted unit of work consumes tokens, allowing bursts up to the bucket size while enforcing a long-term average rate."
+  },
+  {
+   "id": "trampoline",
+   "name": "Trampoline",
+   "kind": "execution-concurrency",
+   "aka": [
+    "trampolined style",
+    "bounce loop"
+   ],
+   "what": "A driver loop that repeatedly invokes returned thunks/step objects so that deep or mutual recursion runs in constant stack space."
+  },
+  {
+   "id": "two-phase-termination",
+   "name": "Two-Phase Termination",
+   "kind": "execution-concurrency",
+   "aka": [
+    "cooperative shutdown",
+    "graceful thread termination"
+   ],
+   "what": "Shutting down a thread or active object by setting a termination request flag (phase 1) that the target observes at safe points, then letting it release resources and exit cleanly (phase 2)."
+  },
+  {
+   "id": "update-method",
+   "name": "Update Method",
+   "kind": "scheduling-time",
+   "aka": [
+    "update function",
+    "tick method"
+   ],
+   "what": "Simulate a collection of independent objects by giving each an update() method that the game loop calls once per frame, letting each object advance its own behavior one step at a time."
+  },
+  {
+   "id": "work-stealing",
+   "name": "Work Stealing",
+   "kind": "scheduling-time",
+   "aka": [
+    "work-stealing scheduler",
+    "stealing deques"
+   ],
+   "what": "Each worker keeps its own deque of tasks and, when idle, steals tasks from the tail of other workers' deques, balancing load with minimal contention."
+  }
+ ],
+ "existing_intra_edges": [
+  {
+   "from": "cyclic-executive",
+   "kind": "alternative-to",
+   "to": "static-priority-scheduling"
+  },
+  {
+   "from": "dynamic-priority-scheduling",
+   "kind": "alternative-to",
+   "to": "static-priority-scheduling"
+  },
+  {
+   "from": "governor",
+   "kind": "specializes",
+   "to": "throttle"
+  },
+  {
+   "from": "leaky-bucket",
+   "kind": "alternative-to",
+   "to": "token-bucket"
+  },
+  {
+   "from": "system-tick",
+   "kind": "composes-with",
+   "to": "software-timer"
+  },
+  {
+   "from": "throttle",
+   "kind": "alternative-to",
+   "to": "debouncing"
+  },
+  {
+   "from": "tickless-idle",
+   "kind": "composes-with",
+   "to": "idle-task-hook"
+  },
+  {
+   "from": "time-triggered-co-operative-scheduler",
+   "kind": "specializes",
+   "to": "cyclic-executive"
+  },
+  {
+   "from": "timer-wheel",
+   "kind": "implements",
+   "to": "software-timer"
+  },
+  {
+   "from": "update-method",
+   "kind": "composes-with",
+   "to": "fixed-timestep"
+  },
+  {
+   "from": "async-await-model",
+   "kind": "specializes",
+   "to": "coroutine"
+  },
+  {
+   "from": "async-await-model",
+   "kind": "composes-with",
+   "to": "future-promise"
+  },
+  {
+   "from": "async-await-model",
+   "kind": "composes-with",
+   "to": "event-loop"
+  },
+  {
+   "from": "deoptimization",
+   "kind": "composes-with",
+   "to": "bytecode-virtual-machine"
+  },
+  {
+   "from": "executor",
+   "kind": "composes-with",
+   "to": "thread-pool"
+  },
+  {
+   "from": "future-promise",
+   "kind": "composes-with",
+   "to": "active-object"
+  },
+  {
+   "from": "game-loop",
+   "kind": "alternative-to",
+   "to": "event-loop"
+  },
+  {
+   "from": "half-sync-half-async",
+   "kind": "composes-with",
+   "to": "reactor"
+  },
+  {
+   "from": "job-system",
+   "kind": "composes-with",
+   "to": "thread-pool"
+  },
+  {
+   "from": "leader-followers",
+   "kind": "alternative-to",
+   "to": "half-sync-half-async"
+  },
+  {
+   "from": "loop-parallelism",
+   "kind": "composes-with",
+   "to": "fork-join"
+  },
+  {
+   "from": "parallel-reduction",
+   "kind": "composes-with",
+   "to": "fork-join"
+  },
+  {
+   "from": "proactor",
+   "kind": "alternative-to",
+   "to": "reactor"
+  },
+  {
+   "from": "proactor",
+   "kind": "composes-with",
+   "to": "asynchronous-completion-token"
+  },
+  {
+   "from": "protothread",
+   "kind": "implements",
+   "to": "coroutine"
+  },
+  {
+   "from": "reactor",
+   "kind": "specializes",
+   "to": "event-loop"
+  },
+  {
+   "from": "restartable-sequences",
+   "kind": "composes-with",
+   "to": "fast-path"
+  },
+  {
+   "from": "spmd",
+   "kind": "alternative-to",
+   "to": "master-slave"
+  },
+  {
+   "from": "stencil",
+   "kind": "composes-with",
+   "to": "spmd"
+  },
+  {
+   "from": "threaded-code",
+   "kind": "composes-with",
+   "to": "bytecode-virtual-machine"
+  },
+  {
+   "from": "work-stealing",
+   "kind": "alternative-to",
+   "to": "fork-join"
+  }
+ ]
+}

@@ -1,0 +1,362 @@
+{
+ "group": "A01",
+ "title": "Availability & reliability tactics",
+ "realm": "architecture",
+ "literature": "Bass, Clements & Kazman 'Software Architecture in Practice' (3rd ed.) availability tactic tree (fault detection/recovery-preparation/recovery-reintroduction/prevention); Nygard Release It!; Hanmer Patterns for Fault Tolerant Software.",
+ "member_count": 33,
+ "target_edges": 40,
+ "priority_ids": [
+  "analytic-redundancy",
+  "condition-monitoring",
+  "degradation",
+  "escalating-restart",
+  "exception-detection",
+  "exception-handling",
+  "exception-prevention",
+  "failover",
+  "heartbeat-tactic",
+  "ignore-faulty-behavior",
+  "increase-competence-set",
+  "monitor",
+  "non-stop-forwarding",
+  "parameter-fence",
+  "parameter-typing",
+  "ping-echo",
+  "predictive-model",
+  "queue-based-load-leveling",
+  "reconfiguration",
+  "redundant-spare",
+  "removal-from-service",
+  "retry",
+  "rollback-tactic",
+  "sanity-checking",
+  "self-test",
+  "shadow",
+  "software-upgrade",
+  "state-resynchronization",
+  "throttling-service-admission-control",
+  "timeout-tactic",
+  "timestamp",
+  "transactions",
+  "voting"
+ ],
+ "members": [
+  {
+   "id": "analytic-redundancy",
+   "name": "Analytic Redundancy",
+   "kind": "tactic",
+   "aka": [
+    "input/output diversity",
+    "high-assurance/high-performance split"
+   ],
+   "what": "Provide redundant components that are diverse not only internally but also in their inputs and outputs (e.g. computing aircraft altitude by barometric pressure, radar, and geometry), with a sophisticated blending/voting mechanism."
+  },
+  {
+   "id": "condition-monitoring",
+   "name": "Condition Monitoring",
+   "kind": "tactic",
+   "aka": [
+    "checksum monitoring (example)"
+   ],
+   "what": "Check conditions in a process or device, or validate assumptions made during design (e.g. by computing checksums), to prevent the system from producing faulty behavior."
+  },
+  {
+   "id": "degradation",
+   "name": "Degradation",
+   "kind": "tactic",
+   "aka": [
+    "graceful degradation",
+    "degradation tactic (Bass)",
+    "degraded mode"
+   ],
+   "what": "In the presence of component failures, maintain the most critical system functions while dropping or substituting less critical ones in a planned, deliberate, safe way."
+  },
+  {
+   "id": "escalating-restart",
+   "name": "Escalating Restart",
+   "kind": "tactic",
+   "aka": [
+    "multi-level restart"
+   ],
+   "what": "Recover by restarting components at progressively coarser granularity levels (e.g. child threads only, then unprotected memory, then all memory, then full image reload), choosing the least disruptive level that clears the fault."
+  },
+  {
+   "id": "exception-detection",
+   "name": "Exception Detection",
+   "kind": "tactic",
+   "aka": [
+    "system-exception detection"
+   ],
+   "what": "Detect system conditions that alter the normal flow of execution, refined by the book into system exceptions, parameter fence, parameter typing, and timeout."
+  },
+  {
+   "id": "exception-handling",
+   "name": "Exception Handling",
+   "kind": "tactic",
+   "aka": [
+    "error-code handling",
+    "exception classes"
+   ],
+   "what": "After an exception is detected, handle it using mechanisms ranging from function return codes to exception classes carrying name, origin, and cause, so the fault can be masked or repaired."
+  },
+  {
+   "id": "exception-prevention",
+   "name": "Exception Prevention",
+   "kind": "tactic",
+   "aka": [
+    "smart pointers (example)",
+    "wrappers (example)",
+    "error-correcting codes (example)"
+   ],
+   "what": "Employ techniques that keep exceptions from arising at all — error-correcting codes, abstract data types such as smart pointers, and wrappers that preclude dangling pointers or semaphore access violations."
+  },
+  {
+   "id": "failover",
+   "name": "Failover",
+   "kind": "tactic",
+   "aka": [
+    "switchover to standby",
+    "active-passive takeover"
+   ],
+   "what": "On failure of an active unit, service is switched to a redundant standby unit that assumes its role."
+  },
+  {
+   "id": "heartbeat-tactic",
+   "name": "Heartbeat",
+   "kind": "tactic",
+   "aka": [
+    "periodic liveness message",
+    "watchdog reset (special case)"
+   ],
+   "what": "A monitored component periodically emits a message to (or resets a watchdog timer in) a system monitor, so that the absence of the heartbeat signals failure."
+  },
+  {
+   "id": "ignore-faulty-behavior",
+   "name": "Ignore Faulty Behavior",
+   "kind": "tactic",
+   "aka": [
+    "ignore spurious messages"
+   ],
+   "what": "Ignore messages from a particular source once they are determined to be spurious, e.g. messages from a sensor known to have failed."
+  },
+  {
+   "id": "increase-competence-set",
+   "name": "Increase Competence Set",
+   "kind": "tactic",
+   "aka": [
+    "expand competence set"
+   ],
+   "what": "Design a component to handle more cases — states that would otherwise be faults — as part of its normal operation, e.g. waiting or returning gracefully when a resource is blocked instead of throwing."
+  },
+  {
+   "id": "monitor",
+   "name": "Monitor",
+   "kind": "tactic",
+   "aka": [
+    "system monitor",
+    "fault monitor",
+    "dedicated monitoring component"
+   ],
+   "what": "A dedicated component monitors the health of other parts of the system (processors, processes, I/O, memory) and coordinates the other fault-detection tactics."
+  },
+  {
+   "id": "non-stop-forwarding",
+   "name": "Non-Stop Forwarding",
+   "kind": "tactic",
+   "aka": [
+    "NSF",
+    "graceful restart"
+   ],
+   "what": "Split functionality into a control/management plane and a data plane so that when the control plane fails, the data plane keeps forwarding along known routes while routing information is rebuilt and validated."
+  },
+  {
+   "id": "parameter-fence",
+   "name": "Parameter Fence",
+   "kind": "tactic",
+   "aka": [
+    "memory fence pattern (0xDEADBEEF guard)"
+   ],
+   "what": "Place a known data pattern immediately after any variable-length parameters of an object so that overwrites of that memory can be detected at runtime."
+  },
+  {
+   "id": "parameter-typing",
+   "name": "Parameter Typing",
+   "kind": "tactic",
+   "aka": [
+    "TLV message typing"
+   ],
+   "what": "Use a base class defining functions to add, find, and iterate over type-length-value (TLV) message parameters so that sender and receiver agree on content types and disagreements are detected."
+  },
+  {
+   "id": "ping-echo",
+   "name": "Ping/Echo",
+   "kind": "tactic",
+   "aka": [],
+   "what": "Nodes exchange asynchronous request/response message pairs to determine reachability and round-trip delay, with a time threshold before the pinged component is declared failed."
+  },
+  {
+   "id": "predictive-model",
+   "name": "Predictive Model",
+   "kind": "tactic",
+   "aka": [
+    "fault prediction"
+   ],
+   "what": "Combine a model with monitoring to predict, from operational metrics (session establishment rates, threshold crossings, process-state and queue-length statistics), that a fault or unsafe condition is approaching, and take corrective action "
+  },
+  {
+   "id": "queue-based-load-leveling",
+   "name": "Queue-Based Load Leveling",
+   "kind": "tactic",
+   "aka": [
+    "load leveling queue",
+    "queue as inter-service buffer"
+   ],
+   "what": "A queue is placed between producers and a service so bursts are absorbed by the queue and the service consumes at its sustainable rate."
+  },
+  {
+   "id": "reconfiguration",
+   "name": "Reconfiguration",
+   "kind": "tactic",
+   "aka": [
+    "logical remapping"
+   ],
+   "what": "Recover from failure by reassigning responsibilities — remapping the logical architecture onto the (possibly limited) resources or components still functioning — while preserving as much functionality as possible."
+  },
+  {
+   "id": "redundant-spare",
+   "name": "Redundant Spare",
+   "kind": "tactic",
+   "aka": [
+    "active redundancy (hot spare)",
+    "passive redundancy (warm spare)",
+    "cold spare"
+   ],
+   "what": "Configure one or more spare components that can step in and take over when an active component fails; hot/warm/cold variants differ in how current the spare's state is at takeover."
+  },
+  {
+   "id": "removal-from-service",
+   "name": "Removal from Service",
+   "kind": "tactic",
+   "aka": [
+    "software rejuvenation",
+    "therapeutic reboot"
+   ],
+   "what": "Temporarily place a system component out of service and reset it to scrub latent faults (memory leaks, fragmentation, soft errors) before they accumulate into failures."
+  },
+  {
+   "id": "retry",
+   "name": "Retry",
+   "kind": "tactic",
+   "aka": [
+    "bounded retry"
+   ],
+   "what": "Assume the fault that caused a failure is transient and retry the operation, with a limit on the number of attempts before declaring a permanent failure."
+  },
+  {
+   "id": "rollback-tactic",
+   "name": "Rollback",
+   "kind": "tactic",
+   "aka": [
+    "backward recovery",
+    "rollback line"
+   ],
+   "what": "On detecting a failure, revert the system to a previously saved known-good state (the rollback line), captured as checkpoints, and resume execution from there."
+  },
+  {
+   "id": "sanity-checking",
+   "name": "Sanity Checking",
+   "kind": "tactic",
+   "aka": [
+    "reasonableness check"
+   ],
+   "what": "Check the validity or reasonableness of a component's specific operations or outputs, typically at interfaces, based on knowledge of the internal design, system state, or the nature of the information."
+  },
+  {
+   "id": "self-test",
+   "name": "Self-Test",
+   "kind": "tactic",
+   "aka": [
+    "self-check"
+   ],
+   "what": "A component or subsystem runs procedures to test itself for correct operation, initiated by itself or invoked periodically by the system monitor."
+  },
+  {
+   "id": "shadow",
+   "name": "Shadow",
+   "kind": "tactic",
+   "aka": [
+    "shadow mode",
+    "shadow operation"
+   ],
+   "what": "Run a previously failed or freshly upgraded component in shadow mode for a predefined period, monitoring its behavior and letting it repopulate state before restoring it to an active role."
+  },
+  {
+   "id": "software-upgrade",
+   "name": "Software Upgrade",
+   "kind": "tactic",
+   "aka": [
+    "function patch",
+    "class patch",
+    "in-service software upgrade (ISSU)"
+   ],
+   "what": "Upgrade executable code images in service, without affecting the running service, via function patches, class patches, or hitless in-service software upgrade built on redundant spares."
+  },
+  {
+   "id": "state-resynchronization",
+   "name": "State Resynchronization",
+   "kind": "tactic",
+   "aka": [
+    "state resync"
+   ],
+   "what": "Restore and verify state consistency between active and standby components, either naturally under active redundancy (with periodic comparison via checksums or message digests) or by periodic state transfer/checkpointing under passive redun"
+  },
+  {
+   "id": "throttling-service-admission-control",
+   "name": "Throttling (service admission control)",
+   "kind": "tactic",
+   "aka": [
+    "rate limiting (service-level)",
+    "admission control"
+   ],
+   "what": "A service enforces consumption limits per tenant/client and degrades or rejects excess requests to protect its SLA under load."
+  },
+  {
+   "id": "timeout-tactic",
+   "name": "Timeout",
+   "kind": "tactic",
+   "aka": [
+    "time-constraint exception"
+   ],
+   "what": "A component raises an exception when it detects that it or another component has failed to meet its timing constraints, e.g. when a response takes longer than a set bound."
+  },
+  {
+   "id": "timestamp",
+   "name": "Timestamp",
+   "kind": "tactic",
+   "aka": [
+    "sequence numbering (variant)"
+   ],
+   "what": "Assign the state of a local clock (or a sequence number) to events immediately after they occur so that incorrect event ordering can be detected."
+  },
+  {
+   "id": "transactions",
+   "name": "Transactions",
+   "kind": "tactic",
+   "aka": [
+    "ACID semantics",
+    "two-phase commit (realization)"
+   ],
+   "what": "Use transaction semantics (ACID properties, most commonly implemented via two-phase commit) to bundle state updates exchanged between distributed components so they are atomic, consistent, isolated, and durable."
+  },
+  {
+   "id": "voting",
+   "name": "Voting",
+   "kind": "tactic",
+   "aka": [
+    "voter"
+   ],
+   "what": "Compare computational results from multiple sources that should produce the same result and decide which to use when they differ, using simple, heavily reviewed voting logic."
+  }
+ ],
+ "existing_intra_edges": []
+}

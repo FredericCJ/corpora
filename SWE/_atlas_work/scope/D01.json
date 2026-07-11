@@ -1,0 +1,685 @@
+{
+ "group": "D01",
+ "title": "Object-oriented design patterns (GoF & kin)",
+ "realm": "design",
+ "literature": "GoF Design Patterns 'Related Patterns' sections; Refactoring.Guru / SourceMaking 'Relations with Other Patterns'; POSA1; Fowler PoEAA; Riehle pattern collaboration.",
+ "member_count": 65,
+ "target_edges": 78,
+ "priority_ids": [
+  "abstract-factory",
+  "abstract-session",
+  "adapter",
+  "bureaucracy",
+  "chain-of-responsibility",
+  "collecting-parameter",
+  "component",
+  "curiously-recurring-template-pattern-crtp",
+  "decorator",
+  "delegation",
+  "domain-service",
+  "extension-object",
+  "external-polymorphism",
+  "facade",
+  "factory-method",
+  "flyweight",
+  "function-pointer-dispatch-table",
+  "interceptor",
+  "interpreter",
+  "iterator",
+  "layer-supertype",
+  "mapper",
+  "marker-interface",
+  "mediator",
+  "memento",
+  "mixin",
+  "observer",
+  "pluggable-selector",
+  "private-class-data",
+  "prototype",
+  "proxy",
+  "registry",
+  "role-object",
+  "separated-interface",
+  "servant",
+  "specification",
+  "sponsor-selector",
+  "state",
+  "twin",
+  "type-object",
+  "view-handler"
+ ],
+ "members": [
+  {
+   "id": "abstract-factory",
+   "name": "Abstract Factory",
+   "kind": "oo-patterns",
+   "aka": [
+    "Kit"
+   ],
+   "what": "An interface for creating families of related or dependent objects without specifying their concrete classes."
+  },
+  {
+   "id": "abstract-session",
+   "name": "Abstract Session",
+   "kind": "oo-patterns",
+   "aka": [
+    "session object (per-client service state)",
+    "service access point object"
+   ],
+   "what": "A server object hands each client an opaque session object encapsulating the per-client state of their conversation; the client makes further requests through the session rather than the server, with full type safety."
+  },
+  {
+   "id": "acyclic-visitor",
+   "name": "Acyclic Visitor",
+   "kind": "oo-patterns",
+   "aka": [],
+   "what": "A Visitor variant that breaks the dependency cycle between the element hierarchy and the visitor by using a degenerate base visitor plus per-element visitor interfaces and a runtime cast."
+  },
+  {
+   "id": "adapter",
+   "name": "Adapter",
+   "kind": "oo-patterns",
+   "aka": [
+    "Wrapper (GoF alias, shared with Decorator)"
+   ],
+   "what": "Converts the interface of a class into another interface clients expect, letting classes with incompatible interfaces work together."
+  },
+  {
+   "id": "bridge",
+   "name": "Bridge",
+   "kind": "oo-patterns",
+   "aka": [
+    "Handle/Body",
+    "Pimpl",
+    "compilation firewall"
+   ],
+   "what": "Decouples an abstraction from its implementation so the two can vary independently, via a handle object delegating to an implementor hierarchy."
+  },
+  {
+   "id": "builder",
+   "name": "Builder",
+   "kind": "oo-patterns",
+   "aka": [],
+   "what": "Separates the construction of a complex object from its representation so the same construction process can create different representations."
+  },
+  {
+   "id": "bureaucracy",
+   "name": "Bureaucracy",
+   "kind": "oo-patterns",
+   "aka": [
+    "hierarchical control compound pattern"
+   ],
+   "what": "A compound pattern composing Composite, Mediator, Chain of Responsibility, and Observer to build self-maintaining hierarchical structures where each level mediates its children and escalates requests upward."
+  },
+  {
+   "id": "chain-of-responsibility",
+   "name": "Chain of Responsibility",
+   "kind": "oo-patterns",
+   "aka": [],
+   "what": "Passes a request along a chain of candidate handler objects until one handles it, decoupling sender from receiver."
+  },
+  {
+   "id": "collecting-parameter",
+   "name": "Collecting Parameter",
+   "kind": "oo-patterns",
+   "aka": [],
+   "what": "Pass a collecting object through a series of methods, each of which adds its partial results to it, instead of composing return values."
+  },
+  {
+   "id": "command",
+   "name": "Command",
+   "kind": "oo-patterns",
+   "aka": [
+    "Action",
+    "Transaction"
+   ],
+   "what": "Encapsulates a request as an object, letting requests be parameterized, queued, logged, and undone."
+  },
+  {
+   "id": "command-processor",
+   "name": "Command Processor",
+   "kind": "oo-patterns",
+   "aka": [],
+   "what": "A dedicated processor component manages user requests reified as command objects: it schedules, executes, logs, and stores them, enabling undo/redo and macro services."
+  },
+  {
+   "id": "component",
+   "name": "Component",
+   "kind": "oo-patterns",
+   "aka": [
+    "entity component"
+   ],
+   "what": "Split a single entity's state and behavior across multiple component objects, one per domain (physics, rendering, AI, input), which the entity aggregates."
+  },
+  {
+   "id": "composite",
+   "name": "Composite",
+   "kind": "oo-patterns",
+   "aka": [],
+   "what": "Composes objects into tree structures representing part-whole hierarchies, letting clients treat individual objects and compositions uniformly."
+  },
+  {
+   "id": "curiously-recurring-template-pattern-crtp",
+   "name": "Curiously Recurring Template Pattern (CRTP)",
+   "kind": "oo-patterns",
+   "aka": [
+    "static polymorphism idiom",
+    "F-bound polymorphism (theory name)",
+    "CRTP"
+   ],
+   "what": "A class derives from a template instantiated with itself, letting the base call derived-class members at compile time."
+  },
+  {
+   "id": "decorator",
+   "name": "Decorator",
+   "kind": "oo-patterns",
+   "aka": [
+    "Wrapper (GoF alias, shared with Adapter)"
+   ],
+   "what": "Attaches additional responsibilities to an object dynamically by wrapping it in an object with the same interface that forwards and augments requests."
+  },
+  {
+   "id": "delegation",
+   "name": "Delegation",
+   "kind": "oo-patterns",
+   "aka": [
+    "object composition forwarding"
+   ],
+   "what": "An object handles a request by forwarding it to a helper object (the delegate), optionally passing itself so the delegate can refer back to the original receiver."
+  },
+  {
+   "id": "domain-service",
+   "name": "Domain Service",
+   "kind": "oo-patterns",
+   "aka": [
+    "Service (DDD)"
+   ],
+   "what": "A stateless operation in the domain layer, defined by what it does rather than what it is, for domain logic that does not naturally belong to any entity or value object."
+  },
+  {
+   "id": "double-dispatch",
+   "name": "Double Dispatch",
+   "kind": "oo-patterns",
+   "aka": [],
+   "what": "A technique where the operation executed depends on the runtime types of two receivers, implemented by a pair of single dispatches (each object virtual-calls into the other)."
+  },
+  {
+   "id": "envelope-letter",
+   "name": "Envelope-Letter",
+   "kind": "oo-patterns",
+   "aka": [],
+   "what": "A handle/body variant where the envelope (handle) and letters (bodies) share a common base class, letting the letter's dynamic type change at runtime behind a stable envelope."
+  },
+  {
+   "id": "extension-object",
+   "name": "Extension Object",
+   "kind": "oo-patterns",
+   "aka": [
+    "extension interface (POSA2 relative)"
+   ],
+   "what": "Let clients ask an object for an extension implementing a specific interface (getExtension(type)), so new interfaces can be added to a class family without changing its core."
+  },
+  {
+   "id": "external-polymorphism",
+   "name": "External Polymorphism",
+   "kind": "oo-patterns",
+   "aka": [
+    "adapter-based polymorphism"
+   ],
+   "what": "Make unrelated concrete classes (possibly without virtual functions or a common base) polymorphic by wrapping them in a parallel adapter hierarchy defined outside the classes."
+  },
+  {
+   "id": "facade",
+   "name": "Facade",
+   "kind": "oo-patterns",
+   "aka": [],
+   "what": "Provides a unified, higher-level interface to a set of interfaces in a subsystem, making the subsystem easier to use."
+  },
+  {
+   "id": "factory-method",
+   "name": "Factory Method",
+   "kind": "oo-patterns",
+   "aka": [
+    "Virtual Constructor"
+   ],
+   "what": "Defines an interface for creating an object but lets subclasses decide which class to instantiate, deferring instantiation to subclasses."
+  },
+  {
+   "id": "flyweight",
+   "name": "Flyweight",
+   "kind": "oo-patterns",
+   "aka": [],
+   "what": "Uses sharing to support large numbers of fine-grained objects efficiently by factoring state into shared intrinsic and externally supplied extrinsic parts."
+  },
+  {
+   "id": "function-pointer-dispatch-table",
+   "name": "Function Pointer Dispatch Table",
+   "kind": "oo-patterns",
+   "aka": [
+    "dispatch table",
+    "jump table",
+    "branch table"
+   ],
+   "what": "An indexed or keyed table of function pointers replaces switch/if chains: look up the handler, then call it."
+  },
+  {
+   "id": "hook-method",
+   "name": "Hook Method",
+   "kind": "oo-patterns",
+   "aka": [
+    "hook operation",
+    "hot spot method"
+   ],
+   "what": "A method deliberately left empty or with default behavior at a designed extension point, which subclasses or clients override to inject custom behavior into a fixed skeleton."
+  },
+  {
+   "id": "interceptor",
+   "name": "Interceptor",
+   "kind": "oo-patterns",
+   "aka": [],
+   "what": "A framework exposes dispatch points where registered interceptor objects are invoked automatically on framework-internal events, letting services be added transparently via callbacks and context objects."
+  },
+  {
+   "id": "interpreter",
+   "name": "Interpreter",
+   "kind": "oo-patterns",
+   "aka": [],
+   "what": "Given a language, defines a class per grammar rule and an interpret operation over the resulting abstract syntax tree to evaluate sentences of the language."
+  },
+  {
+   "id": "iterator",
+   "name": "Iterator",
+   "kind": "oo-patterns",
+   "aka": [
+    "Cursor",
+    "database cursor",
+    "scrollable cursor"
+   ],
+   "what": "Provides a way to access the elements of an aggregate object sequentially without exposing its underlying representation."
+  },
+  {
+   "id": "layer-supertype",
+   "name": "Layer Supertype",
+   "kind": "oo-patterns",
+   "aka": [],
+   "what": "A common superclass for all types in a layer, holding the behavior every member of that layer shares."
+  },
+  {
+   "id": "mapper",
+   "name": "Mapper",
+   "kind": "oo-patterns",
+   "aka": [],
+   "what": "An object that sets up communication between two independent subsystems that must remain ignorant of each other."
+  },
+  {
+   "id": "marker-interface",
+   "name": "Marker Interface",
+   "kind": "oo-patterns",
+   "aka": [
+    "tag interface",
+    "marker annotation (successor form)",
+    "tagging interface"
+   ],
+   "what": "An empty interface whose only purpose is to tag implementing classes with a compile-time-checkable property (Serializable, Cloneable)."
+  },
+  {
+   "id": "mediator",
+   "name": "Mediator",
+   "kind": "oo-patterns",
+   "aka": [],
+   "what": "Defines an object that encapsulates how a set of objects interact, so colleagues refer only to the mediator instead of to each other."
+  },
+  {
+   "id": "memento",
+   "name": "Memento",
+   "kind": "oo-patterns",
+   "aka": [
+    "Token"
+   ],
+   "what": "Captures and externalizes an object's internal state, without violating encapsulation, so the object can be restored to that state later."
+  },
+  {
+   "id": "mixin",
+   "name": "Mixin",
+   "kind": "oo-patterns",
+   "aka": [
+    "mixin class",
+    "parameterized base class (C++ realization)",
+    "flavors (historical)"
+   ],
+   "what": "A small class providing one slice of behavior that is composed into other classes by inheritance (in C++ typically by inheriting from a template parameter) rather than used standalone."
+  },
+  {
+   "id": "monostate",
+   "name": "Monostate",
+   "kind": "oo-patterns",
+   "aka": [
+    "Borg pattern (Python)"
+   ],
+   "what": "A class whose every instance shares the same state by declaring all fields static, so construction is unrestricted but behavior is singleton-like."
+  },
+  {
+   "id": "multiton",
+   "name": "Multiton",
+   "kind": "oo-patterns",
+   "aka": [
+    "registry of singletons"
+   ],
+   "what": "A class that manages a map of named instances of itself, guaranteeing exactly one instance per key."
+  },
+  {
+   "id": "non-virtual-interface-nvi",
+   "name": "Non-Virtual Interface (NVI)",
+   "kind": "oo-patterns",
+   "aka": [
+    "template method idiom for C++",
+    "public non-virtual, private virtual"
+   ],
+   "what": "Public interface functions are non-virtual and delegate to private/protected virtual hooks that derived classes override."
+  },
+  {
+   "id": "null-object",
+   "name": "Null Object",
+   "kind": "oo-patterns",
+   "aka": [
+    "Active Nothing"
+   ],
+   "what": "A do-nothing implementation of an interface stands in for 'no object', so clients invoke it uniformly without null checks."
+  },
+  {
+   "id": "object-orientation-in-c",
+   "name": "Object Orientation in C",
+   "kind": "oo-patterns",
+   "aka": [
+    "inheritance by structure extension",
+    "dynamic linkage",
+    "vtable in C"
+   ],
+   "what": "Encapsulation, inheritance, and polymorphism realized in plain C via struct embedding, per-class function-pointer tables, and first-member upcasting."
+  },
+  {
+   "id": "object-recursion",
+   "name": "Object Recursion",
+   "kind": "oo-patterns",
+   "aka": [
+    "recursive delegation over polymorphic structure"
+   ],
+   "what": "Distribute the handling of a request recursively over a polymorphic object structure: each recurser handles its part and delegates the remainder to its successor(s) until terminator objects stop the recursion."
+  },
+  {
+   "id": "observer",
+   "name": "Observer",
+   "kind": "oo-patterns",
+   "aka": [
+    "Dependents",
+    "Publish-Subscribe",
+    "Publisher-Subscriber"
+   ],
+   "what": "Defines a one-to-many dependency between objects so that when one object changes state, all its dependents are notified and updated automatically."
+  },
+  {
+   "id": "oo-in-c-via-explicit-vtable",
+   "name": "OO in C via Explicit Vtable",
+   "kind": "oo-patterns",
+   "aka": [
+    "virtual function table in C",
+    "class emulation in C",
+    "poor man's objects"
+   ],
+   "what": "Structs of function pointers (shared per 'class', pointed to by each instance) plus first-argument self pointers implement classes, inheritance, and dynamic dispatch in C."
+  },
+  {
+   "id": "pluggable-selector",
+   "name": "Pluggable Selector",
+   "kind": "oo-patterns",
+   "aka": [
+    "pluggable behavior (umbrella)",
+    "pluggable block (closure variant)",
+    "stored method selector"
+   ],
+   "what": "Store the name (selector) of a method in an instance variable and dispatch on it reflectively, so instances of one class exhibit different behavior without subclassing."
+  },
+  {
+   "id": "policy-based-design",
+   "name": "Policy-Based Design",
+   "kind": "oo-patterns",
+   "aka": [
+    "policy classes",
+    "policies"
+   ],
+   "what": "Assemble a class's behavior from small orthogonal 'policy' template parameters, each supplying one aspect (allocation, threading, checking)."
+  },
+  {
+   "id": "private-class-data",
+   "name": "Private Class Data",
+   "kind": "oo-patterns",
+   "aka": [],
+   "what": "Move a class's state into a separate data object initialized once at construction, exposing it to the main class only through read access."
+  },
+  {
+   "id": "prototype",
+   "name": "Prototype",
+   "kind": "oo-patterns",
+   "aka": [
+    "clone",
+    "Virtual Constructor (C++ clone idiom usage)"
+   ],
+   "what": "Specifies the kinds of objects to create using a prototypical instance and creates new objects by copying (cloning) this prototype."
+  },
+  {
+   "id": "proxy",
+   "name": "Proxy",
+   "kind": "oo-patterns",
+   "aka": [
+    "Surrogate",
+    "Virtual Proxy",
+    "Remote Proxy"
+   ],
+   "what": "Provides a surrogate or placeholder object that controls access to another object, standing in with the same interface."
+  },
+  {
+   "id": "registry",
+   "name": "Registry",
+   "kind": "oo-patterns",
+   "aka": [],
+   "what": "A well-known object that other objects use to find common objects and services, typically via static or thread-scoped accessors."
+  },
+  {
+   "id": "role-object",
+   "name": "Role Object",
+   "kind": "oo-patterns",
+   "aka": [],
+   "what": "Adapt a core object to different client contexts by attaching and detaching role objects at runtime, each role extending the core's interface for one context."
+  },
+  {
+   "id": "separated-interface",
+   "name": "Separated Interface",
+   "kind": "oo-patterns",
+   "aka": [],
+   "what": "Defines an interface in a separate package from its implementation so clients depend only on the interface package."
+  },
+  {
+   "id": "servant",
+   "name": "Servant",
+   "kind": "oo-patterns",
+   "aka": [],
+   "what": "A helper class that provides a common behavior (e.g., movement, printing) to a group of otherwise unrelated classes, which are passed to the servant as parameters."
+  },
+  {
+   "id": "singleton",
+   "name": "Singleton",
+   "kind": "oo-patterns",
+   "aka": [],
+   "what": "Ensures a class has only one instance and provides a global point of access to it."
+  },
+  {
+   "id": "special-case",
+   "name": "Special Case",
+   "kind": "oo-patterns",
+   "aka": [],
+   "what": "A subclass that provides special behavior for particular cases (missing customer, unknown value), returned in place of null or an error code."
+  },
+  {
+   "id": "specification",
+   "name": "Specification",
+   "kind": "oo-patterns",
+   "aka": [
+    "specification object"
+   ],
+   "what": "Encapsulates a business rule as a separate predicate object that can test candidates for satisfaction and be combined with other specifications via and/or/not."
+  },
+  {
+   "id": "sponsor-selector",
+   "name": "Sponsor-Selector",
+   "kind": "oo-patterns",
+   "aka": [
+    "sponsor/selector triad"
+   ],
+   "what": "Separate three responsibilities — sponsors that know when a resource is useful, a selector that picks among sponsors' recommendations, and the client that uses the chosen resource — to select the best resource dynamically."
+  },
+  {
+   "id": "state",
+   "name": "State",
+   "kind": "oo-patterns",
+   "aka": [
+    "Objects for States"
+   ],
+   "what": "Lets an object alter its behavior when its internal state changes by delegating state-dependent behavior to interchangeable state objects."
+  },
+  {
+   "id": "strategy",
+   "name": "Strategy",
+   "kind": "oo-patterns",
+   "aka": [
+    "Policy"
+   ],
+   "what": "Defines a family of algorithms, encapsulates each one behind a common interface, and makes them interchangeable within the client that uses them."
+  },
+  {
+   "id": "subclass-sandbox",
+   "name": "Subclass Sandbox",
+   "kind": "oo-patterns",
+   "aka": [],
+   "what": "A base class defines an abstract sandbox method and a suite of protected operations; subclasses implement their behavior by combining only those provided operations."
+  },
+  {
+   "id": "template-method",
+   "name": "Template Method",
+   "kind": "oo-patterns",
+   "aka": [],
+   "what": "Defines the skeleton of an algorithm in a base-class operation, deferring specific steps to subclass hook methods without changing the algorithm's structure."
+  },
+  {
+   "id": "twin",
+   "name": "Twin",
+   "kind": "oo-patterns",
+   "aka": [],
+   "what": "Model multiple inheritance in a single-inheritance language by splitting one conceptual object into two closely coupled partner objects, each subclassing one parent and holding a reference to its twin."
+  },
+  {
+   "id": "type-object",
+   "name": "Type Object",
+   "kind": "oo-patterns",
+   "aka": [
+    "power type"
+   ],
+   "what": "Represent a category of things as an ordinary runtime object (the type object) that instances hold a reference to, instead of as a compile-time class."
+  },
+  {
+   "id": "view-handler",
+   "name": "View Handler",
+   "kind": "oo-patterns",
+   "aka": [],
+   "what": "A view handler component manages all views of an application: it opens, coordinates, tiles, clones, updates, and closes them through a uniform view interface."
+  },
+  {
+   "id": "visitor",
+   "name": "Visitor",
+   "kind": "oo-patterns",
+   "aka": [],
+   "what": "Represents an operation to be performed on the elements of an object structure as a separate visitor object, letting new operations be added without changing the element classes (double dispatch)."
+  },
+  {
+   "id": "whole-part",
+   "name": "Whole-Part",
+   "kind": "oo-patterns",
+   "aka": [
+    "Composite Aggregate",
+    "Part-Whole Hierarchy"
+   ],
+   "what": "An aggregate component (the Whole) encapsulates constituent Part objects, organizes their collaboration, and is the sole access point to their combined functionality."
+  }
+ ],
+ "existing_intra_edges": [
+  {
+   "from": "acyclic-visitor",
+   "kind": "specializes",
+   "to": "visitor"
+  },
+  {
+   "from": "command-processor",
+   "kind": "composes-with",
+   "to": "command"
+  },
+  {
+   "from": "double-dispatch",
+   "kind": "implements",
+   "to": "visitor"
+  },
+  {
+   "from": "envelope-letter",
+   "kind": "specializes",
+   "to": "bridge"
+  },
+  {
+   "from": "hook-method",
+   "kind": "composes-with",
+   "to": "template-method"
+  },
+  {
+   "from": "monostate",
+   "kind": "alternative-to",
+   "to": "singleton"
+  },
+  {
+   "from": "multiton",
+   "kind": "specializes",
+   "to": "singleton"
+  },
+  {
+   "from": "non-virtual-interface-nvi",
+   "kind": "implements",
+   "to": "template-method"
+  },
+  {
+   "from": "null-object",
+   "kind": "specializes",
+   "to": "special-case"
+  },
+  {
+   "from": "object-recursion",
+   "kind": "composes-with",
+   "to": "composite"
+  },
+  {
+   "from": "oo-in-c-via-explicit-vtable",
+   "kind": "specializes",
+   "to": "object-orientation-in-c"
+  },
+  {
+   "from": "policy-based-design",
+   "kind": "alternative-to",
+   "to": "strategy"
+  },
+  {
+   "from": "subclass-sandbox",
+   "kind": "specializes",
+   "to": "template-method"
+  },
+  {
+   "from": "whole-part",
+   "kind": "composes-with",
+   "to": "composite"
+  }
+ ]
+}

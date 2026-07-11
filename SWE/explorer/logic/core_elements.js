@@ -7,7 +7,7 @@ SWE.coreEl = (function () {
   'use strict';
   const CROSS = new Set(['realizes', 'enables']);        // design -> architecture
   const CROSS_REV = new Set(['constrains']);             // architecture -> design
-  const WITHIN = new Set(['specializes', 'composes-with', 'alternative-to']);
+  const WITHIN = new Set(['specializes', 'composes-with', 'alternative-to', 'uses']);
   const IMPL = new Set(['implements']);                  // design -> design
 
   // The four element views' semantics (single source for headers + inspector overview + MODELS.md).

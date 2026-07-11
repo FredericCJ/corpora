@@ -31,23 +31,28 @@ explorer/
 ├─ index.html                 shell: header + model tabs, view mount, inspector dock, <script> order
 ├─ ARCHITECTURE.md  MODELS.md  README.md
 ├─ package.json  tsconfig.json committed checker (tsc) + test (vitest/playwright/fast-check) toolchain
-├─ build/                     PHASE 1–4 (Python) — the only place report text is read (UNCHANGED)
-├─ data/                      DATA (generated; no behavior — UNCHANGED)
+├─ build/                     PHASE 1–5 (Python) — the only place report/element text is read
+│  ├─ build.py                orchestrates all phases; build_elements.py (P4), build_atlas.py (P5)
+│  └─ element_src/            encoded Phase 1–3 deliverables + atlas.json (WS2 geography)
+├─ data/                      DATA (generated; no behavior)
 │  ├─ corpus.js  corpus.json            fact layer   (SWE.corpus)
 │  ├─ relations.js  relations.json      inference layer (SWE.relations: edges + view defs)
+│  ├─ elements.js  elements.json        element layer (SWE.elements: 1083 nodes + 2811 relations)
+│  ├─ atlas.js  atlas.json              atlas layer (SWE.atlas: 21 islands + precomputed geography)
 │  ├─ corpus_report.md  adjustments.md  phase-1/2 logs
-├─ logic/                     LOGIC (runtime; no hard-coded resources) — REWRITTEN
+├─ logic/                     LOGIC (runtime; no hard-coded resources)
 │  ├─ log.js                  injected no-op logger seam + console router (observability §4)
-│  ├─ util.js                 DOM/SVG helpers, invariant(), assertNever(), corpus/kind maps
-│  ├─ parse.js                boundary parse: unknown → typed corpus/relations, or ValidationError
-│  ├─ state.js                single state + pub/sub + location.hash (view,q,ver,corpus,sel)
-│  ├─ core.js                 FUNCTIONAL CORE — all five models' pure computations + closure
-│  ├─ inspector.js            persistent dock (model-aware overview / node detail) [shell]
-│  ├─ views/graph.js          Model 1 — SVG reading graph [shell]
-│  ├─ views/facets.js         Model 2 — facet rail + result list [shell]
-│  ├─ views/timeline.js       Model 3 — chronology columns [shell]
-│  ├─ views/overlap.js        Model 4 — pairwise matrix + signature groups [shell]
-│  ├─ views/anchors.js        Model 5 — per-corpus anchor columns [shell]
+│  ├─ util.js                 DOM/SVG helpers, invariant(), assertNever(), corpus/kind/realm maps
+│  ├─ parse.js                boundary parse: unknown → typed corpus/relations/elements/atlas, or ValidationError
+│  ├─ state.js                single state + pub/sub + location.hash (view,q,ver,corpus,sel,atlas,island)
+│  ├─ core.js                 FUNCTIONAL CORE — all five work models' pure computations + closure
+│  ├─ core_elements.js        FUNCTIONAL CORE — element layer (search, closure, bridge, coverage)
+│  ├─ core_atlas.js           FUNCTIONAL CORE — atlas (island index, locate/teleport, routes, hulls)
+│  ├─ inspector.js            persistent dock (overview / work / element / island detail) [shell]
+│  ├─ views/graph.js …anchors.js   Models 1–5 — SVG work models [shells]
+│  ├─ views/el_taxonomy.js …el_coverage.js   Views 6–9 — element layer [shells]
+│  ├─ views/el_atlas.js       View 10 — the archipelago (L0/L1/L2 semantic zoom) [shell]
+│  ├─ views/el_bridgeflow.js  View 11 — bipartite design-family → arch-anchor flow [shell]
 │  └─ app.js                  bootstrap: global handlers, parse, registry, toolbar, keyboard
 └─ styles/                    PRESENTATION (no data) — REWRITTEN
    ├─ tokens.css              palette (6 corpus hues, 12 edge-kind hues), type, spacing

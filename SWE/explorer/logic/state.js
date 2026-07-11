@@ -7,12 +7,14 @@ SWE.state = (function () {
   'use strict';
   /**
    * @typedef {object} State
-   * @property {string} view 'graph'|'facets'|'timeline'|'overlap'|'anchors'
+   * @property {string} view 'graph'|'facets'|'timeline'|'overlap'|'anchors'|'el-*'
    * @property {string} q @property {string} ver @property {string} corpus @property {string|null} sel
+   * @property {string} atlas atlas mode for the atlas view (''→archipelago)
+   * @property {string} island focused island id at atlas L1 ('' → L0)
    */
-  const KEYS = ['view', 'q', 'ver', 'corpus', 'sel'];
+  const KEYS = ['view', 'q', 'ver', 'corpus', 'sel', 'atlas', 'island'];
   /** @type {State} */
-  const s = { view: 'graph', q: '', ver: '', corpus: '', sel: null };
+  const s = { view: 'graph', q: '', ver: '', corpus: '', sel: null, atlas: '', island: '' };
   /** @type {Array<(s:State,changed:string[])=>void>} */
   const subs = [];
   let muted = false;

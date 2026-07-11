@@ -9,7 +9,8 @@ SWE.inspector = (function () {
   /** @param {HTMLElement} host @param {{corpus:any,relations:any,elIndex?:any,log?:any}} ctx */
   function mount(host, ctx) {
     const corpus = ctx.corpus, relations = ctx.relations, log = ctx.log || SWE.log.NOOP;
-    const EL = ctx.elIndex || null, CE = SWE.coreEl;
+    const EL = ctx.elIndex || null, CE = SWE.coreEl, AT = ctx.atlasIndex || null;
+    const ATLAS_VIEWS = new Set(['el-atlas', 'el-bridgeflow']);
     const byId = {}; corpus.nodes.forEach((n) => { byId[n.id] = n; });
     const outE = {}, inE = {};
     for (const e of relations.edges) { (outE[e.s] = outE[e.s] || []).push(e); (inE[e.t] = inE[e.t] || []).push(e); }
@@ -28,7 +29,8 @@ SWE.inspector = (function () {
       row.appendChild(selLink(otherId, other ? other.name : otherId));
       if (other) row.appendChild(U.el('span', { class: 'chip ' + (U.REALM_CLS[other.realm] || ''), text: U.REALM_SHORT[other.realm] }));
       row.appendChild(document.createTextNode(' '));
-      row.appendChild(U.el('span', { class: 'badge ' + (e.provenance === 'sourced' ? 'rep' : 'edi'), text: e.provenance === 'sourced' ? 'sourced' : 'EDITORIAL' }));
+      row.appendChild(U.el('span', { class: 'badge ' + (e.provenance === 'sourced' ? 'rep' : e.provenance === 'derived' ? 'cycle' : 'edi'),
+        text: e.provenance === 'sourced' ? 'sourced' : e.provenance === 'derived' ? 'derived' : 'EDITORIAL' }));
       if (e.cite) row.appendChild(U.el('span', { class: 'ov', text: e.cite }));
       if (e.note) row.appendChild(U.el('span', { class: 'ov', text: e.note }));
       return row;
@@ -257,14 +259,87 @@ SWE.inspector = (function () {
         U.el('span', { class: 'kbd', text: 'Esc' }), ' close'));
     }
 
+    // ── atlas layer (islands) ──
+    function renderIsland(islId) {
+      const isl = AT.islandById[islId]; if (!isl) { renderAtlasOverview(); return; }
+      host.replaceChildren();
+      host.appendChild(U.el('button', { class: 'close', text: '↑ Archipelago', 'aria-label': 'Back to the archipelago', onclick: () => SWE.state.set({ island: '', sel: null }) }));
+      host.appendChild(U.el('h2', { text: isl.name }));
+      const bl = U.el('div');
+      const fam = AT.familyName[isl.family] || isl.family;
+      const sw = U.el('span', { class: 'chip' }); sw.style.borderColor = AT.familyHex[isl.family]; sw.style.color = AT.familyHex[isl.family];
+      sw.textContent = 'family: ' + fam; bl.appendChild(sw);
+      bl.appendChild(U.el('span', { class: 'chip', text: isl.size + ' elements' }));
+      bl.appendChild(U.el('span', { class: 'chip', text: (isl.realm_split.design || 0) + ' design · ' + (isl.realm_split.architecture || 0) + ' arch' }));
+      host.appendChild(bl);
+      host.appendChild(U.el('p', { class: 'muted', text: 'An emergent community — a topic that clusters on its own from the relation graph. Cohesion ' + isl.cohesion + ' edges/element.' }));
+
+      host.appendChild(U.el('div', { class: 'sec', text: 'hub' }));
+      const hub = EL.byId[isl.hub];
+      host.appendChild(U.el('p', {}, selLink(isl.hub, hub ? hub.name : isl.hub),
+        U.el('span', { class: 'chip ' + (U.REALM_CLS[hub && hub.realm] || ''), text: hub ? U.REALM_SHORT[hub.realm] : '' })));
+
+      if (isl.representatives && isl.representatives.length) {
+        host.appendChild(U.el('div', { class: 'sec', text: 'representative members' }));
+        const rw = U.el('div');
+        isl.representatives.forEach((rid) => { const rn = EL.byId[rid]; const c = selLink(rid, (rn ? rn.name : rid).slice(0, 40)); c.classList.add('chip'); rw.appendChild(c); });
+        host.appendChild(rw);
+      }
+      host.appendChild(U.el('div', { class: 'sec', text: 'composition (top kinds)' }));
+      const kw = U.el('div');
+      (isl.top_kinds || []).forEach((kv) => kw.appendChild(U.el('span', { class: 'chip', text: kv[0] + ' · ' + kv[1] })));
+      host.appendChild(kw);
+
+      if (isl.neighbours && isl.neighbours.length) {
+        host.appendChild(U.el('div', { class: 'sec', text: 'neighbouring islands (ports)' }));
+        const nw = U.el('div');
+        isl.neighbours.slice(0, 8).forEach((nb) => {
+          const other = AT.islandById[nb.island]; if (!other) return;
+          const c = U.el('span', { class: 'chip clickable', text: U.shortTitle(other.name, 26) + ' · ' + nb.weight, tabindex: '0', role: 'link',
+            onclick: () => SWE.state.set({ island: other.id, sel: null }),
+            onkeydown: (ev) => { if (ev.key === 'Enter' || ev.key === ' ') { ev.preventDefault(); SWE.state.set({ island: other.id, sel: null }); } } });
+          c.style.borderColor = AT.familyHex[other.family]; nw.appendChild(c);
+        });
+        host.appendChild(nw);
+      }
+      host.appendChild(U.el('p', { class: 'muted', text: 'Click a node in the island for its full detail; a rim port hops to a neighbour.' }));
+    }
+
+    function renderAtlasOverview() {
+      host.replaceChildren();
+      const a = AT.atlas, m = a.meta;
+      host.appendChild(U.el('div', { class: 'sec', text: 'active view — ' + (SWE.state.get().view === 'el-bridgeflow' ? 'Bridge-Flow' : 'Atlas — the archipelago') }));
+      host.appendChild(U.el('p', { class: 'muted', text: 'A map of the whole element space at three zoom levels: the archipelago of islands, one island, then a node. Geography is emergent and deterministic — the same map every visit.' }));
+      host.appendChild(U.el('div', { class: 'sec', text: 'atlas' }));
+      const grid = U.el('div', { class: 'statgrid' });
+      const stat = (k, v) => grid.appendChild(U.el('div', {}, U.el('div', { class: 'k', text: k }), U.el('div', { class: 'v', text: String(v) })));
+      stat('islands', m.islandCount); stat('elements', m.elementCount);
+      stat('relations', m.edgeCount); stat('families', m.families.length);
+      host.appendChild(grid);
+      host.appendChild(U.el('div', { class: 'sec', text: 'families' }));
+      const fw = U.el('div');
+      m.families.forEach((f) => { const c = U.el('span', { class: 'chip', text: f.name }); c.style.borderColor = f.hex; c.style.color = f.hex; fw.appendChild(c); });
+      host.appendChild(fw);
+      host.appendChild(U.el('div', { class: 'sec', text: 'largest islands' }));
+      const iw = U.el('div');
+      a.islands.slice().sort((x, y) => y.size - x.size).slice(0, 8).forEach((isl) => {
+        const c = U.el('span', { class: 'chip clickable', text: U.shortTitle(isl.name, 24) + ' · ' + isl.size, tabindex: '0', role: 'link',
+          onclick: () => SWE.state.set({ view: 'el-atlas', island: isl.id, sel: null }) });
+        c.style.borderColor = AT.familyHex[isl.family]; iw.appendChild(c);
+      });
+      host.appendChild(iw);
+      host.appendChild(U.el('p', { class: 'muted', text: 'Click an island to fly in, or search to teleport to a match.' }));
+    }
+
     function render() {
       const s = SWE.state.get();
       if (s.sel && EL && EL.byId[s.sel]) { renderElement(s.sel); return; }
       if (s.sel) { renderNode(s.sel); return; }
+      if (AT && ATLAS_VIEWS.has(s.view)) { s.island && AT.islandById[s.island] ? renderIsland(s.island) : renderAtlasOverview(); return; }
       if (EL && CE.VIEWS[s.view]) { renderElementOverview(s.view); return; }
       renderOverview();
     }
-    SWE.state.on((s, changed) => { if (changed.includes('sel') || (!s.sel && changed.includes('view'))) render(); });
+    SWE.state.on((s, changed) => { if (changed.includes('sel') || changed.includes('island') || (!s.sel && changed.includes('view'))) render(); });
     render();
     return { render };
   }

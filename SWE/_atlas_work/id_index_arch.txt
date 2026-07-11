@@ -1,0 +1,375 @@
+# 374 architecture element ids — use these EXACT ids as edge endpoints (this realm only)
+4-1-view-model	4+1 View Model	description
+abort	Abort	tactic
+abstract-common-services	Abstract Common Services	tactic
+abstract-data-sources	Abstract Data Sources	tactic
+activator	Activator	deployment
+actor-based-architecture	Actor-Based Architecture	style
+adapter-container	Adapter (container)	deployment
+adaptive-object-model	Adaptive Object Model	style
+adaptor-connector	Adaptor Connector	connector
+adhere-to-standards	Adhere to Standards	tactic
+aggregate-tactic	Aggregate	tactic
+allocation-view	Allocation View	description
+ambassador	Ambassador	deployment
+analytic-redundancy	Analytic Redundancy	tactic
+anti-corruption-layer	Anti-Corruption Layer	pattern
+api-composition	API Composition	pattern
+api-gateway	API Gateway	pattern
+application-controller	Application Controller	pattern
+application-switching	Application Switching	pattern
+arbitrator-connector	Arbitrator Connector	connector
+architectural-perspective	Architectural Perspective	description
+architecture-decision-record	Architecture Decision Record	description
+architecture-description	Architecture Description	description
+architecture-description-language	Architecture Description Language	description
+architecture-framework	Architecture Framework	description
+architecture-view	Architecture View	description
+architecture-viewpoint	Architecture Viewpoint	description
+asynchronous-request-reply	Asynchronous Request-Reply	pattern
+audit	Audit	tactic
+authenticate-actors	Authenticate Actors	tactic
+authoritative-server	Authoritative Server	pattern
+authorization-security-pattern	Authorization (security pattern)	pattern
+authorize-actors	Authorize Actors	tactic
+auto-scaling	Auto-Scaling	deployment
+autosar-adaptive-platform	AUTOSAR Adaptive Platform	reference-architecture
+autosar-layered-software-architecture	AUTOSAR Layered Software Architecture	reference-architecture
+autosar-virtual-function-bus-rte	AUTOSAR Virtual Function Bus / RTE	connector
+backends-for-frontends	Backends for Frontends	pattern
+batch-sequential	Batch Sequential	style
+blackboard	Blackboard	style
+blockchain	Blockchain	style
+blue-green-deployment	Blue-Green Deployment	deployment
+board-support-package	Board Support Package	pattern
+bodyguard	Bodyguard	pattern
+bootloader-application-split	Bootloader-Application Split	deployment
+bootloader-boot-stage-architecture	Bootloader (boot-stage architecture)	deployment
+bound-execution-times	Bound Execution Times	tactic
+bound-queue-sizes	Bound Queue Sizes	tactic
+bounded-context	Bounded Context	pattern
+broker	Broker	style
+bulkhead-deployment-isolation	Bulkhead (deployment isolation)	pattern
+c2	C2	style
+canary-release	Canary Release	deployment
+cancel	Cancel	tactic
+canonical-data-model	Canonical Data Model	pattern
+cell-based-architecture	Cell-Based Architecture	deployment
+chained-processors	Chained Processors	pattern
+change-credential-settings	Change Credential Settings	tactic
+channel-adapter	Channel Adapter	pattern
+channel-architecture	Channel Architecture	style
+choreography	Choreography	pattern
+clean-architecture	Clean Architecture	style
+client-proxy-remoting	Client Proxy (remoting)	pattern
+client-request-handler	Client Request Handler	pattern
+client-server	Client-Server	style
+client-session-state	Client Session State	pattern
+code-on-demand	Code-on-Demand	style
+comparison	Comparison	tactic
+competing-consumers-system-scale	Competing Consumers (system scale)	pattern
+competing-consumers-system-topology	Competing Consumers (system topology)	pattern
+component-and-connector-view	Component-and-Connector View	description
+component-based-architecture	Component-Based Architecture	style
+component-container	Container	deployment
+compute-resource-consolidation	Compute Resource Consolidation	deployment
+condition-monitoring	Condition Monitoring	tactic
+configure-behavior	Configure Behavior	tactic
+context-map	Context Map	description
+control-bus	Control Bus	pattern
+cqrs	CQRS	pattern
+crash-only-software	Crash-Only Software	pattern
+data-access-connector	Data Access Connector	connector
+data-bus-rtdp	Data Bus (RTDP)	pattern
+data-mesh	Data Mesh	reference-architecture
+data-parallel-architecture	Data-Parallel Architecture	style
+database-per-service	Database per Service	pattern
+database-session-state	Database Session State	pattern
+dataflow-architecture	Dataflow Architecture	style
+datatype-channel	Datatype Channel	pattern
+defense-in-depth	Defense in Depth	tactic
+defer-binding	Defer Binding	tactic
+degradation	Degradation	tactic
+demilitarized-zone	Demilitarized Zone	pattern
+deployment-pipeline	Deployment Pipeline	deployment
+deployment-stamps	Deployment Stamps	deployment
+detect-intrusion	Detect Intrusion	tactic
+detect-message-delay	Detect Message Delay	tactic
+detect-service-denial	Detect Service Denial	tactic
+discover	Discover	tactic
+distributed-commit-log	Distributed Commit Log	style
+distributed-hash-table	Distributed Hash Table	pattern
+distributed-objects	Distributed Objects	style
+distributed-processes	Distributed Processes	style
+distributed-snapshot	Distributed Snapshot	pattern
+distributed-tracing	Distributed Tracing	pattern
+distributor-connector	Distributor Connector	connector
+domain-model	Domain Model	pattern
+domain-object-posa4	Domain Object (POSA4)	pattern
+domain-specific-software-architecture	Domain-Specific Software Architecture	reference-architecture
+dual-core-lockstep	Dual-Core Lockstep	pattern
+durable-subscriber	Durable Subscriber	pattern
+dynamic-classification	Dynamic Classification	tactic
+encapsulate	Encapsulate	tactic
+encrypt-data	Encrypt Data	tactic
+enterprise-service-bus	Enterprise Service Bus	connector
+escalating-restart	Escalating Restart	tactic
+event-based-implicit-invocation	Event-Based Implicit Invocation	style
+event-carried-state-transfer	Event-Carried State Transfer	pattern
+event-collaboration	Event Collaboration	pattern
+event-connector	Event Connector	connector
+event-driven-architecture	Event-Driven Architecture	style
+event-sourcing-architecture-style	Event Sourcing (architecture style)	style
+event-triggered-architecture	Event-Triggered Architecture	style
+exception-detection	Exception Detection	tactic
+exception-handling	Exception Handling	tactic
+exception-prevention	Exception Prevention	tactic
+executable-assertions	Executable Assertions	tactic
+external-configuration-store	External Configuration Store	deployment
+failover	Failover	tactic
+fault-containment-region	Fault Containment Region	pattern
+fault-observer	Fault Observer	pattern
+fault-tolerant-unit	Fault-Tolerant Unit	pattern
+feature-flag-driven-release	Feature-Flag-Driven Release	deployment
+feature-toggle	Feature Toggle	tactic
+federated-avionics-architecture	Federated Avionics Architecture	reference-architecture
+federated-identity	Federated Identity	pattern
+file-transfer	File Transfer	style
+firewall	Firewall	pattern
+five-layer-architecture-rtdp	Five-Layer Architecture (RTDP)	pattern
+flux	Flux	pattern
+front-controller	Front Controller	pattern
+function-queue-scheduling-architecture	Function-Queue-Scheduling Architecture	style
+functional-redundancy	Functional Redundancy	pattern
+gatekeeper	Gatekeeper	deployment
+gateway-aggregation	Gateway Aggregation	pattern
+gateway-offloading	Gateway Offloading	pattern
+gateway-routing	Gateway Routing	pattern
+geodes	Geodes	deployment
+guaranteed-delivery	Guaranteed Delivery	pattern
+half-object-plus-protocol-arch	Half-Object plus Protocol (distribution structure)	pattern
+half-sync-half-async-system-layering	Half-Sync/Half-Async (system layering)	pattern
+hardware-abstraction-layer-arch	Hardware Abstraction Layer (architectural layer)	pattern
+health-check-api	Health Check API	pattern
+health-endpoint-monitoring	Health Endpoint Monitoring	pattern
+health-monitor-arinc-653	Health Monitor (ARINC 653)	pattern
+heartbeat-tactic	Heartbeat	tactic
+hexagonal-architecture	Hexagonal Architecture	style
+hierarchical-control-rtdp	Hierarchical Control (RTDP)	pattern
+hla-federation	HLA Federation	reference-architecture
+identify-actors	Identify Actors	tactic
+ignore-faulty-behavior	Ignore Faulty Behavior	tactic
+immutable-infrastructure	Immutable Infrastructure	deployment
+increase-competence-set	Increase Competence Set	tactic
+increase-resource-usage-efficiency	Increase Resource Usage Efficiency	tactic
+increase-resources	Increase Resources	tactic
+index-table	Index Table	pattern
+inform-actors	Inform Actors	tactic
+integrated-modular-avionics	Integrated Modular Avionics	reference-architecture
+interface-definition-language	Interface Definition Language	description
+interlock	Interlock	tactic
+interpreter-architectural-style	Interpreter (Architectural Style)	style
+introduce-concurrency	Introduce Concurrency	tactic
+intrusion-detection-system	Intrusion Detection System	pattern
+invoker	Invoker	pattern
+islands-architecture	Islands Architecture	pattern
+kappa-architecture	Kappa Architecture	style
+kernel-bypass-networking	Kernel-Bypass Networking	pattern
+lambda-architecture	Lambda Architecture	style
+layered-game-engine-architecture	Layered Game Engine Architecture	reference-architecture
+layers	Layers	style
+leader-election	Leader Election	pattern
+leaderless-replication	Leaderless Replication	pattern
+limit-access	Limit Access	tactic
+limit-event-response	Limit Event Response	tactic
+limit-exposure	Limit Exposure	tactic
+limit-nondeterminism	Limit Nondeterminism	tactic
+limit-structural-complexity	Limit Structural Complexity	tactic
+linkage-connector	Linkage Connector	connector
+lmax-architecture	LMAX Architecture	style
+load-balancer	Load Balancer	deployment
+localize-state-storage	Localize State Storage	tactic
+log-aggregation	Log Aggregation	pattern
+m-out-of-n-voting	MooN Voting Architecture	pattern
+main-program-and-subroutines	Main Program and Subroutines	style
+maintain-multiple-copies-of-computations	Maintain Multiple Copies of Computations	tactic
+maintain-multiple-copies-of-data	Maintain Multiple Copies of Data	tactic
+maintain-system-model	Maintain System Model	tactic
+maintain-task-model	Maintain Task Model	tactic
+maintain-user-model	Maintain User Model	tactic
+maintenance-interface	Maintenance Interface	pattern
+manage-event-arrival	Manage Event Arrival	tactic
+manage-resources-integrability	Manage Resources (Integrability)	tactic
+manage-sampling-rate	Manage Sampling Rate	tactic
+manage-service-interactions	Manage Service Interactions	tactic
+mapreduce	MapReduce	style
+masking	Masking	tactic
+master-worker	Master-Worker	pattern
+materialized-view-architecture-pattern	Materialized View (architecture pattern)	pattern
+message-broker	Message Broker	pattern
+message-bus	Message Bus	style
+message-channel	Message Channel	connector
+message-endpoint	Message Endpoint	pattern
+message-router	Message Router	pattern
+messaging	Messaging	style
+messaging-bridge	Messaging Bridge	pattern
+metering	Metering	tactic
+micro-frontends	Micro Frontends	style
+microkernel	Microkernel	style
+microservices	Microservices	style
+mobile-agent	Mobile Agent	style
+model-kind	Model Kind	description
+model-view-controller	Model-View-Controller	pattern
+model-view-intent	Model-View-Intent	pattern
+model-view-presenter	Model-View-Presenter	pattern
+model-view-viewmodel	Model-View-ViewModel	pattern
+modular-monolith	Modular Monolith	style
+module-view	Module View	description
+monitor	Monitor	tactic
+monitor-actuator	Monitor-Actuator	pattern
+monolithic-architecture	Monolithic Architecture	style
+multi-leader-replication	Multi-Leader Replication	pattern
+multi-pass-compiler-pipeline	Multi-Pass Compiler Pipeline	reference-architecture
+n-tier-client-server	N-Tier Client-Server	style
+non-stop-forwarding	Non-Stop Forwarding	tactic
+nonrepudiation	Nonrepudiation	tactic
+object-oriented-organization	Object-Oriented Organization	style
+object-synchronizer	Object Synchronizer	pattern
+orchestrate	Orchestrate	tactic
+os-container	OS Container	deployment
+package-dependencies	Package Dependencies	tactic
+page-controller	Page Controller	pattern
+parameter-fence	Parameter Fence	tactic
+parameter-typing	Parameter Typing	tactic
+pause-resume	Pause/Resume	tactic
+peer-to-peer	Peer-to-Peer	style
+ping-echo	Ping/Echo	tactic
+pipes-and-filters	Pipes and Filters	style
+policy-decision-point-policy-enforcement-point	Policy Decision Point / Policy Enforcement Point	pattern
+polyglot-persistence	Polyglot Persistence	pattern
+predictive-model	Predictive Model	tactic
+preforked-prethreaded-server	Preforked / Prethreaded Server	pattern
+presentation-abstraction-control	Presentation-Abstraction-Control	pattern
+presentation-model	Presentation Model	pattern
+primary-replica-replication	Primary-Replica Replication	pattern
+prioritize-events	Prioritize Events	tactic
+privilege-separation-arch	Privilege Separation	pattern
+procedure-call-connector	Procedure Call Connector	connector
+process-control-feedback-control-loop	Process Control (Feedback Control Loop)	style
+process-manager	Process Manager	pattern
+process-pairs	Process Pairs	pattern
+protocol-layering	Protocol Layering	style
+proxy-based-firewall	Proxy-Based Firewall	pattern
+publish-subscribe-architectural-style	Publish-Subscribe (Architectural Style)	style
+queue-based-load-leveling	Queue-Based Load Leveling	tactic
+reconfiguration	Reconfiguration	tactic
+record-playback	Record/Playback	tactic
+recursive-containment-rtdp	Recursive Containment (RTDP)	pattern
+recursive-control	Recursive Control	pattern
+redistribute-responsibilities	Redistribute Responsibilities	tactic
+reduce-computational-overhead	Reduce Computational Overhead	tactic
+reduce-usage	Reduce Usage	tactic
+redundant-spare	Redundant Spare	tactic
+reflection	Reflection	pattern
+relational-dbms-reference-architecture	Relational DBMS Reference Architecture	reference-architecture
+remote-evaluation	Remote Evaluation	style
+remote-facade	Remote Facade	pattern
+remote-procedure-invocation	Remote Procedure Invocation	style
+removal-from-service	Removal from Service	tactic
+repair-state	Repair State	tactic
+replicated-component-group	Replicated Component Group	pattern
+replication	Replication	pattern
+reporting-database	Reporting Database	pattern
+repository-shared-data-style	Repository (Shared Data) Style	style
+requestor	Requestor	pattern
+rest-representational-state-transfer	REST (Representational State Transfer)	style
+restrict-communication-paths	Restrict Communication Paths	tactic
+restrict-dependencies	Restrict Dependencies	tactic
+restrict-login	Restrict Login	tactic
+retry	Retry	tactic
+revoke-access	Revoke Access	tactic
+rollback-deployment	Rollback (Deployment)	tactic
+rollback-tactic	Rollback	tactic
+rolling-deployment	Rolling Deployment	deployment
+routing-slip	Routing Slip	pattern
+rozanski-woods-viewpoint-catalog	Rozanski–Woods Viewpoint Catalog	description
+rtos-based-architecture	RTOS-Based Architecture	style
+rule-based-system	Rule-Based System	style
+safety-executive	Safety Executive	pattern
+saga	Saga	pattern
+sandbox	Sandbox	pattern
+sanity-checking	Sanity Checking	tactic
+scale-cube	Scale Cube	deployment
+scale-rollouts	Scale Rollouts	tactic
+schedule-resources	Schedule Resources	tactic
+scheduler-agent-supervisor	Scheduler Agent Supervisor	pattern
+script-deployment-commands	Script Deployment Commands	tactic
+secrets-management-service	Secrets Management Service	pattern
+secure-channel	Secure Channel	connector
+seda-staged-event-driven-architecture	SEDA (Staged Event-Driven Architecture)	style
+self-contained-component	Self-Contained Component	pattern
+self-test	Self-Test	tactic
+sense-compute-control	Sense-Compute-Control	style
+separate-entities	Separate Entities	tactic
+sequential-convoy	Sequential Convoy	pattern
+server-request-handler	Server Request Handler	pattern
+server-session-state	Server Session State	pattern
+serverless-function-as-a-service	Serverless / Function-as-a-Service	deployment
+service-based-architecture	Service-Based Architecture	style
+service-layer	Service Layer	pattern
+service-mesh	Service Mesh	deployment
+service-oriented-architecture	Service-Oriented Architecture	style
+service-registry	Service Registry	pattern
+shadow	Shadow	tactic
+sharding	Sharding	pattern
+shared-database	Shared Database	style
+shared-nothing-architecture	Shared-Nothing Architecture	style
+sidecar	Sidecar	deployment
+single-sign-on	Single Sign-On	pattern
+software-upgrade	Software Upgrade	tactic
+someone-in-charge	Someone in Charge	pattern
+space-based-architecture	Space-Based Architecture	style
+specialized-interfaces	Specialized Interfaces	tactic
+split-module	Split Module	tactic
+stakeholder-concern	Stakeholder Concern	description
+state-resynchronization	State Resynchronization	tactic
+state-transition-system-architectural-organization	State Transition System (Architectural Organization)	style
+static-classification	Static Classification	tactic
+static-content-hosting	Static Content Hosting	deployment
+strangler-fig	Strangler Fig	pattern
+stream-connector	Stream Connector	connector
+streaming-dataflow-architecture	Streaming Dataflow Architecture	style
+substitution	Substitution	tactic
+subsumption-architecture	Subsumption Architecture	style
+superloop-architecture	Superloop Architecture	style
+supervision-tree-otp	Supervision Tree (OTP)	pattern
+table-module	Table Module	pattern
+tailor-interface	Tailor Interface	tactic
+template-view	Template View	pattern
+temporal-firewall	Temporal Firewall	connector
+the-elm-architecture	The Elm Architecture	pattern
+thread-per-connection-server	Thread-per-Connection Server	pattern
+throttling-service-admission-control	Throttling (service admission control)	tactic
+time-and-space-partitioning	Time and Space Partitioning	pattern
+time-triggered-architecture	Time-Triggered Architecture	style
+time-triggered-bus	Time-Triggered Bus	connector
+timeout-tactic	Timeout	tactic
+timestamp	Timestamp	tactic
+transaction-script	Transaction Script	pattern
+transactional-outbox	Transactional Outbox	pattern
+transactions	Transactions	tactic
+transform-view	Transform View	pattern
+triple-modular-redundancy	Triple Modular Redundancy	pattern
+trusted-execution-environment	Trusted Execution Environment	pattern
+two-phase-commit	Two-Phase Commit	pattern
+two-step-view	Two Step View	pattern
+undo	Undo	tactic
+units-of-mitigation	Units of Mitigation	pattern
+use-an-intermediary	Use an Intermediary	tactic
+valet-key	Valet Key	pattern
+validate-input	Validate Input	tactic
+verify-message-integrity	Verify Message Integrity	tactic
+virtual-machine-architectural-style	Virtual Machine (architectural style)	style
+voting	Voting	tactic
+watchdog-architecture-pattern	Watchdog (architecture pattern)	pattern
+zero-trust-architecture	Zero Trust Architecture	style

@@ -1,0 +1,579 @@
+{
+ "group": "D15",
+ "title": "Embedded, numeric, structural & testing idioms",
+ "realm": "design",
+ "literature": "Preschern 'Fluent C'; Pont Patterns for Time-Triggered Embedded Systems; embedded C idioms; fixed-point/numeric; testing patterns (xUnit Patterns, Meszaros).",
+ "member_count": 48,
+ "target_edges": 58,
+ "priority_ids": [
+  "a-b-firmware-image-update",
+  "arbitrary-precision-arithmetic",
+  "bootloader-jump-handoff",
+  "composed-method",
+  "device-driver",
+  "direct-memory-access-dma-transfer",
+  "epsilon-ulp-float-comparison",
+  "escaping-ifdef-hell",
+  "feature-flag",
+  "fixed-point-arithmetic",
+  "four-phase-test",
+  "generation-gap",
+  "golden-master-testing",
+  "hot-code-reload",
+  "humble-object",
+  "include-guard",
+  "interval-arithmetic",
+  "iohw-h-standard-hardware-i-o-interface",
+  "kahan-summation",
+  "method-object",
+  "money",
+  "object-mother",
+  "organizing-files-in-modular-c-programs",
+  "page-object",
+  "pid-controller",
+  "pseudorandom-number-generator",
+  "serial-number-arithmetic",
+  "shadow-register",
+  "super-loop",
+  "test-fixture",
+  "x-macro"
+ ],
+ "members": [
+  {
+   "id": "a-b-firmware-image-update",
+   "name": "A/B Firmware Image Update",
+   "kind": "embedded-systems",
+   "aka": [
+    "dual-bank firmware update",
+    "A/B partitions",
+    "seamless update"
+   ],
+   "what": "Keep two firmware image slots; write the new image into the inactive slot, verify it, then atomically switch the boot selection, keeping the old image as instant fallback."
+  },
+  {
+   "id": "arbitrary-precision-arithmetic",
+   "name": "Arbitrary-Precision Arithmetic",
+   "kind": "numeric-precision",
+   "aka": [
+    "bignum",
+    "multiple-precision arithmetic",
+    "big integer / BigInt"
+   ],
+   "what": "Represent and compute on integers (or rationals/decimals) whose size is limited only by memory, using multi-limb representations and carry-propagating algorithms instead of fixed-width machine words."
+  },
+  {
+   "id": "bootloader-jump-handoff",
+   "name": "Bootloader Jump / Handoff",
+   "kind": "embedded-systems",
+   "aka": [
+    "jump to application",
+    "bootloader-to-app transition",
+    "vector table relocation on boot"
+   ],
+   "what": "A small boot program validates the application image, then hands off execution by loading the application's stack pointer and reset vector (relocating the vector table) and jumping to it with hardware in a known state."
+  },
+  {
+   "id": "checked-arithmetic",
+   "name": "Checked Arithmetic",
+   "kind": "numeric-precision",
+   "aka": [
+    "overflow-checked arithmetic",
+    "ckd_add/ckd_sub/ckd_mul (C23 stdckdint.h)",
+    "__builtin_add_overflow (GCC/Clang)"
+   ],
+   "what": "Integer arithmetic operations that report overflow explicitly (a boolean flag or Option/panic) instead of silently wrapping or invoking undefined behavior."
+  },
+  {
+   "id": "composed-method",
+   "name": "Composed Method",
+   "kind": "code-structure",
+   "aka": [
+    "compose methods out of intention-revealing calls"
+   ],
+   "what": "Structure a method as a short sequence of calls to other intention-named methods, all at a single level of abstraction."
+  },
+  {
+   "id": "deferred-interrupt-processing",
+   "name": "Deferred Interrupt Processing",
+   "kind": "embedded-systems",
+   "aka": [
+    "top half / bottom half",
+    "ISR with deferred work",
+    "tasklet"
+   ],
+   "what": "Split interrupt handling into a minimal ISR that acknowledges the hardware and queues work, plus deferred task-level code that completes the processing later."
+  },
+  {
+   "id": "device-driver",
+   "name": "Device Driver",
+   "kind": "embedded-systems",
+   "aka": [
+    "driver"
+   ],
+   "what": "A module encapsulating all interaction with one device class behind a uniform operations interface (open/read/write/ioctl or vendor API)."
+  },
+  {
+   "id": "direct-memory-access-dma-transfer",
+   "name": "Direct Memory Access (DMA) Transfer",
+   "kind": "embedded-systems",
+   "aka": [
+    "DMA",
+    "double-buffered DMA",
+    "DMA ping-pong"
+   ],
+   "what": "Configuring a DMA controller to move data between peripherals and memory without CPU involvement, with completion signaled by interrupt; often paired with double buffering so one buffer fills while the other is processed."
+  },
+  {
+   "id": "epsilon-ulp-float-comparison",
+   "name": "Epsilon/ULP Floating-Point Comparison",
+   "kind": "numeric-precision",
+   "aka": [
+    "approximate float equality",
+    "relative-epsilon comparison",
+    "AlmostEqualRelative"
+   ],
+   "what": "Comparing floating-point values for near-equality using an absolute/relative epsilon tolerance or a bounded distance in units-in-the-last-place (ULPs) instead of exact ==."
+  },
+  {
+   "id": "escaping-ifdef-hell",
+   "name": "Escaping #ifdef Hell",
+   "kind": "code-structure",
+   "aka": [
+    "conditional-compilation isolation",
+    "variant abstraction"
+   ],
+   "what": "Named patterns (avoid variants, isolated primitives, abstraction layer) that confine platform #ifdef variation to dedicated files behind common interfaces."
+  },
+  {
+   "id": "feature-flag",
+   "name": "Feature Flag",
+   "kind": "code-structure",
+   "aka": [
+    "feature toggle",
+    "feature switch",
+    "toggle point"
+   ],
+   "what": "A conditional branch point (toggle point) whose path is selected at runtime by a toggle router reading external toggle configuration, so a feature can be enabled or disabled without redeploying code."
+  },
+  {
+   "id": "fixed-point-arithmetic",
+   "name": "Fixed-Point Arithmetic",
+   "kind": "numeric-precision",
+   "aka": [
+    "Q format",
+    "Qm.n arithmetic",
+    "binary scaling"
+   ],
+   "what": "Represent fractional values as scaled integers with an implicit binary point (Qm.n), doing real-number math with integer instructions."
+  },
+  {
+   "id": "four-phase-test",
+   "name": "Four-Phase Test",
+   "kind": "testing-constructs",
+   "aka": [
+    "setup-exercise-verify-teardown",
+    "Arrange-Act-Assert (AAA)",
+    "Given-When-Then (BDD phrasing)"
+   ],
+   "what": "Structure every test as four ordered phases — fixture setup, exercise the system under test, result verification, fixture teardown — one behavior per test."
+  },
+  {
+   "id": "generation-gap",
+   "name": "Generation Gap",
+   "kind": "code-structure",
+   "aka": [
+    "generated core class + hand-written subclass",
+    "regeneration-safe extension"
+   ],
+   "what": "Keep machine-generated code in a core base class that is never edited, and put all hand-written modifications in a subclass that survives regeneration unchanged."
+  },
+  {
+   "id": "golden-master-testing",
+   "name": "Golden Master Testing",
+   "kind": "testing-constructs",
+   "aka": [
+    "approval testing",
+    "snapshot testing",
+    "characterization testing (legacy-code framing)"
+   ],
+   "what": "Captures the complete observed output of the system under test as a stored reference artifact (the golden master) and asserts that future runs reproduce it exactly, with an explicit approve-the-diff step when change is intended."
+  },
+  {
+   "id": "hardware-adapter",
+   "name": "Hardware Adapter",
+   "kind": "embedded-systems",
+   "aka": [],
+   "what": "An adapter layer that converts the interface a hardware device (or its proxy) actually offers into the interface the application expects."
+  },
+  {
+   "id": "hardware-proxy",
+   "name": "Hardware Proxy",
+   "kind": "embedded-systems",
+   "aka": [],
+   "what": "A class/module that encapsulates all access to a hardware device behind a device-neutral interface, hiding register layout, encoding, and access mechanics."
+  },
+  {
+   "id": "hot-code-reload",
+   "name": "Hot Code Reload",
+   "kind": "code-structure",
+   "aka": [
+    "hot code loading",
+    "code replacement (Erlang/OTP)",
+    "dynamic software updating (DSU)"
+   ],
+   "what": "Replaces a module's code in a running program, keeping old and new versions briefly coexistent and migrating state and in-flight control to the new version without a restart."
+  },
+  {
+   "id": "humble-object",
+   "name": "Humble Object",
+   "kind": "testing-constructs",
+   "aka": [
+    "humble dialog",
+    "humble executable"
+   ],
+   "what": "Strip hard-to-test code (GUI bindings, thread glue, framework touchpoints) down to a trivial 'humble' shell that immediately delegates all logic to a testable collaborator."
+  },
+  {
+   "id": "include-guard",
+   "name": "Include Guard",
+   "kind": "code-structure",
+   "aka": [
+    "header guard",
+    "#pragma once (non-standard alternative)"
+   ],
+   "what": "Preprocessor conditionals (or #pragma once) that make a header idempotent under multiple inclusion."
+  },
+  {
+   "id": "interrupt-service-routine",
+   "name": "Interrupt Service Routine",
+   "kind": "embedded-systems",
+   "aka": [
+    "Interrupt Pattern",
+    "ISR",
+    "interrupt handler"
+   ],
+   "what": "Hardware-vectored handler code that preempts normal execution to service an event, doing minimal work at interrupt context before returning."
+  },
+  {
+   "id": "interrupt-vector-table",
+   "name": "Interrupt Vector Table",
+   "kind": "embedded-systems",
+   "aka": [
+    "IVT",
+    "vector table",
+    "exception vector table"
+   ],
+   "what": "A table of handler entry addresses, indexed by exception/interrupt number, through which the CPU dispatches to the right ISR; firmware populates and sometimes relocates it (e.g. VTOR)."
+  },
+  {
+   "id": "interval-arithmetic",
+   "name": "Interval Arithmetic",
+   "kind": "numeric-precision",
+   "aka": [
+    "interval analysis",
+    "interval computation",
+    "directed rounding intervals"
+   ],
+   "what": "Representing each numeric quantity as an interval [lo, hi] guaranteed to contain the true value, with arithmetic rules (and outward/directed rounding) that propagate the bounds through every operation."
+  },
+  {
+   "id": "iohw-h-standard-hardware-i-o-interface",
+   "name": "iohw.h Standard Hardware I/O Interface",
+   "kind": "embedded-systems",
+   "aka": [
+    "<iohw.h>",
+    "standard I/O hardware addressing interface"
+   ],
+   "what": "A standardized C/C++ macro interface (iord/iowr on abstract register designators) that isolates device-register access from platform addressing details."
+  },
+  {
+   "id": "kahan-summation",
+   "name": "Kahan Summation",
+   "kind": "numeric-precision",
+   "aka": [
+    "compensated summation",
+    "Kahan summation algorithm",
+    "Kahan-Babuška summation (variant)"
+   ],
+   "what": "Accumulates a floating-point sum together with a running compensation term that captures the low-order bits lost by each addition, keeping total rounding error near machine epsilon instead of growing with n."
+  },
+  {
+   "id": "memory-mapped-register-access",
+   "name": "Memory-Mapped Register Access",
+   "kind": "embedded-systems",
+   "aka": [
+    "memory-mapped I/O access",
+    "device register access in C",
+    "volatile register access"
+   ],
+   "what": "Address peripheral hardware registers as (volatile-qualified) memory locations through typed pointers or structure overlays, with disciplined read/write ordering."
+  },
+  {
+   "id": "method-object",
+   "name": "Method Object",
+   "kind": "code-structure",
+   "aka": [
+    "Replace Method with Method Object (Fowler, Refactoring)",
+    "worker object",
+    "Replace Function with Command (Fowler, Refactoring 2nd ed.)"
+   ],
+   "what": "Reify a complex method as its own class: parameters and local variables become instance variables, the body becomes small methods on the new object."
+  },
+  {
+   "id": "money",
+   "name": "Money",
+   "kind": "numeric-precision",
+   "aka": [],
+   "what": "A value object representing a monetary amount together with its currency, with allocation/rounding rules that conserve the total."
+  },
+  {
+   "id": "object-mother",
+   "name": "Object Mother",
+   "kind": "testing-constructs",
+   "aka": [],
+   "what": "A factory class dedicated to producing ready-made, semantically meaningful example objects (a standard customer, an overdue invoice) for use across many tests."
+  },
+  {
+   "id": "organizing-files-in-modular-c-programs",
+   "name": "Organizing Files in Modular C Programs",
+   "kind": "code-structure",
+   "aka": [
+    "header/implementation file organization",
+    "self-contained component files"
+   ],
+   "what": "Named patterns for splitting a C codebase into header/implementation files and directories so modules stay self-contained with explicit interfaces."
+  },
+  {
+   "id": "page-object",
+   "name": "Page Object",
+   "kind": "testing-constructs",
+   "aka": [
+    "Window Driver (Fowler's earlier eaaDev name)",
+    "page object model (POM, Selenium usage)"
+   ],
+   "what": "A test-side object that wraps a UI page or fragment behind an application-specific API, so tests manipulate intention-revealing methods instead of raw HTML/widget structure."
+  },
+  {
+   "id": "parameterized-test",
+   "name": "Parameterized Test",
+   "kind": "testing-constructs",
+   "aka": [
+    "table-driven tests (Go)",
+    "data-driven test",
+    "test parameterization"
+   ],
+   "what": "A single test-logic body executed once per row of a table of inputs and expected outputs, with each row reported as its own test case."
+  },
+  {
+   "id": "pid-controller",
+   "name": "PID Controller",
+   "kind": "embedded-systems",
+   "aka": [
+    "PID control loop",
+    "proportional-integral-derivative controller",
+    "PI / PD controller (reduced forms)"
+   ],
+   "what": "A periodic feedback loop computing an actuator command as the weighted sum of proportional, integral, and derivative terms of the setpoint error, implemented as a fixed-rate update with output clamping, integrator anti-windup, and derivativ"
+  },
+  {
+   "id": "polling",
+   "name": "Polling",
+   "kind": "embedded-systems",
+   "aka": [
+    "periodic polling",
+    "opportunistic polling",
+    "busy-wait polling"
+   ],
+   "what": "The software repeatedly samples device or data status - periodically on a timer or opportunistically in the main loop - instead of being interrupted."
+  },
+  {
+   "id": "property-based-testing",
+   "name": "Property-Based Testing",
+   "kind": "testing-constructs",
+   "aka": [
+    "QuickCheck-style testing",
+    "generative testing",
+    "property testing"
+   ],
+   "what": "Tests state universally quantified properties of the code; a harness draws random inputs from composable generators, checks the property, and shrinks any failing input to a minimal counterexample."
+  },
+  {
+   "id": "pseudorandom-number-generator",
+   "name": "Pseudorandom Number Generator",
+   "kind": "numeric-precision",
+   "aka": [
+    "PRNG",
+    "seeded random generator",
+    "deterministic random source"
+   ],
+   "what": "A deterministic state machine that expands a seed into a stream of statistically random-looking numbers, giving reproducible randomness on demand."
+  },
+  {
+   "id": "saturation-arithmetic",
+   "name": "Saturation Arithmetic",
+   "kind": "numeric-precision",
+   "aka": [
+    "saturating arithmetic",
+    "clamped arithmetic"
+   ],
+   "what": "Arithmetic in which results exceeding the representable range clamp to the minimum/maximum value instead of wrapping around."
+  },
+  {
+   "id": "serial-number-arithmetic",
+   "name": "Serial Number Arithmetic",
+   "kind": "numeric-precision",
+   "aka": [
+    "sequence number wraparound comparison",
+    "RFC 1982 arithmetic"
+   ],
+   "what": "Compare fixed-width, wrapping sequence numbers using modular half-range rules so ordering remains correct across wraparound."
+  },
+  {
+   "id": "service-stub",
+   "name": "Service Stub",
+   "kind": "testing-constructs",
+   "aka": [
+    "mock service"
+   ],
+   "what": "Removes dependence on a problematic external service during testing by substituting an in-process stand-in that implements the same gateway interface."
+  },
+  {
+   "id": "shadow-register",
+   "name": "Shadow Register",
+   "kind": "embedded-systems",
+   "aka": [
+    "register shadowing",
+    "software register copy",
+    "hardware shadowed/buffered register (vendor variant)"
+   ],
+   "what": "Maintain a RAM copy of a hardware register's intended contents, perform all read-modify-write logic on the copy, and write the whole copy to the device."
+  },
+  {
+   "id": "software-module-with-global-state",
+   "name": "Software-Module with Global State",
+   "kind": "code-structure",
+   "aka": [
+    "global-state module",
+    "instance-less module with file-scope state"
+   ],
+   "what": "Implement a module whose related functions operate on shared file-scope (static global) state inside the module, with initialization/cleanup functions for that state, while callers hold no instance at all."
+  },
+  {
+   "id": "stateless-software-module",
+   "name": "Stateless Software-Module",
+   "kind": "code-structure",
+   "aka": [
+    "stateless module",
+    "pure-function module"
+   ],
+   "what": "Provide a set of logically related functions that keep no state between calls: every resource a function needs is acquired and released inside the call, so the caller owns nothing and calls are independent."
+  },
+  {
+   "id": "super-loop",
+   "name": "Super Loop",
+   "kind": "embedded-systems",
+   "aka": [
+    "superloop",
+    "main loop",
+    "big loop"
+   ],
+   "what": "Structure the whole application as one endless main loop that calls each task function in turn, with ISRs as the only asynchronous activity."
+  },
+  {
+   "id": "test-data-builder",
+   "name": "Test Data Builder",
+   "kind": "testing-constructs",
+   "aka": [],
+   "what": "A builder with sensible defaults and fluent with-methods used in tests to construct complex objects, overriding only the fields relevant to each test."
+  },
+  {
+   "id": "test-double",
+   "name": "Test Double",
+   "kind": "testing-constructs",
+   "aka": [
+    "mock object",
+    "test stub",
+    "fake object"
+   ],
+   "what": "A substitute object installed in place of a production dependency during a test; the family spans dummy, fake, stub, spy, and mock by increasing behavioral sophistication."
+  },
+  {
+   "id": "test-fixture",
+   "name": "Test Fixture",
+   "kind": "testing-constructs",
+   "aka": [
+    "Fresh Fixture",
+    "Shared Fixture",
+    "fixture setup"
+   ],
+   "what": "The arranged pre-test state (objects, data, environment) a test depends on, built fresh per test or shared across tests under an explicit strategy."
+  },
+  {
+   "id": "typesafe-register-access-via-c-templates",
+   "name": "Typesafe Register Access via C++ Templates",
+   "kind": "embedded-systems",
+   "aka": [
+    "template register abstraction",
+    "register abstraction DSL",
+    "compile-time register access"
+   ],
+   "what": "Hardware registers and bitfields modeled as template types so illegal accesses fail at compile time while generated code equals hand-written volatile pokes."
+  },
+  {
+   "id": "x-macro",
+   "name": "X-Macro",
+   "kind": "code-structure",
+   "aka": [
+    "data/table-driven macro lists"
+   ],
+   "what": "A single macro list of entries is expanded multiple times with different definitions of X to generate parallel artifacts (enums, string tables, dispatch tables) from one source of truth."
+  }
+ ],
+ "existing_intra_edges": [
+  {
+   "from": "parameterized-test",
+   "kind": "alternative-to",
+   "to": "property-based-testing"
+  },
+  {
+   "from": "service-stub",
+   "kind": "specializes",
+   "to": "test-double"
+  },
+  {
+   "from": "deferred-interrupt-processing",
+   "kind": "composes-with",
+   "to": "interrupt-service-routine"
+  },
+  {
+   "from": "hardware-adapter",
+   "kind": "composes-with",
+   "to": "hardware-proxy"
+  },
+  {
+   "from": "interrupt-vector-table",
+   "kind": "composes-with",
+   "to": "interrupt-service-routine"
+  },
+  {
+   "from": "typesafe-register-access-via-c-templates",
+   "kind": "implements",
+   "to": "memory-mapped-register-access"
+  },
+  {
+   "from": "polling",
+   "kind": "alternative-to",
+   "to": "interrupt-service-routine"
+  },
+  {
+   "from": "checked-arithmetic",
+   "kind": "alternative-to",
+   "to": "saturation-arithmetic"
+  },
+  {
+   "from": "software-module-with-global-state",
+   "kind": "alternative-to",
+   "to": "stateless-software-module"
+  }
+ ]
+}

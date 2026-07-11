@@ -1,0 +1,237 @@
+{
+ "group": "A03",
+ "edges": [
+  {
+   "from": "introduce-concurrency",
+   "kind": "uses",
+   "to": "schedule-resources",
+   "provenance": "sourced",
+   "cite": "Bass, Clements & Kazman, Software Architecture in Practice, Performance tactics (Manage Resources: Introduce Concurrency)",
+   "note": "After parallelizing event streams onto threads, a scheduling policy must be chosen and applied via Schedule Resources."
+  },
+  {
+   "from": "maintain-multiple-copies-of-computations",
+   "kind": "uses",
+   "to": "load-balancer",
+   "provenance": "sourced",
+   "cite": "Bass, Clements & Kazman, SAiP, Performance tactics (Maintain Multiple Copies of Computations)",
+   "note": "Replicated services/servers require a load balancer to assign new work among the copies."
+  },
+  {
+   "from": "maintain-multiple-copies-of-computations",
+   "kind": "alternative-to",
+   "to": "increase-resources",
+   "provenance": "editorial",
+   "cite": "",
+   "note": "Scale-out (replicate computations) vs scale-up (faster/more processors) are competing ways to add capacity."
+  },
+  {
+   "from": "maintain-multiple-copies-of-computations",
+   "kind": "composes-with",
+   "to": "introduce-concurrency",
+   "provenance": "editorial",
+   "cite": "",
+   "note": "Multiple computation replicas are the units run in parallel; concurrency exploits the replicas."
+  },
+  {
+   "from": "maintain-multiple-copies-of-data",
+   "kind": "composes-with",
+   "to": "maintain-multiple-copies-of-computations",
+   "provenance": "editorial",
+   "cite": "",
+   "note": "Scale-out designs replicate both data and computation so replicas can serve requests independently."
+  },
+  {
+   "from": "replication",
+   "kind": "specializes",
+   "to": "maintain-multiple-copies-of-data",
+   "provenance": "sourced",
+   "cite": "Bass, Clements & Kazman, SAiP, Performance tactics (Maintain Multiple Copies of Data: replication and caching)",
+   "note": "Data replication is one of the two named realizations (with caching) of maintaining multiple copies of data."
+  },
+  {
+   "from": "dynamic-classification",
+   "kind": "alternative-to",
+   "to": "static-classification",
+   "provenance": "sourced",
+   "cite": "Bass et al., SAiP 4th ed., Energy-efficiency tactics (Monitor Resources: static vs dynamic energy models)",
+   "note": "Two ways to estimate energy: static from cataloged specs/benchmarks vs dynamic model over transient workload."
+  },
+  {
+   "from": "dynamic-classification",
+   "kind": "uses",
+   "to": "metering",
+   "provenance": "editorial",
+   "cite": "",
+   "note": "A dynamic energy model (regression over past executions) is fed by real-time consumption data collected via metering."
+  },
+  {
+   "from": "metering",
+   "kind": "alternative-to",
+   "to": "static-classification",
+   "provenance": "editorial",
+   "cite": "",
+   "note": "Both yield per-resource energy figures: metering measures actual draw, static classification estimates from specs."
+  },
+  {
+   "from": "metering",
+   "kind": "composes-with",
+   "to": "reduce-usage",
+   "provenance": "editorial",
+   "cite": "",
+   "note": "Monitoring energy via metering supplies the signal that drives when/where to reduce usage."
+  },
+  {
+   "from": "reduce-usage",
+   "kind": "uses",
+   "to": "compute-resource-consolidation",
+   "provenance": "sourced",
+   "cite": "Bass et al., SAiP 4th ed., Energy-efficiency tactics (Reduce Resource Usage)",
+   "note": "Reduce Usage consolidates VMs onto fewer physical servers so idle machines can be powered down."
+  },
+  {
+   "from": "reduce-usage",
+   "kind": "composes-with",
+   "to": "reduce-computational-overhead",
+   "provenance": "editorial",
+   "cite": "",
+   "note": "Removing wasted computation lowers energy draw, reinforcing device/consolidation-level usage reduction."
+  },
+  {
+   "from": "reduce-usage",
+   "kind": "composes-with",
+   "to": "discover",
+   "provenance": "editorial",
+   "cite": "",
+   "note": "Energy-annotated discovery lets requests be routed to the most efficient provider, aiding usage reduction."
+  },
+  {
+   "from": "discover",
+   "kind": "uses",
+   "to": "service-registry",
+   "provenance": "editorial",
+   "cite": "",
+   "note": "Runtime matching of requests to providers is performed against a service registry / discovery service."
+  },
+  {
+   "from": "limit-event-response",
+   "kind": "specializes",
+   "to": "manage-event-arrival",
+   "provenance": "editorial",
+   "cite": "",
+   "note": "Capping the processing rate is a sub-tactic of managing incoming work requests under Control Resource Demand."
+  },
+  {
+   "from": "manage-sampling-rate",
+   "kind": "specializes",
+   "to": "manage-event-arrival",
+   "provenance": "editorial",
+   "cite": "",
+   "note": "Lowering sample frequency reduces the arrival stream, a form of managing work requests."
+  },
+  {
+   "from": "prioritize-events",
+   "kind": "specializes",
+   "to": "manage-event-arrival",
+   "provenance": "editorial",
+   "cite": "",
+   "note": "Ordering events by importance so low-priority ones can be dropped is a work-request management sub-tactic."
+  },
+  {
+   "from": "limit-event-response",
+   "kind": "composes-with",
+   "to": "bound-queue-sizes",
+   "provenance": "sourced",
+   "cite": "Bass, Clements & Kazman, SAiP, Performance tactics (Limit Event Response / Bound Queue Sizes)",
+   "note": "Bounded queues define the overflow point that triggers limiting or dropping events; the two are paired."
+  },
+  {
+   "from": "throttling-service-admission-control",
+   "kind": "specializes",
+   "to": "limit-event-response",
+   "provenance": "editorial",
+   "cite": "",
+   "note": "Throttling is a concrete admission-control mechanism that caps the rate at which responses are processed."
+  },
+  {
+   "from": "bound-queue-sizes",
+   "kind": "composes-with",
+   "to": "queue-based-load-leveling",
+   "provenance": "editorial",
+   "cite": "",
+   "note": "A load-leveling buffer smooths bursts; bounding its size sets the overflow policy that protects resources."
+  },
+  {
+   "from": "manage-event-arrival",
+   "kind": "composes-with",
+   "to": "queue-based-load-leveling",
+   "provenance": "editorial",
+   "cite": "",
+   "note": "A leveling queue decouples arrival bursts from processing, complementing SLA-based arrival control."
+  },
+  {
+   "from": "prioritize-events",
+   "kind": "composes-with",
+   "to": "schedule-resources",
+   "provenance": "sourced",
+   "cite": "Bass, Clements & Kazman, SAiP, Performance tactics (Schedule Resources = priority assignment + dispatching)",
+   "note": "Schedule Resources consumes the priority scheme set by Prioritize Events to order dispatching."
+  },
+  {
+   "from": "bound-execution-times",
+   "kind": "composes-with",
+   "to": "manage-sampling-rate",
+   "provenance": "editorial",
+   "cite": "",
+   "note": "Both trade computational accuracy/fidelity for bounded, predictable latency under resource pressure."
+  },
+  {
+   "from": "bound-execution-times",
+   "kind": "composes-with",
+   "to": "reduce-computational-overhead",
+   "provenance": "editorial",
+   "cite": "",
+   "note": "Both are Control-Resource-Demand tactics cutting time/work spent per event to meet latency targets."
+  },
+  {
+   "from": "increase-resource-usage-efficiency",
+   "kind": "composes-with",
+   "to": "reduce-computational-overhead",
+   "provenance": "editorial",
+   "cite": "",
+   "note": "Better algorithms plus removing indirection both lower work per event, reinforcing demand reduction."
+  },
+  {
+   "from": "increase-resource-usage-efficiency",
+   "kind": "alternative-to",
+   "to": "increase-resources",
+   "provenance": "editorial",
+   "cite": "",
+   "note": "Meet a latency goal either by optimizing the algorithm (do less work) or by adding hardware capacity."
+  },
+  {
+   "from": "auto-scaling",
+   "kind": "specializes",
+   "to": "increase-resources",
+   "provenance": "editorial",
+   "cite": "",
+   "note": "Auto-scaling is a dynamic, demand-driven realization of adding resources at runtime."
+  },
+  {
+   "from": "increase-resources",
+   "kind": "composes-with",
+   "to": "introduce-concurrency",
+   "provenance": "editorial",
+   "cite": "",
+   "note": "Additional processors give the parallelism introduced by concurrency somewhere to run, compounding speedup."
+  },
+  {
+   "from": "schedule-resources",
+   "kind": "composes-with",
+   "to": "bound-execution-times",
+   "provenance": "editorial",
+   "cite": "",
+   "note": "Deadline/rate-monotonic scheduling depends on bounded per-event execution times to guarantee schedulability."
+  }
+ ]
+}

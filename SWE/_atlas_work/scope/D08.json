@@ -1,0 +1,499 @@
+{
+ "group": "D08",
+ "title": "Communication & messaging",
+ "realm": "design",
+ "literature": "Hohpe & Woolf Enterprise Integration Patterns; POSA4 distributed; Coulouris Distributed Systems; RPC/streaming idioms; Tanenbaum networking.",
+ "member_count": 44,
+ "target_edges": 53,
+ "priority_ids": [
+  "acceptor-connector",
+  "bit-banging",
+  "claim-check",
+  "client-dispatcher-server",
+  "content-based-router",
+  "domain-event",
+  "event-aggregator",
+  "event-delegation",
+  "forwarder-receiver",
+  "gateway",
+  "half-object-plus-protocol",
+  "handshaking",
+  "hedged-request",
+  "idempotent-receiver",
+  "interest-management",
+  "mailbox",
+  "message",
+  "message-dispatcher",
+  "message-expiration",
+  "message-queue",
+  "message-translator",
+  "observable-streams",
+  "producer-consumer",
+  "publish-subscribe-channel",
+  "remote-procedure-call",
+  "wire-tap"
+ ],
+ "members": [
+  {
+   "id": "acceptor-connector",
+   "name": "Acceptor-Connector",
+   "kind": "communication",
+   "aka": [],
+   "what": "Connection establishment and service initialization (acceptor for passive, connector for active roles) are decoupled from the service processing performed once a connection is established."
+  },
+  {
+   "id": "acknowledgement",
+   "name": "Acknowledgement",
+   "kind": "communication",
+   "aka": [
+    "ack",
+    "positive acknowledgement"
+   ],
+   "what": "The receiver of a message or request returns an explicit acknowledgement, letting the sender detect loss or peer failure via missing acks within a timeout."
+  },
+  {
+   "id": "aggregator",
+   "name": "Aggregator",
+   "kind": "communication",
+   "aka": [],
+   "what": "A stateful component that collects correlated messages until a completeness condition holds, then publishes a single combined message."
+  },
+  {
+   "id": "bit-banging",
+   "name": "Bit Banging",
+   "kind": "communication",
+   "aka": [
+    "software-driven serial protocol",
+    "GPIO protocol emulation"
+   ],
+   "what": "Implement a communications protocol entirely in software by directly toggling and sampling GPIO pins with timed code, instead of using dedicated peripheral hardware."
+  },
+  {
+   "id": "callback",
+   "name": "Callback",
+   "kind": "communication",
+   "aka": [
+    "callback function",
+    "call-after function",
+    "delegate"
+   ],
+   "what": "A piece of executable code (function pointer, closure, object method) passed to another component to be invoked later at a defined point, synchronously or asynchronously."
+  },
+  {
+   "id": "callback-with-context-pointer",
+   "name": "Callback with Context Pointer",
+   "kind": "communication",
+   "aka": [
+    "user-data pointer",
+    "void* context argument",
+    "closure emulation in C"
+   ],
+   "what": "Register a function pointer together with an opaque void* context that the callee passes back on invocation, giving the callback access to its state."
+  },
+  {
+   "id": "claim-check",
+   "name": "Claim Check",
+   "kind": "communication",
+   "aka": [
+    "reference-based messaging"
+   ],
+   "what": "Store a message's bulky payload in a shared data store and pass only a key (the claim check) through the channel; the consumer redeems the key to retrieve the data."
+  },
+  {
+   "id": "client-dispatcher-server",
+   "name": "Client-Dispatcher-Server",
+   "kind": "communication",
+   "aka": [],
+   "what": "A dispatcher component sits between clients and servers, providing name-to-server resolution and connection establishment so clients request services by name only."
+  },
+  {
+   "id": "content-based-router",
+   "name": "Content-Based Router",
+   "kind": "communication",
+   "aka": [],
+   "what": "A router that examines message content and forwards each message to one of several output channels based on data-driven conditions."
+  },
+  {
+   "id": "correlation-identifier",
+   "name": "Correlation Identifier",
+   "kind": "communication",
+   "aka": [
+    "correlation id"
+   ],
+   "what": "A unique identifier stamped on a request message and copied into its reply so the requester can match responses to outstanding requests."
+  },
+  {
+   "id": "csp-channel",
+   "name": "CSP Channel",
+   "kind": "communication",
+   "aka": [
+    "channel",
+    "synchronous channel",
+    "Go channel"
+   ],
+   "what": "A typed conduit through which concurrent processes communicate and synchronize by sending and receiving values, with rendezvous (unbuffered) or bounded-buffer semantics."
+  },
+  {
+   "id": "domain-event",
+   "name": "Domain Event",
+   "kind": "communication",
+   "aka": [],
+   "what": "A full-fledged domain object that represents something that happened in the domain, captured as an immutable record and used to trigger and decouple consequent behavior."
+  },
+  {
+   "id": "event-aggregator",
+   "name": "Event Aggregator",
+   "kind": "communication",
+   "aka": [
+    "event bus",
+    "in-process publish-subscribe",
+    "in-process event bus"
+   ],
+   "what": "A single in-process object that registers for events from many sources and lets clients subscribe once with it, channeling and optionally generalizing all events to interested observers."
+  },
+  {
+   "id": "event-delegation",
+   "name": "Event Delegation",
+   "kind": "communication",
+   "aka": [
+    "delegated event handling"
+   ],
+   "what": "Attaches a single event handler on a common ancestor and uses event bubbling plus target inspection to handle events for many (possibly dynamically created) descendant elements."
+  },
+  {
+   "id": "event-driven-consumer",
+   "name": "Event-Driven Consumer",
+   "kind": "communication",
+   "aka": [
+    "asynchronous receiver"
+   ],
+   "what": "A consumer whose message-handling callback is invoked by the messaging layer as soon as a message arrives, rather than the consumer polling for it."
+  },
+  {
+   "id": "forwarder-receiver",
+   "name": "Forwarder-Receiver",
+   "kind": "communication",
+   "aka": [],
+   "what": "Peers communicate through paired forwarder and receiver intermediaries that encapsulate marshaling, delivery mechanism, and endpoint mapping behind a simple send/receive interface."
+  },
+  {
+   "id": "gateway",
+   "name": "Gateway",
+   "kind": "communication",
+   "aka": [],
+   "what": "An object that encapsulates access to an external system or resource behind an interface shaped for the application's needs."
+  },
+  {
+   "id": "half-object-plus-protocol",
+   "name": "Half-Object plus Protocol",
+   "kind": "communication",
+   "aka": [
+    "HOPP"
+   ],
+   "what": "A logically single object is split into two coordinated half-objects, one per address space, each implementing the locally needed functionality, kept consistent by a private protocol between them."
+  },
+  {
+   "id": "handshaking",
+   "name": "Handshaking",
+   "kind": "communication",
+   "aka": [
+    "can-you-handle-this signaling"
+   ],
+   "what": "Server and client cooperatively signal readiness before work is sent, letting the server refuse or defer new work when saturated."
+  },
+  {
+   "id": "hedged-request",
+   "name": "Hedged Request",
+   "kind": "communication",
+   "aka": [
+    "backup request",
+    "request hedging"
+   ],
+   "what": "After a brief delay (e.g. the 95th-percentile latency), send the same request to a second replica and use whichever response returns first, cancelling the other."
+  },
+  {
+   "id": "idempotent-receiver",
+   "name": "Idempotent Receiver",
+   "kind": "communication",
+   "aka": [
+    "idempotent consumer",
+    "idempotency key",
+    "message deduplication"
+   ],
+   "what": "A consumer designed so that processing the same message more than once has the same effect as processing it once, typically by tracking already-seen message identifiers."
+  },
+  {
+   "id": "interest-management",
+   "name": "Interest Management",
+   "kind": "communication",
+   "aka": [
+    "area-of-interest management",
+    "AoI filtering",
+    "relevance filtering"
+   ],
+   "what": "The replication layer filters which entities' state updates each connected client receives, matching entity 'update regions' against per-client interest expressions (typically spatial area-of-interest, visibility, or subscription predicates"
+  },
+  {
+   "id": "mailbox",
+   "name": "Mailbox",
+   "kind": "communication",
+   "aka": [
+    "message mailbox",
+    "actor mailbox"
+   ],
+   "what": "A per-receiver message deposit point - in RTOS kernels a one-message (or small) exchange object a task pends on; in actor systems the queue holding all messages addressed to one actor."
+  },
+  {
+   "id": "message",
+   "name": "Message",
+   "kind": "communication",
+   "aka": [
+    "command message",
+    "document message",
+    "event message"
+   ],
+   "what": "A discrete, self-contained packet of data (header plus body) exchanged between decoupled parts of a program through a channel rather than by direct call."
+  },
+  {
+   "id": "message-dispatcher",
+   "name": "Message Dispatcher",
+   "kind": "communication",
+   "aka": [],
+   "what": "A single consumer that receives messages from a channel and distributes each to one of several performers (typically worker threads) it coordinates."
+  },
+  {
+   "id": "message-expiration",
+   "name": "Message Expiration",
+   "kind": "communication",
+   "aka": [
+    "message TTL",
+    "time-to-live"
+   ],
+   "what": "A timestamp or time-to-live stamped on a message after which the messaging layer or consumer treats it as stale and discards or dead-letters it instead of processing it."
+  },
+  {
+   "id": "message-filter",
+   "name": "Message Filter",
+   "kind": "communication",
+   "aka": [],
+   "what": "A routing component that inspects each incoming message and passes it on only if it meets specified criteria, silently discarding the rest."
+  },
+  {
+   "id": "message-queue",
+   "name": "Message Queue",
+   "kind": "communication",
+   "aka": [
+    "Queuing Pattern",
+    "message queue",
+    "point-to-point channel"
+   ],
+   "what": "Tasks communicate by posting messages into a queue that the receiver drains at its own pace, sharing information asynchronously without sharing memory access timing."
+  },
+  {
+   "id": "message-translator",
+   "name": "Message Translator",
+   "kind": "communication",
+   "aka": [
+    "payload transformer",
+    "message transformation"
+   ],
+   "what": "A filter placed between messaging participants that converts a message's data format/schema so sender and receiver can each keep their own model."
+  },
+  {
+   "id": "nagle-s-algorithm",
+   "name": "Nagle's Algorithm",
+   "kind": "communication",
+   "aka": [
+    "small-packet avoidance",
+    "tinygram avoidance",
+    "TCP_NODELAY (disable knob)"
+   ],
+   "what": "Coalesce small outgoing writes by holding new small segments while any previously sent data remains unacknowledged, sending them as one larger segment when the ACK arrives."
+  },
+  {
+   "id": "observable-streams",
+   "name": "Observable Streams",
+   "kind": "communication",
+   "aka": [
+    "Rx Observable",
+    "reactive streams",
+    "event streams"
+   ],
+   "what": "An asynchronous push-based sequence abstraction: a producer pushes multiple values over time to subscribers, composable with declarative operators; the Reactive Streams specification adds demand-signalled flow control (backpressure)."
+  },
+  {
+   "id": "polling-consumer",
+   "name": "Polling Consumer",
+   "kind": "communication",
+   "aka": [
+    "synchronous receiver"
+   ],
+   "what": "A consumer that explicitly asks the channel for a message when it is ready to process one, blocking or returning empty if none is available."
+  },
+  {
+   "id": "producer-consumer",
+   "name": "Producer-Consumer",
+   "kind": "communication",
+   "aka": [
+    "bounded buffer",
+    "producer-consumer queue"
+   ],
+   "what": "One or more producer threads place work items into a shared (usually bounded, blocking) queue from which one or more consumer threads remove and process them."
+  },
+  {
+   "id": "publish-subscribe-channel",
+   "name": "Publish-Subscribe Channel",
+   "kind": "communication",
+   "aka": [
+    "pub-sub channel",
+    "topic"
+   ],
+   "what": "A channel that delivers a copy of each published message to every currently subscribed consumer instead of to a single receiver."
+  },
+  {
+   "id": "remote-procedure-call",
+   "name": "Remote Procedure Call",
+   "kind": "communication",
+   "aka": [
+    "RPC",
+    "Remote Method Call Pattern",
+    "remote method invocation"
+   ],
+   "what": "Invocations on a remote service are made through local stub/proxy machinery that marshals arguments, transmits, and unmarshals results so the call looks local."
+  },
+  {
+   "id": "request-reply",
+   "name": "Request-Reply",
+   "kind": "communication",
+   "aka": [
+    "request-response"
+   ],
+   "what": "A two-message exchange in which a requester sends a message on one channel and the replier sends a response message back on another, layering call semantics over one-way messaging."
+  },
+  {
+   "id": "return-address",
+   "name": "Return Address",
+   "kind": "communication",
+   "aka": [
+    "reply-to"
+   ],
+   "what": "A field in the request message telling the replier which channel to send the reply on."
+  },
+  {
+   "id": "scatter-gather",
+   "name": "Scatter-Gather",
+   "kind": "communication",
+   "aka": [],
+   "what": "Broadcast a request to multiple recipients, then use an aggregator to collect and combine their replies into a single response message."
+  },
+  {
+   "id": "selective-consumer",
+   "name": "Selective Consumer",
+   "kind": "communication",
+   "aka": [
+    "message selector"
+   ],
+   "what": "A consumer that applies a selection predicate so it receives only the subset of a channel's messages it is interested in, leaving the rest for other consumers."
+  },
+  {
+   "id": "shared-memory-communication",
+   "name": "Shared Memory Communication",
+   "kind": "communication",
+   "aka": [
+    "Shared Memory Pattern"
+   ],
+   "what": "Concurrent tasks or processors exchange data through a commonly addressable memory region, coordinated by locks, flags, or hardware semaphores."
+  },
+  {
+   "id": "signals-and-slots",
+   "name": "Signals and Slots",
+   "kind": "communication",
+   "aka": [
+    "signal/slot mechanism"
+   ],
+   "what": "A type-safe callback mechanism where objects declare signals they emit and slots (member functions) that can be connected to any compatible signal, with the framework routing emissions to all connected slots."
+  },
+  {
+   "id": "sliding-window-flow-control",
+   "name": "Sliding Window Flow Control",
+   "kind": "communication",
+   "aka": [
+    "sliding window protocol",
+    "window-based flow control",
+    "go-back-N"
+   ],
+   "what": "Sender and receiver agree on a window of unacknowledged data that may be in flight; acknowledgments slide the window forward, throttling the sender to the receiver's capacity."
+  },
+  {
+   "id": "splitter",
+   "name": "Splitter",
+   "kind": "communication",
+   "aka": [],
+   "what": "A component that breaks a composite message into a series of individual messages, each processable on its own."
+  },
+  {
+   "id": "wire-tap",
+   "name": "Wire Tap",
+   "kind": "communication",
+   "aka": [],
+   "what": "A fixed component inserted into a channel that forwards each message unchanged to the main destination while also copying it to a secondary channel for inspection, logging, or analysis."
+  }
+ ],
+ "existing_intra_edges": [
+  {
+   "from": "acknowledgement",
+   "kind": "composes-with",
+   "to": "sliding-window-flow-control"
+  },
+  {
+   "from": "callback-with-context-pointer",
+   "kind": "implements",
+   "to": "callback"
+  },
+  {
+   "from": "correlation-identifier",
+   "kind": "composes-with",
+   "to": "request-reply"
+  },
+  {
+   "from": "csp-channel",
+   "kind": "alternative-to",
+   "to": "shared-memory-communication"
+  },
+  {
+   "from": "nagle-s-algorithm",
+   "kind": "composes-with",
+   "to": "acknowledgement"
+  },
+  {
+   "from": "polling-consumer",
+   "kind": "alternative-to",
+   "to": "event-driven-consumer"
+  },
+  {
+   "from": "return-address",
+   "kind": "composes-with",
+   "to": "request-reply"
+  },
+  {
+   "from": "scatter-gather",
+   "kind": "composes-with",
+   "to": "aggregator"
+  },
+  {
+   "from": "selective-consumer",
+   "kind": "alternative-to",
+   "to": "message-filter"
+  },
+  {
+   "from": "signals-and-slots",
+   "kind": "alternative-to",
+   "to": "callback"
+  },
+  {
+   "from": "splitter",
+   "kind": "composes-with",
+   "to": "aggregator"
+  }
+ ]
+}
