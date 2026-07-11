@@ -1,8 +1,9 @@
 # MODELS.md — the relational models (INFERENCE layer)
 
-**Nine** navigation semantics over **two** fact layers: five **work models** over the seven-pass
-work corpus (`data/corpus.json`), and four **element views** over the two-realm element layer
-(`data/elements.json` — 709 design + 374 architecture elements wired by 1132 typed bridge edges).
+**Eleven** navigation semantics over **three** layers: five **work models** — the *Body of Knowledge* —
+over the seven-pass work corpus (`data/corpus.json`), four **element views** over the two-realm element
+layer (`data/elements.json` — 709 design + 374 architecture elements wired by 2811 typed relations), and
+two **atlas views** over the consolidated island map.
 Everything here is computed **on top of** the asserted facts, and every typed edge carries a
 provenance tag. The work models are unchanged from the original design — the single-viewport rebuild
 changed how each is *rendered* (noted per model), not what it *means*. Pure computations live in
@@ -33,9 +34,17 @@ Census: 261 edges = 86 `report:swa` + 57 `report:sim` + 50 `derived` + 19 `edito
 49 `report:proc`. Kind vocabulary (12, unchanged): `prerequisite-of, refines, formalizes, surveys,
 applies-method-of, companion, subsumes, evaluates, critiques, supersedes, part-of, references`.
 
-## Model 1 — Reading graph (`graph`)
+The five work models are the named group **Body of Knowledge** — the first stop on the tab spine
+**Body of Knowledge · Elements · Atlas** (*the literature · the concepts · the map*). Each now
+surfaces per-work **element-teach counts** (the "◇N" glyph: a work grounds N elements) and routes
+into the element/atlas layers (work → elements → atlas), while staying work-centric.
 
-- **Semantic.** Typed, directed, *cyclic-capable* relations between works.
+## Model 1 — Reading graph, the major works (`graph`)
+
+- **Semantic.** Typed, directed, *cyclic-capable* relations between works — reframed as **the major
+  works**: the ~258 works standing in a typed reading relation, with anchors (★) / core / survey
+  emphasized and "◇N" marking works that ground N elements. The ~210 edgeless works are not lost —
+  they remain reachable via Chronology, Facets, and search.
 - **Question.** "What should I read before / after / alongside this work, and why?"
 - **Computation (`core.graphLayout` + `closure`).** Node set = every work with ≥1 edge; corpus
   bands are **shelf-packed to fit the pane's aspect** (was: laid out horizontally with a scroll);
@@ -58,11 +67,20 @@ applies-method-of, companion, subsumes, evaluates, critiques, supersedes, part-o
 ## Model 3 — Chronology (`timeline`)
 
 - **Semantic.** Ordering by *year of last publication*, with living/continuously-revised documents
-  as their own stratum — a real feature of this corpus, not a defect.
-- **Question.** "How did this literature accumulate; what is maintained vs frozen?"
+  as their own stratum — a real feature of this corpus, not a defect. The view now has **two modes**:
+  - **Body of Knowledge** — the ~804 **referenced** works: the 468 reading-corpus works ∪ the 336
+    works referenced *only* by the element layer (marked "·p8" — `worksPass8Only`), ordered by year
+    of last publication.
+  - **Elements** — the 1083 design & architecture elements by **build-derived concept year** (994
+    datable, 89 UNRESOLVED). The build waterfall: `named_in` year → `named_in_corpus_id` year →
+    earliest covering-work year → UNRESOLVED (no interpolation).
+- **Question.** "How did this literature accumulate; what is maintained vs frozen — and when did each
+  concept enter the vocabulary?"
 - **Computation (`core.strataBuckets`).** Leading 4-digit year → strata ≤1979, 1980s … 2020s,
-  LIVING, UNRESOLVED (unparseable years land in UNRESOLVED — no interpolation).
-- **Rendering.** One column per stratum, filling the pane; each column scrolls internally.
+  LIVING, UNRESOLVED (unparseable/undated items land in UNRESOLVED — no interpolation). The Elements
+  mode reads the per-element `year`/`yearSource` emitted by `build_elements.py`.
+- **Rendering.** One column per stratum, filling the pane; each column scrolls internally; a mode
+  toggle switches the referenced-works and element strata.
 
 ## Model 4 — Cross-corpus overlap (`overlap`)
 

@@ -38,6 +38,27 @@ def _census(path, unit):
     return int(m.group(1)) if m else None
 
 
+_YEAR = re.compile(r'\b(19\d{2}|20\d{2})\b')   # a 1900-2099 four-digit year; skips 'UNRESOLVED'/'living'
+
+
+def _year_num(s):
+    """First 1900-2099 four-digit year in a string, else None."""
+    m = _YEAR.search(str(s or ''))
+    return int(m.group(1)) if m else None
+
+
+def _named_in_year(named_in):
+    """The year an element was *named*: prefer the citation's final parenthetical (the pub year),
+    else the first 4-digit year anywhere in the citation. e.g. '... - Gamma et al. (1994)' -> 1994."""
+    s = str(named_in or '')
+    for grp in reversed(re.findall(r'\(([^)]*)\)', s)):
+        m = _YEAR.search(grp)
+        if m:
+            return int(m.group(1))
+    m = _YEAR.search(s)
+    return int(m.group(1)) if m else None
+
+
 def run(DATA):
     load = lambda f: json.load(open(os.path.join(SRC, f), encoding='utf-8'))
     design = load('design.json')['elements']
@@ -65,17 +86,39 @@ def run(DATA):
         for eid in (w.get('elements') or []):
             coverage[eid].add(w['id'])
 
+    def _work_year(wid):
+        m = corpus_meta.get(wid) or work_meta.get(wid)
+        return _year_num(m.get('year')) if m else None
+
+    def derive_year(e, works_set):
+        """Element chronology year via the BOK_PLAN waterfall (decision §D4):
+          named_in '(YYYY)' -> named_in_corpus_id's year -> earliest covering-work year -> UNRESOLVED.
+        Returns (year|None, source). Deterministic; source kept for the honesty marker in the UI."""
+        y = _named_in_year(e.get('named_in'))
+        if y:
+            return y, 'named_in'
+        nic = e.get('named_in_corpus_id')
+        if nic:
+            wy = _work_year(nic)
+            if wy:
+                return wy, 'named_in_corpus_id'
+        years = [wy for wy in (_work_year(w) for w in works_set) if wy]
+        if years:
+            return min(years), 'earliest_work'
+        return None, 'unresolved'
+
     def node_of(e, realm):
         works = set(coverage.get(e['id'], set()))
         if e.get('named_in_corpus_id'):
             works.add(e['named_in_corpus_id'])
         qa = [t.split(':', 1)[1] for t in (e.get('tags') or []) if t.startswith('qa:')]
+        year, year_source = derive_year(e, works)
         return dict(id=e['id'], name=e['name'], realm=realm, kind=e['kind'],
                     aka=e.get('aka') or [], what=e.get('what', ''), problem=e.get('problem', ''),
                     named_in=e.get('named_in', ''), named_in_corpus_id=e.get('named_in_corpus_id'),
                     tags=[t for t in (e.get('tags') or []) if not t.startswith('qa:')],
                     qa=qa, borderline=e.get('borderline'), confidence=e.get('confidence', 'established'),
-                    works=sorted(works))
+                    works=sorted(works), year=year, yearSource=year_source)
 
     nodes = [node_of(e, 'design') for e in design] + [node_of(e, 'architecture') for e in arch]
     node_ids = set()
@@ -149,11 +192,35 @@ def run(DATA):
 
     design_cov = sum(1 for n in nodes if n['realm'] == 'design' and n['works'])
     arch_cov = sum(1 for n in nodes if n['realm'] == 'architecture' and n['works'])
+
+    # ---- element chronology (WV3 Elements mode) + work-identity reconciliation (WVX) ----
+    datable = sum(1 for n in nodes if n['year'])
+    year_sources = collections.Counter(n['yearSource'] for n in nodes)
+    decade_hist = collections.Counter(
+        ('%ds' % (n['year'] // 10 * 10)) if n['year'] and n['year'] >= 1980
+        else ('≤1979' if n['year'] else 'UNRESOLVED') for n in nodes)
+    shared = corpus_ids & set(work_meta)
+    drift = []
+    for wid in sorted(shared):
+        cy, wy = _year_num(corpus_meta[wid].get('year')), _year_num(work_meta[wid].get('year'))
+        if cy and wy and cy != wy:
+            drift.append('%s: corpus %s vs pass8 %s' % (wid, cy, wy))
+    print('  element chronology: %d/%d datable (%s); %d UNRESOLVED.'
+          % (datable, len(nodes), dict(year_sources), len(nodes) - datable))
+    print('  work identity: %d works shared corpus∩pass8; %d year discrepancies (corpus authoritative).'
+          % (len(shared), len(drift)))
+    for d in drift[:12]:
+        print('    - ' + d)
+
     meta = dict(designCount=len(design_ids), archCount=len(arch_ids), total=len(nodes),
                 edgeCount=len(edges), crossRealm=len(cross), sourced=sourced, editorial=len(edges) - sourced,
                 bridged=len(bridged), unbridgedCount=len(unb_ids),
                 designCovered=design_cov, archCovered=arch_cov,
-                designKinds=dict(designKinds), archKinds=dict(archKinds))
+                designKinds=dict(designKinds), archKinds=dict(archKinds),
+                datable=datable, undated=len(nodes) - datable,
+                yearSources=dict(year_sources), decadeHist=dict(decade_hist),
+                worksReferenced=len(works), worksCorpus=sum(1 for w in works.values() if w['corpusNode']),
+                worksPass8Only=sum(1 for w in works.values() if not w['corpusNode']))
 
     out = dict(realms=REALM_LABEL, nodes=nodes, edges=edges, unbridged=unbridged, works=works, meta=meta)
     os.makedirs(DATA, exist_ok=True)

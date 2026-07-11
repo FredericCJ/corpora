@@ -11,13 +11,13 @@ SWE.state = (function () {
    * @property {string} q @property {string} ver @property {string} corpus @property {string|null} sel
    * @property {string} atlas atlas mode for the atlas view (''→archipelago)
    * @property {string} island focused island id at atlas L1 ('' → L0)
+   * @property {string} tlmode Chronology mode ('' | 'bok' → literature; 'elements' → element years)
    */
-  const KEYS = ['view', 'q', 'ver', 'corpus', 'sel', 'atlas', 'island'];
+  const KEYS = ['view', 'q', 'ver', 'corpus', 'sel', 'atlas', 'island', 'tlmode'];
   /** @type {State} */
-  const s = { view: 'graph', q: '', ver: '', corpus: '', sel: null, atlas: '', island: '' };
+  const s = { view: 'graph', q: '', ver: '', corpus: '', sel: null, atlas: '', island: '', tlmode: '' };
   /** @type {Array<(s:State,changed:string[])=>void>} */
   const subs = [];
-  let muted = false;
 
   function toHash() {
     const p = new URLSearchParams();
@@ -35,10 +35,19 @@ SWE.state = (function () {
     const changed = [];
     for (const k in patch) if (s[k] !== patch[k]) { s[k] = patch[k]; changed.push(k); }
     if (!changed.length) return;
-    muted = true; location.hash = toHash(); muted = false;
+    location.hash = toHash();       // self-write; the hashchange it triggers re-parses to the same state → no-op
     emit(changed);
   }
-  window.addEventListener('hashchange', () => { if (muted) return; fromHash(); emit(KEYS.slice()); });
+  // hashchange fires ASYNCHRONOUSLY (after set() returns), so a mute-flag cannot span the gap — it would be
+  // reset before the event runs, and every set() would re-emit ALL keys (remounting the active view). Instead
+  // the handler diffs the parsed hash against current state: a self-write emits nothing; a genuine back/forward
+  // navigation emits only the keys that actually changed.
+  window.addEventListener('hashchange', () => {
+    const before = {}; for (const k of KEYS) before[k] = s[k];
+    fromHash();
+    const changed = KEYS.filter((k) => s[k] !== before[k]);
+    if (changed.length) emit(changed);
+  });
   fromHash();
   return { get: () => s, set, on: (fn) => subs.push(fn), KEYS };
 })();

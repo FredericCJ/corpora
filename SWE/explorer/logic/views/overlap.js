@@ -7,6 +7,7 @@ SWE.views.overlap = (function () {
 
   function mount(root, ctx) {
     const corpus = ctx.corpus;
+    const elByWork = (ctx.elIndex && ctx.elIndex.elementsByWork) || {};
     const vp = U.el('div', { class: 'vp' });
     vp.appendChild(U.el('div', { class: 'vp-head' },
       U.el('h2', { text: 'Cross-corpus overlap — the graft points' }),
@@ -47,10 +48,13 @@ SWE.views.overlap = (function () {
         const ul = U.el('ul', { class: 'rows' });
         list.sort((a, b) => a.title.localeCompare(b.title)).forEach((n) => {
           const li = U.el('li', { class: 'row' + (n.id === curSel ? ' sel' : ''), tabindex: '0', role: 'button',
-            onclick: () => SWE.state.set({ sel: n.id }), onkeydown: (ev) => { if (ev.key === 'Enter') SWE.state.set({ sel: n.id }); } });
+            onclick: () => SWE.state.set({ sel: n.id }), onkeydown: (ev) => { if (ev.key === 'Enter' || ev.key === ' ') { ev.preventDefault(); SWE.state.set({ sel: n.id }); } } });
           if (n.id === curSel) li.style.outline = '2px solid var(--ink)';
           const l1 = U.el('div'); l1.appendChild(U.el('span', { class: 't', text: U.shortTitle(n.title, 64) }));
           U.badges(n).slice(0, 2).forEach((b) => l1.appendChild(b));
+          const teaches = (elByWork[n.id] || []).length;
+          if (teaches) l1.appendChild(U.el('span', { class: 'teach', text: '◇' + teaches,
+            title: 'grounds ' + teaches + ' element' + (teaches > 1 ? 's' : '') }));
           li.appendChild(l1);
           li.appendChild(U.el('div', { class: 'a', text: n.authors + ' · ' + n.year }));
           const l3 = U.el('div'); U.corpusChips(n).forEach((c) => l3.appendChild(c)); li.appendChild(l3);

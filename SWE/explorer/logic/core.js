@@ -115,6 +115,20 @@ SWE.core = (function () {
     for (const s in b) b[s].sort((x, y) => (U.yearNum(x) || 0) - (U.yearNum(y) || 0) || x.title.localeCompare(y.title));
     return b;
   }
+  // element chronology (WV3 Elements mode): decade strata over the build-derived element year
+  // (`year`/`yearSource`, build_elements.py). No LIVING stratum — an element is dated by when its
+  // concept was named, not by document upkeep. UNRESOLVED holds the 89 the waterfall could not date.
+  const ELEMENT_STRATA = ['≤ 1979', '1980s', '1990s', '2000s', '2010s', '2020s', 'UNRESOLVED'];
+  function elementStratumOf(el) {
+    const y = el.year;
+    if (typeof y !== 'number' || !y) return 'UNRESOLVED';
+    return y < 1980 ? '≤ 1979' : (Math.floor(y / 10) * 10 + 's');
+  }
+  function elementStrataBuckets(nodes) {
+    const b = {}; for (const n of nodes) (b[elementStratumOf(n)] = b[elementStratumOf(n)] || []).push(n);
+    for (const s in b) b[s].sort((x, y) => (x.year || 0) - (y.year || 0) || x.name.localeCompare(y.name));
+    return b;
+  }
 
   // ── overlap ─────────────────────────────────────────────────────────────────────────
   function overlapPairs(multi) {
@@ -138,5 +152,6 @@ SWE.core = (function () {
 
   return { buildIndex, visibleIds, adjacency, closure, graphLayout, NW, NH,
            valuesOf, passLocal, facetCount, STRATA, stratumOf, strataBuckets,
+           ELEMENT_STRATA, elementStratumOf, elementStrataBuckets,
            overlapPairs, signatureGroups, anchorsFor, primaryCorpus };
 })();

@@ -47,6 +47,7 @@
     // tabs — five work models, a divider, then the four element views
     const tabs = $('tabs');
     VIEW_ORDER.forEach((id, i) => {
+      if (id === WORK_VIEWS[0]) tabs.appendChild(U.el('span', { class: 'tab-sep', 'aria-hidden': 'true', text: 'body of knowledge' }));
       if (id === EL_VIEWS[0]) tabs.appendChild(U.el('span', { class: 'tab-sep', 'aria-hidden': 'true', text: 'elements' }));
       if (ATLAS_VIEWS.length && id === ATLAS_VIEWS[0]) tabs.appendChild(U.el('span', { class: 'tab-sep', 'aria-hidden': 'true', text: 'atlas' }));
       tabs.appendChild(U.el('button', { role: 'tab', id: 'tab-' + id, 'aria-selected': 'false',
@@ -87,6 +88,7 @@
       if (changed.includes('view')) mountView(s.view);
       if (['q', 'ver', 'corpus'].some((k) => changed.includes(k))) { syncControls(s); if (current && current.applyFilters) current.applyFilters(); }
       if (changed.includes('sel') && current && current.onSelect) current.onSelect(s.sel);
+      if (changed.includes('tlmode') && current && current.applyFilters) current.applyFilters();
       if (['atlas', 'island'].some((k) => changed.includes(k)) && current && current.onNav) current.onNav();
     });
 

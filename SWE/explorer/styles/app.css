@@ -54,10 +54,12 @@ h2,h3,h4{margin:0}
 .gnode{cursor:pointer}
 .gnode rect{stroke-width:1.1}
 .gnode.anchor rect{stroke-width:2.4}
+.gnode.major rect{stroke-width:1.8}                /* core/survey works — emphasized, below anchors */
 .gnode.unv rect{stroke-dasharray:4 3}
 .gnode text{font-family:var(--sans);pointer-events:none}
 .gnode .nm{font-weight:600;fill:var(--ink)}
 .gnode .yr{font-family:var(--mono);fill:var(--mut)}
+.gnode .teach{font-family:var(--mono);fill:#0F6D5B;opacity:.9}  /* ◇N — grounds N elements */
 .gnode.dim{opacity:.12}
 .gnode.off{opacity:.08}
 .gnode.sel rect{stroke:var(--ink);stroke-width:3}
@@ -104,6 +106,17 @@ h2,h3,h4{margin:0}
   background:var(--panel);border-radius:var(--rad-sm);padding:.25rem .4rem;margin:0 0 .3rem;cursor:pointer}
 .nodechip:hover{border-color:var(--ink)}
 .nodechip .yy{font-family:var(--mono);font-size:.6rem;color:var(--mut);margin-left:.3rem}
+.nodechip.p8{border-left-style:dashed}            /* pass-8 work: referenced, outside the reading corpus */
+.nodechip .yy.p8tag{color:var(--faint);font-style:italic}
+.nodechip .yy.dsrc{color:var(--faint)}            /* element year not from the naming citation (≈ / ·id) */
+/* Chronology mode toggle (WV3): BoK ↔ Elements segmented control in the view head */
+.tl-headrow{display:flex;align-items:center;justify-content:space-between;gap:1rem}
+.tl-modes{display:inline-flex;border:1px solid var(--line);border-radius:var(--rad-sm);overflow:hidden;flex:none}
+.tl-modes .seg{font-family:var(--mono);font-size:.6rem;letter-spacing:.08em;text-transform:uppercase;
+  padding:.24rem .62rem;background:var(--panel);color:var(--mut);border:0;border-left:1px solid var(--line);cursor:pointer}
+.tl-modes .seg:first-child{border-left:0}
+.tl-modes .seg:hover{color:var(--ink)}
+.tl-modes .seg.on{background:var(--ink);color:#fff}
 
 /* ── overlap: matrix + signature groups ── */
 .overlap{position:absolute;inset:0;display:grid;grid-template-columns:auto 1fr;gap:1rem;padding:.7rem .9rem 1.2rem;min-height:0}
@@ -120,6 +133,16 @@ table.matrix td.hot{background:var(--c-cpp-bg);font-weight:700;color:var(--c-cpp
 .anchor-col{flex:1 1 0;min-width:10rem;display:flex;flex-direction:column;min-height:0}
 .anchor-col .h{font-family:var(--mono);font-size:.62rem;color:var(--mut);padding:.2rem 0 .35rem;border-bottom:2px solid;flex:none}
 .anchor-scroll{overflow-y:auto;padding-top:.4rem;flex:1;min-height:0}
+/* ── Body-of-Knowledge element bridge (WV2/WV4/WV5): teach chips · reach assurance · atlas-hub footer ── */
+.chip.teach-chip{cursor:pointer;color:var(--accent);border-color:var(--accent)}
+.chip.teach-chip:hover{background:var(--accent);color:#fff}
+.rescount .reach{color:var(--faint)}
+.overlap .teach{font-family:var(--mono);color:#0F6D5B;font-size:.7rem;opacity:.9;margin-left:.35rem}
+.anchor-body{display:flex;flex-direction:column;min-height:0}
+.anchor-body>.anchor-cols{position:relative;inset:auto;flex:1 1 auto;min-height:0}   /* make room for the footer below */
+.anchor-atlas-foot{flex:none;padding:.4rem .9rem;border-top:1px solid var(--line-2);font-size:.7rem;color:var(--mut)}
+.anchor-atlas-foot .atlas-link{color:var(--accent);cursor:pointer;text-decoration:underline dotted;text-underline-offset:2px}
+.anchor-atlas-foot .atlas-link:hover{color:var(--accent-ink)}
 .card{background:var(--panel);border:1px solid var(--line-2);border-left:3px solid var(--accent);border-radius:0 var(--rad) var(--rad) 0;padding:.4rem .5rem;margin:0 0 .45rem;cursor:pointer}
 .card:hover{border-color:var(--ink)}
 .card h4{font-family:var(--serif);font-weight:500;font-size:.82rem;margin-bottom:.15rem}
@@ -175,6 +198,7 @@ table.matrix td.hot{background:var(--c-cpp-bg);font-weight:700;color:var(--c-cpp
    models keep the strict single-viewport form. */
 .tabs .tab-sep{align-self:center;font-family:var(--mono);font-size:.54rem;letter-spacing:.14em;
   text-transform:uppercase;color:var(--faint);padding:0 .2rem 0 .5rem;border-left:1px solid var(--line);margin-left:.25rem}
+.tabs .tab-sep:first-child{border-left:0;margin-left:0;padding-left:0}  /* leading BoK group label sits flush */
 .chip.re-design{color:#0F6D5B;border-color:#BFE0D2;background:#E9F4EE}
 .chip.re-arch{color:#6D4AA6;border-color:#D8C9EC;background:#F1EAFB}
 .chip.re-design.sel,.chip.re-arch.sel{outline:2px solid var(--ink)}

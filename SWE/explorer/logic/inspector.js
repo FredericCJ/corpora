@@ -75,6 +75,32 @@ SWE.inspector = (function () {
       log.debug('inspect element', { id });
     }
 
+    // pass-8 referenced work (BoK chronology ·p8) — outside the reading corpus, but grounds elements.
+    function renderWork(wid) {
+      const w = EL.works[wid]; if (!w) { renderOverview(); return; }
+      host.replaceChildren();
+      host.appendChild(U.el('button', { class: 'close', text: 'Esc ✕', 'aria-label': 'Close detail', onclick: () => SWE.state.set({ sel: null }) }));
+      host.appendChild(U.el('h2', { text: w.title || wid }));
+      const cite = U.el('p', { class: 'cite' });
+      cite.appendChild(U.el('span', { text: (w.authors || 'authors unrecorded') + ' · ' }));
+      cite.appendChild(U.el('b', { text: w.year || '—' }));
+      host.appendChild(cite);
+      const bl = U.el('div');
+      bl.appendChild(U.el('span', { class: 'badge ' + (w.verification === 'verified' ? 'ver' : 'unv'), text: w.verification || 'unverified' }));
+      bl.appendChild(U.el('span', { class: 'chip', text: 'referenced work · pass 8' }));
+      if (w.type && w.type !== 'other') bl.appendChild(U.el('span', { class: 'chip', text: w.type }));
+      host.appendChild(bl);
+      host.appendChild(U.el('p', { class: 'muted', text: 'Referenced by the element layer but outside the seven-pass reading corpus (·p8) — it grounds one or more design/architecture elements without itself being part of the reading graph.' }));
+      const taught = (EL && EL.elementsByWork[wid]) || [];
+      host.appendChild(U.el('div', { class: 'sec', text: 'defines elements — pass 8 (' + taught.length + ')' }));
+      if (taught.length) {
+        const tw = U.el('div');
+        taught.forEach((eid) => { const en = EL.byId[eid]; const c = selLink(eid, (en ? en.name : eid).slice(0, 40)); c.classList.add('chip'); tw.appendChild(c); });
+        host.appendChild(tw);
+      } else host.appendChild(U.el('p', { class: 'empty', text: 'none' }));
+      log.debug('inspect pass-8 work', { id: wid });
+    }
+
     function provBadge(src) { return U.el('span', { class: 'badge ' + (src === 'editorial' ? 'edi' : 'rep'), text: PROV[src] || src }); }
 
     function edgeRow(e, dir) {
@@ -334,6 +360,8 @@ SWE.inspector = (function () {
     function render() {
       const s = SWE.state.get();
       if (s.sel && EL && EL.byId[s.sel]) { renderElement(s.sel); return; }
+      if (s.sel && byId[s.sel]) { renderNode(s.sel); return; }
+      if (s.sel && EL && EL.works[s.sel] && !EL.works[s.sel].corpusNode) { renderWork(s.sel); return; }
       if (s.sel) { renderNode(s.sel); return; }
       if (AT && ATLAS_VIEWS.has(s.view)) { s.island && AT.islandById[s.island] ? renderIsland(s.island) : renderAtlasOverview(); return; }
       if (EL && CE.VIEWS[s.view]) { renderElementOverview(s.view); return; }

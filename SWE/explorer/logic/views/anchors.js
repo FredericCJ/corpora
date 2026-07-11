@@ -16,9 +16,20 @@ SWE.views.anchors = (function () {
     vp.appendChild(U.el('div', { class: 'vp-head' },
       U.el('h2', { text: 'Anchors & spine — where each corpus tells you to start' }),
       U.el('p', { class: 'note', text: 'The union of the reports’ own emphasis marks: swa ★ target/canonical anchors, Simulink TARGET designations, emb-ops KEY / ABSOLUTELY KEY flags. Carried fact, not our ranking. Corpora asserting no anchor facet say so explicitly.' })));
-    const body = U.el('div', { class: 'vp-body' });
+    const body = U.el('div', { class: 'vp-body anchor-body' });
     const cols = U.el('div', { class: 'anchor-cols' });
-    body.appendChild(cols); vp.appendChild(body); root.appendChild(vp);
+    body.appendChild(cols);
+    // Concept-layer bridge: the analogue of a report-flagged anchor is an atlas island hub —
+    // each of the 21 islands has one hub element. Present only when the atlas layer was built.
+    if (ctx.atlas) {
+      const foot = U.el('div', { class: 'anchor-atlas-foot' },
+        U.el('span', { text: 'Concept-layer analogue — the atlas’s ' + ctx.atlas.islands.length + ' island hubs: one hub element anchors each island. ' }));
+      const link = U.el('span', { class: 'atlas-link', tabindex: '0', role: 'link', text: 'open the atlas →',
+        onclick: () => SWE.state.set({ view: 'el-atlas' }),
+        onkeydown: (ev) => { if (ev.key === 'Enter') SWE.state.set({ view: 'el-atlas' }); } });
+      foot.appendChild(link); body.appendChild(foot);
+    }
+    vp.appendChild(body); root.appendChild(vp);
 
     function render() {
       const vis = C.visibleIds(corpus, SWE.state.get());
@@ -37,7 +48,7 @@ SWE.views.anchors = (function () {
         } else {
           anchors.forEach((n) => {
             const card = U.el('div', { class: 'card', tabindex: '0', role: 'button', 'data-id': n.id,
-              onclick: () => SWE.state.set({ sel: n.id }), onkeydown: (ev) => { if (ev.key === 'Enter') SWE.state.set({ sel: n.id }); } });
+              onclick: () => SWE.state.set({ sel: n.id }), onkeydown: (ev) => { if (ev.key === 'Enter' || ev.key === ' ') { ev.preventDefault(); SWE.state.set({ sel: n.id }); } } });
             card.style.borderLeftColor = U.corpusStroke(c);
             if (n.id === curSel) card.style.outline = '2px solid var(--ink)';
             card.appendChild(U.el('h4', { text: U.shortTitle(n.title, 52) }));

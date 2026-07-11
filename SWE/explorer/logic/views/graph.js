@@ -5,15 +5,49 @@ SWE.views.graph = (function () {
   'use strict';
   const U = SWE.util, C = SWE.core;
 
+  function significance(n, deg) {
+    const r = n.role || [];
+    return (r.includes('anchor') ? 1e6 : 0) + ((r.includes('core') || r.includes('survey')) ? 1e3 : 0) + (deg[n.id] || 0);
+  }
+  /** WV1 guard — ≤100 works per corpus band: keep the most significant (anchor ▸ core/survey ▸ degree)
+   *  and return the edge subset among kept nodes. Pushes 'short +N' into `capped` for any trimmed band
+   *  (surfaced in the header, never silent). Deterministic; no-op while every band ≤ 100. */
+  function capBands(nodes, edges, capped) {
+    const inGraph = new Set(); edges.forEach((e) => { inGraph.add(e.s); inGraph.add(e.t); });
+    const byBand = {}, deg = {};
+    edges.forEach((e) => { deg[e.s] = (deg[e.s] || 0) + 1; deg[e.t] = (deg[e.t] || 0) + 1; });
+    for (const n of nodes) if (inGraph.has(n.id)) { const c = C.primaryCorpus(n, U.CORPUS_ORDER); (byBand[c] = byBand[c] || []).push(n); }
+    let trimmed = false; const keep = new Set();
+    for (const c of U.CORPUS_ORDER) {
+      const list = (byBand[c] || []).slice();
+      if (list.length <= 100) { list.forEach((n) => keep.add(n.id)); continue; }
+      list.sort((a, b) => significance(b, deg) - significance(a, deg) || a.id.localeCompare(b.id));
+      list.slice(0, 100).forEach((n) => keep.add(n.id));
+      capped.push(U.CORPUS_SHORT[c] + ' +' + (list.length - 100)); trimmed = true;
+    }
+    return trimmed ? edges.filter((e) => keep.has(e.s) && keep.has(e.t)) : edges;
+  }
+
   function mount(root, ctx) {
     const corpus = ctx.corpus, relations = ctx.relations, log = ctx.log || SWE.log.NOOP;
     const byId = {}; corpus.nodes.forEach((n) => { byId[n.id] = n; });
-    const adj = C.adjacency(relations.edges);
+    const elByWork = (ctx.elIndex && ctx.elIndex.elementsByWork) || {};
+    // WV1: the reading graph draws the MAJOR works — those standing in a typed reading relation
+    // (≈258 of 468). The ≤100/band guard keeps any one corpus legible (non-binding today; max ≈74).
+    const capped = [];
+    const drawnEdges = capBands(corpus.nodes, relations.edges, capped);
+    const adj = C.adjacency(drawnEdges);
+    const drawnIds = new Set(); drawnEdges.forEach((e) => { drawnIds.add(e.s); drawnIds.add(e.t); });
 
     const vp = U.el('div', { class: 'vp' });
+    const headNote = 'The major works — those standing in a typed reading relation (' + drawnIds.size + ' of ' + corpus.nodes.length
+      + '). ★ report-flagged anchors carry the accent border, core/survey works are emphasized, ◇N marks works that ground N elements. '
+      + 'Bands are corpora (layout computed: theme, then year); hover or focus traces the full cycle-safe closure. The '
+      + (corpus.nodes.length - drawnIds.size) + ' works with no reading relation are reachable in Chronology, Facets, and search.'
+      + (capped.length ? ' · capped to 100/band: ' + capped.join(', ') : '');
     vp.appendChild(U.el('div', { class: 'vp-head' },
-      U.el('h2', { text: 'Reading graph — typed relations with provenance' }),
-      U.el('p', { class: 'note', text: 'Bands are corpora; layout is computed (theme, then year). Hover or focus a resource to trace its full ancestor + descendant closure — cycles are followed and terminate. Click for the full citation and per-edge justifications. Dashed border = unverified; ★ = report-flagged anchor.' })));
+      U.el('h2', { text: 'Reading graph — the major works & how they relate' }),
+      U.el('p', { class: 'note', text: headNote })));
     const body = U.el('div', { class: 'vp-body' });
     const board = U.el('div', { class: 'board' });
     body.appendChild(board); vp.appendChild(body); root.appendChild(vp);
@@ -29,7 +63,7 @@ SWE.views.graph = (function () {
     function build() {
       const rect = board.getBoundingClientRect();
       const aspect = rect.width > 0 && rect.height > 0 ? rect.width / rect.height : 1.4;
-      const L = C.graphLayout(corpus.nodes, relations.edges, U.CORPUS_ORDER, { aspect });
+      const L = C.graphLayout(corpus.nodes, drawnEdges, U.CORPUS_ORDER, { aspect });
       const NW = L.box.NW, NH = L.box.NH, pos = L.positions;
       log.debug('graph layout', { w: Math.round(L.width), h: Math.round(L.height), aspect: +aspect.toFixed(2) });
 
@@ -50,7 +84,7 @@ SWE.views.graph = (function () {
       }
 
       edgeEls = [];
-      for (const e of relations.edges) {
+      for (const e of drawnEdges) {
         const a = pos[e.s], b = pos[e.t]; if (!a || !b) continue;
         const c1 = { x: a.x + NW / 2, y: a.y + NH / 2 }, c2 = { x: b.x + NW / 2, y: b.y + NH / 2 };
         const p1 = anchorPt(c2, c1, NW, NH), p2 = anchorPt(c1, c2, NW, NH);
@@ -66,9 +100,11 @@ SWE.views.graph = (function () {
       nodeEls = {};
       for (const id in pos) {
         const n = byId[id], p = pos[id], c = C.primaryCorpus(n, U.CORPUS_ORDER);
-        const isAnchor = (n.role || []).includes('anchor');
-        const g = U.svg('g', { class: 'gnode' + (n.verification === 'unverified' ? ' unv' : '') + (isAnchor ? ' anchor' : ''),
-          tabindex: '0', role: 'button', 'aria-label': `${n.title}, ${n.year}, ${n.verification}` });
+        const role = n.role || [], isAnchor = role.includes('anchor');
+        const isMajor = isAnchor || role.includes('core') || role.includes('survey');
+        const teaches = (elByWork[id] || []).length;
+        const g = U.svg('g', { class: 'gnode' + (n.verification === 'unverified' ? ' unv' : '') + (isAnchor ? ' anchor' : '') + (isMajor && !isAnchor ? ' major' : ''),
+          tabindex: '0', role: 'button', 'aria-label': `${n.title}, ${n.year}, ${n.verification}${teaches ? ', grounds ' + teaches + ' elements' : ''}` });
         const r = U.svg('rect', { x: p.x, y: p.y, width: NW, height: NH, rx: 8 });
         r.style.fill = U.corpusFill(c); r.style.stroke = isAnchor ? 'var(--accent)' : U.corpusStroke(c);
         g.appendChild(r);
@@ -77,6 +113,12 @@ SWE.views.graph = (function () {
         const yr = U.svg('text', { x: p.x + 9, y: p.y + NH - 8, class: 'yr', 'font-size': 9 });
         yr.textContent = n.year + (isAnchor ? ' ★' : '') + (n.automotive ? ' ◆' : '');
         g.appendChild(yr);
+        if (teaches) {
+          const tm = U.svg('text', { x: p.x + NW - 7, y: p.y + NH - 8, class: 'teach', 'text-anchor': 'end', 'font-size': 9 });
+          tm.textContent = '◇' + teaches;
+          const tt = U.svg('title'); tt.textContent = 'grounds ' + teaches + ' element' + (teaches > 1 ? 's' : '') + ' — click to inspect';
+          tm.appendChild(tt); g.appendChild(tm);
+        }
         const tip = U.svg('title'); tip.textContent = n.title + ' — ' + n.authors + ' (' + n.year + ')';
         g.appendChild(tip);
         g.addEventListener('mouseenter', () => highlight(id));

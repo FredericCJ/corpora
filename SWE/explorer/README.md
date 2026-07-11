@@ -12,7 +12,7 @@ Eleven views over two fact layers.
   elements**, wired by **2811 typed relations** (v1.1): the 878 cross-realm bridge edges (703/709 design
   elements bridged, 6 unbridged) plus a dense within-realm fabric (1267 design-sibling + 666
   architecture-sibling edges) researched by the atlas endeavour; 1023 sourced : 1788 editorial.
-  Element→work coverage from **pass 8** (399 works; 706/709 design elements reach a catalog-grade work).
+  Element→work coverage from **pass 8** (417 works; 706/709 design elements reach a catalog-grade work).
 - **Atlas:** the enriched graph consolidated into **21 named emergent islands** (`../ATLAS_SPEC.md`),
   drawn as a semantic-zoom map. Deliverables: `../design_elements_catalog_v1_0.md`,
   `../architecture_elements_catalog_v1_0.md`, `../design_elements_corpus_v1_0.md`,
@@ -23,11 +23,22 @@ Eleven views over two fact layers.
   **authorize page/inner scroll** (element-scale navigability) — the one relaxation of the
   single-viewport rule, per the mission (target display unchanged; the work models are not degraded).
 
-## The five work models
+## Body of Knowledge — the five work models
 
-1. **Reading graph** — typed, cyclic-capable relations; hover traces a work's full closure.
+The five historic work models are now the named group **Body of Knowledge**, the first stop on the
+tab spine **Body of Knowledge · Elements · Atlas** = *the literature · the concepts · the map*. Every
+Body-of-Knowledge view now surfaces per-work **element-teach counts** ("◇N" — a work grounds N
+elements) and routes into the element and atlas layers (work → elements → atlas), while staying
+work-centric.
+
+1. **Reading graph — the major works** — the ~258 works standing in a typed reading relation, with
+   anchors (★) / core / survey emphasized and "◇N" marking works that ground N elements; the ~210
+   edgeless works remain reachable via Chronology, Facets, and search.
 2. **Facets** — corpus × branch × theme × type lattice with live counts.
-3. **Chronology** — strata by year of last publication (living docs are their own stratum).
+3. **Chronology** — two modes: **Body of Knowledge**, the ~804 referenced works (468 reading-corpus
+   works ∪ 336 works referenced only by the element layer, marked "·p8") by year of last publication;
+   and **Elements**, the 1083 design & architecture elements by build-derived concept year (994
+   datable, 89 UNRESOLVED). Living + UNRESOLVED strata as before.
 4. **Overlap** — the graft points: works claimed by ≥2 passes (pairwise matrix + signatures).
 5. **Anchors** — each corpus's own report-flagged entry points.
 
@@ -75,9 +86,13 @@ python build/build.py     # records_*.py + edges.py → corpus/relations; build_
 element layer. `build/build_elements.py` consumes `build/element_src/` (the committed encoded form of
 the four Phase 1–3 deliverables — as `records_*.py` are the encoded form of the pass reports) and
 **self-audits, failing loud** on any mismatch: (a) **completeness** — built design/architecture/edge
-counts must equal the deliverable `.md` census headers (709 / 374 / 1132); (b) the **bridging rule**
+counts must equal the deliverable `.md` census headers (709 / 374 / 2811); (b) the **bridging rule**
 — every design element carries ≥1 cross-realm edge or is on the unbridged list, and that list must
-match the bridge report's. It emits `data/elements.{json,js}`.
+match the bridge report's. It emits `data/elements.{json,js}`. `build_elements.py` also emits a
+per-element **year / yearSource** (waterfall: `named_in` year → `named_in_corpus_id` year → earliest
+covering-work year → UNRESOLVED), and the `elements.json` meta gained `datable`, `undated`,
+`yearSources`, `decadeHist`, `worksReferenced` (417), `worksCorpus` (81), and `worksPass8Only` (336)
+— the fields the Chronology **Elements** mode and the ·p8 Body-of-Knowledge stratum are built from.
 
 ## Checker & tests (committed contract)
 

@@ -8,7 +8,7 @@ opened in an overlay drawer. This rebuild re-architects it for **one 16:9 4K / 2
 viewport with no page scroll**, and brings the code into line with the `web_manifests` principles
 (functional core / imperative shell, injected-logger seam, parse-at-boundary, single-source state,
 global failure backstops, strict-JSDoc typing). The **data layer and Python `build/` are
-unchanged** — 421 hand-transcribed resources and 204 provenance-tagged edges are the substance and
+unchanged** — 468 hand-transcribed resources and 261 provenance-tagged edges are the substance and
 were kept verbatim; only the presentation and logic layers were rewritten.
 
 ## Constraints honored
@@ -37,7 +37,9 @@ explorer/
 ├─ data/                      DATA (generated; no behavior)
 │  ├─ corpus.js  corpus.json            fact layer   (SWE.corpus)
 │  ├─ relations.js  relations.json      inference layer (SWE.relations: edges + view defs)
-│  ├─ elements.js  elements.json        element layer (SWE.elements: 1083 nodes + 2811 relations)
+│  ├─ elements.js  elements.json        element layer (SWE.elements: 1083 nodes + 2811 relations;
+│  │                                    per-element year/yearSource; meta datable/undated/yearSources/
+│  │                                    decadeHist + worksReferenced 417 / worksCorpus 81 / worksPass8Only 336)
 │  ├─ atlas.js  atlas.json              atlas layer (SWE.atlas: 21 islands + precomputed geography)
 │  ├─ corpus_report.md  adjustments.md  phase-1/2 logs
 ├─ logic/                     LOGIC (runtime; no hard-coded resources)
@@ -70,7 +72,7 @@ manifest asks for — the core runs in any JS runtime; the shells own the side e
 
 ## The single-viewport layout engine (graph)
 
-Hand layout of ~200 connected nodes / 204 edges is impossible. `core.graphLayout(nodes, edges,
+Hand layout of ~258 connected nodes / 261 edges is impossible. `core.graphLayout(nodes, edges,
 corpusOrder, {aspect})` is pure: it groups drawn nodes into corpus bands, sizes each band's grid,
 **shelf-packs** the bands, and sweeps ~28 target widths to pick the packing whose aspect best
 matches the pane — so the SVG fills with minimal letterboxing. `views/graph.js` projects it and
@@ -109,6 +111,7 @@ subscription. The DOM is a projection — state is never read back out of it.
 - **No build step at view time** — the Python `build/` is offline data generation only.
 - **Classic scripts + `window.SWE`, not ES modules** — native `import` from `file://` is CORS-blocked; this is the `file://`-safe form of modularity, load order fixed in `index.html`.
 - **Five models, one at a time in the stage; persistent inspector** — the single-viewport form of the original's tabbed views + overlay drawer. The per-provenance edge catalog that used to sit below the board is now reachable per-node in the inspector (every edge is visible via its endpoints), and the global edge-kind legend lives in the inspector overview.
+- **Body of Knowledge tab group** — the five work models are named **Body of Knowledge**, the first stop on the tab spine **Body of Knowledge · Elements · Atlas** (*the literature · the concepts · the map*). Each Body-of-Knowledge view surfaces per-work element-teach counts ("◇N") and routes into the element/atlas layers; Chronology carries a Body-of-Knowledge / Elements mode toggle over the `build_elements.py`-emitted per-element year/yearSource.
 - **Telemetry: none** (observability §6 honest default).
 
 ## Honesty affordances
