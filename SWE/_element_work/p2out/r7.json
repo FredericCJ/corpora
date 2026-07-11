@@ -1,0 +1,1066 @@
+{
+ "route": "r7",
+ "works": [
+  {
+   "action": "membership",
+   "id": "preschern",
+   "title": "Fluent C: Principles, Practices, and Patterns",
+   "authors": "Christopher Preschern",
+   "year": "2022",
+   "venue": "O'Reilly",
+   "ident": null,
+   "type": "book",
+   "role": "anchor",
+   "verification": "verified",
+   "unresolved": null,
+   "note": "Route anchor for C code-structure idioms: #ifdef escape patterns, include guards, file/module organization, data lifetime & ownership (stateless vs global-state modules), Handle (opaque pointer).",
+   "elements": [
+    "escaping-ifdef-hell",
+    "include-guard",
+    "organizing-files-in-modular-c-programs",
+    "software-module-with-global-state",
+    "stateless-software-module",
+    "opaque-pointer"
+   ]
+  },
+  {
+   "action": "membership",
+   "id": "preschernplop",
+   "title": "Patterns for... EuroPLoP/PLoP pattern-paper series (organizing files; returning error information)",
+   "authors": "Christopher Preschern",
+   "year": "UNRESOLVED",
+   "venue": "EuroPLoP/PLoP",
+   "ident": null,
+   "type": "paper",
+   "role": "core",
+   "verification": "verified",
+   "unresolved": null,
+   "note": "The EuroPLoP paper form of the file-organization and data-lifetime pattern sets; names the route's module-state patterns.",
+   "elements": [
+    "organizing-files-in-modular-c-programs",
+    "software-module-with-global-state",
+    "stateless-software-module"
+   ]
+  },
+  {
+   "action": "membership",
+   "id": "hanson",
+   "title": "C Interfaces and Implementations: Techniques for Creating Reusable Software",
+   "authors": "David R. Hanson",
+   "year": "1996",
+   "venue": "Addison-Wesley",
+   "ident": null,
+   "type": "book",
+   "role": "core",
+   "verification": "verified",
+   "unresolved": null,
+   "note": "Canonical treatment of interface/implementation separation in C via opaque pointer types (ADTs behind incomplete types).",
+   "elements": [
+    "opaque-pointer"
+   ]
+  },
+  {
+   "action": "membership",
+   "id": "tornhill",
+   "title": "Patterns in C",
+   "authors": "Adam Tornhill",
+   "year": "UNRESOLVED",
+   "venue": "Leanpub",
+   "ident": null,
+   "type": "book",
+   "role": "core",
+   "verification": "verified",
+   "unresolved": null,
+   "note": "Names the same mechanism First-Class ADT; C-idiom treatment of opaque handles.",
+   "elements": [
+    "opaque-pointer"
+   ]
+  },
+  {
+   "action": "membership",
+   "id": "ldd3",
+   "title": "Linux Device Drivers, 3rd ed.",
+   "authors": "Jonathan Corbet, Alessandro Rubini, Greg Kroah-Hartman",
+   "year": "2005",
+   "venue": "O'Reilly",
+   "ident": null,
+   "type": "book",
+   "role": "core",
+   "verification": "verified",
+   "unresolved": null,
+   "note": "Teaches container_of embedded-struct navigation as the kernel's intrusive-composition idiom.",
+   "elements": [
+    "container-of"
+   ]
+  },
+  {
+   "action": "membership",
+   "id": "noblesmallmem",
+   "title": "Small Memory Software: Patterns for Systems with Limited Memory",
+   "authors": "James Noble, Charles Weir",
+   "year": "2000",
+   "venue": "Addison-Wesley",
+   "ident": null,
+   "type": "book",
+   "role": "core",
+   "verification": "verified",
+   "unresolved": null,
+   "note": "Pattern-catalog source for the memory-constrained data-representation trio: Compression, Multiple Representations, Packed Data.",
+   "elements": [
+    "compression",
+    "multiple-representations",
+    "packed-data"
+   ]
+  },
+  {
+   "action": "membership",
+   "id": "iglberger",
+   "title": "C++ Software Design: Design Principles and Patterns for High-Quality Software",
+   "authors": "Klaus Iglberger",
+   "year": "2022",
+   "venue": "O'Reilly",
+   "ident": null,
+   "type": "book",
+   "role": "core",
+   "verification": "verified",
+   "unresolved": null,
+   "note": "Modern C++ treatment that names and teaches Type Erasure and value semantics as design tools.",
+   "elements": [
+    "type-erasure",
+    "value-semantics"
+   ]
+  },
+  {
+   "action": "membership",
+   "id": "carnieregisters",
+   "title": "Making things do stuff (register access using C++ templates), Parts 1-8",
+   "authors": "Glennan Carnie",
+   "year": "2017",
+   "venue": "Feabhas Sticky Bits blog",
+   "ident": null,
+   "type": "blog",
+   "role": "advanced",
+   "verification": "verified",
+   "unresolved": null,
+   "note": "Embedded register-access series that applies tag dispatching and traits machinery in anger; the route's named_in for tag dispatching.",
+   "elements": [
+    "tag-dispatching",
+    "traits-class"
+   ]
+  },
+  {
+   "action": "membership",
+   "id": "coreguidelines",
+   "title": "C++ Core Guidelines",
+   "authors": "Bjarne Stroustrup, Herb Sutter (eds.)",
+   "year": "living",
+   "venue": "isocpp.github.io",
+   "ident": null,
+   "type": "tooling-doc",
+   "role": "core",
+   "verification": "verified",
+   "unresolved": null,
+   "note": "House C++ rules covering SF.8 include guards and Enum.3 prefer enum class (type-safe enumeration).",
+   "elements": [
+    "include-guard",
+    "type-safe-enum"
+   ]
+  },
+  {
+   "action": "membership",
+   "id": "meyerseffmod",
+   "title": "Effective Modern C++",
+   "authors": "Scott Meyers",
+   "year": "2014",
+   "venue": "O'Reilly",
+   "ident": null,
+   "type": "book",
+   "role": "core",
+   "verification": "verified",
+   "unresolved": null,
+   "note": "Item 10 (prefer scoped enums) is the modern C++ statement of the type-safe enum idiom.",
+   "elements": [
+    "type-safe-enum"
+   ]
+  },
+  {
+   "action": "membership",
+   "id": "fowlerref",
+   "title": "Refactoring",
+   "authors": "Martin Fowler",
+   "year": "UNRESOLVED",
+   "venue": "Addison-Wesley",
+   "ident": null,
+   "type": "book",
+   "role": "core",
+   "verification": "verified",
+   "unresolved": null,
+   "note": "Extract Function/Method is the operational route to Composed Method; Replace Method with Method Object (2nd ed. Replace Function with Command) and Replace Loop with Pipeline carry Method Object and Collection Pipeline.",
+   "elements": [
+    "composed-method",
+    "method-object",
+    "collection-pipeline"
+   ]
+  },
+  {
+   "action": "membership",
+   "id": "embeddedrust",
+   "title": "The Embedded Rust Book / Discovery book / Ferrous Systems materials",
+   "authors": "Rust Embedded WG",
+   "year": "living",
+   "venue": "docs.rust-embedded.org",
+   "ident": null,
+   "type": "course",
+   "role": "core",
+   "verification": "verified",
+   "unresolved": null,
+   "note": "Static Guarantees chapter is the living catalog-grade treatment of typestate programming (peripheral state machines in types).",
+   "elements": [
+    "typestate"
+   ]
+  },
+  {
+   "action": "new",
+   "id": "becksbpp",
+   "title": "Smalltalk Best Practice Patterns",
+   "authors": "Kent Beck",
+   "year": "1996",
+   "venue": "Prentice Hall / Pearson",
+   "ident": "ISBN 978-0-13-476904-2",
+   "type": "book",
+   "role": "anchor",
+   "verification": "verified",
+   "unresolved": null,
+   "note": "Names Composed Method and Method Object among its 92 coding patterns; the origin catalog for method-level structure.",
+   "elements": [
+    "composed-method",
+    "method-object"
+   ]
+  },
+  {
+   "action": "new",
+   "id": "hodgsontoggles",
+   "title": "Feature Toggles (aka Feature Flags)",
+   "authors": "Pete Hodgson",
+   "year": "2017",
+   "venue": "martinfowler.com",
+   "ident": "https://martinfowler.com/articles/feature-toggles.html",
+   "type": "guide",
+   "role": "anchor",
+   "verification": "verified",
+   "unresolved": null,
+   "note": "The catalog-grade treatment of feature flags: toggle taxonomy (release/experiment/ops/permissioning), toggle points, routers, configuration.",
+   "elements": [
+    "feature-flag"
+   ]
+  },
+  {
+   "action": "new",
+   "id": "vlissideshatching",
+   "title": "Pattern Hatching: Design Patterns Applied",
+   "authors": "John Vlissides",
+   "year": "1998",
+   "venue": "Addison-Wesley",
+   "ident": "ISBN 978-0-201-43293-0",
+   "type": "book",
+   "role": "core",
+   "verification": "verified",
+   "unresolved": null,
+   "note": "Names and works through Generation Gap (keeping generated and hand-written code apart via subclassing).",
+   "elements": [
+    "generation-gap"
+   ]
+  },
+  {
+   "action": "new",
+   "id": "erlangcodereplace",
+   "title": "Erlang/OTP System Documentation - Compilation and Code Loading",
+   "authors": "Ericsson AB",
+   "year": "living",
+   "venue": "erlang.org",
+   "ident": "https://www.erlang.org/doc/system/code_loading.html",
+   "type": "official-doc",
+   "role": "anchor",
+   "verification": "verified",
+   "unresolved": null,
+   "note": "Authoritative current/old-code semantics for hot code replacement; the reference realization of hot code reload.",
+   "elements": [
+    "hot-code-reload"
+   ]
+  },
+  {
+   "action": "new",
+   "id": "meyersxmacros",
+   "title": "The New C: X Macros",
+   "authors": "Randy Meyers",
+   "year": "2001",
+   "venue": "C/C++ Users Journal 19(5)",
+   "ident": null,
+   "type": "paper",
+   "role": "core",
+   "verification": "unverified",
+   "unresolved": "primary page (CUJ/Dr. Dobb's defunct; archived full text at jacobfilipp.com/DrDobbs loaded live this session)",
+   "note": "The naming article for the X-macro parallel-table technique; full archived text confirms title/author/issue.",
+   "elements": [
+    "x-macro"
+   ]
+  },
+  {
+   "action": "new",
+   "id": "clrs",
+   "title": "Introduction to Algorithms, 3rd ed.",
+   "authors": "Thomas H. Cormen, Charles E. Leiserson, Ronald L. Rivest, Clifford Stein",
+   "year": "2009",
+   "venue": "MIT Press",
+   "ident": "https://www.cs.dartmouth.edu/~thc/",
+   "type": "book",
+   "role": "core",
+   "verification": "verified",
+   "unresolved": null,
+   "note": "Standard textbook treatment of graph representations (adjacency list vs adjacency matrix, ch. 22); edition/years confirmed on Cormen's page (MIT Press site blocks fetch, ISBN omitted).",
+   "elements": [
+    "adjacency-list-adjacency-matrix"
+   ]
+  },
+  {
+   "action": "new",
+   "id": "nystromgpp",
+   "title": "Game Programming Patterns",
+   "authors": "Robert Nystrom",
+   "year": "2014",
+   "venue": "genever benning / gameprogrammingpatterns.com",
+   "ident": "https://gameprogrammingpatterns.com/",
+   "type": "book",
+   "role": "anchor",
+   "verification": "verified",
+   "unresolved": null,
+   "note": "Route anchor for game-domain representation mechanisms: Bytecode (ch. 11) and Data Locality (ch. 17) confirmed in live ToC.",
+   "elements": [
+    "bytecode",
+    "data-locality"
+   ]
+  },
+  {
+   "action": "new",
+   "id": "abadicolumn",
+   "title": "The Design and Implementation of Modern Column-Oriented Database Systems",
+   "authors": "Daniel Abadi, Peter Boncz, Stavros Harizopoulos, Stratos Idreos, Samuel Madden",
+   "year": "2013",
+   "venue": "Foundations and Trends in Databases 5(3)",
+   "ident": "DOI 10.1561/1900000024",
+   "type": "paper",
+   "role": "survey",
+   "verification": "verified",
+   "unresolved": null,
+   "note": "The catalog-grade survey of columnar storage: column layouts, dictionary and light-weight compression encodings, PAX hybrid; verified via author-hosted final PDF.",
+   "elements": [
+    "column-oriented-storage",
+    "dictionary-encoding",
+    "pax-page-layout"
+   ]
+  },
+  {
+   "action": "new",
+   "id": "plopd4",
+   "title": "Pattern Languages of Program Design 4",
+   "authors": "Neil Harrison, Brian Foote, Hans Rohnert (eds.)",
+   "year": "1999",
+   "venue": "Addison-Wesley",
+   "ident": "ISBN 978-0-201-43304-3",
+   "type": "book",
+   "role": "core",
+   "verification": "verified",
+   "unresolved": null,
+   "note": "PLoPD volume carrying Noble's Basic Relationship Patterns (Relationship Object) and Carlson/Estepp/Fowler Temporal Patterns (Temporal Property).",
+   "elements": [
+    "relationship-object",
+    "temporal-property"
+   ]
+  },
+  {
+   "action": "new",
+   "id": "plopd5",
+   "title": "Pattern Languages of Program Design 5",
+   "authors": "Dragos Manolescu, Markus Voelter, James Noble (eds.)",
+   "year": "2006",
+   "venue": "Addison-Wesley",
+   "ident": "ISBN 978-0-321-32194-7",
+   "type": "book",
+   "role": "core",
+   "verification": "verified",
+   "unresolved": null,
+   "note": "PLoPD volume carrying the Comparand pattern (cheap identity testing via dedicated comparison values).",
+   "elements": [
+    "comparand"
+   ]
+  },
+  {
+   "action": "new",
+   "id": "evansddd",
+   "title": "Domain-Driven Design: Tackling Complexity in the Heart of Software",
+   "authors": "Eric Evans",
+   "year": "2003",
+   "venue": "Addison-Wesley",
+   "ident": "ISBN 978-0-321-12521-7",
+   "type": "book",
+   "role": "core",
+   "verification": "verified",
+   "unresolved": null,
+   "note": "Defines Entity and Value Object as domain-modeling building blocks (identity-bearing vs attribute-defined objects).",
+   "elements": [
+    "entity",
+    "value-object"
+   ]
+  },
+  {
+   "action": "new",
+   "id": "fowlerpeaa",
+   "title": "Patterns of Enterprise Application Architecture",
+   "authors": "Martin Fowler with Rice, Foemmel, Hieatt, Mee, Stafford",
+   "year": "2002",
+   "venue": "Addison-Wesley",
+   "ident": "ISBN 0321127420",
+   "type": "book",
+   "role": "anchor",
+   "verification": "verified",
+   "unresolved": null,
+   "note": "Enterprise pattern catalog naming Data Transfer Object, Record Set, and Value Object at design-element altitude.",
+   "elements": [
+    "data-transfer-object",
+    "record-set",
+    "value-object"
+   ]
+  },
+  {
+   "action": "new",
+   "id": "fowleranalysis",
+   "title": "Analysis Patterns: Reusable Object Models",
+   "authors": "Martin Fowler",
+   "year": "1996",
+   "venue": "Addison-Wesley",
+   "ident": "ISBN 0201895420",
+   "type": "book",
+   "role": "core",
+   "verification": "verified",
+   "unresolved": null,
+   "note": "Names Quantity (value + unit) and Range as reusable domain-model representations.",
+   "elements": [
+    "quantity",
+    "range"
+   ]
+  },
+  {
+   "action": "new",
+   "id": "fowlerpipeline",
+   "title": "Collection Pipeline",
+   "authors": "Martin Fowler",
+   "year": "2015",
+   "venue": "martinfowler.com",
+   "ident": "https://martinfowler.com/articles/collection-pipeline/",
+   "type": "guide",
+   "role": "core",
+   "verification": "verified",
+   "unresolved": null,
+   "note": "The naming treatment of the collection-pipeline style (map/filter/reduce composition) across languages.",
+   "elements": [
+    "collection-pipeline"
+   ]
+  },
+  {
+   "action": "new",
+   "id": "hamming1950",
+   "title": "Error Detecting and Error Correcting Codes",
+   "authors": "Richard W. Hamming",
+   "year": "1950",
+   "venue": "Bell System Technical Journal 29(2)",
+   "ident": null,
+   "type": "paper",
+   "role": "core",
+   "verification": "unverified",
+   "unresolved": "doi/primary page (IEEE/Wiley archive not loadable this session)",
+   "note": "The founding paper of error-correcting codes (Hamming codes/distance); canonical naming source.",
+   "elements": [
+    "error-correcting-codes"
+   ]
+  },
+  {
+   "action": "new",
+   "id": "chambersself89",
+   "title": "An Efficient Implementation of Self, a Dynamically-Typed Object-Oriented Language Based on Prototypes",
+   "authors": "Craig Chambers, David Ungar, Elgin Lee",
+   "year": "1989",
+   "venue": "OOPSLA '89 / SIGPLAN Notices 24(10)",
+   "ident": "https://bibliography.selflanguage.org/implementation.html",
+   "type": "paper",
+   "role": "core",
+   "verification": "verified",
+   "unresolved": null,
+   "note": "Introduces implementation-level maps - the mechanism V8 later popularized as hidden classes; verified on the official Self bibliography site.",
+   "elements": [
+    "hidden-class"
+   ]
+  },
+  {
+   "action": "new",
+   "id": "luebkelod",
+   "title": "Level of Detail for 3D Graphics",
+   "authors": "David Luebke, Martin Reddy, Jonathan Cohen, Amitabh Varshney, Benjamin Watson, Robert Huebner",
+   "year": "2003",
+   "venue": "Morgan Kaufmann",
+   "ident": "ISBN 1-55860-838-9",
+   "type": "book",
+   "role": "core",
+   "verification": "verified",
+   "unresolved": null,
+   "note": "The book-length canonical treatment of level-of-detail representations; ISBN confirmed on official companion site lodbook.com.",
+   "elements": [
+    "level-of-detail"
+   ]
+  },
+  {
+   "action": "new",
+   "id": "westecs",
+   "title": "Evolve Your Hierarchy: Refactoring Game Entities with Components",
+   "authors": "Mick West",
+   "year": "2007",
+   "venue": "Cowboy Programming (blog)",
+   "ident": "https://cowboyprogramming.com/2007/01/05/evolve-your-heirachy/",
+   "type": "blog",
+   "role": "anchor",
+   "verification": "verified",
+   "unresolved": null,
+   "note": "The seminal article moving game entities from deep hierarchies to component composition; the route's ECS naming source.",
+   "elements": [
+    "entity-component-system"
+   ]
+  },
+  {
+   "action": "new",
+   "id": "rustpatterns",
+   "title": "Rust Design Patterns",
+   "authors": "rust-unofficial contributors",
+   "year": "living",
+   "venue": "rust-unofficial.github.io",
+   "ident": "https://rust-unofficial.github.io/patterns/",
+   "type": "guide",
+   "role": "survey",
+   "verification": "verified",
+   "unresolved": null,
+   "note": "Living Rust idiom catalog; Newtype entry confirmed live (zero-cost opaque wrapper types).",
+   "elements": [
+    "newtype"
+   ]
+  },
+  {
+   "action": "new",
+   "id": "trpl",
+   "title": "The Rust Programming Language",
+   "authors": "Steve Klabnik, Carol Nichols",
+   "year": "living",
+   "venue": "doc.rust-lang.org",
+   "ident": "https://doc.rust-lang.org/book/",
+   "type": "official-doc",
+   "role": "core",
+   "verification": "verified",
+   "unresolved": null,
+   "note": "Official book; ch. 6 teaches enums (tagged unions) and Option<T>, ch. 19 the newtype pattern - the mainstream systems-language realization of these representations.",
+   "elements": [
+    "tagged-union",
+    "option-type",
+    "newtype"
+   ]
+  },
+  {
+   "action": "new",
+   "id": "rustapiguidelines",
+   "title": "Rust API Guidelines",
+   "authors": "Rust library team",
+   "year": "living",
+   "venue": "rust-lang.github.io",
+   "ident": "https://rust-lang.github.io/api-guidelines/future-proofing.html",
+   "type": "official-doc",
+   "role": "core",
+   "verification": "verified",
+   "unresolved": null,
+   "note": "C-SEALED documents the sealed-trait idiom (private supertrait blocking downstream impls) as an API future-proofing rule.",
+   "elements": [
+    "sealed-trait"
+   ]
+  },
+  {
+   "action": "new",
+   "id": "piercetapl",
+   "title": "Types and Programming Languages",
+   "authors": "Benjamin C. Pierce",
+   "year": "2002",
+   "venue": "MIT Press",
+   "ident": "ISBN 0-262-16209-1",
+   "type": "book",
+   "role": "core",
+   "verification": "verified",
+   "unresolved": null,
+   "note": "Textbook foundation for sums/variants - the type-theoretic account of tagged unions; verified on the author's official book page.",
+   "elements": [
+    "tagged-union"
+   ]
+  },
+  {
+   "action": "new",
+   "id": "ailamakipax01",
+   "title": "Weaving Relations for Cache Performance",
+   "authors": "Anastassia Ailamaki, David J. DeWitt, Mark D. Hill, Marios Skounakis",
+   "year": "2001",
+   "venue": "VLDB 2001",
+   "ident": "http://www.vldb.org/conf/2001/P169.pdf",
+   "type": "paper",
+   "role": "core",
+   "verification": "verified",
+   "unresolved": null,
+   "note": "Introduces the PAX (Partition Attributes Across) page layout; verified via the official VLDB proceedings PDF.",
+   "elements": [
+    "pax-page-layout"
+   ]
+  },
+  {
+   "action": "new",
+   "id": "wilsonkakkad92",
+   "title": "Pointer Swizzling at Page Fault Time: Efficiently and Compatibly Supporting Huge Address Spaces on Standard Hardware",
+   "authors": "Paul R. Wilson, Sheetal V. Kakkad",
+   "year": "1992",
+   "venue": "Int. Workshop on Object Orientation in Operating Systems (IWOOOS '92)",
+   "ident": null,
+   "type": "paper",
+   "role": "core",
+   "verification": "unverified",
+   "unresolved": "doi/primary page (only aggregator copies located this session)",
+   "note": "Canonical paper on swizzling persistent object references to raw pointers at fault time.",
+   "elements": [
+    "pointer-swizzling"
+   ]
+  },
+  {
+   "action": "new",
+   "id": "gudeman93",
+   "title": "Representing Type Information in Dynamically Typed Languages",
+   "authors": "David Gudeman",
+   "year": "1993",
+   "venue": "University of Arizona TR 93-27",
+   "ident": null,
+   "type": "report",
+   "role": "survey",
+   "verification": "unverified",
+   "unresolved": "primary page (UA TR archive not loadable; identity corroborated via citing literature only)",
+   "note": "The canonical survey of pointer tagging, NaN-boxing and related runtime type-representation schemes.",
+   "elements": [
+    "pointer-tagging"
+   ]
+  },
+  {
+   "action": "new",
+   "id": "petrovdbint",
+   "title": "Database Internals: A Deep-Dive into How Distributed Data Systems Work",
+   "authors": "Alex Petrov",
+   "year": "2019",
+   "venue": "O'Reilly",
+   "ident": "https://www.databass.dev/",
+   "type": "book",
+   "role": "core",
+   "verification": "verified",
+   "unresolved": null,
+   "note": "Storage-engine half teaches on-disk page organization including slotted pages; confirmed via the book's official site (ISBN not shown there, omitted).",
+   "elements": [
+    "slotted-page-layout"
+   ]
+  },
+  {
+   "action": "new",
+   "id": "ivanovatlas",
+   "title": "Practical Texture Atlases",
+   "authors": "Ivan-Assen Ivanov",
+   "year": "2006",
+   "venue": "Game Developer (Gamasutra)",
+   "ident": "https://www.gamedeveloper.com/programming/practical-texture-atlases",
+   "type": "blog",
+   "role": "core",
+   "verification": "verified",
+   "unresolved": null,
+   "note": "Practitioner treatment of texture-atlas packing and batching; the NVIDIA 2004 whitepaper names the technique but has no stable primary page.",
+   "elements": [
+    "texture-atlas"
+   ]
+  },
+  {
+   "action": "new",
+   "id": "blocheffjava",
+   "title": "Effective Java, 3rd ed.",
+   "authors": "Joshua Bloch",
+   "year": "2017",
+   "venue": "Addison-Wesley",
+   "ident": "ISBN 978-0-13-468599-1",
+   "type": "book",
+   "role": "core",
+   "verification": "verified",
+   "unresolved": null,
+   "note": "Item 34 (enums instead of int constants) carries the Type-Safe Enum idiom Bloch named in the 1st ed. (2001, Item 21).",
+   "elements": [
+    "type-safe-enum"
+   ]
+  },
+  {
+   "action": "new",
+   "id": "reactdocs",
+   "title": "React documentation - Reconciliation",
+   "authors": "Meta / React team",
+   "year": "living",
+   "venue": "legacy.reactjs.org / react.dev",
+   "ident": "https://legacy.reactjs.org/docs/reconciliation.html",
+   "type": "official-doc",
+   "role": "anchor",
+   "verification": "verified",
+   "unresolved": null,
+   "note": "Official description of the virtual DOM diffing/reconciliation algorithm (O(n) heuristic, keys).",
+   "elements": [
+    "virtual-dom"
+   ]
+  },
+  {
+   "action": "new",
+   "id": "appelcwc",
+   "title": "Compiling with Continuations",
+   "authors": "Andrew W. Appel",
+   "year": "1991",
+   "venue": "Cambridge University Press",
+   "ident": "DOI 10.1017/CBO9780511609619",
+   "type": "book",
+   "role": "core",
+   "verification": "verified",
+   "unresolved": null,
+   "note": "The book-length treatment of continuation-passing style as a compiler intermediate representation.",
+   "elements": [
+    "continuation-passing-style"
+   ]
+  },
+  {
+   "action": "new",
+   "id": "posa4",
+   "title": "Pattern-Oriented Software Architecture Vol. 4: A Pattern Language for Distributed Computing",
+   "authors": "Frank Buschmann, Kevlin Henney, Douglas C. Schmidt",
+   "year": "2007",
+   "venue": "Wiley",
+   "ident": "https://www.dre.vanderbilt.edu/~schmidt/POSA/",
+   "type": "book",
+   "role": "core",
+   "verification": "verified",
+   "unresolved": null,
+   "note": "Carries Henney's value patterns incl. Copied Value; title/publisher/year confirmed on co-author Schmidt's official POSA page (ISBN omitted - Wiley page blocked).",
+   "elements": [
+    "copied-value"
+   ]
+  },
+  {
+   "action": "new",
+   "id": "huttonhaskell",
+   "title": "Programming in Haskell, 2nd ed.",
+   "authors": "Graham Hutton",
+   "year": "2016",
+   "venue": "Cambridge University Press",
+   "ident": "ISBN 978-1316626221",
+   "type": "book",
+   "role": "anchor",
+   "verification": "verified",
+   "unresolved": null,
+   "note": "Route anchor for FP idiom teaching: currying (ch. 4), algebraic data types incl. Maybe (ch. 8), monads (ch. 12); confirmed on the author's official CUP-linked page.",
+   "elements": [
+    "currying-partial-application",
+    "monad",
+    "option-type",
+    "tagged-union"
+   ]
+  },
+  {
+   "action": "new",
+   "id": "moggi91",
+   "title": "Notions of Computation and Monads",
+   "authors": "Eugenio Moggi",
+   "year": "1991",
+   "venue": "Information and Computation 93(1)",
+   "ident": "https://person.dibris.unige.it/moggi-eugenio/ftp/ic91.pdf",
+   "type": "paper",
+   "role": "advanced",
+   "verification": "verified",
+   "unresolved": null,
+   "note": "The paper that brought monads into programming-language semantics; verified via the author-hosted full text (title/author on first page).",
+   "elements": [
+    "monad"
+   ]
+  },
+  {
+   "action": "new",
+   "id": "reynolds72",
+   "title": "Definitional Interpreters for Higher-Order Programming Languages",
+   "authors": "John C. Reynolds",
+   "year": "1972",
+   "venue": "ACM Annual Conference 1972; reprinted Higher-Order and Symbolic Computation 11 (1998)",
+   "ident": "https://homepages.inf.ed.ac.uk/wadler/papers/papers-we-love/reynolds-definitional-interpreters-1998.pdf",
+   "type": "paper",
+   "role": "advanced",
+   "verification": "verified",
+   "unresolved": null,
+   "note": "Introduces defunctionalization (and CPS transformation of interpreters); verified via the hosted HOSC 1998 reprint full text.",
+   "elements": [
+    "defunctionalization"
+   ]
+  },
+  {
+   "action": "new",
+   "id": "plotkinpretnar09",
+   "title": "Handlers of Algebraic Effects",
+   "authors": "Gordon Plotkin, Matija Pretnar",
+   "year": "2009",
+   "venue": "ESOP 2009, LNCS 5502, pp. 80-94",
+   "ident": "DOI 10.1007/978-3-642-00590-9_7",
+   "type": "paper",
+   "role": "advanced",
+   "verification": "verified",
+   "unresolved": null,
+   "note": "The naming paper for effect handlers as the general mechanism behind exceptions, state, I/O and concurrency effects.",
+   "elements": [
+    "effect-handler"
+   ]
+  },
+  {
+   "action": "new",
+   "id": "vandevoordetemplates",
+   "title": "C++ Templates: The Complete Guide, 2nd ed.",
+   "authors": "David Vandevoorde, Nicolai M. Josuttis, Douglas Gregor",
+   "year": "2017",
+   "venue": "Addison-Wesley",
+   "ident": "ISBN 978-0-321-71412-1",
+   "type": "book",
+   "role": "anchor",
+   "verification": "verified",
+   "unresolved": null,
+   "note": "Route anchor for C++ template idioms: names and teaches SFINAE, traits, tag dispatching, typelists, EBCO, and expression templates in one catalog-grade reference.",
+   "elements": [
+    "sfinae",
+    "traits-class",
+    "tag-dispatching",
+    "typelist",
+    "empty-base-optimization-ebo",
+    "expression-templates"
+   ]
+  },
+  {
+   "action": "new",
+   "id": "swierstra08",
+   "title": "Data Types a la Carte",
+   "authors": "Wouter Swierstra",
+   "year": "2008",
+   "venue": "Journal of Functional Programming 18(4)",
+   "ident": "DOI 10.1017/S0956796808006758",
+   "type": "paper",
+   "role": "advanced",
+   "verification": "verified",
+   "unresolved": null,
+   "note": "Functional pearl assembling data types and interpreters from components via free monads; the route's free-monad source.",
+   "elements": [
+    "free-monad"
+   ]
+  },
+  {
+   "action": "new",
+   "id": "coplienadvcpp",
+   "title": "Advanced C++: Programming Styles and Idioms",
+   "authors": "James O. Coplien",
+   "year": "1991",
+   "venue": "Addison-Wesley",
+   "ident": "ISBN 978-0-201-54855-6",
+   "type": "book",
+   "role": "core",
+   "verification": "verified",
+   "unresolved": null,
+   "note": "The original C++ idioms catalog; names the functor (function object) idiom.",
+   "elements": [
+    "function-object"
+   ]
+  },
+  {
+   "action": "new",
+   "id": "alexandrescu",
+   "title": "Modern C++ Design: Generic Programming and Design Patterns Applied",
+   "authors": "Andrei Alexandrescu",
+   "year": "2001",
+   "venue": "Addison-Wesley",
+   "ident": "ISBN 978-0-201-70431-0",
+   "type": "book",
+   "role": "advanced",
+   "verification": "verified",
+   "unresolved": null,
+   "note": "Names Typelists (ch. 3) and generalized functors (ch. 5), with TypeTraits (ch. 2) - foundational C++ type-level idiom catalog.",
+   "elements": [
+    "typelist",
+    "function-object",
+    "traits-class"
+   ]
+  },
+  {
+   "action": "new",
+   "id": "bernhardtfcis",
+   "title": "Functional Core, Imperative Shell",
+   "authors": "Gary Bernhardt",
+   "year": "2012",
+   "venue": "Destroy All Software screencast (Classic Season 4)",
+   "ident": "https://www.destroyallsoftware.com/screencasts/catalog/functional-core-imperative-shell",
+   "type": "course",
+   "role": "anchor",
+   "verification": "verified",
+   "unresolved": null,
+   "note": "The naming screencast for the functional-core/imperative-shell structuring idiom; episode confirmed in the live catalog.",
+   "elements": [
+    "functional-core-imperative-shell"
+   ]
+  },
+  {
+   "action": "new",
+   "id": "fosterlenses",
+   "title": "Combinators for Bi-Directional Tree Transformations: A Linguistic Approach to the View Update Problem",
+   "authors": "J. Nathan Foster, Michael B. Greenwald, Jonathan T. Moore, Benjamin C. Pierce, Alan Schmitt",
+   "year": "2007",
+   "venue": "ACM TOPLAS 29(3)",
+   "ident": "https://www.cis.upenn.edu/~bcpierce/papers/lenses-toplas-final.pdf",
+   "type": "paper",
+   "role": "advanced",
+   "verification": "verified",
+   "unresolved": null,
+   "note": "The paper that dubbed bidirectional accessors lenses; verified via the author-hosted TOPLAS final text (DOI omitted - ACM DL blocked).",
+   "elements": [
+    "lens"
+   ]
+  },
+  {
+   "action": "new",
+   "id": "osmanijs",
+   "title": "Learning JavaScript Design Patterns, 2nd ed.",
+   "authors": "Addy Osmani",
+   "year": "2023",
+   "venue": "O'Reilly",
+   "ident": "https://patterns.addy.ie/",
+   "type": "book",
+   "role": "core",
+   "verification": "verified",
+   "unresolved": null,
+   "note": "Catalog-grade JS pattern book; Module and Revealing Module pattern chapters confirmed on the author's official online edition.",
+   "elements": [
+    "module-pattern"
+   ]
+  },
+  {
+   "action": "new",
+   "id": "leijenmeijer99",
+   "title": "Domain Specific Embedded Compilers",
+   "authors": "Daan Leijen, Erik Meijer",
+   "year": "1999",
+   "venue": "2nd USENIX Conference on Domain-Specific Languages (DSL'99)",
+   "ident": null,
+   "type": "paper",
+   "role": "advanced",
+   "verification": "unverified",
+   "unresolved": "primary page (USENIX pages returned 403 this session; listing seen in search index only)",
+   "note": "The paper that introduced phantom type variables for typing embedded DSL expressions.",
+   "elements": [
+    "phantom-type"
+   ]
+  },
+  {
+   "action": "new",
+   "id": "ingerman61",
+   "title": "Thunks: A Way of Compiling Procedure Statements with Some Comments on Procedure Declarations",
+   "authors": "P. Z. Ingerman",
+   "year": "1961",
+   "venue": "Communications of the ACM 4(1)",
+   "ident": null,
+   "type": "paper",
+   "role": "core",
+   "verification": "unverified",
+   "unresolved": "doi (ACM DL blocked this session)",
+   "note": "The naming paper for thunks (delayed-evaluation closures for call-by-name argument passing).",
+   "elements": [
+    "thunk"
+   ]
+  },
+  {
+   "action": "new",
+   "id": "stromyemini86",
+   "title": "Typestate: A Programming Language Concept for Enhancing Software Reliability",
+   "authors": "Robert E. Strom, Shaula Yemini",
+   "year": "1986",
+   "venue": "IEEE Transactions on Software Engineering SE-12(1)",
+   "ident": null,
+   "type": "paper",
+   "role": "advanced",
+   "verification": "unverified",
+   "unresolved": "doi/primary page (IEEE Xplore not loadable this session)",
+   "note": "The naming paper for typestate; the Embedded Rust Book membership carries the living realization.",
+   "elements": [
+    "typestate"
+   ]
+  },
+  {
+   "action": "new",
+   "id": "carettetagless09",
+   "title": "Finally Tagless, Partially Evaluated: Tagless Staged Interpreters for Simpler Typed Languages",
+   "authors": "Jacques Carette, Oleg Kiselyov, Chung-chieh Shan",
+   "year": "2009",
+   "venue": "Journal of Functional Programming 19(5), pp. 509-543",
+   "ident": "https://okmij.org/ftp/tagless-final/index.html",
+   "type": "paper",
+   "role": "advanced",
+   "verification": "verified",
+   "unresolved": null,
+   "note": "The naming paper for the tagless-final embedding style; JFP citation confirmed on Kiselyov's official tagless-final page.",
+   "elements": [
+    "tagless-final"
+   ]
+  },
+  {
+   "action": "new",
+   "id": "kennedyunits",
+   "title": "Types for Units-of-Measure: Theory and Practice",
+   "authors": "Andrew Kennedy",
+   "year": "2010",
+   "venue": "CEFP 2009, LNCS 6299, pp. 268-305",
+   "ident": "DOI 10.1007/978-3-642-17685-2_8",
+   "type": "paper",
+   "role": "core",
+   "verification": "verified",
+   "unresolved": null,
+   "note": "Definitive treatment of units-of-measure types (theory + the F# realization); subsumes Kennedy's 1996 dissertation line of work.",
+   "elements": [
+    "units-of-measure-types"
+   ]
+  },
+  {
+   "action": "new",
+   "id": "morecppidioms",
+   "title": "More C++ Idioms",
+   "authors": "Wikibooks contributors",
+   "year": "living",
+   "venue": "en.wikibooks.org",
+   "ident": "https://en.wikibooks.org/wiki/More_C%2B%2B_Idioms",
+   "type": "guide",
+   "role": "survey",
+   "verification": "verified",
+   "unresolved": null,
+   "note": "Living C++ idiom catalog; EBO, SFINAE/enable-if, Type Erasure, Expression Template, and Tag Dispatching entries confirmed in live ToC.",
+   "elements": [
+    "empty-base-optimization-ebo",
+    "sfinae",
+    "type-erasure",
+    "expression-templates",
+    "tag-dispatching"
+   ]
+  }
+ ],
+ "gaps": [],
+ "notes": "All route elements are covered by >=1 catalog-grade work; no gaps. 12 memberships reuse exact corpus ids (membership verification is inherited from the corpus - no bibliographic re-verification performed, per contract). 48 new works: 41 verified against live primary/authoritative pages this session (publisher/InformIT pages, official project sites, author-hosted final texts, Springer/Cambridge DOIs, VLDB proceedings, Self bibliography); 7 unverified with the soft field named (meyersxmacros, hamming1950, wilsonkakkad92, gudeman93, leijenmeijer99, ingerman61, stromyemini86 - defunct venues or ACM/IEEE fetch blocks; each is nonetheless the canonical naming source for its element). Economy choices: C++ Templates 2nd ed. + More C++ Idioms jointly cover the C++ type-idiom cluster instead of six single-idiom articles (Veldhuizen 1995 and Myers 1995 C++ Report naming articles noted here in prose, not added as nodes); the Abadi et al. FnT survey covers the columnar cluster so C-Store (Stonebraker 2005) is not added as a separate node; Hutton's Programming in Haskell carries FP teaching coverage (currying/monads/Maybe/ADTs) so the Haskell 98 Report is not added. Corrections found during verification: Coplien's Advanced C++ is 1991 (route file said 1992); Beck SBPP is 1996 (route said 1997); PLoPD4 published Dec 1999 (copyright 2000); Kennedy units chapter is 2010 (LNCS 6299) covering the CEFP 2009 school."
+}

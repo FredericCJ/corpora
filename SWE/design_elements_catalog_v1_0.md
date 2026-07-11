@@ -3,7 +3,7 @@
 
 **Entry contract.** One element per mechanism (synonyms folded into `aka`); GoF/POSA names canonical for their patterns; every element is named in at least one citable published source (`named-in`; `corpus:<id>` = the work is already in `explorer/data/corpus.json`); `borderline` tags carry a one-line altitude rationale. ids are kebab-case, unique, stable — they become node ids in Phase 4.
 
-**Census.** **708 elements** across 22 kind axes · confidence: 456 established / 252 spot-checked / 0 needs-check · 157 borderline · 203 candidates parked to the architecture realm (Phase 3 input) · 316 notable exclusions.
+**Census.** **709 elements** across 22 kind axes · confidence: 457 established / 252 spot-checked / 0 needs-check · 157 borderline · 203 candidates parked to the architecture realm (Phase 3 input) · 316 notable exclusions.
 
 **Per-axis counts.**
 
@@ -18,7 +18,7 @@
 | caching-memoization | 16 |
 | error-handling | 50 |
 | robustness-security | 40 |
-| communication | 43 |
+| communication | 44 |
 | scheduling-time | 25 |
 | oo-patterns | 65 |
 | construction-api | 29 |
@@ -31,7 +31,7 @@
 | code-structure | 11 |
 | testing-constructs | 11 |
 | embedded-systems | 16 |
-| **total** | **708** |
+| **total** | **709** |
 
 Kind axes are scaffolding for coverage and readability only — no structural or ontological commitment.
 
@@ -2864,7 +2864,7 @@ Kind axes are scaffolding for coverage and readability only — no structural or
 - tags: embedded, safety, real-time, robustness, c, fault-detection
 
 
-## Communication — `communication` (43)
+## Communication — `communication` (44)
 
 ### acceptor-connector — Acceptor-Connector
 - aka: —
@@ -3089,6 +3089,14 @@ Kind axes are scaffolding for coverage and readability only — no structural or
 - problem: Direct data sharing between concurrent tasks needs locking and couples their timing; queued messages decouple producer and consumer and serialize access naturally.
 - named-in: corpus:douglasspatternsc — Design Patterns for Embedded Systems in C - Bruce Powel Douglass (2011)
 - tags: embedded, concurrency, messaging, rtos, os
+
+### message-translator — Message Translator
+- aka: payload transformer, message transformation
+- kind: communication
+- what: A filter placed between messaging participants that converts a message's data format/schema so sender and receiver can each keep their own model.
+- problem: Endpoints evolve and disagree on formats; translating in the channel decouples their data models without changing either endpoint.
+- named-in: Enterprise Integration Patterns - Hohpe & Woolf (2003)
+- tags: messaging
 
 ### nagle-s-algorithm — Nagle's Algorithm
 - aka: small-packet avoidance, tinygram avoidance, TCP_NODELAY (disable knob)
@@ -5805,6 +5813,7 @@ Kind axes are scaffolding for coverage and readability only — no structural or
 - OVERRIDE: privilege separation was parked to architecture by the security hunter but added borderline by the final adversarial hunt (Provos et al. 2003); editor keeps it as a borderline design element - a single program restructuring itself into privileged/unprivileged halves is implementable at program level; the platform-topology sense stays parked.
 - SATURATION RECORD: round 1 (19 scouts) 713 raw -> 577 merged; round 2 (10 hunters) +105; round 3 (5 strict lens hunters + mandated adversarial closer) +25, of which lens hunters contributed 2-4 each (mostly rejection records) and the adversarial closer 9 (4 borderline; its 5 non-borderline finds land in the pre-identified thin axes) - verdict SATURATED at the ~5-per-lens threshold; catalog frozen at 708. EWMA/median smoothing declined under the algorithm-zoo rule (flagged, editor concurs: DSP filter family belongs to the numerics/datastructures corpora).
 - CITATION AUDIT: cross-checked all corpus:<id> naming citations against work titles; 6 miscitations fixed (dependency-injection, traits-class, CRTP, external-polymorphism, RAII had corpus ids belonging to works that teach-but-do-not-name them; null-object had inherited the fused test-double citation - restored to Woolf, PLoP). Works that teach an element without naming it stay in the element sources for the pass-8 mapping, not in named-in.
+- POST-FREEZE REPAIR (2026-07-11, via Phase 3a audit): Message Translator (EIP 2003) was missed by the Phase 1 EIP scout's altitude triage though it passes cleanly (in-process payload transformation); added as design element 709 with eip as covering work. Flagged independently by the POSA1 architecture scout.
 
 ## Parked to the architecture realm (Phase 3 input)
 

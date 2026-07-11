@@ -1,0 +1,1087 @@
+{
+ "route": "r6",
+ "works": [
+  {
+   "action": "membership",
+   "id": "posa3",
+   "title": "Pattern-Oriented Software Architecture Vol. 3: Patterns for Resource Management",
+   "authors": "Kircher & Jain",
+   "year": "2004",
+   "venue": "Wiley",
+   "ident": null,
+   "type": "book",
+   "role": "core",
+   "verification": "verified",
+   "unresolved": null,
+   "note": "Names and teaches the Caching pattern (resource-management form) that anchors this route's caching axis; citation lives in corpus.",
+   "elements": [
+    "caching"
+   ]
+  },
+  {
+   "action": "membership",
+   "id": "white",
+   "title": "Making Embedded Systems: Design Patterns for Great Software, 2nd ed.",
+   "authors": "Elecia White",
+   "year": "2024",
+   "venue": "O'Reilly",
+   "ident": null,
+   "type": "book",
+   "role": "core",
+   "verification": "verified",
+   "unresolved": null,
+   "note": "Embedded math chapter teaches lookup tables (with interpolation) as the standard embedded space/time trade; upgrades the element from its bare-Wikipedia naming.",
+   "elements": [
+    "lookup-table"
+   ]
+  },
+  {
+   "action": "membership",
+   "id": "hanson",
+   "title": "C Interfaces and Implementations: Techniques for Creating Reusable Software",
+   "authors": "David R. Hanson",
+   "year": "1996",
+   "venue": "Addison-Wesley",
+   "ident": null,
+   "type": "book",
+   "role": "core",
+   "verification": "verified",
+   "unresolved": null,
+   "note": "Interface-per-chapter C treatments of the container floor: lists, hash tables (Table/Set), resizable arrays/sequences, bit vectors, stack-as-interface exemplar.",
+   "elements": [
+    "linked-list",
+    "hash-table",
+    "dynamic-array",
+    "bitmap-bitset",
+    "stack"
+   ]
+  },
+  {
+   "action": "membership",
+   "id": "noblesmallmem",
+   "title": "Small Memory Software: Patterns for Systems with Limited Memory",
+   "authors": "Noble & Weir",
+   "year": "2000",
+   "venue": "Addison-Wesley",
+   "ident": null,
+   "type": "book",
+   "role": "core",
+   "verification": "verified",
+   "unresolved": null,
+   "note": "Names Embedded Pointer and teaches intrusive linking as a memory-constrained design move.",
+   "elements": [
+    "embedded-pointer"
+   ]
+  },
+  {
+   "action": "membership",
+   "id": "etl",
+   "title": "Embedded Template Library (ETL)",
+   "authors": "John Wellbelove",
+   "year": "living",
+   "venue": "official project site",
+   "ident": null,
+   "type": "tooling-doc",
+   "role": "core",
+   "verification": "verified",
+   "unresolved": null,
+   "note": "The living canonical realization of fixed-capacity containers for C++ without heap; defines the element's contract (compile-time capacity, no allocation).",
+   "elements": [
+    "fixed-capacity-container"
+   ]
+  },
+  {
+   "action": "membership",
+   "id": "hanmer",
+   "title": "Patterns for Fault Tolerant Software",
+   "authors": "Robert Hanmer",
+   "year": "2007",
+   "venue": "Wiley",
+   "ident": null,
+   "type": "book",
+   "role": "core",
+   "verification": "verified",
+   "unresolved": null,
+   "note": "Names Checkpoint as a fault-tolerance pattern; the design-level treatment of periodic durable state capture.",
+   "elements": [
+    "checkpointing"
+   ]
+  },
+  {
+   "action": "membership",
+   "id": "progit",
+   "title": "Pro Git, 2nd ed.",
+   "authors": "Scott Chacon & Ben Straub",
+   "year": "2014",
+   "venue": "Apress / git-scm.com",
+   "ident": null,
+   "type": "book",
+   "role": "core",
+   "verification": "verified",
+   "unresolved": null,
+   "note": "Git Internals chapter is the canonical modern teaching of a content-addressable object store (hash-keyed blobs, write-once).",
+   "elements": [
+    "content-addressable-storage"
+   ]
+  },
+  {
+   "action": "new",
+   "id": "clrs",
+   "title": "Introduction to Algorithms, 4th ed.",
+   "authors": "Cormen, Leiserson, Rivest & Stein",
+   "year": "2022",
+   "venue": "MIT Press",
+   "ident": "ISBN 9780262046305",
+   "type": "book",
+   "role": "anchor",
+   "verification": "verified",
+   "unresolved": null,
+   "note": "The reference treatment for the container/algorithm floor of this route: elementary structures, hash tables, BSTs, heaps, B-trees, union-find, augmented/interval trees, amortized table doubling; 4th ed adds suffix-array material.",
+   "elements": [
+    "b-tree",
+    "binary-heap-priority-queue",
+    "binary-search-tree",
+    "disjoint-set-union-find",
+    "dynamic-array",
+    "hash-table",
+    "interval-tree",
+    "linked-list",
+    "queue-fifo",
+    "stack",
+    "suffix-array"
+   ]
+  },
+  {
+   "action": "new",
+   "id": "sedgewick",
+   "title": "Algorithms, 4th ed.",
+   "authors": "Robert Sedgewick & Kevin Wayne",
+   "year": "2011",
+   "venue": "Addison-Wesley; official site algs4.cs.princeton.edu",
+   "ident": "https://algs4.cs.princeton.edu/",
+   "type": "book",
+   "role": "core",
+   "verification": "verified",
+   "unresolved": null,
+   "note": "Teaching canon with live companion site; confirmed chapters for priority queues (2.4), BSTs (3.2), hash tables (3.4), tries (5.2), suffix arrays (6.3).",
+   "elements": [
+    "binary-heap-priority-queue",
+    "binary-search-tree",
+    "hash-table",
+    "queue-fifo",
+    "stack",
+    "suffix-array",
+    "trie"
+   ]
+  },
+  {
+   "action": "new",
+   "id": "taocp1",
+   "title": "The Art of Computer Programming, Vol. 1: Fundamental Algorithms, 3rd ed.",
+   "authors": "Donald E. Knuth",
+   "year": "1997",
+   "venue": "Addison-Wesley",
+   "ident": "ISBN 0-201-89683-4",
+   "type": "book",
+   "role": "advanced",
+   "verification": "verified",
+   "unresolved": null,
+   "note": "Names and exhaustively treats the linear-list family; the naming source for deque (2.2.1) and the deep treatment of linked allocation.",
+   "elements": [
+    "deque",
+    "linked-list"
+   ]
+  },
+  {
+   "action": "new",
+   "id": "okasaki",
+   "title": "Purely Functional Data Structures",
+   "authors": "Chris Okasaki",
+   "year": "1998",
+   "venue": "Cambridge University Press",
+   "ident": "doi:10.1017/CBO9780511530104",
+   "type": "book",
+   "role": "core",
+   "verification": "verified",
+   "unresolved": null,
+   "note": "The canonical treatment of persistent (immutable) data structure design: path copying, laziness, amortization under persistence.",
+   "elements": [
+    "persistent-data-structure"
+   ]
+  },
+  {
+   "action": "new",
+   "id": "kleppmann",
+   "title": "Designing Data-Intensive Applications",
+   "authors": "Martin Kleppmann",
+   "year": "2017",
+   "venue": "O'Reilly; official site dataintensive.net",
+   "ident": "https://dataintensive.net/",
+   "type": "book",
+   "role": "anchor",
+   "verification": "verified",
+   "unresolved": null,
+   "note": "Ch.3 storage/retrieval is the modern teaching path for this route's storage-engine elements: log-structured storage vs B-trees, LSM/SSTables, tombstones, secondary indexes, bitmap-encoded columns, WAL; ch.6 treats hash partitioning/consistent hashing.",
+   "elements": [
+    "b-tree",
+    "bitmap-index",
+    "consistent-hashing",
+    "log-structured-storage",
+    "lsm-tree",
+    "secondary-index",
+    "tombstone",
+    "write-ahead-log"
+   ]
+  },
+  {
+   "action": "new",
+   "id": "petrov",
+   "title": "Database Internals: A Deep-Dive into How Distributed Data Systems Work",
+   "authors": "Alex Petrov",
+   "year": "2019",
+   "venue": "O'Reilly",
+   "ident": "ISBN 9781492040347",
+   "type": "book",
+   "role": "anchor",
+   "verification": "verified",
+   "unresolved": null,
+   "note": "Storage-engine half teaches buffer pool/page cache and eviction (incl. LRU variants), B-trees and copy-on-write B-trees, WAL/recovery, LSM trees with memtable skip lists and Bloom filters — the named source for cache-eviction-policy.",
+   "elements": [
+    "b-tree",
+    "bloom-filter",
+    "buffer-pool",
+    "cache-eviction-policy",
+    "copy-on-write-b-tree",
+    "lru-cache",
+    "lsm-tree",
+    "skip-list",
+    "write-ahead-log"
+   ]
+  },
+  {
+   "action": "new",
+   "id": "hellersteindb",
+   "title": "Architecture of a Database System",
+   "authors": "Hellerstein, Stonebraker & Hamilton",
+   "year": "2007",
+   "venue": "Foundations and Trends in Databases 1(2)",
+   "ident": "doi:10.1561/1900000002",
+   "type": "paper",
+   "role": "survey",
+   "verification": "verified",
+   "unresolved": null,
+   "note": "Survey that names buffer pool as a DBMS component and situates buffer management among the shared components; loaded live from the author's Berkeley copy.",
+   "elements": [
+    "buffer-pool"
+   ]
+  },
+  {
+   "action": "new",
+   "id": "grayreuter",
+   "title": "Transaction Processing: Concepts and Techniques",
+   "authors": "Jim Gray & Andreas Reuter",
+   "year": "1992",
+   "venue": "Morgan Kaufmann / Elsevier",
+   "ident": "https://shop.elsevier.com/books/transaction-processing/gray/978-0-08-051955-5",
+   "type": "book",
+   "role": "core",
+   "verification": "verified",
+   "unresolved": null,
+   "note": "The durability canon: names and teaches write-ahead logging, group commit, checkpointing, and the shadow-page alternative it critiques.",
+   "elements": [
+    "checkpointing",
+    "group-commit",
+    "shadow-paging",
+    "write-ahead-log"
+   ]
+  },
+  {
+   "action": "new",
+   "id": "lorie1977",
+   "title": "Physical Integrity in a Large Segmented Database",
+   "authors": "Raymond A. Lorie",
+   "year": "1977",
+   "venue": "ACM TODS 2(1)",
+   "ident": null,
+   "type": "paper",
+   "role": "advanced",
+   "verification": "unverified",
+   "unresolved": "doi",
+   "note": "Naming source for shadow paging (System R's shadow-page recovery); kept as canon alongside the Gray-Reuter treatment.",
+   "elements": [
+    "shadow-paging"
+   ]
+  },
+  {
+   "action": "new",
+   "id": "lfs1992",
+   "title": "The Design and Implementation of a Log-Structured File System",
+   "authors": "Mendel Rosenblum & John K. Ousterhout",
+   "year": "1992",
+   "venue": "ACM TOCS 10(1); SOSP 1991",
+   "ident": "https://web.stanford.edu/~ouster/cgi-bin/papers/lfs.pdf",
+   "type": "paper",
+   "role": "core",
+   "verification": "verified",
+   "unresolved": null,
+   "note": "Naming paper for log-structured storage; first page loaded live from Ousterhout's Stanford copy.",
+   "elements": [
+    "log-structured-storage"
+   ]
+  },
+  {
+   "action": "new",
+   "id": "moerkotte1998",
+   "title": "Small Materialized Aggregates: A Light Weight Index Structure for Data Warehousing",
+   "authors": "Guido Moerkotte",
+   "year": "1998",
+   "venue": "VLDB 1998",
+   "ident": "https://www.vldb.org/conf/1998/p476.pdf",
+   "type": "paper",
+   "role": "advanced",
+   "verification": "verified",
+   "unresolved": null,
+   "note": "Naming source for the zone-map/SMA mechanism (per-bucket min/max aggregates used to skip scans); loaded live from vldb.org proceedings.",
+   "elements": [
+    "zone-map"
+   ]
+  },
+  {
+   "action": "new",
+   "id": "oneilquass1997",
+   "title": "Improved Query Performance with Variant Indexes",
+   "authors": "Patrick O'Neil & Dallan Quass",
+   "year": "1997",
+   "venue": "ACM SIGMOD 1997",
+   "ident": null,
+   "type": "paper",
+   "role": "advanced",
+   "verification": "unverified",
+   "unresolved": "doi",
+   "note": "Canonical bitmap-index paper (value-list/bit-sliced indexes); complements DDIA's columnar bitmap-encoding treatment.",
+   "elements": [
+    "bitmap-index"
+   ]
+  },
+  {
+   "action": "new",
+   "id": "guttman1984",
+   "title": "R-Trees: A Dynamic Index Structure for Spatial Searching",
+   "authors": "Antonin Guttman",
+   "year": "1984",
+   "venue": "ACM SIGMOD 1984",
+   "ident": null,
+   "type": "paper",
+   "role": "core",
+   "verification": "unverified",
+   "unresolved": "doi",
+   "note": "Naming paper and still the standard reference for the R-tree spatial index; no treatment in this route's work-set covers R-trees.",
+   "elements": [
+    "r-tree"
+   ]
+  },
+  {
+   "action": "new",
+   "id": "coherencecache",
+   "title": "Caching Data Sources (Oracle Coherence Developing Applications guide)",
+   "authors": "Oracle",
+   "year": "living",
+   "venue": "docs.oracle.com, Coherence 14.1.1",
+   "ident": "https://docs.oracle.com/en/middleware/standalone/coherence/14.1.1.2206/develop-applications/caching-data-sources.html",
+   "type": "official-doc",
+   "role": "anchor",
+   "verification": "verified",
+   "unresolved": null,
+   "note": "The living naming source that defines the read-through / write-through / write-behind / refresh-ahead family; definitions confirmed live.",
+   "elements": [
+    "read-through-cache",
+    "refresh-ahead-cache",
+    "write-behind-cache",
+    "write-through-cache"
+   ]
+  },
+  {
+   "action": "new",
+   "id": "azurepatterns",
+   "title": "Cloud Design Patterns: Cache-Aside",
+   "authors": "Microsoft (Azure Architecture Center)",
+   "year": "living",
+   "venue": "learn.microsoft.com",
+   "ident": "https://learn.microsoft.com/en-us/azure/architecture/patterns/cache-aside",
+   "type": "official-doc",
+   "role": "core",
+   "verification": "verified",
+   "unresolved": null,
+   "note": "The maintained catalog entry that names Cache-Aside and specifies its read-miss-populate / write-invalidate contract.",
+   "elements": [
+    "cache-aside"
+   ]
+  },
+  {
+   "action": "new",
+   "id": "hennessypatterson",
+   "title": "Computer Architecture: A Quantitative Approach, 6th ed.",
+   "authors": "John L. Hennessy & David A. Patterson",
+   "year": "2017",
+   "venue": "Morgan Kaufmann / Elsevier",
+   "ident": "https://shop.elsevier.com/books/computer-architecture/hennessy/978-0-12-811905-1",
+   "type": "book",
+   "role": "core",
+   "verification": "verified",
+   "unresolved": null,
+   "note": "Memory-hierarchy chapters are the canonical treatment of the hardware ends of this route: prefetching, write-through vs write-back policy, and replacement (LRU) as an eviction policy.",
+   "elements": [
+    "cache-eviction-policy",
+    "lru-cache",
+    "prefetching",
+    "write-behind-cache",
+    "write-through-cache"
+   ]
+  },
+  {
+   "action": "new",
+   "id": "vattani2015",
+   "title": "Optimal Probabilistic Cache Stampede Prevention",
+   "authors": "Vattani, Chierichetti & Lowenstein",
+   "year": "2015",
+   "venue": "PVLDB 8(8)",
+   "ident": "https://www.vldb.org/pvldb/vol8/p886-vattani.pdf",
+   "type": "paper",
+   "role": "advanced",
+   "verification": "verified",
+   "unresolved": null,
+   "note": "Names the cache-stampede problem and gives the XFetch early-recomputation mechanism; loaded live from PVLDB.",
+   "elements": [
+    "cache-stampede-protection"
+   ]
+  },
+  {
+   "action": "new",
+   "id": "rfc2308",
+   "title": "Negative Caching of DNS Queries (DNS NCACHE)",
+   "authors": "M. Andrews",
+   "year": "1998",
+   "venue": "IETF RFC 2308",
+   "ident": "https://www.rfc-editor.org/rfc/rfc2308.html",
+   "type": "standard",
+   "role": "core",
+   "verification": "verified",
+   "unresolved": null,
+   "note": "Standards-body naming and specification of negative caching; the general mechanism's canonical citation.",
+   "elements": [
+    "negative-caching"
+   ]
+  },
+  {
+   "action": "new",
+   "id": "michie1968",
+   "title": "'Memo' Functions and Machine Learning",
+   "authors": "Donald Michie",
+   "year": "1968",
+   "venue": "Nature 218",
+   "ident": null,
+   "type": "paper",
+   "role": "advanced",
+   "verification": "unverified",
+   "unresolved": "doi",
+   "note": "Naming paper for memoization (memo functions); Nature page blocked live, identifier held at recall grade.",
+   "elements": [
+    "memoization"
+   ]
+  },
+  {
+   "action": "new",
+   "id": "paip",
+   "title": "Paradigms of Artificial Intelligence Programming: Case Studies in Common Lisp",
+   "authors": "Peter Norvig",
+   "year": "1992",
+   "venue": "Morgan Kaufmann; full text at github.com/norvig/paip-lisp",
+   "ident": "https://github.com/norvig/paip-lisp",
+   "type": "book",
+   "role": "core",
+   "verification": "verified",
+   "unresolved": null,
+   "note": "Ch. 9 (Efficiency) is a genuine teaching treatment of memoization as a general design device; author-published full text confirmed live.",
+   "elements": [
+    "memoization"
+   ]
+  },
+  {
+   "action": "new",
+   "id": "deutschschiffman1984",
+   "title": "Efficient Implementation of the Smalltalk-80 System",
+   "authors": "L. Peter Deutsch & Allan M. Schiffman",
+   "year": "1984",
+   "venue": "ACM POPL 1984",
+   "ident": null,
+   "type": "paper",
+   "role": "advanced",
+   "verification": "unverified",
+   "unresolved": "doi",
+   "note": "Naming paper for inline caching in dynamic-language runtimes; no treatment in the work-set covers it.",
+   "elements": [
+    "inline-caching"
+   ]
+  },
+  {
+   "action": "new",
+   "id": "bloom1970",
+   "title": "Space/Time Trade-offs in Hash Coding with Allowable Errors",
+   "authors": "Burton H. Bloom",
+   "year": "1970",
+   "venue": "CACM 13(7)",
+   "ident": null,
+   "type": "paper",
+   "role": "core",
+   "verification": "unverified",
+   "unresolved": "doi",
+   "note": "The canon naming paper for the Bloom filter; kept alongside Petrov's storage-engine treatment.",
+   "elements": [
+    "bloom-filter"
+   ]
+  },
+  {
+   "action": "new",
+   "id": "flajolet2007",
+   "title": "HyperLogLog: the analysis of a near-optimal cardinality estimation algorithm",
+   "authors": "Flajolet, Fusy, Gandouet & Meunier",
+   "year": "2007",
+   "venue": "DMTCS Proceedings AH (AofA 2007)",
+   "ident": "doi:10.46298/dmtcs.3545",
+   "type": "paper",
+   "role": "core",
+   "verification": "verified",
+   "unresolved": null,
+   "note": "Naming paper and only catalog-grade source for HyperLogLog; confirmed live on the DMTCS episciences page.",
+   "elements": [
+    "hyperloglog"
+   ]
+  },
+  {
+   "action": "new",
+   "id": "cormode2005",
+   "title": "An Improved Data Stream Summary: The Count-Min Sketch and its Applications",
+   "authors": "Graham Cormode & S. Muthukrishnan",
+   "year": "2005",
+   "venue": "Journal of Algorithms 55(1)",
+   "ident": "http://dimacs.rutgers.edu/~graham/pubs/papers/cm-full.pdf",
+   "type": "paper",
+   "role": "core",
+   "verification": "verified",
+   "unresolved": null,
+   "note": "Naming paper for the count-min sketch; first page loaded live from Cormode's DIMACS copy.",
+   "elements": [
+    "count-min-sketch"
+   ]
+  },
+  {
+   "action": "new",
+   "id": "tdigest2019",
+   "title": "Computing Extremely Accurate Quantiles Using t-Digests",
+   "authors": "Ted Dunning & Otmar Ertl",
+   "year": "2019",
+   "venue": "arXiv",
+   "ident": "arXiv:1902.04023",
+   "type": "paper",
+   "role": "core",
+   "verification": "verified",
+   "unresolved": null,
+   "note": "Naming paper for the t-digest quantile sketch; confirmed live on arXiv.",
+   "elements": [
+    "t-digest"
+   ]
+  },
+  {
+   "action": "new",
+   "id": "karger1997",
+   "title": "Consistent Hashing and Random Trees: Distributed Caching Protocols for Relieving Hot Spots on the World Wide Web",
+   "authors": "Karger, Lehman, Leighton, Panigrahy, Levine & Lewin",
+   "year": "1997",
+   "venue": "ACM STOC 1997",
+   "ident": null,
+   "type": "paper",
+   "role": "core",
+   "verification": "unverified",
+   "unresolved": "doi",
+   "note": "Naming paper for consistent hashing; DDIA supplies the modern partitioning treatment.",
+   "elements": [
+    "consistent-hashing"
+   ]
+  },
+  {
+   "action": "new",
+   "id": "merkle1987",
+   "title": "A Digital Signature Based on a Conventional Encryption Function",
+   "authors": "Ralph C. Merkle",
+   "year": "1987",
+   "venue": "CRYPTO 1987 (Springer LNCS 293)",
+   "ident": null,
+   "type": "paper",
+   "role": "core",
+   "verification": "unverified",
+   "unresolved": "doi",
+   "note": "Canonical citation for the Merkle (hash) tree; Springer page blocked live this session.",
+   "elements": [
+    "merkle-tree"
+   ]
+  },
+  {
+   "action": "new",
+   "id": "shapiro2011",
+   "title": "Conflict-free Replicated Data Types",
+   "authors": "Shapiro, Preguica, Baquero & Zawirski",
+   "year": "2011",
+   "venue": "SSS 2011; INRIA RR-7687",
+   "ident": null,
+   "type": "paper",
+   "role": "core",
+   "verification": "unverified",
+   "unresolved": "doi",
+   "note": "Naming paper defining CRDTs and the CvRDT/CmRDT taxonomy; HAL and Springer pages blocked live this session.",
+   "elements": [
+    "conflict-free-replicated-data-type-crdt"
+   ]
+  },
+  {
+   "action": "new",
+   "id": "michaelscott1996",
+   "title": "Simple, Fast, and Practical Non-Blocking and Blocking Concurrent Queue Algorithms",
+   "authors": "Maged M. Michael & Michael L. Scott",
+   "year": "1996",
+   "venue": "ACM PODC 1996",
+   "ident": "https://www.cs.rochester.edu/u/scott/papers/1996_PODC_queues.pdf",
+   "type": "paper",
+   "role": "core",
+   "verification": "verified",
+   "unresolved": null,
+   "note": "The paper the lock-free FIFO queue element is named after; first page loaded live from Scott's Rochester copy.",
+   "elements": [
+    "lock-free-fifo-queue-michael-scott"
+   ]
+  },
+  {
+   "action": "new",
+   "id": "herlihyshavit",
+   "title": "The Art of Multiprocessor Programming, 2nd ed.",
+   "authors": "Herlihy, Shavit, Luchangco & Spear",
+   "year": "2020",
+   "venue": "Morgan Kaufmann / Elsevier",
+   "ident": "ISBN 9780124159501",
+   "type": "book",
+   "role": "core",
+   "verification": "verified",
+   "unresolved": null,
+   "note": "The teaching treatment for lock-free structures: Treiber stack, Michael-Scott queue, and concurrent skip lists, with correctness reasoning.",
+   "elements": [
+    "lock-free-fifo-queue-michael-scott",
+    "lock-free-stack-treiber",
+    "skip-list"
+   ]
+  },
+  {
+   "action": "new",
+   "id": "pugh1990",
+   "title": "Skip Lists: A Probabilistic Alternative to Balanced Trees",
+   "authors": "William Pugh",
+   "year": "1990",
+   "venue": "CACM 33(6)",
+   "ident": null,
+   "type": "paper",
+   "role": "core",
+   "verification": "unverified",
+   "unresolved": "doi",
+   "note": "Canon naming paper for skip lists; Petrov and Herlihy-Shavit carry the treatments.",
+   "elements": [
+    "skip-list"
+   ]
+  },
+  {
+   "action": "new",
+   "id": "ericson",
+   "title": "Real-Time Collision Detection",
+   "authors": "Christer Ericson",
+   "year": "2005",
+   "venue": "Morgan Kaufmann; official site realtimecollisiondetection.net",
+   "ident": "https://realtimecollisiondetection.net/",
+   "type": "book",
+   "role": "anchor",
+   "verification": "verified",
+   "unresolved": null,
+   "note": "One treatment covering the spatial cluster: BVHs, uniform grids and spatial hashing, quadtrees/octrees, k-d/BSP trees — the route entry point for spatial partitioning.",
+   "elements": [
+    "bounding-volume-hierarchy",
+    "k-d-tree",
+    "quadtree-octree",
+    "spatial-partition",
+    "uniform-spatial-hash-grid"
+   ]
+  },
+  {
+   "action": "new",
+   "id": "rtr4",
+   "title": "Real-Time Rendering, 4th ed.",
+   "authors": "Akenine-Möller, Haines & Hoffman",
+   "year": "2018",
+   "venue": "CRC Press",
+   "ident": null,
+   "type": "book",
+   "role": "core",
+   "verification": "unverified",
+   "unresolved": "isbn",
+   "note": "Named source for scene graph and BVH in the rendering context (acceleration/spatial data structure chapters); publisher and book-site pages blocked live this session.",
+   "elements": [
+    "bounding-volume-hierarchy",
+    "quadtree-octree",
+    "scene-graph"
+   ]
+  },
+  {
+   "action": "new",
+   "id": "nystromgpp",
+   "title": "Game Programming Patterns",
+   "authors": "Robert Nystrom",
+   "year": "2014",
+   "venue": "Genever Benning; full text at gameprogrammingpatterns.com",
+   "ident": "https://gameprogrammingpatterns.com/spatial-partition.html",
+   "type": "book",
+   "role": "core",
+   "verification": "verified",
+   "unresolved": null,
+   "note": "Names Spatial Partition as a design pattern; chapter confirmed live on the author's full-text site.",
+   "elements": [
+    "spatial-partition"
+   ]
+  },
+  {
+   "action": "new",
+   "id": "millingtonai",
+   "title": "AI for Games, 3rd ed.",
+   "authors": "Ian Millington",
+   "year": "2019",
+   "venue": "CRC Press",
+   "ident": null,
+   "type": "book",
+   "role": "core",
+   "verification": "unverified",
+   "unresolved": "isbn",
+   "note": "Pathfinding chapters teach navigation meshes as the standard game-AI world representation; CRC/Taylor & Francis pages blocked live this session.",
+   "elements": [
+    "navigation-mesh"
+   ]
+  },
+  {
+   "action": "new",
+   "id": "deberg",
+   "title": "Computational Geometry: Algorithms and Applications, 3rd ed.",
+   "authors": "de Berg, Cheong, van Kreveld & Overmars",
+   "year": "2008",
+   "venue": "Springer",
+   "ident": null,
+   "type": "book",
+   "role": "core",
+   "verification": "unverified",
+   "unresolved": "isbn",
+   "note": "The textbook treatment of geometric range structures: kd-trees, interval trees, segment trees; Springer page unreachable (cookie wall) this session.",
+   "elements": [
+    "interval-tree",
+    "k-d-tree",
+    "segment-tree"
+   ]
+  },
+  {
+   "action": "new",
+   "id": "finseth",
+   "title": "The Craft of Text Editing: Emacs for the Modern World",
+   "authors": "Craig A. Finseth",
+   "year": "1991",
+   "venue": "Springer; full text at finseth.com/craft",
+   "ident": "https://www.finseth.com/craft/",
+   "type": "book",
+   "role": "core",
+   "verification": "verified",
+   "unresolved": null,
+   "note": "Ch. 6 (The Internal Sub-Editor) is the catalog treatment of the buffer-gap method and its paged variant; confirmed live on the author's site.",
+   "elements": [
+    "gap-buffer"
+   ]
+  },
+  {
+   "action": "new",
+   "id": "vscodepiecetree",
+   "title": "Text Buffer Reimplementation (VS Code blog)",
+   "authors": "Peng Lyu / Microsoft",
+   "year": "2018",
+   "venue": "code.visualstudio.com",
+   "ident": "https://code.visualstudio.com/blogs/2018/03/23/text-buffer-reimplementation",
+   "type": "blog",
+   "role": "core",
+   "verification": "verified",
+   "unresolved": null,
+   "note": "Official project engineering post teaching the piece table (and its piece-tree evolution) as a production text-buffer structure; confirmed live.",
+   "elements": [
+    "piece-table"
+   ]
+  },
+  {
+   "action": "new",
+   "id": "boehm1995",
+   "title": "Ropes: an Alternative to Strings",
+   "authors": "Boehm, Atkinson & Plass",
+   "year": "1995",
+   "venue": "Software: Practice and Experience 25(12)",
+   "ident": null,
+   "type": "paper",
+   "role": "core",
+   "verification": "unverified",
+   "unresolved": "doi",
+   "note": "Naming paper for the rope structure; Wiley page blocked live this session.",
+   "elements": [
+    "rope"
+   ]
+  },
+  {
+   "action": "new",
+   "id": "bagwell2001",
+   "title": "Ideal Hash Trees",
+   "authors": "Phil Bagwell",
+   "year": "2001",
+   "venue": "EPFL (LAMP) technical report",
+   "ident": "https://lampwww.epfl.ch/papers/idealhashtrees.pdf",
+   "type": "paper",
+   "role": "core",
+   "verification": "verified",
+   "unresolved": "year (commonly cited as 2001; not shown on the EPFL copy's first page)",
+   "note": "Naming paper for the hash array mapped trie; first page loaded live from the EPFL LAMP host.",
+   "elements": [
+    "hash-array-mapped-trie-hamt"
+   ]
+  },
+  {
+   "action": "new",
+   "id": "huet1997",
+   "title": "The Zipper",
+   "authors": "Gérard Huet",
+   "year": "1997",
+   "venue": "Journal of Functional Programming 7(5)",
+   "ident": "doi:10.1017/S0956796897002864",
+   "type": "paper",
+   "role": "core",
+   "verification": "verified",
+   "unresolved": null,
+   "note": "The functional pearl that names the zipper; confirmed live on Cambridge Core.",
+   "elements": [
+    "zipper"
+   ]
+  },
+  {
+   "action": "new",
+   "id": "fenwick1994",
+   "title": "A New Data Structure for Cumulative Frequency Tables",
+   "authors": "Peter M. Fenwick",
+   "year": "1994",
+   "venue": "Software: Practice and Experience 24(3)",
+   "ident": null,
+   "type": "paper",
+   "role": "advanced",
+   "verification": "unverified",
+   "unresolved": "doi",
+   "note": "Naming paper for the Fenwick (binary indexed) tree; Wiley page blocked live this session.",
+   "elements": [
+    "fenwick-tree"
+   ]
+  },
+  {
+   "action": "new",
+   "id": "briggstorczon1993",
+   "title": "An Efficient Representation for Sparse Sets",
+   "authors": "Preston Briggs & Linda Torczon",
+   "year": "1993",
+   "venue": "ACM LOPLAS 2(1-4)",
+   "ident": null,
+   "type": "paper",
+   "role": "advanced",
+   "verification": "unverified",
+   "unresolved": "doi",
+   "note": "Naming paper for the sparse-set representation (dense/sparse array pair), the basis of modern ECS storage.",
+   "elements": [
+    "sparse-set"
+   ]
+  },
+  {
+   "action": "new",
+   "id": "p0661",
+   "title": "slot_map Container in C++ (WG21 P0661)",
+   "authors": "Allan Deutsch",
+   "year": "2017",
+   "venue": "ISO C++ committee (LEWG/SG14), open-std.org",
+   "ident": "https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0661r0.pdf",
+   "type": "paper",
+   "role": "advanced",
+   "verification": "verified",
+   "unresolved": null,
+   "note": "The WG21 proposal that names slot_map and specifies its generation-keyed contract; loaded live from open-std.org.",
+   "elements": [
+    "slot-map"
+   ]
+  },
+  {
+   "action": "new",
+   "id": "meyerseffstl",
+   "title": "Effective STL: 50 Specific Ways to Improve Your Use of the Standard Template Library",
+   "authors": "Scott Meyers",
+   "year": "2001",
+   "venue": "Addison-Wesley; author site aristeia.com",
+   "ident": "https://www.aristeia.com/books.html",
+   "type": "book",
+   "role": "core",
+   "verification": "verified",
+   "unresolved": null,
+   "note": "Names and teaches the erase-remove idiom (Item 32); author's page confirmed live.",
+   "elements": [
+    "erase-remove"
+   ]
+  },
+  {
+   "action": "new",
+   "id": "manningiir",
+   "title": "Introduction to Information Retrieval",
+   "authors": "Manning, Raghavan & Schütze",
+   "year": "2008",
+   "venue": "Cambridge University Press; full text at nlp.stanford.edu/IR-book",
+   "ident": "https://nlp.stanford.edu/IR-book/",
+   "type": "book",
+   "role": "anchor",
+   "verification": "verified",
+   "unresolved": null,
+   "note": "The IR canon: inverted index construction (chs. 1-4) and shingling/MinHash near-duplicate detection (ch. 19); official Stanford site confirmed live.",
+   "elements": [
+    "inverted-index",
+    "minhash"
+   ]
+  },
+  {
+   "action": "new",
+   "id": "peaa",
+   "title": "Patterns of Enterprise Application Architecture",
+   "authors": "Martin Fowler",
+   "year": "2002",
+   "venue": "Addison-Wesley",
+   "ident": "ISBN 0321127420",
+   "type": "book",
+   "role": "anchor",
+   "verification": "verified",
+   "unresolved": null,
+   "note": "The naming catalog for this route's whole object-relational cluster: gateways, mappers, unit of work, identity map/field, inheritance mappings, embedded value, query object, repository.",
+   "elements": [
+    "active-record",
+    "association-table-mapping",
+    "class-table-inheritance",
+    "concrete-table-inheritance",
+    "data-mapper",
+    "dependent-mapping",
+    "embedded-value",
+    "foreign-key-mapping",
+    "identity-field",
+    "identity-map",
+    "inheritance-mappers",
+    "metadata-mapping",
+    "query-object",
+    "repository",
+    "row-data-gateway",
+    "single-table-inheritance",
+    "table-data-gateway",
+    "unit-of-work"
+   ]
+  },
+  {
+   "action": "new",
+   "id": "mfeaadev",
+   "title": "martinfowler.com: Further Enterprise Application Architecture development (Event Sourcing; Memory Image)",
+   "authors": "Martin Fowler",
+   "year": "living",
+   "venue": "martinfowler.com",
+   "ident": "https://martinfowler.com/eaaDev/EventSourcing.html",
+   "type": "blog",
+   "role": "core",
+   "verification": "verified",
+   "unresolved": null,
+   "note": "Fowler's maintained articles naming Event Sourcing (2005) and Memory Image (2011); both pages confirmed live.",
+   "elements": [
+    "event-sourcing",
+    "memory-image"
+   ]
+  },
+  {
+   "action": "new",
+   "id": "venti2002",
+   "title": "Venti: A New Approach to Archival Storage",
+   "authors": "Sean Quinlan & Sean Dorward",
+   "year": "2002",
+   "venue": "USENIX FAST 2002; Bell Labs",
+   "ident": "https://9p.io/sys/doc/venti/venti.html",
+   "type": "paper",
+   "role": "core",
+   "verification": "verified",
+   "unresolved": null,
+   "note": "Naming paper for content-addressable storage as a design mechanism (hash-of-contents block identity, write-once coalescing); full text confirmed live on the Plan 9 doc host.",
+   "elements": [
+    "content-addressable-storage"
+   ]
+  },
+  {
+   "action": "new",
+   "id": "an2594",
+   "title": "AN2594: EEPROM emulation in STM32F10x microcontrollers",
+   "authors": "STMicroelectronics",
+   "year": "living",
+   "venue": "st.com application note",
+   "ident": null,
+   "type": "official-doc",
+   "role": "core",
+   "verification": "unverified",
+   "unresolved": "url (st.com fetch timed out this session)",
+   "note": "The vendor app note that names the EEPROM-emulation-in-flash technique (paged flash + wear distribution) for MCUs.",
+   "elements": [
+    "eeprom-emulation-in-flash"
+   ]
+  },
+  {
+   "action": "new",
+   "id": "chungftl2009",
+   "title": "A Survey of Flash Translation Layer",
+   "authors": "Chung, Park, Park, Lee, Lee & Song",
+   "year": "2009",
+   "venue": "Journal of Systems Architecture 55(5-6)",
+   "ident": null,
+   "type": "paper",
+   "role": "survey",
+   "verification": "unverified",
+   "unresolved": "doi",
+   "note": "Survey treatment of FTL mapping schemes and wear-leveling policies; the catalog-grade umbrella for both flash elements.",
+   "elements": [
+    "flash-translation-layer",
+    "flash-wear-leveling"
+   ]
+  },
+  {
+   "action": "new",
+   "id": "littlefs",
+   "title": "littlefs DESIGN.md",
+   "authors": "Christopher Haster / littlefs-project",
+   "year": "living",
+   "venue": "github.com/littlefs-project/littlefs",
+   "ident": "https://github.com/littlefs-project/littlefs/blob/master/DESIGN.md",
+   "type": "tooling-doc",
+   "role": "core",
+   "verification": "verified",
+   "unresolved": null,
+   "note": "Living embedded-flash design document teaching dynamic wear leveling and log-structured metadata on raw flash; confirmed live.",
+   "elements": [
+    "flash-wear-leveling",
+    "log-structured-storage"
+   ]
+  }
+ ],
+ "gaps": [],
+ "notes": "Route r6 (caching/memoization, data structures, persistence/durability; 97 elements) resolves to 7 memberships + 52 new works; every element is covered, no gaps. Anchors: CLRS (container/algorithm floor), Petrov + Kleppmann (storage engines), PEAA (the 18-element O/R mapping cluster), Ericson (spatial cluster), Coherence docs (the read/write-through naming family), IIR (search structures). Naming papers were included only where canon or sole coverage (Bloom, Flajolet, Cormode, Karger, Merkle, Pugh, Shapiro, Michael-Scott, Huet, Bagwell, Guttman, Fenwick, Briggs-Torczon, Lorie, Michie, Deutsch-Schiffman, P0661); O'Neil LSM 1996, ARIES, Mattson 1970, Manber-Myers, Fredkin, Broder and Bayer-McCreight were judged redundant against verified treatments (Petrov/Kleppmann/Gray-Reuter/Sedgewick/CLRS/IIR) and omitted. Crowley 1998 (piece-table naming) has no live authoritative host; coverage moved to Finseth (gap buffer) and the official VS Code piece-tree post. Verification: 34 of 52 new works confirmed on primary pages this session (publisher/author/standards/official project pages; several via first-page text of author-hosted PDFs). The 18 unverified entries carry UNRESOLVED soft fields, mostly DOIs behind blocked ACM/Springer/Wiley walls (dl.acm.org, link.springer.com and st.com were unreachable from this session). Memberships defer bibliographic verification to their existing corpus records."
+}

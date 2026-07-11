@@ -42,7 +42,7 @@ L.append("**Scope.** The works that *define and teach* the 708 elements of `desi
 L.append("naming sources plus best modern treatments, mapped many-to-many onto element ids. ")
 L.append("This pass merges into the existing 7-pass unified corpus by record id: works already carried by another pass are **memberships** ")
 L.append("(they REUSE the exact existing id), only genuinely absent works are new nodes.\n\n")
-L.append("**Collection date:** 2026-07-10. **Mapping rule:** every catalog element must be reachable from ≥1 catalog-grade work; ")
+L.append("**Collection date:** 2026-07-11 (elements catalog frozen 2026-07-10). **Mapping rule:** every catalog element must be reachable from ≥1 catalog-grade work; ")
 L.append("a work claims an element only when it defines or teaches it at catalog grade (mere mention is not coverage); unreachable elements are explicit gaps, never padded.\n\n")
 L.append("## Tag legend\n\n")
 L.append("- `route:` r1–r11 — the element-domain route that claimed the work (a work can serve several; it is listed under its primary route with the others noted).\n")
