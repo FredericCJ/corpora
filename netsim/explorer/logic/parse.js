@@ -28,6 +28,7 @@ NET.parse = (function () {
   const str = (v, w) => { if (typeof v !== 'string') throw new ValidationError(`${w}: expected string`); return v; };
   const arr = (v, w) => { if (!Array.isArray(v)) throw new ValidationError(`${w}: expected array`); return v; };
   const VERS = new Set(['verified-web', 'verified-train', 'unverified']);
+  const SRCS = new Set(['derived', 'editorial', 'report']);
 
   /** @param {unknown} raw @returns {Corpus} */
   function parseCorpus(raw) {
@@ -58,6 +59,7 @@ NET.parse = (function () {
       if (!ids.has(e.s)) throw new ValidationError(`edge source not a node: ${e.s}`);
       if (!ids.has(e.t)) throw new ValidationError(`edge target not a node: ${e.t}`);
       if (!kinds.has(e.kind)) throw new ValidationError(`edge ${e.s}->${e.t}: unknown kind ${e.kind}`);
+      if (e.src != null && !SRCS.has(e.src)) throw new ValidationError(`edge ${e.s}->${e.t}: unknown provenance ${e.src}`);
     }
     arr(r.anchorMap, 'relations.anchorMap');
     if (!isObj(r.coverage) || !isObj(r.views) || !isObj(r.verificationLegend))

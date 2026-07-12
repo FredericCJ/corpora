@@ -101,6 +101,18 @@ h2,h3,h4{margin:0}
 .gedge.dim{opacity:.04}
 .gedge.off{opacity:.02}
 
+/* Reading graph (typed relations): kind-hued edges (colour set inline), derived solid / editorial
+   dotted; corpus band labels; degree emphasis. Scoped to .reading so the Overlays view is untouched. */
+.band-label{font-family:var(--mono);font-weight:700;fill:var(--mut);letter-spacing:.05em}
+.reading .gedge{stroke:var(--faint);stroke-width:1.3;stroke-dasharray:none;opacity:.44}
+.reading .gedge.editorial{stroke-dasharray:2 3;opacity:.38}
+.reading .gedge.hl{opacity:.98;stroke-width:2.7}
+.reading .gedge.dim{opacity:.05}
+.reading .gedge.off{opacity:.02}
+.gnode.major rect{stroke-width:2}
+.gnode.unv rect{stroke-dasharray:1.5 2.5}
+.gnode .degm{font-family:var(--mono);fill:var(--faint)}
+
 /* ── facets rail + results (SWE fashion) ── */
 .facet-rail{flex:none;max-height:36%;overflow:auto;padding:.5rem .9rem;border-bottom:1px solid var(--line-2)}
 .facetbar{display:flex;flex-wrap:wrap;gap:.25rem .3rem;align-items:baseline;margin:.15rem 0}
@@ -173,6 +185,8 @@ h2,h3,h4{margin:0}
 .badge.quar{color:var(--v-unv);border-color:#E7C0BC;border-style:dashed;background:#fff}
 .badge.liv{color:var(--s-cd);border-color:#BFE0D2;background:var(--s-cd-bg)}
 .badge.plain{color:var(--mut);background:var(--panel-2)}
+.badge.kind{background:var(--panel);font-weight:600}
+.badge.ed{color:var(--accent-ink);border-color:var(--accent);border-style:dashed;background:#F4EFFA}
 .tchip{display:inline-block;font-family:var(--mono);font-size:.62rem;border:1px solid;border-radius:4px;
   padding:.04rem .36rem;margin:0 .22rem .22rem 0;white-space:nowrap}
 .edge{font-size:.74rem;margin:.32rem 0;padding-left:.5rem;border-left:2px solid var(--line)}

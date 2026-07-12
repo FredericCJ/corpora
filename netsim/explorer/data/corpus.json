@@ -65,6 +65,7 @@
   "sdn-nfv-p4",
   "parallel-distributed-sim",
   "emulation-tooling",
+  "formal-methods",
   "other",
   "other(systems)"
  ],
@@ -174,11 +175,51 @@
    {
     "corpus": "gen",
     "no": 17,
-    "title": "Unverified / to confirm"
+    "title": "Emulation, testbeds & virtual time (expansion) (container/VM emulation, testbeds & virtual-time correction (expansion of Part 4))"
    },
    {
     "corpus": "gen",
     "no": 18,
+    "title": "Systems-boundary & HPC-interconnect simulators (expansion of the \"systems\" scope: architecture, interconnect, memory & storage simulators)"
+   },
+   {
+    "corpus": "gen",
+    "no": 19,
+    "title": "Cloud, edge & datacenter simulation (expansion) (expansion of the \"systems\" scope: cloud / edge / datacenter simulators)"
+   },
+   {
+    "corpus": "gen",
+    "no": 20,
+    "title": "Learned & ML-driven network simulation (expansion) (did not exist at anchor time: learned / ML-driven network simulation (expansion))"
+   },
+   {
+    "corpus": "gen",
+    "no": 21,
+    "title": "Non-terrestrial & satellite network simulation (next-generation wireless: non-terrestrial & satellite network simulation)"
+   },
+   {
+    "corpus": "gen",
+    "no": 22,
+    "title": "Parallel & distributed simulation engines (expansion) (PADS at scale: optimistic/conservative engines & synchronization (expansion))"
+   },
+   {
+    "corpus": "gen",
+    "no": 23,
+    "title": "Rare-event, fluid models & simulation methodology (expansion) (simulation methodology: rare-event, fluid models & reproducibility (expansion of Part 4))"
+   },
+   {
+    "corpus": "gen",
+    "no": 24,
+    "title": "Formal methods & probabilistic model checking (formal verification of protocols & schedulers — the systems-boundary fork, opened lightly)"
+   },
+   {
+    "corpus": "gen",
+    "no": 25,
+    "title": "Unverified / to confirm"
+   },
+   {
+    "corpus": "gen",
+    "no": 26,
     "title": "Coverage summary"
    }
   ],
@@ -5718,6 +5759,1972 @@
    "overlapFlags": []
   },
   {
+   "id": "g177",
+   "corpus": [
+    "gen"
+   ],
+   "item": {
+    "gen": "177"
+   },
+   "section": 17,
+   "title": "An Integrated Experimental Environment for Distributed Systems and Networks (Emulab/Netbed)",
+   "cite": "B. White, J. Lepreau, L. Stoller, R. Ricci, S. Guruprasad, M. Newbold, M. Hibler, C. Barb, A. Joglekar, 2002. Proc. USENIX OSDI '02 (also ACM SIGOPS OSR 36(SI)). DOI 10.1145/844128.844152.",
+   "note": "Foundational shared testbed unifying emulation, simulation, and live wide-area nodes under one automation/virtualization layer, originating time- and space-shared network experimentation. Conceptual ancestor of later container/VM lab frameworks and cloud testbeds.",
+   "subfield": [
+    "emulation-tooling"
+   ],
+   "paradigm": [],
+   "type": [
+    "paper"
+   ],
+   "stratum": null,
+   "recency": "foundational",
+   "recencyRaw": "foundational",
+   "verification": "verified-web",
+   "verRaw": "verified[WEB]",
+   "year": 2002,
+   "living": false,
+   "quarantined": false,
+   "idents": [
+    "10.1145/844128.844152"
+   ],
+   "overlapFlags": []
+  },
+  {
+   "id": "g178",
+   "corpus": [
+    "gen"
+   ],
+   "item": {
+    "gen": "178"
+   },
+   "section": 17,
+   "title": "CORE: A Real-Time Network Emulator",
+   "cite": "J. Ahrenholz, C. Danilov, T. R. Henderson, J. H. Kim, 2008. Proc. IEEE MILCOM 2008, pp. 221-227. DOI 10.1109/MILCOM.2008.4753614.",
+   "note": "Real-time emulator that builds hybrid topologies from Linux/FreeBSD-namespace virtual nodes plus real hardware, with wireless and mobility scripting; commonly paired with EMANE for detailed MANET radio models. Complements Mininet by adding mobility and hardware-in-the-loop.",
+   "subfield": [
+    "emulation-tooling"
+   ],
+   "paradigm": [],
+   "type": [
+    "paper"
+   ],
+   "stratum": null,
+   "recency": "foundational",
+   "recencyRaw": "foundational",
+   "verification": "verified-web",
+   "verRaw": "verified[WEB]",
+   "year": 2008,
+   "living": false,
+   "quarantined": false,
+   "idents": [
+    "10.1109/MILCOM.2008.4753614"
+   ],
+   "overlapFlags": []
+  },
+  {
+   "id": "g179",
+   "corpus": [
+    "gen"
+   ],
+   "item": {
+    "gen": "179"
+   },
+   "section": 17,
+   "title": "Kathará: A Lightweight Network Emulation System",
+   "cite": "M. Scazzariello, L. Ariemma, et al., 2020. Proc. IEEE/IFIP NOMS 2020. DOI 10.1109/NOMS47738.2020.9110351.",
+   "note": "Container-based (Docker/Kubernetes) successor to Netkit for scalable, reproducible network labs, protocol teaching, and NFV/SDN sandboxes; NOMS 2020 benchmarks its scalability against Netkit and the prior Kathará version. Modern container lab framework.",
+   "subfield": [
+    "emulation-tooling"
+   ],
+   "paradigm": [],
+   "type": [
+    "paper"
+   ],
+   "stratum": null,
+   "recency": "current",
+   "recencyRaw": "current",
+   "verification": "verified-web",
+   "verRaw": "verified[WEB]",
+   "year": 2020,
+   "living": false,
+   "quarantined": false,
+   "idents": [
+    "10.1109/NOMS47738.2020.9110351"
+   ],
+   "overlapFlags": []
+  },
+  {
+   "id": "g180",
+   "corpus": [
+    "gen"
+   ],
+   "item": {
+    "gen": "180"
+   },
+   "section": 17,
+   "title": "containerlab: Container-Based Networking Labs",
+   "cite": "srl-labs / NVIDIA, 2020– (ongoing). Open-source CLI and documentation, containerlab.dev; github.com/srl-labs/containerlab.",
+   "note": "Widely adopted CLI that wires vendor NOS containers and generic Linux containers into declarative YAML topologies for network-automation labs and CI pipelines. De facto modern container-lab tool alongside Kathará.",
+   "subfield": [
+    "emulation-tooling"
+   ],
+   "paradigm": [],
+   "type": [
+    "simulator-tool/doc"
+   ],
+   "stratum": null,
+   "recency": "current",
+   "recencyRaw": "current",
+   "verification": "verified-web",
+   "verRaw": "verified[WEB]",
+   "year": null,
+   "living": true,
+   "quarantined": false,
+   "idents": [],
+   "overlapFlags": []
+  },
+  {
+   "id": "g181",
+   "corpus": [
+    "gen"
+   ],
+   "item": {
+    "gen": "181"
+   },
+   "section": 17,
+   "title": "Mininet-WiFi: Emulating Software-Defined Wireless Networks",
+   "cite": "R. R. Fontes, S. Afzal, S. H. B. Brito, M. A. S. Santos, C. E. Rothenberg, 2015. Proc. IEEE CNSM 2015. DOI 10.1109/CNSM.2015.7367387.",
+   "note": "Extends Mininet with virtual Wi-Fi stations and access points plus propagation and mobility models for hybrid physical-virtual software-defined wireless emulation over IEEE 802.11. Direct companion of Mininet for wireless experimentation.",
+   "subfield": [
+    "emulation-tooling"
+   ],
+   "paradigm": [],
+   "type": [
+    "paper"
+   ],
+   "stratum": null,
+   "recency": "contemporary",
+   "recencyRaw": "contemporary",
+   "verification": "verified-web",
+   "verRaw": "verified[WEB]",
+   "year": 2015,
+   "living": false,
+   "quarantined": false,
+   "idents": [
+    "10.1109/CNSM.2015.7367387"
+   ],
+   "overlapFlags": []
+  },
+  {
+   "id": "g182",
+   "corpus": [
+    "gen"
+   ],
+   "item": {
+    "gen": "182"
+   },
+   "section": 17,
+   "title": "Kollaps: Decentralized and Dynamic Topology Emulation",
+   "cite": "P. Gouveia, J. Neves, C. Segarra, L. Liechti, S. Issa, V. Schiavoni, M. Matos, 2020. Proc. ACM EuroSys 2020. DOI 10.1145/3342195.3387540.",
+   "note": "Decentralized container-based emulator that reproduces end-to-end path properties from a high-level Thunderstorm specification (using tc/eBPF) without a central bottleneck, enabling large dynamic distributed-systems experiments. Contrasts with centralized Mininet/MaxiNet.",
+   "subfield": [
+    "emulation-tooling",
+    "parallel-distributed-sim"
+   ],
+   "paradigm": [],
+   "type": [
+    "paper"
+   ],
+   "stratum": null,
+   "recency": "current",
+   "recencyRaw": "current",
+   "verification": "verified-web",
+   "verRaw": "verified[WEB]",
+   "year": 2020,
+   "living": false,
+   "quarantined": false,
+   "idents": [
+    "10.1145/3342195.3387540"
+   ],
+   "overlapFlags": []
+  },
+  {
+   "id": "g183",
+   "corpus": [
+    "gen"
+   ],
+   "item": {
+    "gen": "183"
+   },
+   "section": 17,
+   "title": "TimeKeeper: A Lightweight Virtual Time System for Linux",
+   "cite": "J. Lamps, D. M. Nicol, M. Caesar, 2014. Proc. ACM SIGSIM-PADS 2014, pp. 179-186. DOI 10.1145/2601381.2601395.",
+   "note": "Kernel-level virtual-time (time-dilation) system that embeds Linux containers in a controllable clock so emulation of high-speed links stays temporally faithful; integrates with Mininet, CORE, EMANE, and ns-3. Foundational virtual-time-correction work for the cluster.",
+   "subfield": [
+    "emulation-tooling"
+   ],
+   "paradigm": [],
+   "type": [
+    "paper"
+   ],
+   "stratum": null,
+   "recency": "contemporary",
+   "recencyRaw": "contemporary",
+   "verification": "verified-web",
+   "verRaw": "verified[WEB]",
+   "year": 2014,
+   "living": false,
+   "quarantined": false,
+   "idents": [
+    "10.1145/2601381.2601395"
+   ],
+   "overlapFlags": []
+  },
+  {
+   "id": "g184",
+   "corpus": [
+    "gen"
+   ],
+   "item": {
+    "gen": "184"
+   },
+   "section": 18,
+   "title": "GARNET: A Detailed On-Chip Network Model Inside a Full-System Simulator",
+   "cite": "N. Agarwal, T. Krishna, L.-S. Peh, N.K. Jha, 2009. Proc. IEEE ISPASS, pp. 33-42. DOI 10.1109/ISPASS.2009.4919636.",
+   "note": "Seminal cycle-accurate on-chip-network model embedded in a full-system simulator (originally GEMS, now gem5's Ruby); its successor Garnet2.0 is gem5's default NoC model. Foundational for coupling interconnect microarchitecture with full-system memory/coherence traffic, and paired with BookSim for NoC research.",
+   "subfield": [
+    "other(systems)"
+   ],
+   "paradigm": [],
+   "type": [
+    "simulator-tool/doc"
+   ],
+   "stratum": null,
+   "recency": "foundational",
+   "recencyRaw": "foundational",
+   "verification": "verified-web",
+   "verRaw": "verified[WEB]",
+   "year": 2009,
+   "living": false,
+   "quarantined": false,
+   "idents": [
+    "10.1109/ISPASS.2009.4919636"
+   ],
+   "overlapFlags": []
+  },
+  {
+   "id": "g185",
+   "corpus": [
+    "gen"
+   ],
+   "item": {
+    "gen": "185"
+   },
+   "section": 18,
+   "title": "ASTRA-SIM: Enabling SW/HW Co-Design Exploration for Distributed DL Training Platforms",
+   "cite": "S. Rashidi, S. Sridharan, S. Srinivasan, T. Krishna, 2020. Proc. IEEE ISPASS, pp. 81-92. DOI 10.1109/ISPASS48437.2020.00018.",
+   "note": "Simulator of distributed deep-learning training platforms, modeling collective communication over scale-up/scale-out fabrics for algorithm-topology co-design; extended by ASTRA-sim2.0 (Won et al., ISPASS 2023). A systems-boundary tool for the network-of-accelerators era, complementary to gem5/SST node models.",
+   "subfield": [
+    "other(systems)"
+   ],
+   "paradigm": [],
+   "type": [
+    "simulator-tool/doc"
+   ],
+   "stratum": null,
+   "recency": "current",
+   "recencyRaw": "current",
+   "verification": "verified-web",
+   "verRaw": "verified[WEB]",
+   "year": 2020,
+   "living": false,
+   "quarantined": false,
+   "idents": [
+    "10.1109/ISPASS48437.2020.00018"
+   ],
+   "overlapFlags": []
+  },
+  {
+   "id": "g186",
+   "corpus": [
+    "gen"
+   ],
+   "item": {
+    "gen": "186"
+   },
+   "section": 18,
+   "title": "DRAMSim2: A Cycle Accurate Memory System Simulator",
+   "cite": "P. Rosenfeld, E. Cooper-Balis, B. Jacob, 2011. IEEE Computer Architecture Letters 10(1):16-19. DOI 10.1109/L-CA.2011.4.",
+   "note": "Widely-used cycle-accurate DDR2/3 memory-system model validated against manufacturer Verilog, usable in full-system or trace mode; the standard memory back-end integrated into gem5, SST, and MARSSx86, later superseded for extensibility by Ramulator.",
+   "subfield": [
+    "other(systems)"
+   ],
+   "paradigm": [],
+   "type": [
+    "simulator-tool/doc"
+   ],
+   "stratum": null,
+   "recency": "contemporary",
+   "recencyRaw": "contemporary",
+   "verification": "verified-web",
+   "verRaw": "verified[WEB]",
+   "year": 2011,
+   "living": false,
+   "quarantined": false,
+   "idents": [
+    "10.1109/L-CA.2011.4"
+   ],
+   "overlapFlags": []
+  },
+  {
+   "id": "g187",
+   "corpus": [
+    "gen"
+   ],
+   "item": {
+    "gen": "187"
+   },
+   "section": 18,
+   "title": "Ramulator: A Fast and Extensible DRAM Simulator",
+   "cite": "Y. Kim, W. Yang, O. Mutlu, 2016. IEEE Computer Architecture Letters 15(1):45-49. DOI 10.1109/LCA.2015.2414456.",
+   "note": "Fast, template-based DRAM simulator with out-of-the-box support for many standards (DDR3/4, LPDDR, GDDR5, HBM, WIO); ~2.5x faster than prior tools and the modern successor to DRAMSim2. Rebuilt as Ramulator 2.0 (Luo et al., IEEE CAL 2023, DOI 10.1109/LCA.2023.3333759).",
+   "subfield": [
+    "other(systems)"
+   ],
+   "paradigm": [],
+   "type": [
+    "simulator-tool/doc"
+   ],
+   "stratum": null,
+   "recency": "contemporary",
+   "recencyRaw": "contemporary",
+   "verification": "verified-web",
+   "verRaw": "verified[WEB]",
+   "year": 2016,
+   "living": false,
+   "quarantined": false,
+   "idents": [
+    "10.1109/LCA.2015.2414456"
+   ],
+   "overlapFlags": []
+  },
+  {
+   "id": "g188",
+   "corpus": [
+    "gen"
+   ],
+   "item": {
+    "gen": "188"
+   },
+   "section": 18,
+   "title": "The DiskSim Simulation Environment Version 4.0 Reference Manual",
+   "cite": "J.S. Bucy, J. Schindler, S.W. Schlosser, G.R. Ganger, 2008. Technical Report CMU-PDL-08-101, Carnegie Mellon Univ. Parallel Data Lab.",
+   "note": "The canonical, heavily-validated storage-subsystem simulator (disks, controllers, buses, request schedulers, block caches, RAID); the reference disk/storage-I/O model for decades of file-system and storage research. Systems-boundary counterpart to the memory (DRAMSim/Ramulator) and interconnect (BookSim/Garnet) simulators.",
+   "subfield": [
+    "other(systems)"
+   ],
+   "paradigm": [],
+   "type": [
+    "simulator-tool/doc"
+   ],
+   "stratum": null,
+   "recency": "foundational",
+   "recencyRaw": "foundational",
+   "verification": "verified-web",
+   "verRaw": "verified[WEB]",
+   "year": 2008,
+   "living": false,
+   "quarantined": false,
+   "idents": [],
+   "overlapFlags": []
+  },
+  {
+   "id": "g189",
+   "corpus": [
+    "gen"
+   ],
+   "item": {
+    "gen": "189"
+   },
+   "section": 19,
+   "title": "iFogSim2: An Extended iFogSim Simulator for Mobility, Clustering, and Microservice Management in Edge and Fog Computing Environments",
+   "cite": "R. Mahmud, S. Pallewatta, M. Goudarzi, R. Buyya, 2022. Journal of Systems and Software 190:111351. DOI 10.1016/j.jss.2022.111351.",
+   "note": "Extends and supersedes iFogSim with device mobility (real EUA mobility traces), dynamic distributed cluster formation, and microservice orchestration/migration; the current state of the CloudSim-lineage fog simulators.",
+   "subfield": [
+    "cloud-datacenter"
+   ],
+   "paradigm": [],
+   "type": [
+    "simulator-tool/doc"
+   ],
+   "stratum": null,
+   "recency": "current",
+   "recencyRaw": "current",
+   "verification": "verified-web",
+   "verRaw": "verified[WEB]",
+   "year": 2022,
+   "living": false,
+   "quarantined": false,
+   "idents": [
+    "10.1016/j.jss.2022.111351"
+   ],
+   "overlapFlags": []
+  },
+  {
+   "id": "g190",
+   "corpus": [
+    "gen"
+   ],
+   "item": {
+    "gen": "190"
+   },
+   "section": 19,
+   "title": "GreenCloud: A Packet-Level Simulator of Energy-Aware Cloud Computing Data Centers",
+   "cite": "D. Kliazovich, P. Bouvry, S. U. Khan, 2012. The Journal of Supercomputing 62(3):1263-1283. DOI 10.1007/s11227-010-0504-1. (Earlier: IEEE GLOBECOM 2010.)",
+   "note": "Packet-level, energy-aware data-center simulator implemented as an ns-2 extension, capturing server/switch/link power (DVFS/DNS power management) with full communication detail; a networking-detailed contrast to CloudSim's coarse event model for two/three-tier DC topologies.",
+   "subfield": [
+    "cloud-datacenter"
+   ],
+   "paradigm": [],
+   "type": [
+    "simulator-tool/doc"
+   ],
+   "stratum": null,
+   "recency": "foundational",
+   "recencyRaw": "foundational",
+   "verification": "verified-web",
+   "verRaw": "verified[WEB]",
+   "year": 2012,
+   "living": false,
+   "quarantined": false,
+   "idents": [
+    "10.1007/s11227-010-0504-1"
+   ],
+   "overlapFlags": []
+  },
+  {
+   "id": "g191",
+   "corpus": [
+    "gen"
+   ],
+   "item": {
+    "gen": "191"
+   },
+   "section": 19,
+   "title": "PeerSim: A Scalable P2P Simulator",
+   "cite": "A. Montresor, M. Jelasity, 2009. Proc. IEEE Ninth International Conference on Peer-to-Peer Computing (P2P 2009). (Tool: peersim.sourceforge.net.)",
+   "note": "The canonical highly-scalable P2P/overlay simulator (cycle-driven and event-driven engines) for gossip, epidemic and churn/failure protocols; still load-bearing for decentralized cloud/edge, DHT and blockchain-overlay simulation. Tagged parallel-distributed-sim since it is P2P rather than data-center, but included by the cloud-DC cluster for the decentralized-infrastructure dimension.",
+   "subfield": [
+    "parallel-distributed-sim"
+   ],
+   "paradigm": [],
+   "type": [
+    "simulator-tool/doc"
+   ],
+   "stratum": null,
+   "recency": "foundational",
+   "recencyRaw": "foundational",
+   "verification": "verified-web",
+   "verRaw": "verified[WEB]",
+   "year": 2009,
+   "living": false,
+   "quarantined": false,
+   "idents": [],
+   "overlapFlags": []
+  },
+  {
+   "id": "g192",
+   "corpus": [
+    "gen"
+   ],
+   "item": {
+    "gen": "192"
+   },
+   "section": 19,
+   "title": "BigHouse: A Simulation Infrastructure for Data Center Systems",
+   "cite": "D. Meisner, J. Wu, T. F. Wenisch, 2012. Proc. IEEE Int. Symp. on Performance Analysis of Systems and Software (ISPASS 2012). DOI 10.1109/ISPASS.2012.6189204.",
+   "note": "Best-paper Statistical Queuing Simulation (SQS) infrastructure that models datacenter server systems from empirical arrival/service distributions rather than microarchitecture, enabling power-provisioning and latency studies in minutes; a queuing-theory/stochastic-DES methodology complementing the CloudSim-style simulators here.",
+   "subfield": [
+    "cloud-datacenter"
+   ],
+   "paradigm": [],
+   "type": [
+    "simulator-tool/doc"
+   ],
+   "stratum": null,
+   "recency": "foundational",
+   "recencyRaw": "foundational",
+   "verification": "verified-web",
+   "verRaw": "verified[WEB]",
+   "year": 2012,
+   "living": false,
+   "quarantined": false,
+   "idents": [
+    "10.1109/ISPASS.2012.6189204"
+   ],
+   "overlapFlags": []
+  },
+  {
+   "id": "g193",
+   "corpus": [
+    "gen"
+   ],
+   "item": {
+    "gen": "193"
+   },
+   "section": 19,
+   "title": "Batsim: A Realistic Language-Independent Resources and Jobs Management Systems Simulator",
+   "cite": "P.-F. Dutot, M. Mercier, M. Poquet, O. Richard, 2016. Proc. Job Scheduling Strategies for Parallel Processing (JSSPP 2016), LNCS vol. 10353, Springer. DOI 10.1007/978-3-319-61756-5_10.",
+   "note": "SimGrid-based, language-independent simulator for HPC/cluster/datacenter resource-and-job management (RJMS); its companion scheduler 'batsched' supplies pluggable scheduling policies over a simple event protocol. Built on SimGrid (Casanova, Giersch, Legrand, Quinson, Suter, JPDC 74(10):2899-2917, 2014, DOI 10.1016/j.jpdc.2014.06.008), the foundational versatile distributed-systems simulation substrate.",
+   "subfield": [
+    "cloud-datacenter",
+    "parallel-distributed-sim"
+   ],
+   "paradigm": [],
+   "type": [
+    "simulator-tool/doc"
+   ],
+   "stratum": null,
+   "recency": "contemporary",
+   "recencyRaw": "contemporary",
+   "verification": "verified-web",
+   "verRaw": "verified[WEB]",
+   "year": 2016,
+   "living": false,
+   "quarantined": false,
+   "idents": [
+    "10.1007/978-3-319-61756-5_10"
+   ],
+   "overlapFlags": []
+  },
+  {
+   "id": "g194",
+   "corpus": [
+    "gen"
+   ],
+   "item": {
+    "gen": "194"
+   },
+   "section": 19,
+   "title": "Simulating Fog and Edge Computing Scenarios: An Overview and Research Challenges",
+   "cite": "S. Svorobej, P. Takako Endo, M. Bendechache, C. Filelis-Papadopoulos, K. M. Giannoutakis, G. A. Gravvanis, D. Tzovaras, J. Byrne, T. Lynn, 2019. Future Internet 11(3):55. DOI 10.3390/fi11030055.",
+   "note": "Comparative overview and taxonomy of fog/edge simulation tools (iFogSim, EdgeCloudSim, YAFS, and deployment-planners such as FogTorchPI/Brogi & Forti) with open research challenges; a natural survey-of anchor tying together the edge/fog tools in this cluster.",
+   "subfield": [
+    "cloud-datacenter"
+   ],
+   "paradigm": [],
+   "type": [
+    "survey/review"
+   ],
+   "stratum": null,
+   "recency": "contemporary",
+   "recencyRaw": "contemporary",
+   "verification": "verified-web",
+   "verRaw": "verified[WEB]",
+   "year": 2019,
+   "living": false,
+   "quarantined": false,
+   "idents": [
+    "10.3390/fi11030055"
+   ],
+   "overlapFlags": []
+  },
+  {
+   "id": "g195",
+   "corpus": [
+    "gen"
+   ],
+   "item": {
+    "gen": "195"
+   },
+   "section": 20,
+   "title": "m3: Accurate Flow-Level Performance Estimation using Machine Learning",
+   "cite": "C. Li, A. Nasr-Esfahany, K. Zhao, K. Noorbakhsh, P. Goyal, M. Alizadeh, T. Anderson, 2024. Proc. ACM SIGCOMM 2024. DOI 10.1145/3651890.3672243.",
+   "note": "Couples a fast flow-level fluid simulation with an ML model to predict data-center tail latency, running 4-8x faster than Parsimon at ~8% median error. Accelerates/supersedes the Parsimon parallel-simulation baseline and is the predecessor of m4 from the same MIT/UW/MSR group.",
+   "subfield": [
+    "ml-for-simulation"
+   ],
+   "paradigm": [],
+   "type": [
+    "paper"
+   ],
+   "stratum": null,
+   "recency": "current",
+   "recencyRaw": "current",
+   "verification": "verified-web",
+   "verRaw": "verified[WEB]",
+   "year": 2024,
+   "living": false,
+   "quarantined": false,
+   "idents": [
+    "10.1145/3651890.3672243"
+   ],
+   "overlapFlags": []
+  },
+  {
+   "id": "g196",
+   "corpus": [
+    "gen"
+   ],
+   "item": {
+    "gen": "196"
+   },
+   "section": 20,
+   "title": "m4: A Learned Flow-level Network Simulator",
+   "cite": "C. Li, A. A. Zabreyko, O. Chabra, A. Nasr-Esfahany, K. Zhao, P. Goyal, M. Alizadeh, T. Anderson, 2025. arXiv:2503.01770 (preprint).",
+   "note": "A fully learned flow-level simulator whose neural architecture decomposes state transitions into spatial and temporal components, reaching up to ~100x speedup over packet-level simulation while cutting flow-error vs traditional fluid models. Successor to m3 and a canonical example of a genuine learned (not surrogate-of-metrics) network simulator.",
+   "subfield": [
+    "ml-for-simulation"
+   ],
+   "paradigm": [],
+   "type": [
+    "paper"
+   ],
+   "stratum": null,
+   "recency": "current",
+   "recencyRaw": "current",
+   "verification": "verified-web",
+   "verRaw": "verified[WEB]",
+   "year": 2025,
+   "living": false,
+   "quarantined": false,
+   "idents": [
+    "arXiv:2503.01770"
+   ],
+   "overlapFlags": []
+  },
+  {
+   "id": "g197",
+   "corpus": [
+    "gen"
+   ],
+   "item": {
+    "gen": "197"
+   },
+   "section": 20,
+   "title": "NetworkGym: Reinforcement Learning Environments for Multi-Access Traffic Management in Network Simulation",
+   "cite": "M. Haider, M. Yin, M. Zhang, A. Gupta, J. Zhu, Y.-X. Wang, 2024. NeurIPS 2024 (Datasets & Benchmarks Track). arXiv:2411.04138. (Intel Labs / UC Santa Barbara.)",
+   "note": "A Simulation-as-a-Service framework providing high-fidelity full-stack RL environments (e.g. multi-access traffic splitting) with an offline-RL benchmark, published in the NeurIPS Datasets & Benchmarks track. Modern standardized counterpart to ns3-gym and Park for network-RL evaluation.",
+   "subfield": [
+    "ml-for-simulation"
+   ],
+   "paradigm": [],
+   "type": [
+    "simulator-tool/doc"
+   ],
+   "stratum": null,
+   "recency": "current",
+   "recencyRaw": "current",
+   "verification": "verified-web",
+   "verRaw": "verified[WEB]",
+   "year": 2024,
+   "living": false,
+   "quarantined": false,
+   "idents": [
+    "arXiv:2411.04138"
+   ],
+   "overlapFlags": []
+  },
+  {
+   "id": "g198",
+   "corpus": [
+    "gen"
+   ],
+   "item": {
+    "gen": "198"
+   },
+   "section": 20,
+   "title": "Differentiable Discrete Event Simulation for Queuing Network Control",
+   "cite": "E. Che, J. Dong, H. Namkoong, 2024. arXiv:2409.03740 (preprint; Columbia University).",
+   "note": "Makes discrete-event queueing-network simulation differentiable via a smoothing technique, enabling GPU-parallel pathwise policy gradients with 50-1000x better sample efficiency than RL for congestion/scheduling control. A distinct simulation-methodology thread (differentiable DES) complementing the surrogate-GNN and learned-simulator lines.",
+   "subfield": [
+    "ml-for-simulation"
+   ],
+   "paradigm": [],
+   "type": [
+    "paper"
+   ],
+   "stratum": null,
+   "recency": "current",
+   "recencyRaw": "current",
+   "verification": "verified-web",
+   "verRaw": "verified[WEB]",
+   "year": 2024,
+   "living": false,
+   "quarantined": false,
+   "idents": [
+    "arXiv:2409.03740"
+   ],
+   "overlapFlags": []
+  },
+  {
+   "id": "g199",
+   "corpus": [
+    "gen"
+   ],
+   "item": {
+    "gen": "199"
+   },
+   "section": 20,
+   "title": "Graph Neural Networks for Communication Networks: Context, Use Cases and Opportunities",
+   "cite": "J. Suarez-Varela, P. Almasan, M. Ferriol-Galmes, K. Rusek, A. Cabellos-Aparicio, P. Barlet-Ros, et al., 2023. IEEE Network 37(3):146-153. arXiv:2112.14792.",
+   "note": "Vision-and-use-case survey of GNNs for network modeling, control and management from the RouteNet (BNN-UPC) group. Frames RouteNet-Erlang/Fermi and IGNNITION within the broader learned-network-model agenda; complements Jiang's taxonomy survey.",
+   "subfield": [
+    "ml-for-simulation"
+   ],
+   "paradigm": [],
+   "type": [
+    "survey/review"
+   ],
+   "stratum": null,
+   "recency": "contemporary",
+   "recencyRaw": "contemporary",
+   "verification": "verified-web",
+   "verRaw": "verified[WEB]",
+   "year": 2023,
+   "living": false,
+   "quarantined": false,
+   "idents": [
+    "arXiv:2112.14792"
+   ],
+   "overlapFlags": []
+  },
+  {
+   "id": "g200",
+   "corpus": [
+    "gen"
+   ],
+   "item": {
+    "gen": "200"
+   },
+   "section": 21,
+   "title": "Exploring the \"Internet from space\" with Hypatia",
+   "cite": "S. Kassing, D. Bhattacherjee, A. B. Águas, J. E. Saethre, A. Singla, 2020. Proc. ACM Internet Measurement Conference (IMC), pp. 214-229. DOI 10.1145/3419394.3423635.",
+   "note": "Packet-level LEO constellation simulator pairing a Python constellation/routing generator (satgenpy) with an ns-3 packet-level engine and visualization; the de facto reference tool for 'Internet-from-space' studies and the baseline that StarryNet and xeoverse benchmark against.",
+   "subfield": [
+    "next-gen-wireless"
+   ],
+   "paradigm": [],
+   "type": [
+    "simulator-tool/doc"
+   ],
+   "stratum": null,
+   "recency": "contemporary",
+   "recencyRaw": "contemporary",
+   "verification": "verified-web",
+   "verRaw": "verified[WEB]",
+   "year": 2020,
+   "living": false,
+   "quarantined": false,
+   "idents": [
+    "10.1145/3419394.3423635"
+   ],
+   "overlapFlags": []
+  },
+  {
+   "id": "g201",
+   "corpus": [
+    "gen"
+   ],
+   "item": {
+    "gen": "201"
+   },
+   "section": 21,
+   "title": "StarPerf: Characterizing Network Performance for Emerging Mega-Constellations",
+   "cite": "Z. Lai, H. Li, et al. (Tsinghua Univ.), 2020. Proc. IEEE Intl. Conf. on Network Protocols (ICNP). IEEE Xplore doc. 9259357.",
+   "note": "Analytical mega-constellation performance simulator that estimates area-to-area latency/throughput/coverage via constellation abstraction and 'constellation scaling' without exchanging packets; complements packet-level Hypatia with fast what-if topology exploration.",
+   "subfield": [
+    "performance-evaluation"
+   ],
+   "paradigm": [],
+   "type": [
+    "simulator-tool/doc"
+   ],
+   "stratum": null,
+   "recency": "contemporary",
+   "recencyRaw": "contemporary",
+   "verification": "verified-web",
+   "verRaw": "verified[WEB]",
+   "year": 2020,
+   "living": false,
+   "quarantined": false,
+   "idents": [],
+   "overlapFlags": []
+  },
+  {
+   "id": "g202",
+   "corpus": [
+    "gen"
+   ],
+   "item": {
+    "gen": "202"
+   },
+   "section": 21,
+   "title": "SILLEO-SCNS: Network Simulator for Large Low Earth Orbit Satellite Networks",
+   "cite": "B. S. Kempton, A. Riedl, 2021. Proc. IEEE Intl. Conf. on Communications (ICC). IEEE Xplore doc. 9500439.",
+   "note": "Standalone Python/VTK simulator for large LEO constellations focused on inter-satellite and satellite-ground link design and shortest-path latency (Dijkstra/Floyd-Warshall over SGP4 orbits); a routing-study companion to Hypatia, and forked for Mars-constellation work.",
+   "subfield": [
+    "next-gen-wireless"
+   ],
+   "paradigm": [],
+   "type": [
+    "simulator-tool/doc"
+   ],
+   "stratum": null,
+   "recency": "contemporary",
+   "recencyRaw": "contemporary",
+   "verification": "verified-web",
+   "verRaw": "verified[WEB]",
+   "year": 2021,
+   "living": false,
+   "quarantined": false,
+   "idents": [],
+   "overlapFlags": []
+  },
+  {
+   "id": "g203",
+   "corpus": [
+    "gen"
+   ],
+   "item": {
+    "gen": "203"
+   },
+   "section": 21,
+   "title": "OS3: The CNI Open Source Satellite Simulator (OMNeT++)",
+   "cite": "B. Niehoefer, S. Subik, C. Wietfeld, 2013. Proc. 6th Intl. ICST Conf. on Simulation Tools and Techniques (SIMUTools). DOI 10.4108/icst.simutools.2013.251580.",
+   "note": "Foundational OMNeT++/INET open-source satellite simulator with SGP4/SDP4 mobility, real TLE track import, weather and channel modeling; the base later extended to LEO constellations by Valentine & Parisis' leosatellites module.",
+   "subfield": [
+    "next-gen-wireless"
+   ],
+   "paradigm": [],
+   "type": [
+    "simulator-tool/doc"
+   ],
+   "stratum": null,
+   "recency": "contemporary",
+   "recencyRaw": "contemporary",
+   "verification": "verified-web",
+   "verRaw": "verified[WEB]",
+   "year": 2013,
+   "living": false,
+   "quarantined": false,
+   "idents": [
+    "10.4108/icst.simutools.2013.251580"
+   ],
+   "overlapFlags": []
+  },
+  {
+   "id": "g204",
+   "corpus": [
+    "gen"
+   ],
+   "item": {
+    "gen": "204"
+   },
+   "section": 21,
+   "title": "SNS3: Satellite Network Simulator 3 (ns-3 satellite module)",
+   "cite": "J. Puttonen et al. (Magister Solutions, ESA contract), 2014. 'Satellite Model for Network Simulator 3,' Proc. SIMUTools 2014 / WNS3. DOI 10.4108/icst.simutools.2014.254631.",
+   "note": "ESA-funded ns-3 module implementing DVB-S2 forward and DVB-RCS2 return links with SINR-BLER PHY abstraction, ACM, DAMA capacity categories and random access; the canonical GEO/broadband-satellite counterpart to the LEO-focused ns-3 tools in this cluster.",
+   "subfield": [
+    "next-gen-wireless"
+   ],
+   "paradigm": [],
+   "type": [
+    "simulator-tool/doc"
+   ],
+   "stratum": null,
+   "recency": "contemporary",
+   "recencyRaw": "contemporary",
+   "verification": "verified-web",
+   "verRaw": "verified[WEB]",
+   "year": 2014,
+   "living": false,
+   "quarantined": false,
+   "idents": [
+    "10.4108/icst.simutools.2014.254631"
+   ],
+   "overlapFlags": []
+  },
+  {
+   "id": "g205",
+   "corpus": [
+    "gen"
+   ],
+   "item": {
+    "gen": "205"
+   },
+   "section": 21,
+   "title": "StarryNet: Empowering Researchers to Evaluate Futuristic Integrated Space and Terrestrial Networks",
+   "cite": "Z. Lai, H. Li, et al. (Tsinghua Univ.), 2023. Proc. USENIX Symp. on Networked Systems Design and Implementation (NSDI).",
+   "note": "Docker-container emulation framework that builds a real-data-driven digital twin of integrated space-terrestrial networks (ISTNs), running real network stacks over emulated ISLs/GSLs (SGP4 + Skyfield); a key ISTN experimentation platform benchmarked against Hypatia and xeoverse.",
+   "subfield": [
+    "emulation-tooling"
+   ],
+   "paradigm": [],
+   "type": [
+    "simulator-tool/doc"
+   ],
+   "stratum": null,
+   "recency": "current",
+   "recencyRaw": "current",
+   "verification": "verified-web",
+   "verRaw": "verified[WEB]",
+   "year": 2023,
+   "living": false,
+   "quarantined": false,
+   "idents": [],
+   "overlapFlags": []
+  },
+  {
+   "id": "g206",
+   "corpus": [
+    "gen"
+   ],
+   "item": {
+    "gen": "206"
+   },
+   "section": 21,
+   "title": "A System Simulator for 5G Non-Terrestrial Network Evaluations",
+   "cite": "J. Puttonen, L. Sormunen, H. Martikainen, S. Rantanen, J. Kurjenniemi, 2021. Proc. IEEE WoWMoM (NTN-in-6G workshop). IEEE Xplore doc. 9469494.",
+   "note": "System-level simulator (Magister) for 5G NR non-terrestrial networks following 3GPP TR 38.811/38.821 channel and geometry assumptions, evaluating NTN UE and cell throughput; a 3GPP-compliant NTN evaluation framework distinct from the already-covered 5G-LENA.",
+   "subfield": [
+    "next-gen-wireless"
+   ],
+   "paradigm": [],
+   "type": [
+    "simulator-tool/doc"
+   ],
+   "stratum": null,
+   "recency": "contemporary",
+   "recencyRaw": "contemporary",
+   "verification": "verified-web",
+   "verRaw": "verified[WEB]",
+   "year": 2021,
+   "living": false,
+   "quarantined": false,
+   "idents": [],
+   "overlapFlags": []
+  },
+  {
+   "id": "g207",
+   "corpus": [
+    "gen"
+   ],
+   "item": {
+    "gen": "207"
+   },
+   "section": 21,
+   "title": "xeoverse: A Real-time Simulation Platform for Large LEO Satellite Mega-Constellations",
+   "cite": "M. M. Kassem, N. Sastry (Univ. of Surrey), 2024. arXiv:2406.11366.",
+   "note": "Mininet/VM real-time simulator (1 simulated second = 1 wall-clock second) for large LEO mega-constellations, using precomputed topology/routing and incremental ISL updates; reports ~2.9x and ~40x total-runtime speedups over Hypatia and StarryNet respectively.",
+   "subfield": [
+    "emulation-tooling"
+   ],
+   "paradigm": [],
+   "type": [
+    "simulator-tool/doc"
+   ],
+   "stratum": null,
+   "recency": "current",
+   "recencyRaw": "current",
+   "verification": "verified-web",
+   "verRaw": "verified[WEB]",
+   "year": 2024,
+   "living": false,
+   "quarantined": false,
+   "idents": [
+    "arXiv:2406.11366"
+   ],
+   "overlapFlags": []
+  },
+  {
+   "id": "g208",
+   "corpus": [
+    "gen"
+   ],
+   "item": {
+    "gen": "208"
+   },
+   "section": 21,
+   "title": "Developing and Experimenting with LEO Satellite Constellations in OMNeT++",
+   "cite": "A. Valentine, G. Parisis (Univ. of Sussex), 2021. Proc. 8th OMNeT++ Community Summit. arXiv:2109.12046.",
+   "note": "OMNeT++/INET LEO constellation model (leosatellites) that extends OS3 ported to INET 4.3, validated against FCC-filed constellations for end-to-end ping latency; the OMNeT++ path to LEO constellation simulation and a direct descendant of OS3.",
+   "subfield": [
+    "next-gen-wireless"
+   ],
+   "paradigm": [],
+   "type": [
+    "simulator-tool/doc"
+   ],
+   "stratum": null,
+   "recency": "contemporary",
+   "recencyRaw": "contemporary",
+   "verification": "verified-web",
+   "verRaw": "verified[WEB]",
+   "year": 2021,
+   "living": false,
+   "quarantined": false,
+   "idents": [
+    "arXiv:2109.12046"
+   ],
+   "overlapFlags": []
+  },
+  {
+   "id": "g209",
+   "corpus": [
+    "gen"
+   ],
+   "item": {
+    "gen": "209"
+   },
+   "section": 21,
+   "title": "LEO Satellite Networking Relaunched: Survey and Current Research Challenges",
+   "cite": "C. Westphal, L. Han, R. Li, 2023. arXiv:2310.07646; also ITU J. Future and Evolving Technologies 4(4).",
+   "note": "Broad survey of LEO satellite networking spanning routing, SDN, ML and green networking, plus the state of 3GPP and IETF standardization for ISL-based LEO networks; contextualizes this cluster's simulators within the wider research agenda.",
+   "subfield": [
+    "next-gen-wireless"
+   ],
+   "paradigm": [],
+   "type": [
+    "survey/review"
+   ],
+   "stratum": null,
+   "recency": "current",
+   "recencyRaw": "current",
+   "verification": "verified-web",
+   "verRaw": "verified[WEB]",
+   "year": 2023,
+   "living": false,
+   "quarantined": false,
+   "idents": [
+    "arXiv:2310.07646"
+   ],
+   "overlapFlags": []
+  },
+  {
+   "id": "g210",
+   "corpus": [
+    "gen"
+   ],
+   "item": {
+    "gen": "210"
+   },
+   "section": 22,
+   "title": "Efficient optimistic parallel simulations using reverse computation",
+   "cite": "C. D. Carothers, K. S. Perumalla, R. M. Fujimoto, 1999. ACM Trans. Modeling and Computer Simulation (TOMACS) 9(3):224-253. DOI 10.1145/347823.347828.",
+   "note": "Introduces reverse computation as a memory-frugal alternative to state-saving for Time Warp rollback, the defining method behind ROSS and the extreme-scale Warp Speed result. A foundational synchronization-methodology paper distinct from the Fujimoto PDES survey already in corpus.",
+   "subfield": [
+    "parallel-distributed-sim"
+   ],
+   "paradigm": [],
+   "type": [
+    "paper"
+   ],
+   "stratum": null,
+   "recency": "foundational",
+   "recencyRaw": "foundational",
+   "verification": "verified-web",
+   "verRaw": "verified[WEB]",
+   "year": 1999,
+   "living": false,
+   "quarantined": false,
+   "idents": [
+    "10.1145/347823.347828"
+   ],
+   "overlapFlags": []
+  },
+  {
+   "id": "g211",
+   "corpus": [
+    "gen"
+   ],
+   "item": {
+    "gen": "211"
+   },
+   "section": 22,
+   "title": "The Georgia Tech Network Simulator (GTNetS)",
+   "cite": "G. F. Riley, 2003. Proc. ACM SIGCOMM Workshop on Models, Methods and Tools for Reproducible Network Research (MoMeTools). DOI 10.1145/944773.944775.",
+   "note": "Object-oriented C++ packet-level network simulator built for very-large-scale, MPI-parallel execution (hundreds of thousands of elements), whose scalability lineage feeds directly into ns-3's distributed design. A canonical MPI-based parallel net-sim tool beyond the ns-3/OMNeT++ basics already covered.",
+   "subfield": [
+    "parallel-distributed-sim"
+   ],
+   "paradigm": [],
+   "type": [
+    "simulator-tool/doc"
+   ],
+   "stratum": null,
+   "recency": "contemporary",
+   "recencyRaw": "contemporary",
+   "verification": "verified-web",
+   "verRaw": "verified[WEB]",
+   "year": 2003,
+   "living": false,
+   "quarantined": false,
+   "idents": [
+    "10.1145/944773.944775"
+   ],
+   "overlapFlags": []
+  },
+  {
+   "id": "g212",
+   "corpus": [
+    "gen"
+   ],
+   "item": {
+    "gen": "212"
+   },
+   "section": 22,
+   "title": "A generic framework for parallelization of network simulations (PDNS)",
+   "cite": "G. F. Riley, R. M. Fujimoto, M. H. Ammar, 1999. Proc. MASCOTS'99, pp. 128-135.",
+   "note": "Defines the federation approach that became Parallel/Distributed ns (PDNS), parallelizing the sequential ns-2 simulator over MPI and scaling to ~250k network elements. Foundational for conservative-synchronized packet-level network simulation and a companion to GTNetS.",
+   "subfield": [
+    "parallel-distributed-sim"
+   ],
+   "paradigm": [],
+   "type": [
+    "paper"
+   ],
+   "stratum": null,
+   "recency": "foundational",
+   "recencyRaw": "foundational",
+   "verification": "verified-web",
+   "verRaw": "verified[WEB]",
+   "year": 1999,
+   "living": false,
+   "quarantined": false,
+   "idents": [],
+   "overlapFlags": []
+  },
+  {
+   "id": "g213",
+   "corpus": [
+    "gen"
+   ],
+   "item": {
+    "gen": "213"
+   },
+   "section": 22,
+   "title": "A Simulator for Large-Scale Parallel Computer Architectures (SST/macro)",
+   "cite": "C. L. Janssen, H. Adalsteinsson, S. Cranford, J. P. Kenny, A. Pinar, D. A. Evensky, J. Mayo, 2010. Int. J. Distributed Systems and Technologies (IJDST) 1(2):57-73.",
+   "note": "The macroscale (SST/macro) element of Sandia's Structural Simulation Toolkit: a coarse-grained PDES that runs skeletonized applications over modeled HPC interconnects for extreme-scale network/architecture co-design. Complements ROSS/CODES on the HPC-interconnect side of network M&S.",
+   "subfield": [
+    "parallel-distributed-sim"
+   ],
+   "paradigm": [],
+   "type": [
+    "simulator-tool/doc"
+   ],
+   "stratum": null,
+   "recency": "contemporary",
+   "recencyRaw": "contemporary",
+   "verification": "verified-web",
+   "verRaw": "verified[WEB]",
+   "year": 2010,
+   "living": false,
+   "quarantined": false,
+   "idents": [],
+   "overlapFlags": []
+  },
+  {
+   "id": "g214",
+   "corpus": [
+    "gen"
+   ],
+   "item": {
+    "gen": "214"
+   },
+   "section": 22,
+   "title": "An Object-Oriented Time Warp Simulation Kernel (WARPED)",
+   "cite": "R. Radhakrishnan, D. E. Martin, M. Chetlur, D. M. Rao, P. A. Wilsey, 1998. Proc. ISCOPE'98, Springer LNCS 1505. DOI 10.1007/3-540-49372-7_2.",
+   "note": "Openly available, configurable Time Warp kernel (C++/MPI) providing a testbed for optimistic-synchronization optimizations; its modern redesign warped2 continues the line. Implements Jefferson's Time Warp and is a canonical experimentation platform alongside ROSS.",
+   "subfield": [
+    "parallel-distributed-sim"
+   ],
+   "paradigm": [],
+   "type": [
+    "simulator-tool/doc"
+   ],
+   "stratum": null,
+   "recency": "foundational",
+   "recencyRaw": "foundational",
+   "verification": "verified-web",
+   "verRaw": "verified[WEB]",
+   "year": 1998,
+   "living": false,
+   "quarantined": false,
+   "idents": [
+    "10.1007/3-540-49372-7_2"
+   ],
+   "overlapFlags": []
+  },
+  {
+   "id": "g215",
+   "corpus": [
+    "gen"
+   ],
+   "item": {
+    "gen": "215"
+   },
+   "section": 22,
+   "title": "μsik - A micro-kernel for parallel/distributed simulation systems",
+   "cite": "K. S. Perumalla, 2005. Proc. 19th Workshop on Principles of Advanced and Distributed Simulation (PADS'05), pp. 59-68. DOI 10.1109/PADS.2005.1.",
+   "note": "Micro-kernel PDES architecture that unifies conservative (lookahead) and optimistic (state-saving) synchronization within one system, letting processes even switch mechanisms dynamically. Directly addresses the conservative-vs-optimistic axis central to this cluster.",
+   "subfield": [
+    "parallel-distributed-sim"
+   ],
+   "paradigm": [],
+   "type": [
+    "simulator-tool/doc"
+   ],
+   "stratum": null,
+   "recency": "contemporary",
+   "recencyRaw": "contemporary",
+   "verification": "verified-web",
+   "verRaw": "verified[WEB]",
+   "year": 2005,
+   "living": false,
+   "quarantined": false,
+   "idents": [
+    "10.1109/PADS.2005.1"
+   ],
+   "overlapFlags": []
+  },
+  {
+   "id": "g216",
+   "corpus": [
+    "gen"
+   ],
+   "item": {
+    "gen": "216"
+   },
+   "section": 22,
+   "title": "Warp Speed: Executing Time Warp on 1,966,080 Cores",
+   "cite": "P. D. Barnes Jr., C. D. Carothers, D. R. Jefferson, J. M. LaPre, 2013. Proc. 2013 ACM SIGSIM Conf. on Principles of Advanced Discrete Simulation (SIGSIM-PADS). DOI 10.1145/2486092.2486134.",
+   "note": "Landmark strong-scaling study running ROSS Time Warp + reverse computation on ~2M Blue Gene/Q cores (PHOLD at ~504 billion events/s). The reference demonstration that optimistic PDES scales to full-machine supercomputers.",
+   "subfield": [
+    "parallel-distributed-sim"
+   ],
+   "paradigm": [],
+   "type": [
+    "paper"
+   ],
+   "stratum": null,
+   "recency": "contemporary",
+   "recencyRaw": "contemporary",
+   "verification": "verified-web",
+   "verRaw": "verified[WEB]",
+   "year": 2013,
+   "living": false,
+   "quarantined": false,
+   "idents": [
+    "10.1145/2486092.2486134"
+   ],
+   "overlapFlags": []
+  },
+  {
+   "id": "g217",
+   "corpus": [
+    "gen"
+   ],
+   "item": {
+    "gen": "217"
+   },
+   "section": 22,
+   "title": "Conservative Synchronization of Large-Scale Network Simulations",
+   "cite": "A. Park, R. M. Fujimoto, K. S. Perumalla, 2004. Proc. 18th Workshop on Parallel and Distributed Simulation (PADS'04), pp. 153-161. DOI 10.1145/1013329.1013355.",
+   "note": "Analytical and experimental comparison of synchronous vs asynchronous null-message conservative algorithms for parallel packet-level network simulation. The conservative-synchronization counterpart to the optimistic works here, grounded in network M&S.",
+   "subfield": [
+    "parallel-distributed-sim"
+   ],
+   "paradigm": [],
+   "type": [
+    "paper"
+   ],
+   "stratum": null,
+   "recency": "contemporary",
+   "recencyRaw": "contemporary",
+   "verification": "verified-web",
+   "verRaw": "verified[WEB]",
+   "year": 2004,
+   "living": false,
+   "quarantined": false,
+   "idents": [
+    "10.1145/1013329.1013355"
+   ],
+   "overlapFlags": []
+  },
+  {
+   "id": "g218",
+   "corpus": [
+    "gen"
+   ],
+   "item": {
+    "gen": "218"
+   },
+   "section": 23,
+   "title": "Stochastic Theory of a Data-Handling System with Multiple Sources",
+   "cite": "D. Anick, D. Mitra, M. M. Sondhi, 1982. Bell System Technical Journal 61(8):1871-1894. DOI 10.1002/j.1538-7305.1982.tb03089.x.",
+   "note": "The foundational fluid-queue model: a buffer fed by many independent on/off exponential sources, solved via a spectral/ODE decomposition. It is the analytical ancestor of essentially all later fluid models of multiplexed traffic (e.g. Misra-Gong-Towsley) and of effective-bandwidth theory.",
+   "subfield": [
+    "modeling-approaches"
+   ],
+   "paradigm": [],
+   "type": [
+    "paper"
+   ],
+   "stratum": null,
+   "recency": "foundational",
+   "recencyRaw": "foundational",
+   "verification": "verified-web",
+   "verRaw": "verified[WEB]",
+   "year": 1982,
+   "living": false,
+   "quarantined": false,
+   "idents": [
+    "10.1002/j.1538-7305.1982.tb03089.x"
+   ],
+   "overlapFlags": []
+  },
+  {
+   "id": "g219",
+   "corpus": [
+    "gen"
+   ],
+   "item": {
+    "gen": "219"
+   },
+   "section": 23,
+   "title": "A Unified Framework for Simulating Markovian Models of Highly Dependable Systems",
+   "cite": "A. Goyal, P. Shahabuddin, P. Heidelberger, V. F. Nicola, P. W. Glynn, 1992. IEEE Transactions on Computers 41(1):36-51. DOI 10.1109/12.123381.",
+   "note": "Canonical importance-sampling (failure-biasing) framework for simulating rare failure events in Markovian dependability/reliability models, achieving many-orders-of-magnitude speedups. The reliability-side counterpart to queueing rare-event methods and a keystone cited throughout the Heidelberger and Juneja-Shahabuddin surveys.",
+   "subfield": [
+    "simulation-methodology"
+   ],
+   "paradigm": [],
+   "type": [
+    "paper"
+   ],
+   "stratum": null,
+   "recency": "foundational",
+   "recencyRaw": "foundational",
+   "verification": "verified-web",
+   "verRaw": "verified[WEB]",
+   "year": 1992,
+   "living": false,
+   "quarantined": false,
+   "idents": [
+    "10.1109/12.123381"
+   ],
+   "overlapFlags": []
+  },
+  {
+   "id": "g220",
+   "corpus": [
+    "gen"
+   ],
+   "item": {
+    "gen": "220"
+   },
+   "section": 23,
+   "title": "RESTART: A Method for Accelerating Rare Event Simulations",
+   "cite": "M. Villen-Altamirano, J. Villen-Altamirano, 1991. Proc. 13th International Teletraffic Congress (ITC-13), Copenhagen; North-Holland.",
+   "note": "The original importance-splitting method for network rare events (buffer overflow, cell loss): trajectories are split into retrials each time they up-cross a threshold toward the rare set. Foundational for all later multilevel-splitting theory (Glasserman et al., L'Ecuyer et al.) and heavily applied in teletraffic simulation.",
+   "subfield": [
+    "simulation-methodology"
+   ],
+   "paradigm": [],
+   "type": [
+    "paper"
+   ],
+   "stratum": null,
+   "recency": "foundational",
+   "recencyRaw": "foundational",
+   "verification": "verified-web",
+   "verRaw": "verified[WEB]",
+   "year": 1991,
+   "living": false,
+   "quarantined": false,
+   "idents": [],
+   "overlapFlags": []
+  },
+  {
+   "id": "g221",
+   "corpus": [
+    "gen"
+   ],
+   "item": {
+    "gen": "221"
+   },
+   "section": 23,
+   "title": "Fast Simulation of Rare Events in Queueing and Reliability Models",
+   "cite": "P. Heidelberger, 1995. ACM Transactions on Modeling and Computer Simulation (TOMACS) 5(1):43-85. DOI 10.1145/203091.203094.",
+   "note": "The classic survey/tutorial of importance-sampling techniques for estimating rare events (buffer overflow, system failure) in queueing and reliability simulation. Anchors the rare-event methodology literature and is broadened/updated by the Juneja-Shahabuddin (2006) survey.",
+   "subfield": [
+    "simulation-methodology"
+   ],
+   "paradigm": [],
+   "type": [
+    "survey/review"
+   ],
+   "stratum": null,
+   "recency": "foundational",
+   "recencyRaw": "foundational",
+   "verification": "verified-web",
+   "verRaw": "verified[WEB]",
+   "year": 1995,
+   "living": false,
+   "quarantined": false,
+   "idents": [
+    "10.1145/203091.203094"
+   ],
+   "overlapFlags": []
+  },
+  {
+   "id": "g222",
+   "corpus": [
+    "gen"
+   ],
+   "item": {
+    "gen": "222"
+   },
+   "section": 23,
+   "title": "Multilevel Splitting for Estimating Rare Event Probabilities",
+   "cite": "P. Glasserman, P. Heidelberger, P. Shahabuddin, T. Zajic, 1999. Operations Research 47(4):585-600. DOI 10.1287/opre.47.4.585.",
+   "note": "The keystone theoretical analysis of multilevel splitting, deriving conditions for efficiency and near-optimal splitting factors. It formalizes and generalizes RESTART and underpins later adaptive-splitting methods; a load-bearing 'supersedes/formalizes' target for the splitting thread.",
+   "subfield": [
+    "simulation-methodology"
+   ],
+   "paradigm": [],
+   "type": [
+    "paper"
+   ],
+   "stratum": null,
+   "recency": "foundational",
+   "recencyRaw": "foundational",
+   "verification": "verified-web",
+   "verRaw": "verified[WEB]",
+   "year": 1999,
+   "living": false,
+   "quarantined": false,
+   "idents": [
+    "10.1287/opre.47.4.585"
+   ],
+   "overlapFlags": []
+  },
+  {
+   "id": "g223",
+   "corpus": [
+    "gen"
+   ],
+   "item": {
+    "gen": "223"
+   },
+   "section": 23,
+   "title": "Fluid-based Analysis of a Network of AQM Routers Supporting TCP Flows with an Application to RED",
+   "cite": "V. Misra, W.-B. Gong, D. Towsley, 2000. Proc. ACM SIGCOMM; Computer Communication Review 30(4):151-160. DOI 10.1145/347059.347421.",
+   "note": "THE fluid model of TCP/AQM networks: jump-process stochastic differential equations reduced to coupled ODEs capturing TCP window dynamics and RED, enabling scalable analysis where packet simulation is intractable. Parent work of hybrid fluid/packet simulators (Gu-Liu-Towsley) and a foundation for AQM control-theoretic analysis.",
+   "subfield": [
+    "modeling-approaches"
+   ],
+   "paradigm": [],
+   "type": [
+    "paper"
+   ],
+   "stratum": null,
+   "recency": "foundational",
+   "recencyRaw": "foundational",
+   "verification": "verified-web",
+   "verRaw": "verified[WEB]",
+   "year": 2000,
+   "living": false,
+   "quarantined": false,
+   "idents": [
+    "10.1145/347059.347421"
+   ],
+   "overlapFlags": []
+  },
+  {
+   "id": "g224",
+   "corpus": [
+    "gen"
+   ],
+   "item": {
+    "gen": "224"
+   },
+   "section": 23,
+   "title": "On Integrating Fluid Models with Packet Simulation",
+   "cite": "Y. Gu, Y. Liu, D. Towsley, 2004. Proc. IEEE INFOCOM, pp. 2856-2866. DOI 10.1109/INFCOM.2004.1354702.",
+   "note": "Hybrid simulation that couples time-stepped fluid models with event-driven packet simulation, keeping fluid-scale efficiency while retaining packet-level detail for flows of interest. Directly applies the Misra-Gong-Towsley fluid framework inside a discrete-event simulator; a core reference for hybrid fluid/packet methodology.",
+   "subfield": [
+    "simulation-methodology"
+   ],
+   "paradigm": [],
+   "type": [
+    "paper"
+   ],
+   "stratum": null,
+   "recency": "contemporary",
+   "recencyRaw": "contemporary",
+   "verification": "verified-web",
+   "verRaw": "verified[WEB]",
+   "year": 2004,
+   "living": false,
+   "quarantined": false,
+   "idents": [
+    "10.1109/INFCOM.2004.1354702"
+   ],
+   "overlapFlags": []
+  },
+  {
+   "id": "g225",
+   "corpus": [
+    "gen"
+   ],
+   "item": {
+    "gen": "225"
+   },
+   "section": 23,
+   "title": "Rare-Event Simulation Techniques: An Introduction and Recent Advances",
+   "cite": "S. Juneja, P. Shahabuddin, 2006. In Handbooks in Operations Research and Management Science, Vol. 13: Simulation (eds. S. G. Henderson, B. L. Nelson), Elsevier, pp. 291-350. DOI 10.1016/S0927-0507(06)13011-X.",
+   "note": "The authoritative modern survey of rare-event simulation, covering light- and heavy-tailed importance sampling, splitting, and applications to queues and queueing networks. The go-to reference that broadens and updates Heidelberger (1995); a natural 'survey of' hub for the rare-event cluster.",
+   "subfield": [
+    "simulation-methodology"
+   ],
+   "paradigm": [],
+   "type": [
+    "survey/review"
+   ],
+   "stratum": null,
+   "recency": "contemporary",
+   "recencyRaw": "contemporary",
+   "verification": "verified-web",
+   "verRaw": "verified[WEB]",
+   "year": 2006,
+   "living": false,
+   "quarantined": false,
+   "idents": [
+    "10.1016/S0927-0507(06"
+   ],
+   "overlapFlags": []
+  },
+  {
+   "id": "g226",
+   "corpus": [
+    "gen"
+   ],
+   "item": {
+    "gen": "226"
+   },
+   "section": 23,
+   "title": "A Class of Mean Field Interaction Models for Computer and Communication Systems",
+   "cite": "M. Benaim, J.-Y. Le Boudec, 2008. Performance Evaluation 65:823-838.",
+   "note": "Foundational mean-field framework proving that N interacting objects converge to a deterministic (ODE) mean-field limit, giving a scalable modeling alternative to per-node simulation of large systems (MAC protocols, epidemics, caching). Load-bearing for the mean-field/decoupling line of large-network analysis. DOI omitted (not confidently recalled); volume/pages web-confirmed.",
+   "subfield": [
+    "modeling-approaches"
+   ],
+   "paradigm": [],
+   "type": [
+    "paper"
+   ],
+   "stratum": null,
+   "recency": "contemporary",
+   "recencyRaw": "contemporary",
+   "verification": "verified-web",
+   "verRaw": "verified[WEB]",
+   "year": 2008,
+   "living": false,
+   "quarantined": false,
+   "idents": [],
+   "overlapFlags": []
+  },
+  {
+   "id": "g227",
+   "corpus": [
+    "gen"
+   ],
+   "item": {
+    "gen": "227"
+   },
+   "section": 23,
+   "title": "Rare Event Simulation using Monte Carlo Methods",
+   "cite": "G. Rubino, B. Tuffin (eds.), 2009. Wiley. ISBN 978-0-470-77269-0. DOI 10.1002/9780470745403.",
+   "note": "The comprehensive edited reference on rare-event Monte Carlo (importance sampling and splitting) with applications to dependability and telecommunication networks. The book-length anchor for this cluster, gathering the RESTART/multilevel-splitting/cross-entropy threads into one volume.",
+   "subfield": [
+    "simulation-methodology"
+   ],
+   "paradigm": [],
+   "type": [
+    "edited-volume"
+   ],
+   "stratum": null,
+   "recency": "contemporary",
+   "recencyRaw": "contemporary",
+   "verification": "verified-web",
+   "verRaw": "verified[WEB]",
+   "year": 2009,
+   "living": false,
+   "quarantined": false,
+   "idents": [
+    "10.1002/9780470745403",
+    "978-0-470-77269-0"
+   ],
+   "overlapFlags": []
+  },
+  {
+   "id": "g228",
+   "corpus": [
+    "gen"
+   ],
+   "item": {
+    "gen": "228"
+   },
+   "section": 23,
+   "title": "A Survey on Artifacts from CoNEXT, ICN, IMC, and SIGCOMM Conferences in 2017",
+   "cite": "M. Flittner, M. N. Mahfoudi, D. Saucez, M. Waehlisch, L. Iannone, V. Bajpai, A. Afanasyev, 2018. ACM SIGCOMM Computer Communication Review 48(1):75-80. DOI 10.1145/3211852.3211864.",
+   "note": "Empirical survey assessing artifact availability and reproducibility across four top ACM networking venues, part of the movement that established ACM artifact review/badging in networking. The reproducibility/artifact-evaluation companion to simulation- and measurement-based network studies.",
+   "subfield": [
+    "simulation-methodology"
+   ],
+   "paradigm": [],
+   "type": [
+    "survey/review"
+   ],
+   "stratum": null,
+   "recency": "contemporary",
+   "recencyRaw": "contemporary",
+   "verification": "verified-web",
+   "verRaw": "verified[WEB]",
+   "year": 2018,
+   "living": false,
+   "quarantined": false,
+   "idents": [
+    "10.1145/3211852.3211864"
+   ],
+   "overlapFlags": []
+  },
+  {
+   "id": "g229",
+   "corpus": [
+    "gen"
+   ],
+   "item": {
+    "gen": "229"
+   },
+   "section": 24,
+   "title": "PRISM 4.0: Verification of Probabilistic Real-Time Systems",
+   "cite": "M. Kwiatkowska, G. Norman, D. Parker, 2011. Proc. CAV 2011, LNCS 6806, pp. 585-591, Springer. DOI 10.1007/978-3-642-22110-1_47.",
+   "note": "The de facto probabilistic model checker for DTMCs, CTMCs, MDPs and probabilistic timed automata; the standard tool applied to randomised protocols (Bluetooth, Zigbee, CSMA/CD) that most network-protocol PMC studies build on. Reference implementation underpinning the Duflot et al. communication-protocol survey; performance-superseded by Storm.",
+   "subfield": [
+    "formal-methods"
+   ],
+   "paradigm": [],
+   "type": [
+    "simulator-tool/doc"
+   ],
+   "stratum": null,
+   "recency": "contemporary",
+   "recencyRaw": "contemporary",
+   "verification": "verified-web",
+   "verRaw": "verified[WEB]",
+   "year": 2011,
+   "living": false,
+   "quarantined": false,
+   "idents": [
+    "10.1007/978-3-642-22110-1_47"
+   ],
+   "overlapFlags": []
+  },
+  {
+   "id": "g230",
+   "corpus": [
+    "gen"
+   ],
+   "item": {
+    "gen": "230"
+   },
+   "section": 24,
+   "title": "A Storm is Coming: A Modern Probabilistic Model Checker",
+   "cite": "C. Dehnert, S. Junges, J.-P. Katoen, M. Volk, 2017. Proc. CAV 2017, LNCS, pp. 592-600, Springer. DOI 10.1007/978-3-319-63390-9_31. Journal version: Hensel et al., 'The probabilistic model checker Storm', STTT 2022, DOI 10.1007/s10009-021-00633-z.",
+   "note": "A modern, high-performance probabilistic model checker supporting PRISM/JANI models, GSPNs and dynamic fault trees with a Python API; positioned as the performance-oriented successor/competitor to PRISM for large Markov-model verification.",
+   "subfield": [
+    "formal-methods"
+   ],
+   "paradigm": [],
+   "type": [
+    "simulator-tool/doc"
+   ],
+   "stratum": null,
+   "recency": "contemporary",
+   "recencyRaw": "contemporary",
+   "verification": "verified-web",
+   "verRaw": "verified[WEB]",
+   "year": 2017,
+   "living": false,
+   "quarantined": false,
+   "idents": [
+    "10.1007/978-3-319-63390-9_31",
+    "10.1007/s10009-021-00633-z"
+   ],
+   "overlapFlags": []
+  },
+  {
+   "id": "g231",
+   "corpus": [
+    "gen"
+   ],
+   "item": {
+    "gen": "231"
+   },
+   "section": 24,
+   "title": "A Tutorial on Uppaal (timed-automata model checker)",
+   "cite": "G. Behrmann, A. David, K. G. Larsen, 2004. In Formal Methods for the Design of Real-Time Systems (SFM-RT 2004), LNCS 3185, pp. 200-236, Springer. DOI 10.1007/978-3-540-30080-9_7. Tool: uppaal.org.",
+   "note": "The canonical model checker for networks of timed automata, the workhorse for verifying real-time protocols and schedulers; foundational to the timed-automata line that PRISM's PTA support and UPPAAL SMC extend. This tutorial is the standard entry reference for the tool.",
+   "subfield": [
+    "formal-methods"
+   ],
+   "paradigm": [],
+   "type": [
+    "simulator-tool/doc"
+   ],
+   "stratum": null,
+   "recency": "foundational",
+   "recencyRaw": "foundational",
+   "verification": "verified-web",
+   "verRaw": "verified[WEB]",
+   "year": 2004,
+   "living": false,
+   "quarantined": false,
+   "idents": [
+    "10.1007/978-3-540-30080-9_7"
+   ],
+   "overlapFlags": []
+  },
+  {
+   "id": "g232",
+   "corpus": [
+    "gen"
+   ],
+   "item": {
+    "gen": "232"
+   },
+   "section": 24,
+   "title": "PRISM-games 3.0: Stochastic Game Verification with Concurrency, Equilibria and Time",
+   "cite": "M. Kwiatkowska, G. Norman, D. Parker, G. Santos, 2020. Proc. CAV 2020, LNCS 12225, pp. 475-487, Springer. DOI 10.1007/978-3-030-53291-8_25.",
+   "note": "Extends the PRISM framework to turn-based and concurrent stochastic multi-player games with equilibria and time, enabling verification and strategy synthesis for adversarial or competitive protocol settings (security, energy). Game-theoretic companion to PRISM.",
+   "subfield": [
+    "formal-methods"
+   ],
+   "paradigm": [],
+   "type": [
+    "simulator-tool/doc"
+   ],
+   "stratum": null,
+   "recency": "contemporary",
+   "recencyRaw": "contemporary",
+   "verification": "verified-web",
+   "verRaw": "verified[WEB]",
+   "year": 2020,
+   "living": false,
+   "quarantined": false,
+   "idents": [
+    "10.1007/978-3-030-53291-8_25"
+   ],
+   "overlapFlags": []
+  },
+  {
+   "id": "g233",
+   "corpus": [
+    "gen"
+   ],
+   "item": {
+    "gen": "233"
+   },
+   "section": 24,
+   "title": "The Modest Toolset: An Integrated Environment for Quantitative Modelling and Verification",
+   "cite": "A. Hartmanns, H. Hermanns, 2014. Proc. TACAS 2014, LNCS 8413, pp. 593-598, Springer. DOI 10.1007/978-3-642-54862-8_51.",
+   "note": "An integrated, JANI-based environment for quantitative modelling and verification across probabilistic, real-time and hybrid automata, bundling the mcsta (exact) and modes (statistical) engines. A distinct ecosystem alongside PRISM/Storm, interoperable via the JANI exchange format.",
+   "subfield": [
+    "formal-methods"
+   ],
+   "paradigm": [],
+   "type": [
+    "simulator-tool/doc"
+   ],
+   "stratum": null,
+   "recency": "contemporary",
+   "recencyRaw": "contemporary",
+   "verification": "verified-web",
+   "verRaw": "verified[WEB]",
+   "year": 2014,
+   "living": false,
+   "quarantined": false,
+   "idents": [
+    "10.1007/978-3-642-54862-8_51"
+   ],
+   "overlapFlags": []
+  },
+  {
+   "id": "g234",
+   "corpus": [
+    "gen"
+   ],
+   "item": {
+    "gen": "234"
+   },
+   "section": 24,
+   "title": "Uppaal SMC Tutorial (statistical model checking of stochastic timed automata)",
+   "cite": "A. David, K. G. Larsen, A. Legay, M. Mikucionis, D. B. Poulsen, 2015. Int. J. Software Tools for Technology Transfer (STTT) 17(4), pp. 397-415. DOI 10.1007/s10009-014-0361-y.",
+   "note": "The statistical model checking engine of UPPAAL for networks of priced/stochastic timed automata, estimating performance and probabilistic properties by simulation where exact model checking is undecidable; directly relevant to performance evaluation of timed network protocols. Extends UPPAAL and applies the SMC method surveyed by Legay et al.",
+   "subfield": [
+    "formal-methods"
+   ],
+   "paradigm": [],
+   "type": [
+    "paper"
+   ],
+   "stratum": null,
+   "recency": "contemporary",
+   "recencyRaw": "contemporary",
+   "verification": "verified-web",
+   "verRaw": "verified[WEB]",
+   "year": 2015,
+   "living": false,
+   "quarantined": false,
+   "idents": [
+    "10.1007/s10009-014-0361-y"
+   ],
+   "overlapFlags": []
+  },
+  {
+   "id": "g235",
+   "corpus": [
+    "gen"
+   ],
+   "item": {
+    "gen": "235"
+   },
+   "section": 24,
+   "title": "The SPIN Model Checker: Primer and Reference Manual",
+   "cite": "G. J. Holzmann, 2004. Addison-Wesley. ISBN 978-0-321-22862-8.",
+   "note": "The definitive reference for SPIN and the PROMELA language, the most widely used explicit-state model checker for concurrent-software and communication-protocol verification against LTL properties; the non-probabilistic protocol-verification anchor complementing PRISM/Storm and PAT.",
+   "subfield": [
+    "formal-methods"
+   ],
+   "paradigm": [],
+   "type": [
+    "book"
+   ],
+   "stratum": null,
+   "recency": "foundational",
+   "recencyRaw": "foundational",
+   "verification": "verified-web",
+   "verRaw": "verified[WEB]",
+   "year": 2004,
+   "living": false,
+   "quarantined": false,
+   "idents": [
+    "978-0-321-22862-8"
+   ],
+   "overlapFlags": []
+  },
+  {
+   "id": "g236",
+   "corpus": [
+    "gen"
+   ],
+   "item": {
+    "gen": "236"
+   },
+   "section": 24,
+   "title": "Principles of Model Checking",
+   "cite": "C. Baier, J.-P. Katoen, 2008. MIT Press. ISBN 978-0-262-02649-9.",
+   "note": "The foundational graduate textbook of model checking (transition systems, LTL/CTL, bisimulation, and probabilistic/CTMC model checking); the reference text underpinning essentially every tool in this cluster.",
+   "subfield": [
+    "formal-methods"
+   ],
+   "paradigm": [],
+   "type": [
+    "book"
+   ],
+   "stratum": null,
+   "recency": "foundational",
+   "recencyRaw": "foundational",
+   "verification": "verified-web",
+   "verRaw": "verified[WEB]",
+   "year": 2008,
+   "living": false,
+   "quarantined": false,
+   "idents": [
+    "978-0-262-02649-9"
+   ],
+   "overlapFlags": []
+  },
+  {
+   "id": "g237",
+   "corpus": [
+    "gen"
+   ],
+   "item": {
+    "gen": "237"
+   },
+   "section": 24,
+   "title": "Statistical Model Checking: An Overview",
+   "cite": "A. Legay, B. Delahaye, S. Bensalem, 2010. Proc. Runtime Verification (RV 2010), LNCS 6418, pp. 122-135, Springer. DOI 10.1007/978-3-642-16612-9_11.",
+   "note": "The canonical concise survey introducing statistical model checking as a simulation and hypothesis-testing alternative to exact numerical model checking; the 'survey of' anchor tying together UPPAAL SMC, Plasma Lab and Modest's modes engine.",
+   "subfield": [
+    "formal-methods"
+   ],
+   "paradigm": [],
+   "type": [
+    "survey/review"
+   ],
+   "stratum": null,
+   "recency": "contemporary",
+   "recencyRaw": "contemporary",
+   "verification": "verified-web",
+   "verRaw": "verified[WEB]",
+   "year": 2010,
+   "living": false,
+   "quarantined": false,
+   "idents": [
+    "10.1007/978-3-642-16612-9_11"
+   ],
+   "overlapFlags": []
+  },
+  {
+   "id": "g238",
+   "corpus": [
+    "gen"
+   ],
+   "item": {
+    "gen": "238"
+   },
+   "section": 24,
+   "title": "Practical Applications of Probabilistic Model Checking to Communication Protocols",
+   "cite": "M. Duflot, M. Kwiatkowska, G. Norman, D. Parker, S. Peyronnet, C. Picaronny, J. Sproston, 2013. In Formal Methods for Industrial Critical Systems: A Survey of Applications (S. Gnesi, T. Margaria, eds.), ch. 7, Wiley/IEEE Press. DOI 10.1002/9781118459898.ch7.",
+   "note": "A survey chapter demonstrating probabilistic model checking (via PRISM and probabilistic timed automata) on real communication protocols, anchored by an IEEE 802.3 CSMA/CD case study; the network-protocol application survey bridging PMC tools to the netsim corpus.",
+   "subfield": [
+    "formal-methods"
+   ],
+   "paradigm": [],
+   "type": [
+    "survey/review"
+   ],
+   "stratum": null,
+   "recency": "contemporary",
+   "recencyRaw": "contemporary",
+   "verification": "verified-web",
+   "verRaw": "verified[WEB]",
+   "year": 2013,
+   "living": false,
+   "quarantined": false,
+   "idents": [
+    "10.1002/9781118459898.ch7"
+   ],
+   "overlapFlags": []
+  },
+  {
    "id": "gU1",
    "corpus": [
     "gen"
@@ -5725,7 +7732,7 @@
    "item": {
     "gen": "U1"
    },
-   "section": 17,
+   "section": 25,
    "title": "Security of e-Systems and Computer Networks",
    "cite": "N. Boudriga, M. S. Obaidat (order uncertain), c. 2007. Cambridge UP.",
    "note": "Plausible editor-lineage security text linking to anchor Part 6.",
@@ -5755,7 +7762,7 @@
    "item": {
     "gen": "U2"
    },
-   "section": 17,
+   "section": 25,
    "title": "Smart Cities and Homes: Key Enabling Technologies",
    "cite": "M. S. Obaidat, P. Nicopolitidis (eds.), c. 2016. Morgan Kaufmann.",
    "note": "Plausible same-publisher, same-editors successor volume.",
@@ -5785,7 +7792,7 @@
    "item": {
     "gen": "U3"
    },
-   "section": 17,
+   "section": 25,
    "title": "m3: Accurate Flow-Level Performance Estimation using Machine Learning",
    "cite": "(MIT/Harvard-affiliated authors?), c. 2024. ACM SIGCOMM 2024 (reported).",
    "note": "Recalled as the flow-level successor in the MimicNet/DeepQueueNet line; title/venue need confirmation.",
@@ -5815,7 +7822,7 @@
    "item": {
     "gen": "U4"
    },
-   "section": 17,
+   "section": 25,
    "title": "The Art of Computer Systems Performance Analysis, 2nd ed.",
    "cite": "R. Jain, c. 2015. Wiley.",
    "note": "A 2nd edition may exist; only the 1991 edition is confirmed knowledge.",
@@ -5845,7 +7852,7 @@
    "item": {
     "gen": "U5"
    },
-   "section": 17,
+   "section": 25,
    "title": "Shadow v2 paper (\"Co-opting Linux processes for high-performance network simulation\")",
    "cite": "R. Jansen, J. Newsome, R. Wails, c. 2022. USENIX ATC (reported).",
    "note": "Title/venue recalled with moderate confidence.",
@@ -5875,7 +7882,7 @@
    "item": {
     "gen": "U6"
    },
-   "section": 17,
+   "section": 25,
    "title": "ns.py (Python discrete-event network simulator)",
    "cite": "TL Lab/U. Toronto lineage?, c. 2022. GitHub.",
    "note": "Recalled Python DES network library; existence plausible, provenance unconfirmed.",
@@ -5905,7 +7912,7 @@
    "item": {
     "gen": "U7"
    },
-   "section": 17,
+   "section": 25,
    "title": "OMNEST",
    "cite": "OpenSim Ltd., ongoing.",
    "note": "Commercial edition of OMNeT++; near-certain to exist but not confirmed this session.",
@@ -5935,7 +7942,7 @@
    "item": {
     "gen": "U8"
    },
-   "section": 17,
+   "section": 25,
    "title": "FogNetSim++",
    "cite": "(Qayyum et al.?), c. 2018, IEEE Access.",
    "note": "Named in the 2025 edge survey (existence effectively confirmed by mention); full citation ungrounded.",
@@ -5965,7 +7972,7 @@
    "item": {
     "gen": "U9"
    },
-   "section": 17,
+   "section": 25,
    "title": "PureEdgeSim",
    "cite": "C. Mechalikh et al., c. 2019–2021.",
    "note": "Same status as U8: named in surveys, full citation to pin.",
@@ -5995,7 +8002,7 @@
    "item": {
     "gen": "U10"
    },
-   "section": 17,
+   "section": 25,
    "title": "SatEdgeSim / IoTSim-Edge / IoTSim-Osmosis / faas-sim",
    "cite": "various, 2019–2023.",
    "note": "Batch: all named in arXiv:2505.09995 (existence supported); individual canonical citations to extract from that survey.",
@@ -6025,7 +8032,7 @@
    "item": {
     "gen": "U11"
    },
-   "section": 17,
+   "section": 25,
    "title": "Handbook of Dynamic System Modeling",
    "cite": "P. A. Fishwick (ed.), c. 2007. CRC.",
    "note": "Plausible comparable handbook; recalled with moderate confidence.",
@@ -6055,7 +8062,7 @@
    "item": {
     "gen": "U12"
    },
-   "section": 17,
+   "section": 25,
    "title": "\"Fluid-flow / hybrid network simulation\" survey",
    "cite": "unknown.",
    "note": "Known technique family (fluid models for TCP, hybrid packet/fluid); no specific consolidated survey grounded this session. Flagged as a recall gap, not a fabricated entry.",
@@ -6085,7 +8092,7 @@
    "item": {
     "gen": "U13"
    },
-   "section": 17,
+   "section": 25,
    "title": "RFC number for the IRTF NMRG Network Digital Twin architecture",
    "cite": "see item 91.",
    "note": "Draft confirmed; final RFC number/publication [VERIFY-LIVE].",
@@ -6115,7 +8122,7 @@
    "item": {
     "gen": "U14"
    },
-   "section": 17,
+   "section": 25,
    "title": "Cadmium (DEVS simulator, Carleton/ARSLab)",
    "cite": "G. Wainer group, c. 2019–.",
    "note": "Tool near-certainly exists; canonical citation ungrounded this session.",
@@ -6145,7 +8152,7 @@
    "item": {
     "gen": "U15"
    },
-   "section": 17,
+   "section": 25,
    "title": "\"Simulating Data Flows of Very Large Scale Intelligent Transportation Systems\"",
    "cite": "N. Tangirala, C. Sommer, A. Knoll, 2024. SIGSIM-PADS 2024, DOI 10.1145/3615979.3656062.",
    "note": "Seen once in citation metadata; promote after one more source.",
@@ -6177,7 +8184,7 @@
    "item": {
     "gen": "U16"
    },
-   "section": 17,
+   "section": 25,
    "title": "An Introduction to Control and Scheduling Co-design",
    "cite": "K.-E. Årzén, A. Cervin, J. Eker, L. Sha, 2000. Proc. 39th IEEE Conference on Decision and Control (CDC).",
    "note": "METHOD: the paper that named the control/scheduling co-design agenda; existence is high-confidence but no identifier was grounded this session — confirm DOI/pages before citing.",
@@ -6207,7 +8214,7 @@
    "item": {
     "gen": "U17"
    },
-   "section": 17,
+   "section": 25,
    "title": "The Control Server: A Computational Model for Real-Time Control Tasks",
    "cite": "A. Cervin, J. Eker, c. 2003. Proc. 15th Euromicro Conference on Real-Time Systems (ECRTS).",
    "note": "METHOD: reservation-based server abstraction for control tasks (the control-server behind TrueTime's scheduling); venue/identifier to confirm.",
@@ -6237,7 +8244,7 @@
    "item": {
     "gen": "U18"
    },
-   "section": 17,
+   "section": 25,
    "title": "A Review of Co-Design Approaches and Tools for Control of Cyber-Physical Systems",
    "cite": "N. Md Yusof, R. Mamat, et al., 2024. Applications of Modelling and Simulation 8:110–120.",
    "note": "METHOD: recent review positioning TrueTime among CPS control/scheduling co-design tools (a forward-citation find); open-access venue, no DOI located — single-source, promote after corroboration.",

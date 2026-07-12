@@ -18,12 +18,17 @@ NET.inspector = (function () {
     function edgeRow(e, dir) {
       const other = byId[dir === 'out' ? e.t : e.s];
       const row = U.el('div', { class: 'edge' });
-      row.appendChild(U.el('span', { class: 'badge plain', text: dir === 'out' ? e.kind : 'is ' + e.kind + ' by' }));
+      const kb = U.el('span', { class: 'badge kind', text: dir === 'out' ? e.kind : 'is ' + e.kind + ' by' });
+      kb.style.color = U.kindColor(e.kind); kb.style.borderColor = U.kindColor(e.kind);
+      row.appendChild(kb);
+      row.appendChild(U.el('span', { class: 'badge ' + (e.src === 'editorial' ? 'ed' : 'plain'),
+        text: e.src === 'editorial' ? 'EDITORIAL' : 'derived' }));
+      if (e.cycle) row.appendChild(U.el('span', { class: 'badge plain', text: '↻ ' + e.cycle }));
       row.appendChild(document.createTextNode(' '));
-      row.appendChild(U.el('span', { class: 'lnk', text: other.id + ' ' + U.shortTitle(other.title, 60),
+      row.appendChild(U.el('span', { class: 'lnk', text: other.id + ' ' + U.shortTitle(other.title, 54),
         tabindex: '0', role: 'link', onclick: () => NET.state.set({ sel: other.id }),
         onkeydown: (ev) => { if (ev.key === 'Enter' || ev.key === ' ') { ev.preventDefault(); NET.state.set({ sel: other.id }); } } }));
-      if (e.quote) row.appendChild(U.el('span', { class: 'ov', text: 'grounded by: ' + e.quote }));
+      if (e.note) row.appendChild(U.el('span', { class: 'ov', text: (e.src === 'editorial' ? 'rationale: ' : 'grounded by: ') + e.note }));
       return row;
     }
 
@@ -87,7 +92,7 @@ NET.inspector = (function () {
 
       const outs = outE[id] || [], ins = inE[id] || [];
       if (outs.length || ins.length) {
-        host.appendChild(U.el('div', { class: 'sec', text: 'derived references (' + (outs.length + ins.length) + ')' }));
+        host.appendChild(U.el('div', { class: 'sec', text: 'typed relations (' + (outs.length + ins.length) + ')' }));
         outs.forEach((e) => host.appendChild(edgeRow(e, 'out')));
         ins.forEach((e) => host.appendChild(edgeRow(e, 'in')));
       }
@@ -131,6 +136,16 @@ NET.inspector = (function () {
         lp.appendChild(U.el('div', { class: 'lrow' }, box, U.el('span', { class: 'muted', text: p })));
       }
       wrap.appendChild(lp);
+
+      wrap.appendChild(U.el('div', { class: 'sec', text: 'reading-relation kinds (12 · edge hues)' }));
+      wrap.appendChild(U.el('p', { class: 'muted', text: 'In the Reading graph, edge colour is the kind; derived edges are solid, editorial edges dotted.' }));
+      const lk = U.el('div', { class: 'legend-full' });
+      for (const k of U.KINDS) {
+        const box = U.el('span', { class: 'cbox' });
+        box.style.background = U.kindColor(k); box.style.borderColor = U.kindColor(k);
+        lk.appendChild(U.el('div', { class: 'lrow' }, box, U.el('span', { class: 'muted', text: k })));
+      }
+      wrap.appendChild(lk);
       return wrap;
     }
 
@@ -152,7 +167,7 @@ NET.inspector = (function () {
       stat('gen corpus', st.gen); stat('mat corpus', st.mat);
       stat('verified[WEB]', st.web); stat('verified[TRAIN]', st.train);
       stat('unverified', st.unv); stat('quarantined', st.quarantined);
-      stat('living docs/tools', st.living); stat('derived refs', st.edges);
+      stat('living docs/tools', st.living); stat('typed relations', st.edges);
       host.appendChild(grid);
       host.appendChild(U.el('p', { class: 'muted', text: 'Both reports were parsed directly by the build — no hand transcription. Counts, numbering, tag vocabularies and the two cross-corpus merges are machine-checked; the log ships as data/corpus_report.md.' }));
 
@@ -160,7 +175,7 @@ NET.inspector = (function () {
 
       host.appendChild(U.el('div', { class: 'sec', text: 'keyboard' }));
       host.appendChild(U.el('p', { class: 'muted' },
-        U.el('span', { class: 'kbd', text: '1–6' }), ' views · ',
+        U.el('span', { class: 'kbd', text: '1–7' }), ' views · ',
         U.el('span', { class: 'kbd', text: 'o' }), ' overlay · ',
         U.el('span', { class: 'kbd', text: '/' }), ' search · ',
         U.el('span', { class: 'kbd', text: 'v' }), ' verification · ',

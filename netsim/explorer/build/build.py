@@ -23,6 +23,7 @@ MAT_MD = os.path.join(ROOT, 'MATLAB_Simulink_network_MS_corpus_v1_0.md')
 
 sys.path.insert(0, HERE)
 import overlays as OV  # EDITORIAL overlay layer (maintainer-curated; validated in PHASE 3.5)
+import relations_typed as RT  # TYPED reading-relation layer (12 kinds; assembled in PHASE 3.6)
 
 report = []
 def log(line=''):
@@ -84,12 +85,20 @@ GEN_SECTION_MAP = {
     14: ('p6', 'expansion axis: anchor Part 6'),
     15: ('meta', "recall multipliers — sweep these, don't cite as single works"),
     16: ('beyond', 'joint network + per-station task/resource scheduling; systems-scope expansion'),
-    17: ('quarantine', 'unverified / to confirm'),
+    17: ('p4', 'container/VM emulation, testbeds & virtual-time correction (expansion of Part 4)'),
+    18: ('beyond', 'expansion of the "systems" scope: architecture, interconnect, memory & storage simulators'),
+    19: ('beyond', 'expansion of the "systems" scope: cloud / edge / datacenter simulators'),
+    20: ('beyond', 'did not exist at anchor time: learned / ML-driven network simulation (expansion)'),
+    21: ('p5', 'next-generation wireless: non-terrestrial & satellite network simulation'),
+    22: ('p4', 'PADS at scale: optimistic/conservative engines & synchronization (expansion)'),
+    23: ('p4', 'simulation methodology: rare-event, fluid models & reproducibility (expansion of Part 4)'),
+    24: ('beyond', 'formal verification of protocols & schedulers — the systems-boundary fork, opened lightly'),
+    25: ('quarantine', 'unverified / to confirm'),
 }
 SUBFIELDS = ['protocols-services', 'performance-evaluation', 'modeling-approaches',
              'simulation-methodology', 'next-gen-wireless', 'security', 'digital-twin',
              'ml-for-simulation', 'cloud-datacenter', 'sdn-nfv-p4', 'parallel-distributed-sim',
-             'emulation-tooling', 'other', 'other(systems)']
+             'emulation-tooling', 'formal-methods', 'other', 'other(systems)']
 PARADIGMS = ['discrete-event', 'wireless-system-level', 'link-phy-level',
              'analytical-control-fluid', 'co-simulation-interop', 'academic-simulators']
 STRATA = ['mathworks-official', 'peer-reviewed', 'book', 'community', 'thesis', 'other']
@@ -131,6 +140,17 @@ VIEWS = {
                             'and where does recall thin?',
                    computed='Verification split computed from tags; quarantine cards carried verbatim with their '
                             '“to confirm” notes; coverage summaries quoted whole.'),
+    'reading': dict(label='Reading graph',
+                    semantic='Typed, directed, cyclic-capable reading relations between resources — the twelve-kind '
+                             'vocabulary carried from the SWE corpus (prerequisite-of, refines, subsumes, formalizes, '
+                             'surveys, applies-method-of, companion, evaluates, critiques, supersedes, part-of, references). '
+                             'Every edge is provenance-tagged: derived (grounded in report text) or editorial (maintainer '
+                             'rationale, dotted).',
+                    question='What should I read before / after / alongside this resource, and why?',
+                    computed='Nodes = every resource with ≥1 typed edge; corpus bands (gen/mat) are shelf-packed to fit '
+                             'the pane; within a band, order is (subfield/paradigm, year). Edges are hued by kind; editorial '
+                             'edges are dotted. Hover traces the cycle-safe closure both directions. The resources with no '
+                             'typed relation remain reachable via Anchor, Facets, Chronology, and search.'),
     'graph': dict(label='Overlays',
                   semantic='EDITORIAL typed-relation overlays over a curated subset: a didactic ground-up '
                            'reading order, and theory→applied transitive-specialization chains. Maintainer '
@@ -230,13 +250,13 @@ mat_n = [e for e in mat_entries if not e['item'].startswith('U')]
 mat_u = [e for e in mat_entries if e['item'].startswith('U')]
 log(f'- GEN: {len(gen_n)} numbered entries + {len(gen_u)} quarantined across {len(gen_sections)} sections.')
 log(f'- MAT: {len(mat_n)} numbered entries + {len(mat_u)} quarantined across {len(mat_sections)} sections.')
-if len(gen_n) != 176 or len(gen_u) != 18:
-    fail(f'GEN counts changed: expected 176+18, got {len(gen_n)}+{len(gen_u)} — reconcile with the report')
+if len(gen_n) != 238 or len(gen_u) != 18:
+    fail(f'GEN counts changed: expected 238+18, got {len(gen_n)}+{len(gen_u)} — reconcile with the report')
 if len(mat_n) != 81 or len(mat_u) != 8:
     fail(f'MAT counts changed: expected 81+8, got {len(mat_n)}+{len(mat_u)}')
 seq = [int(e['item']) for e in gen_n]
-if seq != sorted(seq) or seq != list(range(1, 177)):
-    fail('GEN numbering is not the contiguous 1..176 sequence')
+if seq != sorted(seq) or seq != list(range(1, 239)):
+    fail('GEN numbering is not the contiguous 1..238 sequence')
 if [int(e['item']) for e in mat_n] != list(range(1, 82)):
     fail('MAT numbering is not the contiguous 1..81 sequence')
 log('- numbering contiguous in both reports (GEN 1..176, MAT 1..81).')
@@ -275,7 +295,7 @@ for e in gen_entries + mat_entries:
         fail(f'{corpus} {e["item"]}: unparseable recency {rec_raw!r}')
     if ver_qual:
         qualifiers.append(f'{corpus}{e["item"]}: verification qualifier “{ver_qual}”')
-    quarantined = (corpus == 'gen' and e['section'] == 17) or (corpus == 'mat' and e['section'] == 9)
+    quarantined = (corpus == 'gen' and e['section'] == 25) or (corpus == 'mat' and e['section'] == 9)
     year, living = extract_year(e['cite'], e['title'])
     overlap_flags = re.findall(r'\[GEN-CORPUS[^\]]*\]', e['cite'] + ' ' + e['note'])
     nodes.append(dict(
@@ -365,12 +385,12 @@ log('')
 # ─────────────────────────── PHASE 3 — structural verification ───────────────────────────
 log('## PHASE 3 — structural verification')
 for sec in gen_sections:
-    if sec['no'] not in GEN_SECTION_MAP and sec['no'] <= 17:
+    if sec['no'] not in GEN_SECTION_MAP and sec['no'] <= 25:
         fail(f'GEN section {sec["no"]} missing from the anchor map')
 vc = collections.Counter(n['verification'] for n in nodes)
 qc = sum(1 for n in nodes if n['quarantined'])
 log(f"- verification split: {vc['verified-web']} verified[WEB] / {vc['verified-train']} verified[TRAIN] "
-    f"/ {vc['unverified']} unverified; {qc} entries live in the quarantine sections (§17 GEN / §9 MAT).")
+    f"/ {vc['unverified']} unverified; {qc} entries live in the quarantine sections (§25 GEN / §9 MAT).")
 bad_q = [n['id'] for n in nodes if n['quarantined'] and n['verification'] != 'unverified'
          and 'single-source' not in n['verRaw'] and 'unverified' not in n['verRaw']]
 if bad_q:
@@ -447,6 +467,90 @@ for ov in OV.OVERLAYS:
 log(f'- provenance stamped on both overlays: {OV.PROVENANCE!r}')
 log('')
 
+# ─────────────────── PHASE 3.6 — TYPED reading relations (12 kinds; SWE-parity) ───────────────────
+log('## PHASE 3.6 — typed reading relations')
+KINDS12 = RT.KINDS
+typed = []
+typed_seen = set()  # claimed ordered (s, t) pairs; precedence EXTRA > overlay > derived
+def add_typed(s, t, kind, src, note):
+    s, t = alias.get(s, s), alias.get(t, t)
+    if s == t or s not in byid or t not in byid:
+        return False
+    if kind not in KINDS12:
+        fail(f'typed edge {s}->{t}: unknown kind {kind!r}')
+    if src == 'editorial' and (byid[s]['quarantined'] or byid[t]['quarantined']):
+        fail(f'typed editorial edge {s}->{t}: touches a quarantined node — editorial reading '
+             'edges may not launder unverified material into the graph')
+    if (s, t) in typed_seen:
+        return False
+    typed_seen.add((s, t))
+    typed.append(dict(s=s, t=t, kind=kind, src=src, note=note, cycle=''))
+    return True
+
+# (1) hand-authored + NR1-authored finer editorial kinds win any (s, t) contest.
+extra_added = sum(1 for s, t, k, note in RT.EXTRA_EDGES if add_typed(s, t, k, 'editorial', note))
+extra_added += sum(1 for s, t, k, note in RT.AUTHORED_EDGES if add_typed(s, t, k, 'editorial', note))
+# (2) the two EDITORIAL overlays, re-expressed into the twelve kinds (rationale carried verbatim).
+ov_added = 0
+for ov in OV.OVERLAYS:
+    mrule = RT.OVERLAY_TYPED[ov['id']]
+    for s, t, why in ov['edges']:
+        os_, ot = (t, s) if mrule['flip'] else (s, t)
+        if add_typed(os_, ot, mrule['kind'], 'editorial', why):
+            ov_added += 1
+# (3) derived — re-type the mechanical cross-references (references; part-of for family/module flags).
+PARTWORDS = ('family', 'module', 'part of', 'bundle', 'under the', 'umbrella', 'suite')
+der_added = 0
+for e in edges:
+    q = e.get('quote') or ''
+    kind = 'part-of' if (e['kind'] == 'overlaps' and any(w in q.lower() for w in PARTWORDS)) else 'references'
+    if add_typed(e['s'], e['t'], kind, 'derived', q):
+        der_added += 1
+
+# cycles: label every edge inside a non-trivial strongly-connected component (the reading graph is
+# cyclic-capable, unlike the acyclic overlays). Small graph → reachability by DFS from each node.
+adj_t = collections.defaultdict(list)
+for e in typed:
+    adj_t[e['s']].append(e['t'])
+def _reach(start):
+    seen, st = set(), [start]
+    while st:
+        c = st.pop()
+        for x in adj_t[c]:
+            if x not in seen:
+                seen.add(x); st.append(x)
+    return seen
+allnodes = sorted({e['s'] for e in typed} | {e['t'] for e in typed})
+reach = {n: _reach(n) for n in allnodes}
+scc_of, cycles_out, cyc = {}, [], 0
+for n in allnodes:
+    if n in scc_of:
+        continue
+    grp = sorted([m2 for m2 in allnodes if m2 != n and n in reach.get(m2, set()) and m2 in reach.get(n, set())] + [n])
+    if len(grp) > 1:
+        cyc += 1
+        cid = 'C' + str(cyc)
+        for g in grp:
+            scc_of[g] = cid
+        cycles_out.append(dict(id=cid, nodes=grp))
+for e in typed:
+    if scc_of.get(e['s']) and scc_of.get(e['s']) == scc_of.get(e['t']):
+        e['cycle'] = scc_of[e['s']]
+
+for e in typed:
+    if e['s'] not in byid or e['t'] not in byid:
+        fail(f'typed edge endpoint missing: {e}')
+kc = collections.Counter(e['kind'] for e in typed)
+sc = collections.Counter(e['src'] for e in typed)
+drawn_nodes = len({e['s'] for e in typed} | {e['t'] for e in typed})
+log(f'- typed edges: {len(typed)} over {drawn_nodes} resources '
+    f'({extra_added} extra-editorial + {ov_added} overlay-editorial + {der_added} derived).')
+log('- by kind: ' + ', '.join(f'{k}:{kc.get(k, 0)}' for k in KINDS12) + '.')
+log(f'- by provenance: derived {sc.get("derived", 0)} / editorial {sc.get("editorial", 0)}; '
+    f'{len(cycles_out)} cycle(s) tagged'
+    + (': ' + ', '.join(f'{c["id"]}({len(c["nodes"])})' for c in cycles_out) if cycles_out else '') + '.')
+log('')
+
 # ─────────────────────────── PHASE 4 — emission ───────────────────────────
 log('## PHASE 4 — emission')
 # coverage summaries: carried as verbatim paragraph blocks
@@ -488,8 +592,10 @@ corpus_obj = dict(
     nodes=nodes_out,
 )
 relations_obj = dict(
-    kinds=['overlaps', 'mentions', 'named-in'],
-    edges=edges,
+    kinds=RT.KINDS,
+    edges=typed,
+    cycles=cycles_out,
+    mechanical=edges,  # the raw item-number / identifier cross-references that ground the derived `references`
     anchorMap=[dict(part=p, sections=[dict(no=no, relation=rel) for no, (pp, rel) in
                                       sorted(GEN_SECTION_MAP.items()) if pp == p],
                     verdict=PART_VERDICTS.get(p))
@@ -522,7 +628,7 @@ emit('corpus', 'corpus', corpus_obj)
 emit('relations', 'relations', relations_obj)
 log('')
 log(f'Totals: {len(nodes_out)} nodes (1 anchor + {len(nodes)} entries after {len(merges)} merges) · '
-    f'{len(edges)} derived edges · {len(gen_sections)}+{len(mat_sections)} sections · '
+    f'{len(typed)} typed edges ({len(edges)} mechanical cross-refs) · {len(gen_sections)}+{len(mat_sections)} sections · '
     f"{vc['verified-web']}/{vc['verified-train']}/{vc['unverified']} web/train/unverified.")
 with open(os.path.join(DATA, 'corpus_report.md'), 'w', encoding='utf-8') as f:
     f.write('\n'.join(report) + '\n')

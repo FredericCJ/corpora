@@ -5,7 +5,7 @@
   'use strict';
   const U = NET.util, S = NET.state;
   const log = NET.log.consoleLogger('net', 'debug');
-  const VIEW_ORDER = ['anchor', 'graph', 'facets', 'timeline', 'matlab', 'triage'];
+  const VIEW_ORDER = ['anchor', 'reading', 'graph', 'facets', 'timeline', 'matlab', 'triage'];
   const VER_CYCLE = ['', 'verified-web', 'verified-train', 'unverified'];
   const CORPUS_CYCLE = ['', 'gen', 'mat'];
 
@@ -85,7 +85,7 @@
         if (s.view !== 'graph') S.set({ view: 'graph' });
         else S.set({ ov: (s.ov || 'didactic') === 'didactic' ? 'specialization' : 'didactic' });
       }
-      else if (/^[1-6]$/.test(ev.key)) S.set({ view: VIEW_ORDER[+ev.key - 1] });
+      else if (/^[1-7]$/.test(ev.key)) S.set({ view: VIEW_ORDER[+ev.key - 1] });
     });
 
     // initial render from hash

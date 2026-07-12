@@ -34,7 +34,7 @@ NET.util = (function () {
   const SUBF_KEY = { 'protocols-services': 'ps', 'performance-evaluation': 'pe', 'modeling-approaches': 'ma',
     'simulation-methodology': 'sm', 'next-gen-wireless': 'ngw', 'security': 'sec', 'digital-twin': 'dt',
     'ml-for-simulation': 'ml', 'cloud-datacenter': 'cd', 'sdn-nfv-p4': 'sdn',
-    'parallel-distributed-sim': 'pads', 'emulation-tooling': 'emu' };
+    'parallel-distributed-sim': 'pads', 'emulation-tooling': 'emu', 'formal-methods': 'fm' };
   const PAR_KEY = { 'discrete-event': 'de', 'wireless-system-level': 'wsl', 'link-phy-level': 'phy',
     'analytical-control-fluid': 'acf', 'co-simulation-interop': 'csi', 'academic-simulators': 'acad' };
   const subfStroke = (s) => `var(--s-${SUBF_KEY[s] || 'oth'})`;
@@ -49,6 +49,19 @@ NET.util = (function () {
 
   const VER_CLS = { 'verified-web': 'web', 'verified-train': 'train', 'unverified': 'unv' };
   const VER_SHORT = { 'verified-web': 'verified[WEB]', 'verified-train': 'verified[TRAIN]', 'unverified': 'unverified' };
+
+  // Typed reading-relation presentation (12 kinds; hues + optional dash live in tokens.css).
+  const KINDS = ['prerequisite-of', 'refines', 'subsumes', 'formalizes', 'surveys', 'applies-method-of',
+    'companion', 'evaluates', 'critiques', 'supersedes', 'part-of', 'references'];
+  /** Colour for an edge kind → the CSS variable named for that kind. */
+  const kindColor = (k) => `var(--k-${k})`;
+  /** Dash signatures give a second, colour-independent channel to a few kinds (accessibility). */
+  const KIND_DASH = { supersedes: '7 4', critiques: '2 3', companion: '1 4', references: '4 3' };
+  // corpus band (gen/mat) fill/stroke for the reading graph's bands.
+  const corpusFill = (c) => `var(--c-${c}-bg)`;
+  const corpusStroke = (c) => `var(--c-${c})`;
+  const CORPUS_ORDER = ['gen', 'mat'];
+  const CORPUS_SHORT = { gen: 'gen', mat: 'mat' };
 
   function shortTitle(t, max) { t = String(t); return t.length > max ? t.slice(0, max - 1) + '…' : t; }
 
@@ -97,5 +110,6 @@ NET.util = (function () {
 
   return { InvariantError, invariant, assertNever, el, svg,
            SUBF_KEY, PAR_KEY, subfStroke, subfFill, parStroke, parFill, hueStroke, hueFill,
-           VER_CLS, VER_SHORT, shortTitle, wrapText, corpusChips, badges, idChip };
+           VER_CLS, VER_SHORT, KINDS, kindColor, KIND_DASH, corpusFill, corpusStroke, CORPUS_ORDER, CORPUS_SHORT,
+           shortTitle, wrapText, corpusChips, badges, idChip };
 })();

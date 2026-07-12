@@ -1,4 +1,4 @@
-# MODELS.md — the six relational models
+# MODELS.md — the seven relational models
 
 One fact layer (`data/corpus.json`), one inference layer (`data/relations.json`), six ways to
 stand in it. Every model states its **semantic**, its **question**, and its **computation** (what
@@ -33,7 +33,33 @@ its grounding quote in the inspector.
   ("Part 2 most durable"; "Parts 4 and 5 the most superseded"). Chips are entry item numbers
   coloured by subfield.
 
-## Model 2 — Facets (`views/facets.js`)
+## Model 2 — Reading graph (`views/reading.js`) — typed relations
+
+- **Semantic.** The **SWE-parity typed relation layer**: directed, **cyclic-capable** reading
+  relations between resources across **twelve kinds** (`prerequisite-of, refines, subsumes,
+  formalizes, surveys, applies-method-of, companion, evaluates, critiques, supersedes, part-of,
+  references`). Distinct from the banded EDITORIAL overlays (Model 7): this is a flat typed graph
+  with a per-resource edge catalog in the inspector.
+- **Question.** "What should I read before / after / alongside this resource, and why?"
+- **Provenance (anti-fabrication).** These reports carry **no numbered edge list** (unlike the SWE
+  corpus), so every typed edge is one of two grades — there is **no `report:*` grade**:
+  - **`derived`** — mechanically grounded in report text: the item-number / `[GEN-CORPUS]` /
+    shared-identifier cross-references, re-typed (mostly `references`/`part-of`); the grounding quote
+    rides in the edge note.
+  - **`editorial`** — maintainer judgment carrying a one-line rationale; rendered **dotted** and
+    labelled EDITORIAL, never presented as report fact. Sourced from the two overlays (Model 7),
+    re-expressed into the twelve kinds, plus hand- and workflow-authored edges over the grown corpus.
+  The layer is honestly **editorial-heavy** (the reports have no edge list); the build prints a
+  per-kind × per-grade **census**, and **editorial edges may not touch quarantined nodes** (the build
+  fails if they do — only `derived` edges may). Cycles are detected and tagged (`C1…`).
+- **Computed (`core.graphLayout` + `typedAdjacency` / `closure`).** Node set = every resource with
+  ≥1 typed edge; corpus bands (gen/mat) are **shelf-packed to fit the pane's aspect** (ported from the
+  SWE explorer); within a band, order is (subfield/paradigm, year). Edges are hued by kind (12
+  `--k-*` tokens), editorial dotted / derived solid; hover traces the cycle-safe closure both
+  directions. The resources with no typed relation remain reachable via Anchor, Facets, Chronology,
+  and search. Single-viewport, like the other work-model views.
+
+## Model 3 — Facets (`views/facets.js`)
 
 - **Semantic.** The tag lattice the reports enforce scope with: corpus × subfield (GEN legend) ×
   paradigm/stratum (MAT legend) × type × recency.
@@ -42,7 +68,7 @@ its grounding quote in the inspector.
   are simply absent for its entries. Multi-valued tags ("link-phy-level→wireless-system-level",
   "paper+dataset") are split for faceting and shown raw in the inspector.
 
-## Model 3 — Chronology (`views/timeline.js`)
+## Model 4 — Chronology (`views/timeline.js`)
 
 - **Semantic.** Publication strata around the 2015 anchor datum; living documentation and tools
   (ns-3 releases, MathWorks doc trees, annual venues) are a real stratum of this literature.
@@ -51,7 +77,7 @@ its grounding quote in the inspector.
   LIVING detected from continuous/maintained/annual wording; unparseable years land in UNDATED
   wearing the entry's own recency tag — no guessed dates.
 
-## Model 4 — MATLAB lens (`views/matlab.js`)
+## Model 5 — MATLAB lens (`views/matlab.js`)
 
 - **Semantic.** The intersection corpus: MATLAB/Simulink *actually applied* to network/system
   M&S, in its six paradigms. Its own verdict: a minority tool whose value is paradigm-specific.
@@ -62,7 +88,7 @@ its grounding quote in the inspector.
   link back into GEN. The packaging-migration note — the report calls it *load-bearing for
   anti-fabrication* — is a persistent banner, not a footnote.
 
-## Model 5 — Triage (`views/triage.js`)
+## Model 6 — Triage (`views/triage.js`)
 
 - **Semantic.** The reports' citation discipline made first-class, plus their self-assessment.
 - **Question.** What may I cite as-is, what must I re-verify, what is quarantined — and where
@@ -71,10 +97,10 @@ its grounding quote in the inspector.
   quarantine entry with its "to confirm" note, and the coverage summaries whole — routes swept,
   where recall thins, what has moved on since the anchor, open forks.
 
-## Model 6 — Overlays (`views/graph.js`) — EDITORIAL
+## Model 7 — Overlays (`views/graph.js`) — EDITORIAL
 
 - **Semantic.** Two maintainer-curated typed-relation overlays over a curated subset (not a
-  re-tagging of all 281 entries): **Didactic — ground up** (levels D0 "first contact" → D5
+  re-tagging of all 343 entries): **Didactic — ground up** (levels D0 "first contact" → D5
   "frontier & scale"; an edge means *read s before t*) and **Theory → applied** (stages THEORY →
   METHODOLOGY → FRAMEWORKS & TOOLS → APPLIED; an edge means *t specializes s toward
   application*, transitive chains encouraged, stage-skipping allowed where lineage is direct).

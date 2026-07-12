@@ -115,6 +115,65 @@ NET.core = (function () {
     return seen;
   }
 
+  // ── typed reading graph: directed adjacency + aspect-fitted shelf-packed band layout ──────────
+  // Ported from the SWE explorer's core.graphLayout: pure, deterministic, no DOM. Groups the drawn
+  // nodes into corpus bands (gen/mat), sizes each band's grid, shelf-packs the bands, and sweeps 28
+  // target widths to pick the packing whose aspect best matches the pane — the SVG then fills via
+  // viewBox with minimal letterboxing. Cyclic-capable (unlike the acyclic overlays).
+  function typedAdjacency(edges) {
+    const up = {}, down = {};
+    for (const e of edges) { (down[e.s] = down[e.s] || []).push(e.t); (up[e.t] = up[e.t] || []).push(e.s); }
+    return { up, down };
+  }
+  const GNW = 162, GNH = 52, GGX = 16, GGY = 12, GPADX = 10, GPADY = 8, GLABELH = 28, GBANDGAP = 40, GSHELFGAP = 50, GMARGIN = 26;
+  const gclamp = (v, lo, hi) => Math.max(lo, Math.min(hi, v));
+  function primaryCorpus(n, order) { for (const c of order) if (n.corpus.includes(c)) return c; return n.corpus[0]; }
+  const bandSortKey = (n) => (n.subfield && n.subfield[0]) || (n.paradigm && n.paradigm[0]) || '';
+  function bandGrid(key, list) {
+    const ncols = gclamp(Math.round(Math.sqrt(list.length * 0.9)), 2, 7);
+    const rows = Math.ceil(list.length / ncols);
+    return { key, list, ncols, rows, w: ncols * (GNW + GGX) - GGX + 2 * GPADX, h: rows * (GNH + GGY) - GGY + GLABELH + 2 * GPADY };
+  }
+  function packBands(bands, targetW) {
+    let x = 0, y = 0, shelfH = 0, maxW = 0; const placed = [];
+    for (const b of bands) {
+      if (x > 0 && x + GBANDGAP + b.w > targetW) { y += shelfH + GSHELFGAP; x = 0; shelfH = 0; }
+      const bx = x === 0 ? 0 : x + GBANDGAP;
+      placed.push({ band: b, x: bx, y }); x = bx + b.w; shelfH = Math.max(shelfH, b.h); maxW = Math.max(maxW, x);
+    }
+    return { placed, W: maxW, H: y + shelfH };
+  }
+  /** @returns {{positions:Record<string,{x:number,y:number}>, bands:any[], width:number, height:number, box:{NW:number,NH:number}}} */
+  function graphLayout(nodes, edges, corpusOrder, opts) {
+    const target = (opts && opts.aspect) || 1.4;
+    const inGraph = new Set(); for (const e of edges) { inGraph.add(e.s); inGraph.add(e.t); }
+    const drawn = nodes.filter((n) => inGraph.has(n.id));
+    const byBand = {};
+    for (const n of drawn) { const c = primaryCorpus(n, corpusOrder); (byBand[c] = byBand[c] || []).push(n); }
+    const bands = [];
+    for (const c of corpusOrder) {
+      const list = byBand[c]; if (!list || !list.length) continue;
+      list.sort((a, b) => bandSortKey(a).localeCompare(bandSortKey(b)) || ((a.year || 9999) - (b.year || 9999)) || a.title.localeCompare(b.title));
+      bands.push(bandGrid(c, list));
+    }
+    if (!bands.length) return { positions: {}, bands: [], width: 2 * GMARGIN, height: 2 * GMARGIN, box: { NW: GNW, NH: GNH } };
+    const widths = bands.map((b) => b.w);
+    const minT = Math.max.apply(null, widths), maxT = widths.reduce((a, b) => a + b, 0) + GBANDGAP * (bands.length - 1);
+    let best = null;
+    for (let i = 0; i <= 28; i++) {
+      const t = minT + (maxT - minT) * (i / 28), packed = packBands(bands, t);
+      const score = Math.abs(packed.W / packed.H - target);
+      if (!best || score < best.score) best = Object.assign({ score }, packed);
+    }
+    const positions = {}, outBands = [];
+    for (const p of best.placed) {
+      const b = p.band, bx = p.x + GMARGIN, by = p.y + GMARGIN;
+      outBands.push({ key: b.key, x: bx, y: by, w: b.w, h: b.h, count: b.list.length, labelX: bx + GPADX, labelY: by + GPADY + 14 });
+      b.list.forEach((n, i) => { positions[n.id] = { x: bx + GPADX + (i % b.ncols) * (GNW + GGX), y: by + GPADY + GLABELH + Math.floor(i / b.ncols) * (GNH + GGY) }; });
+    }
+    return { positions, bands: outBands, width: best.W + 2 * GMARGIN, height: best.H + 2 * GMARGIN, box: { NW: GNW, NH: GNH } };
+  }
+
   // Levels are horizontal bands top→bottom; within a band, a grid of ≤MAXC columns whose order
   // comes from three barycenter sweeps over the overlay edges. Fixed natural size; the SVG
   // scales it via viewBox — built once, no resize recomputation.
@@ -197,5 +256,6 @@ NET.core = (function () {
 
   return { buildIndex, visibleIds, valuesOf, passLocal, facetCount,
            STRATA, stratumOf, strataBuckets, anchorColumns, paradigmBuckets,
-           overlayAdjacency, closure, overlayLayout, triage, stats };
+           overlayAdjacency, closure, overlayLayout, triage, stats,
+           typedAdjacency, graphLayout, primaryCorpus };
 })();

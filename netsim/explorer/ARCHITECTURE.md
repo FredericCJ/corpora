@@ -20,7 +20,7 @@ into `window.NET`; the JSON twins are inspectable phase artifacts. Hard separati
 **Single viewport.** The whole app is `100dvh`, `overflow:hidden`. The stage is a two-column grid —
 the active model on the left, a **persistent inspector dock** on the right. Every model fits its
 pane through internal scroll regions. Verified over HTTP at 1600×900:
-`body.scrollHeight === innerHeight`, all five models rendering, zero console errors.
+`body.scrollHeight === innerHeight`, all seven models rendering, zero console errors.
 
 ## File tree
 
@@ -30,7 +30,9 @@ explorer/
 ├─ ARCHITECTURE.md  MODELS.md  README.md
 ├─ package.json  tsconfig.json committed checker (tsc) + test (vitest/playwright/fast-check) toolchain
 ├─ build/
-│  └─ build.py                PHASE 1–4 (Python) — the only place report text is read
+│  ├─ build.py                PHASE 1–4 + 3.5 overlays + 3.6 typed relations — the only place report text is read
+│  ├─ overlays.py             EDITORIAL overlay graphs (didactic / theory→applied)
+│  └─ relations_typed.py      TYPED 12-kind reading-relation layer (overlay re-expression + authored edges)
 ├─ data/                      DATA (generated; no behavior)
 │  ├─ corpus.js  corpus.json            fact layer   (NET.corpus)
 │  ├─ relations.js  relations.json      inference layer (NET.relations)
@@ -58,7 +60,7 @@ explorer/
 Unlike `SWE/explorer` (whose sources were prose reports, hand-transcribed into `records_*.py`)
 these corpora are **machine-regular entry lists**, so `build.py` parses the markdown directly:
 zero transcription drift, and the reports in `netsim/` remain the single source of truth. The
-parse is defensive and fails loud: exact entry counts (158+15 GEN, 61+8 MAT) and contiguous
+parse is defensive and fails loud: exact entry counts (238+18 GEN, 81+8 MAT) and contiguous
 numbering are asserted; every tag block must split into exactly four fields against the reports'
 own legends; verification/recency values normalize to closed vocabularies with qualifiers carried
 verbatim (including GEN U12's honest `?` recency — the report's own recall-gap marker).
@@ -108,16 +110,21 @@ serialized current state rather than with a mute flag — no phantom re-emits, n
 - **Baseline target: Widely available as of 2026-07.** Language floor ES2022.
 - **Parse-the-report build** — the entry format is regular enough that transcription would only
   add drift; the reports stay authoritative, and a report edit + rebuild flows through.
-- **No *inferred* node-link graph** — the corpora state no edge list; extracting one would
-  fabricate structure. The anchor map (parts × routes × entries) is the report-grounded
-  structural view, and derived reference edges surface in the inspector only. **Amendment
-  (2026-07-10):** at the maintainer's request the explorer now ships two **explicitly EDITORIAL
-  overlay graphs** (didactic reading order; theory→applied specialization) — hand-curated in
-  `build/overlays.py`, validated (membership, no quarantined nodes, acyclicity, level
-  monotonicity, rationale on every edge), provenance-stamped in the UI, and rendered dashed.
-  Editorial judgment is allowed; unlabelled inference still is not. See MODELS.md Model 6.
+- **The typed reading graph is *labelled* inference, never unlabelled** — the corpora state no
+  edge list, so a typed relation graph cannot be presented as report fact. **Amendment
+  (2026-07-10):** two **explicitly EDITORIAL overlay graphs** (didactic reading order;
+  theory→applied specialization), hand-curated in `build/overlays.py`, validated and rendered
+  dashed. **Amendment (2026-07-12, the "typed relations" expansion):** the explorer now ships a
+  first-class **Reading graph** — a directed, cyclic-capable, twelve-kind typed relation layer
+  (SWE-parity, `build/relations_typed.py` + PHASE 3.6), every edge carrying a provenance grade:
+  **`derived`** (mechanically grounded in report text — the item-number/identifier cross-references,
+  re-typed) or **`editorial`** (maintainer judgment with a rationale, rendered dotted). There is
+  **no `report:*` grade** — unlike the SWE corpus, these reports carry no numbered edge list, so the
+  layer is honestly editorial-heavy (disclosed by the build's per-kind × per-grade census).
+  Quarantined nodes may only be endpoints of `derived` edges; editorial edges touching them fail the
+  build. Editorial judgment is allowed and marked; unlabelled inference still is not. See MODELS.md.
 - **Conservative merging** — two identity merges, both double-grounded; everything else stays
-  separate with typed `overlaps` edges. Collect-don't-exclude is the reports' own rule.
+  separate. Collect-don't-exclude is the reports' own rule.
 - **Verification is a global filter, not just a badge** — the three-grade discipline is the
   corpora's most load-bearing property; it cuts across every model.
 - **Telemetry: none** (observability §6 honest default).

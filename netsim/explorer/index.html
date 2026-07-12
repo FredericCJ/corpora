@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="Single-viewport explorer of a unified network-M&S corpus: 281 entries across two research passes (general + MATLAB/Simulink), anchored on the 2015 Obaidat/Zarai/Nicopolitidis volume, six relational models incl. editorial didactic and theory→applied overlays.">
-<title>Network M&amp;S Corpus Explorer — two passes, six models, one viewport</title>
+<meta name="description" content="Single-viewport explorer of a unified network-M&S corpus: 344 entries across two research passes (general + MATLAB/Simulink), anchored on the 2015 Obaidat/Zarai/Nicopolitidis volume, seven relational models incl. a typed 12-kind reading graph and editorial didactic / theory→applied overlays.">
+<title>Network M&amp;S Corpus Explorer — two passes, seven models, one viewport</title>
 <!-- Baseline target: Widely available as of 2026-07. Raw HTML/CSS/JS, no framework, no build
      step at view time; opens directly from file:// (data ships as classic scripts because
      fetch() of JSON is blocked on file://). See ARCHITECTURE.md. -->
@@ -15,7 +15,7 @@
 
 <header class="top">
   <div class="brand">
-    <div class="eyebrow">m&s of computer networks & systems · two research passes · collected 2026-07-09</div>
+    <div class="eyebrow">m&s of computer networks & systems · two research passes · typed reading graph → 12 relation kinds · collected 2026-07</div>
     <h1>Network M&amp;S Corpus Explorer</h1>
   </div>
   <nav class="tabs" role="tablist" id="tabs" aria-label="Relational models"></nav>
@@ -42,7 +42,7 @@
 </main>
 
 <noscript>
-  <p style="padding:1.5rem">This explorer renders five relational models with JavaScript. The
+  <p style="padding:1.5rem">This explorer renders seven relational models with JavaScript. The
   underlying facts are in <a href="data/corpus.json">data/corpus.json</a> and
   <a href="data/relations.json">data/relations.json</a>; the build/verification log is
   <a href="data/corpus_report.md">data/corpus_report.md</a>.</p>
@@ -60,6 +60,7 @@
 <script src="logic/core.js"></script>
 <script src="logic/inspector.js"></script>
 <script src="logic/views/anchor.js"></script>
+<script src="logic/views/reading.js"></script>
 <script src="logic/views/graph.js"></script>
 <script src="logic/views/facets.js"></script>
 <script src="logic/views/timeline.js"></script>

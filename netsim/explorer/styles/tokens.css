@@ -23,6 +23,7 @@
   --s-sdn:#7C7A20;  --s-sdn-bg:#F1F0D8;  /* sdn-nfv-p4 */
   --s-pads:#3A62A8; --s-pads-bg:#E8EDF8; /* parallel-distributed-sim */
   --s-emu:#8F6E1E;  --s-emu-bg:#F5EEDA;  /* emulation-tooling */
+  --s-fm:#5B5B8A;   --s-fm-bg:#EAEAF3;   /* formal-methods */
   --s-oth:#6E7268;  --s-oth-bg:#EFEFE9;  /* other / other(systems) */
 
   /* MAT paradigm hues */
@@ -32,6 +33,11 @@
   --p-acf:#46549B;  --p-acf-bg:#EBEDF8;  /* analytical-control-fluid */
   --p-csi:#14705A;  --p-csi-bg:#E2F1EA;  /* co-simulation-interop */
   --p-acad:#6C3FA0; --p-acad-bg:#F1EAFB; /* academic-simulators */
+
+  /* typed reading-relation hues (12) — carried verbatim from the SWE explorer for cross-corpus parity */
+  --k-prerequisite-of:#8A8E84; --k-refines:#46549B; --k-subsumes:#6C3FA0; --k-formalizes:#0E7490;
+  --k-surveys:#8A8E84; --k-applies-method-of:#14705A; --k-companion:#A2A69C; --k-evaluates:#B0851E;
+  --k-critiques:#B3372F; --k-supersedes:#7A4A9B; --k-part-of:#565A50; --k-references:#4E7A3A;
 
   /* verification discipline */
   --v-web:#14705A;   --v-web-bg:#E9F4EE;
