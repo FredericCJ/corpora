@@ -72,6 +72,18 @@ edge-soundness pass — with all report/data merges done centrally to avoid file
 - **State discipline.** `logic/state.js` already uses the diff-based hashchange guard (self-write emits nothing;
   only external nav re-enters) — verified, not assumed.
 
+## View integration (follow-up)
+
+A follow-up pass ensured **all seven views surface the new elements**. The five data-driven views (Anchor map,
+Facets, Chronology, Triage split, Reading graph) already did so automatically — confirmed by 4K screenshots (new
+§17–24 render as Anchor cards; `formal-methods` and the new subfields appear in Facets; new entries populate the
+result lists). MATLAB lens correctly excludes them (no new MAT). Two gaps were closed: **Triage** stale quarantine
+labels (`§16`/`§8` → `§25`/`§9`) plus a "2026-07 expansion" block appended to the GEN coverage summary; and the two
+**EDITORIAL overlays**, which are a curated subset and contained none of the new elements — an overlay-extension
+workflow (6 lane agents) wove all **62/62** new nodes into the reading maps as level-monotone, acyclic chains
+(**didactic 61→83, specialization 65→127 members**; PHASE 3.5-validated). Because the overlays seed the Reading
+graph, typed edges grew **320 → 395**. Smoke re-run **8/8 PASS**.
+
 ## Anti-fabrication discipline
 
 Every new resource is `verified[WEB]` (a real, fetched work with a real identifier) — nothing fabricated; the

@@ -8,10 +8,12 @@ including a **typed twelve-kind reading graph** (SWE-parity) over the resources.
   (`MS_networks_systems_corpus_v1_0.md`) · MAT corpus 81 + 8 quarantined
   (`MATLAB_Simulink_network_MS_corpus_v1_0.md`) · 2 cross-corpus merges (grounded by shared
   identifiers) · 241 verified[WEB] / 78 verified[TRAIN] / 24 unverified.
-- A **typed relation layer**: ~320 provenance-tagged edges across twelve reading-relation kinds
+- A **typed relation layer**: ~395 provenance-tagged edges across twelve reading-relation kinds
   (`prerequisite-of, refines, subsumes, formalizes, surveys, applies-method-of, companion,
   evaluates, critiques, supersedes, part-of, references`), each `derived` (grounded in report text)
-  or `editorial` (maintainer rationale). Built 2026-07 (the "typed relations + breadth" expansion).
+  or `editorial` (maintainer rationale). Built 2026-07 (the "typed relations + breadth" expansion);
+  the breadth resources are woven into every view — the data-driven models automatically, and the two
+  editorial overlays extended to weave the new clusters into the reading maps.
 - Built in the style + rule set of `web_manifests/` (raw HTML/CSS/JS, no framework, no build step
   at view time) for **one 16:9 4K / 27" display, fullscreen, landscape** — a single viewport with
   no page scroll.

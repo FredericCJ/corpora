@@ -68,7 +68,7 @@
    "kind": "companion",
    "src": "editorial",
    "note": "the DEVS formalism gives a formal system-theoretic semantics to discrete-event systems",
-   "cycle": "C8"
+   "cycle": "C3"
   },
   {
    "s": "g104",
@@ -84,7 +84,7 @@
    "kind": "refines",
    "src": "editorial",
    "note": "Node states 'Mininet fork (Containernet) that runs Docker containers as emulated hosts with runtime add/remove' — extends Mininet for NFV/MEC/fog service prototyping.",
-   "cycle": ""
+   "cycle": "C3"
   },
   {
    "s": "g181",
@@ -100,7 +100,7 @@
    "kind": "applies-method-of",
    "src": "editorial",
    "note": "Node states it 'Distributes Mininet across a cluster of workers via GRE tunnels and a configurable time-dilation factor' — scales the Mininet emulator to thousands of nodes.",
-   "cycle": ""
+   "cycle": "C3"
   },
   {
    "s": "g39",
@@ -108,7 +108,7 @@
    "kind": "refines",
    "src": "editorial",
    "note": "Mininet-HiFi adds container-based CPU/bandwidth resource isolation and a fidelity monitor to Mininet, making its emulated experiments performance-faithful and reproducible.",
-   "cycle": ""
+   "cycle": "C3"
   },
   {
    "s": "g177",
@@ -116,7 +116,7 @@
    "kind": "prerequisite-of",
    "src": "editorial",
    "note": "Emulab established the integrated real-node emulation testbed with time/space multiplexing; Mininet miniaturizes that emulation model onto a single laptop, so Emulab's testbed concepts underpin it.",
-   "cycle": ""
+   "cycle": "C3"
   },
   {
    "s": "g54",
@@ -156,7 +156,7 @@
    "kind": "companion",
    "src": "editorial",
    "note": "Kathara and containerlab are the two main declarative, container-based network-lab emulators, wiring Docker/generic containers into reproducible YAML topologies for labs and CI.",
-   "cycle": ""
+   "cycle": "C3"
   },
   {
    "s": "g180",
@@ -164,7 +164,7 @@
    "kind": "companion",
    "src": "editorial",
    "note": "containerlab and Containernet both emulate network services from containers — containerlab wires vendor NOS/Linux containers via YAML, Containernet runs Docker hosts inside Mininet.",
-   "cycle": ""
+   "cycle": "C3"
   },
   {
    "s": "g182",
@@ -180,7 +180,7 @@
    "kind": "companion",
    "src": "editorial",
    "note": "Both use time dilation / virtual time to decouple emulation from wall-clock and overcome host resource limits — MaxiNet's configurable time-dilation factor and TimeKeeper's kernel virtual clock.",
-   "cycle": ""
+   "cycle": "C3"
   },
   {
    "s": "g183",
@@ -204,7 +204,7 @@
    "kind": "companion",
    "src": "editorial",
    "note": "Kernel virtual time is the enabling mechanism for the timing fidelity that container-based faithful emulation (Mininet-HiFi) strives to guarantee under host resource contention.",
-   "cycle": ""
+   "cycle": "C3"
   },
   {
    "s": "g54",
@@ -212,7 +212,7 @@
    "kind": "companion",
    "src": "editorial",
    "note": "Mininet (emulation of real code in namespaces) and ns-3 (discrete-event simulation) are the two dominant open network-experimentation platforms, chosen by the fidelity/scale trade-off.",
-   "cycle": ""
+   "cycle": "C3"
   },
   {
    "s": "g54",
@@ -220,7 +220,7 @@
    "kind": "companion",
    "src": "editorial",
    "note": "Mininet emulation versus OMNeT++ component-based discrete-event simulation — parallel paradigms for network-protocol experimentation.",
-   "cycle": ""
+   "cycle": "C3"
   },
   {
    "s": "g39",
@@ -244,7 +244,7 @@
    "kind": "refines",
    "src": "editorial",
    "note": "Adds a lightweight virtual switch to raise P4-emulation fidelity and throughput beyond the BMv2 reference software switch, the standard but slow P4 dataplane target.",
-   "cycle": "C3"
+   "cycle": "C4"
   },
   {
    "s": "g141",
@@ -308,7 +308,7 @@
    "kind": "part-of",
    "src": "editorial",
    "note": "\"The macroscale (SST/macro) element of Sandia's Structural Simulation Toolkit\" — SST/macro is a module of SST.",
-   "cycle": ""
+   "cycle": "C3"
   },
   {
    "s": "g68",
@@ -324,7 +324,7 @@
    "kind": "applies-method-of",
    "src": "editorial",
    "note": "Reverse computation is \"the defining method behind ROSS\" for memory-frugal rollback instead of state-saving.",
-   "cycle": ""
+   "cycle": "C11"
   },
   {
    "s": "g69",
@@ -364,7 +364,7 @@
    "kind": "evaluates",
    "src": "editorial",
    "note": "Warp Speed is a strong-scaling benchmark of ROSS (PHOLD at ~504B events/s) on ~2M Blue Gene/Q cores.",
-   "cycle": ""
+   "cycle": "C11"
   },
   {
    "s": "g216",
@@ -372,7 +372,7 @@
    "kind": "applies-method-of",
    "src": "editorial",
    "note": "The 2M-core study runs \"ROSS Time Warp + reverse computation\" — it applies the reverse-computation rollback method.",
-   "cycle": ""
+   "cycle": "C11"
   },
   {
    "s": "g187",
@@ -396,7 +396,7 @@
    "kind": "applies-method-of",
    "src": "editorial",
    "note": "SST's memHierarchy can drive DRAMSim2 as its DRAM-timing backend, using its cycle-accurate memory engine as a component model.",
-   "cycle": ""
+   "cycle": "C3"
   },
   {
    "s": "g128",
@@ -428,7 +428,7 @@
    "kind": "companion",
    "src": "editorial",
    "note": "GTNetS and PDNS are both Georgia Tech (Riley/Fujimoto) MPI-parallel packet-level network simulators scaling to hundreds of thousands of elements.",
-   "cycle": ""
+   "cycle": "C3"
   },
   {
    "s": "g217",
@@ -436,7 +436,7 @@
    "kind": "companion",
    "src": "editorial",
    "note": "Both concern conservative (null-message) synchronization for parallel large-scale packet-level network simulation.",
-   "cycle": ""
+   "cycle": "C3"
   },
   {
    "s": "g126",
@@ -444,7 +444,7 @@
    "kind": "companion",
    "src": "editorial",
    "note": "SimGrid (SMPI) and SST/macro both coarsely simulate skeletonized HPC/MPI applications over modeled network platforms.",
-   "cycle": ""
+   "cycle": "C3"
   },
   {
    "s": "g215",
@@ -500,7 +500,7 @@
    "kind": "references",
    "src": "editorial",
    "note": "ns-3's architecture and scalability lineage trace to Riley's GTNetS (shared author and design ancestry).",
-   "cycle": ""
+   "cycle": "C3"
   },
   {
    "s": "g69",
@@ -524,7 +524,7 @@
    "kind": "applies-method-of",
    "src": "editorial",
    "note": "iFogSim is 'built on CloudSim' (endpoint description), reusing CloudSim's discrete-event engine and datacenter/VM/host abstractions to model cloud-fog-IoT hierarchies and placement/offloading policies.",
-   "cycle": ""
+   "cycle": "C3"
   },
   {
    "s": "g189",
@@ -532,7 +532,7 @@
    "kind": "supersedes",
    "src": "editorial",
    "note": "iFogSim2's description states it 'Extends and supersedes iFogSim', adding real EUA mobility traces, dynamic distributed clustering and microservice orchestration.",
-   "cycle": ""
+   "cycle": "C3"
   },
   {
    "s": "g189",
@@ -540,7 +540,7 @@
    "kind": "applies-method-of",
    "src": "editorial",
    "note": "iFogSim2, like its predecessor, still runs on the CloudSim engine, inheriting its discrete-event core and datacenter abstractions beneath the added mobility/clustering/microservice layers.",
-   "cycle": ""
+   "cycle": "C3"
   },
   {
    "s": "g122",
@@ -548,7 +548,7 @@
    "kind": "applies-method-of",
    "src": "editorial",
    "note": "EdgeCloudSim is a 'CloudSim-based environment' (endpoint description) that reuses CloudSim's engine and adds edge-specific WLAN/WAN network modeling, mobility models and an edge-orchestrator module.",
-   "cycle": ""
+   "cycle": "C3"
   },
   {
    "s": "g122",
@@ -556,7 +556,7 @@
    "kind": "companion",
    "src": "editorial",
    "note": "Sibling CloudSim-based edge/fog simulators of the same generation attacking the same modeling gap; EdgeCloudSim emphasizes network/mobility fidelity where iFogSim emphasizes application-placement policies. No precedence between them.",
-   "cycle": ""
+   "cycle": "C3"
   },
   {
    "s": "g124",
@@ -572,7 +572,7 @@
    "kind": "companion",
    "src": "editorial",
    "note": "Energy-aware simulators that treat power/energy as the first-class metric: GreenCloud models datacenter server/switch/link power (DVFS/DNS) at packet level, LEAF models fog/edge device energy across thousands of devices.",
-   "cycle": ""
+   "cycle": "C3"
   },
   {
    "s": "g190",
@@ -596,7 +596,7 @@
    "kind": "companion",
    "src": "editorial",
    "note": "Peer large-scale distributed-system simulators with no precedence: PeerSim targets P2P/overlay protocols (gossip, epidemic, churn) with cycle- and event-driven engines; SimGrid targets distributed applications on grid/cloud/HPC platforms.",
-   "cycle": ""
+   "cycle": "C3"
   },
   {
    "s": "g193",
@@ -628,7 +628,7 @@
    "kind": "surveys",
    "src": "editorial",
    "note": "The survey explicitly catalogs 'iFogSim, EdgeCloudSim, YAFS' as the fog/edge simulation tools it compares and taxonomizes.",
-   "cycle": ""
+   "cycle": "C3"
   },
   {
    "s": "g194",
@@ -636,7 +636,7 @@
    "kind": "surveys",
    "src": "editorial",
    "note": "Named among the compared tools in the survey's description: 'iFogSim, EdgeCloudSim, YAFS'.",
-   "cycle": ""
+   "cycle": "C3"
   },
   {
    "s": "g194",
@@ -652,7 +652,7 @@
    "kind": "companion",
    "src": "editorial",
    "note": "Parallel surveys of fog/edge simulation tooling with no precedence: g209 emphasizes simulators plus deployment-planners (FogTorchPI/Brogi & Forti), g125 catalogs open-source edge simulators and emulators.",
-   "cycle": ""
+   "cycle": "C3"
   },
   {
    "s": "g12",
@@ -660,7 +660,7 @@
    "kind": "prerequisite-of",
    "src": "editorial",
    "note": "CloudSim is a discrete-event simulator; the DES foundations (event scheduling, random-variate generation, output/statistical analysis) in Banks & Carson are prerequisite to building and trusting CloudSim experiments.",
-   "cycle": ""
+   "cycle": "C3"
   },
   {
    "s": "g118",
@@ -668,7 +668,7 @@
    "kind": "companion",
    "src": "editorial",
    "note": "Contemporaneous, independently developed toolkits for simulating distributed/cloud computing: CloudSim models cloud datacenters and VM allocation in Java; SimGrid models distributed applications on grid/cloud/HPC platforms in C.",
-   "cycle": ""
+   "cycle": "C3"
   },
   {
    "s": "g119",
@@ -692,7 +692,7 @@
    "kind": "surveys",
    "src": "editorial",
    "note": "The open-source edge-computing-simulators survey catalogs iFogSim among the fog/edge tools it compares.",
-   "cycle": ""
+   "cycle": "C3"
   },
   {
    "s": "g125",
@@ -700,7 +700,7 @@
    "kind": "surveys",
    "src": "editorial",
    "note": "The survey catalogs EdgeCloudSim among the edge simulators it compares.",
-   "cycle": ""
+   "cycle": "C3"
   },
   {
    "s": "g125",
@@ -716,7 +716,7 @@
    "kind": "surveys",
    "src": "editorial",
    "note": "The survey catalogs energy-aware fog/edge simulators, including LEAF, among the open-source tools it compares.",
-   "cycle": ""
+   "cycle": "C3"
   },
   {
    "s": "g75",
@@ -724,7 +724,7 @@
    "kind": "refines",
    "src": "editorial",
    "note": "RouteNet-Erlang is the Erlang-extended successor in the RouteNet GNN lineage, adding multi-queue scheduling and topology generalization to the original RouteNet model.",
-   "cycle": ""
+   "cycle": "C9"
   },
   {
    "s": "g76",
@@ -732,7 +732,7 @@
    "kind": "supersedes",
    "src": "editorial",
    "note": "RouteNet-Fermi is the later RouteNet-family model, handling non-Markovian traffic and arbitrary scheduling and thereby superseding RouteNet-Erlang's scope.",
-   "cycle": ""
+   "cycle": "C9"
   },
   {
    "s": "g77",
@@ -748,7 +748,7 @@
    "kind": "surveys",
    "src": "editorial",
    "note": "The BNN-UPC GNN survey explicitly 'Frames RouteNet-Erlang/Fermi' among its network-modeling use cases.",
-   "cycle": ""
+   "cycle": "C9"
   },
   {
    "s": "g199",
@@ -756,7 +756,7 @@
    "kind": "surveys",
    "src": "editorial",
    "note": "The BNN-UPC GNN survey explicitly 'Frames RouteNet-Erlang/Fermi' among its network-modeling use cases.",
-   "cycle": ""
+   "cycle": "C9"
   },
   {
    "s": "g199",
@@ -764,7 +764,7 @@
    "kind": "surveys",
    "src": "editorial",
    "note": "The GNN-for-networks survey catalogs the foundational RouteNet model as the origin of the group's network-modeling line.",
-   "cycle": ""
+   "cycle": "C9"
   },
   {
    "s": "g199",
@@ -772,7 +772,7 @@
    "kind": "surveys",
    "src": "editorial",
    "note": "The survey covers graph-based deep-learning models built from captured traffic as a GNN network-modeling use case.",
-   "cycle": ""
+   "cycle": "C9"
   },
   {
    "s": "g199",
@@ -780,7 +780,7 @@
    "kind": "surveys",
    "src": "editorial",
    "note": "The survey covers the GNN-based network digital twin (TwinNet) as a management/optimization use case.",
-   "cycle": ""
+   "cycle": "C9"
   },
   {
    "s": "g199",
@@ -820,7 +820,7 @@
    "kind": "supersedes",
    "src": "editorial",
    "note": "m4 is the fully-learned flow-level simulator succeeding m3's hybrid fluid+ML estimator on the same data-center latency task (~100x vs 4-8x speedup).",
-   "cycle": ""
+   "cycle": "C9"
   },
   {
    "s": "g195",
@@ -924,7 +924,7 @@
    "kind": "applies-method-of",
    "src": "editorial",
    "note": "TwinNet builds a network digital twin using the RouteNet GNN as its underlying performance model.",
-   "cycle": ""
+   "cycle": "C9"
   },
   {
    "s": "g84",
@@ -932,7 +932,7 @@
    "kind": "applies-method-of",
    "src": "editorial",
    "note": "The captured-traffic graph deep-learning model instantiates the RouteNet GNN approach on measured, real traffic.",
-   "cycle": ""
+   "cycle": "C9"
   },
   {
    "s": "g79",
@@ -956,7 +956,7 @@
    "kind": "applies-method-of",
    "src": "editorial",
    "note": "Hypatia pairs its satgenpy constellation/routing generator with \"an ns-3 packet-level engine\" as its simulation core, i.e. it instantiates the ns-3 model library.",
-   "cycle": ""
+   "cycle": "C3"
   },
   {
    "s": "g201",
@@ -972,7 +972,7 @@
    "kind": "companion",
    "src": "editorial",
    "note": "SILLEO-SCNS and StarPerf are both standalone LEO constellation simulators that derive metrics from shortest-path/analytical abstractions (Dijkstra ISL latency) rather than a packet-level engine; parallel analytical tools.",
-   "cycle": ""
+   "cycle": "C10"
   },
   {
    "s": "g203",
@@ -980,7 +980,7 @@
    "kind": "applies-method-of",
    "src": "editorial",
    "note": "OS3 is a \"OMNeT++/INET open-source satellite simulator\": it runs on and uses the OMNeT++ discrete-event simulation environment (with INET) as its engine.",
-   "cycle": ""
+   "cycle": "C3"
   },
   {
    "s": "g204",
@@ -1068,7 +1068,7 @@
    "kind": "surveys",
    "src": "editorial",
    "note": "The survey covers StarPerf as an analytical mega-constellation performance-characterization tool within its treatment of LEO simulation methodology.",
-   "cycle": ""
+   "cycle": "C10"
   },
   {
    "s": "g209",
@@ -1076,7 +1076,7 @@
    "kind": "surveys",
    "src": "editorial",
    "note": "The survey catalogs SILLEO-SCNS among standalone LEO constellation simulators for ISL/ground-link design and shortest-path latency.",
-   "cycle": ""
+   "cycle": "C10"
   },
   {
    "s": "g209",
@@ -1156,7 +1156,7 @@
    "kind": "prerequisite-of",
    "src": "editorial",
    "note": "The Anick-Mitra-Sondhi fluid queue (buffer fed by on/off exponential sources, solved by spectral/ODE decomposition) is the foundational fluid-flow model whose coupled-ODE machinery the Misra-Gong-Towsley TCP/AQM fluid model builds on; understand it first.",
-   "cycle": ""
+   "cycle": "C5"
   },
   {
    "s": "g224",
@@ -1172,7 +1172,7 @@
    "kind": "formalizes",
    "src": "editorial",
    "note": "Multilevel-splitting theory derives efficiency conditions and near-optimal splitting factors, giving the rigorous mathematical analysis of the RESTART importance-splitting heuristic.",
-   "cycle": ""
+   "cycle": "C2"
   },
   {
    "s": "g221",
@@ -1180,7 +1180,7 @@
    "kind": "surveys",
    "src": "editorial",
    "note": "Heidelberger's classic rare-event survey catalogs the failure-biasing importance-sampling approach for highly dependable Markovian models introduced by this unified framework.",
-   "cycle": ""
+   "cycle": "C2"
   },
   {
    "s": "g225",
@@ -1188,7 +1188,7 @@
    "kind": "surveys",
    "src": "editorial",
    "note": "The Juneja-Shahabuddin survey catalogs failure-biasing importance sampling for dependability/reliability models, including this canonical unified Markovian framework.",
-   "cycle": ""
+   "cycle": "C2"
   },
   {
    "s": "g225",
@@ -1196,7 +1196,7 @@
    "kind": "surveys",
    "src": "editorial",
    "note": "The survey covers the importance-splitting family, with RESTART as the canonical splitting technique for network buffer-overflow/cell-loss estimation.",
-   "cycle": ""
+   "cycle": "C2"
   },
   {
    "s": "g225",
@@ -1204,7 +1204,7 @@
    "kind": "surveys",
    "src": "editorial",
    "note": "The survey covers multilevel splitting and its efficiency analysis among the recent advances in splitting-based rare-event estimation.",
-   "cycle": ""
+   "cycle": "C2"
   },
   {
    "s": "g225",
@@ -1212,7 +1212,7 @@
    "kind": "refines",
    "src": "editorial",
    "note": "Juneja-Shahabuddin (2006) is the later, broader survey extending Heidelberger's 1995 rare-event survey with a decade of advances: multilevel splitting and heavy-tailed importance sampling.",
-   "cycle": ""
+   "cycle": "C2"
   },
   {
    "s": "g227",
@@ -1252,7 +1252,7 @@
    "kind": "references",
    "src": "editorial",
    "note": "The Benaim-Le Boudec mean-field limit derives a deterministic ODE description for N interacting objects, generalizing to interacting populations the fluid/deterministic-limit modeling philosophy pioneered by the Anick-Mitra-Sondhi fluid queue.",
-   "cycle": ""
+   "cycle": "C5"
   },
   {
    "s": "g226",
@@ -1260,7 +1260,7 @@
    "kind": "companion",
    "src": "editorial",
    "note": "Both replace a large stochastic network with a deterministic ODE description: the mean-field interaction limit and the Misra-Gong-Towsley TCP/AQM fluid model are parallel fluid-limit routes to scalable network modeling.",
-   "cycle": ""
+   "cycle": "C5"
   },
   {
    "s": "g228",
@@ -1284,7 +1284,7 @@
    "kind": "prerequisite-of",
    "src": "editorial",
    "note": "Baier-Katoen's textbook (transition systems, temporal logics, probabilistic/CTMC model checking) is the foundation to read before PRISM, whose DTMC/CTMC/MDP/PTA verification instantiates that theory.",
-   "cycle": ""
+   "cycle": "C12"
   },
   {
    "s": "g236",
@@ -1292,7 +1292,7 @@
    "kind": "prerequisite-of",
    "src": "editorial",
    "note": "Understand the probabilistic model-checking foundations (DTMC/CTMC/MDP, LTL/PCTL) taught here before using Storm, a probabilistic model checker built on the same theory.",
-   "cycle": ""
+   "cycle": "C12"
   },
   {
    "s": "g236",
@@ -1300,7 +1300,7 @@
    "kind": "prerequisite-of",
    "src": "editorial",
    "note": "The transition-system, temporal-logic and reachability foundations in this textbook underpin UPPAAL's timed-automata model checking; read them first.",
-   "cycle": ""
+   "cycle": "C12"
   },
   {
    "s": "g236",
@@ -1308,7 +1308,7 @@
    "kind": "prerequisite-of",
    "src": "editorial",
    "note": "The LTL/automata-theoretic explicit-state model-checking algorithms SPIN implements are developed in this textbook; read it before the SPIN reference manual.",
-   "cycle": ""
+   "cycle": "C12"
   },
   {
    "s": "g236",
@@ -1316,7 +1316,7 @@
    "kind": "prerequisite-of",
    "src": "editorial",
    "note": "Statistical model checking presupposes the model-checking problem, temporal logics and (probabilistic) semantics defined in this foundational text.",
-   "cycle": ""
+   "cycle": "C12"
   },
   {
    "s": "g236",
@@ -1324,7 +1324,7 @@
    "kind": "prerequisite-of",
    "src": "editorial",
    "note": "This applications survey presumes the CTMC/PTA probabilistic model-checking foundations that Principles of Model Checking establishes.",
-   "cycle": ""
+   "cycle": "C12"
   },
   {
    "s": "g230",
@@ -1332,7 +1332,7 @@
    "kind": "supersedes",
    "src": "editorial",
    "note": "Storm is the modern high-performance successor to PRISM: it consumes PRISM/JANI models but outperforms PRISM on large DTMC/CTMC/MDP instances, replacing it for demanding verification.",
-   "cycle": ""
+   "cycle": "C12"
   },
   {
    "s": "g232",
@@ -1372,7 +1372,7 @@
    "kind": "companion",
    "src": "editorial",
    "note": "SPIN and UPPAAL are the two canonical model checkers for concurrent systems - SPIN for explicit-state untimed PROMELA, UPPAAL for networks of timed automata - parallel workhorses with no precedence.",
-   "cycle": ""
+   "cycle": "C12"
   },
   {
    "s": "g238",
@@ -1380,7 +1380,7 @@
    "kind": "applies-method-of",
    "src": "editorial",
    "note": "The survey demonstrates 'probabilistic model checking (via PRISM and probabilistic timed automata)' on real communication protocols, instantiating PRISM's engine.",
-   "cycle": ""
+   "cycle": "C12"
   },
   {
    "s": "g229",
@@ -1548,7 +1548,7 @@
    "kind": "prerequisite-of",
    "src": "editorial",
    "note": "simulation practice before DES system theory",
-   "cycle": ""
+   "cycle": "C3"
   },
   {
    "s": "g12",
@@ -1564,7 +1564,7 @@
    "kind": "prerequisite-of",
    "src": "editorial",
    "note": "general DES before a packet-level simulator",
-   "cycle": "C2"
+   "cycle": "C3"
   },
   {
    "s": "g12",
@@ -1572,7 +1572,7 @@
    "kind": "prerequisite-of",
    "src": "editorial",
    "note": "general DES before the OMNeT++ ecosystem",
-   "cycle": "C2"
+   "cycle": "C3"
   },
   {
    "s": "g9",
@@ -1580,7 +1580,7 @@
    "kind": "prerequisite-of",
    "src": "editorial",
    "note": "DES automata view before the DEVS formalization",
-   "cycle": "C8"
+   "cycle": "C3"
   },
   {
    "s": "m1",
@@ -1588,7 +1588,7 @@
    "kind": "prerequisite-of",
    "src": "editorial",
    "note": "use SimEvents before extending its framework",
-   "cycle": ""
+   "cycle": "C3"
   },
   {
    "s": "m1",
@@ -1596,7 +1596,7 @@
    "kind": "prerequisite-of",
    "src": "editorial",
    "note": "core queues/servers before the multicore scheduler model",
-   "cycle": "C2"
+   "cycle": "C3"
   },
   {
    "s": "m1",
@@ -1604,7 +1604,7 @@
    "kind": "prerequisite-of",
    "src": "editorial",
    "note": "core blocks before custom resource arbitration",
-   "cycle": "C2"
+   "cycle": "C3"
   },
   {
    "s": "m1",
@@ -1612,7 +1612,7 @@
    "kind": "prerequisite-of",
    "src": "editorial",
    "note": "core blocks before the job-shop plant",
-   "cycle": "C2"
+   "cycle": "C3"
   },
   {
    "s": "m4",
@@ -1652,7 +1652,7 @@
    "kind": "prerequisite-of",
    "src": "editorial",
    "note": "priority-scheduling math before the shipped scheduler",
-   "cycle": "C2"
+   "cycle": "C3"
   },
   {
    "s": "g166",
@@ -1660,7 +1660,7 @@
    "kind": "prerequisite-of",
    "src": "editorial",
    "note": "RM/EDF before Task Manager priorities",
-   "cycle": "C2"
+   "cycle": "C3"
   },
   {
    "s": "g166",
@@ -1668,7 +1668,7 @@
    "kind": "prerequisite-of",
    "src": "editorial",
    "note": "RM theory before Simulink rate-monotonic multitasking",
-   "cycle": "C2"
+   "cycle": "C3"
   },
   {
    "s": "g166",
@@ -1676,7 +1676,7 @@
    "kind": "prerequisite-of",
    "src": "editorial",
    "note": "the origin paper before the systematic textbook",
-   "cycle": "C2"
+   "cycle": "C3"
   },
   {
    "s": "g166",
@@ -1684,7 +1684,7 @@
    "kind": "prerequisite-of",
    "src": "editorial",
    "note": "the origin paper before the historical synthesis",
-   "cycle": "C2"
+   "cycle": "C3"
   },
   {
    "s": "g168",
@@ -1692,7 +1692,7 @@
    "kind": "prerequisite-of",
    "src": "editorial",
    "note": "the scheduling textbook before the kernel that simulates it",
-   "cycle": "C2"
+   "cycle": "C3"
   },
   {
    "s": "m62",
@@ -1700,7 +1700,7 @@
    "kind": "prerequisite-of",
    "src": "editorial",
    "note": "product concepts before the task-execution example",
-   "cycle": "C2"
+   "cycle": "C3"
   },
   {
    "s": "m65",
@@ -1708,7 +1708,7 @@
    "kind": "prerequisite-of",
    "src": "editorial",
    "note": "shipped policy before authoring your own",
-   "cycle": ""
+   "cycle": "C3"
   },
   {
    "s": "m18",
@@ -1756,7 +1756,7 @@
    "kind": "prerequisite-of",
    "src": "editorial",
    "note": "credibility failures motivate systematic V&V",
-   "cycle": "C7"
+   "cycle": "C13"
   },
   {
    "s": "g167",
@@ -1772,7 +1772,7 @@
    "kind": "prerequisite-of",
    "src": "editorial",
    "note": "single-loop feedback scheduling before feedback-feedforward",
-   "cycle": "C5"
+   "cycle": "C7"
   },
   {
    "s": "g170",
@@ -1780,7 +1780,7 @@
    "kind": "prerequisite-of",
    "src": "editorial",
    "note": "co-design questions before the jitter-analysis toolbox",
-   "cycle": "C5"
+   "cycle": "C7"
   },
   {
    "s": "g163",
@@ -1788,7 +1788,7 @@
    "kind": "prerequisite-of",
    "src": "editorial",
    "note": "the seminal trigger rule before the tutorial",
-   "cycle": "C4"
+   "cycle": "C6"
   },
   {
    "s": "g164",
@@ -1804,7 +1804,7 @@
    "kind": "prerequisite-of",
    "src": "editorial",
    "note": "network calculus before its real-time sibling",
-   "cycle": "C6"
+   "cycle": "C8"
   },
   {
    "s": "g173",
@@ -1812,7 +1812,7 @@
    "kind": "prerequisite-of",
    "src": "editorial",
    "note": "RTC theory before the MATLAB toolbox",
-   "cycle": "C6"
+   "cycle": "C8"
   },
   {
    "s": "m74",
@@ -1828,7 +1828,7 @@
    "kind": "prerequisite-of",
    "src": "editorial",
    "note": "co-simulation practice before FMI step semantics",
-   "cycle": "C2"
+   "cycle": "C3"
   },
   {
    "s": "m74",
@@ -1836,7 +1836,7 @@
    "kind": "prerequisite-of",
    "src": "editorial",
    "note": "the kernel before the modular scheduler/network bundle",
-   "cycle": "C2"
+   "cycle": "C3"
   },
   {
    "s": "g176",
@@ -1844,7 +1844,7 @@
    "kind": "prerequisite-of",
    "src": "editorial",
    "note": "FMI semantics before the concrete ns-3 bridge",
-   "cycle": "C2"
+   "cycle": "C3"
   },
   {
    "s": "g41",
@@ -1852,7 +1852,7 @@
    "kind": "prerequisite-of",
    "src": "editorial",
    "note": "ns-3 before its FMU export",
-   "cycle": "C2"
+   "cycle": "C3"
   },
   {
    "s": "g44",
@@ -1908,7 +1908,7 @@
    "kind": "prerequisite-of",
    "src": "editorial",
    "note": "custom SimEvents schedulers before the multicore memory-contention study",
-   "cycle": ""
+   "cycle": "C3"
   },
   {
    "s": "m10",
@@ -1917,6 +1917,206 @@
    "src": "editorial",
    "note": "the extensible framework before timing-injection techniques",
    "cycle": ""
+  },
+  {
+   "s": "g41",
+   "t": "g177",
+   "kind": "prerequisite-of",
+   "src": "editorial",
+   "note": "after a core simulator like ns-3, meet the integrated hardware-in-the-loop testbed",
+   "cycle": "C3"
+  },
+  {
+   "s": "g177",
+   "t": "g179",
+   "kind": "prerequisite-of",
+   "src": "editorial",
+   "note": "from Emulab's heavyweight testbed to lightweight container-based labs",
+   "cycle": "C3"
+  },
+  {
+   "s": "m18",
+   "t": "g181",
+   "kind": "prerequisite-of",
+   "src": "editorial",
+   "note": "after wireless toolbox modeling, emulate software-defined Wi-Fi stations hands-on",
+   "cycle": ""
+  },
+  {
+   "s": "g179",
+   "t": "g183",
+   "kind": "prerequisite-of",
+   "src": "editorial",
+   "note": "from container labs to the virtual-time mechanism that scales them to high-speed links",
+   "cycle": "C3"
+  },
+  {
+   "s": "g64",
+   "t": "g183",
+   "kind": "prerequisite-of",
+   "src": "editorial",
+   "note": "grasp PDES virtual time before TimeKeeper's Linux time-dilation realization",
+   "cycle": ""
+  },
+  {
+   "s": "g64",
+   "t": "g210",
+   "kind": "prerequisite-of",
+   "src": "editorial",
+   "note": "the reverse-computation rollback method builds directly on PDES foundations",
+   "cycle": ""
+  },
+  {
+   "s": "g210",
+   "t": "g216",
+   "kind": "prerequisite-of",
+   "src": "editorial",
+   "note": "reverse computation is the enabling method for the ~2M-core Time Warp run",
+   "cycle": "C11"
+  },
+  {
+   "s": "g64",
+   "t": "g216",
+   "kind": "prerequisite-of",
+   "src": "editorial",
+   "note": "the landmark strong-scaling study realizes PDES at extreme scale",
+   "cycle": ""
+  },
+  {
+   "s": "g66",
+   "t": "g211",
+   "kind": "prerequisite-of",
+   "src": "editorial",
+   "note": "a canonical large-scale MPI-parallel network simulator answering the scale challenges surveyed",
+   "cycle": ""
+  },
+  {
+   "s": "g66",
+   "t": "g212",
+   "kind": "prerequisite-of",
+   "src": "editorial",
+   "note": "parallelizing the sequential ns simulator addresses distributed-simulation research challenges",
+   "cycle": ""
+  },
+  {
+   "s": "g9",
+   "t": "g189",
+   "kind": "prerequisite-of",
+   "src": "editorial",
+   "note": "master DES foundations before building fog/edge multi-station models in iFogSim2",
+   "cycle": "C3"
+  },
+  {
+   "s": "g9",
+   "t": "g191",
+   "kind": "prerequisite-of",
+   "src": "editorial",
+   "note": "understand event-driven DES before PeerSim's large-scale P2P/overlay models",
+   "cycle": "C3"
+  },
+  {
+   "s": "m10",
+   "t": "g194",
+   "kind": "prerequisite-of",
+   "src": "editorial",
+   "note": "grasp an extensible DES framework before the comparative fog/edge simulator survey",
+   "cycle": "C3"
+  },
+  {
+   "s": "g189",
+   "t": "g194",
+   "kind": "prerequisite-of",
+   "src": "editorial",
+   "note": "study the concrete iFogSim2 tool before the survey that taxonomizes it against peers",
+   "cycle": "C3"
+  },
+  {
+   "s": "g74",
+   "t": "g199",
+   "kind": "prerequisite-of",
+   "src": "editorial",
+   "note": "RouteNet is the seminal GNN network model this survey catalogs and generalizes",
+   "cycle": "C9"
+  },
+  {
+   "s": "g74",
+   "t": "g196",
+   "kind": "prerequisite-of",
+   "src": "editorial",
+   "note": "extends GNN-based network modeling into a fully learned flow-level simulator",
+   "cycle": "C9"
+  },
+  {
+   "s": "g199",
+   "t": "g196",
+   "kind": "prerequisite-of",
+   "src": "editorial",
+   "note": "the learned flow-level simulator exemplifies the GNN methods this survey systematizes",
+   "cycle": "C9"
+  },
+  {
+   "s": "g44",
+   "t": "g203",
+   "kind": "prerequisite-of",
+   "src": "editorial",
+   "note": "OS3 is the OMNeT++/INET satellite module you build orbital scenarios with after learning OMNeT++",
+   "cycle": "C3"
+  },
+  {
+   "s": "g35",
+   "t": "g209",
+   "kind": "prerequisite-of",
+   "src": "editorial",
+   "note": "move from general internet-simulation difficulties to a focused survey of the LEO networking landscape",
+   "cycle": ""
+  },
+  {
+   "s": "g203",
+   "t": "g200",
+   "kind": "prerequisite-of",
+   "src": "editorial",
+   "note": "progress from single-tool satellite modeling in OS3 to full-scale packet-level constellation simulation",
+   "cycle": "C3"
+  },
+  {
+   "s": "g41",
+   "t": "g200",
+   "kind": "prerequisite-of",
+   "src": "editorial",
+   "note": "Hypatia scales the ns-3 packet-level engine up to complete LEO constellations",
+   "cycle": "C3"
+  },
+  {
+   "s": "g16",
+   "t": "g218",
+   "kind": "prerequisite-of",
+   "src": "editorial",
+   "note": "the fluid data-handling model builds directly on classical queueing theory",
+   "cycle": "C5"
+  },
+  {
+   "s": "g9",
+   "t": "g236",
+   "kind": "prerequisite-of",
+   "src": "editorial",
+   "note": "model-checking theory rests on discrete-event / transition-system foundations",
+   "cycle": ""
+  },
+  {
+   "s": "g11",
+   "t": "g225",
+   "kind": "prerequisite-of",
+   "src": "editorial",
+   "note": "rare-event simulation is advanced methodology extending general simulation analysis",
+   "cycle": "C2"
+  },
+  {
+   "s": "g218",
+   "t": "g226",
+   "kind": "prerequisite-of",
+   "src": "editorial",
+   "note": "mean-field ODE limits extend the fluid-model approach to large populations of interacting objects",
+   "cycle": "C5"
   },
   {
    "s": "g11",
@@ -1956,7 +2156,7 @@
    "kind": "applies-method-of",
    "src": "editorial",
    "note": "DES methodology embodied in the packet-level simulator",
-   "cycle": "C2"
+   "cycle": "C3"
   },
   {
    "s": "g44",
@@ -1964,7 +2164,7 @@
    "kind": "applies-method-of",
    "src": "editorial",
    "note": "DES methodology embodied in the OMNeT++ framework",
-   "cycle": "C2"
+   "cycle": "C3"
   },
   {
    "s": "g7",
@@ -1988,7 +2188,7 @@
    "kind": "applies-method-of",
    "src": "editorial",
    "note": "DES semantics operationalized as the Simulink DES framework",
-   "cycle": ""
+   "cycle": "C3"
   },
   {
    "s": "m4",
@@ -2012,7 +2212,7 @@
    "kind": "applies-method-of",
    "src": "editorial",
    "note": "the engine instantiating the multicore scheduler model",
-   "cycle": "C2"
+   "cycle": "C3"
   },
   {
    "s": "m68",
@@ -2020,7 +2220,7 @@
    "kind": "applies-method-of",
    "src": "editorial",
    "note": "the engine instantiating custom resource arbitration",
-   "cycle": "C2"
+   "cycle": "C3"
   },
   {
    "s": "m69",
@@ -2028,7 +2228,7 @@
    "kind": "applies-method-of",
    "src": "editorial",
    "note": "the engine instantiating the job-shop plant",
-   "cycle": "C2"
+   "cycle": "C3"
   },
   {
    "s": "m66",
@@ -2036,7 +2236,7 @@
    "kind": "applies-method-of",
    "src": "editorial",
    "note": "the extensibility framework enabling custom scheduler policies",
-   "cycle": ""
+   "cycle": "C3"
   },
   {
    "s": "m13",
@@ -2052,7 +2252,7 @@
    "kind": "applies-method-of",
    "src": "editorial",
    "note": "the framework instantiated in the multicore memory-contention study",
-   "cycle": ""
+   "cycle": "C3"
   },
   {
    "s": "g167",
@@ -2060,7 +2260,7 @@
    "kind": "applies-method-of",
    "src": "editorial",
    "note": "the origin result consolidated into the scheduling canon",
-   "cycle": "C2"
+   "cycle": "C3"
   },
   {
    "s": "g168",
@@ -2068,7 +2268,7 @@
    "kind": "applies-method-of",
    "src": "editorial",
    "note": "the origin result systematized as a textbook",
-   "cycle": "C2"
+   "cycle": "C3"
   },
   {
    "s": "g174",
@@ -2084,7 +2284,7 @@
    "kind": "applies-method-of",
    "src": "editorial",
    "note": "rate-monotonic theory shipped as Simulink multitasking semantics",
-   "cycle": "C2"
+   "cycle": "C3"
   },
   {
    "s": "m65",
@@ -2092,7 +2292,7 @@
    "kind": "applies-method-of",
    "src": "editorial",
    "note": "priority-scheduling theory instantiated by the shipped scheduler example",
-   "cycle": "C2"
+   "cycle": "C3"
   },
   {
    "s": "m62",
@@ -2100,7 +2300,7 @@
    "kind": "applies-method-of",
    "src": "editorial",
    "note": "the scheduling canon productized in the vendor SoC task stack",
-   "cycle": "C2"
+   "cycle": "C3"
   },
   {
    "s": "m77",
@@ -2108,7 +2308,7 @@
    "kind": "applies-method-of",
    "src": "editorial",
    "note": "the scheduling canon modularized as scheduler/task/message S-functions",
-   "cycle": "C2"
+   "cycle": "C3"
   },
   {
    "s": "m74",
@@ -2116,7 +2316,7 @@
    "kind": "applies-method-of",
    "src": "editorial",
    "note": "textbook policies (RM/EDF) implemented in the TrueTime kernel",
-   "cycle": "C2"
+   "cycle": "C3"
   },
   {
    "s": "m63",
@@ -2124,7 +2324,7 @@
    "kind": "applies-method-of",
    "src": "editorial",
    "note": "the product instantiated by the task-execution example",
-   "cycle": "C2"
+   "cycle": "C3"
   },
   {
    "s": "m64",
@@ -2148,7 +2348,7 @@
    "kind": "applies-method-of",
    "src": "editorial",
    "note": "the trigger rule folded into the canonical tutorial",
-   "cycle": "C4"
+   "cycle": "C6"
   },
   {
    "s": "g170",
@@ -2156,7 +2356,7 @@
    "kind": "applies-method-of",
    "src": "editorial",
    "note": "the single-loop feedback scheduler refined feedback-feedforward",
-   "cycle": "C5"
+   "cycle": "C7"
   },
   {
    "s": "m74",
@@ -2172,7 +2372,7 @@
    "kind": "applies-method-of",
    "src": "editorial",
    "note": "co-design analysis needs met by the jitter-performance toolbox",
-   "cycle": "C5"
+   "cycle": "C7"
   },
   {
    "s": "m43",
@@ -2180,7 +2380,7 @@
    "kind": "applies-method-of",
    "src": "editorial",
    "note": "the kernel extended into the wireless-NCS toolchain",
-   "cycle": "C2"
+   "cycle": "C3"
   },
   {
    "s": "m46",
@@ -2220,7 +2420,7 @@
    "kind": "applies-method-of",
    "src": "editorial",
    "note": "the calculus made algorithmic and tool-oriented",
-   "cycle": "C6"
+   "cycle": "C8"
   },
   {
    "s": "g32",
@@ -2236,7 +2436,7 @@
    "kind": "applies-method-of",
    "src": "editorial",
    "note": "real-time calculus implemented as the MATLAB RTC toolbox",
-   "cycle": "C6"
+   "cycle": "C8"
   },
   {
    "s": "m37",
@@ -2260,7 +2460,7 @@
    "kind": "applies-method-of",
    "src": "editorial",
    "note": "the credibility crisis answered by systematic V&V",
-   "cycle": "C7"
+   "cycle": "C13"
   },
   {
    "s": "m49",
@@ -2332,7 +2532,7 @@
    "kind": "applies-method-of",
    "src": "editorial",
    "note": "FMI step semantics realized in the ns-3 FMU export",
-   "cycle": "C2"
+   "cycle": "C3"
   },
   {
    "s": "m80",
@@ -2340,7 +2540,407 @@
    "kind": "applies-method-of",
    "src": "editorial",
    "note": "the packet simulator wrapped as an FMI subordinate",
+   "cycle": "C3"
+  },
+  {
+   "s": "g177",
+   "t": "g36",
+   "kind": "applies-method-of",
+   "src": "editorial",
+   "note": "Emulab answers simulation-credibility concerns with a controlled real-node experimental environment",
+   "cycle": ""
+  },
+  {
+   "s": "g178",
+   "t": "g41",
+   "kind": "applies-method-of",
+   "src": "editorial",
+   "note": "CORE runs ns-3 and real stacks inside emulated nodes, extending the simulator toward live emulation",
+   "cycle": ""
+  },
+  {
+   "s": "g178",
+   "t": "g177",
+   "kind": "applies-method-of",
+   "src": "editorial",
+   "note": "CORE continues Emulab's integrated-testbed lineage as a real-time emulator",
+   "cycle": ""
+  },
+  {
+   "s": "g179",
+   "t": "g177",
+   "kind": "applies-method-of",
+   "src": "editorial",
+   "note": "Kathará specializes the shared-testbed idea into scalable Docker/Kubernetes labs",
+   "cycle": "C3"
+  },
+  {
+   "s": "g180",
+   "t": "g179",
+   "kind": "applies-method-of",
+   "src": "editorial",
+   "note": "containerlab generalizes container-based labbing to declarative vendor-NOS topologies",
+   "cycle": "C3"
+  },
+  {
+   "s": "g181",
+   "t": "g178",
+   "kind": "applies-method-of",
+   "src": "editorial",
+   "note": "Mininet-WiFi applies emulated-node techniques to SDN wireless experiments",
+   "cycle": ""
+  },
+  {
+   "s": "g181",
+   "t": "m16",
+   "kind": "applies-method-of",
+   "src": "editorial",
+   "note": "Mininet-WiFi brings propagation and mobility models to hybrid wireless emulation studies",
+   "cycle": ""
+  },
+  {
+   "s": "g182",
+   "t": "g27",
+   "kind": "applies-method-of",
+   "src": "editorial",
+   "note": "Kollaps enforces specified end-to-end path delay/bandwidth, applying deterministic path modeling in practice",
+   "cycle": ""
+  },
+  {
+   "s": "g183",
+   "t": "g11",
+   "kind": "applies-method-of",
+   "src": "editorial",
+   "note": "TimeKeeper realizes accurate virtual-time emulation grounded in simulation-timing analysis",
+   "cycle": ""
+  },
+  {
+   "s": "g217",
+   "t": "g9",
+   "kind": "applies-method-of",
+   "src": "editorial",
+   "note": "applies discrete-event-system theory to conservative parallel synchronization analysis",
+   "cycle": "C3"
+  },
+  {
+   "s": "g210",
+   "t": "g9",
+   "kind": "applies-method-of",
+   "src": "editorial",
+   "note": "applies discrete-event execution semantics to a reversible optimistic rollback method",
+   "cycle": ""
+  },
+  {
+   "s": "g214",
+   "t": "g210",
+   "kind": "applies-method-of",
+   "src": "editorial",
+   "note": "the reverse-computation technique is realized in an optimistic Time Warp kernel",
+   "cycle": "C11"
+  },
+  {
+   "s": "g215",
+   "t": "g217",
+   "kind": "applies-method-of",
+   "src": "editorial",
+   "note": "conservative-vs-optimistic synchronization unified inside a PDES micro-kernel",
+   "cycle": ""
+  },
+  {
+   "s": "g215",
+   "t": "g210",
+   "kind": "applies-method-of",
+   "src": "editorial",
+   "note": "optimistic state-saving synchronization embodied within the micro-kernel",
+   "cycle": ""
+  },
+  {
+   "s": "g216",
+   "t": "g214",
+   "kind": "applies-method-of",
+   "src": "editorial",
+   "note": "the Time Warp kernel is scaled to ~2M cores in a strong-scaling study",
+   "cycle": "C11"
+  },
+  {
+   "s": "g211",
+   "t": "g41",
+   "kind": "applies-method-of",
+   "src": "editorial",
+   "note": "a packet-level network simulator in the ns lineage built for MPI-parallel scale",
+   "cycle": "C3"
+  },
+  {
+   "s": "g212",
+   "t": "g41",
+   "kind": "applies-method-of",
+   "src": "editorial",
+   "note": "a framework federating and parallelizing the ns simulator over MPI (PDNS)",
+   "cycle": "C3"
+  },
+  {
+   "s": "g211",
+   "t": "g217",
+   "kind": "applies-method-of",
+   "src": "editorial",
+   "note": "conservative synchronization enabling large-scale parallel packet simulation",
+   "cycle": "C3"
+  },
+  {
+   "s": "g213",
+   "t": "g217",
+   "kind": "applies-method-of",
+   "src": "editorial",
+   "note": "conservative parallel synchronization applied to a large-scale architecture simulator",
+   "cycle": "C3"
+  },
+  {
+   "s": "g184",
+   "t": "g5",
+   "kind": "applies-method-of",
+   "src": "editorial",
+   "note": "applies modeling-and-simulation theory to a cycle-accurate on-chip network model",
+   "cycle": ""
+  },
+  {
+   "s": "g186",
+   "t": "g5",
+   "kind": "applies-method-of",
+   "src": "editorial",
+   "note": "applies M&S theory to a cycle-accurate DRAM memory-system model",
+   "cycle": "C3"
+  },
+  {
+   "s": "g188",
+   "t": "g5",
+   "kind": "applies-method-of",
+   "src": "editorial",
+   "note": "applies M&S theory to a validated storage-subsystem simulator",
+   "cycle": ""
+  },
+  {
+   "s": "g191",
+   "t": "g9",
+   "kind": "applies-method-of",
+   "src": "editorial",
+   "note": "PeerSim applies event-driven DES to scalable P2P overlay and churn scenarios",
+   "cycle": "C3"
+  },
+  {
+   "s": "g193",
+   "t": "g9",
+   "kind": "applies-method-of",
+   "src": "editorial",
+   "note": "Batsim applies DES to HPC/cluster resource-and-job management scheduling",
+   "cycle": ""
+  },
+  {
+   "s": "g190",
+   "t": "g41",
+   "kind": "applies-method-of",
+   "src": "editorial",
+   "note": "GreenCloud extends the ns-2 packet-level network simulator lineage toward energy-aware datacenters",
+   "cycle": "C3"
+  },
+  {
+   "s": "g195",
+   "t": "m36",
+   "kind": "applies-method-of",
+   "src": "editorial",
+   "note": "applies fluid flow-level network modeling, accelerated by an ML surrogate, to data-center tail-latency estimation",
+   "cycle": ""
+  },
+  {
+   "s": "g195",
+   "t": "g199",
+   "kind": "applies-method-of",
+   "src": "editorial",
+   "note": "ML flow-level estimator instantiating the learned-network-modeling agenda the survey frames",
+   "cycle": "C9"
+  },
+  {
+   "s": "g196",
+   "t": "g41",
+   "kind": "applies-method-of",
+   "src": "editorial",
+   "note": "learns a neural surrogate replacing packet/flow-level simulators such as ns-3",
+   "cycle": ""
+  },
+  {
+   "s": "g196",
+   "t": "g199",
+   "kind": "applies-method-of",
+   "src": "editorial",
+   "note": "realizes the GNN-based network-modeling methodology this survey systematizes",
+   "cycle": "C9"
+  },
+  {
+   "s": "g197",
+   "t": "g41",
+   "kind": "applies-method-of",
+   "src": "editorial",
+   "note": "packages ns-3-based full-stack simulation as reinforcement-learning environments (Simulation-as-a-Service)",
+   "cycle": ""
+  },
+  {
+   "s": "g198",
+   "t": "g9",
+   "kind": "applies-method-of",
+   "src": "editorial",
+   "note": "makes classical discrete-event simulation differentiable for gradient-based policy optimization",
+   "cycle": ""
+  },
+  {
+   "s": "g198",
+   "t": "g16",
+   "kind": "applies-method-of",
+   "src": "editorial",
+   "note": "differentiable simulation of queueing networks whose theory this text establishes",
+   "cycle": ""
+  },
+  {
+   "s": "g208",
+   "t": "g44",
+   "kind": "applies-method-of",
+   "src": "editorial",
+   "note": "leosatellites builds on the OMNeT++/INET simulation framework",
+   "cycle": ""
+  },
+  {
+   "s": "g206",
+   "t": "m29",
+   "kind": "applies-method-of",
+   "src": "editorial",
+   "note": "applies satellite channel/geometry modeling to 5G NR NTN evaluation",
+   "cycle": ""
+  },
+  {
+   "s": "g202",
+   "t": "m29",
+   "kind": "applies-method-of",
+   "src": "editorial",
+   "note": "SILLEO-SCNS specializes satellite link modeling toward inter-satellite and ground-link design",
+   "cycle": ""
+  },
+  {
+   "s": "g205",
+   "t": "g200",
+   "kind": "applies-method-of",
+   "src": "editorial",
+   "note": "StarryNet reuses constellation topology generation, delivering a container-based ISTN digital twin",
+   "cycle": ""
+  },
+  {
+   "s": "g201",
+   "t": "g209",
+   "kind": "applies-method-of",
+   "src": "editorial",
+   "note": "the survey's mega-constellation research directions are realized in StarPerf's characterization",
+   "cycle": "C10"
+  },
+  {
+   "s": "g206",
+   "t": "g209",
+   "kind": "applies-method-of",
+   "src": "editorial",
+   "note": "the survey's 3GPP NTN standardization thread is realized in the 5G NTN system simulator",
+   "cycle": ""
+  },
+  {
+   "s": "g218",
+   "t": "g16",
+   "kind": "applies-method-of",
+   "src": "editorial",
+   "note": "the fluid-queue model specializes classical queueing theory to aggregated on/off sources",
+   "cycle": "C5"
+  },
+  {
+   "s": "g223",
+   "t": "g218",
+   "kind": "applies-method-of",
+   "src": "editorial",
+   "note": "the fluid AQM network model applies the fluid-queue framework to TCP window dynamics",
+   "cycle": "C5"
+  },
+  {
+   "s": "m37",
+   "t": "g223",
+   "kind": "applies-method-of",
+   "src": "editorial",
+   "note": "AQM controller design and analysis builds on the fluid model of TCP/AQM",
+   "cycle": ""
+  },
+  {
+   "s": "g221",
+   "t": "g11",
+   "kind": "applies-method-of",
+   "src": "editorial",
+   "note": "rare-event importance sampling specializes general Monte Carlo simulation methodology",
    "cycle": "C2"
+  },
+  {
+   "s": "g219",
+   "t": "g221",
+   "kind": "applies-method-of",
+   "src": "editorial",
+   "note": "the failure-biasing framework is a rare-event IS technique cataloged by the survey",
+   "cycle": "C2"
+  },
+  {
+   "s": "g220",
+   "t": "g221",
+   "kind": "applies-method-of",
+   "src": "editorial",
+   "note": "RESTART importance splitting is a rare-event acceleration technique within the survey's scope",
+   "cycle": "C2"
+  },
+  {
+   "s": "g229",
+   "t": "g236",
+   "kind": "applies-method-of",
+   "src": "editorial",
+   "note": "PRISM is a tool implementing probabilistic model-checking theory",
+   "cycle": "C12"
+  },
+  {
+   "s": "g235",
+   "t": "g236",
+   "kind": "applies-method-of",
+   "src": "editorial",
+   "note": "SPIN is a tool implementing explicit-state model-checking theory",
+   "cycle": "C12"
+  },
+  {
+   "s": "g231",
+   "t": "g236",
+   "kind": "applies-method-of",
+   "src": "editorial",
+   "note": "Uppaal is a tool implementing timed-automata model checking",
+   "cycle": "C12"
+  },
+  {
+   "s": "g230",
+   "t": "g236",
+   "kind": "applies-method-of",
+   "src": "editorial",
+   "note": "Storm is a tool implementing modern probabilistic model-checking theory",
+   "cycle": "C12"
+  },
+  {
+   "s": "g233",
+   "t": "g236",
+   "kind": "applies-method-of",
+   "src": "editorial",
+   "note": "the Modest toolset implements quantitative (probabilistic/real-time/hybrid) model-checking theory",
+   "cycle": ""
+  },
+  {
+   "s": "g237",
+   "t": "g236",
+   "kind": "applies-method-of",
+   "src": "editorial",
+   "note": "statistical model checking is a simulation-based alternative to the exact model-checking theory",
+   "cycle": "C12"
   },
   {
    "s": "g141",
@@ -2348,7 +2948,7 @@
    "kind": "references",
    "src": "derived",
    "note": "item 62",
-   "cycle": "C3"
+   "cycle": "C4"
   },
   {
    "s": "g151",
@@ -2404,7 +3004,7 @@
    "kind": "references",
    "src": "derived",
    "note": "items 26–28",
-   "cycle": "C6"
+   "cycle": "C8"
   },
   {
    "s": "g173",
@@ -2412,7 +3012,7 @@
    "kind": "references",
    "src": "derived",
    "note": "items 26–28",
-   "cycle": "C6"
+   "cycle": "C8"
   },
   {
    "s": "g173",
@@ -2524,7 +3124,7 @@
    "kind": "references",
    "src": "derived",
    "note": "items 41–45",
-   "cycle": "C2"
+   "cycle": "C3"
   },
   {
    "s": "m80",
@@ -2586,42 +3186,94 @@
   {
    "id": "C2",
    "nodes": [
+    "g11",
+    "g219",
+    "g220",
+    "g221",
+    "g222",
+    "g225"
+   ]
+  },
+  {
+   "id": "C3",
+   "nodes": [
+    "g118",
     "g12",
+    "g121",
+    "g122",
+    "g124",
+    "g125",
+    "g126",
+    "g129",
     "g166",
     "g167",
     "g168",
     "g176",
+    "g177",
+    "g179",
+    "g180",
+    "g183",
+    "g186",
+    "g189",
+    "g190",
+    "g191",
+    "g194",
+    "g200",
+    "g203",
+    "g211",
+    "g212",
+    "g213",
+    "g217",
+    "g39",
     "g41",
+    "g42",
     "g44",
+    "g5",
+    "g54",
+    "g55",
+    "g56",
+    "g9",
     "m1",
+    "m10",
     "m43",
     "m62",
     "m63",
     "m65",
+    "m66",
     "m68",
     "m69",
     "m70",
     "m74",
     "m77",
+    "m78",
     "m80"
    ]
   },
   {
-   "id": "C3",
+   "id": "C4",
    "nodes": [
     "g141",
     "g62"
    ]
   },
   {
-   "id": "C4",
+   "id": "C5",
+   "nodes": [
+    "g16",
+    "g218",
+    "g223",
+    "g226"
+   ]
+  },
+  {
+   "id": "C6",
    "nodes": [
     "g163",
     "g164"
    ]
   },
   {
-   "id": "C5",
+   "id": "C7",
    "nodes": [
     "g170",
     "g171",
@@ -2629,7 +3281,7 @@
    ]
   },
   {
-   "id": "C6",
+   "id": "C8",
    "nodes": [
     "g173",
     "g26",
@@ -2638,17 +3290,52 @@
    ]
   },
   {
-   "id": "C7",
+   "id": "C9",
    "nodes": [
-    "g36",
-    "g38"
+    "g195",
+    "g196",
+    "g199",
+    "g74",
+    "g75",
+    "g76",
+    "g80",
+    "g84"
    ]
   },
   {
-   "id": "C8",
+   "id": "C10",
    "nodes": [
-    "g5",
-    "g9"
+    "g201",
+    "g202",
+    "g209"
+   ]
+  },
+  {
+   "id": "C11",
+   "nodes": [
+    "g210",
+    "g214",
+    "g216",
+    "g68"
+   ]
+  },
+  {
+   "id": "C12",
+   "nodes": [
+    "g229",
+    "g230",
+    "g231",
+    "g235",
+    "g236",
+    "g237",
+    "g238"
+   ]
+  },
+  {
+   "id": "C13",
+   "nodes": [
+    "g36",
+    "g38"
    ]
   }
  ],
@@ -3008,7 +3695,8 @@
    "Where recall likely thins: (a) hybrid fluid/packet simulation and rare-event simulation for networks (U12 — technique known, consolidated current survey not located); (b) NTN/satellite-specific simulators beyond SatEdgeSim/ISTN mentions (the 6G-simulator survey, item 107, is the best pivot); (c) formal-methods-adjacent modeling (probabilistic model checking of protocols — PRISM/Storm were deliberately not expanded; add if the \"systems boundary\" fork resolves broad); (d) WSC/MASCOTS per-paper sweep — treated as venue nodes rather than enumerated; (e) commercial tooling (Riverbed, NetSim, EXata) only lightly covered.",
    "What has clearly moved on since the 2015 anchor: simulation tooling (ns-2 → ns-3/OMNeT++-INET ecosystems with dedicated annual venues); an entirely new subfield of network digital twins with ITU-T/IETF standardization; ML-surrogate and differentiable simulation as a credible substitute/accelerator for packet-level DES; GPU-native, ML-integrated wireless simulation (Sionna) displacing MATLAB link-level tools; emulation (container-based, virtual-time-corrected) as a co-equal methodology rather than an afterthought; and reproducibility/artifact norms institutionalized since ~2020. The anchor's Part 2 (performance evaluation) is the most durable — the queueing/NC analytical core is intact, with TSN/deterministic networking as its most active current application. Its Part 4 (simulation methodology) and Part 5 (wireless evaluation) are the most superseded.",
    "Open forks preserved: systems-boundary items (gem5, SST, BookSim, SimGrid, CODES, AstraSim) collected and tagged `other(systems)`/`cloud-datacenter` for later boundary-drawing; anchor chapters not yet decomposed into nodes (two chapters confirmed independently citable via item 2); citation-neighborhood held at 1-hop with 2-hop candidates implicit in the survey-type entries.",
-   "Scheduling expansion (2026-07-09 wave, §16). Crawling out from the anchor's DES/queueing core and the MATLAB TrueTime/SimEvents seeds assembled the task/resource-scheduling method spine: networked-control-systems surveys (Hespanha; Zhang/Gao/Kaynak; Gupta/Chow; Zhang/Han/Yu), event/self-triggered control (Tabuada; Heemels/Johansson/Tabuada; Årzén), the real-time schedulability canon (Liu & Layland; Sha et al.; Buttazzo; Baruah/Bertogna/Buttazzo), control/scheduling co-design (Cervin/Eker/Bernhardsson/Årzén feedback scheduling; Eker/Hagander/Årzén; Årzén & Cervin; the weakly-hard survey), compositional worst-case analysis (Real-Time Calculus; SymTA/S), and FMI co-simulation semantics. Every NCS and schedulability identifier here was Crossref-confirmed live this session, so the section is unusually well-grounded for a foundational-canon sweep. Recall thinned on the pre-DOI IFAC event-based-control papers (Årzén 1999, kept verified[TRAIN]; the CDC-2000 co-design introduction and the ECRTS Control Server quarantined at U16–U17 for want of a grounded identifier); probabilistic model-checking of schedulers (PRISM/UPPAAL) was deliberately left as an unexpanded systems-boundary fork."
+   "Scheduling expansion (2026-07-09 wave, §16). Crawling out from the anchor's DES/queueing core and the MATLAB TrueTime/SimEvents seeds assembled the task/resource-scheduling method spine: networked-control-systems surveys (Hespanha; Zhang/Gao/Kaynak; Gupta/Chow; Zhang/Han/Yu), event/self-triggered control (Tabuada; Heemels/Johansson/Tabuada; Årzén), the real-time schedulability canon (Liu & Layland; Sha et al.; Buttazzo; Baruah/Bertogna/Buttazzo), control/scheduling co-design (Cervin/Eker/Bernhardsson/Årzén feedback scheduling; Eker/Hagander/Årzén; Årzén & Cervin; the weakly-hard survey), compositional worst-case analysis (Real-Time Calculus; SymTA/S), and FMI co-simulation semantics. Every NCS and schedulability identifier here was Crossref-confirmed live this session, so the section is unusually well-grounded for a foundational-canon sweep. Recall thinned on the pre-DOI IFAC event-based-control papers (Årzén 1999, kept verified[TRAIN]; the CDC-2000 co-design introduction and the ECRTS Control Server quarantined at U16–U17 for want of a grounded identifier); probabilistic model-checking of schedulers (PRISM/UPPAAL) was deliberately left as an unexpanded systems-boundary fork.",
+   "Typed-relations + breadth expansion (2026-07 wave, §17–24). The corpus gained a first-class typed reading-relation layer (the twelve SWE-parity kinds — prerequisite-of, refines, subsumes, formalizes, surveys, applies-method-of, companion, evaluates, critiques, supersedes, part-of, references) and +62 web-verified resources that close the gaps this summary named: emulation & testbeds (Emulab, CORE, Kathará, containerlab, Mininet-WiFi, Kollaps, TimeKeeper); systems-boundary & HPC-interconnect (GARNET, DRAMSim2, Ramulator, DiskSim, ASTRA-SIM — resolving the \"open fork\" above); cloud/edge/datacenter (iFogSim2, EdgeCloudSim, GreenCloud, PeerSim, BigHouse, Batsim); learned/ML network simulation (m3, m4, NetworkGym, differentiable DES, GNN surveys); non-terrestrial & satellite (Hypatia, StarPerf, SILLEO-SCNS, OS3, SNS3, StarryNet, xeoverse) — closing gap (b); parallel/distributed engines (Jefferson's Virtual Time, ROSS reverse-computation, GTNetS/PDNS, Warp Speed, conservative synchronization); rare-event & fluid methodology (Anick-Mitra-Sondhi, RESTART, multilevel splitting, the Heidelberger and Juneja-Shahabuddin surveys, the Misra-Gong-Towsley fluid AQM model, Rubino-Tuffin) — closing gaps (a) and the U12 marker; and formal methods & probabilistic model checking (PRISM, Storm, UPPAAL, Modest, SPIN, Baier-Katoen) — opening the deliberately-deferred formal-methods fork lightly. Every new entry was web-verified this wave; 22 candidate finds that duplicated existing corpus entries were detected by identifier/title and dropped, so breadth settled at +62."
   ],
   "mat": [
    "All six paradigms were swept live. Coverage is strongest and most self-sufficient in two places: (a) the MathWorks-official stratum for wireless system-level simulation — the 2023–2026 stack (wirelessNetworkSimulator core + 5G/WLAN/Bluetooth/Satellite toolboxes + Wireless Network Toolbox packaging) is fully documented by vendor pages, and the key anti-fabrication finding is the packaging migration (File Exchange add-on → in-product/dedicated toolbox), which any downstream citation must respect; and (b) the co-simulation/NCS paradigm, where a mature, independent, peer-reviewed lineage exists (TrueTime → Jitterbug/JitterTime, PiccSIM, NMLab, Simulink↔OPNET, WirelessHART co-sim) — this is the paradigm most relevant to control-over-network problems and is almost entirely non-vendor literature. The academic-simulators paradigm is dominated by one family (Vienna LTE/5G, fully grounded incl. its Springer monograph) plus GTEC and satellite-networking studies that use SatCom Toolbox as the system-of-record. Recall thins in: independent peer-reviewed evaluations of the new (2023+) MathWorks network-simulation stack (the tooling is young; third-party calibration/validation studies against 3GPP/IEEE references were not found this session and may barely exist yet — a genuine gap, not a search failure); the thesis stratum (one unverified representative); and File Exchange beyond the vendor's own add-on. The discrete-event (SimEvents) paradigm shows the inverse profile of §2: vendor documentation is stable and older, while the peer-reviewed record is concentrated in one research lineage (MathWorks + Cassandras/Boston University, WSC/WODES/DEDS 2006–2019) oriented to CPS/ITS rather than classical packet networks — consistent with the framing that MATLAB/Simulink is a minority tool whose network-M&S value is paradigm-specific (hybrid control+network, coexistence, standards-based wireless KPIs, satellite scenarios) rather than general-purpose packet simulation.",
@@ -3115,7 +3803,29 @@
     "m77": "d5",
     "m78": "d5",
     "m79": "d5",
-    "g175": "d5"
+    "g175": "d5",
+    "g177": "d3",
+    "g179": "d3",
+    "g180": "d3",
+    "g181": "d3",
+    "g183": "d5",
+    "g189": "d3",
+    "g191": "d3",
+    "g194": "d5",
+    "g196": "d5",
+    "g199": "d5",
+    "g200": "d5",
+    "g203": "d3",
+    "g209": "d4",
+    "g210": "d5",
+    "g211": "d5",
+    "g212": "d5",
+    "g216": "d5",
+    "g217": "d5",
+    "g218": "d2",
+    "g225": "d4",
+    "g226": "d4",
+    "g236": "d2"
    },
    "edges": [
     {
@@ -3417,6 +4127,146 @@
      "s": "m10",
      "t": "m79",
      "why": "the extensible framework before timing-injection techniques"
+    },
+    {
+     "s": "g41",
+     "t": "g177",
+     "why": "after a core simulator like ns-3, meet the integrated hardware-in-the-loop testbed"
+    },
+    {
+     "s": "g177",
+     "t": "g179",
+     "why": "from Emulab's heavyweight testbed to lightweight container-based labs"
+    },
+    {
+     "s": "g179",
+     "t": "g180",
+     "why": "from Kathará teaching labs to declarative vendor-NOS containerlab topologies"
+    },
+    {
+     "s": "m18",
+     "t": "g181",
+     "why": "after wireless toolbox modeling, emulate software-defined Wi-Fi stations hands-on"
+    },
+    {
+     "s": "g179",
+     "t": "g183",
+     "why": "from container labs to the virtual-time mechanism that scales them to high-speed links"
+    },
+    {
+     "s": "g64",
+     "t": "g183",
+     "why": "grasp PDES virtual time before TimeKeeper's Linux time-dilation realization"
+    },
+    {
+     "s": "g64",
+     "t": "g210",
+     "why": "the reverse-computation rollback method builds directly on PDES foundations"
+    },
+    {
+     "s": "g64",
+     "t": "g217",
+     "why": "conservative null-message synchronization deepens the PDES synchronization foundation"
+    },
+    {
+     "s": "g210",
+     "t": "g216",
+     "why": "reverse computation is the enabling method for the ~2M-core Time Warp run"
+    },
+    {
+     "s": "g64",
+     "t": "g216",
+     "why": "the landmark strong-scaling study realizes PDES at extreme scale"
+    },
+    {
+     "s": "g66",
+     "t": "g211",
+     "why": "a canonical large-scale MPI-parallel network simulator answering the scale challenges surveyed"
+    },
+    {
+     "s": "g66",
+     "t": "g212",
+     "why": "parallelizing the sequential ns simulator addresses distributed-simulation research challenges"
+    },
+    {
+     "s": "g9",
+     "t": "g189",
+     "why": "master DES foundations before building fog/edge multi-station models in iFogSim2"
+    },
+    {
+     "s": "g9",
+     "t": "g191",
+     "why": "understand event-driven DES before PeerSim's large-scale P2P/overlay models"
+    },
+    {
+     "s": "m10",
+     "t": "g194",
+     "why": "grasp an extensible DES framework before the comparative fog/edge simulator survey"
+    },
+    {
+     "s": "g189",
+     "t": "g194",
+     "why": "study the concrete iFogSim2 tool before the survey that taxonomizes it against peers"
+    },
+    {
+     "s": "g74",
+     "t": "g199",
+     "why": "RouteNet is the seminal GNN network model this survey catalogs and generalizes"
+    },
+    {
+     "s": "g74",
+     "t": "g196",
+     "why": "extends GNN-based network modeling into a fully learned flow-level simulator"
+    },
+    {
+     "s": "g199",
+     "t": "g196",
+     "why": "the learned flow-level simulator exemplifies the GNN methods this survey systematizes"
+    },
+    {
+     "s": "g44",
+     "t": "g203",
+     "why": "OS3 is the OMNeT++/INET satellite module you build orbital scenarios with after learning OMNeT++"
+    },
+    {
+     "s": "g35",
+     "t": "g209",
+     "why": "move from general internet-simulation difficulties to a focused survey of the LEO networking landscape"
+    },
+    {
+     "s": "g209",
+     "t": "g200",
+     "why": "survey the LEO networking field before running the Hypatia mega-constellation simulator"
+    },
+    {
+     "s": "g203",
+     "t": "g200",
+     "why": "progress from single-tool satellite modeling in OS3 to full-scale packet-level constellation simulation"
+    },
+    {
+     "s": "g41",
+     "t": "g200",
+     "why": "Hypatia scales the ns-3 packet-level engine up to complete LEO constellations"
+    },
+    {
+     "s": "g16",
+     "t": "g218",
+     "why": "the fluid data-handling model builds directly on classical queueing theory"
+    },
+    {
+     "s": "g9",
+     "t": "g236",
+     "why": "model-checking theory rests on discrete-event / transition-system foundations"
+    },
+    {
+     "s": "g11",
+     "t": "g225",
+     "why": "rare-event simulation is advanced methodology extending general simulation analysis"
+    },
+    {
+     "s": "g218",
+     "t": "g226",
+     "why": "mean-field ODE limits extend the fluid-model approach to large populations of interacting objects"
     }
    ]
   },
@@ -3513,7 +4363,69 @@
     "g104": "s3",
     "g32": "s3",
     "g33": "s3",
-    "g4": "s3"
+    "g4": "s3",
+    "g177": "s2",
+    "g178": "s2",
+    "g179": "s2",
+    "g180": "s2",
+    "g181": "s3",
+    "g182": "s2",
+    "g183": "s2",
+    "g184": "s2",
+    "g185": "s3",
+    "g186": "s2",
+    "g187": "s2",
+    "g188": "s2",
+    "g189": "s2",
+    "g190": "s2",
+    "g191": "s2",
+    "g192": "s2",
+    "g193": "s2",
+    "g194": "s1",
+    "g195": "s3",
+    "g196": "s3",
+    "g197": "s2",
+    "g198": "s1",
+    "g199": "s1",
+    "g200": "s2",
+    "g201": "s3",
+    "g202": "s2",
+    "g203": "s2",
+    "g204": "s2",
+    "g205": "s2",
+    "g206": "s3",
+    "g207": "s2",
+    "g208": "s2",
+    "g209": "s1",
+    "g210": "s1",
+    "g211": "s2",
+    "g212": "s2",
+    "g213": "s2",
+    "g214": "s2",
+    "g215": "s2",
+    "g216": "s3",
+    "g217": "s1",
+    "g218": "s0",
+    "g219": "s1",
+    "g220": "s1",
+    "g221": "s1",
+    "g222": "s1",
+    "g223": "s0",
+    "g224": "s3",
+    "g225": "s1",
+    "g226": "s0",
+    "g227": "s1",
+    "g228": "s1",
+    "g229": "s2",
+    "g230": "s2",
+    "g231": "s2",
+    "g232": "s2",
+    "g233": "s2",
+    "g234": "s2",
+    "g235": "s2",
+    "g236": "s0",
+    "g237": "s1",
+    "g238": "s3"
    },
    "edges": [
     {
@@ -3795,6 +4707,371 @@
      "s": "g41",
      "t": "m80",
      "why": "the packet simulator wrapped as an FMI subordinate"
+    },
+    {
+     "s": "g36",
+     "t": "g177",
+     "why": "Emulab answers simulation-credibility concerns with a controlled real-node experimental environment"
+    },
+    {
+     "s": "g41",
+     "t": "g178",
+     "why": "CORE runs ns-3 and real stacks inside emulated nodes, extending the simulator toward live emulation"
+    },
+    {
+     "s": "g177",
+     "t": "g178",
+     "why": "CORE continues Emulab's integrated-testbed lineage as a real-time emulator"
+    },
+    {
+     "s": "g177",
+     "t": "g179",
+     "why": "Kathará specializes the shared-testbed idea into scalable Docker/Kubernetes labs"
+    },
+    {
+     "s": "g179",
+     "t": "g180",
+     "why": "containerlab generalizes container-based labbing to declarative vendor-NOS topologies"
+    },
+    {
+     "s": "g178",
+     "t": "g181",
+     "why": "Mininet-WiFi applies emulated-node techniques to SDN wireless experiments"
+    },
+    {
+     "s": "m16",
+     "t": "g181",
+     "why": "Mininet-WiFi brings propagation and mobility models to hybrid wireless emulation studies"
+    },
+    {
+     "s": "g27",
+     "t": "g182",
+     "why": "Kollaps enforces specified end-to-end path delay/bandwidth, applying deterministic path modeling in practice"
+    },
+    {
+     "s": "g11",
+     "t": "g183",
+     "why": "TimeKeeper realizes accurate virtual-time emulation grounded in simulation-timing analysis"
+    },
+    {
+     "s": "g9",
+     "t": "g217",
+     "why": "applies discrete-event-system theory to conservative parallel synchronization analysis"
+    },
+    {
+     "s": "g9",
+     "t": "g210",
+     "why": "applies discrete-event execution semantics to a reversible optimistic rollback method"
+    },
+    {
+     "s": "g210",
+     "t": "g214",
+     "why": "the reverse-computation technique is realized in an optimistic Time Warp kernel"
+    },
+    {
+     "s": "g217",
+     "t": "g215",
+     "why": "conservative-vs-optimistic synchronization unified inside a PDES micro-kernel"
+    },
+    {
+     "s": "g210",
+     "t": "g215",
+     "why": "optimistic state-saving synchronization embodied within the micro-kernel"
+    },
+    {
+     "s": "g214",
+     "t": "g216",
+     "why": "the Time Warp kernel is scaled to ~2M cores in a strong-scaling study"
+    },
+    {
+     "s": "g210",
+     "t": "g216",
+     "why": "reverse computation drives the ~504-billion-event PHOLD run"
+    },
+    {
+     "s": "g41",
+     "t": "g211",
+     "why": "a packet-level network simulator in the ns lineage built for MPI-parallel scale"
+    },
+    {
+     "s": "g41",
+     "t": "g212",
+     "why": "a framework federating and parallelizing the ns simulator over MPI (PDNS)"
+    },
+    {
+     "s": "g217",
+     "t": "g211",
+     "why": "conservative synchronization enabling large-scale parallel packet simulation"
+    },
+    {
+     "s": "g217",
+     "t": "g213",
+     "why": "conservative parallel synchronization applied to a large-scale architecture simulator"
+    },
+    {
+     "s": "g5",
+     "t": "g184",
+     "why": "applies modeling-and-simulation theory to a cycle-accurate on-chip network model"
+    },
+    {
+     "s": "g184",
+     "t": "g185",
+     "why": "on-chip/scale-up network modeling extended to distributed DL-training fabric simulation"
+    },
+    {
+     "s": "g5",
+     "t": "g186",
+     "why": "applies M&S theory to a cycle-accurate DRAM memory-system model"
+    },
+    {
+     "s": "g186",
+     "t": "g187",
+     "why": "a faster, extensible DRAM simulator succeeding the cycle-accurate DRAMSim2"
+    },
+    {
+     "s": "g5",
+     "t": "g188",
+     "why": "applies M&S theory to a validated storage-subsystem simulator"
+    },
+    {
+     "s": "g194",
+     "t": "g189",
+     "why": "iFogSim2 is a concrete fog/edge tool cataloged by the comparative overview"
+    },
+    {
+     "s": "g16",
+     "t": "g192",
+     "why": "BigHouse specializes queueing theory via Statistical Queuing Simulation of datacenter servers"
+    },
+    {
+     "s": "g9",
+     "t": "g191",
+     "why": "PeerSim applies event-driven DES to scalable P2P overlay and churn scenarios"
+    },
+    {
+     "s": "g9",
+     "t": "g193",
+     "why": "Batsim applies DES to HPC/cluster resource-and-job management scheduling"
+    },
+    {
+     "s": "g41",
+     "t": "g190",
+     "why": "GreenCloud extends the ns-2 packet-level network simulator lineage toward energy-aware datacenters"
+    },
+    {
+     "s": "m36",
+     "t": "g195",
+     "why": "applies fluid flow-level network modeling, accelerated by an ML surrogate, to data-center tail-latency estimation"
+    },
+    {
+     "s": "g199",
+     "t": "g195",
+     "why": "ML flow-level estimator instantiating the learned-network-modeling agenda the survey frames"
+    },
+    {
+     "s": "g41",
+     "t": "g196",
+     "why": "learns a neural surrogate replacing packet/flow-level simulators such as ns-3"
+    },
+    {
+     "s": "g199",
+     "t": "g196",
+     "why": "realizes the GNN-based network-modeling methodology this survey systematizes"
+    },
+    {
+     "s": "g41",
+     "t": "g197",
+     "why": "packages ns-3-based full-stack simulation as reinforcement-learning environments (Simulation-as-a-Service)"
+    },
+    {
+     "s": "g9",
+     "t": "g198",
+     "why": "makes classical discrete-event simulation differentiable for gradient-based policy optimization"
+    },
+    {
+     "s": "g16",
+     "t": "g198",
+     "why": "differentiable simulation of queueing networks whose theory this text establishes"
+    },
+    {
+     "s": "g41",
+     "t": "g200",
+     "why": "Hypatia embeds the ns-3 packet-level engine, applied to LEO constellations"
+    },
+    {
+     "s": "g41",
+     "t": "g204",
+     "why": "SNS3 is an ns-3 module adding DVB-S2/RCS2 satellite links"
+    },
+    {
+     "s": "g44",
+     "t": "g203",
+     "why": "OS3 is an OMNeT++/INET module specializing the framework for satellite simulation"
+    },
+    {
+     "s": "g203",
+     "t": "g208",
+     "why": "leosatellites extends OS3 ported to INET 4.3 for LEO constellations"
+    },
+    {
+     "s": "g44",
+     "t": "g208",
+     "why": "leosatellites builds on the OMNeT++/INET simulation framework"
+    },
+    {
+     "s": "g103",
+     "t": "g206",
+     "why": "the 5G NTN system simulator extends 5G NR system-level simulation to non-terrestrial per 3GPP TR 38.811/38.821"
+    },
+    {
+     "s": "m29",
+     "t": "g206",
+     "why": "applies satellite channel/geometry modeling to 5G NR NTN evaluation"
+    },
+    {
+     "s": "m29",
+     "t": "g202",
+     "why": "SILLEO-SCNS specializes satellite link modeling toward inter-satellite and ground-link design"
+    },
+    {
+     "s": "g200",
+     "t": "g201",
+     "why": "StarPerf offers an analytical mega-constellation alternative to packet-level LEO simulation for performance characterization"
+    },
+    {
+     "s": "g200",
+     "t": "g205",
+     "why": "StarryNet reuses constellation topology generation, delivering a container-based ISTN digital twin"
+    },
+    {
+     "s": "g200",
+     "t": "g207",
+     "why": "xeoverse adopts the precomputed-topology approach for real-time Mininet/VM LEO emulation"
+    },
+    {
+     "s": "g209",
+     "t": "g201",
+     "why": "the survey's mega-constellation research directions are realized in StarPerf's characterization"
+    },
+    {
+     "s": "g209",
+     "t": "g206",
+     "why": "the survey's 3GPP NTN standardization thread is realized in the 5G NTN system simulator"
+    },
+    {
+     "s": "g16",
+     "t": "g218",
+     "why": "the fluid-queue model specializes classical queueing theory to aggregated on/off sources"
+    },
+    {
+     "s": "g218",
+     "t": "g223",
+     "why": "the fluid AQM network model applies the fluid-queue framework to TCP window dynamics"
+    },
+    {
+     "s": "g218",
+     "t": "g226",
+     "why": "mean-field interaction models generalize the fluid ODE limit to N interacting objects"
+    },
+    {
+     "s": "g223",
+     "t": "m37",
+     "why": "AQM controller design and analysis builds on the fluid model of TCP/AQM"
+    },
+    {
+     "s": "g223",
+     "t": "g224",
+     "why": "hybrid packet/fluid simulation integrates the fluid AQM model with event-driven packets"
+    },
+    {
+     "s": "g11",
+     "t": "g221",
+     "why": "rare-event importance sampling specializes general Monte Carlo simulation methodology"
+    },
+    {
+     "s": "g221",
+     "t": "g219",
+     "why": "the failure-biasing framework is a rare-event IS technique cataloged by the survey"
+    },
+    {
+     "s": "g221",
+     "t": "g220",
+     "why": "RESTART importance splitting is a rare-event acceleration technique within the survey's scope"
+    },
+    {
+     "s": "g220",
+     "t": "g222",
+     "why": "multilevel-splitting efficiency analysis formalizes the RESTART splitting method"
+    },
+    {
+     "s": "g221",
+     "t": "g225",
+     "why": "the modern rare-event survey updates and extends the classic importance-sampling tutorial"
+    },
+    {
+     "s": "g225",
+     "t": "g227",
+     "why": "the edited Monte Carlo reference compiles the rare-event techniques catalogued by the survey"
+    },
+    {
+     "s": "g36",
+     "t": "g228",
+     "why": "the artifact/reproducibility survey extends the credibility-of-simulation-studies critique"
+    },
+    {
+     "s": "g236",
+     "t": "g229",
+     "why": "PRISM is a tool implementing probabilistic model-checking theory"
+    },
+    {
+     "s": "g236",
+     "t": "g235",
+     "why": "SPIN is a tool implementing explicit-state model-checking theory"
+    },
+    {
+     "s": "g236",
+     "t": "g231",
+     "why": "Uppaal is a tool implementing timed-automata model checking"
+    },
+    {
+     "s": "g236",
+     "t": "g230",
+     "why": "Storm is a tool implementing modern probabilistic model-checking theory"
+    },
+    {
+     "s": "g236",
+     "t": "g233",
+     "why": "the Modest toolset implements quantitative (probabilistic/real-time/hybrid) model-checking theory"
+    },
+    {
+     "s": "g236",
+     "t": "g237",
+     "why": "statistical model checking is a simulation-based alternative to the exact model-checking theory"
+    },
+    {
+     "s": "g229",
+     "t": "g230",
+     "why": "Storm is a modern successor consuming PRISM/JANI models"
+    },
+    {
+     "s": "g229",
+     "t": "g232",
+     "why": "PRISM-games extends the PRISM framework to stochastic multi-player games"
+    },
+    {
+     "s": "g231",
+     "t": "g234",
+     "why": "Uppaal SMC is the statistical model-checking engine built into Uppaal"
+    },
+    {
+     "s": "g237",
+     "t": "g234",
+     "why": "Uppaal SMC implements the statistical model-checking methodology"
+    },
+    {
+     "s": "g229",
+     "t": "g238",
+     "why": "the survey demonstrates PRISM/probabilistic model checking applied to communication protocols"
     }
    ]
   }

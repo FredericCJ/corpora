@@ -38,7 +38,7 @@ NET.views.triage = (function () {
       const cols = U.el('div', { class: 'cols' });
       const left = U.el('div');
       const curSel = NET.state.get().sel;
-      for (const [ck, label] of [['gen', 'GEN §16 — unverified / to confirm'], ['mat', 'MAT §8 — unverified / to confirm']]) {
+      for (const [ck, label] of [['gen', 'GEN §25 — unverified / to confirm'], ['mat', 'MAT §9 — unverified / to confirm']]) {
         left.appendChild(U.el('div', { class: 'pssec', text: label + ' · ' + t.quarantine[ck].length }));
         for (const n of t.quarantine[ck]) {
           const card = U.el('div', { class: 'card', tabindex: '0', role: 'button', 'data-id': n.id,
