@@ -127,7 +127,7 @@ Parnas's criterion (1972) remains the sharpest single sentence in the field: dec
 so that each module hides a decision likely to change, behind an interface that would survive the
 change. Not steps of processing — *secrets*. In embedded work the secrets are concrete and
 enumerable: which silicon, which pin map, which sensor, which protocol version, which scheduling
-policy, which memory layout, which compiler. Each of those will change over a twenty-year life;
+policy, which memory layout, which compiler. Each of those will change across the fielded life;
 each therefore names a module boundary. The element catalogs carry the operational form as the
 `encapsulate` tactic — other elements depend only on the interface — and the whole of Part II is
 the C instantiation of it.
@@ -205,7 +205,7 @@ Maximizing them is therefore not balancing five dials. It is one investment — 
 plus enforcement — amortized five ways. Where they *do* trade off against something, the price is
 named in the corpus and repeated here: indirection and pass-through cost at every intermediary, RAM
 and cycles for every recorder, mechanism paid up front for every deferred binding. Those are real
-prices, and this booklet's position is that in a system expected to live twenty years they are the
+prices, and this booklet's position is that in a system built to outlive its authors they are the
 cheapest insurance on the invoice — but they are stated, every time, so a hard-real-time inner loop
 can decline them *by name* rather than by erosion.
 
@@ -377,20 +377,25 @@ the incomplete type makes information hiding compiler-enforced. *(compiler-catch
 
 Its cost is real and must be stated: an opaque type cannot be allocated by the caller (its size is
 unknown), which collides with the static-allocation discipline of chapter 9. The domain has three
-honest resolutions, in order of preference: the module owns a static pool of its own instances and
-the constructor hands out handles from it (`motor_t *motor_claim(void)`) — priced: instance
-count and placement migrate from the caller into the module's configuration, and the pool's
-whole footprint is paid by every image that links it; the header exports an opaque *storage*
-type of pinned size and alignment — with its hazard named, because the obvious implementation
-(caller-declared storage, cast to the real struct inside the module) violates ISO C's
-effective-type rules, exactly the undefined behavior §5.2 forbids: the module therefore
-accesses the storage only by `memcpy` to and from its own struct, or completes the type through
-a union in a restricted-visibility header, or records a pinned toolchain aliasing guarantee in
-the compiler port as a named extension reliance — the size-and-alignment static assertion
-remains necessary but is *not* the proof; or — where neither fits — the struct is published but
-marked as non-contract, its fields prefixed as private, with an analysis rule forbidding access
-outside the owning module. The first keeps full enforcement and is the default; the last is the
-weakest and says so. *(compiler → analysis, weakening in steps, each named)*
+honest resolutions, in order of preference, each with its price named:
+
+1. **The module owns a static pool of its own instances**, and the constructor hands out
+   handles from it (`motor_t *motor_claim(void)`). Priced: instance count and placement migrate
+   from the caller into the module's configuration, and the pool's whole footprint is paid by
+   every image that links it.
+2. **The header exports an opaque *storage* type** of pinned size and alignment. Its hazard has
+   a name: the obvious implementation — caller-declared storage, cast to the real struct inside
+   the module — violates ISO C's effective-type rules, exactly the undefined behavior §5.2
+   forbids. The module therefore accesses the storage only by `memcpy` to and from its own
+   struct, or completes the type through a union in a restricted-visibility header, or records
+   a pinned toolchain aliasing guarantee in the compiler port as a named extension reliance.
+   The size-and-alignment static assertion remains necessary; it is not the proof.
+3. **The struct is published but marked non-contract**, its fields prefixed as private, with an
+   analysis rule forbidding access outside the owning module — for where neither stronger form
+   fits.
+
+The first keeps full enforcement and is the default; the last is the weakest and says so.
+*(compiler → analysis, weakening in steps, each named)*
 
 ### 3.3 The include graph is the architecture
 
@@ -708,7 +713,7 @@ because each is a different *unit of replacement*:
 
 Reference stacks — Douglass's `five-layer-architecture-rtdp` (application / UI / communication /
 abstract OS / abstract hardware) and the AUTOSAR layered architecture with its generated RTE — are
-worked examples of the same shape at two ceremony levels, and the AUTOSAR case is worth one more
+worked examples of the same shape at two ceremony levels. The AUTOSAR case is worth one more
 sentence: its RTE is a *generated* port layer (§3.6's top rung industrialized), and its "complex
 device drivers" escape hatch is the honest admission every layered stack needs — a sanctioned,
 *named* bypass for the cases the abstraction cannot serve, so the bypass is visible in review
@@ -796,7 +801,7 @@ no-execute data — so violations that would have been silent corruption become 
 with evidence attached. That is `runtime-catchable` enforcement at protection-domain
 granularity — ownership, stacks, and effect surfaces; module privacy *inside* a domain remains
 the compiler's and the analyzers' business — and it is the
-strongest rung available at run time, and the corpus's `time-and-space-partitioning` (ARINC 653)
+strongest rung available at run time. The corpus's `time-and-space-partitioning` (ARINC 653)
 is the fully industrialized form: statically allocated memory regions and fixed execution windows,
 enforced by the platform, per partition. A program that is *only* safe under that enforcement was
 never safe; a program that is safe without it becomes *diagnosable* with it.
@@ -852,7 +857,9 @@ Scaled up, the same discipline becomes the corpus's **`actor-based-architecture`
 formalism; in embedded practice the QP-style active object, and the corpus records the enabling
 edge as sourced to Samek: run-to-completion is what lets an actor process messages without
 reentrant state corruption). Each concurrent activity is an **active object**: a private state
-machine, a private event queue, and *no other way in*. Callers post events; they never call across
+machine, a private event queue, and *no other way in*. (*Activity* is this booklet's word for
+the design-level unit; *task* names its realization on a preemptive shell.) Callers post
+events; they never call across
 into another activity's state. One writer per datum, by construction — which dissolves, rather
 than solves, most locking problems (chapter 7 handles the residue).
 
@@ -913,7 +920,9 @@ Idle is a designed mode, not the absence of work, and it belongs to the shell. T
 mechanisms give it structure: the `idle-task-hook` runs what must cost only otherwise-idle
 cycles — the patrol scans of §10.5, the watermark checks of §9.4, the trace drain of §11.2 —
 and `tickless-idle` is the deeper form: suppress the periodic tick, program a one-shot wake for
-the next deadline, and sleep the processor in a low-power state. Three disciplines keep power
+the next deadline, and sleep the processor in a low-power state.
+
+Three disciplines keep power
 from leaking into logic. **Wake sources are events**: the core learns "the button woke us" the
 same way it learns everything, through a port, so power states never appear in decision code.
 **Power states are states**: the power domain is a state machine under this chapter's own rules
@@ -923,7 +932,9 @@ tactics (`metering` to know, `reduce-usage` to act) make consumption a measured,
 with an alarm, not a hope — and the sleep-versus-slow decision (race to idle at full clock, or
 run slower and longer) is made on that measurement, per mode, and recorded. At architecture
 scale the corpus carries `chained-processors` (White): a small always-on processor fronting a
-large one it wakes on demand — the same decision at silicon granularity. The watchdog and sleep
+large one it wakes on demand — the same decision at silicon granularity.
+
+The watchdog and sleep
 are designed as a pair: a kick map that does not know the sleep states will either reset a
 sleeping system or force it awake just to be kicked — the child's watchdog topology (§8.4,
 ch. 15) states which states pause, window, or excuse it. *(fitness-function for the energy
@@ -1003,10 +1014,10 @@ instead. Its sibling for
 state-shaped (latest-value-wins) data is the **`double-buffer`** swap: writer fills the
 inactive bank and flips — coherent for the reader only while the protocol keeps the writer out
 of a bank a reader still holds, by time control, by handshake, or by a third bank where both
-sides free-run; the flip itself is a published index carrying this section's ordering
-obligations — and the corpus's `temporal-firewall` (Kopetz) is
-this idea promoted to an architectural connector: a unidirectional, time-controlled data-only
-interface with no control signals crossing, which is also the cleanest DMA handoff shape.
+sides free-run. The flip itself is a published index carrying this section's ordering
+obligations. The corpus's `temporal-firewall` (Kopetz) is this idea promoted to an
+architectural connector — a unidirectional, time-controlled data-only interface with no control
+signals crossing — and it is also the cleanest DMA handoff shape.
 Overflow on any such channel is counted and visible (invariant 10); a dropped sample with no
 counter is a lie the system tells its own recorder.
 
@@ -1017,7 +1028,9 @@ the DMA controller (whose ownership story §9.3 carries) and, increasingly, a se
 parent's default for inter-core design is the one chapter 6 already established: **message
 passing over owned memory** — per-direction SPSC channels or hardware mailboxes, payloads
 immutable after publish, each datum owned by exactly one core — the actor discipline stretched
-across the silicon. Genuinely shared state between cores is the exception, and it imports the
+across the silicon.
+
+Genuinely shared state between cores is the exception, and it imports the
 platform's memory model wholesale: publish/consume built on `acquire-release-ordering`,
 explicit `memory-barrier` operations where the model demands them, and
 `false-sharing-avoidance-via-cache-line-padding` where independently written data would share a
@@ -1027,6 +1040,7 @@ sharpens: on a single core, the SPSC channel's ordering can be discharged by com
 and preemption reasoning; across cores the same structure requires the hardware ordering pair
 at its indices — same shape, stronger contract — so every channel states which environment it
 is built for. Cache maintenance at the handoff points is the owning adapter's job, like DMA's.
+
 And one disambiguation, because the name invites confusion: `dual-core-lockstep` is not a
 programming model — it is safety hardware executing one instruction stream redundantly and
 comparing, invisible to software; a chapter-10 mechanism wearing a core count. *(the
@@ -1064,12 +1078,14 @@ it end to end: Liu & Layland's utilization bound for rate-monotonic priorities (
 conservative); **response-time analysis** (Joseph & Pandya; Audsley et al.) as the exact test —
 worst-case response per task from its cost, its blocking, and higher-priority interference,
 iterated to fixpoint against the deadline; deadline-monotonic ordering where deadlines are
-shorter than periods (Leung & Whitehead); blocking terms bounded by the ceiling protocol (Sha,
-Rajkumar & Lehoczky — the Mars Pathfinder reset is the domain's standing reminder of what
-unbounded inversion does); ISRs modeled as top-priority periodic load. Buttazzo is the textbook
+shorter than periods (Leung & Whitehead). Blocking terms are bounded by the ceiling protocol
+(Sha, Rajkumar & Lehoczky — the Mars Pathfinder reset is the domain's standing reminder of what
+unbounded inversion does), and ISRs are modeled as top-priority periodic load. Buttazzo is the textbook
 spine. All of it is the single-scheduling-domain canon — one processor, fixed priorities; a
 specialization that schedules across cores (§7.4) pins its own analysis and locking protocol,
-because none of these bounds transfers unchanged. What the booklet fixes as *architecture* is not the algebra but its inputs' discipline:
+because none of these bounds transfers unchanged.
+
+What the booklet fixes as *architecture* is not the algebra but its inputs' discipline:
 every hard-deadline task states its period, deadline, and measured or analyzed worst-case cost;
 those budgets live with the code, and the analysis re-runs when they change (chapter 13 makes
 this a gate). `bound-execution-times` (Bass) is the per-task tactic — bounded loops, bounded
@@ -1121,7 +1137,7 @@ topology (internal, external, windowed) and its check-in map. *(chapter 15)*
 ## 9. Memory as architecture
 
 On a desktop, memory management is an implementation concern. On a target with sixty-four
-kilobytes of RAM, no protection hardware, and a twenty-year service life, **memory is
+kilobytes of RAM, no protection hardware, and a decades-long service life, **memory is
 architecture**: where every byte lives, who owns it, and when it moves are design decisions with
 failure modes attached, and the catalog of named mechanisms here is among the richest the corpus
 holds — almost all of it sourced to the embedded canon (Douglass's real-time patterns, Noble &
@@ -1353,14 +1369,15 @@ specialization reaches for when the hazard analysis demands independent supervis
 Between detection and recovery sits a class the desktop never meets: the data may be lying. The
 corpus's integrity kit, all element-backed: `cyclic-redundancy-check` on images at boot, on
 persistent records at read, on long-lived RAM tables on a patrol schedule
-(`correcting-audits` — scan and repair, or scan and quarantine); `one-s-complement-data-storage`
-(Douglass) for the safety-relevant scalars; `program-sequence-monitoring` (IEC 61508's technique
-vocabulary) where the hazard analysis requires detecting *execution* going wrong, not just data;
-`built-in-self-test` at startup — RAM march, ROM checksum, peripheral loopback — gated so that
-a failed self-test lands in safe-state, not in service (the corpus records the composition
-explicitly), and ordered against the evidence chain: the march test and chapter 11's
-reset-survivable region share the RAM map, so the test spares that region or runs only after
-the record is harvested — the map states which. `brown-out-handling` closes the set: power is an input with failure modes, and
+(`correcting-audits` — scan and repair, or scan and quarantine). Douglass's
+`one-s-complement-data-storage` covers the safety-relevant scalars, and
+`program-sequence-monitoring` (IEC 61508's technique vocabulary) covers the hazard analyses
+that require detecting *execution* going wrong, not just data. Last, `built-in-self-test`
+exercises the hardware at startup — RAM march, ROM checksum, peripheral loopback — gated so
+that a failed self-test lands in safe-state, not in service (the corpus records the composition
+explicitly). The self-test is also ordered against the evidence chain: the march test and
+chapter 11's reset-survivable region share the RAM map, so the test spares that region or runs
+only after the record is harvested — the map states which. `brown-out-handling` closes the set: power is an input with failure modes, and
 declining to run on sagging volts is a detection, not an outage.
 
 ### 10.6 What this chapter refuses
@@ -1384,8 +1401,10 @@ from the field dead, what will the unit itself be able to tell us?"** The corpus
 pieces — `core-dump` (White: on fatal fault, serialize registers, stack, fault status to
 persistent storage or a host channel), reset-cause reading, `log-errors` at the failure site
 (Preschern: detail on a diagnostic channel where it exists, because the caller needs an
-actionable error and the debugger of record needs everything) — and the booklet binds them into
-one obligation, stated in invariant 18: **every reset tells its story.** Concretely, a
+actionable error and the debugger of record needs everything). The booklet binds those pieces
+into one obligation, stated in invariant 18: **every reset tells its story.**
+
+Concretely, a
 reset-survivable region holds the crash record (cause, fault registers, active state
 identifiers, trace tail); boot *validates* the record — magic and checksum, §10.5's vocabulary
 at rest, because after a power-on the region holds garbage that is not a record — then reads
@@ -1399,9 +1418,9 @@ this section is the booklet's editorial synthesis of the cataloged parts, and sa
 
 The trace facility is designed like every other port: the core and shell emit **structured
 events — identifiers plus small fixed payloads, never format strings** — into a bounded ring
-buffer, timestamped from §8.1's injected time; transports (debug link, UART, radio, flash,
-nothing) are adapters bound per §5.4, and the house law transposes verbatim: **components emit,
-the application routes.** Emission is cheap enough to leave on (an ID and two words, not
+buffer, timestamped from §8.1's injected time. Transports — debug link, UART, radio, flash,
+nothing — are adapters bound per §5.4, and the house law transposes verbatim: **components
+emit, the application routes.** Emission is cheap enough to leave on (an ID and two words, not
 printf), drops under pressure are counted rather than silent, and severity exists but is not
 the design: the load-bearing decisions are *which boundaries emit* (§11.3) and *what survives
 where* — the live tail in RAM, the error-weighted summary in the persisted record, the full
@@ -1415,14 +1434,14 @@ format as a versioned contract — the decoder on the bench is a consumer like a
 ### 11.3 What emits, mandatorily
 
 Three emission sites are structural, not discretionary, because each answers the standing
-diagnostic question of its chapter: **state machines log transitions** (§6.1 — "how did we get
-here" is answered by the recorder); **boundaries log crossings** — at ports, the event in, the
-decision out, post-validation, so what the component actually saw is on the record (the arch
-manifest's observable-boundaries rule, and the decision-log of §4.2 makes it nearly free);
-**counters cover rates** — queue high-water marks, drops, retries, bucket levels, pool and
-stack watermarks — because a counter read periodically answers the counting questions a log
-line per event answers expensively (the house observability law, transposed: a metric
-implemented in the most expensive medium available). `heartbeat` and the health surface report
+diagnostic question of its chapter. **State machines log transitions**: "how did we get here"
+is answered by the recorder (§6.1). **Boundaries log crossings** — at ports, the event in, the
+decision out, post-validation — so what the component actually saw is on the record; that is
+the arch manifest's observable-boundaries rule, and the decision log of §4.2 makes it nearly
+free. **Counters cover rates** — queue high-water marks, drops, retries, bucket levels, pool
+and stack watermarks — because a counter read periodically answers the counting questions a
+log line per event answers expensively; the house observability law transposes verbatim: that
+is a metric implemented in the most expensive medium available. `heartbeat` and the health surface report
 liveness per activity, feeding the watchdog check-in map of §8.4 — one mechanism, two
 consumers: the recorder trends it, the watchdog enforces it.
 
@@ -1449,7 +1468,9 @@ and mutate state — assume a friendly reader. Ship enough units for enough year
 is eventually hostile, and the update path of chapter 14 is the most valuable door on the
 device. Security is not a separate structure in this booklet because it is not a separate
 structure in the system: it is the *same boundaries under a threat model*, and the threat model
-belongs to the specialization. What the parent owns is where the controls attach. The update
+belongs to the specialization. What the parent owns is where the controls attach.
+
+The update
 path authenticates what it boots (`secure-boot-image-verification`, with rollback protection —
 chapter 14). The maintenance surface authenticates and authorizes before anything mutating, and
 its ship/no-ship matrix (§11.4) is a security decision, not only a size one. The trace and the
@@ -1457,7 +1478,9 @@ crash record never carry secrets — keys, credentials, personal data — and th
 structural, never-emitted rather than filtered later. Secrets end their lives through
 `secure-zeroization` — an erase the optimizer must not elide, which ordinary C cannot express,
 so it lives in the compiler port — and are compared in constant time
-(`constant-time-comparison`) at cryptographic boundaries. Protection hardware adds depth in the
+(`constant-time-comparison`) at cryptographic boundaries.
+
+Protection hardware adds depth in the
 §5.5 sense — MPU regions, `privilege-separation-arch` between the critical and the convenient,
 a `trusted-execution-environment` where the silicon offers one — layered per
 `defense-in-depth`, never load-bearing alone. *(image authentication including its rejection
@@ -1486,8 +1509,9 @@ of the repository — same core sources, adapters swapped for fakes, executed pe
 milliseconds — and the cross build proves the same contracts on the metal at release cadence.
 What makes this possible is not tooling but the structure already built: chapter 4's core has no
 hardware on its include path *by construction*, so the "port to the host" is not a port at all;
-it is the second adapter set, and the first proof that the target really is a port. The
-dual-target discipline also quietly delivers a second compilation environment and a second
+it is the second adapter set, and the first proof that the target really is a port.
+
+The dual-target discipline also quietly delivers a second compilation environment and a second
 word size — a second diagnostic *opinion* when the host compiler family differs from the cross
 family (choose it so it differs; §13.1) and a standing rebuke to accidental
 implementation-defined assumptions (§5.2). Its honest cost: the host cannot test timing,
@@ -1534,12 +1558,16 @@ adapter** — partitioned honestly: the nominal-and-reachable cases run against 
 cases (§12.5) run against the fake by construction, and against silicon only where a rig can
 produce the condition, with the partition recorded per port. Host-run against the fake,
 target-run against the silicon-backed adapter, this is precisely how the host/target split of
-§12.1 is kept honest, and the sharpest use of the target-test budget there is. Second, substitution has **three reasons with three exit
+§12.1 is kept honest, and the sharpest use of the target-test budget there is.
+
+Second, substitution has **three reasons with three exit
 criteria** (the corpus's testability-tactic mapping): virtualize an uncontrollable resource
 (`sandbox` — done when the resource is consequence-free and drivable to any state); remove
 behavioral variance (`limit-nondeterminism` — done when reruns agree); supply controlled inputs
 (`abstract-data-sources` — done when the contract's input partitions are covered). A double with
-no stated reason has no finish line and grows into a second implementation. Third, mock-style
+no stated reason has no finish line and grows into a second implementation.
+
+Third, mock-style
 call-verification is reserved for the rare port whose *interaction is* the contract (command
 ordering on a bus); everywhere else, assert on decisions and state, not on choreography.
 
@@ -1555,8 +1583,8 @@ localize-state-storage is what makes "construct the state" possible at all);
 `parameterized-test` tables for protocol and boundary matrices; `property-based-testing` on the
 pure core for the properties tables cannot enumerate — round-trips (encode/decode, the framing
 vocabulary of §9.5's records), invariants (the state machine never leaves its legal set),
-oracles (the fixed-point filter against a floating reference) — with numeric assertions naming
-their tolerance, epsilon-or-ULP, because a fixed absolute epsilon is wrong across magnitudes
+oracles (the fixed-point filter against a floating reference). Numeric assertions name their
+tolerance, epsilon-or-ULP, because a fixed absolute epsilon is wrong across magnitudes
 (the corpus carries the Dawson/Goldberg lineage for exactly this).
 
 Regression has a domain-native form: **golden-master testing over the decision log.** Chapter
@@ -1567,9 +1595,9 @@ serialization: stable ordering, normalized timestamps) and the approve-the-diff 
 because a snapshot suite with auto-approval is a change-recorder that can never fail. This is
 `record-playback` (Bass) and `golden-master-testing` (Feathers' characterization lineage)
 composed — record at the ports, replay into the core, diff the decisions — and it is the
-mechanism that turns a field trace into tomorrow's regression test: `deterministic-lockstep`
+mechanism that turns a field trace into tomorrow's regression test. `deterministic-lockstep`
 (the corpus's strongest determinism claim) is reachable *because* the core is pure and time is
-injected: seed plus ordered input log yields a bit-identical run, on the bench, of what
+injected. Seed plus ordered input log yields a bit-identical run, on the bench, of what
 happened in the field — across platforms for integer and fixed-point cores, and for a
 floating-point core exactly when the platform contract pins the FP discipline (§4.2);
 otherwise the replay claim is scoped to same-platform runs, and says so.
@@ -1580,10 +1608,14 @@ Error paths are the product (chapter 10), so they are tested as the product: eve
 **injects faults by design** — timeouts, NAKs, corrupt frames, exhausted pools, brown-out
 mid-write — driven by the same scripting that drives nominal data; every escalation rung of
 §10.4 is exercised on the host (the reset "reboot" faked at the shell); the persisted-record
-path is tested by killing and rebooting the host process. The corpus's element layer is
+path is tested by killing and rebooting the host process.
+
+The corpus's element layer is
 deliberately silent here — fault injection is practice, not mechanism, and its exclusion
 register says so — so this section is booklet-editorial, grounded in the port structure that
-makes it mechanical rather than heroic. Above the host sit the rungs the host cannot reach,
+makes it mechanical rather than heroic.
+
+Above the host sit the rungs the host cannot reach,
 each with its distinct residue: **simulation** (instruction-set or peripheral simulation, where
 the specialization has one) for timing-shaped logic without hardware scarcity; **target smoke**
 — boot, self-test, port liveness — per merge; **hardware-in-the-loop** for the closed loop
@@ -1840,7 +1872,7 @@ composed here, or explicitly absent from the catalogs:
 
 ### 16.4 Colophon
 
-*Architecture and Design of Complex Embedded C Programs — the parent booklet*, revision r1.3,
+*Architecture and Design of Complex Embedded C Programs — the parent booklet*, revision r1.4,
 compiled 2026-08-11 against: SWE element catalogs v1.0 (709 + 374 elements), element bridge
 v1.1 (2,811 relations), SWE process corpus v1.0 (pass 7), design-elements corpus v1.0 (pass 8),
 the six SWE research-pass reports, the house manifest families (`manifests/` python-agent-ground
@@ -1880,6 +1912,11 @@ is sealed.
   the imported memory model, lockstep disambiguated); §11.5 the hostile reader (security as the
   same boundaries under a child-owned threat model). Invariant 25 added; specialization table
   gains the security-posture row; lineage extended accordingly.
+- **r1.4** (2026-08-12) — coherence: the activity/task vocabulary fixed at first use; the §3.2
+  resolutions restructured into a priced list; the densest sentences split (§5.1, §7.3, §8.2,
+  §10.5, §11.1–11.3, §12.4) and the new sections paragraphed; the "twenty years" leitmotif
+  thinned to its two load-bearing occurrences; residual double-conjunctions from the r1.2
+  surgery smoothed.
 
 
 
