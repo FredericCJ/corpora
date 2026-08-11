@@ -221,8 +221,9 @@ these — and route them.
    it is private, spelled `static` or hidden behind an incomplete type. A name that leaks is a
    boundary lost. *(compiler/link + analysis)*
 2. **Hide state behind opaque types wherever the interface allows;** where it cannot, hide it
-   behind functions. C's incomplete type is the one place the compiler itself enforces information
-   hiding — spend it. *(compiler-catchable)*
+   behind functions. C's incomplete type is the compiler's own enforcement of representation
+   hiding — the one mechanism that hides a shared name's contents while its handle stays
+   public. Spend it. *(compiler-catchable)*
 3. **The include graph is the architecture.** It is acyclic, levelized, and machine-checked; a new
    cycle is a broken build, not a code smell. *(build-catchable)*
 4. **Dependencies point from policy to mechanism.** The core never includes an adapter or vendor
@@ -250,13 +251,16 @@ these — and route them.
 **Memory** *(chapter 9)*
 
 11. **Memory is claimed at initialization.** Static allocation first, pools for populations, the
-    general heap only behind a recorded decision — and after init, allocation failure is a design
-    error, not a runtime condition to handle. *(build + analysis-catchable)*
+    general heap only behind a recorded decision — and after init, allocation failure from
+    demand the design controls is a design error. Exhaustion of a pool fed by *external*
+    arrivals is invariant 10 wearing its memory face: a stated shed policy and a counted drop.
+    *(build + analysis-catchable)*
 12. **Every object has one owner.** Every buffer that crosses a boundary — DMA included — states
     who may write it, who frees or reuses it, and when. *(contract-only, stated in the header)*
-13. **Budgets are enforced, not hoped:** stack by watermark, RAM and flash by link-map gate, queue
-    depths by counter, deadlines by measurement where hard. A budget nothing measures is a wish.
-    *(build + runtime-catchable)*
+13. **Budgets are enforced, not hoped:** stack bounded by analysis where the call graph permits
+    — trapped by guard and trended by watermark where it does not — RAM and flash by link-map
+    gate, queue depths by counter, deadlines by measurement where hard. A budget nothing
+    measures is a wish. *(build + runtime-catchable)*
 
 **Failure** *(chapter 10)*
 
@@ -332,10 +336,13 @@ fundamental components. Concretely:
   invariants, error modes, ownership statements, timing constraints (§2.2).
 - Everything else is private: file-scope `static` functions and data. Internal linkage is the
   module's `private` keyword; a definition with external linkage that appears in no header is a
-  defect one linker flag or analysis rule can find. *(analysis-catchable)*
+  defect the compiler's require-a-declaration diagnostic class or an analysis rule can find —
+  the linker never sees headers. *(compiler/analysis-catchable)*
 - A module that needs several implementation files keeps *one* public header and moves shared
   internals to a private header in the implementation's own directory, never on the public include
-  path. *(build-catchable — the include path is the visibility mechanism)*
+  path. The include path expresses the intent; the quoted-include form can path around it, so
+  the enforcement is §3.3's audit of resolved dependencies plus an analysis rule forbidding
+  path-traversing includes and out-of-header `extern` declarations. *(build + analysis-catchable)*
 
 Two module shapes exist for state, and the corpus prices them rather than banning either
 (Preschern, *Fluent C*): the `stateless-software-module` — no state between calls, every resource
@@ -352,7 +359,8 @@ shape applied to N instances and the natural C spelling of an object. Prefer it 
 
 ### 3.2 The opaque type: the one enforcement C gives away
 
-C grants exactly one compiler-enforced information-hiding mechanism, and it is excellent: the
+Internal linkage hides *names*; C grants exactly one mechanism that hides a shared name's
+*representation*, and it is excellent: the
 **incomplete type**. Declare `typedef struct motor motor_t;` in the header, define `struct motor`
 only in the implementation, and hand out pointers. Callers can hold, pass, and store the handle;
 they *cannot* dereference it, size it, or copy it — not by convention but because the compiler
@@ -362,9 +370,16 @@ the incomplete type makes information hiding compiler-enforced. *(compiler-catch
 Its cost is real and must be stated: an opaque type cannot be allocated by the caller (its size is
 unknown), which collides with the static-allocation discipline of chapter 9. The domain has three
 honest resolutions, in order of preference: the module owns a static pool of its own instances and
-the constructor hands out handles from it (`motor_t *motor_claim(void)`); the header exports an
-opaque *storage* type of pinned size and alignment, checked by a static assertion in the
-implementation against the real struct; or — where neither fits — the struct is published but
+the constructor hands out handles from it (`motor_t *motor_claim(void)`) — priced: instance
+count and placement migrate from the caller into the module's configuration, and the pool's
+whole footprint is paid by every image that links it; the header exports an opaque *storage*
+type of pinned size and alignment — with its hazard named, because the obvious implementation
+(caller-declared storage, cast to the real struct inside the module) violates ISO C's
+effective-type rules, exactly the undefined behavior §5.2 forbids: the module therefore
+accesses the storage only by `memcpy` to and from its own struct, or completes the type through
+a union in a restricted-visibility header, or records a pinned toolchain aliasing guarantee in
+the compiler port as a named extension reliance — the size-and-alignment static assertion
+remains necessary but is *not* the proof; or — where neither fits — the struct is published but
 marked as non-contract, its fields prefixed as private, with an analysis rule forbidding access
 outside the owning module. The first keeps full enforcement and is the default; the last is the
 weakest and says so. *(compiler → analysis, weakening in steps, each named)*
@@ -397,7 +412,9 @@ This is the five-rung enforcement ladder of the house, instantiated for C:
 
 The include path is part of the mechanism, not a convenience: what a module *may* see is expressed
 by what is *on its path*. Public headers live in an exported include directory; private headers do
-not. A caller that cannot name a header cannot include it. *(build-catchable)*
+not. A private header off the path must be *reached for* — and the reach, a path-traversing
+include or an out-of-header `extern`, is what the rung-4 audit and the analysis rules refuse.
+*(build + analysis-catchable)*
 
 Two graphs, not one: the include graph is the *compile-time* dependency truth, and the corpus is
 explicit that `restrict-dependencies` (who may depend) and `restrict-communication-paths` (who may
@@ -448,9 +465,11 @@ external truth the single source and turns drift into a build failure. The corpu
 build outputs, never edited — hand-written code subclasses or wraps them in a sibling module, so
 regeneration never eats a human's work. Where a generator is too much machinery, the honest C
 fallback is the `x-macro`: one table, expanded several ways — enum, string table, dispatch table —
-so the single source of truth lives in the repository itself. It is ugly, it is greppable, and it
-is one truth; the corpus records it as a coding-level DRY mechanism with no architectural
-pretensions, which is exactly how to use it. *(build-catchable)*
+so the single source of truth lives in the repository itself. It is ugly and it is one truth —
+though only the table is greppable: token-pasted products never appear as text anywhere in the
+repository, so the discipline is pasted names predictable from the table row. The corpus
+records the x-macro as a coding-level DRY mechanism with no architectural pretensions, which is
+exactly how to use it. *(build-catchable)*
 
 ### 3.7 What this chapter refuses
 
@@ -520,8 +539,11 @@ Why this earns its indirection, in this domain specifically:
   mocks, only inputs and expected decisions. The expensive half of embedded testing (the hardware)
   is simply absent from the majority of the code.
 - **Determinism**: the core is deterministic by construction; given the same state and event
-  sequence it produces the same decisions on the host, on the target, and in replay. This is what
-  makes field failures reproducible from a recorded event log (chapter 12).
+  sequence it produces the same decisions on the host, on the target, and in replay — stated
+  with its condition: unconditionally for integer and fixed-point cores; for a floating-point
+  core only under a pinned FP discipline in the platform contract (evaluation width,
+  contraction, library, subnormal policy — §5.2's territory). This is what makes field failures
+  reproducible from a recorded event log (chapter 12).
 - **Analyzability**: WCET and stack analysis of straight-line decision code is tractable; the same
   analysis across an I/O-entangled function is not.
 - **Failure containment**: the corpus's `error-kernel` reading — irreplaceable state lives in the
@@ -549,11 +571,16 @@ application.
 In C a port is one of two things, and the choice is the binding-time decision of §5.4:
 
 - **A header of free functions** (`charger_pwm.h`), bound at link time to whichever adapter the
-  build selects. Zero runtime cost, one implementation per image; the seam is the linker.
+  build selects. Zero indirection, one implementation per image — the seam is the linker — and
+  one residual price: the call is an optimizer barrier across the seam unless link-time
+  optimization is on.
 - **A struct of function pointers** (`pwm_port_t`), bound at initialization, allowing several
   implementations to coexist in one image (two identical buses, production driver plus recorder,
-  the built-in-self-test wrapping the real driver). The cost is one indirection per call and one
-  pointer table in RAM — priced, and often worth it precisely where flexibility lives.
+  the built-in-self-test wrapping the real driver). The cost is one indirection per call, one
+  pointer table in RAM, and one the verification story pays: an indirect call is opaque to
+  static stack and timing analysis until its target set is enumerated — init-bound tables keep
+  that set finite and known, and the specialization feeds it to the analyzer (§13.1). Priced,
+  and often worth it precisely where flexibility lives.
 
 Both forms carry the same obligations: the port's contract states units, ranges, error modes,
 timing (may it block? for how long?), and ownership of every buffer that crosses it. And the port
@@ -637,9 +664,9 @@ concern*, quarantined in a small set of headers the specialization owns (`compil
 `sections_port.h`, and peers), exactly as hardware access is quarantined behind the HAL. Core code
 includes the port header and uses its named macros and types; it never spells a vendor extension
 inline. The payoffs are the same as for silicon: the toolchain can be replaced (qualification
-pressure will eventually force it), diagnostics can be compared across compilers (two compilers'
-warnings are a cheap analysis ensemble), and the host build — which is by definition a second
-compiler — stops being a porting project.
+pressure will eventually force it), diagnostics can be compared across compilers — a second
+*opinion* that exists only when the host compiler family differs from the cross family, so
+choose it to differ — and the host build stops being a porting project.
 
 Undefined behavior deserves its sentence: what ISO C leaves undefined, this booklet's programs do
 not do — not "do carefully", do not do — because every agnosticism promise dissolves where UB
@@ -701,7 +728,9 @@ exists: ownership, static allocation, the effect boundary — structure first, a
 part provides an MPU or MMU, the specialization maps the *already-existing* boundaries onto it —
 task stacks and their guard regions, peripheral windows per adapter, read-only text and tables,
 no-execute data — so violations that would have been silent corruption become immediate faults
-with evidence attached. That is `runtime-catchable` enforcement of chapter 3's structure, the
+with evidence attached. That is `runtime-catchable` enforcement at protection-domain
+granularity — ownership, stacks, and effect surfaces; module privacy *inside* a domain remains
+the compiler's and the analyzers' business — and it is the
 strongest rung available at run time, and the corpus's `time-and-space-partitioning` (ARINC 653)
 is the fully industrialized form: statically allocated memory regions and fixed execution windows,
 enforced by the platform, per partition. A program that is *only* safe under that enforcement was
@@ -766,8 +795,10 @@ This is the booklet's default concurrency architecture, chosen over shared-state
 stated reasons: it composes with run-to-completion (atomicity without locks), it makes the
 message log the system's own trace (chapter 11), it gives each activity a stack and a queue whose
 budgets are measurable (chapter 9), and it isolates failure (an activity can be reset alone —
-`units-of-mitigation`, chapter 10). Its price, stated: every interaction pays a queue hop and a
-copy, and control flow no longer reads top-to-bottom in one function — the modifiability-for-
+`units-of-mitigation`, chapter 10). Its price, stated: every interaction pays a queue hop and
+at least an event envelope — a payload copy too, unless the event carries an owned buffer under
+invariant 12's transfer contract, which is how the zero-copy actor frameworks run — and control
+flow no longer reads top-to-bottom in one function — the modifiability-for-
 per-event-cost axis again. Where a hard loop cannot pay it, that loop runs as a synchronous
 chain inside one activity, and the decision is recorded.
 
@@ -784,8 +815,9 @@ architecture elements — which means the choice can be made by name, with each 
   a time base; determinism by construction, at the price of a schedule that must be re-planned
   when anything grows. The strongest analyzability story this list has.
 - **`function-queue-scheduling-architecture`** (Simon, *An Embedded Software Primer*): interrupts
-  enqueue work; the loop runs it to completion in priority order — preemption's response-time
-  benefits without a kernel.
+  enqueue work; the loop runs it to completion in priority order — priority-ordered response
+  without a kernel, worst case bounded by the longest queued function, and preemption-grade
+  only insofar as every function is kept short.
 - **`rtos-based-architecture`** (Simon): prioritized preemptive tasks on a kernel, response times
   set by priority rather than loop position; buys schedulability analysis (chapter 8) and costs
   per-task stacks, kernel objects, and the full shared-state discipline of chapter 7.
@@ -821,8 +853,10 @@ standard; the receive-livelock literature supplies the systemic argument) is uni
 > **The ISR captures, timestamps, enqueues, and returns.** Decisions happen in task context.
 
 Everything else follows. Work done in the ISR is work done at the highest priority in the system,
-unanalyzable by the scheduler and invisible to the state machines — so it is kept to the minimum
-the hardware demands (acknowledge, move the datum, note the time). The deferred half —
+outside the scheduler's control — it cannot be deprioritized, and in chapter 8's analysis it
+appears only as interference charged to everything below it — and invisible to the state
+machines; so it is kept to the minimum the hardware demands (acknowledge, move the datum, note
+the time). The deferred half —
 `deferred-interrupt-processing`, the top/bottom-half split — runs as an ordinary event through
 the ordinary queues, where it is schedulable, traceable, and testable. Two systemic hazards get
 named defenses: **receive livelock** (interrupt load starving the work it feeds — the
@@ -853,10 +887,15 @@ governed by ownership *stated first*, mechanism second:
   order is design, written down, reviewed.
 - **`volatile` is a contract keyword, not a concurrency tool.** The corpus files the discipline
   under `memory-mapped-register-access`: volatile-qualified access is what keeps the compiler
-  from reordering or eliding device reads and writes; it provides no atomicity and no ordering
-  between processors. Atomicity comes from the mechanisms above; multi-master ordering (DMA, a
-  second core) comes from the platform's barrier operations — which are, per §5.2, adapter
-  vocabulary behind the compiler port, never bare in logic. The miscompilation literature the
+  from reordering or eliding device reads and writes *relative to other volatile accesses*; it
+  provides no atomicity, no ordering against non-volatile code, and no guarantee of *when* a
+  write reaches the device — write buffers and posted bus bridges defer it even on one core,
+  and the canonical defect is the interrupt source cleared as the ISR's last act, still in
+  flight at return, re-entering the handler spuriously. Atomicity comes from the mechanisms
+  above; completion and system-level ordering — the read-back or barrier after that clearing
+  store, single-master included, and everything multi-master (DMA, a second core) — come from
+  the platform's barrier operations, which are, per §5.2, adapter vocabulary behind the
+  compiler port, never bare in logic. The miscompilation literature the
   corpus flags (volatile handling has historically been miscompiled) is one more argument for
   confining these accesses to small adapter files where an object-code review is feasible.
 
@@ -865,12 +904,20 @@ governed by ownership *stated first*, mechanism second:
 The ISR-to-task handoff deserves its own named structure because it is the one place where
 lock-free is the *simple* option: the **single-producer/single-consumer ring buffer**
 (`spsc-lock-free-ring-buffer`; White's *Making Embedded Systems* treats the circular buffer as
-the canonical interrupt-to-mainline channel). One writer, one reader, indices advanced with the
-platform's guaranteed-atomic operations — correct without locks *only* under exactly those
-roles, which is why the roles are stated in the type's contract and everything stronger
-(multi-producer, multi-consumer) routes through a kernel queue instead. Its sibling for
-state-shaped (latest-value-wins) data is the **`double-buffer`** swap: writer fills one bank,
-flips, reader always sees a coherent snapshot — the corpus's `temporal-firewall` (Kopetz) is
+the canonical interrupt-to-mainline channel). One writer, one reader; each index written by one
+side only, read and written through accesses the compiler is obliged to perform at the boundary
+— volatile- or atomic-qualified, never plain, or the consumer's poll legally collapses into a
+single load; and publication *ordered* — data written before the index that publishes it, the
+slot copied out before the index that releases it — by compiler barrier at minimum, by the
+platform's acquire/release pair whenever the peer is another master. Correct without locks
+*only* under exactly those roles and that ordering, which is why both are stated in the type's
+contract and everything stronger (multi-producer, multi-consumer) routes through a kernel queue
+instead. Its sibling for
+state-shaped (latest-value-wins) data is the **`double-buffer`** swap: writer fills the
+inactive bank and flips — coherent for the reader only while the protocol keeps the writer out
+of a bank a reader still holds, by time control, by handshake, or by a third bank where both
+sides free-run; the flip itself is a published index carrying this section's ordering
+obligations — and the corpus's `temporal-firewall` (Kopetz) is
 this idea promoted to an architectural connector: a unidirectional, time-controlled data-only
 interface with no control signals crossing, which is also the cleanest DMA handoff shape.
 Overflow on any such channel is counted and visible (invariant 10); a dropped sample with no
@@ -895,8 +942,10 @@ Two time-quality rules from the domain's canon: a timestamp's *source and resolu
 its contract (tick count vs free-running counter vs calendar time — never mixed silently, and
 calendar time, which can jump, never sequences anything); and duration arithmetic uses the
 platform's monotonic base with wraparound-safe comparison — serial-number arithmetic, which the
-corpus records by its RFC — so a counter rollover is a non-event instead of a once-per-49-days
-field mystery.
+corpus records by its RFC — under its condition, made part of the timestamp contract: width and
+resolution sized so no compared span reaches half the counter's range. That is what makes a
+rollover a non-event instead of a once-per-49-days field mystery; unsized, the comparison does
+not fail, it silently answers wrong.
 
 ### 8.2 Deadlines and the scheduling canon
 
@@ -908,7 +957,9 @@ iterated to fixpoint against the deadline; deadline-monotonic ordering where dea
 shorter than periods (Leung & Whitehead); blocking terms bounded by the ceiling protocol (Sha,
 Rajkumar & Lehoczky — the Mars Pathfinder reset is the domain's standing reminder of what
 unbounded inversion does); ISRs modeled as top-priority periodic load. Buttazzo is the textbook
-spine. What the booklet fixes as *architecture* is not the algebra but its inputs' discipline:
+spine. All of it is the single-scheduling-domain canon — one processor, fixed priorities; a
+specialization that schedules across cores pins its own analysis and locking protocol, because
+none of these bounds transfers unchanged. What the booklet fixes as *architecture* is not the algebra but its inputs' discipline:
 every hard-deadline task states its period, deadline, and measured or analyzed worst-case cost;
 those budgets live with the code, and the analysis re-runs when they change (chapter 13 makes
 this a gate). `bound-execution-times` (Bass) is the per-task tactic — bounded loops, bounded
@@ -917,7 +968,11 @@ Power-of-Ten-genre rules bound loops statically.
 
 ### 8.3 Timeouts, and the two poles of impatience
 
-Every wait has a bound. A blocking acquisition without a timeout is a hang wearing a semaphore's
+Every wait *within work* has a bound — acquisitions, responses, hardware flags. The one exempt
+wait is the activity blocked at the top of its loop for its next event: that idleness is
+legitimate, and its liveness belongs to the watchdog's check-in map (§8.4), never to a timeout
+whose expiry path would check in on its behalf. A blocking acquisition without a timeout is a
+hang wearing a semaphore's
 clothing; a busy-wait on a hardware flag without a `loop-timeout` (Pont's name) is the same hang
 one layer down. And when the bound expires, the two named poles of §10.4 apply — fail fast, or
 ride over the transient with a counted budget — chosen per wait, never defaulted. Deadlines
@@ -933,8 +988,10 @@ misused device in the domain. The corpus carries both halves: the design-realm `
 cannot detect) and the architecture-realm `watchdog-architecture-pattern` (Douglass: an
 independent supervisor, ideally with its own time base, that receives liveness evidence and
 initiates recovery). The discipline in four sentences: **the kick attests progress, not
-existence** — it is issued from one place, only when the system's activities have each proven a
-completed cycle (a per-activity checked-in bitmask is the minimal honest form); a kick from a
+existence** — it is issued from one place, only when every activity *expected active in the
+current mode* has proven a completed cycle (a per-activity check-in bitmask with a mode-owned
+expected set is the minimal honest form; an idle activity is excused by the map, never by
+checking in from a timed wake); a kick from a
 timer ISR proves only that timer interrupts still fire, and Koopman's red flag is exactly that.
 The watchdog is the *enforcement* of chapter 10's recovery ladder, not a recovery strategy
 itself. Its firing is a designed event with evidence attached (chapter 11's persisted record),
@@ -974,7 +1031,10 @@ to **claim memory at initialization and descend the ladder only behind a recorde
 2. **`pool-allocation`** and **`fixed-sized-buffer`** (Douglass): populations of same-shaped
    objects drawn from pre-sized pools, O(1) and deterministic, returning to the pool whole. Pools
    are the static answer to "N of them at once", and the pool's high-water mark is a designed
-   observable (chapter 11).
+   observable (chapter 11). One scoping rule keeps invariant 11 honest here: exhaustion of a
+   pool sized against demand the design controls is a design error, but exhaustion of a pool
+   fed by *external* arrivals — receive frames, event bursts — is invariant 10's overflow case
+   wearing its memory face, met with a stated shed policy and a counted drop, never an assert.
 3. **`memory-arena` / `memory-discard`** (Hanson; Noble & Weir): bump-allocate through a scratch
    region, reset it wholesale at a phase boundary — the right shape for per-cycle or per-frame
    working memory with no per-object bookkeeping to get wrong.
@@ -1036,9 +1096,12 @@ platform port (§5.2). The same ownership language covers ISR-shared buffers: th
 ### 9.4 Stacks, and the budgets that make memory honest
 
 Every task's stack is a budget, and the domain's instrument for it is cataloged:
-**`stack-painting-watermarking`** — fill stacks with a pattern at boot, read the high-water mark
-in service — turning worst-case stack use from a guess into a measured, trended observable
-(chapters 11 and 13). Around it sit the defenses graded by hardware: `guard-page` or MPU guard
+**`stack-painting-watermarking`** — fill stacks with a pattern at boot, read the high-water
+mark in service. The watermark is the deepest use *achieved* — a floor under the worst case,
+never the worst case, which lives on the path no observed run took. The budget's ceiling comes
+from static call-depth analysis where the call graph permits (§13.1, indirect-call target sets
+supplied), otherwise from measurement plus a named margin with the residual risk on record; the
+watermark is the in-service monitor that the margin is holding (chapters 11 and 13). Around it sit the defenses graded by hardware: `guard-page` or MPU guard
 regions where protection exists; `stack-canary` values checked at boundaries where it does not;
 `memory-poisoning` of freed and uninitialized storage so stale use surfaces as a recognizable
 pattern instead of a haunting. The no-MMU clause of §5.5 lands concretely here: painting,
@@ -1057,7 +1120,11 @@ Flash and EEPROM carry budgets RAM does not — erase cycles, page granularity, 
 hazards across power loss — so persistent state is owned by a storage module with a port, never
 scattered writes. The corpus carries the named mechanisms: `eeprom-emulation-in-flash`
 (journaled records over paged flash), `flash-wear-leveling`, `log-structured-storage`
-(append-only with compaction — the shape that makes power-loss atomicity provable), CRC-guarded
+(append-only with compaction — the shape that *reduces* power-loss atomicity to the integrity
+of the last append, provable only against a stated device model: an interrupted program can
+leave marginal cells that read differently on different reads, so read-back after program, a
+commit mark written last, and durable invalidation of a once-torn tail are part of the proof,
+not decoration), CRC-guarded
 records (chapter 10's integrity vocabulary applied at rest). The persistence module's contract
 states write endurance spent per year at design time — a budget like any other, reviewed like
 any other. The boot-and-update cluster (`bootloader-application-split`,
@@ -1086,7 +1153,9 @@ continues past its own broken invariants is manufacturing corruption downstream.
 in this chapter serves one class or the other, never both.
 
 C has no exception channel, and this booklet treats that as a feature to exploit: **the entire
-failure surface of a function is visible in its signature.** Within that constraint the corpus
+handleable failure surface of a function is visible in its signature** — what a signature
+cannot carry, the trap and the asserted stop, is exactly what §10.2 and §10.4 route to
+safe-state and evidence. Within that constraint the corpus
 gives three dispositions:
 
 - **Return it, typed.** The default for expected conditions: `return-status-code` (Preschern —
@@ -1099,7 +1168,9 @@ gives three dispositions:
 - **Absorb and mark.** For data-shaped work — a stream with a bad sample, a record set with a
   corrupt row — the corpus's CHECKS lineage (`exceptional-value`, `marked-data`): a distinguished
   value flows through the computation, is rejected at the output boundary, and the rejection is
-  *recorded*. `saturation-arithmetic` is this disposition native to signal paths. The absolute
+  *recorded*. `saturation-arithmetic` is this disposition's absorb half, native to signal
+  paths — honest only when paired with a sticky flag or a counter, per the rule that follows.
+  The absolute
   rule from the house error contract: **absorbing with no rejects record is `try/continue` with
   extra steps** — the mark and the counter are what make the disposition honest.
 - **Stop the world.** For contract violations: the assertion family. Preschern's
@@ -1177,7 +1248,9 @@ persistent records at read, on long-lived RAM tables on a patrol schedule
 vocabulary) where the hazard analysis requires detecting *execution* going wrong, not just data;
 `built-in-self-test` at startup — RAM march, ROM checksum, peripheral loopback — gated so that
 a failed self-test lands in safe-state, not in service (the corpus records the composition
-explicitly). `brown-out-handling` closes the set: power is an input with failure modes, and
+explicitly), and ordered against the evidence chain: the march test and chapter 11's
+reset-survivable region share the RAM map, so the test spares that region or runs only after
+the record is harvested — the map states which. `brown-out-handling` closes the set: power is an input with failure modes, and
 declining to run on sagging volts is a detection, not an outage.
 
 ### 10.6 What this chapter refuses
@@ -1204,9 +1277,11 @@ persistent storage or a host channel), reset-cause reading, `log-errors` at the 
 actionable error and the debugger of record needs everything) — and the booklet binds them into
 one obligation, stated in invariant 18: **every reset tells its story.** Concretely, a
 reset-survivable region holds the crash record (cause, fault registers, active state
-identifiers, trace tail); boot reads the reset cause and the record, emits both as the first
-trace events of the new life, and the recovery ladder of §10.4 consults the persisted
-escalation counter so a boot loop converges to safe-state instead of cycling forever. The
+identifiers, trace tail); boot *validates* the record — magic and checksum, §10.5's vocabulary
+at rest, because after a power-on the region holds garbage that is not a record — then reads
+the reset cause, emits both as the first trace events of the new life, and lets the recovery
+ladder of §10.4 consult the *validated* escalation counter, so a boot loop converges to
+safe-state instead of cycling forever and a first power-up never parks healthy hardware there. The
 corpus's own gap register admits no flight-recorder element exists at architecture altitude;
 this section is the booklet's editorial synthesis of the cataloged parts, and says so.
 
@@ -1249,7 +1324,7 @@ because mixing them obscures both and blocks maintenance exactly when the servic
 congested or broken. In embedded practice: the debug CLI, the diagnostic protocol endpoint, the
 engineering-mode screen — read-only by default, with `specialized-interfaces` (Bass: the
 set/dump/reset surfaces) behind it, and the mutating members gated and reviewed as production
-API. C's compilation model grants what the tactic asks and other languages cannot deliver:
+API. C's compilation model grants what the tactic asks as a matter of course:
 the surface is *genuinely removable* — compiled out by build configuration — so the shipping
 decision is explicit, per variant, and the shipped configuration is the tested configuration
 (invariant 21). Bass's own cost note — shipping code that differs from tested code is
@@ -1279,11 +1354,14 @@ milliseconds — and the cross build proves the same contracts on the metal at r
 What makes this possible is not tooling but the structure already built: chapter 4's core has no
 hardware on its include path *by construction*, so the "port to the host" is not a port at all;
 it is the second adapter set, and the first proof that the target really is a port. The
-dual-target discipline also quietly delivers a second compiler and a second word size — a free
-diagnostics ensemble (§13.2) and a standing rebuke to accidental implementation-defined
-assumptions (§5.2). Its honest cost: the host cannot test timing, register behavior, or the
-compiler's target codegen — which is exactly the residue the target-test rungs exist for
-(§12.5), and the reason neither rung substitutes for the other.
+dual-target discipline also quietly delivers a second compilation environment and a second
+word size — a second diagnostic *opinion* when the host compiler family differs from the cross
+family (choose it so it differs; §13.1) and a standing rebuke to accidental
+implementation-defined assumptions (§5.2). Its honest cost: the host cannot test timing,
+register behavior, the compiler's target codegen, or core semantics that legally follow the
+target's pinned implementation-defined properties — integer promotions on a sixteen-bit-`int`
+target being the classic — which is the residue the target-test rungs exist for (§12.5), and
+the reason neither rung substitutes for the other.
 
 ### 12.2 Seams, named by mechanism
 
@@ -1319,9 +1397,11 @@ sophistication — and the rule is to take the least behavior that still asserts
 Three consequences for embedded practice. First, the workhorse is the *fake*: a small honest
 implementation of the port (the RAM flash, the scripted bus, the recorded sensor) — and a fake
 earns the word only if the **same contract test suite runs against the fake and the real
-adapter**; the suite is host-run against the fake and target-run against the silicon-backed
-adapter, which is precisely how the host/target split of §12.1 is kept honest, and the sharpest
-use of the target-test budget there is. Second, substitution has **three reasons with three exit
+adapter** — partitioned honestly: the nominal-and-reachable cases run against both; the fault
+cases (§12.5) run against the fake by construction, and against silicon only where a rig can
+produce the condition, with the partition recorded per port. Host-run against the fake,
+target-run against the silicon-backed adapter, this is precisely how the host/target split of
+§12.1 is kept honest, and the sharpest use of the target-test budget there is. Second, substitution has **three reasons with three exit
 criteria** (the corpus's testability-tactic mapping): virtualize an uncontrollable resource
 (`sandbox` — done when the resource is consequence-free and drivable to any state); remove
 behavioral variance (`limit-nondeterminism` — done when reruns agree); supply controlled inputs
@@ -1357,7 +1437,9 @@ composed — record at the ports, replay into the core, diff the decisions — a
 mechanism that turns a field trace into tomorrow's regression test: `deterministic-lockstep`
 (the corpus's strongest determinism claim) is reachable *because* the core is pure and time is
 injected: seed plus ordered input log yields a bit-identical run, on the bench, of what
-happened in the field.
+happened in the field — across platforms for integer and fixed-point cores, and for a
+floating-point core exactly when the platform contract pins the FP discipline (§4.2);
+otherwise the replay claim is scoped to same-platform runs, and says so.
 
 ### 12.5 Fault injection, and the ladder above the host
 
@@ -1393,7 +1475,8 @@ disables a check.
 
 1. **The compiler, promoted.** Diagnostics are policy: the build runs at the toolchain's serious
    diagnostic level with warnings fatal, and every suppression is local, justified, and visible.
-   The dual-target rule doubles this rung for free: two compilers disagree productively.
+   The dual-target rule doubles this rung when the host family differs from the cross family —
+   choose it so it differs, and two frontends disagree productively at near-zero cost.
 2. **Static analysis, pinned.** Three genres, adopted by name in the child: the
    *safe-subset genre* (MISRA-C-shaped rule sets — with the compliance discipline the corpus
    records alongside: a pinned baseline, and **deviation records** rather than silent
@@ -1408,8 +1491,10 @@ disables a check.
    audit (exports equal headers); the variant matrix actually built — every shipped `#ifdef`
    combination compiles and tests, or it is fiction (§5.4).
 4. **Budgets as fitness functions.** The link map gated against the RAM/flash budget; stack
-   bounds by static analysis where the toolchain gives it and by watermark trend where it does
-   not; queue high-water marks and WCET measurements trended across builds with alarms on
+   bounds by static analysis where the toolchain gives it, indirect-call target sets supplied
+   (§4.3) — and where it does not, a trapped guard to catch the excursion, with the watermark
+   trend as drift warning, never as the bound; queue high-water marks and WCET measurements
+   trended across builds with alarms on
    regression. A budget checked once is a snapshot; a budget trended is an early-warning system.
 5. **The host suite** (chapter 12), per commit — including the sanitizer families the host
    toolchain offers (address, undefined-behavior): running the core under a UB sanitizer on the
@@ -1609,7 +1694,7 @@ composed here, or explicitly absent from the catalogs:
 
 ### 16.4 Colophon
 
-*Architecture and Design of Complex Embedded C Programs — the parent booklet*, revision r1.1,
+*Architecture and Design of Complex Embedded C Programs — the parent booklet*, revision r1.2,
 compiled 2026-08-11 against: SWE element catalogs v1.0 (709 + 374 elements), element bridge
 v1.1 (2,811 relations), SWE process corpus v1.0 (pass 7), design-elements corpus v1.0 (pass 8),
 the six SWE research-pass reports, the house manifest families (`manifests/` python-agent-ground
@@ -1631,6 +1716,17 @@ is sealed.
   (`facade-backend-module-pattern`), corrected POSA Vol. 3's verification stance to UNVERIFIED,
   recorded the Douglass 2010/2011 pass discrepancy, and narrowed the front matter's claim about
   what backticks denote.
+- **r1.2** (2026-08-12) — adversarial technical review: three independent reviewers (real-time
+  and concurrency; memory, failure, and observability; modularity, toolchain, and verification)
+  chartered to refute. 33 findings, all accepted: 3 critical (the SPSC channel's visibility and
+  publication-ordering obligations, previously omitted; the volatile/barrier partition, which
+  wrongly confined completion hazards to multi-master; the opaque-storage technique's
+  effective-type violation — undefined behavior by §5.2's own absolute, now carrying its
+  discharges), 7 major (bare double-buffer coherence, external-arrival pool exhaustion vs
+  invariant 11, watermark-as-worst-case, "provable" flash atomicity, unconditional
+  floating-point determinism, include-path-as-enforcement, same-family "second compiler"),
+  23 precision fixes. Adjudication record:
+  `_embedded_booklet_work/reviews/r1.2_adjudication.md`.
 
 
 
