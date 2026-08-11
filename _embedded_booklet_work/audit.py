@@ -92,7 +92,7 @@ lineage_claims = {
     "meszaros": "v", "welc": "v", "quickcheck": "v",
     "mcdcchilenski": "v", "mcdcnasa": "v", "unity": "v", "cmock": "v",
     "ceedling": "v", "tlsf": "v",
-    "lakosvol1": "v", "lakoslsc": "u",
+    "lakosvol1": "v", "lakoslsc": "u", "googlesre": "v",
 }
 for wid, stance in lineage_claims.items():
     rec = work_recs.get(wid)

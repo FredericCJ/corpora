@@ -42,8 +42,8 @@ not verify. Where this booklet makes a judgment the corpus does not source, it i
 
 Part I establishes what an embedded program actually is and derives the five goals from one
 discipline. Parts II–VI develop the discipline by subject: structure, behavior, memory, failure,
-verification. Part VII binds the family together: what a specialization must pin, and where every
-name used here comes from. A reader with one hour reads chapter 1, the invariants at the end of
+verification. Part VII handles change in a fielded system, then binds the family together: what a
+specialization must pin, and where every name used here comes from. A reader with one hour reads chapter 1, the invariants at the end of
 Part I, and chapter 15. A reader designing a system reads it whole, once, and then argues with it.
 
 ---
@@ -168,7 +168,7 @@ routes to one of seven enforcement routes, or admits that nothing mechanical cat
 | `analysis-catchable` | a static-analysis rule class; the specialization pins the tool, version, and rule set |
 | `build-catchable` | a structural fact of the build the pipeline checks: include-graph shape, link-time symbol visibility, image size, section placement |
 | `host-test-catchable` | a test that runs in the host build, per commit |
-| `target-test-catchable` | a test that runs on the target or hardware-in-the-loop rig, per release cadence |
+| `target-test-catchable` | a test that runs on the target or hardware-in-the-loop rig, at the child's pinned cadence per rung — smoke per merge through HIL per release (§12.5) |
 | `runtime-catchable` | a mechanism in the shipped program that turns a silent fault into a detected one: assertion, sanity check, CRC, canary, watermark, watchdog, MPU trap |
 | `contract-only` | nothing mechanical catches it — an honest admission that this rule lives in review, and must be reviewed for deliberately |
 
@@ -219,7 +219,7 @@ these — and route them.
 
 1. **One module, one secret, one header.** The header is the interface; everything not declared in
    it is private, spelled `static` or hidden behind an incomplete type. A name that leaks is a
-   boundary lost. *(compiler/link + analysis)*
+   boundary lost. *(compiler + build + analysis-catchable)*
 2. **Hide state behind opaque types wherever the interface allows;** where it cannot, hide it
    behind functions. C's incomplete type is the compiler's own enforcement of representation
    hiding — the one mechanism that hides a shared name's contents while its handle stays
@@ -243,7 +243,7 @@ these — and route them.
 8. **Time is injected.** No core code reads a clock, waits, or sleeps; ticks, timestamps, and
    deadlines arrive as data through a port. *(build + host-test-catchable)*
 9. **ISRs are couriers, not workers:** capture, timestamp, enqueue, return. Decisions happen in
-   task context, under run-to-completion semantics. *(analysis + review)*
+   task context, under run-to-completion semantics. *(analysis-catchable + contract-only)*
 10. **Every ISR↔task exchange crosses one named channel** with a stated overflow policy, and every
     queue in the system is bounded. An unbounded queue is a deferred out-of-memory failure; an
     unstated overflow policy is data loss with no witness. *(runtime-catchable — overflow counters)*
@@ -276,7 +276,8 @@ these — and route them.
     restart the task, reboot — with the watchdog as the ladder's enforcement of last resort, kicked
     only by proven progress, never from a timer that proves only that timers work.
     *(runtime-catchable)*
-18. **Every reset tells its story.** Reset cause, a persisted crash record, and the trace tail
+18. **Every reset tells its story.** Reset cause, a persisted crash record naming the firmware
+    that wrote it, and the trace tail
     survive into the next boot. A failure that leaves no evidence will be fixed by guesswork,
     twice. *(runtime-catchable)*
 
@@ -309,7 +310,7 @@ these — and route them.
     maintenance, configuration — rollback is protected, secrets never enter the trace, and
     secret lifetimes end in enforced zeroization. The threat model itself belongs to the
     specialization; these attachment points do not. *(host/target-test for the authentication
-    paths; analysis + review for zeroization)*
+    paths; analysis-catchable + contract-only for zeroization)*
 
 And over all twenty-five, the meta-invariant of chapter 13: **a rule with no enforcer is a
 preference.** Route it, or label it `contract-only` and review for it on purpose.
@@ -583,10 +584,13 @@ Why this earns its indirection, in this domain specifically:
   is simply absent from the majority of the code.
 - **Determinism**: the core is deterministic by construction; given the same state and event
   sequence it produces the same decisions on the host, on the target, and in replay — stated
-  with its condition: unconditionally for integer and fixed-point cores; for a floating-point
-  core only under a pinned FP discipline in the platform contract (evaluation width,
-  contraction, library, subnormal policy — §5.2's territory). This is what makes field failures
-  reproducible from a recorded event log (chapter 12).
+  with its conditions. For integer and fixed-point cores it holds wherever the arithmetic is
+  width-explicit and promotion-safe, so the pinned implementation-defined properties cannot
+  reach a result (§12.1 names the classic breach; the safe-subset analysis genre of §13.1
+  checks for it). For a floating-point core it holds only under a pinned FP discipline in the
+  platform contract (evaluation width, contraction, library, subnormal policy — §5.2's
+  territory). This is what makes field failures reproducible from a recorded event log
+  (chapter 12).
 - **Analyzability**: WCET and stack analysis of straight-line decision code is tractable; the same
   analysis across an I/O-entangled function is not.
 - **Failure containment**: the corpus's `error-kernel` reading — irreplaceable state lives in the
@@ -672,13 +676,21 @@ provided constructor-attribute extensions stay quarantined per §5.2 — *nothin
 the root says so*, and initialization is a readable, ordered sequence of explicit calls in one
 file.
 
-The root's order is architecture, not accident: platform first (clocks, memory, protection
-regions); adapters next; then port tables bound (link-time bindings resolved already, §5.4's
-init-time bindings filled now); then configuration loaded from its nonvolatile home and
-*validated* — a bad configuration meets the fail-fast pole of §10.4 and the refuse-to-start
-safe state, never a best-effort limp into service; then the self-test gate of §10.5; then every
-state machine initialized to its named initial state; the watchdog armed; and only then does
-the shell begin to pump. Two rules keep the root honest. **No effects before their owner
+The root's order is architecture, not accident — and the watchdog frames it: where the
+hardware allows, the watchdog is armed first or arrives armed from reset, with the startup
+budget as its window, so a hang anywhere in bring-up resets and *counts* (§11.1) rather than
+parking the unit forever; arming late is a recorded decision with a named substitute, never a
+default. Then: platform first (clocks, memory, protection regions), with the *destructive*
+half of §10.5's self-test — the RAM march — run here, before anything lives in RAM, and
+sequenced against §11.1's evidence: reset cause read, the persisted record validated and
+harvested before the march touches its region. Adapters next; then port tables bound
+(link-time bindings resolved already, §5.4's init-time bindings filled now); then
+configuration loaded from its nonvolatile home and *validated* — a bad configuration meets the
+fail-fast pole of §10.4 and the refuse-to-start safe state, never a best-effort limp into
+service. Then the *non-destructive* remainder of the self-test gate — peripheral and loopback
+checks, against adapters that now exist; then every state machine initialized to its named
+initial state; the harvested evidence emitted as the new life's first trace events; and only
+then does the shell begin to pump. Two rules keep the root honest. **No effects before their owner
 exists**: modules do not touch hardware from helpers called early; they are initialized by the
 root, in the root's order, or they wait. **Only the root knows the whole inventory**:
 everything else receives its collaborators through ports — the root is the one sanctioned
@@ -764,8 +776,8 @@ a common interface** — never scatter `#ifdef TARGET_X` through logic. The disc
   The corpus states the axis as a sourced pair: `escaping-ifdef-hell` is the compile-time
   alternative to the runtime `feature-flag`.
 
-*(analysis-catchable in part — conditional-inclusion audits are mechanical; the placement rule is
-contract-only and reviewed.)*
+*(analysis-catchable for confinement — conditional-inclusion location audits are mechanical;
+the selection judgment behind each variation point is contract-only and reviewed, §13.1.)*
 
 ### 5.4 The binding-time ladder
 
@@ -937,8 +949,8 @@ large one it wakes on demand — the same decision at silicon granularity.
 The watchdog and sleep
 are designed as a pair: a kick map that does not know the sleep states will either reset a
 sleeping system or force it awake just to be kicked — the child's watchdog topology (§8.4,
-ch. 15) states which states pause, window, or excuse it. *(fitness-function for the energy
-budget; traced transitions per §11.3)*
+ch. 15) states which states pause, window, or excuse it. *(build-catchable — the energy budget
+is a rung-4 fitness function, §13.1; traced transitions per §11.3)*
 
 ## 7. Interrupts and shared state
 
@@ -1391,6 +1403,21 @@ mechanism where a component genuinely needs unwind semantics, wrapped, documente
 crossing a port. And silent tolerance of anything: every ignored fault is a counted, visible
 decision (`ignore-faulty-behavior` is a tactic with a name precisely so its use is deliberate).
 
+### 10.7 The arithmetic contract
+
+One more contract belongs to this chapter, because its violations are silent and its silence is
+the domain's top numeric defect class. **Every arithmetic boundary — control law, accumulator,
+protocol counter — states its overflow policy: wrap, saturate, or check.** The default in
+decision code is checked (`checked-arithmetic`, the C23-lineage anchor) or saturating
+(`saturation-arithmetic`, with §10.1's sticky mark); wrap is chosen only where modular algebra
+*is* the contract, as in §8.1's serial-number timestamps — and then it is unsigned by
+construction, because signed overflow is undefined behavior and §5.2's absolute already forbids
+it. Representation is part of the port contract (§4.3): a fixed-point value's format and
+scaling travel with its units and range, and a conversion is an explicit, named operation,
+never a cast that hopes. *(analysis-catchable for signed overflow and the essential-type
+discipline — the safe-subset genre's home ground; host-test + property-based for ranges and
+saturation behavior, §12.4)*
+
 ## 11. Observability: the flight recorder principle
 
 ### 11.1 Postmortem-first
@@ -1406,7 +1433,8 @@ into one obligation, stated in invariant 18: **every reset tells its story.**
 
 Concretely, a
 reset-survivable region holds the crash record (cause, fault registers, active state
-identifiers, trace tail); boot *validates* the record — magic and checksum, §10.5's vocabulary
+identifiers, trace tail, and the identity — version and build id — of the firmware that wrote
+it); boot *validates* the record — magic and checksum, §10.5's vocabulary
 at rest, because after a power-on the region holds garbage that is not a record — then reads
 the reset cause, emits both as the first trace events of the new life, and lets the recovery
 ladder of §10.4 consult the *validated* escalation counter, so a boot loop converges to
@@ -1485,7 +1513,8 @@ Protection hardware adds depth in the
 a `trusted-execution-environment` where the silicon offers one — layered per
 `defense-in-depth`, never load-bearing alone. *(image authentication including its rejection
 paths: host- and target-test-catchable; a canary secret driven through the trace pipeline:
-host-test-catchable; zeroization: analysis + review — the optimizer is the adversary there, and
+host-test-catchable; zeroization: analysis-catchable + contract-only — the optimizer is the
+adversary there, and
 the booklet says so rather than pretending a rule catches it)*
 
 Decisions Part V leaves to the specialization: the error-code registry and its structure; the
@@ -1517,7 +1546,8 @@ family (choose it so it differs; §13.1) and a standing rebuke to accidental
 implementation-defined assumptions (§5.2). Its honest cost: the host cannot test timing,
 register behavior, the compiler's target codegen, or core semantics that legally follow the
 target's pinned implementation-defined properties — integer promotions on a sixteen-bit-`int`
-target being the classic — which is the residue the target-test rungs exist for (§12.5), and
+target being the classic, and the breach §4.2's determinism condition exists to exclude —
+which is the residue the target-test rungs exist for (§12.5), and
 the reason neither rung substitutes for the other.
 
 ### 12.2 Seams, named by mechanism
@@ -1575,7 +1605,10 @@ ordering on a bus); everywhere else, assert on decisions and state, not on chore
 
 The suite's shape is derived from the architecture, not from a pyramid diagram: **the functional
 core gets many fast unit tests; the shell gets fewer integration tests** — because the core is
-pure (no doubles needed at all: inputs in, decisions compared) and the shell is thin. The
+pure (no doubles needed at all: inputs in, decisions compared) and the shell is thin *in
+logic* even where it is large in lines (§4.5): its bulk is adapters, adapter verification
+lives in §12.3's per-port contract suites, and the "fewer" refers to cross-component
+integration tests, not to that tier. The
 constructs are cataloged and carry their tactic: `four-phase-test` (setup, exercise, verify,
 teardown — one behavior per test); `test-data-builder` over `object-mother` for state
 construction (make the significant values explicit, default the rest — and §6.1's
@@ -1598,9 +1631,9 @@ composed — record at the ports, replay into the core, diff the decisions — a
 mechanism that turns a field trace into tomorrow's regression test. `deterministic-lockstep`
 (the corpus's strongest determinism claim) is reachable *because* the core is pure and time is
 injected. Seed plus ordered input log yields a bit-identical run, on the bench, of what
-happened in the field — across platforms for integer and fixed-point cores, and for a
-floating-point core exactly when the platform contract pins the FP discipline (§4.2);
-otherwise the replay claim is scoped to same-platform runs, and says so.
+happened in the field — across platforms exactly under §4.2's conditions, promotion-safe
+integer arithmetic and a pinned FP discipline; otherwise the replay claim is scoped to
+same-platform runs, and the suite says so rather than assuming it.
 
 ### 12.5 Fault injection, and the ladder above the host
 
@@ -1651,7 +1684,8 @@ disables a check.
    allocation — each rule mirroring an invariant this booklet already states structurally); the
    *security genre* (CERT-C-shaped) where the attack surface warrants. Plus the mechanical
    checkers of this booklet's own rules: unchecked returns, prefix discipline, `#ifdef`
-   placement, ownership annotations where supported.
+   confinement to designated files (the *selection* judgment behind each variation point stays
+   contract-only, §5.3), ownership annotations where supported.
 3. **The build graph.** Include-graph levelization and layer rules (§3.3); symbol-visibility
    audit (exports equal headers); the variant matrix actually built — every shipped `#ifdef`
    combination compiles and tests, or it is fiction (§5.4).
@@ -1660,7 +1694,8 @@ disables a check.
    (§4.3) — and where it does not, a trapped guard to catch the excursion, with the watermark
    trend as drift warning, never as the bound; queue high-water marks and WCET measurements
    trended across builds with alarms on
-   regression. A budget checked once is a snapshot; a budget trended is an early-warning system.
+   regression; and the budgets the body declares, collected here — startup-to-operational time
+   (§4.6), interrupt-masking latency (§7.2), energy per mode (§6.4). A budget checked once is a snapshot; a budget trended is an early-warning system.
 5. **The host suite** (chapter 12), per commit — including the sanitizer families the host
    toolchain offers (address, undefined-behavior): running the core under a UB sanitizer on the
    host is the cheapest UB detection the C world has, and one more dividend of dual-target.
@@ -1677,7 +1712,9 @@ chapters: responsibility boundaries drawn by secrets (§2.1); port vocabulary st
 not the vendor's (§4.3); ownership statements present and true in every header (§9.2);
 detect/decide/act placement (§10.3); seam mechanisms named in specs (§12.2); the decision to
 descend the allocation ladder (§9.1) or bind late (§5.4); message and effect vocabularies
-staying honest as the system grows. Review is not the weak rung; it is the rung for what only
+staying honest as the system grows; the hidden wall-clock read the injected-time rule forbids
+(§8.1); each channel's declared execution environment (§7.4); ADR linkage and context-map
+upkeep (§3.8). Review is not the weak rung; it is the rung for what only
 judgment can see — but it is *scheduled, chartered* judgment: each item above appears on the
 review checklist as a question, so the contract-only register is maintained the way the
 machine-checked rules are maintained, and additions to it are as deliberate as additions to the
@@ -1718,6 +1755,18 @@ threat model demands, and the deployment vocabulary — staged rollout, the upda
 always roll back, the golden image — inherited from `deployment-pipeline` thinking with the
 fleet in place of the server pool. The recovery ladder's last rung (§10.4) and the update
 system share the bootloader; designing them together is what makes "reboot" a safe verb.
+Two identity obligations ride with the image. Every shipped image carries its own identity —
+version, build id — where the crash record and the maintenance surface can read it (§11.1).
+And every shipped image remains reconstructible, or its decode artifacts archived, for as long
+as the fleet lives — a recorder whose output can no longer be read against its build is a
+flight recorder without a decoder; the mechanism is the child's (ch. 15).
+
+The boot stage itself is a system under this booklet — it decides, it writes flash, it can
+hang — so the rules recurse: it gets evidence (§11.1's region is often all it has), a safe
+state (refusing to boot a bad image beats booting it), and watchdog coverage (§4.6). It
+survives the recursion by being deliberately minimal, small enough that most chapters
+discharge trivially; and its own update is the riskiest decision a fielded fleet faces —
+named, child-pinned, defaulting to immutable-plus-golden-image.
 
 For code that predates its tests, the legacy playbook transposes unchanged: characterization
 via the golden-master machinery of §12.4 (record what crosses the ports of the code as it *is*,
@@ -1741,17 +1790,18 @@ the allocation ladder below rung 2; a certification regime mandating MC/DC) and 
 vocabulary; a child that relaxes an invariant is not a specialization but a fork, and says so
 honestly or is wrong.
 
-**What children must pin.** Every chapter has ended by naming its open decisions; gathered, they
-are the child's table of contents:
+**What children must pin.** The chapters have surfaced their open decisions as they went;
+gathered here and reconciled against each chapter-end register, they are the child's table of
+contents:
 
 | child owns | the decisions |
 |---|---|
 | **platform contract** | target family; widths, alignment, endianness assumptions and their checks; memory map; MPU/MMU region policy; the compiler-port header set and extension inventory |
-| **toolchain baseline** | compilers and versions; the promoted diagnostic set; analysis tools, rule baselines, and the deviation record; build system; the include-graph checker |
-| **execution shell** | superloop / time-triggered / RTOS choice and version; the task and queue inventory with depths, priorities, overflow policies; the schedulability analysis and its inputs; tick source and timestamp format; the composition-root init order and startup budget; the idle/power mode map and energy budget |
+| **toolchain baseline** | compilers and versions; the promoted diagnostic set; analysis tools, rule baselines, and the deviation record; build system; the include-graph checker; the prefix registry and symbol-visibility mechanism; the contract-generator toolchain and the view-generation tooling with its cadence; build identity, reproducibility, and artifact-archival policy |
+| **execution shell** | superloop / time-triggered / RTOS choice and version; the task and queue inventory with depths, priorities, overflow policies; the lock inventory and ordering where locks exist; the schedulability analysis and its inputs; tick source and timestamp format; the composition-root init order and startup budget; the idle/power mode map and energy budget |
 | **HAL & ports** | the port list with naming and contracts; the adapter inventory per board; the variant matrix the build must build |
 | **memory plan** | allocation rung per component; pool and stack budget tables; allocator choice if any; flash endurance arithmetic |
-| **failure policy** | error-code registry; assert policy per variant; safe-states per hazard; escalation gates; watchdog topology and check-in map |
+| **failure policy** | error-code registry; assert policy per variant; safe-states per hazard; escalation gates; watchdog topology — boot-phase coverage included — and check-in map; the arithmetic overflow policy per subsystem |
 | **observability plan** | trace schema and budgets; transports; persisted-record format; maintenance-surface protocol and ship matrix |
 | **verification plan** | host and target suites' scope; the contract-suite inventory per port; simulation/HIL rigs; coverage criterion where mandated; CI shape and cadences |
 | **security posture** | the threat model; image-signing and rollback-protection scheme; maintenance-surface authentication and authorization; secret storage, the zeroization inventory, and the debug-port lockdown policy; the inter-core memory model where cores share state |
@@ -1822,7 +1872,8 @@ carry, §16.3 says so.
 
 **Standards and rule sets** (all verified as records; editions are child-hub facts, not booklet facts): MISRA C and the MISRA Compliance framework with its deviation records (`misrac` · `misracompliance`), BARR-C (`barrc`), NASA/JPL institutional standard embedding the Power of Ten (`jplstd` · `holzmannp10`), CERT C (`certc`), ISO 26262 (`iso26262` — safe state), IEC 61508 incl. the Part-7 technique catalog (`iec61508` — program-sequence monitoring, BIST, MooN), DO-178C (`do178c`), ARINC 653 (`arinc653` — time and space partitioning), AUTOSAR Classic/Adaptive (`autosarclassic` · `autosaradaptive` — the generated-RTE worked example), ISO/IEC TR 18015 (`tr18015` — the C++ performance cost model and `iohw` register abstraction), ISO/IEC 9899 (the C standard; C23's checked arithmetic is the catalog's `checked-arithmetic` anchor). The corpus also carries the *contested* effectiveness evidence for rule-set compliance (`boogerdmoonen` 2009; `hattonsubset` 2004; `hatton95`) — imported in §13.1 as the reason baselines are pinned with deviations rather than worshipped.
 
-**Real-time scheduling.** Liu & Layland (1973, `liulayland`, verified); Buttazzo (4th ed. 2023, `buttazzo`, verified); Sha, Rajkumar & Lehoczky (1990 — the ceiling/inheritance source, named-in for the design elements); and — recorded in the sibling netsim corpus's scheduling keystones rather than SWE — Joseph & Pandya (1986) and Audsley et al. (1993) for response-time analysis, Leung & Whitehead (1982) for deadline-monotonic ordering (§8.2). Timer machinery: Varghese & Lauck timing wheels (1987, verified); Pont, Kurian & Bautista-Quintero sandwich delays (2009, verified); Ganssle's debounce guide (2004, verified); Mogul & Ramakrishnan receive livelock (1996, verified); RFC 1982 serial-number arithmetic (verified); Wescott, *PID Without a PhD* (2000, verified).
+**Real-time scheduling.** Liu & Layland (1973, `liulayland`, verified); Buttazzo (4th ed. 2023, `buttazzo`, verified); Sha, Rajkumar & Lehoczky (1990 — the ceiling/inheritance source, named-in for the design elements); and — recorded in the sibling netsim corpus's scheduling keystones rather than SWE — Joseph & Pandya (1986) and Audsley et al. (1993) for response-time analysis, Leung & Whitehead (1982) for deadline-monotonic ordering (§8.2). Timer machinery: Varghese & Lauck timing wheels (1987, verified); Pont, Kurian & Bautista-Quintero sandwich delays (2009, verified); Ganssle's debounce guide (2004, verified); Mogul & Ramakrishnan receive livelock (1996, verified); RFC 1982 serial-number arithmetic (verified); Wescott, *PID Without a PhD* (2000, verified). Deadline propagation (§8.3) is sourced to the
+SRE volume — Beyer, Jones, Petoff & Murphy, eds. (2016, `googlesre`, verified).
 
 **Inter-core and memory-ordering mechanics** (§7.4): `memory-barrier` (the kernel
 memory-barriers document), `acquire-release-ordering` (Preshing, 2012),
@@ -1872,8 +1923,8 @@ composed here, or explicitly absent from the catalogs:
 
 ### 16.4 Colophon
 
-*Architecture and Design of Complex Embedded C Programs — the parent booklet*, revision r1.4,
-compiled 2026-08-11 against: SWE element catalogs v1.0 (709 + 374 elements), element bridge
+*Architecture and Design of Complex Embedded C Programs — the parent booklet*, revision r1.5,
+compiled 2026-08-11, revised through 2026-08-12, against: SWE element catalogs v1.0 (709 + 374 elements), element bridge
 v1.1 (2,811 relations), SWE process corpus v1.0 (pass 7), design-elements corpus v1.0 (pass 8),
 the six SWE research-pass reports, the house manifest families (`manifests/` python-agent-ground
 2026.08.08; `web_manifests/` mid-2026), and the netsim scheduling keystones. Element identifiers
@@ -1917,6 +1968,15 @@ is sealed.
   §10.5, §11.1–11.3, §12.4) and the new sections paragraphed; the "twenty years" leitmotif
   thinned to its two load-bearing occurrences; residual double-conjunctions from the r1.2
   surgery smoothed.
+- **r1.5** (2026-08-12) — cold-read convergence: one fresh-eyes architect over the whole text,
+  twelve findings, all applied. The integer half of the determinism claim conditioned on
+  promotion-safe arithmetic (it had contradicted §12.1); the composition root's bring-up order
+  rewritten — watchdog framed first, destructive self-test before RAM is live, evidence
+  harvested before the march; the chapter-15 table and chapter-13 registers reconciled against
+  the chapter-end registers they claim to gather; route tags normalized to the seven names;
+  firmware identity added to the crash record and the image obligations; §10.7 added (the
+  arithmetic overflow contract); the boot stage brought under the booklet's own rules. Reviewer
+  verdict before the fixes: "would adopt; would not seal as-is"; the seal includes the fixes.
 
 
 
