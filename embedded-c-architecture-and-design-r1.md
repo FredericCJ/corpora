@@ -33,7 +33,8 @@ and the obligation to enforce.
 Its intellectual footing is the house corpus: the software-engineering element catalogs (709 design
 elements, 374 architecture elements, and the typed relations between them), the process corpus, and
 the manifest families that already instantiate the same discipline for Python and for the browser.
-Element names appearing in `this-face` are canonical catalog identifiers; the works behind them are
+Catalog element identifiers appear in `this-face`; C keywords, code, and file names unavoidably
+share that face, and chapter 16 resolves any name in doubt. The works behind the identifiers are
 recorded in chapter 16 exactly as the corpus records them, including which records the corpus could
 not verify. Where this booklet makes a judgment the corpus does not source, it is marked *editorial*.
 
@@ -677,7 +678,8 @@ mechanism cost traded against per-change cost"):
 
 1. **Compile time** — `#ifdef`, configuration headers, x-macro tables. Zero runtime cost;
    variation invisible in the shipped image; every variant is a separate build to test.
-2. **Link time** — same header, different object files; the `facade-backend` move. Zero runtime
+2. **Link time** — same header, different object files; the `facade-backend-module-pattern`
+   move. Zero runtime
    cost; variants differ only in link inputs; the seam of choice for target substitution and for
    test doubles (chapter 12).
 3. **Initialization time** — function-pointer ports and configuration read from nonvolatile
@@ -1544,7 +1546,7 @@ carry, §16.3 says so.
 | Parnas, *On the Criteria To Be Used in Decomposing Systems into Modules* (1972); Parnas & Clements, *A Rational Design Process* (1986) | `parnas72` · `parnasclements` | verified — the information-hiding root (ch. 2) and the documented-rationality ideal behind the ADR discipline |
 | Bass, Clements & Kazman, *Software Architecture in Practice*, 4th ed. (2021) | `bck` | verified — the tactic vocabulary used throughout: modifiability, testability, performance, availability, energy |
 | Cockburn, *Hexagonal Architecture* (2005) | `hexagonalarch` | verified — the ports-and-adapters frame of ch. 4 |
-| Buschmann et al., *POSA Vol. 1* (1996); Schmidt et al., *POSA Vol. 2*; Kircher & Jain, *POSA Vol. 3* (2004); Buschmann, Henney & Schmidt, *POSA Vol. 4* (2007) | `posa1` · `posa2` · `posa3` · `posa4` | posa1/posa4 verified; **posa2 UNVERIFIED (year unresolved)** — active object, reactor, half-sync/half-async, wrapper facade, strategized/scoped locking ride on it; re-verify before load-bearing use |
+| Buschmann et al., *POSA Vol. 1* (1996); Schmidt et al., *POSA Vol. 2*; Kircher & Jain, *POSA Vol. 3* (2004); Buschmann, Henney & Schmidt, *POSA Vol. 4* (2007) | `posa1` · `posa2` · `posa3` · `posa4` | posa1/posa4 verified; **posa2 and posa3 UNVERIFIED** (posa2's year unresolved) — active object, reactor, half-sync/half-async, wrapper facade, strategized/scoped locking, pooling, and eager acquisition ride on them; re-verify before load-bearing use |
 | Gamma, Helm, Johnson & Vlissides, *Design Patterns* (1994); Fowler, *PoEAA* (2002) & *DI article* (2004); Evans, *DDD* (2003); Hohpe & Woolf, *EIP* (2003) | `gof` · `poeaa` · `fowlerdi` · `evansddd` · `hohpe` | verified — gateway, separated interface, plugin, mediator, correlation identifier, message vocabulary |
 | Clements et al., *Documenting Software Architectures: Views and Beyond*, 2nd ed. (2010); ISO/IEC/IEEE 42010:2022; Nygard, *Documenting Architecture Decisions* (2011) | `vab` · `iso42010` · `nygardadr` | verified — module/C&C/allocation views, viewpoint discipline, ADRs (§3.3, §10.3, ch. 14) |
 | Bernhardt, *Functional Core, Imperative Shell* (2012); Reynolds, *Definitional Interpreters* (1972); Candea & Fox, *Crash-Only Software* (2003) | `bernhardtfcis` · `reynolds72` · `candeafox` | verified — the effect boundary's naming (ch. 4), defunctionalized decisions, reset as recovery |
@@ -1555,7 +1557,7 @@ carry, §16.3 says so.
 |---|---|---|
 | Kopetz & Steiner, *Real-Time Systems: Design Principles for Distributed Embedded Applications* (2022) | `kopetz` | verified — event- vs time-triggered, temporal firewall, fault-containment regions (chs. 6, 7, 10) |
 | Samek, *Practical UML Statecharts in C/C++*, 2nd ed. (2008), course & QP framework | `samekbook` · `samekcourse` · `qpc` | verified — run-to-completion, HSMs, active objects: the spine of ch. 6 |
-| Douglass, *Design Patterns for Embedded Systems in C* (2011); *Real-Time Design Patterns* corpus (2002) | `douglasspatternsc` · `douglassrtcorpus` | verified — event receptors, critical regions, ceiling protocol, static/pool allocation, sanity check, watchdog, safety patterns (chs. 6–11) |
+| Douglass, *Design Patterns for Embedded Systems in C* (2011; the C-pass record dates it 2010); *Real-Time Design Patterns* corpus (2002) | `douglasspatternsc` · `douglassrtcorpus` | verified — event receptors, critical regions, ceiling protocol, static/pool allocation, sanity check, watchdog, safety patterns (chs. 6–11) |
 | White, *Making Embedded Systems*, 2nd ed. (2024) | `white` | verified — ring buffers, DMA, system tick, core dump, chained processors (chs. 7, 9, 11); note: two catalog entries carry an unexpanded `named-in: white` data defect |
 | Koopman, *Better Embedded System Software* (2010) | `koopmanbess` | verified — the watchdog chapter (kick discipline, what it cannot detect) and the reset chapter behind §8.4 and §11.1 |
 | Grenning, *Test-Driven Development for Embedded C* (2011) | `grenningtdd` | verified — dual-target discipline, doubles in C, design-for-test (ch. 12); the corpus files the practice at process layer, deliberately |
@@ -1607,7 +1609,7 @@ composed here, or explicitly absent from the catalogs:
 
 ### 16.4 Colophon
 
-*Architecture and Design of Complex Embedded C Programs — the parent booklet*, revision r1,
+*Architecture and Design of Complex Embedded C Programs — the parent booklet*, revision r1.1,
 compiled 2026-08-11 against: SWE element catalogs v1.0 (709 + 374 elements), element bridge
 v1.1 (2,811 relations), SWE process corpus v1.0 (pass 7), design-elements corpus v1.0 (pass 8),
 the six SWE research-pass reports, the house manifest families (`manifests/` python-agent-ground
@@ -1617,6 +1619,18 @@ Judgments not carried by those sources are marked editorial in place or register
 This file carries no version-dependent facts, on purpose; the specialization contract (ch. 15)
 says where such facts must live. Verify before trusting; route before relying; and when a rule
 here meets a situation it does not fit — reason past it, and say so.
+
+**Revision history.** The booklet's own audit gate is
+`_embedded_booklet_work/audit.py` — element ids, work ids and their verification stances, and
+all internal cross-references are machine-checked against the corpus data before each revision
+is sealed.
+
+- **r1.0** (2026-08-11) — initial edition.
+- **r1.1** (2026-08-11) — ground-truth audit mechanized and run: 144 element ids and 79 work
+  ids verified against `elements.json`/`corpus.json`; fixed one truncated element id
+  (`facade-backend-module-pattern`), corrected POSA Vol. 3's verification stance to UNVERIFIED,
+  recorded the Douglass 2010/2011 pass discrepancy, and narrowed the front matter's claim about
+  what backticks denote.
 
 
 
