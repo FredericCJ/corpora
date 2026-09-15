@@ -1,0 +1,3495 @@
+{
+  "package": "python-agent-ground",
+  "description": "Ground-truth manifests for building testable, diagnosable, maintainable, modular, incrementally-buildable Python. Layered for agent consumption.",
+  "version": "2026.08.08",
+  "facts_verified": "2026-08-08",
+  "entry_point": "AGENTS.md",
+  "how_to_use": [
+    "1. Always load AGENTS.md (~3k tokens). It carries the non-negotiables and the task router.",
+    "2. Load the ONE card in cards/ that matches the task (~2-4k tokens each).",
+    "3. Read a reference/ section only when the card points you at it. Never read a whole reference file.",
+    "4. Copy config/ artifacts verbatim rather than deriving them."
+  ],
+  "epistemic_tags": {
+    "ESTABLISHED": "normative and stable in the cited primary source - rely on it",
+    "VERSION-DEPENDENT": "true of the named version only - check yours",
+    "MEASURED": "established by running the tool; the version and command are named - strongest tag for tool behaviour",
+    "OPEN": "no authoritative source; a decision the project must make - surface it, do not improvise silently",
+    "FLAGGED-SECONDARY": "only secondary evidence was found - verify before it becomes load-bearing",
+    "UNVERIFIED": "asserted by a source but not confirmed against a primary page",
+    "CC-FACT": "Claude Code harness mechanics, not language facts"
+  },
+  "enforcement_routes": [
+    "type-catchable",
+    "lint-catchable",
+    "feature-eliminated",
+    "test-catchable",
+    "fitness-function",
+    "runtime-catchable",
+    "contract-only"
+  ],
+  "cards": [
+    {
+      "file": "cards/concurrency.md",
+      "title": "Card: add concurrency",
+      "lines": 104
+    },
+    {
+      "file": "cards/diagnose-runtime.md",
+      "title": "Card: diagnose a running or crashed process",
+      "lines": 112
+    },
+    {
+      "file": "cards/gates-and-ci.md",
+      "title": "Card: set up or tighten quality gates",
+      "lines": 131
+    },
+    {
+      "file": "cards/handle-errors.md",
+      "title": "Card: design error handling",
+      "lines": 98
+    },
+    {
+      "file": "cards/module-boundaries.md",
+      "title": "Card: add or split a module, package it, change a public name",
+      "lines": 103
+    },
+    {
+      "file": "cards/observability.md",
+      "title": "Card: logging, metrics and traces",
+      "lines": 101
+    },
+    {
+      "file": "cards/review-code.md",
+      "title": "Card: review a diff (or check your own work before finishing)",
+      "lines": 116
+    },
+    {
+      "file": "cards/start-project.md",
+      "title": "Card: scaffold a new project",
+      "lines": 128
+    },
+    {
+      "file": "cards/write-code.md",
+      "title": "Card: write or change application code",
+      "lines": 113
+    },
+    {
+      "file": "cards/write-spec.md",
+      "title": "Card: write a spec before implementing",
+      "lines": 98
+    },
+    {
+      "file": "cards/write-tests.md",
+      "title": "Card: write or fix tests",
+      "lines": 92
+    }
+  ],
+  "config": [
+    {
+      "file": "config/README.md",
+      "bytes": 4027
+    },
+    {
+      "file": "config/check.sh",
+      "bytes": 3517
+    },
+    {
+      "file": "config/ci-github.yml",
+      "bytes": 3614
+    },
+    {
+      "file": "config/importlinter.toml",
+      "bytes": 2632
+    },
+    {
+      "file": "config/pre-commit-config.yaml",
+      "bytes": 2669
+    },
+    {
+      "file": "config/pyproject.toml",
+      "bytes": 8294
+    }
+  ],
+  "reference": [
+    {
+      "file": "reference/claude_code_agent_teams_manifest.md",
+      "pillar": "adjunct",
+      "role": "Claude Code subagent and agent-team mechanics. Not part of the Python spine; harness-specific",
+      "lines": 431,
+      "bytes": 28359,
+      "sections": [
+        {
+          "level": 2,
+          "title": "1. Scope and provenance",
+          "line": 30
+        },
+        {
+          "level": 2,
+          "title": "2. Enablement",
+          "line": 46
+        },
+        {
+          "level": 2,
+          "title": "3. Subagents vs agent teams — decision rule and side-by-side",
+          "line": 72
+        },
+        {
+          "level": 2,
+          "title": "4. Team architecture and on-disk state",
+          "line": 100
+        },
+        {
+          "level": 2,
+          "title": "5. Bootstrap and lifecycle",
+          "line": 132
+        },
+        {
+          "level": 2,
+          "title": "6. Coordination tools — current surface and the documented drift",
+          "line": 151
+        },
+        {
+          "level": 2,
+          "title": "7. Communication model",
+          "line": 187
+        },
+        {
+          "level": 2,
+          "title": "8. Permissions",
+          "line": 201
+        },
+        {
+          "level": 2,
+          "title": "9. Reusing subagent definitions as teammates — the load-bearing bridge",
+          "line": 217
+        },
+        {
+          "level": 2,
+          "title": "10. Subagent frontmatter reference (`.claude/agents/<kebab>.md`)",
+          "line": 247
+        },
+        {
+          "level": 2,
+          "title": "11. Slash-command / skill frontmatter reference",
+          "line": 285
+        },
+        {
+          "level": 2,
+          "title": "12. Display and control",
+          "line": 310
+        },
+        {
+          "level": 2,
+          "title": "13. Token economics",
+          "line": 329
+        },
+        {
+          "level": 2,
+          "title": "14. Quality-gate hooks",
+          "line": 347
+        },
+        {
+          "level": 2,
+          "title": "15. Limitations and risks",
+          "line": 363
+        },
+        {
+          "level": 2,
+          "title": "16. Open questions and version caveats",
+          "line": 380
+        },
+        {
+          "level": 2,
+          "title": "Sources",
+          "line": 407
+        }
+      ]
+    },
+    {
+      "file": "reference/spec_recovery_reverse_engineering_manifest.md",
+      "pillar": "adjunct",
+      "role": "recovering a design spec from existing code: recoverable/inferred/lost tiers, the reflexion model, divergence classification, git as evidence",
+      "lines": 479,
+      "bytes": 34261,
+      "sections": [
+        {
+          "level": 2,
+          "title": "0. Scope & relationship to the sibling manifests",
+          "line": 21
+        },
+        {
+          "level": 2,
+          "title": "1. Terms of art & taxonomy",
+          "line": 39
+        },
+        {
+          "level": 2,
+          "title": "2. What is RECOVERABLE vs INFERRED vs LOST — the three confidence tiers",
+          "line": 88
+        },
+        {
+          "level": 2,
+          "title": "3. The design/architecture recovery METHOD",
+          "line": 117
+        },
+        {
+          "level": 2,
+          "title": "4. Writing the recovered detailed-design spec",
+          "line": 161
+        },
+        {
+          "level": 2,
+          "title": "5. The reflexion model as the diff engine",
+          "line": 186
+        },
+        {
+          "level": 2,
+          "title": "6. Classifying divergence — INTENDED / UNINTENDED / UNDOCUMENTED",
+          "line": 214
+        },
+        {
+          "level": 2,
+          "title": "7. Git as evidence",
+          "line": 235
+        },
+        {
+          "level": 2,
+          "title": "8. The divergence ledger",
+          "line": 269
+        },
+        {
+          "level": 2,
+          "title": "9. Executable conformance for the structural subset",
+          "line": 299
+        },
+        {
+          "level": 2,
+          "title": "10. Traceability & the decision log",
+          "line": 324
+        },
+        {
+          "level": 2,
+          "title": "11. The recovery + divergence loop (end to end)",
+          "line": 356
+        },
+        {
+          "level": 2,
+          "title": "12. Worked anchor — `spec_mouse_jiggler`",
+          "line": 383
+        },
+        {
+          "level": 2,
+          "title": "13. Open questions & caveats",
+          "line": 408
+        },
+        {
+          "level": 2,
+          "title": "Sources",
+          "line": 439
+        }
+      ]
+    },
+    {
+      "file": "reference/uml25_ocl_conformance_manifest.md",
+      "pillar": "adjunct",
+      "role": "UML 2.5.1 / OCL as a conformance target: honest code-to-model mappings and Python constructs with no clean UML equivalent",
+      "lines": 270,
+      "bytes": 41240,
+      "sections": [
+        {
+          "level": 2,
+          "title": "1. The normative standards and their status",
+          "line": 7
+        },
+        {
+          "level": 3,
+          "title": "Compliance levels — ESTABLISHED (a required, often-misremembered finding)",
+          "line": 21
+        },
+        {
+          "level": 3,
+          "title": "The OCL-2.4-to-UML-2.5.1 alignment gap — REQUIRED FINDING",
+          "line": 24
+        },
+        {
+          "level": 3,
+          "title": "What \"strict conformance\" can and cannot mean",
+          "line": 30
+        },
+        {
+          "level": 2,
+          "title": "2. Structural modeling — abstract syntax and notation",
+          "line": 36
+        },
+        {
+          "level": 3,
+          "title": "Class diagram",
+          "line": 40
+        },
+        {
+          "level": 3,
+          "title": "Component diagram",
+          "line": 52
+        },
+        {
+          "level": 3,
+          "title": "Composite-structure diagram",
+          "line": 55
+        },
+        {
+          "level": 3,
+          "title": "Package & object (supporting)",
+          "line": 61
+        },
+        {
+          "level": 2,
+          "title": "3. Behavioral modeling — abstract syntax and notation",
+          "line": 67
+        },
+        {
+          "level": 3,
+          "title": "State machine (UML 2.5.1, Clause 14)",
+          "line": 69
+        },
+        {
+          "level": 3,
+          "title": "Activity (UML 2.5.1, Clause 15)",
+          "line": 85
+        },
+        {
+          "level": 3,
+          "title": "Sequence / interaction (UML 2.5.1, Clause 17)",
+          "line": 97
+        },
+        {
+          "level": 2,
+          "title": "4. Faithful reverse mapping (code → model) — Python as source",
+          "line": 109
+        },
+        {
+          "level": 3,
+          "title": "Honest mappings (low distortion)",
+          "line": 113
+        },
+        {
+          "level": 3,
+          "title": "Python-specific traps (constructs with no clean UML equivalent)",
+          "line": 126
+        },
+        {
+          "level": 2,
+          "title": "5. OCL — language and well-formedness (OCL 2.4, `formal/2014-02-03`)",
+          "line": 142
+        },
+        {
+          "level": 3,
+          "title": "Constraint kinds and attachment — ESTABLISHED",
+          "line": 144
+        },
+        {
+          "level": 3,
+          "title": "Type system & standard library — ESTABLISHED (names/signatures verified)",
+          "line": 154
+        },
+        {
+          "level": 3,
+          "title": "No-side-effect / instantaneous-evaluation rule — ESTABLISHED",
+          "line": 165
+        },
+        {
+          "level": 3,
+          "title": "What OCL expresses that diagrams cannot, and its limits",
+          "line": 168
+        },
+        {
+          "level": 3,
+          "title": "Type-correctness rules an agent must satisfy",
+          "line": 172
+        },
+        {
+          "level": 2,
+          "title": "6. Conformance checking — drawn vs. verifiable",
+          "line": 177
+        },
+        {
+          "level": 2,
+          "title": "7. Text-based / diagram-as-code and OCL tooling — capability matrix",
+          "line": 191
+        },
+        {
+          "level": 2,
+          "title": "8. Serialization and interchange",
+          "line": 213
+        },
+        {
+          "level": 2,
+          "title": "9. High-quality reference examples",
+          "line": 223
+        },
+        {
+          "level": 2,
+          "title": "10. Open questions and version caveats",
+          "line": 237
+        },
+        {
+          "level": 2,
+          "title": "Sources",
+          "line": 253
+        }
+      ]
+    },
+    {
+      "file": "reference/python_concurrency_determinism_manifest.md",
+      "pillar": "cross-cutting",
+      "role": "the four execution models, structured concurrency and cancellation, free-threading, subinterpreters, backpressure and shutdown, determinism under test",
+      "lines": 1699,
+      "bytes": 131709,
+      "sections": [
+        {
+          "level": 2,
+          "title": "TL;DR",
+          "line": 38
+        },
+        {
+          "level": 2,
+          "title": "1. The execution model is chosen before any primitive",
+          "line": 70
+        },
+        {
+          "level": 3,
+          "title": "1.1 Run-to-completion — the guarantee that makes await-free code implicitly atomic",
+          "line": 72
+        },
+        {
+          "level": 3,
+          "title": "1.2 Reactor vs proactor — why identical code behaves differently per platform",
+          "line": 100
+        },
+        {
+          "level": 3,
+          "title": "1.3 The chosen architecture removes options from the design layer beneath it",
+          "line": 122
+        },
+        {
+          "level": 2,
+          "title": "2. The four-substrate decision table",
+          "line": 136
+        },
+        {
+          "level": 3,
+          "title": "2.1 The table — consult this before writing a single primitive",
+          "line": 138
+        },
+        {
+          "level": 3,
+          "title": "2.2 How the work is *shaped*, once the substrate is fixed",
+          "line": 171
+        },
+        {
+          "level": 3,
+          "title": "2.3 Epistemic note — what the design corpus does *not* know about Python concurrency",
+          "line": 195
+        },
+        {
+          "level": 2,
+          "title": "3. The default for a small strictly-typed app: single-threaded core, concurrency at the edge",
+          "line": 209
+        },
+        {
+          "level": 3,
+          "title": "3.1 The argument, not the assertion",
+          "line": 211
+        },
+        {
+          "level": 3,
+          "title": "3.2 The rule",
+          "line": 242
+        },
+        {
+          "level": 3,
+          "title": "3.3 The escalation ladder — stay on the lowest rung that works",
+          "line": 262
+        },
+        {
+          "level": 2,
+          "title": "4. Structured concurrency: task lifetime, cancellation, timeouts",
+          "line": 288
+        },
+        {
+          "level": 3,
+          "title": "4.1 `TaskGroup` semantics — VERSION-DEPENDENT (3.11+)",
+          "line": 299
+        },
+        {
+          "level": 3,
+          "title": "4.2 The orphan ban — why a reference must be held",
+          "line": 324
+        },
+        {
+          "level": 3,
+          "title": "4.3 Timeouts and deadline propagation",
+          "line": 341
+        },
+        {
+          "level": 3,
+          "title": "4.4 The cancellation contract",
+          "line": 364
+        },
+        {
+          "level": 3,
+          "title": "4.5 `CancelledError` is a `BaseException`, and what that breaks",
+          "line": 402
+        },
+        {
+          "level": 3,
+          "title": "4.6 Failures arrive as an `ExceptionGroup`",
+          "line": 422
+        },
+        {
+          "level": 3,
+          "title": "4.7 The eager task factory is a semantic change, never a free speedup",
+          "line": 442
+        },
+        {
+          "level": 3,
+          "title": "4.8 Edge vs level cancellation — the asyncio/trio gap that porting hides",
+          "line": 455
+        },
+        {
+          "level": 3,
+          "title": "4.9 The blocking call, and the CPU loop that cannot be cancelled",
+          "line": 489
+        },
+        {
+          "level": 2,
+          "title": "5. Free-threading as behaviour",
+          "line": 506
+        },
+        {
+          "level": 3,
+          "title": "5.1 Detection — build and runtime are different questions",
+          "line": 521
+        },
+        {
+          "level": 3,
+          "title": "5.2 The atomicity assumptions people wrongly draw from the GIL",
+          "line": 545
+        },
+        {
+          "level": 3,
+          "title": "5.3 C extensions: the declaration, the borrowed-reference trap, and critical sections",
+          "line": 577
+        },
+        {
+          "level": 3,
+          "title": "5.4 The honest performance statement — do not merge the numbers",
+          "line": 617
+        },
+        {
+          "level": 3,
+          "title": "5.5 Identical code, different behaviour, per build",
+          "line": 637
+        },
+        {
+          "level": 2,
+          "title": "6. Subinterpreters: the boundary contract",
+          "line": 652
+        },
+        {
+          "level": 3,
+          "title": "6.1 What crosses the boundary",
+          "line": 671
+        },
+        {
+          "level": 3,
+          "title": "6.2 The executor",
+          "line": 705
+        },
+        {
+          "level": 3,
+          "title": "6.3 When this is the right tool rather than a novelty",
+          "line": 729
+        },
+        {
+          "level": 2,
+          "title": "7. Executors, queues, backpressure and shutdown",
+          "line": 746
+        },
+        {
+          "level": 3,
+          "title": "7.1 Every queue declares a `maxsize` and an overflow policy",
+          "line": 748
+        },
+        {
+          "level": 3,
+          "title": "7.2 Executors are unbounded, and `map()` is eager",
+          "line": 803
+        },
+        {
+          "level": 3,
+          "title": "7.3 Exception propagation through futures",
+          "line": 830
+        },
+        {
+          "level": 3,
+          "title": "7.4 Shutdown: the two-phase shape",
+          "line": 853
+        },
+        {
+          "level": 3,
+          "title": "7.5 The deadlock the documentation warns about",
+          "line": 886
+        },
+        {
+          "level": 3,
+          "title": "7.6 Process pools: the start method changed, and pickling is the contract",
+          "line": 901
+        },
+        {
+          "level": 2,
+          "title": "8. Ownership: confinement, `contextvars`, and the explicit context object",
+          "line": 926
+        },
+        {
+          "level": 3,
+          "title": "8.1 The three-way rule for ambient state, stated once",
+          "line": 928
+        },
+        {
+          "level": 3,
+          "title": "8.2 What a Task copies, and what it does not",
+          "line": 957
+        },
+        {
+          "level": 3,
+          "title": "8.3 Where propagation silently breaks",
+          "line": 971
+        },
+        {
+          "level": 3,
+          "title": "8.4 The other route to safe sharing: do not share mutable state",
+          "line": 986
+        },
+        {
+          "level": 2,
+          "title": "9. Determinism as a design obligation",
+          "line": 1006
+        },
+        {
+          "level": 3,
+          "title": "9.1 The tactic, named",
+          "line": 1008
+        },
+        {
+          "level": 3,
+          "title": "9.2 The four injected seams — and nothing else buys determinism",
+          "line": 1020
+        },
+        {
+          "level": 3,
+          "title": "9.3 Never sleep to synchronise",
+          "line": 1042
+        },
+        {
+          "level": 3,
+          "title": "9.4 Make concurrent code run single-threaded under test",
+          "line": 1064
+        },
+        {
+          "level": 3,
+          "title": "9.5 Deterministic replay, where the domain permits it",
+          "line": 1078
+        },
+        {
+          "level": 3,
+          "title": "9.6 What determinism you cannot buy — and the name for containing the rest",
+          "line": 1097
+        },
+        {
+          "level": 2,
+          "title": "10. Diagnosing concurrent failure",
+          "line": 1126
+        },
+        {
+          "level": 3,
+          "title": "10.1 asyncio debug mode belongs in CI",
+          "line": 1132
+        },
+        {
+          "level": 3,
+          "title": "10.2 The async task graph",
+          "line": 1150
+        },
+        {
+          "level": 3,
+          "title": "10.3 \"Task exception was never retrieved\" is a test failure, not log noise",
+          "line": 1179
+        },
+        {
+          "level": 3,
+          "title": "10.4 The deadlock watchdog",
+          "line": 1190
+        },
+        {
+          "level": 3,
+          "title": "10.5 Data races on free-threaded builds: be honest, the answer is \"little\"",
+          "line": 1214
+        },
+        {
+          "level": 3,
+          "title": "10.6 Therefore: stress and repetition, with the right expectations",
+          "line": 1232
+        },
+        {
+          "level": 2,
+          "title": "11. The do-not-transpose table",
+          "line": 1256
+        },
+        {
+          "level": 3,
+          "title": "11.1 The runtime already does this — a mapping table, never guidance",
+          "line": 1261
+        },
+        {
+          "level": 3,
+          "title": "11.2 C / kernel / hardware / RTOS concerns — drop entirely",
+          "line": 1287
+        },
+        {
+          "level": 3,
+          "title": "11.3 Right idea, wrong manifest — do not import here",
+          "line": 1300
+        },
+        {
+          "level": 2,
+          "title": "Anti-patterns checklist",
+          "line": 1314
+        },
+        {
+          "level": 2,
+          "title": "Open questions to resolve before building",
+          "line": 1400
+        },
+        {
+          "level": 2,
+          "title": "Sources (accessed 8 Aug 2026)",
+          "line": 1442
+        },
+        {
+          "level": 3,
+          "title": "Named vocabulary — naming sources as recorded in the SWE corpus",
+          "line": 1581
+        },
+        {
+          "level": 3,
+          "title": "Sibling manifests (cross-referenced, not duplicated)",
+          "line": 1666
+        }
+      ]
+    },
+    {
+      "file": "reference/error_tracing_contract_manifest.md",
+      "pillar": "diagnosable",
+      "role": "two propagation channels and three dispositions, exception chaining, except*, traceback quality, unhandled-exception hooks, errors as a versioned contract",
+      "lines": 623,
+      "bytes": 145437,
+      "sections": [
+        {
+          "level": 2,
+          "title": "TL;DR",
+          "line": 11
+        },
+        {
+          "level": 2,
+          "title": "1. Purpose and scope",
+          "line": 22
+        },
+        {
+          "level": 2,
+          "title": "2. Guiding principles (PEP 20)",
+          "line": 26
+        },
+        {
+          "level": 2,
+          "title": "3. Two propagation channels, three dispositions",
+          "line": 32
+        },
+        {
+          "level": 2,
+          "title": "4. Typed result objects: `EmitOk | EmitError`",
+          "line": 51
+        },
+        {
+          "level": 3,
+          "title": "4a. Composing result-returning steps (railway-oriented programming)",
+          "line": 63
+        },
+        {
+          "level": 3,
+          "title": "4b. The `Result`-library landscape (2026-08-08) and the dependency-vs-control choice",
+          "line": 74
+        },
+        {
+          "level": 2,
+          "title": "5. `assert_never` / `Never` exhaustiveness",
+          "line": 87
+        },
+        {
+          "level": 2,
+          "title": "6. The functional-core / imperative-shell boundary — where conversion happens",
+          "line": 95
+        },
+        {
+          "level": 2,
+          "title": "7. Raised exceptions: when they are the right channel",
+          "line": 107
+        },
+        {
+          "level": 2,
+          "title": "7a. Transient faults: bound every call, retry within a budget, decide with a rate",
+          "line": 115
+        },
+        {
+          "level": 2,
+          "title": "7b. Failure disposition and recovery topology — named, then gated",
+          "line": 134
+        },
+        {
+          "level": 2,
+          "title": "8. Exception chaining: `raise X from Y`, `__cause__` vs `__context__`",
+          "line": 154
+        },
+        {
+          "level": 2,
+          "title": "9. `from None` — use sparingly",
+          "line": 163
+        },
+        {
+          "level": 2,
+          "title": "10. Re-raise vs wrap vs explicit-suppress",
+          "line": 167
+        },
+        {
+          "level": 2,
+          "title": "11. Custom exception hierarchy",
+          "line": 175
+        },
+        {
+          "level": 2,
+          "title": "12. Catch narrowly; `else` / `finally`; never bare `except`",
+          "line": 185
+        },
+        {
+          "level": 2,
+          "title": "13. EAFP over LBYL (with the TOCTOU caveat)",
+          "line": 196
+        },
+        {
+          "level": 2,
+          "title": "14. Assertions — what they are FOR and NOT for",
+          "line": 205
+        },
+        {
+          "level": 2,
+          "title": "15. Boundary validation & \"parse, don't validate\"",
+          "line": 216
+        },
+        {
+          "level": 2,
+          "title": "15a. Converting library validation errors into the project taxonomy",
+          "line": 238
+        },
+        {
+          "level": 2,
+          "title": "16. Descriptive messages — anatomy & structured attributes",
+          "line": 250
+        },
+        {
+          "level": 2,
+          "title": "17. Errors as a documented, version-stable public contract (reusability)",
+          "line": 262
+        },
+        {
+          "level": 2,
+          "title": "17a. Deprecating a member of the error contract",
+          "line": 266
+        },
+        {
+          "level": 2,
+          "title": "18. ExceptionGroup / `except*` (PEP 654, 3.11+)",
+          "line": 285
+        },
+        {
+          "level": 2,
+          "title": "18a. Reporting many failures at once — three channels, one choice rule",
+          "line": 298
+        },
+        {
+          "level": 2,
+          "title": "18b. Asynchronous failure surfaces",
+          "line": 314
+        },
+        {
+          "level": 2,
+          "title": "19. Notes & tracebacks (PEP 678, 3.11+)",
+          "line": 329
+        },
+        {
+          "level": 2,
+          "title": "19a. Traceback fidelity — and the switches that silently erase it",
+          "line": 339
+        },
+        {
+          "level": 2,
+          "title": "20. Observability & logging — error-side obligations only",
+          "line": 351
+        },
+        {
+          "level": 2,
+          "title": "20a. The four unhandled-exception hooks — and the coverage gaps between them",
+          "line": 360
+        },
+        {
+          "level": 2,
+          "title": "21. Version matrix and minimum target",
+          "line": 374
+        },
+        {
+          "level": 2,
+          "title": "22. Anti-patterns checklist",
+          "line": 414
+        },
+        {
+          "level": 2,
+          "title": "23. Decision flowchart",
+          "line": 464
+        },
+        {
+          "level": 2,
+          "title": "Sources",
+          "line": 530
+        },
+        {
+          "level": 3,
+          "title": "Named vocabulary — the naming works cited in §3, §6, §7–§7b, §13–§15, §18a (bibliographic; no URL)",
+          "line": 586
+        },
+        {
+          "level": 3,
+          "title": "Sibling manifests (cross-referenced, not duplicated)",
+          "line": 610
+        }
+      ]
+    },
+    {
+      "file": "reference/logging_observability_manifest.md",
+      "pillar": "diagnosable",
+      "role": "the five emittable levels, logger/handler/formatter architecture, library-vs-application discipline, structured logging, correlation, queue handoff, redaction, OpenTelemetry adoption gate",
+      "lines": 1494,
+      "bytes": 121101,
+      "sections": [
+        {
+          "level": 2,
+          "title": "TL;DR",
+          "line": 28
+        },
+        {
+          "level": 2,
+          "title": "1. Scope and the three goals",
+          "line": 58
+        },
+        {
+          "level": 2,
+          "title": "2. The severity model: FIVE emittable levels",
+          "line": 77
+        },
+        {
+          "level": 3,
+          "title": "2a. NOTSET (0) is a SENTINEL, not a sixth severity — explicit correction",
+          "line": 114
+        },
+        {
+          "level": 3,
+          "title": "2b. Decision table — which level, and print vs `warnings.warn` vs `logging`",
+          "line": 141
+        },
+        {
+          "level": 3,
+          "title": "2c. The level-constant surface: aliases, custom levels, and the global kill switch",
+          "line": 167
+        },
+        {
+          "level": 2,
+          "title": "3. Architecture: Logger, Handler, Formatter, Filter",
+          "line": 208
+        },
+        {
+          "level": 3,
+          "title": "3a. Logger hierarchy, `getLogger(__name__)`, effective level, propagation",
+          "line": 239
+        },
+        {
+          "level": 2,
+          "title": "4. Reusable-component / library discipline (goal3 — the load-bearing part)",
+          "line": 275
+        },
+        {
+          "level": 2,
+          "title": "5. Application-side configuration (the consumer)",
+          "line": 333
+        },
+        {
+          "level": 3,
+          "title": "5a. `dictConfig`: the defaults that bite",
+          "line": 371
+        },
+        {
+          "level": 3,
+          "title": "5b. Steady State: every accumulator needs a purge",
+          "line": 402
+        },
+        {
+          "level": 2,
+          "title": "6. Goals mapping (severity + architecture → the three goals)",
+          "line": 442
+        },
+        {
+          "level": 2,
+          "title": "7. Structured & contextual logging",
+          "line": 473
+        },
+        {
+          "level": 3,
+          "title": "7a. JSON output: there is no stdlib JSON formatter",
+          "line": 561
+        },
+        {
+          "level": 2,
+          "title": "8. Correlation / trace IDs",
+          "line": 589
+        },
+        {
+          "level": 3,
+          "title": "8a. asyncio and threads: what a record actually carries",
+          "line": 624
+        },
+        {
+          "level": 3,
+          "title": "8b. The OpenTelemetry adoption gate: spec-stable is not implementation-stable",
+          "line": 664
+        },
+        {
+          "level": 3,
+          "title": "8c. Signal choice: what belongs in a metric or a span instead of a log line",
+          "line": 772
+        },
+        {
+          "level": 2,
+          "title": "9. Performance: lazy `%`-style args and `isEnabledFor`",
+          "line": 807
+        },
+        {
+          "level": 3,
+          "title": "9a. Queue-based handoff: the four defaults that bite",
+          "line": 852
+        },
+        {
+          "level": 2,
+          "title": "10. Exceptions: log ONCE at the handling boundary",
+          "line": 917
+        },
+        {
+          "level": 2,
+          "title": "11. Security: never log secrets or PII",
+          "line": 970
+        },
+        {
+          "level": 3,
+          "title": "11a. Redaction placement: a Filter at the LOGGER, never the Formatter",
+          "line": 984
+        },
+        {
+          "level": 3,
+          "title": "11b. An audit log is not an application log",
+          "line": 1035
+        },
+        {
+          "level": 2,
+          "title": "12. Strict-typing notes",
+          "line": 1067
+        },
+        {
+          "level": 3,
+          "title": "12a. The lint contract: what mechanically enforces the rules in this file",
+          "line": 1086
+        },
+        {
+          "level": 2,
+          "title": "13. Checklists",
+          "line": 1129
+        },
+        {
+          "level": 3,
+          "title": "Library / reusable-component author checklist",
+          "line": 1131
+        },
+        {
+          "level": 3,
+          "title": "Application / consumer author checklist",
+          "line": 1148
+        },
+        {
+          "level": 2,
+          "title": "14. Diagnosis beyond logging (cross-reference stub)",
+          "line": 1166
+        },
+        {
+          "level": 2,
+          "title": "15. Anti-patterns (rejection list)",
+          "line": 1184
+        },
+        {
+          "level": 2,
+          "title": "Open questions",
+          "line": 1244
+        },
+        {
+          "level": 2,
+          "title": "Sources (re-verified 8 Aug 2026)",
+          "line": 1293
+        },
+        {
+          "level": 3,
+          "title": "Sibling manifests (cross-referenced, not duplicated)",
+          "line": 1466
+        }
+      ]
+    },
+    {
+      "file": "reference/python_runtime_diagnostics_manifest.md",
+      "pillar": "diagnosable",
+      "role": "symptom-to-instrument table, PEP 768 attach, sys.monitoring, faulthandler and hang capture, memory attribution, profiling and when each profiler lies, design-for-diagnosis",
+      "lines": 1529,
+      "bytes": 123587,
+      "sections": [
+        {
+          "level": 2,
+          "title": "TL;DR",
+          "line": 36
+        },
+        {
+          "level": 2,
+          "title": "1. The diagnosability contract, and the symptom → instrument table",
+          "line": 63
+        },
+        {
+          "level": 3,
+          "title": "1a. The organising claim",
+          "line": 65
+        },
+        {
+          "level": 3,
+          "title": "1b. Symptom → instrument, one hop",
+          "line": 81
+        },
+        {
+          "level": 3,
+          "title": "1c. What each instrument costs when nothing is wrong",
+          "line": 101
+        },
+        {
+          "level": 2,
+          "title": "2. Attach, don't restart — the PEP 768 safe-attach interface",
+          "line": 120
+        },
+        {
+          "level": 3,
+          "title": "2a. The interface, exactly",
+          "line": 122
+        },
+        {
+          "level": 3,
+          "title": "2b. What the interface does **not** do — the four coupling constraints",
+          "line": 143
+        },
+        {
+          "level": 3,
+          "title": "2c. The kill switches — and the CPython documentation bug that makes one of them a no-op",
+          "line": 181
+        },
+        {
+          "level": 3,
+          "title": "2d. Detecting or refusing injected debugging",
+          "line": 216
+        },
+        {
+          "level": 2,
+          "title": "3. `sys.monitoring` (PEP 669) — the modern instrumentation substrate",
+          "line": 231
+        },
+        {
+          "level": 3,
+          "title": "3a. Why it replaces `settrace`/`setprofile` for anything new",
+          "line": 233
+        },
+        {
+          "level": 3,
+          "title": "3b. The tool-id budget is six, and it is already half spent",
+          "line": 247
+        },
+        {
+          "level": 3,
+          "title": "3c. Three event classes, and only one of them can be disabled",
+          "line": 269
+        },
+        {
+          "level": 3,
+          "title": "3d. Callback arities are per-event and positional",
+          "line": 302
+        },
+        {
+          "level": 3,
+          "title": "3e. `pdb` runs two debugger cores, and the default is not the one you get",
+          "line": 321
+        },
+        {
+          "level": 2,
+          "title": "4. Crash, hang, and wedge",
+          "line": 333
+        },
+        {
+          "level": 3,
+          "title": "4a. `faulthandler` catches exactly five signals and nothing else",
+          "line": 335
+        },
+        {
+          "level": 3,
+          "title": "4b. Hang detection with cooperation: the watchdog and the on-demand dump",
+          "line": 361
+        },
+        {
+          "level": 3,
+          "title": "4c. faulthandler's output is deliberately crippled — do not expect a traceback",
+          "line": 384
+        },
+        {
+          "level": 3,
+          "title": "4d. Getting a stack out of a wedged process, with nothing pre-installed",
+          "line": 399
+        },
+        {
+          "level": 3,
+          "title": "4e. Core files, gdb, and when gdb is the only answer",
+          "line": 434
+        },
+        {
+          "level": 3,
+          "title": "4f. Async hangs have their own instruments",
+          "line": 460
+        },
+        {
+          "level": 3,
+          "title": "4g. Post-mortem: the four last-resort channels, and `sys.last_exc`",
+          "line": 476
+        },
+        {
+          "level": 2,
+          "title": "5. Memory: attributing growth to a call site",
+          "line": 512
+        },
+        {
+          "level": 3,
+          "title": "5a. The escalation ladder",
+          "line": 514
+        },
+        {
+          "level": 3,
+          "title": "5b. `tracemalloc`: two defaults that defeat beginners, and three structural blind spots",
+          "line": 527
+        },
+        {
+          "level": 3,
+          "title": "5c. `gc` introspection, and the debug flag that leaks on purpose",
+          "line": 558
+        },
+        {
+          "level": 3,
+          "title": "5d. The `weakref` canary is the only leak detector cheap enough to leave on",
+          "line": 603
+        },
+        {
+          "level": 3,
+          "title": "5e. `memray`, and the native allocations nothing else sees",
+          "line": 615
+        },
+        {
+          "level": 2,
+          "title": "6. Profiling — the 3.15 reorganisation, and when each profiler lies",
+          "line": 629
+        },
+        {
+          "level": 3,
+          "title": "6a. PEP 799 moves the stdlib profilers, and puts a sampler in the box",
+          "line": 631
+        },
+        {
+          "level": 3,
+          "title": "6b. Deterministic profiling (`profiling.tracing` / `cProfile`)",
+          "line": 646
+        },
+        {
+          "level": 3,
+          "title": "6c. Statistical profiling (`profiling.sampling`, \"Tachyon\")",
+          "line": 661
+        },
+        {
+          "level": 3,
+          "title": "6d. Native frames: `-X perf`, `-X perf_jit`, and PEP 831",
+          "line": 685
+        },
+        {
+          "level": 3,
+          "title": "6e. Third-party samplers, and the version lag that breaks runbooks",
+          "line": 716
+        },
+        {
+          "level": 3,
+          "title": "6f. When each profiler lies",
+          "line": 728
+        },
+        {
+          "level": 2,
+          "title": "7. Development-time switches — what each one actually turns on",
+          "line": 751
+        },
+        {
+          "level": 3,
+          "title": "7a. `-X dev` / `PYTHONDEVMODE` — what it does **not** do, and why that is a diagnostics fact",
+          "line": 757
+        },
+        {
+          "level": 3,
+          "title": "7b. Warnings: visible is not the same as fatal",
+          "line": 787
+        },
+        {
+          "level": 3,
+          "title": "7c. Import cost, refcounts, verbosity",
+          "line": 806
+        },
+        {
+          "level": 3,
+          "title": "7d. Switches that silently degrade diagnosability",
+          "line": 829
+        },
+        {
+          "level": 2,
+          "title": "8. Instruments of last resort — audit hooks and trace functions",
+          "line": 841
+        },
+        {
+          "level": 3,
+          "title": "8a. Audit hooks (PEP 578): one-way, unremovable, and not a sandbox",
+          "line": 843
+        },
+        {
+          "level": 3,
+          "title": "8b. `sys.settrace` vs `sys.setprofile`: disjoint event sets, asymmetric semantics",
+          "line": 881
+        },
+        {
+          "level": 2,
+          "title": "9. Diagnosability under a JIT, tail-call, or free-threaded build",
+          "line": 918
+        },
+        {
+          "level": 3,
+          "title": "9a. JIT",
+          "line": 920
+        },
+        {
+          "level": 3,
+          "title": "9b. Tail-call interpreter",
+          "line": 947
+        },
+        {
+          "level": 3,
+          "title": "9c. Free-threaded builds",
+          "line": 959
+        },
+        {
+          "level": 3,
+          "title": "9d. The rule: a performance or concurrency claim must name the build",
+          "line": 1002
+        },
+        {
+          "level": 2,
+          "title": "10. Designing for diagnosis",
+          "line": 1014
+        },
+        {
+          "level": 3,
+          "title": "10a. The claim: testability tactics and diagnosability tactics are one family",
+          "line": 1022
+        },
+        {
+          "level": 3,
+          "title": "10b. The nine mechanisms, their Python form, and whether to bother",
+          "line": 1041
+        },
+        {
+          "level": 3,
+          "title": "10c. Three ordering rules the corpus states and an agent will otherwise invert",
+          "line": 1058
+        },
+        {
+          "level": 2,
+          "title": "11. The reproducibility contract",
+          "line": 1084
+        },
+        {
+          "level": 3,
+          "title": "11a. The four recoverables",
+          "line": 1096
+        },
+        {
+          "level": 3,
+          "title": "11b. What a failure report must carry",
+          "line": 1118
+        },
+        {
+          "level": 3,
+          "title": "11c. The always-on baseline",
+          "line": 1148
+        },
+        {
+          "level": 2,
+          "title": "Anti-patterns checklist",
+          "line": 1171
+        },
+        {
+          "level": 2,
+          "title": "Open questions to resolve before building",
+          "line": 1237
+        },
+        {
+          "level": 2,
+          "title": "Sources (accessed 8 Aug 2026)",
+          "line": 1286
+        },
+        {
+          "level": 3,
+          "title": "PEPs",
+          "line": 1291
+        },
+        {
+          "level": 3,
+          "title": "CPython documentation",
+          "line": 1318
+        },
+        {
+          "level": 3,
+          "title": "CPython source and release notes",
+          "line": 1395
+        },
+        {
+          "level": 3,
+          "title": "Tool releases — versions, platform support, CLI surface",
+          "line": 1432
+        },
+        {
+          "level": 3,
+          "title": "Named vocabulary — naming works, as the SWE corpus records them",
+          "line": 1459
+        },
+        {
+          "level": 3,
+          "title": "Sibling manifests (cross-referenced, not duplicated)",
+          "line": 1484
+        }
+      ]
+    },
+    {
+      "file": "reference/python_quality_gates_manifest.md",
+      "pillar": "incremental",
+      "role": "the gate ledger, local/CI parity, the incremental-adoption ratchet, test and supply-chain gates, incremental delivery, measurement with the evidence stated honestly",
+      "lines": 2329,
+      "bytes": 183601,
+      "sections": [
+        {
+          "level": 2,
+          "title": "TL;DR",
+          "line": 68
+        },
+        {
+          "level": 2,
+          "title": "1. What a gate is",
+          "line": 100
+        },
+        {
+          "level": 3,
+          "title": "1.1 Definition, and the four properties of a gate-safe check",
+          "line": 102
+        },
+        {
+          "level": 3,
+          "title": "1.2 Why standards, not preferences",
+          "line": 118
+        },
+        {
+          "level": 3,
+          "title": "1.3 Required versus advisory is an exit-code decision, not a sentiment",
+          "line": 130
+        },
+        {
+          "level": 2,
+          "title": "2. The gate ledger",
+          "line": 168
+        },
+        {
+          "level": 3,
+          "title": "2.1 The ledger",
+          "line": 170
+        },
+        {
+          "level": 3,
+          "title": "2.2 Stage assignment rules",
+          "line": 260
+        },
+        {
+          "level": 3,
+          "title": "2.3 What each gate may rewrite",
+          "line": 273
+        },
+        {
+          "level": 2,
+          "title": "3. Local/CI parity — one command, three places",
+          "line": 286
+        },
+        {
+          "level": 3,
+          "title": "3.1 The failure mode, and the contract",
+          "line": 288
+        },
+        {
+          "level": 3,
+          "title": "3.2 The three invocations",
+          "line": 303
+        },
+        {
+          "level": 3,
+          "title": "3.3 The runner choice, honestly",
+          "line": 342
+        },
+        {
+          "level": 3,
+          "title": "3.4 Gates that cannot run locally, and the one exception",
+          "line": 364
+        },
+        {
+          "level": 3,
+          "title": "3.5 The pipeline is a structure",
+          "line": 380
+        },
+        {
+          "level": 2,
+          "title": "4. The incremental-adoption ratchet",
+          "line": 403
+        },
+        {
+          "level": 3,
+          "title": "4.1 The arithmetic that makes a ratchet hold",
+          "line": 409
+        },
+        {
+          "level": 3,
+          "title": "4.2 Mechanism inventory: what each costs, and how it rots",
+          "line": 443
+        },
+        {
+          "level": 3,
+          "title": "4.3 Per-module strictness, and the precedence that surprises people",
+          "line": 458
+        },
+        {
+          "level": 3,
+          "title": "4.4 Baseline files",
+          "line": 492
+        },
+        {
+          "level": 3,
+          "title": "4.5 The suppression budget",
+          "line": 514
+        },
+        {
+          "level": 3,
+          "title": "4.6 The new-code gate — the ratchet that converges on its own",
+          "line": 585
+        },
+        {
+          "level": 3,
+          "title": "4.7 Which mechanisms rot, and what replaces them",
+          "line": 611
+        },
+        {
+          "level": 2,
+          "title": "5. Type checking as a gate",
+          "line": 622
+        },
+        {
+          "level": 3,
+          "title": "5.1 Error-code selection — what `--strict` does not give you",
+          "line": 627
+        },
+        {
+          "level": 3,
+          "title": "5.2 Ignore hygiene as a gate",
+          "line": 664
+        },
+        {
+          "level": 3,
+          "title": "5.3 The typing ratchet, in order",
+          "line": 685
+        },
+        {
+          "level": 3,
+          "title": "5.4 Type coverage as a number, not a feeling",
+          "line": 703
+        },
+        {
+          "level": 2,
+          "title": "6. Test gates",
+          "line": 726
+        },
+        {
+          "level": 3,
+          "title": "6.1 Coverage as a gate: the commands, the exit contract, the required config",
+          "line": 731
+        },
+        {
+          "level": 3,
+          "title": "6.2 What coverage is and is not evidence of",
+          "line": 776
+        },
+        {
+          "level": 3,
+          "title": "6.3 The ban on assertion-free tests",
+          "line": 801
+        },
+        {
+          "level": 3,
+          "title": "6.4 Flakes: the doctrine, and quarantine",
+          "line": 824
+        },
+        {
+          "level": 3,
+          "title": "6.5 Sharding, and what it breaks",
+          "line": 859
+        },
+        {
+          "level": 3,
+          "title": "6.6 Mutation testing: the oracle, run off the PR path",
+          "line": 885
+        },
+        {
+          "level": 2,
+          "title": "7. Supply-chain and release gates",
+          "line": 922
+        },
+        {
+          "level": 3,
+          "title": "7.1 Reproducible environments: the lock file is the gate",
+          "line": 924
+        },
+        {
+          "level": 3,
+          "title": "7.2 Audit tooling",
+          "line": 957
+        },
+        {
+          "level": 3,
+          "title": "7.3 Workflow-security scanning: audit the pipeline itself",
+          "line": 987
+        },
+        {
+          "level": 3,
+          "title": "7.4 Trusted Publishing and attestations",
+          "line": 1010
+        },
+        {
+          "level": 3,
+          "title": "7.5 SBOM formats",
+          "line": 1043
+        },
+        {
+          "level": 3,
+          "title": "7.6 Reproducible builds",
+          "line": 1069
+        },
+        {
+          "level": 3,
+          "title": "7.7 The release chain, in order",
+          "line": 1084
+        },
+        {
+          "level": 2,
+          "title": "8. Incremental delivery",
+          "line": 1100
+        },
+        {
+          "level": 3,
+          "title": "8.1 Trunk-based development",
+          "line": 1102
+        },
+        {
+          "level": 3,
+          "title": "8.2 Feature toggles: four categories, four lifetimes",
+          "line": 1124
+        },
+        {
+          "level": 3,
+          "title": "8.3 Expand / migrate / contract is the shape of a safe change",
+          "line": 1165
+        },
+        {
+          "level": 3,
+          "title": "8.4 Deprecation windows, enforced rather than announced",
+          "line": 1185
+        },
+        {
+          "level": 3,
+          "title": "8.5 The supported-version CI matrix",
+          "line": 1213
+        },
+        {
+          "level": 3,
+          "title": "8.6 What of this is over-engineering for a small project",
+          "line": 1244
+        },
+        {
+          "level": 2,
+          "title": "9. Measurement, with the evidence stated honestly",
+          "line": 1274
+        },
+        {
+          "level": 3,
+          "title": "9.1 Two questions, two metrics — do not conflate them",
+          "line": 1276
+        },
+        {
+          "level": 3,
+          "title": "9.2 What complexity does not predict — the sceptical record",
+          "line": 1331
+        },
+        {
+          "level": 3,
+          "title": "9.3 Thresholds are not portable between tools",
+          "line": 1397
+        },
+        {
+          "level": 3,
+          "title": "9.4 The starter set: seven numbers for a small project",
+          "line": 1442
+        },
+        {
+          "level": 3,
+          "title": "9.5 The structural numbers — the ones that genuinely ratchet",
+          "line": 1470
+        },
+        {
+          "level": 3,
+          "title": "9.6 Process signals — real evidence, used as diagnostics",
+          "line": 1505
+        },
+        {
+          "level": 2,
+          "title": "10. Goodhart, explicitly",
+          "line": 1573
+        },
+        {
+          "level": 3,
+          "title": "10.1 The metrics that invite gaming, and the counter-move",
+          "line": 1575
+        },
+        {
+          "level": 3,
+          "title": "10.2 What cannot be measured, and must be reviewed by a human",
+          "line": 1594
+        },
+        {
+          "level": 2,
+          "title": "11. Documentation gates that are actually checkable",
+          "line": 1623
+        },
+        {
+          "level": 3,
+          "title": "11.1 Structure is standardised; style is not, and the project must choose",
+          "line": 1625
+        },
+        {
+          "level": 3,
+          "title": "11.2 Presence is a separate, cheaper number",
+          "line": 1656
+        },
+        {
+          "level": 3,
+          "title": "11.3 Executable examples",
+          "line": 1675
+        },
+        {
+          "level": 3,
+          "title": "11.4 The docs tree, and the build as a gate",
+          "line": 1703
+        },
+        {
+          "level": 3,
+          "title": "11.5 The ADR is the decision record",
+          "line": 1728
+        },
+        {
+          "level": 2,
+          "title": "Anti-patterns checklist",
+          "line": 1754
+        },
+        {
+          "level": 2,
+          "title": "Open questions to resolve before building",
+          "line": 1836
+        },
+        {
+          "level": 2,
+          "title": "Sources (accessed 8 Aug 2026)",
+          "line": 1898
+        },
+        {
+          "level": 3,
+          "title": "Sibling manifests (cross-referenced, not duplicated)",
+          "line": 2280
+        }
+      ]
+    },
+    {
+      "file": "reference/python_language_hazards_manifest.md",
+      "pillar": "maintainable",
+      "role": "13 hazard classes with 103 routed hazard rows, silently-ineffective constructs, rules that fight each other, autofix safety, the maximal-safety modern subset",
+      "lines": 1368,
+      "bytes": 130611,
+      "sections": [
+        {
+          "level": 2,
+          "title": "TL;DR",
+          "line": 55
+        },
+        {
+          "level": 2,
+          "title": "0. How to read a routing verdict",
+          "line": 83
+        },
+        {
+          "level": 3,
+          "title": "0.1 The seven routes",
+          "line": 85
+        },
+        {
+          "level": 3,
+          "title": "0.2 The `[on]` / `[off]` / `[?]` markers — read these before copying a code into a config",
+          "line": 100
+        },
+        {
+          "level": 3,
+          "title": "0.3 The tables are a derivation source, not a reading list",
+          "line": 125
+        },
+        {
+          "level": 3,
+          "title": "0.4 pylint and pyright status caveats",
+          "line": 145
+        },
+        {
+          "level": 2,
+          "title": "1. Three asymmetries that make the routing tables worth reading",
+          "line": 155
+        },
+        {
+          "level": 3,
+          "title": "1.1 ruff 0.16.0: the default set is not a standard",
+          "line": 157
+        },
+        {
+          "level": 3,
+          "title": "1.2 mypy splits hazard codes between default-on and opt-in",
+          "line": 187
+        },
+        {
+          "level": 3,
+          "title": "1.3 pyright strict does not enable everything",
+          "line": 206
+        },
+        {
+          "level": 3,
+          "title": "1.4 Rule-code stability is a live risk, and this file does not eliminate it",
+          "line": 226
+        },
+        {
+          "level": 2,
+          "title": "2. Hazard class: binding time",
+          "line": 242
+        },
+        {
+          "level": 2,
+          "title": "3. Hazard class: scoping and shadowing",
+          "line": 286
+        },
+        {
+          "level": 2,
+          "title": "4. Hazard class: identity, equality and truthiness",
+          "line": 332
+        },
+        {
+          "level": 2,
+          "title": "5. Hazard class: aliasing and copy depth",
+          "line": 375
+        },
+        {
+          "level": 2,
+          "title": "6. Hazard class: iteration and ordering",
+          "line": 404
+        },
+        {
+          "level": 2,
+          "title": "7. Hazard class: numeric, temporal and textual representation",
+          "line": 438
+        },
+        {
+          "level": 3,
+          "title": "7.1 Numeric-domain decision",
+          "line": 471
+        },
+        {
+          "level": 3,
+          "title": "7.2 Routing",
+          "line": 484
+        },
+        {
+          "level": 2,
+          "title": "8. Hazard class: exception mechanics",
+          "line": 501
+        },
+        {
+          "level": 2,
+          "title": "9. Hazard class: module initialisation and module-level state",
+          "line": 541
+        },
+        {
+          "level": 2,
+          "title": "10. Hazard class: static invisibility (dynamic access and stale suppressions)",
+          "line": 575
+        },
+        {
+          "level": 2,
+          "title": "11. Hazard class: object lifetime and resource release",
+          "line": 614
+        },
+        {
+          "level": 2,
+          "title": "12. Hazard class: records, immutability and subclassing",
+          "line": 656
+        },
+        {
+          "level": 2,
+          "title": "13. Hazard class: security-adjacent constructs",
+          "line": 721
+        },
+        {
+          "level": 2,
+          "title": "14. Hazard class: concurrency assumptions visible from single-threaded code",
+          "line": 779
+        },
+        {
+          "level": 2,
+          "title": "15. Silently-ineffective constructs",
+          "line": 829
+        },
+        {
+          "level": 2,
+          "title": "16. Rules that fight each other",
+          "line": 867
+        },
+        {
+          "level": 3,
+          "title": "16.1 `B023` (late-binding closures) versus `B006` (mutable defaults) — the real one",
+          "line": 869
+        },
+        {
+          "level": 3,
+          "title": "16.2 Four more, resolved briefly",
+          "line": 891
+        },
+        {
+          "level": 2,
+          "title": "17. Autofix is not safe by default",
+          "line": 917
+        },
+        {
+          "level": 2,
+          "title": "18. The maximal-safety modern subset for a new 3.14 project",
+          "line": 950
+        },
+        {
+          "level": 2,
+          "title": "19. Route tallies and the honest residue",
+          "line": 998
+        },
+        {
+          "level": 2,
+          "title": "Anti-patterns checklist",
+          "line": 1036
+        },
+        {
+          "level": 2,
+          "title": "Open questions to resolve before building",
+          "line": 1093
+        },
+        {
+          "level": 2,
+          "title": "Sources (accessed 8 Aug 2026)",
+          "line": 1145
+        },
+        {
+          "level": 3,
+          "title": "Sibling manifests (cross-referenced, not duplicated)",
+          "line": 1331
+        }
+      ]
+    },
+    {
+      "file": "reference/python_linting_practices_manifest.md",
+      "pillar": "maintainable",
+      "role": "the rule set as a committed artefact, family-by-family verdicts, fix safety, the division of labour, suppression hygiene, and the practice + anti-pattern catalogue",
+      "lines": 1887,
+      "bytes": 150540,
+      "sections": [
+        {
+          "level": 2,
+          "title": "TL;DR",
+          "line": 53
+        },
+        {
+          "level": 2,
+          "title": "1. The five layers, and the routing vocabulary",
+          "line": 88
+        },
+        {
+          "level": 2,
+          "title": "2. The rule set is a committed artefact",
+          "line": 122
+        },
+        {
+          "level": 3,
+          "title": "2.1 The 0.16.0 default-set rupture",
+          "line": 124
+        },
+        {
+          "level": 3,
+          "title": "2.2 The 18 codes removed from the default set",
+          "line": 147
+        },
+        {
+          "level": 3,
+          "title": "2.3 `select` replaces; `extend-select` adds",
+          "line": 157
+        },
+        {
+          "level": 3,
+          "title": "2.4 Configuration surface, and stating `target-version`",
+          "line": 175
+        },
+        {
+          "level": 3,
+          "title": "2.5 Preview mode - a rule you cannot select is a rule you only think you have",
+          "line": 209
+        },
+        {
+          "level": 2,
+          "title": "3. The family map, and a verdict for each family",
+          "line": 243
+        },
+        {
+          "level": 3,
+          "title": "3.1 What ruff consolidated",
+          "line": 245
+        },
+        {
+          "level": 3,
+          "title": "3.2 Per-family verdict for a small strictly-typed project",
+          "line": 276
+        },
+        {
+          "level": 2,
+          "title": "4. The high-value subset: rules that catch what a type checker cannot",
+          "line": 345
+        },
+        {
+          "level": 3,
+          "title": "4.1 Already on by default - do not re-add, do not lose",
+          "line": 353
+        },
+        {
+          "level": 3,
+          "title": "4.2 Off by default - and an agent will assume otherwise",
+          "line": 375
+        },
+        {
+          "level": 3,
+          "title": "4.3 The rule set as a config block",
+          "line": 400
+        },
+        {
+          "level": 2,
+          "title": "5. Fix safety is a semantics contract, not a convenience",
+          "line": 482
+        },
+        {
+          "level": 3,
+          "title": "5.1 The split",
+          "line": 484
+        },
+        {
+          "level": 3,
+          "title": "5.2 The five autofixes that change meaning while looking harmless",
+          "line": 503
+        },
+        {
+          "level": 3,
+          "title": "5.3 Fix policy",
+          "line": 515
+        },
+        {
+          "level": 2,
+          "title": "6. Rules that must be disabled because another layer owns the defect",
+          "line": 531
+        },
+        {
+          "level": 3,
+          "title": "6.1 Formatter-owned - and ruff warns about only two of them",
+          "line": 533
+        },
+        {
+          "level": 3,
+          "title": "6.2 Type-checker-owned",
+          "line": 571
+        },
+        {
+          "level": 3,
+          "title": "6.3 `lint.pydocstyle.convention` defaults to `null`, and `null` is not neutral",
+          "line": 587
+        },
+        {
+          "level": 2,
+          "title": "7. Formatting is not negotiable and is not a code-review topic",
+          "line": 624
+        },
+        {
+          "level": 2,
+          "title": "8. Suppression hygiene as a contract",
+          "line": 656
+        },
+        {
+          "level": 3,
+          "title": "8.1 Every suppression channel",
+          "line": 662
+        },
+        {
+          "level": 3,
+          "title": "8.2 The hygiene rule family - only three are default-on",
+          "line": 688
+        },
+        {
+          "level": 3,
+          "title": "8.3 The type-checker mirror, including one silent hole",
+          "line": 718
+        },
+        {
+          "level": 3,
+          "title": "8.4 The reason requirement is contract-only",
+          "line": 736
+        },
+        {
+          "level": 3,
+          "title": "8.5 Census and ratchet",
+          "line": 751
+        },
+        {
+          "level": 2,
+          "title": "9. Is pylint worth it at this scale? A measured answer",
+          "line": 770
+        },
+        {
+          "level": 2,
+          "title": "10. Extensibility: what you can actually mechanise",
+          "line": 816
+        },
+        {
+          "level": 3,
+          "title": "10.1 `TID251 banned-api` - the one project-specific rule engine ruff has",
+          "line": 818
+        },
+        {
+          "level": 3,
+          "title": "10.2 Ruff accepts no plugins - do not propose one",
+          "line": 828
+        },
+        {
+          "level": 3,
+          "title": "10.3 The ladder, in ascending cost",
+          "line": 839
+        },
+        {
+          "level": 2,
+          "title": "11. Function altitude",
+          "line": 873
+        },
+        {
+          "level": 3,
+          "title": "11.1 Sizing: a proxy is not a measure",
+          "line": 875
+        },
+        {
+          "level": 3,
+          "title": "11.2 Parameters: count, and the two symbols that fix it",
+          "line": 896
+        },
+        {
+          "level": 3,
+          "title": "11.3 The boolean trap",
+          "line": 917
+        },
+        {
+          "level": 3,
+          "title": "11.4 Guard clauses, early return, and return-shape consistency",
+          "line": 939
+        },
+        {
+          "level": 3,
+          "title": "11.5 Magic values, and purity",
+          "line": 960
+        },
+        {
+          "level": 2,
+          "title": "12. Module altitude: the liftable unit",
+          "line": 976
+        },
+        {
+          "level": 3,
+          "title": "12.1 What belongs in `__init__.py`",
+          "line": 985
+        },
+        {
+          "level": 3,
+          "title": "12.2 Explicit re-export, `__all__`, and the underscore",
+          "line": 1003
+        },
+        {
+          "level": 3,
+          "title": "12.3 Naming: what PEP 8 fixes, and what the project must pin",
+          "line": 1040
+        },
+        {
+          "level": 3,
+          "title": "12.4 No work at import time",
+          "line": 1063
+        },
+        {
+          "level": 3,
+          "title": "12.5 Structuring a module so it can be lifted",
+          "line": 1081
+        },
+        {
+          "level": 2,
+          "title": "13. Expression altitude",
+          "line": 1097
+        },
+        {
+          "level": 3,
+          "title": "13.1 Comprehensions, generators, and one honest gap",
+          "line": 1102
+        },
+        {
+          "level": 3,
+          "title": "13.2 `zip`, `enumerate`, and the fix that preserves the bug",
+          "line": 1125
+        },
+        {
+          "level": 3,
+          "title": "13.3 `pathlib` is not a drop-in replacement",
+          "line": 1135
+        },
+        {
+          "level": 3,
+          "title": "13.4 f-strings, and the one place the advice inverts",
+          "line": 1151
+        },
+        {
+          "level": 3,
+          "title": "13.5 `contextlib` helpers and their two documented traps",
+          "line": 1172
+        },
+        {
+          "level": 3,
+          "title": "13.6 `functools` caching, and what it retains",
+          "line": 1189
+        },
+        {
+          "level": 3,
+          "title": "13.7 The `match` statement: five ways it silently does nothing",
+          "line": 1215
+        },
+        {
+          "level": 3,
+          "title": "13.8 Walrus discipline, and `itertools` hazards",
+          "line": 1244
+        },
+        {
+          "level": 2,
+          "title": "14. Data-shape decisions",
+          "line": 1269
+        },
+        {
+          "level": 3,
+          "title": "14.1 Dataclass sharp edges",
+          "line": 1293
+        },
+        {
+          "level": 3,
+          "title": "14.2 Enum sharp edges",
+          "line": 1320
+        },
+        {
+          "level": 3,
+          "title": "14.3 Typed wrappers against primitive obsession",
+          "line": 1343
+        },
+        {
+          "level": 2,
+          "title": "15. Docstrings as contracts",
+          "line": 1360
+        },
+        {
+          "level": 3,
+          "title": "15.1 What PEP 257 actually requires",
+          "line": 1366
+        },
+        {
+          "level": 3,
+          "title": "15.2 The enforcement ladder: presence -> convention -> coverage -> agreement -> truth",
+          "line": 1407
+        },
+        {
+          "level": 3,
+          "title": "15.3 doctest: executable documentation, not a test suite",
+          "line": 1425
+        },
+        {
+          "level": 2,
+          "title": "16. Named anti-patterns: the name, the source, the route",
+          "line": 1453
+        },
+        {
+          "level": 2,
+          "title": "Anti-patterns checklist",
+          "line": 1506
+        },
+        {
+          "level": 2,
+          "title": "Open questions to resolve before building",
+          "line": 1584
+        },
+        {
+          "level": 2,
+          "title": "Sources (accessed 8 Aug 2026)",
+          "line": 1653
+        },
+        {
+          "level": 3,
+          "title": "Sibling manifests (cross-referenced, not duplicated)",
+          "line": 1849
+        }
+      ]
+    },
+    {
+      "file": "reference/python_typing_contract_manifest.md",
+      "pillar": "maintainable",
+      "role": "the four checkers and what 'strict' means in each, the typing vocabulary for contracts, deferred annotations, boundary-validation library choice, what the type system cannot express",
+      "lines": 530,
+      "bytes": 181018,
+      "sections": [
+        {
+          "level": 2,
+          "title": "TL;DR",
+          "line": 9
+        },
+        {
+          "level": 2,
+          "title": "Key Findings",
+          "line": 19
+        },
+        {
+          "level": 2,
+          "title": "Details",
+          "line": 36
+        },
+        {
+          "level": 3,
+          "title": "1. The four-checker landscape and what \"strict\" means in each",
+          "line": 38
+        },
+        {
+          "level": 3,
+          "title": "2. The typing vocabulary for contracts",
+          "line": 102
+        },
+        {
+          "level": 3,
+          "title": "2a. Deferred annotation evaluation (PEP 649 / PEP 749) and `annotationlib`",
+          "line": 133
+        },
+        {
+          "level": 3,
+          "title": "3. Explicit conversion and cast discipline",
+          "line": 158
+        },
+        {
+          "level": 3,
+          "title": "3a. Suppression hygiene — the `# type: ignore` contract",
+          "line": 167
+        },
+        {
+          "level": 3,
+          "title": "4. What the type system CANNOT express",
+          "line": 182
+        },
+        {
+          "level": 3,
+          "title": "5. Runtime contract-enforcement landscape",
+          "line": 196
+        },
+        {
+          "level": 3,
+          "title": "6. Immutability and purity signalling",
+          "line": 253
+        },
+        {
+          "level": 3,
+          "title": "7. Contract documentation conventions",
+          "line": 287
+        },
+        {
+          "level": 3,
+          "title": "8. Open questions and version caveats",
+          "line": 302
+        },
+        {
+          "level": 2,
+          "title": "Recommendations",
+          "line": 327
+        },
+        {
+          "level": 2,
+          "title": "Anti-patterns (rejection list)",
+          "line": 343
+        },
+        {
+          "level": 2,
+          "title": "Caveats",
+          "line": 387
+        },
+        {
+          "level": 2,
+          "title": "Sources",
+          "line": 399
+        },
+        {
+          "level": 3,
+          "title": "Added or re-verified 8 August 2026",
+          "line": 425
+        },
+        {
+          "level": 3,
+          "title": "Named-vocabulary sources (as recorded in the SWE design-elements corpus)",
+          "line": 495
+        },
+        {
+          "level": 3,
+          "title": "Sibling manifests (cross-referenced, not duplicated)",
+          "line": 517
+        }
+      ]
+    },
+    {
+      "file": "reference/python_module_boundaries_manifest.md",
+      "pillar": "modular",
+      "role": "project layout, the pyproject spine, dependency declaration, the import system as a boundary, machine-enforced dependency direction, plugin seams, the change contract",
+      "lines": 1678,
+      "bytes": 120215,
+      "sections": [
+        {
+          "level": 2,
+          "title": "TL;DR",
+          "line": 27
+        },
+        {
+          "level": 2,
+          "title": "1. The unit of change",
+          "line": 54
+        },
+        {
+          "level": 3,
+          "title": "1.1 Three nested units",
+          "line": 56
+        },
+        {
+          "level": 3,
+          "title": "1.2 One package, one public surface",
+          "line": 73
+        },
+        {
+          "level": 3,
+          "title": "1.3 The five-rung ladder from preference to refusal",
+          "line": 89
+        },
+        {
+          "level": 3,
+          "title": "1.4 Where the interface lives",
+          "line": 123
+        },
+        {
+          "level": 3,
+          "title": "1.5 Module state is part of the boundary",
+          "line": 144
+        },
+        {
+          "level": 2,
+          "title": "2. The build-system contract",
+          "line": 172
+        },
+        {
+          "level": 3,
+          "title": "2.1 `[build-system]` is the only portable contract between a source tree and an installer",
+          "line": 174
+        },
+        {
+          "level": 3,
+          "title": "2.2 Backend decision table",
+          "line": 197
+        },
+        {
+          "level": 3,
+          "title": "2.3 Dynamic metadata, and what it costs",
+          "line": 227
+        },
+        {
+          "level": 3,
+          "title": "2.4 `python -m build` is the packaging test",
+          "line": 248
+        },
+        {
+          "level": 2,
+          "title": "3. Layout is a boundary",
+          "line": 261
+        },
+        {
+          "level": 3,
+          "title": "3.1 The mechanism, not the preference",
+          "line": 263
+        },
+        {
+          "level": 3,
+          "title": "3.2 The four documented failure modes src layout prevents",
+          "line": 277
+        },
+        {
+          "level": 3,
+          "title": "3.3 The verification nobody runs",
+          "line": 298
+        },
+        {
+          "level": 3,
+          "title": "3.4 setuptools auto-discovery: three silent behaviours",
+          "line": 316
+        },
+        {
+          "level": 2,
+          "title": "4. Dependency declaration: four tables, four audiences",
+          "line": 338
+        },
+        {
+          "level": 2,
+          "title": "5. Metadata fields that change behaviour",
+          "line": 404
+        },
+        {
+          "level": 2,
+          "title": "6. The import system as architecture",
+          "line": 464
+        },
+        {
+          "level": 3,
+          "title": "6.1 A module is in `sys.modules` before its body runs",
+          "line": 468
+        },
+        {
+          "level": 3,
+          "title": "6.2 Absolute versus relative imports",
+          "line": 505
+        },
+        {
+          "level": 3,
+          "title": "6.3 `__init__.py` re-export policy and `__all__`",
+          "line": 525
+        },
+        {
+          "level": 3,
+          "title": "6.4 The underscore convention is Python's only visibility mechanism, and it is not one",
+          "line": 550
+        },
+        {
+          "level": 3,
+          "title": "6.5 Import-time side effects",
+          "line": 564
+        },
+        {
+          "level": 3,
+          "title": "6.6 Deliberate laziness, and what each mechanism costs",
+          "line": 579
+        },
+        {
+          "level": 2,
+          "title": "7. The dependency rule, enforced",
+          "line": 628
+        },
+        {
+          "level": 3,
+          "title": "7.1 Name the tactic, then name the file that enforces it",
+          "line": 632
+        },
+        {
+          "level": 3,
+          "title": "7.2 Tool division of labour — none substitutes for another",
+          "line": 676
+        },
+        {
+          "level": 3,
+          "title": "7.3 import-linter: five contract types",
+          "line": 690
+        },
+        {
+          "level": 3,
+          "title": "7.4 The import-linter traps — each one produces a green build that checks nothing",
+          "line": 741
+        },
+        {
+          "level": 3,
+          "title": "7.5 Tach: the same job, a different default",
+          "line": 782
+        },
+        {
+          "level": 3,
+          "title": "7.6 deptry: a different axis entirely",
+          "line": 846
+        },
+        {
+          "level": 3,
+          "title": "7.7 pydeps, and the honest limits of pictures",
+          "line": 864
+        },
+        {
+          "level": 3,
+          "title": "7.8 What none of these tools can see",
+          "line": 871
+        },
+        {
+          "level": 2,
+          "title": "8. Plugin seams and the composition root",
+          "line": 895
+        },
+        {
+          "level": 3,
+          "title": "8.1 Binding time is a decision",
+          "line": 897
+        },
+        {
+          "level": 3,
+          "title": "8.2 Entry points, end to end",
+          "line": 916
+        },
+        {
+          "level": 3,
+          "title": "8.3 PEP 420 namespace packages and their traps",
+          "line": 956
+        },
+        {
+          "level": 3,
+          "title": "8.4 The composition root",
+          "line": 977
+        },
+        {
+          "level": 3,
+          "title": "8.5 Adapting at the seam, and contracts that are build inputs",
+          "line": 1018
+        },
+        {
+          "level": 2,
+          "title": "9. The change contract",
+          "line": 1040
+        },
+        {
+          "level": 3,
+          "title": "9.1 PEP 440 versions, and four specifier traps",
+          "line": 1042
+        },
+        {
+          "level": 3,
+          "title": "9.2 A deprecation policy needs a stated window",
+          "line": 1059
+        },
+        {
+          "level": 3,
+          "title": "9.3 Making a deprecation visible — the part that is always missing",
+          "line": 1075
+        },
+        {
+          "level": 3,
+          "title": "9.4 Deprecating a module-level name",
+          "line": 1115
+        },
+        {
+          "level": 3,
+          "title": "9.5 Expand / migrate / contract is the migration shape",
+          "line": 1140
+        },
+        {
+          "level": 2,
+          "title": "10. Incremental build",
+          "line": 1159
+        },
+        {
+          "level": 3,
+          "title": "10.1 Editable installs: what they actually are",
+          "line": 1161
+        },
+        {
+          "level": 3,
+          "title": "10.2 uv workspaces for a multi-package repository",
+          "line": 1178
+        },
+        {
+          "level": 3,
+          "title": "10.3 Splitting a module without breaking importers",
+          "line": 1218
+        },
+        {
+          "level": 2,
+          "title": "11. Documenting the boundary",
+          "line": 1255
+        },
+        {
+          "level": 2,
+          "title": "12. The minimum viable boundary contract for a single-package project",
+          "line": 1306
+        },
+        {
+          "level": 2,
+          "title": "Anti-patterns checklist",
+          "line": 1351
+        },
+        {
+          "level": 2,
+          "title": "Open questions to resolve before building",
+          "line": 1434
+        },
+        {
+          "level": 2,
+          "title": "Sources (accessed 8 Aug 2026)",
+          "line": 1480
+        },
+        {
+          "level": 3,
+          "title": "Sibling manifests (cross-referenced, not duplicated)",
+          "line": 1649
+        }
+      ]
+    },
+    {
+      "file": "reference/architecture_manifest_default.md",
+      "pillar": "reasoning-frame",
+      "role": "language-agnostic: vocabulary, the paradigm menu with tradeoffs, cross-cutting concerns, testability/debuggability/refactoring families. Prescribes nothing. NO version facts, NO tags by design",
+      "lines": 696,
+      "bytes": 33408,
+      "sections": [
+        {
+          "level": 2,
+          "title": "Purpose",
+          "line": 3
+        },
+        {
+          "level": 2,
+          "title": "1. Vocabulary",
+          "line": 15
+        },
+        {
+          "level": 2,
+          "title": "2. The Paradigm Menu",
+          "line": 48
+        },
+        {
+          "level": 3,
+          "title": "Structured / procedural",
+          "line": 54
+        },
+        {
+          "level": 3,
+          "title": "Modular",
+          "line": 63
+        },
+        {
+          "level": 3,
+          "title": "Ports and adapters (hexagonal)",
+          "line": 72
+        },
+        {
+          "level": 3,
+          "title": "Object-oriented",
+          "line": 94
+        },
+        {
+          "level": 3,
+          "title": "Functional",
+          "line": 106
+        },
+        {
+          "level": 3,
+          "title": "Contract-based / design-by-contract",
+          "line": 117
+        },
+        {
+          "level": 3,
+          "title": "Event-driven",
+          "line": 127
+        },
+        {
+          "level": 3,
+          "title": "Actor / message-passing",
+          "line": 138
+        },
+        {
+          "level": 3,
+          "title": "Dataflow / pipeline",
+          "line": 148
+        },
+        {
+          "level": 3,
+          "title": "Type-driven / declarative",
+          "line": 157
+        },
+        {
+          "level": 2,
+          "title": "3. Cross-Cutting Concerns",
+          "line": 170
+        },
+        {
+          "level": 3,
+          "title": "3.1 Coupling and cohesion",
+          "line": 172
+        },
+        {
+          "level": 3,
+          "title": "3.2 State and ownership",
+          "line": 189
+        },
+        {
+          "level": 3,
+          "title": "3.3 Error handling",
+          "line": 203
+        },
+        {
+          "level": 3,
+          "title": "3.4 Concurrency",
+          "line": 221
+        },
+        {
+          "level": 3,
+          "title": "3.5 Interfaces and contracts",
+          "line": 248
+        },
+        {
+          "level": 3,
+          "title": "3.6 Observability",
+          "line": 264
+        },
+        {
+          "level": 3,
+          "title": "3.7 Modifiability tactics",
+          "line": 277
+        },
+        {
+          "level": 2,
+          "title": "4. Testability Patterns",
+          "line": 337
+        },
+        {
+          "level": 3,
+          "title": "4.1 The test pyramid, in architectural terms",
+          "line": 339
+        },
+        {
+          "level": 3,
+          "title": "4.2 Seams",
+          "line": 351
+        },
+        {
+          "level": 3,
+          "title": "4.3 Test doubles",
+          "line": 388
+        },
+        {
+          "level": 3,
+          "title": "4.4 Determinism",
+          "line": 398
+        },
+        {
+          "level": 3,
+          "title": "4.5 The testability tactics, named",
+          "line": 416
+        },
+        {
+          "level": 3,
+          "title": "4.6 Three reasons to substitute, three exit criteria",
+          "line": 469
+        },
+        {
+          "level": 2,
+          "title": "5. Debuggability Patterns",
+          "line": 489
+        },
+        {
+          "level": 3,
+          "title": "5.1 Fault isolation topology",
+          "line": 494
+        },
+        {
+          "level": 3,
+          "title": "5.2 Observable boundaries",
+          "line": 506
+        },
+        {
+          "level": 3,
+          "title": "5.3 Error propagation discipline",
+          "line": 519
+        },
+        {
+          "level": 3,
+          "title": "5.4 State transition tracing",
+          "line": 530
+        },
+        {
+          "level": 3,
+          "title": "5.5 Design for diagnosis",
+          "line": 537
+        },
+        {
+          "level": 2,
+          "title": "6. Refactoring Patterns",
+          "line": 582
+        },
+        {
+          "level": 2,
+          "title": "7. Common Tradeoff Axes",
+          "line": 612
+        },
+        {
+          "level": 2,
+          "title": "8. Where This File Is Instantiated",
+          "line": 658
+        }
+      ]
+    },
+    {
+      "file": "reference/software_spec_discipline_manifest.md",
+      "pillar": "reasoning-frame",
+      "role": "language-agnostic: how to write an implementation-agnostic spec - contract-not-computation, the requirements cascade, reusability, traceability, and the ASSUMED/NEEDS-INPUT split for OPEN items",
+      "lines": 178,
+      "bytes": 11874,
+      "sections": [
+        {
+          "level": 2,
+          "title": "A. The implementation-agnostic specification boundary",
+          "line": 22
+        },
+        {
+          "level": 2,
+          "title": "B. The requirements cascade (roles, altitudes, feedback)",
+          "line": 43
+        },
+        {
+          "level": 2,
+          "title": "C. Reusability as a first-class objective",
+          "line": 68
+        },
+        {
+          "level": 2,
+          "title": "D. Requirements elicitation discipline",
+          "line": 92
+        },
+        {
+          "level": 2,
+          "title": "E. Requirements writing discipline",
+          "line": 114
+        },
+        {
+          "level": 2,
+          "title": "F. Testability reasoning framework (judgment half)",
+          "line": 135
+        },
+        {
+          "level": 2,
+          "title": "G. Spec output and traceability discipline",
+          "line": 161
+        }
+      ]
+    },
+    {
+      "file": "reference/python_testing_tooling_manifest.md",
+      "pillar": "testable",
+      "role": "pytest configuration surface, fixture and Hypothesis mechanics, test doubles, testability tactics, coverage as a diagnostic, determinism obligations",
+      "lines": 595,
+      "bytes": 167528,
+      "sections": [
+        {
+          "level": 2,
+          "title": "TL;DR",
+          "line": 5
+        },
+        {
+          "level": 2,
+          "title": "Key Findings",
+          "line": 13
+        },
+        {
+          "level": 2,
+          "title": "Details",
+          "line": 26
+        },
+        {
+          "level": 3,
+          "title": "1. Test framework landscape",
+          "line": 28
+        },
+        {
+          "level": 3,
+          "title": "1a. The pytest 9 configuration surface (settled)",
+          "line": 49
+        },
+        {
+          "level": 3,
+          "title": "2. The unit–integration boundary (definitional)",
+          "line": 82
+        },
+        {
+          "level": 3,
+          "title": "2a. Test shape: the four-phase test, and fixture strategy as a decision",
+          "line": 92
+        },
+        {
+          "level": 3,
+          "title": "3. Test doubles, precisely",
+          "line": 100
+        },
+        {
+          "level": 3,
+          "title": "4. Property-based testing (Hypothesis)",
+          "line": 124
+        },
+        {
+          "level": 3,
+          "title": "4a. Hypothesis settings, the CI profile, and the health checks",
+          "line": 143
+        },
+        {
+          "level": 3,
+          "title": "5. Specifying obligations vs. writing tests",
+          "line": 169
+        },
+        {
+          "level": 3,
+          "title": "5a. Coverage measurement mechanics, and the arithmetic that makes thresholds lie",
+          "line": 188
+        },
+        {
+          "level": 3,
+          "title": "5b. Verification depth beyond coverage: mutation testing",
+          "line": 216
+        },
+        {
+          "level": 3,
+          "title": "5c. Testing the error contract",
+          "line": 228
+        },
+        {
+          "level": 3,
+          "title": "6. Integration-test strategy primitives",
+          "line": 240
+        },
+        {
+          "level": 3,
+          "title": "6a. Constructing test data: builder as the default, object mother as the named alternative",
+          "line": 272
+        },
+        {
+          "level": 3,
+          "title": "6b. Recorded-output tests: golden master, snapshots, and record/replay",
+          "line": 282
+        },
+        {
+          "level": 3,
+          "title": "6c. Determinism obligations for tests",
+          "line": 292
+        },
+        {
+          "level": 3,
+          "title": "6d. Async test execution: two plugins, two task semantics",
+          "line": 311
+        },
+        {
+          "level": 3,
+          "title": "6e. Parallel execution: pytest-xdist distribution modes",
+          "line": 332
+        },
+        {
+          "level": 3,
+          "title": "7. Testability design patterns (verification-relevant facts)",
+          "line": 347
+        },
+        {
+          "level": 3,
+          "title": "7a. Testability tactics, and the construct→tactic mapping",
+          "line": 359
+        },
+        {
+          "level": 3,
+          "title": "8. Open questions and version caveats",
+          "line": 396
+        },
+        {
+          "level": 2,
+          "title": "Recommendations",
+          "line": 418
+        },
+        {
+          "level": 2,
+          "title": "Caveats",
+          "line": 430
+        },
+        {
+          "level": 2,
+          "title": "Anti-patterns checklist",
+          "line": 437
+        },
+        {
+          "level": 2,
+          "title": "Sources",
+          "line": 493
+        },
+        {
+          "level": 3,
+          "title": "Verified 2026-08-08 — tool and library primary sources",
+          "line": 497
+        },
+        {
+          "level": 3,
+          "title": "Verified 2026-08-08 — named vocabulary (works, standards, articles)",
+          "line": 540
+        },
+        {
+          "level": 3,
+          "title": "Secondary or unresolved, 2026-08-08",
+          "line": 562
+        },
+        {
+          "level": 3,
+          "title": "Retained from the 2026-06-16 pass (accessed 16 Jun 2026)",
+          "line": 567
+        },
+        {
+          "level": 3,
+          "title": "Sibling manifests (cross-referenced, not duplicated)",
+          "line": 583
+        }
+      ]
+    },
+    {
+      "file": "reference/python_platform_baseline_manifest.md",
+      "pillar": "version-hub",
+      "role": "CPython release/support matrix, PEP-status-by-version, feature-availability ledger, build variants (free-threaded/JIT/tail-call), -X and PYTHON* switchboard, removal calendar, the requires-python floor decision",
+      "lines": 1257,
+      "bytes": 96986,
+      "sections": [
+        {
+          "level": 2,
+          "title": "TL;DR",
+          "line": 26
+        },
+        {
+          "level": 2,
+          "title": "1. The support matrix — which Pythons exist on 2026-08-08",
+          "line": 54
+        },
+        {
+          "level": 3,
+          "title": "1a. Branch, phase, artefact",
+          "line": 56
+        },
+        {
+          "level": 3,
+          "title": "1b. What each phase actually permits",
+          "line": 81
+        },
+        {
+          "level": 3,
+          "title": "1c. Version strings and identity",
+          "line": 107
+        },
+        {
+          "level": 2,
+          "title": "2. Release-cycle mechanics an agent must not guess",
+          "line": 118
+        },
+        {
+          "level": 3,
+          "title": "2a. Annual features, bi-monthly fixes",
+          "line": 120
+        },
+        {
+          "level": 3,
+          "title": "2b. The two freeze points, and why rc matters more than \"stable\"",
+          "line": 128
+        },
+        {
+          "level": 3,
+          "title": "2c. The support shape: bugfix inside a five-year total",
+          "line": 147
+        },
+        {
+          "level": 3,
+          "title": "2d. Numbering: no CalVer, no 3.26",
+          "line": 167
+        },
+        {
+          "level": 3,
+          "title": "2e. Release-artefact verification changed at 3.14",
+          "line": 173
+        },
+        {
+          "level": 2,
+          "title": "3. Choosing a minimum target",
+          "line": 182
+        },
+        {
+          "level": 3,
+          "title": "3a. What `requires-python` is",
+          "line": 184
+        },
+        {
+          "level": 3,
+          "title": "3b. `requires-python` is not your test matrix",
+          "line": 195
+        },
+        {
+          "level": 3,
+          "title": "3c. Why the newest release is rarely the right floor",
+          "line": 203
+        },
+        {
+          "level": 3,
+          "title": "3d. The named support-window policies",
+          "line": 224
+        },
+        {
+          "level": 3,
+          "title": "3e. Floor decision table — and the recommended default",
+          "line": 245
+        },
+        {
+          "level": 2,
+          "title": "4. Feature-availability ledger",
+          "line": 310
+        },
+        {
+          "level": 3,
+          "title": "4a. Language, runtime and stdlib constructs",
+          "line": 320
+        },
+        {
+          "level": 3,
+          "title": "4b. Typing PEP status ledger",
+          "line": 359
+        },
+        {
+          "level": 3,
+          "title": "4c. Packaging and metadata standards — status only",
+          "line": 420
+        },
+        {
+          "level": 3,
+          "title": "4d. The hallucination set — PEPs that describe nothing available",
+          "line": 451
+        },
+        {
+          "level": 2,
+          "title": "5. Build variants — one version number, several interpreters",
+          "line": 472
+        },
+        {
+          "level": 3,
+          "title": "5a. Free-threaded builds: the phase model",
+          "line": 477
+        },
+        {
+          "level": 3,
+          "title": "5b. Detecting which build you are on",
+          "line": 503
+        },
+        {
+          "level": 3,
+          "title": "5c. The silent GIL re-enablement",
+          "line": 531
+        },
+        {
+          "level": 3,
+          "title": "5d. The experimental JIT",
+          "line": 553
+        },
+        {
+          "level": 3,
+          "title": "5e. The tail-call interpreter",
+          "line": 568
+        },
+        {
+          "level": 3,
+          "title": "5f. What the official binaries actually are",
+          "line": 583
+        },
+        {
+          "level": 3,
+          "title": "5g. Debug and trace builds",
+          "line": 600
+        },
+        {
+          "level": 3,
+          "title": "5h. The build-configuration stamp",
+          "line": 610
+        },
+        {
+          "level": 2,
+          "title": "6. The interpreter switchboard",
+          "line": 632
+        },
+        {
+          "level": 3,
+          "title": "6a. `-X` options and `PYTHON*` variables that matter",
+          "line": 634
+        },
+        {
+          "level": 3,
+          "title": "6b. What `-X dev` does — and the two things it does not",
+          "line": 674
+        },
+        {
+          "level": 3,
+          "title": "6c. Default warning filters — why the removal calendar is silent",
+          "line": 695
+        },
+        {
+          "level": 3,
+          "title": "6d. Switches that change program behaviour, not just reporting",
+          "line": 716
+        },
+        {
+          "level": 2,
+          "title": "7. Deprecation and removal calendar",
+          "line": 739
+        },
+        {
+          "level": 3,
+          "title": "7a. The policy that governs every row below",
+          "line": 741
+        },
+        {
+          "level": 3,
+          "title": "7b. Already removed",
+          "line": 751
+        },
+        {
+          "level": 3,
+          "title": "7c. A private replacement is not a migration target",
+          "line": 779
+        },
+        {
+          "level": 3,
+          "title": "7d. Pending removals, by enforcing version",
+          "line": 789
+        },
+        {
+          "level": 3,
+          "title": "7e. Deprecated with no deadline",
+          "line": 808
+        },
+        {
+          "level": 3,
+          "title": "7f. Behaviour changes that are not removals",
+          "line": 826
+        },
+        {
+          "level": 2,
+          "title": "8. Re-verification protocol",
+          "line": 839
+        },
+        {
+          "level": 3,
+          "title": "8a. The pages to reload, in order",
+          "line": 841
+        },
+        {
+          "level": 3,
+          "title": "8b. Triggers that invalidate this file",
+          "line": 863
+        },
+        {
+          "level": 3,
+          "title": "8c. What \"verified\" means in this file",
+          "line": 881
+        },
+        {
+          "level": 2,
+          "title": "Anti-patterns checklist",
+          "line": 898
+        },
+        {
+          "level": 2,
+          "title": "Open questions to resolve before building",
+          "line": 971
+        },
+        {
+          "level": 2,
+          "title": "Sources (accessed 8 Aug 2026)",
+          "line": 1010
+        },
+        {
+          "level": 3,
+          "title": "Sibling manifests (cross-referenced, not duplicated)",
+          "line": 1229
+        }
+      ]
+    }
+  ]
+}

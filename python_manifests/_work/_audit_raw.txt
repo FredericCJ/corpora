@@ -1,0 +1,355 @@
+####################################################################################################
+### CRITICAL = 7
+
+[CRIT-1] python_linting_practices_manifest.md:311
+  QUOTE: | `LOG001`,`LOG002`,`LOG004`,`LOG009`,`LOG014`,`LOG015` | logging API misuse | `LOG004` Sometimes | ...
+  TRUE : LOG004 (log-exception-outside-except-handler) is NOT default-enabled at ruff 0.16.2. It was stabilised in 0.16.0 (left preview), which is a different fact from being added to the default set. This row is in §4.1, headed "Already on by default - do not re-add, do not lose", so a reader who trusts it will omit LOG004 from `select` and lose 
+  FIX  : Change the row to `| `LOG001`,`LOG002`,`LOG009`,`LOG014`,`LOG015` | logging API misuse | none | ...` and add `LOG004` to the §4.2 "Off by default" table with the note "stabilised in 0.16.0 but not default-enabled".
+
+[CRIT-2] python_quality_gates_manifest.md:1618
+  QUOTE: `"google"` disables `D203`, `D213`, `D214`, `D215`, `D404`, `D405`, `D406`, `D407`, `D408`, `D409`, `D410`, `D411`; `"numpy"` disables that same set **plus `D212` and `D216`**; `"pep257"` disables `D203`, `D213`, `D214`, `D215`, `
+  TRUE : All three lists are wrong, and D216 is not a ruff rule at all. Authoritative exclusion lists: google = D203, D204, D213, D215, D400, D401, D404, D406, D407, D408, D409, D413. numpy = D107, D203, D212, D213, D402, D413, D415, D416, D417. pep257 = D203, D212, D213, D214, D215, D404, D405, D406, D407, D408, D409, D410, D411, D413, D415, D416
+  FIX  : Replace with the three lists from ruff's settings page: `"google"` disables D203, D204, D213, D215, D400, D401, D404, D406, D407, D408, D409, D413; `"numpy"` disables D107, D203, D212, D213, D402, D413, D415, D416, D417; `"pep257"` disables D203, D212, D213, D214, D215, D404–D411, D413, D415, D416, D417, D420. Delete D216 entirely and del
+
+[CRIT-3] python_linting_practices_manifest.md:500
+  QUOTE: `"google"` and `"pep257"` disable `D203`, `D213`, `D214`, `D215`, `D404`, `D405`, `D406`, `D407`, `D408`, `D409`, `D410`, `D411`; `"numpy"` disables that set plus `D212` and `D216`.
+  TRUE : Same defect as python_quality_gates_manifest.md:1618, repeated in the file that OWNS the rule set per PLAN.md. google and pep257 are not identical; numpy disables almost none of the listed codes; D216 does not exist. This file's §4.3 recommended config sets `convention = "google"`, so the wrong disable-list is attached directly to the con
+  FIX  : Same replacement as above: google = D203, D204, D213, D215, D400, D401, D404, D406, D407, D408, D409, D413; numpy = D107, D203, D212, D213, D402, D413, D415, D416, D417; pep257 = D203, D212, D213, D214, D215, D404–D411, D413, D415, D416, D417, D420; drop D216.
+
+[CRIT-4] python_testing_tooling_manifest.md:387
+  QUOTE: a support matrix written today that still lists 3.10 will be claiming support for an end-of-life interpreter within months, so 3.11 is the defensible floor for new work.
+  TRUE : error_tracing_contract_manifest.md:385 explicitly retires exactly this recommendation: "assume **3.13+, and prefer 3.14** ... **The former 3.11+ recommendation is behind the support calendar**: on 2026-08-08 only 3.13 and 3.14 are in the bugfix phase." The hub, which PLAN.md assigns "the minimum-target policy", declares the floor OPEN and
+  FIX  : Replace "so 3.11 is the defensible floor for new work" with "so the lowest CI leg must be re-cut; the minimum-target recommendation itself is owned by `python_platform_baseline_manifest.md` §3d–§3e (currently OPEN), and `error_tracing_contract_manifest.md` §21 records the behaviour-driven case for 3.13+/prefer 3.14." Then reconcile once: 
+
+[CRIT-5] python_linting_practices_manifest.md:347
+  QUOTE: target-version = "py314"          # state it; never rely on requires-python inference
+  TRUE : This is the collection's ONLY copy-paste ruff config block, and it hard-codes py314 with no instruction that the value must equal the project's `requires-python` floor. Ruff's own settings doc defines target-version as the MINIMUM version: "Ruff will not propose changes using features that are not available in the given version", and trea
+  FIX  : Change line 347 to `target-version = "py312"        # MUST equal your requires-python floor (hub §3e); NOT the newest release` and add to the anti-patterns checklist: "- **`target-version` above the `requires-python` floor** — `UP` fixes then emit syntax that is a SyntaxError on the floor you publish (§2.4, hub §3e)."
+
+[CRIT-6] python_linting_practices_manifest.md:354
+  QUOTE:   "D", "PL", "C90", "TC",         # each configured below
+  TRUE : The same config block leaves both exemption lists empty at lines 380-381 (`runtime-evaluated-base-classes = []   # fill before enabling TC001-TC003 (§5.2)` / `runtime-evaluated-decorators = []`). So the block ENABLES TC001-TC003 in exactly the state its own comment forbids. This is verbatim the file's own reject-on-sight anti-pattern at l
+  FIX  : Remove `"TC"` from `select` at line 354 and replace with `"TC004", "TC005", "TC007", "TC010",   # TC001-TC003 only after the runtime-evaluated-* lists below are filled (§5.2)`. Keep the two `runtime-evaluated-*` keys with the existing comment so the upgrade path is visible.
+
+[CRIT-7] README.md:102
+  QUOTE: | **Start a new project** | `python_platform_baseline_manifest.md` → `python_module_boundaries_manifest.md` → `python_typing_contract_manifest.md` → `python_quality_gates_manifest.md` |
+  TRUE : The cold-start reading order omits `python_linting_practices_manifest.md`, which is the ONLY file in the collection containing a `[tool.ruff]` block, an explicit `select` list, the `per-file-ignores`, the formatter/linter division of labour and the pydocstyle convention (§4.3, lines 344-397). `grep -n 'select = \['` returns hits in python
+  FIX  : Rewrite line 102 as: `| **Start a new project** | `python_platform_baseline_manifest.md` → `python_module_boundaries_manifest.md` → `python_typing_contract_manifest.md` → `python_linting_practices_manifest.md` §2-§6 (the `[tool.ruff]` block) → `python_quality_gates_manifest.md` |`
+####################################################################################################
+### MAJOR = 28
+
+[MAJO-1] python_linting_practices_manifest.md:282
+  QUOTE: **Dead configuration nothing warns about.** `TRY200`, `PGH001`, `PGH002` were removed in v0.2.0 and `PT004` was removed - MEASURED. A removed code in `select` is **silently inert**
+  TRUE : Refuted for all four codes, and the label is MEASURED. TRY200/PGH001/PGH002 are redirects, not dead codes: ruff prints a warning AND enables the successor rule (so the config is not inert either — it silently enables B904/S307/G010). PT004 is a hard configuration error that stops ruff. The only genuinely silent case is a *preview* code se
+  FIX  : Rewrite as: "`TRY200`, `PGH001`, `PGH002` are redirects — ruff warns (`has been remapped to B904/S307/G010`) and enables the successor rule; `PT004` was fully removed and ruff refuses to run (`Rule PT004 was removed and cannot be selected`). Removed codes are therefore loud, not silent — MEASURED (0.16.2)."
+
+[MAJO-2] python_language_hazards_manifest.md:862
+  QUOTE: | A removed rule code (`TRY200`, `PGH001`, `PGH002`, `PT004`) in `select` | an enforced rule | inert configuration | nothing flags a dead code in a config file.
+  TRUE : The 'silently ineffective' table row is false for every code it names. Ruff does flag a dead code in a config file. Same claim also asserted at line 245 ("listing a removed code in `select` is silently inert — nothing flags a dead code") and line 1045 ("a removed or preview-gated code in `select` — silently inert").
+  FIX  : Replace the row's outcome/note with: "a *redirect* (`TRY200`→`B904`, `PGH001`→`S307`, `PGH002`→`G010`): ruff warns and enables the successor rule; a *fully removed* code (`PT004`) makes ruff exit with a configuration error. MEASURED (0.16.2)." Correct lines 245 and 1045 to match.
+
+[MAJO-3] python_linting_practices_manifest.md:184
+  QUOTE: A preview rule **cannot be selected at all** while preview is off - not by code, not by prefix, not by `ALL` - and selecting it is **silently ineffective**: no error, no warning, the rule never runs. `select = ["DOC501"]` with pre
+  TRUE : The 'cannot be selected' half is correct; the 'no error, no warning' half is false for exact-code selection — ruff prints `Selection `X` has no effect because preview is not enabled.` It IS silent only when the preview rule is pulled in by *prefix* (`select = ["PLR"]` produced no warning). The claim is ESTABLISHED-tagged in the hazards fi
+  FIX  : Rewrite as: "...and selecting it by exact code produces `warning: Selection `X` has no effect because preview is not enabled.` — a warning, not a failure, so it dies in CI log noise; selection by *prefix* is genuinely silent — MEASURED (0.16.2)." Apply the same correction at line 1407, python_language_hazards_manifest.md:197-199 and pytho
+
+[MAJO-4] python_linting_practices_manifest.md:464
+  QUOTE: **MEASURED - the guard rail does not exist.** Selecting `D203, ISC001, COM812, E501, W191, Q000` alongside the formatter produced **no warning of any kind**. Ruff warns only about *mutually* incompatible lint rules (`D203`/`D211`,
+  TRUE : The guard rail exists and fires — but only from the `ruff format` subcommand, and only for COM812 and D203 (measured silent for W191, Q000, Q001-Q004, D206, D300, ISC001, ISC002, E501). The manifest's blanket refutation is wrong, and it explicitly overrode a fact pack that had the docs right ("the measurement wins") — the measurement was 
+  FIX  : Rewrite as: "**MEASURED - the guard rail is partial and lives in the wrong subcommand.** `ruff format` warns `The following rules may cause conflicts when used with the formatter: COM812, D203` — but only for those two of the fourteen documented conflicts (W191, E111/E114/E117, D206, D300, Q000-Q004, COM819, ISC002 produce no warning), an
+
+[MAJO-5] python_language_hazards_manifest.md:442
+  QUOTE: pylint **W4701**/**W4702**/**W4703** `modified-iterating-list`/`-dict`/`-set` `[?]`
+  TRUE : The dict and set variants are ERROR-category messages E4702 and E4703, not W4702/W4703. W4702 and W4703 do not exist in pylint 4.0.6 — putting them in `enable=`/`disable=` yields a bad-option-value and the check is not configured as intended. The file's own Sources block (lines 1282-1283) claims these symbolic names were "confirmed" on th
+  FIX  : Change to `pylint **W4701**/**E4702**/**E4703** `modified-iterating-list`/`-dict`/`-set``, and correct the code list at lines 1282-1283 (W4701, E4702, E4703). Note in passing that the dict/set variants are `E`, i.e. pylint treats them as errors, not warnings.
+
+[MAJO-6] python_platform_baseline_manifest.md:297
+  QUOTE: | `os.path.realpath(strict=os.path.ALLOW_MISSING)` (added for CVE-2025-4517) | **3.15** | — | — | — |
+  TRUE : `os.path.ALLOW_MISSING` is NOT a 3.15 addition. The 3.14 docs carry "Changed in version 3.14: The ALLOW_MISSING value for the strict parameter was added." and the constant's own entry reads "Added in version 3.14." The 3.13 docs are more precise still: "Changed in version 3.13.4: The ALLOW_MISSING value for the strict parameter was added"
+  FIX  : Replace the Since cell with **3.13.4 / 3.14** and the note with: `os.path.realpath(strict=os.path.ALLOW_MISSING)` (added 3.13.4 as part of the CVE-2025-4517 fix; documented "Changed in version 3.14" in the 3.14 docs). Move the row out of the 3.15 block of §4a into the 3.14 block, and correct _work/facts/r01_platform_baseline.md:91, which 
+
+[MAJO-7] python_platform_baseline_manifest.md:702
+  QUOTE: The 3.15 docs contain **no** "Pending removal in Python 3.15" section, and the 3.15 What's New
+  TRUE : docs.python.org/3.15/deprecations/index.html — the exact page the hub names as re-verification source #8 for §7d/§7e — does contain a "Pending removal in Python 3.15" section. It sits under **C API deprecations** and lists `PyImport_ImportModuleNoBlock()`, `PyWeakref_GetObject()` / `PyWeakref_GET_OBJECT()`, `PyUnicode_AsDecodedObject()`, 
+  FIX  : Rewrite as: "The 3.15 docs contain no *Python-level* \"Pending removal in Python 3.15\" section — everything the 3.14 docs listed as pending for 3.15 has landed. The **C API** half of the page still has one (`PyImport_ImportModuleNoBlock()`, `PyWeakref_GetObject()`/`PyWeakref_GET_OBJECT()`, `PyUnicode_As{Decoded,Encoded}{Object,Unicode}()
+
+[MAJO-8] python_module_boundaries_manifest.md:693
+  QUOTE: | `protected` | nothing outside the allow-list may import the protected modules | `protected_modules`, `allowed_importers`, `as_packages` |
+  TRUE : import-linter's `protected` contract checks **direct** imports only: "Protected contracts prevent modules from being *directly* imported, except by modules in an allow-list" and "no module other than `green` (and its descendants) will be allowed to import `blue` (and its descendants) *directly*." The three neighbouring rows in this same t
+  FIX  : Change the asserts cell to: "nothing outside the allow-list may **directly** import the protected modules — `protected` does not check indirect imports, so `a → b → protected` passes". Add to §7.4 as a new trap: "**`protected` is direct-only.** Unlike `layers`, `forbidden` and `independence`, it does not follow import chains; a re-export 
+
+[MAJO-9] python_language_hazards_manifest.md:150
+  QUOTE: Eighteen codes were simultaneously *removed* from the default set:  ``` E401  E402  E701  E702  E703  E711  E712  E713  E714  E721  E731  E741  E742  E743 F403  F405  F406  F722 ```
+  TRUE : This is a full parallel treatment of content this same file's deferral block cedes: line 30-31 says "**Rule-family config, suppression hygiene, idiom catalogue → `python_linting_practices_manifest.md`**", and PLAN.md says hazards "does **not** enumerate lint config (that is the linting manifest) — it cites the rule code and moves on." pyt
+  FIX  : Cut hazards §1.1 to the routing fact only: "ruff 0.16.0 replaced a 59-rule implicit default with a 413-rule one and dropped 18 codes, two of which (`E711`, `E712`) are the enforcement route for the identity hazard in §4. `lint.select` replaces the default set. The list, the prefix distribution and the preview-selection trap are owned by `
+
+[MAJO-10] python_quality_gates_manifest.md:1620
+  QUOTE: `"google"` disables `D203`, `D213`, `D214`, `D215`, `D404`, `D405`, `D406`, `D407`, `D408`, `D409`, `D410`, `D411`; `"numpy"` disables that same set **plus `D212` and `D216`**; `"pep257"` disables `D203`, `D213`, `D214`, `D215`, `
+  TRUE : python_linting_practices_manifest.md §6.3 (lines 492-506) already owns this exact mechanism with the same disable lists, plus a MEASURED observation gates lacks (ruff's own warning text when `convention` is left `null`). PLAN.md scopes gates to "which checks run, where, how they fail" and says it "does **not** re-teach typing or testing c
+  FIX  : Replace gates §11.1's PEP 257 recap and the convention disable lists with: "PEP 257's normative content and the subtractive `lint.pydocstyle.convention` mechanism (including the exact disabled-code lists) are owned by `python_linting_practices_manifest.md` §6.3 and §15.1. The gate obligations are: (a) `select = [\"D\"]` together with an e
+
+[MAJO-11] python_quality_gates_manifest.md:717
+  QUOTE: ### 6.1 Coverage: the arithmetic that makes thresholds lie
+  TRUE : python_testing_tooling_manifest.md §5a is titled "Coverage measurement mechanics, and the arithmetic that makes thresholds lie" (line 176) and explicitly claims this ground: "Gate **wiring** — which check runs where, with what exit code, and how a standard is adopted incrementally — belongs to `python_quality_gates_manifest.md`; what foll
+  FIX  : Reduce gates §6.1 to wiring only — the exact commands, the exit-code contract (`2`, not `1`), and the required config values (`branch = true`, `precision = 2`, `fail_under` at the measured floor, plus the changed-lines gate) — opening with "The measurement semantics behind each of these is owned by `python_testing_tooling_manifest.md` §5a
+
+[MAJO-12] python_quality_gates_manifest.md:530
+  QUOTE: | a `# noqa` that no longer applies | ruff **`RUF100`** `unused-noqa` (fix Always) | **on by default** | VERSION-DEPENDENT (ruff 0.16.2) |
+  TRUE : The suppression-hygiene rule table now exists in three files. python_linting_practices_manifest.md §8.2 (lines 578-596) is the owner and carries the identical table (RUF100/101/028/102/103/104/PGH003/PGH004 with fix class and default status), and §8.3 (lines 608-624) carries the identical checker mirror (mypy `--warn-unused-ignores`/`--wa
+  FIX  : In gates §4.5 keep only what is gates-only — the five-vocabulary point, the `S` budget formula with its `per-file-ignores`/`ignore_errors` terms, and the two `--fix` hazards — and replace the rule table and checker-mirror rows with "The rule codes, their default status and the per-checker mirror are owned by `python_linting_practices_mani
+
+[MAJO-13] python_quality_gates_manifest.md:613
+  QUOTE: **VERSION-DEPENDENT (mypy 2.3.0).** `--strict` enables exactly thirteen flags: `--disallow-any-generics`, `--disallow-subclassing-any`, `--disallow-untyped-calls`, `--disallow-untyped-defs`, `--disallow-incomplete-defs`, `--check-
+  TRUE : The same version-volatile 13-item list is enumerated in python_typing_contract_manifest.md:51 (the owning file, which additionally sources it to `strict_flag=True` in `mypy/main.py` at tag v2.3.0), summarised again in python_linting_practices_manifest.md:81 ("mypy `--strict` (13 flags)"), and the mypy opt-in error-code list appears a four
+  FIX  : In gates §5.1 delete the 13-flag enumeration and the 23-code optional-code list; open with "The exact `--strict` flag set and the full optional-code inventory are owned by `python_typing_contract_manifest.md` §1 (13 flags as of mypy 2.3)." Keep only the gate-relevant residue: the indirect-code mapping, `enable_error_code` beating `disable
+
+[MAJO-14] python_quality_gates_manifest.md:1167
+  QUOTE: The deprecation *contract* — what may change, what the public surface is, how versions are numbered — belongs to `python_module_boundaries_manifest.md`. The *enforcement* is here, and it has three parts that must all be present or
+  TRUE : Two files define a mandatory three-part deprecation contract with the same absolutist framing and different members. python_module_boundaries_manifest.md:1086-1091 gives: (1) producer runtime `@warnings.deprecated`, (2) **producer self-check** `-W error::DeprecationWarning` in your own test run, (3) consumer static mypy `deprecated` — "al
+  FIX  : Fix the vocabulary in one place. In module_boundaries §9.3 rename the table "The four-part visibility contract" and add the missing row "consumer, test | pytest `filterwarnings` promoting `DeprecationWarning` to error in the consumer's suite | ESTABLISHED". In gates §8.4 replace the three-part list with "The four parts of the contract are
+
+[MAJO-15] python_testing_tooling_manifest.md:387
+  QUOTE: CPython version, phase and schedule facts are **not** restated here — see `python_platform_baseline_manifest.md`. Two consequences a test suite must act on: pytest requires Python >= 3.10 (9.0.0 dropped 3.9), and Python 3.10 leave
+  TRUE : The sentence cedes hub ownership and then restates a hub-owned support-phase date in the same breath. The identical pattern occurs three more times: python_quality_gates_manifest.md:1192-1194 ("Version dates and support phases are owned by `python_platform_baseline_manifest.md`" followed immediately by "**Python 3.10 leaves support around
+  FIX  : Strip the dates. testing:387 → "…pytest requires Python >= 3.10 (9.0.0 dropped 3.9), and the lowest leg of most existing CI matrices is about to become unsupported — see `python_platform_baseline_manifest.md` §1a for the phase and EOL of every branch." gates:1193-1194 → "Two consequences, whose dates live in the hub §1a: the lowest suppor
+
+[MAJO-16] python_quality_gates_manifest.md:1111
+  QUOTE: 2017 — the same work the SWE corpus records as the naming source for the `feature-toggle` element).
+  TRUE : The corpus records BCK 2021 as the naming source for `feature-toggle`, not Hodgson 2017. elements.json holds TWO distinct elements: `feature-toggle` (realm architecture / kind tactic, named_in "Software Architecture in Practice, 4th ed. — Bass, Clements & Kazman (2021)", works ['bck'], aka 'kill switch', 'feature flag (design-realm realiz
+  FIX  : Replace with: "**ESTABLISHED** (Pete Hodgson, *Feature Toggles (aka Feature Flags)*, martinfowler.com, 09 October 2017 — the work the SWE corpus records as the naming source for the **`feature-flag`** element, design/code-structure). There are exactly four categories, positioned on axes of **dynamism** and **longevity**. `feature-flag` na
+
+[MAJO-17] error_tracing_contract_manifest.md:133
+  QUOTE: *"a predefined operating condition without unreasonable risk that the system deliberately enters on fault detection"*
+  TRUE : This quoted string is the SWE corpus's own editorial `what` field for the `safe-state` element, not wording from ISO 26262 — yet the row's source column reads "ISO 26262:2018; Bass, Clements & Kazman ...", so the quotation marks put the corpus compilers' summary in a standards body's mouth. elements.json `safe-state`.what = "A predefined 
+  FIX  : Drop the quotation marks and attribute the gloss, e.g.: "the corpus's gloss — a predefined operating condition without unreasonable risk that the system deliberately enters on fault detection — refuse to start on bad config with a **distinct exit code**, ...". If a quotation from the standard is wanted, quote ISO 26262-1:2018's actual def
+
+[MAJO-18] error_tracing_contract_manifest.md:90
+  QUOTE: **Why the core is where irreplaceable state lives (Error Kernel, Kuhn et al. 2017).** The failure-side argument for the seam: *"keep the irreplaceable state … in a small, maximally simple core, delegating risky or failure-prone wo
+  TRUE : The italic quotation is the SWE corpus's editorial `what` field for `error-kernel`, not text from Kuhn, Hanafee & Allen's *Reactive Design Patterns*. elements.json `error-kernel`.what = "Keep the irreplaceable state and critical logic in a small, maximally simple core, delegating risky or failure-prone work to expendable child components 
+  FIX  : Attribute the gloss to the corpus rather than the author in all four places. At line 90: "**Why the core is where irreplaceable state lives (Error Kernel, Kuhn et al. 2017).** The failure-side argument for the seam, in the corpus's wording: keep the irreplaceable state and critical logic in a small, maximally simple core, delegating risky
+
+[MAJO-19] E:/dev/corpora/manifests/python_runtime_diagnostics_manifest.md:1205
+  QUOTE: - **A hand-rolled supervision tree, retry budget, dead-letter queue, or health-check HTTP port in a\n  single-process app** — the restarter is systemd or the orchestrator, and the rest is\n  distributed-systems machinery at the wr
+  TRUE : §10 of this file contains only three subsections: `### 10a.` (L998), `### 10b.` (L1017) and `### 10c.` (L1034). There is no §10d, §10e, §10f, §10g or §10h anywhere in the file — not as a heading and not as a bolded numbered sub-block (unlike python_module_boundaries_manifest.md §5, whose 5.1–5.6 exist as bolded blocks and do resolve). Fou
+  FIX  : Repoint all fourteen references at the row that now carries the content, or restore the sub-numbering. Concretely: §10d → §10b (`sanity-check` and `correcting-audits` rows); §10e → §10b (`watchdog` row); §10f → §10b (`safe-state` row); §10g → §10b (`software-rejuvenation` row); §10h → §10b (`record-playback` row). For L1205 write `(§10b, 
+
+[MAJO-20] E:/dev/corpora/manifests/python_testing_tooling_manifest.md:406
+  QUOTE: ## Recommendations
+  TRUE : This file has no anti-patterns / rejection-list section at all. Its full heading list runs `## TL;DR` (5), `## Key Findings` (13), `## Details` (26) with §1–§8, `## Recommendations` (406), `## Caveats` (418), `## Sources` (425), `### Sibling manifests` (513). `grep -in 'anti-pattern|antipattern|rejection list'` returns zero hits in the wh
+  FIX  : Add a `## Anti-patterns checklist` section immediately before `## Sources` (i.e. after L424), one line per entry, each naming the section it violates — the material is already in the file and only needs inverting, e.g.: `- **Writing "pytest 9" instead of `>= 9.1.0`** — 9.0.0–9.0.3 silently ignored `--strict-markers`/`--strict-config` from
+
+[MAJO-21] python_linting_practices_manifest.md:351
+  QUOTE:   "F", "E", "W", "I", "UP", "B", "C4", "SIM", "DTZ", "G", "LOG", "TRY", "BLE", "S",
+  TRUE : Diffing this `select` (lines 351-357) against the file's own MEASURED default-set prefix distribution (line 154-157) shows 8 default-on prefixes silently dropped: `ASYNC` (10 rules), `FURB` (17), `YTT` (10), `EXE` (4), `INT` (3), `FA` (2), `RET` (1), `ISC` (1). Because `select` REPLACES (the file's own §2.3, line 141-152: "`select = [\"E\
+  FIX  : Add `"ASYNC", "FURB", "YTT", "EXE", "INT", "FA", "RET",` to the `select` list at line 356 (moving any individually contested code such as `RET504` into `ignore`), and add rows to the §3.2 table for ASYNC (**enable** — the only mechanical check for blocking calls in a coroutine; python_concurrency_determinism_manifest.md §-), FURB, YTT, EX
+
+[MAJO-22] python_linting_practices_manifest.md:272
+  QUOTE: | `ISC` | **enable `ISC001`**; treat `ISC002` as formatter-adjacent | §6.1 |
+  TRUE : The file takes three incompatible positions on one rule. §3.2 line 272 says enable ISC001. §4.2 line 340 says the opposite: "| `E501`,`COM812`,`ISC001`,`Q000` | ... | formatter-owned; that they are off is correct, not an oversight (§6.1) |". And §4.3's config block neither selects `ISC` nor ignores it, so ISC001 is off. The same split hit
+  FIX  : Resolve to one position. Recommended: delete `ISC001` from the §4.2 row at line 340 (leaving E501/COM812/Q000), add `"ISC", "FBT",` to `select` at line 356, and add `"ISC002"` plus `"FBT003"` to the `ignore` list at line 359-364 with the reasons already given at §6.1 and §3.2.
+
+[MAJO-23] python_quality_gates_manifest.md:204
+  QUOTE: | 26 | docstring presence | `interrogate --fail-under <N>` (config default `fail-under = 80`) | C | required | below threshold | no | trivial | VERSION-DEPENDENT (1.7.0) |
+  TRUE : Line 166 of the same file promises "An agent should be able to build the pipeline from this table alone." An agent that does so wires interrogate as a required gate — and the same file's reject-on-sight list at line 1768 forbids it: "**Mutation score, docstring coverage or the Maintainability Index as a required gate.** Violates §6.6, §11
+  FIX  : Demote ledger row 26 to `advisory` and change its req/adv cell to `advisory (diagnostic only — see anti-patterns)`, or delete row 26 and rely on ledger row 24 (`D1xx` inside ruff). Then repoint the anti-pattern at line 1768 to the section that actually argues it, and add one sentence to §11.2: "Presence is a diagnostic, not a gate; `D1xx`
+
+[MAJO-24] python_module_boundaries_manifest.md:1310
+  QUOTE: 8. **`deptry .` in CI** (§7.6) — catches the undeclared-dependency break that no internal contract
+  TRUE : This is item 8 of the nine "Adopt on day one" items in §12, the collection's day-one boundary checklist. `grep -n deptry python_quality_gates_manifest.md` returns ZERO hits: deptry is absent from the 34-row gate ledger (§2.1), absent from the pinned-tool version table (lines 38-58), and therefore has no stage, no exit-code contract, no co
+  FIX  : Add a row to the §2.1 ledger: `| 12a | undeclared/unused dependencies | `deptry .` | C M | required | non-zero | no | seconds | VERSION-DEPENDENT (deptry <pin>) |`, add deptry with its verified version to the pinned-tool table at lines 38-58, and add the note "inline suppression is `# deptry: ignore[DEP001,DEP003]` and does not cover DEP0
+
+[MAJO-25] python_language_hazards_manifest.md:50
+  QUOTE: | Import Linter | **2.3** | only the `/en/v2.3/` docs URL resolves; `latest` and `stable` returned HTTP 404 | VERSION-DEPENDENT (2.3) |
+  TRUE : import-linter's latest release is 2.13 (2026-07-03), with 2.12, 2.11, 2.10, 2.9 and 2.8 preceding it — the file's pin is ten releases stale, and both sibling files agree on 2.13 (python_module_boundaries_manifest.md line 673, python_quality_gates_manifest.md ledger row 12 and tool table). The 404 on `latest`/`stable` was read as evidence 
+  FIX  : Change line 50 to `| Import Linter | **2.13** (2026-07-03) | version from PyPI; `latest`/`stable` docs URLs 404, so cite the versioned path `/en/v2.13/` | VERSION-DEPENDENT (2.13) |`, and update lines 580 and 1300-1301 to 2.13 with the `/en/v2.13/contract_types.html` URL.
+
+[MAJO-26] error_tracing_contract_manifest.md:199
+  QUOTE: - **FOR:** internal **can't-happen invariants** and **pre/post-conditions** — programmer-believed facts whose violation means a **bug**, not bad input (e.g. "this list is non-empty here", a postcondition on a pure function).
+  TRUE : Three files endorse `assert` for production internal invariants — this line, and python_quality_gates_manifest.md §8.6 ("**Executable Assertions**: `assert` is for internal invariants") — while python_linting_practices_manifest.md line 1338 states "**exactly why `S101` must be enforced in `src` and exempted only in the test tree**", §4.2 
+  FIX  : Add one sentence to error_tracing §14 after the FOR bullet: "**The lint consequence:** `S101` is enforced in `src` (`python_linting_practices_manifest.md` §4.2), so a legitimate internal-invariant assert in production code carries a per-site `# noqa: S101  # internal invariant, §14` — never a global `ignore` and never a `per-file-ignores`
+
+[MAJO-27] python_testing_tooling_manifest.md:19
+  QUOTE: - **pytest's configuration surface is a precedence chain, not a merge.** `pytest.toml` / `.pytest.toml` > `pytest.ini` / `.pytest.ini` > `pyproject.toml` > `tox.ini` > `setup.cfg`
+  TRUE : No file in the collection states how the TEST TREE is laid out, and three coupled decisions are left with no default anywhere: (a) whether `tests/` carries `__init__.py`, (b) which pytest `--import-mode` to use, (c) how ruff's `INP001` interacts. `grep -n '__init__.py|importmode|import-mode|rootdir'` over python_testing_tooling_manifest.m
+  FIX  : Add a short subsection to python_testing_tooling_manifest.md §1a stating the default and its consequence: "**Test-tree layout (OPEN — pin it).** Default for a src layout: `tests/` with **no** `__init__.py`, `--import-mode=importlib`, `testpaths = [\"tests\"]`, and every test module basename unique (prepend mode plus duplicate basenames is
+
+[MAJO-28] python_module_boundaries_manifest.md:1303
+  QUOTE: 4. **`requires-python` with a floor and no ceiling** (§5.1); the floor is
+  TRUE : The `requires-python` floor — the first number an agent must write into a new pyproject.toml — is deferred in a circle. This line and line 407 ("State a floor, never a ceiling; the floor is the hub's policy") both send the reader to the hub. The hub then declines: §3b is tagged "**OPEN — the project must state three separate numbers**", §
+  FIX  : Add a default with its escape hatch to python_platform_baseline_manifest.md §3e, immediately after the floor table: "**Starting point if the project has not chosen a policy: `requires-python = \">=3.12\"`.** It matches SPEC 0's window today, sits inside CPython's, and unlocks PEP 695 generics, `sys.monitoring`, `@override` and `Unpack[Typ
+####################################################################################################
+### MINOR = 31
+
+[MINO-1] python_language_hazards_manifest.md:248
+  QUOTE: Of the `RUF` family only `RUF006`, `RUF008`, `RUF009`, `RUF012`, `RUF018`, `RUF028`, `RUF100`, `RUF101`, `RUF102`, `RUF103`, `RUF104` appear below, each verified on its own page or by measurement.
+  TRUE : RUF015 also appears in the file (line 930, the unsafe-fix demonstration, and line 1311 in Measurements), so the enumeration is incomplete — as is the matching Open Question 11 at lines 1123-1124 ("the verified eleven"). The code itself is genuine and the §16.2 use is MEASURED, so this is a bookkeeping slip rather than a laundered code — b
+  FIX  : Add `RUF015` to both lists: line 248-249 → "...`RUF012`, `RUF015`, `RUF018`, `RUF028`, `RUF100`–`RUF104`..."; line 1123-1124 → "beyond the verified twelve" with RUF015 included.
+
+[MINO-2] python_platform_baseline_manifest.md:727
+  QUOTE: | **3.19** | Implicit MSVC struct layout from `_pack_` without `_layout_` on non-Windows; the `string` keyword argument of hashlib constructors; `http.cookies.Morsel.js_output()` / `BaseCookie.js_output()`; altering `imaplib.IMAP4
+  TRUE : §7d's table stops at 3.19, but the cited page has a further Python-level bucket, "Pending removal in Python 3.20", which the table omits entirely. Its contents are broad: `struct.Struct.__new__()` without the `format` argument and `__init__()` on an initialised Struct; the `__version__` / `version` / `VERSION` attributes of 25 stdlib modu
+  FIX  : Add a row after the 3.19 row: "| **3.20** | `struct.Struct.__new__()` without `format`, and `__init__()` on an initialised `Struct`; the `__version__` / `version` / `VERSION` attributes of 25 stdlib modules (`argparse`, `csv`, `ctypes`, `ctypes.macholib`, `decimal` (use `decimal.SPEC_VERSION`), `http.server`, `imaplib`, `ipaddress`, `json
+
+[MINO-3] python_platform_baseline_manifest.md:288
+  QUOTE: | Builtin `sentinel(name, /, repr=None)` | **3.15** | 661 | `typing_extensions.sentinel` (4.16.0) | `python_typing_contract_manifest.md` |
+  TRUE : `repr` is keyword-only. The 3.15 builtins reference gives the signature as `class sentinel(name, /, *, repr=None)` (the `*` is rendered as an explicit "Keyword-only parameter" marker in the signature). The hub's spelling omits the `*`, which says `sentinel("MISSING", "<MISSING>")` is legal; it raises `TypeError`. The sibling that owns the
+  FIX  : Change both line 288 and line 997 to `sentinel(name, /, *, repr=None)`.
+
+[MINO-4] python_platform_baseline_manifest.md:29
+  QUOTE: lines; `3.14.0` is ten months and roughly 1,400 bugfixes behind current. VERSION-DEPENDENT (3.14).
+  TRUE : The ten-month figure is right (3.14.0 on 2025-10-07; today 2026-08-08). The bugfix count is not: summing the per-release counts on the python.org release pages, each stated 'since <previous release>', gives 558 (3.14.1) + 18 (3.14.2) + 299 (3.14.3) + 337 (3.14.4) + 154 (3.14.5) + 179 (3.14.6) + 499 (3.14.7) ≈ **2,044**, not ~1,400. The fi
+  FIX  : Replace with: "`3.14.0` is ten months and roughly 2,000 bugfixes behind current (the sum of the per-release counts on the 3.14.1–3.14.7 release pages)". Correct _work/facts/r01_platform_baseline.md:237 to match, or drop the aggregate and cite only the sourced 499-since-3.14.6.
+
+[MINO-5] python_platform_baseline_manifest.md:611
+  QUOTE: | — | `PYTHONDUMPREFS`, `PYTHONDUMPREFSFILE` | 3.11 | Requires a `--with-trace-refs` build (§5g) |
+  TRUE : Only `PYTHONDUMPREFSFILE` carries "Added in version 3.11". `PYTHONDUMPREFS` has no version-added note at all in the cmdline reference — it long predates 3.11. Pairing them in one row under an 'Added: 3.11' column makes the older variable look 3.11-gated, which matters because the §6a table is explicitly described as 'the inventory and the
+  FIX  : Split the row, or set the Added cell to `PYTHONDUMPREFSFILE`: 3.11 — e.g. "| — | `PYTHONDUMPREFS` (no version note; predates 3.11), `PYTHONDUMPREFSFILE` (3.11) | — | Requires a `--with-trace-refs` build (§5g) |". Adjust line 547 similarly.
+
+[MINO-6] python_platform_baseline_manifest.md:595
+  QUOTE: | `-X utf8=0\|1` | `PYTHONUTF8=0\|1` | added-version not re-verified this pass (**OPEN**) | UTF-8 mode.
+  TRUE : An honest OPEN is normally correct behaviour, but here the primary page the section header says the whole table was 'Confirmed against' states the answer outright: "-X utf8 enables the Python UTF-8 Mode. -X utf8=0 explicitly disables Python UTF-8 Mode … Added in version 3.7." §8c (lines 812–815) then justifies this OPEN with "they are OPE
+  FIX  : Set the Added cell to `3.7` and remove `-X utf8` from the OPEN list in §8c line 813, leaving §5f's JIT build mode, the pre-3.14 free-threaded wheel tags and the exceptiongroup/TOML backport versions (all genuinely absent from primary pages) as the file's OPENs.
+
+[MINO-7] python_platform_baseline_manifest.md:508
+  QUOTE: | 3.15 performance | "8-9% geometric mean performance improvement on x86-64 Linux" and "12-13% speedup on AArch64 macOS" | From the 3.15.0rc1 announcement. VERSION-DEPENDENT (3.15) |
+  TRUE : The two figures are quoted with their platforms but with their baselines stripped, and the baselines differ. The announcement reads: "The JIT compiler has been significantly upgraded, with 8-9% geometric mean performance improvement on x86-64 Linux **over the standard interpreter**, and 12-13% speedup on AArch64 macOS **over the tail-call
+  FIX  : Restore the baselines: "8-9% geometric mean performance improvement on x86-64 Linux **over the standard interpreter**" and "12-13% speedup on AArch64 macOS **over the tail-calling interpreter**" — two different baselines, so the numbers are not comparable to each other. Apply the same fix at line 942 in the source list.
+
+[MINO-8] python_module_boundaries_manifest.md:195
+  QUOTE: Declarations are the exact strings the PyPA tutorial publishes; the pins are theirs.
+  TRUE : True for four of the five rows (hatchling >= 1.26, setuptools >= 77.0.3, flit_core >= 3.12.0 <4, pdm-backend >= 2.4.0 — all verified verbatim), but not for the `uv_build` row at line 203, which reads `["uv_build>=0.12.3,<0.13"]`. The PyPA tutorial publishes `requires = ["uv_build >= 0.12.1, <0.13.0"]`. The string in the manifest is uv's o
+  FIX  : Either use the tutorial's string (`["uv_build >= 0.12.1, <0.13.0"]`) for consistency with the header sentence, or keep uv's own pin and qualify the header: "Declarations are the exact strings the PyPA tutorial publishes; the pins are theirs — except `uv_build`, whose pin is the one uv's own build-backend docs publish (the tutorial current
+
+[MINO-9] python_concurrency_determinism_manifest.md:460
+  QUOTE: VERSION-DEPENDENT (anyio 4.14.2, trio 0.33.0); the hub owns the version/date facts.
+  TRUE : The hub contains zero occurrences of "anyio" or "trio" (grep -c over python_platform_baseline_manifest.md returns 0), and PLAN.md scopes it to "only version/support/schedule/PEP-status facts, interpreter switches, build variants, and the minimum-target policy" — i.e. CPython. Every other file states the opposite convention for third-party
+  FIX  : Replace "the hub owns the version/date facts" with "these third-party pins are this file's own subject and were verified 2026-08-08; the hub owns only CPython version facts." Add anyio/trio (and pytest-trio if used) to this file's own Version-anchor block the way the other files pin theirs.
+
+[MINO-10] README.md:57
+  QUOTE: | `python_platform_baseline_manifest.md` | CPython release/support matrix, PEP status index, interpreter switches, build variants (free-threaded, JIT), deprecation timeline, minimum-target policy. The only file that owns dates. |
+  TRUE : "The only file that owns dates" is contradicted by every ground-truth sibling, each of which owns and dates its own tool releases by explicit design: python_quality_gates_manifest.md:35-56 is a 40-row table of tool versions with release dates; python_linting_practices_manifest.md:37-43 pins ruff 0.16.2 (2026-08-07), pylint 4.0.6 (2026-06-
+  FIX  : Change to "The only file that owns **CPython** dates; each pillar file dates the third-party tools that are its own subject matter."
+
+[MINO-11] README.md:119
+  QUOTE: | Tag | Meaning | How to treat it |
+  TRUE : The tag table (lines 119-126) lists ESTABLISHED, VERSION-DEPENDENT, OPEN, CC-FACT and FLAGGED-SECONDARY, under the claim "Every factual claim in a ground-truth manifest is tagged. The tag tells you how much weight it bears." It omits **MEASURED**, which appears 38 times in python_linting_practices_manifest.md and 18 times in python_langua
+  FIX  : Add a row: "| **MEASURED** | Obtained by executing the pinned tool during the verification pass rather than from a documentation page. Where docs and binary disagreed, MEASURED wins and the disagreement is stated. | Rely on it for the pinned version only; re-measure on every tool bump. |" and note that it currently appears in the linting 
+
+[MINO-12] python_module_boundaries_manifest.md:1443
+  QUOTE: This collection's most load-bearing word (used in `architecture_manifest_default.md` §1, §4.2 and §6) has **no element in the SWE corpus**
+  TRUE : "seam" does not occur anywhere in architecture_manifest_default.md §1 (Vocabulary, lines 15-47). Its only occurrences in that file are lines 354, 355, 364, 365, 386 and 405 — all inside §4.2 Seams (lines 351-387) and the §4.3/§4.4 that follow — plus line 588 ("**Extract seam.**") inside §6 Refactoring Patterns. The §1 half of the citation
+  FIX  : Change "§1, §4.2 and §6" to "§4.2 and §6".
+
+[MINO-13] python_runtime_diagnostics_manifest.md:750
+  QUOTE: **ESTABLISHED — the four non-effects, each a live agent error.** `-X dev` does **not** enable `tracemalloc`
+  TRUE : The hub, which owns the interpreter-switch inventory, titles the same fact "### 6b. What `-X dev` does — and **the two things it does not**" (python_platform_baseline_manifest.md:614) and lists exactly two non-effects (no tracemalloc; no protection of `assert` from `-O`). runtime_diagnostics lists four (adding: does not enable `-X importt
+  FIX  : Make hub §6b the single enumeration: retitle it "and the four things it does not", add the `-X importtime`/`-X showrefcount` and warnings-are-not-errors items, keep ESTABLISHED. Then cut runtime_diagnostics §7a's seven-enables and four-non-effects lists to "The exact effect list is owned by `python_platform_baseline_manifest.md` §6b", kee
+
+[MINO-14] python_runtime_diagnostics_manifest.md:466
+  QUOTE: A process that wants every failure recorded must install all four hooks plus the loop handler.
+  TRUE : Four hooks plus the loop handler is five, but the section's own table (lines 470-474) has exactly four rows and the loop handler is one of them. The owning file counts it the same way: error_tracing_contract_manifest.md:351 says "There are **four** separate last-resort channels plus one library that has none", and its four hook rows are `
+  FIX  : Change to "must install all four channels — the three hooks plus the asyncio loop handler — and additionally retrieve `concurrent.futures` results by hand, because that library ships no hook at all (`error_tracing_contract_manifest.md` §20a)."
+
+[MINO-15] python_linting_practices_manifest.md:72
+  QUOTE: ## 1. The four layers, and the routing vocabulary
+  TRUE : The table immediately below (lines 77-83) has five rows: Formatter, Linter, Type checker, Test, Fitness function. "Fitness function" is not an aside — it is one of the six routing values the collection's enforcement ladder is built on (README.md:41-47 lists `fitness-function` as a first-class route, as does _work/PLAN.md's enforcement-rou
+  FIX  : Retitle "## 1. The five layers, and the routing vocabulary" and adjust the opening sentence if it depends on the count.
+
+[MINO-16] python_linting_practices_manifest.md:1306
+  QUOTE: **Conflict noted:** a second verification pass could not confirm the threshold flag name from a primary page; re-verify before wiring
+  TRUE : The conflict was resolved, in the opposite direction, by the sibling and by the evidence base. python_quality_gates_manifest.md:1645-1648: "**Conflict noted and resolved:** one fact pack left interrogate's threshold flag name unverified; the flag `--fail-under` and the default of 80 were confirmed from interrogate's own README in the othe
+  FIX  : In linting §15.2 replace the hedge with "`--fail-under` and the config default of 80 are confirmed from interrogate's README (see `python_quality_gates_manifest.md` §11.2, which resolved the conflicting fact packs)." In gates §11.3 replace the doctest-flag OPEN with "`--doctest-modules` is attested in pytest's changelog (see `python_testi
+
+[MINO-17] python_concurrency_determinism_manifest.md:57
+  QUOTE: - **Determinism is bought at four seams — clock, seed, executor, event loop — and nowhere else.**
+  TRUE : "and nowhere else" is an absolute claim contradicted by the file the collection designates the owner of test determinism. python_testing_tooling_manifest.md §6c (line 280) names "Four sources of nondeterminism", of which two — **order** (inter-test coupling, closed by `pytest-randomly` 4.1.0, where "reordering *is* the detector") and **ne
+  FIX  : Change to "**Concurrency determinism is bought at four seams — clock, seed, executor, event loop.** Test-order and network nondeterminism are separate obligations owned by `python_testing_tooling_manifest.md` §6c." Drop "and nowhere else".
+
+[MINO-18] python_concurrency_determinism_manifest.md:133
+  QUOTE: **VERSION-DEPENDENT (3.14).** CPython offers exactly four concurrency substrates in the standard library
+  TRUE : The collection now has two different four-item menus, both introduced as "choose the model before the primitives", and cross-references one to the other without reconciling them. architecture_manifest_default.md §3.4 (lines 223-232) opens "Choose a concurrency model before choosing primitives" and lists shared-memory-with-locks / message-
+  FIX  : Add one sentence at the head of concurrency §2.1: "These four are CPython **substrates**. They are not the same list as the four state-sharing **paradigms** in `architecture_manifest_default.md` §3.4 (shared-memory, message-passing, event loop, parallel pure transformation) — the paradigm is chosen first, and it usually admits more than o
+
+[MINO-19] python_module_boundaries_manifest.md:1064
+  QUOTE: The default filter list, in precedence order, is `default::DeprecationWarning:__main__`, `ignore::DeprecationWarning`, `ignore::PendingDeprecationWarning`, `ignore::ImportWarning`, `ignore::ResourceWarning`.
+  TRUE : The same five-entry list is stated in three files. python_platform_baseline_manifest.md §6c (lines 637-644) is the owner — PLAN.md gives the hub "interpreter switches", and only the hub's copy adds the debug-build exception ("In a debug build, the list of default warning filters is empty") that the other two omit — and error_tracing_contr
+  FIX  : In module_boundaries §9.3 and error_tracing §17a replace the enumerated filter list with "`DeprecationWarning` is invisible by default outside `__main__`; the exact default filter list and the debug-build exception are in `python_platform_baseline_manifest.md` §6c." In concurrency and error_tracing, state the `context_aware_warnings` cons
+
+[MINO-20] python_testing_tooling_manifest.md:170
+  QUOTE: `characterization-test`, `seam`, injected/virtual clock, in-memory database, `fault-injection`, `consumer-driven-contract` and `test-container` are all **absent from the SWE element layer by charter** — they are practice-layer voc
+  TRUE : Thirteen of the fourteen listed names are genuinely absent from every node's name and aka (I checked all 1083 nodes for each term). Characterization testing is the exception: it IS in the element layer, folded into `golden-master-testing`, whose aka list contains "characterization testing (legacy-code framing)" and whose named_in is "Feat
+  FIX  : Remove `characterization-test` from the absent list and redirect it: "`equivalence-partitioning`, `boundary-value-analysis`, `test-oracle`, `metamorphic-testing`, `test-pyramid`, `contract-test`, `mutation-testing`, `seam`, injected/virtual clock, in-memory database, `fault-injection`, `consumer-driven-contract` and `test-container` are a
+
+[MINO-21] python_module_boundaries_manifest.md:124
+  QUOTE: **Named vocabulary.** `explicit-interface` (posa4 2007) → `typing.Protocol` (PEP 544) for structural
+  TRUE : elements.json records `explicit-interface`.named_in as "Explicit Interface and Object Manager: Two Patterns from a Pattern Language for Distributed Computing - Buschmann, Henney, Schmidt (EuroPLoP 2003)", with POSA4 only as the *covering work* (works = ['posa4']) and confidence 'spot-checked'. So "posa4 2007" cites the covering work as th
+  FIX  : Add the caveat once, e.g. at line 124: "`explicit-interface` (posa4 2007 as the corpus's covering work; the *naming* paper is Buschmann, Henney & Schmidt, 'Explicit Interface and Object Manager', EuroPLoP 2003 — the corpus records POSA4 instead, FLAGGED-SECONDARY) → `typing.Protocol` (PEP 544) for structural", and mirror it in the Sources
+
+[MINO-22] error_tracing_contract_manifest.md:201
+  QUOTE: files `executable-assertions` under BCK's `control-and-observe-system-state` — i.e. as
+  TRUE : `control-and-observe-system-state` is not an element id — it is a corpus *tag*, and its actual spelling is `bck-cat:control-and-observe-system-state` (elements.json `executable-assertions`.tags = ['bck-cat:control-and-observe-system-state', 'same-name:design-realm']). Because this collection uses bare backticked kebab-case for element ids
+  FIX  : Write the namespaced tag: "files `executable-assertions` under BCK's category `bck-cat:control-and-observe-system-state` — i.e. as"
+
+[MINO-23] E:/dev/corpora/manifests/python_module_boundaries_manifest.md:111
+  QUOTE: `ports` package *is* the contract; an IDL only pays across process or language" (§8.6).
+  TRUE : §8 has subsections 8.1 (L884), 8.2 (L903), 8.3 (L943), 8.4 (L964) and 8.5 (L1005) only — there is no §8.6. The `interface-definition-language` content this sentence is sourcing is in §8.5 'Adapting at the seam, and contracts that are build inputs' (the IDL block is at L1012). This is the only dangling internal § reference in the file; the
+  FIX  : Change `(§8.6)` to `(§8.5)` on line 111.
+
+[MINO-24] E:/dev/corpora/manifests/error_tracing_contract_manifest.md:11
+  QUOTE: ## 1. Purpose and scope
+  TRUE : Neither error_tracing_contract_manifest.md nor logging_observability_manifest.md carries a TL;DR block (`grep -in 'TL;DR|TLDR|at a glance|the short version'` returns zero hits in both). The other nine ground-truth files all open with one: python_platform_baseline L26, python_typing_contract, python_language_hazards L55, python_linting_pra
+  FIX  : Add a `## TL;DR` block to each, immediately after the version-anchor/deferral header and before the first numbered section — error_tracing after L9 (before `## 1. Purpose and scope`), logging after L26 (before `## 1. Scope and the three goals`). Each bullet should end in its tag and its section, matching the nine siblings' form. The mater
+
+[MINO-25] E:/dev/corpora/manifests/python_language_hazards_manifest.md:128
+  QUOTE: Read a hazard class here, take its codes, and the `select` list writes itself with a traceable reason per entry. Reviewing a lint config then reduces to two questions: **does every enabled rule trace to a hazard row?** and **does 
+  TRUE : The second question holds — all 103 hazard rows in §2–§14 carry a populated route column. The first does not hold against the collection's own recommended config. python_linting_practices_manifest.md §4.3 (L349–L356) recommends 34 `select` entries; ten of them have no code named anywhere in the hazards file: `UP`, `C4`, `LOG`, `FLY`, `ICN
+  FIX  : Weaken §0.3's first question to admit the two legitimate escapes, e.g. replace 'does every enabled rule trace to a hazard row?' with 'does every enabled rule trace to a hazard row here, to a hazard row in the sibling that owns the topic (`LOG` → `logging_observability_manifest.md` §12a, `PT` → `python_testing_tooling_manifest.md`, `D` → §
+
+[MINO-26] E:/dev/corpora/manifests/python_language_hazards_manifest.md:1001
+  QUOTE: The hazard tables in §2–§14 carry **103 routed hazard rows**.
+  TRUE : There are exactly 103 rows in the five-column hazard tables of §2–§14, and the by-route tallies that follow are exactly right — I recounted them mechanically and got lint-catchable 43, contract-only 29, type-catchable 13, feature-eliminated 9, test-catchable 8, runtime-catchable 3, fitness-function 2, summing to 107, matching the file's s
+  FIX  : Change to: 'The hazard tables in §2–§14 carry **103 hazard rows, 102 of them routed** (the exception is the floor-division row in §7.2, held OPEN pending a primary page — §ac open questions).'
+
+[MINO-27] E:/dev/corpora/manifests/python_typing_contract_manifest.md:3
+  QUOTE: Every factual claim is tagged **ESTABLISHED** (normative and stable in the cited primary source), **VERSION-DEPENDENT** (bound to an exact Python/checker/library version), **OPEN** (no authoritative source — a convention the proje
+  TRUE : Two markers used in the ground-truth files are absent from the legends of the files that use them. (a) `UNVERIFIED` is used 19 times outside error_tracing — twice in python_typing_contract (L508, L509), ten times in python_runtime_diagnostics (L1025–L1453), seven times in python_concurrency_determinism (L103–L1629) — but appears in none o
+  FIX  : Add to the legend of python_typing_contract_manifest.md L3, python_runtime_diagnostics_manifest.md L13-18 and python_concurrency_determinism_manifest.md L14-18 the sentence already present in error_tracing's legend, e.g.: '**UNVERIFIED** marks an imported vocabulary citation whose bibliographic record the SWE corpus itself records as unve
+
+[MINO-28] E:/dev/corpora/manifests/README.md:38
+  QUOTE: | route | meaning | |---|---| | **type-catchable** | a named checker, at a named strictness, rejects it |
+  TRUE : README's route table (L38–L46) enumerates six routes: type-catchable, lint-catchable, feature-eliminated, test-catchable, fitness-function, contract-only. This matches PLAN.md's list, but python_language_hazards_manifest.md §0.1 (L84–L95) declares **seven**, adding `runtime-catchable` ('a process-start configuration turns silence into an 
+  FIX  : Add a row to README's table between **test-catchable** and **fitness-function**: `| **runtime-catchable** | a process-start configuration turns silence into an exception — install it in the entry point, and test that it is installed |`. Optionally add the same row to _work/PLAN.md's route list so the three lists agree.
+
+[MINO-29] python_linting_practices_manifest.md:311
+  QUOTE: | `LOG001`,`LOG002`,`LOG004`,`LOG009`,`LOG014`,`LOG015` | logging API misuse | `LOG004` Sometimes | `.exception()` outside a handler logs `NoneType: None`; ...
+  TRUE : This row is in §4.1 "Already on by default - do not re-add, do not lose" and lists SIX LOG codes. The file's own MEASURED prefix distribution of the 413 defaults at line 155 says "`LOG` 5", and ruff's Default Rules page lists LOG001, LOG002, LOG009, LOG014, LOG015 — LOG004 is not among them (it exists and is not preview, "Added in 0.16.0"
+  FIX  : Move `LOG004` out of the §4.1 row at line 311 (leaving `LOG001`,`LOG002`,`LOG009`,`LOG014`,`LOG015` = 5, matching line 155) and add it to the §4.2 off-by-default table with the note "`LOG004 log-exception-outside-except-handler` — added 0.16.0, stable but NOT default-enabled; the `.exception()`-outside-a-handler check that `logging_observ
+
+[MINO-30] python_linting_practices_manifest.md:333
+  QUOTE: `TRY400` recovers a lost traceback; its fix is safe for `logging.error` and unsafe for anything ruff cannot prove is a `logging.Logger` - set `lint.logger-objects`. `TRY300`/`TRY301` are contested and noisy
+  TRUE : The §4.3 config block selects the whole `"TRY"` prefix (line 351) and never sets `lint.logger-objects`; its default `[]` is mentioned only in the prose beneath the block (line 393). It also enables `TRY300` and `TRY301`, which this row and §3.2 line 252 both call contested/noisy, and which §Open-questions line 1480 lists as requiring "one
+  FIX  : In the config block, add `logger-objects = []                   # add project logger wrappers before trusting TRY400's fix (§4.2)` under a `[tool.ruff.lint]` line, and add `"TRY300", "TRY301",   # contested and noisy (§3.2); flip deliberately, not by prefix` to the `ignore` list at line 359-364.
+
+[MINO-31] python_runtime_diagnostics_manifest.md:411
+  QUOTE: | d | `gdb -p PID` then `thread apply all py-bt` | gdb 7.0+ with Python support, plus debug info | The only answer when the target is blocked below Python entirely (§4e) |
+  TRUE : In the §4d "nothing pre-installed" ladder, rows (a) and (f) carry version preconditions and row (e) is marked POSIX, but row (d) carries no platform note although `gdb -p` against CPython is not a Windows path. The file is otherwise scrupulous about this gap — line 373-374 says "The `SIGUSR1`-dumps-a-stack runbook is POSIX-only and needs 
+  FIX  : Add to the Requires cell of row (d) at line 411: `gdb 7.0+ with Python support, plus debug info — **POSIX only**`, and add one line under the table: "**On Windows the ladder is (b) py-spy only** until the §Open-questions Windows answer is recorded; WER (§4e) covers the crash case, not the wedge case."
+####################################################################################################
+
+== AREA: Rule codes and tool flags in python_language_hazards_manifest.md, python_linting_practices_manifest.md, python | checked: 255
+   could_not_check: What I could not check: (1) the `ruff rule --all --output-format json` field list and the 830-stable count are CLI-shaped claims — I confirmed 968 total and 138 preview exactly from the rules index and 830 = 968−138, but could not distinguish how the CLI classifies the 22 removed rules. (2) The C901 traversal semantics claim in quality gates §9.3 (If +1, nested FunctionDef +1, With +0, no BoolOp/c
+
+== AREA: Version, PEP-status and API claims — python_platform_baseline_manifest.md (hub), python_typing_contract_manife | checked: 183
+   could_not_check: Method: read the four files with grep -n/sed -n, then checked each checkable claim against a primary page. Network access worked through curl in Bash, so I pulled peps.python.org/api/peps.json (all ~90 PEP statuses in one pass rather than trusting samples), the python.org release API (all 3.10–3.15 release dates), PyPI JSON for 40+ packages, and the raw upstream changelogs for pytest, mypy, covera
+
+== AREA: Cross-file contradictions, duplication, ownership violations, hub deference and cross-reference integrity acro | checked: 57
+   could_not_check: Scope actually covered: PLAN.md's scope-boundary and house-rule sections in full; the opening Purpose/Scope, TL;DR, version-anchor line and closing Sibling-manifests block of all 13 files; the README end to end; the full heading maps of all 13 files plus the four untouched siblings; and full text of ~30 sections chosen because two files' heading titles or subject matter collided. What I did NOT ch
+
+== AREA: Citations, URLs and imported SWE vocabulary — the collection's credibility surface (element-id existence and a | checked: 178
+   could_not_check: What I could not verify. (1) Print sources: BCK *SAIP* 4th ed., Meszaros, POSA4, POSA2, Feathers, JCiP, Douglass, Evans, Bloch, Kerrisk, Kuhn et al. are not online, so I verified every element attribution against the corpus's own named_in/works records — not against the books. A systematic error inside the corpus would pass my check invisibly (this is exactly the class the collection already flags
+
+== AREA: Register discipline and structural completeness (the two registers; ground-truth template completeness; tag co | checked: 242
+   could_not_check: Scope caveats on what I could not check. (1) I did not verify factual accuracy against live primary sources — no page loads — because this audit area is register discipline and structural completeness; version numbers, rule codes, PEP statuses and quoted text are another auditor's area. My one incursion was a laundering spot-check on the fact packs, and it was a sample (~15 claims in r10/r14 again
+
+== AREA: Consumer usability — can a coding agent actually ACT on this collection? (cold-start, code-review, incident, c | checked: 31
+   could_not_check: Could NOT verify by measurement: no ruff, mypy, pytest or standalone python interpreter is on PATH in this environment (only miniforge python and uv), so every MEASURED claim in the collection — the 413/968 rule counts, the per-prefix default distribution, `--show-settings` resolved values, the D203/formatter fix loop — was checked only against docs.astral.sh pages, never re-measured. That matters

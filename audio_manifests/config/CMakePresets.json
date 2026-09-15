@@ -1,0 +1,222 @@
+{
+  "version": 6,
+  "cmakeMinimumRequired": { "major": 3, "minor": 25, "patch": 0 },
+  "vendor": {
+    "audio-rt-ground": {
+      "law": "reference/toolchain_build_manifest.md B1-B5; flag values battery-verified 2026-08-12 on clang 22.1.8 CLANG64 unless a preset's vendor note says otherwise",
+      "model": "configurePreset = leg x config; flags are cache STRINGs (AUDIO_*) the CMakeLists consumes per TU class — never per-file, never ad hoc (B1)",
+      "status": "SKELETON the project adapts [OPEN]: target wiring, PGO profile path, sanitizer lane overrides are project decisions (B5, B7, hub H5)",
+      "build-types": "custom CMAKE_BUILD_TYPE names (Dev/Test/Perf/Ship) keep CMake's built-in Release/Debug flag defaults (incl. -DNDEBUG) out of the canon; CMAKE_C_FLAGS_<TYPE> stay undefined [CC-FACT]"
+    }
+  },
+  "configurePresets": [
+    {
+      "name": "base",
+      "hidden": true,
+      "generator": "Ninja",
+      "binaryDir": "${sourceDir}/build/${presetName}",
+      "cacheVariables": {
+        "CMAKE_EXPORT_COMPILE_COMMANDS": "ON",
+        "AUDIO_FLAGS_COMMON": "-std=c17 -Wall -Wextra -Werror -Wconversion -Wsign-conversion -Wshadow -Wdouble-promotion -Wfloat-conversion -Wimplicit-fallthrough -Wvla -Wswitch-enum -g -march=x86-64-v3 -ffp-contract=fast -fvisibility=hidden -ffunction-sections -fdata-sections",
+        "AUDIO_LDFLAGS_COMMON": "-Wl,--gc-sections"
+      },
+      "vendor": {
+        "audio-rt-ground": {
+          "note": "the everywhere row (B2): ISA floor value is hub H8's; contraction pin is booklet section 9.6; every flag in AUDIO_FLAGS_COMMON compiled+linked+ran in the 2026-08-12 battery [MEASURED]"
+        }
+      }
+    },
+    {
+      "name": "leg-windows",
+      "hidden": true,
+      "toolchainFile": "${sourceDir}/config/toolchain-clang64-windows.cmake",
+      "condition": { "type": "equals", "lhs": "${hostSystemName}", "rhs": "Windows" },
+      "cacheVariables": {
+        "AUDIO_LEG": "windows-clang64",
+        "AUDIO_FLAGS_LEG": "",
+        "AUDIO_LDFLAGS_LEG": ""
+      }
+    },
+    {
+      "name": "leg-linux",
+      "hidden": true,
+      "toolchainFile": "${sourceDir}/config/toolchain-linux-clang.cmake",
+      "condition": { "type": "equals", "lhs": "${hostSystemName}", "rhs": "Linux" },
+      "cacheVariables": {
+        "AUDIO_LEG": "linux-clang",
+        "AUDIO_FLAGS_LEG": "-fno-plt",
+        "AUDIO_LDFLAGS_LEG": "-Wl,-z,relro -Wl,-z,now"
+      },
+      "vendor": {
+        "audio-rt-ground": {
+          "note": "per-leg rows per booklet section 10.2 [CC-FACT on this host — Linux leg not battery-verified 2026-08-12; hub H4/H9]. -fno-plt on the Windows leg is a hard error under -Werror [MEASURED], which is why these rows live here and only here"
+        }
+      }
+    },
+    {
+      "name": "cfg-dev",
+      "hidden": true,
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Dev",
+        "AUDIO_CONFIG": "dev",
+        "AUDIO_FLAGS_CORE_KERNEL": "-O1",
+        "AUDIO_FLAGS_CORE": "-O1",
+        "AUDIO_FLAGS_SHELL_ADAPTER": "-O1",
+        "AUDIO_FLAGS_TEST_TOOL": "-O1",
+        "AUDIO_KERNEL_REMARK_FLAGS": "",
+        "AUDIO_SAN_FLAGS": "",
+        "AUDIO_LTO": "off",
+        "AUDIO_LTO_REMARK_LDFLAGS": "",
+        "AUDIO_PGO": "off",
+        "AUDIO_PROFDATA": "",
+        "AUDIO_RT_GUARDS": "on",
+        "AUDIO_ASSERTS": "on"
+      }
+    },
+    {
+      "name": "cfg-test",
+      "hidden": true,
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Test",
+        "AUDIO_CONFIG": "test",
+        "AUDIO_FLAGS_CORE_KERNEL": "-O2",
+        "AUDIO_FLAGS_CORE": "-O2",
+        "AUDIO_FLAGS_SHELL_ADAPTER": "-O2",
+        "AUDIO_FLAGS_TEST_TOOL": "-O2",
+        "AUDIO_KERNEL_REMARK_FLAGS": "",
+        "AUDIO_SAN_FLAGS": "-fsanitize=address,undefined",
+        "AUDIO_LTO": "off",
+        "AUDIO_LTO_REMARK_LDFLAGS": "",
+        "AUDIO_PGO": "off",
+        "AUDIO_PROFDATA": "",
+        "AUDIO_RT_GUARDS": "on",
+        "AUDIO_ASSERTS": "on"
+      },
+      "vendor": {
+        "audio-rt-ground": {
+          "note": "ASan+UBSan run on both legs [MEASURED on CLANG64 2026-08-12]; the Linux TSan lane overrides -DAUDIO_SAN_FLAGS=-fsanitize=thread (TSan runtime ABSENT on CLANG64 [MEASURED] — hub H5, testing T8). Sanitizer flags must reach compile AND link; CMakeLists owns that (B5)"
+        }
+      }
+    },
+    {
+      "name": "cfg-perf",
+      "hidden": true,
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Perf",
+        "AUDIO_CONFIG": "perf",
+        "AUDIO_FLAGS_CORE_KERNEL": "-O3",
+        "AUDIO_FLAGS_CORE": "-O2",
+        "AUDIO_FLAGS_SHELL_ADAPTER": "-O2",
+        "AUDIO_FLAGS_TEST_TOOL": "-O2",
+        "AUDIO_KERNEL_REMARK_FLAGS": "-Rpass=loop-vectorize -Rpass-missed=loop-vectorize -Rpass-analysis=loop-vectorize",
+        "AUDIO_SAN_FLAGS": "",
+        "AUDIO_LTO": "thin",
+        "AUDIO_LTO_REMARK_LDFLAGS": "-Wl,-mllvm,-pass-remarks=loop-vectorize -Wl,-mllvm,-pass-remarks-missed=loop-vectorize",
+        "AUDIO_PGO": "off",
+        "AUDIO_PROFDATA": "",
+        "AUDIO_RT_GUARDS": "off",
+        "AUDIO_ASSERTS": "field-policy",
+        "AUDIO_PROFILE_HOOKS": "on"
+      },
+      "vendor": {
+        "audio-rt-ground": {
+          "note": "perf = ship's optimization plus profiling hooks (booklet section 10.2). Under -flto=thin the compile-time -Rpass gate is SILENT (vectorizer runs in the LTO backend) and the link-time -Wl,-mllvm,-pass-remarks row is the one that fires [MEASURED 2026-08-12] — B8. AUDIO_PGO flips to generate/use per the B7 workflow; 'off' is the skeleton default so a fresh checkout builds [OPEN]"
+        }
+      }
+    },
+    {
+      "name": "cfg-ship",
+      "hidden": true,
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Ship",
+        "AUDIO_CONFIG": "ship",
+        "AUDIO_FLAGS_CORE_KERNEL": "-O3",
+        "AUDIO_FLAGS_CORE": "-O2",
+        "AUDIO_FLAGS_SHELL_ADAPTER": "-O2",
+        "AUDIO_FLAGS_TEST_TOOL": "-O2",
+        "AUDIO_KERNEL_REMARK_FLAGS": "-Rpass=loop-vectorize -Rpass-missed=loop-vectorize -Rpass-analysis=loop-vectorize",
+        "AUDIO_SAN_FLAGS": "",
+        "AUDIO_LTO": "thin",
+        "AUDIO_LTO_REMARK_LDFLAGS": "-Wl,-mllvm,-pass-remarks=loop-vectorize -Wl,-mllvm,-pass-remarks-missed=loop-vectorize",
+        "AUDIO_PGO": "off",
+        "AUDIO_PROFDATA": "",
+        "AUDIO_RT_GUARDS": "off",
+        "AUDIO_ASSERTS": "field-policy",
+        "AUDIO_PROFILE_HOOKS": "off"
+      },
+      "vendor": {
+        "audio-rt-ground": {
+          "note": "ship = -O3 kernels + ThinLTO + PGO, guards compiled out, asserts per the field-assert policy [OPEN NEEDS-INPUT — booklet section 10.2]. Release CI sets -DAUDIO_PGO=use -DAUDIO_PROFDATA=<versioned .profdata> (B7); a ship binary without PGO says so in its build identity (B10)"
+        }
+      }
+    },
+    {
+      "name": "win-dev",
+      "displayName": "Windows CLANG64 dev (-O1 -g, guards+asserts on)",
+      "inherits": ["leg-windows", "cfg-dev", "base"]
+    },
+    {
+      "name": "win-test",
+      "displayName": "Windows CLANG64 test (-O2 -g, ASan+UBSan)",
+      "inherits": ["leg-windows", "cfg-test", "base"]
+    },
+    {
+      "name": "win-perf",
+      "displayName": "Windows CLANG64 perf (class opt, ThinLTO, hooks)",
+      "inherits": ["leg-windows", "cfg-perf", "base"]
+    },
+    {
+      "name": "win-ship",
+      "displayName": "Windows CLANG64 ship (class opt, ThinLTO, PGO)",
+      "inherits": ["leg-windows", "cfg-ship", "base"]
+    },
+    {
+      "name": "linux-dev",
+      "displayName": "Linux clang dev (-O1 -g, guards+asserts on)",
+      "inherits": ["leg-linux", "cfg-dev", "base"]
+    },
+    {
+      "name": "linux-test",
+      "displayName": "Linux clang test (-O2 -g, ASan+UBSan; TSan lane overrides)",
+      "inherits": ["leg-linux", "cfg-test", "base"]
+    },
+    {
+      "name": "linux-perf",
+      "displayName": "Linux clang perf (class opt, ThinLTO, hooks)",
+      "inherits": ["leg-linux", "cfg-perf", "base"]
+    },
+    {
+      "name": "linux-ship",
+      "displayName": "Linux clang ship (class opt, ThinLTO, PGO)",
+      "inherits": ["leg-linux", "cfg-ship", "base"]
+    },
+    {
+      "name": "linux-tsan",
+      "displayName": "Linux clang TSan lane (thread sanitizer; Linux leg only, TSan runtime absent on CLANG64 -- hub H5)",
+      "inherits": ["leg-linux", "cfg-test", "base"],
+      "cacheVariables": { "AUDIO_SAN_FLAGS": "-fsanitize=thread" }
+    }
+  ],
+  "buildPresets": [
+    { "name": "win-dev", "configurePreset": "win-dev" },
+    { "name": "win-test", "configurePreset": "win-test" },
+    { "name": "win-perf", "configurePreset": "win-perf" },
+    { "name": "win-ship", "configurePreset": "win-ship" },
+    { "name": "linux-dev", "configurePreset": "linux-dev" },
+    { "name": "linux-test", "configurePreset": "linux-test" },
+    { "name": "linux-perf", "configurePreset": "linux-perf" },
+    { "name": "linux-ship", "configurePreset": "linux-ship" },
+    { "name": "linux-tsan", "configurePreset": "linux-tsan" }
+  ],
+  "testPresets": [
+    { "name": "win-dev", "configurePreset": "win-dev", "output": { "outputOnFailure": true } },
+    { "name": "win-test", "configurePreset": "win-test", "output": { "outputOnFailure": true } },
+    { "name": "win-perf", "configurePreset": "win-perf", "output": { "outputOnFailure": true } },
+    { "name": "win-ship", "configurePreset": "win-ship", "output": { "outputOnFailure": true } },
+    { "name": "linux-dev", "configurePreset": "linux-dev", "output": { "outputOnFailure": true } },
+    { "name": "linux-test", "configurePreset": "linux-test", "output": { "outputOnFailure": true } },
+    { "name": "linux-perf", "configurePreset": "linux-perf", "output": { "outputOnFailure": true } },
+    { "name": "linux-ship", "configurePreset": "linux-ship", "output": { "outputOnFailure": true } },
+    { "name": "linux-tsan", "configurePreset": "linux-tsan", "output": { "outputOnFailure": true } }
+  ]
+}

@@ -1,0 +1,263 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "session_report",
+  "$comment": "audio-rt-ground session report contract v1. Prose twin: reference/error_tracing_contract_manifest.md E8 -- the two must match exactly; divergence is a build defect (G3). Consumers: CI gates (testing_verification T12, quality_gates_ci G7) and user bug reports, deliberately the same format (booklet section 13.3). Additive change: bump schema_version minor and re-hash this file (build.schema_hash = first 16 hex of its SHA-256). Breaking change: new major, new filename.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "build",
+    "machine",
+    "session",
+    "stream",
+    "histograms",
+    "counters",
+    "events",
+    "degrade_history",
+    "xrun_autopsies"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "pattern": "^1\\.[0-9]+$",
+      "$comment": "major.minor of this contract; major is pinned to 1 for this file"
+    },
+    "build": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["git", "flags_hash", "schema_hash", "variant"],
+      "properties": {
+        "git": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{7,40}(-dirty)?$",
+          "$comment": "commit of the running binary; must equal the build= field of every CHECK-FAIL line in the same run (E6)"
+        },
+        "flags_hash": { "$ref": "#/definitions/hex16" },
+        "schema_hash": {
+          "$ref": "#/definitions/hex16",
+          "$comment": "first 16 hex of SHA-256 of this schema file's bytes; recompute, never hardcode"
+        },
+        "variant": { "enum": ["dev", "ship", "bench"] }
+      }
+    },
+    "machine": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["cpu", "os", "leg"],
+      "properties": {
+        "cpu": { "type": "string" },
+        "os": { "type": "string" },
+        "leg": { "enum": ["linux-clang", "windows-clang64"] }
+      }
+    },
+    "session": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["started_utc", "ended_utc", "exit", "report_reason"],
+      "properties": {
+        "started_utc": { "type": "string", "format": "date-time" },
+        "ended_utc": {
+          "type": ["string", "null"],
+          "format": "date-time",
+          "$comment": "null when the session did not end cleanly (crash / partial checkpoint)"
+        },
+        "exit": { "enum": ["clean", "dirty", "crash", "watchdog", "running"] },
+        "report_reason": {
+          "enum": ["exit", "on_demand", "harvest", "watchdog"],
+          "$comment": "harvest = finalized from an orphaned partial by the next start (E9)"
+        }
+      }
+    },
+    "stream": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["rate_hz", "format", "channels", "period_frames", "device", "api"],
+      "properties": {
+        "rate_hz": { "type": "integer", "minimum": 1 },
+        "format": {
+          "type": "string",
+          "$comment": "sample format token, e.g. f32le (negotiation: device_adapter D9)"
+        },
+        "channels": { "type": "integer", "minimum": 1 },
+        "period_frames": { "type": "integer", "minimum": 1 },
+        "device": { "type": "string" },
+        "api": { "enum": ["alsa", "wasapi_shared", "wasapi_exclusive"] }
+      }
+    },
+    "histograms": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["callback_us", "wakeup_gap_us"],
+      "properties": {
+        "callback_us": { "$ref": "#/definitions/histogram" },
+        "wakeup_gap_us": { "$ref": "#/definitions/histogram" }
+      }
+    },
+    "counters": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "xruns",
+        "ring_drops",
+        "pool_high_water",
+        "sentinel_interventions",
+        "denormal_trips",
+        "guard_trips"
+      ],
+      "properties": {
+        "xruns": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["self_overrun", "late_wakeup", "external_stall", "device_fault", "unclassified"],
+          "properties": {
+            "self_overrun": { "$ref": "#/definitions/count" },
+            "late_wakeup": { "$ref": "#/definitions/count" },
+            "external_stall": { "$ref": "#/definitions/count" },
+            "device_fault": { "$ref": "#/definitions/count" },
+            "unclassified": { "$ref": "#/definitions/count" }
+          }
+        },
+        "ring_drops": {
+          "type": "object",
+          "additionalProperties": false,
+          "patternProperties": { "^[a-z][a-z0-9_]*$": { "$ref": "#/definitions/count" } },
+          "$comment": "key = registered channel name (concurrency_channels C1); value = dropped elements"
+        },
+        "pool_high_water": {
+          "type": "object",
+          "additionalProperties": false,
+          "patternProperties": { "^[a-z][a-z0-9_]*$": { "$ref": "#/definitions/count" } },
+          "$comment": "key = pool name (memory_residency M3); value = high-water mark"
+        },
+        "sentinel_interventions": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["nan_inf", "clamp"],
+          "properties": {
+            "nan_inf": { "$ref": "#/definitions/count" },
+            "clamp": { "$ref": "#/definitions/count" }
+          },
+          "$comment": "output sentinel (booklet section 12.5): nonzero = a filed bug by definition"
+        },
+        "denormal_trips": { "$ref": "#/definitions/count" },
+        "guard_trips": {
+          "$ref": "#/definitions/count",
+          "$comment": "dev-build RT guard hits; must be 0 in any report a gate accepts"
+        }
+      }
+    },
+    "events": {
+      "type": "array",
+      "items": { "$ref": "#/definitions/event" },
+      "$comment": "flight-ring tail, oldest first"
+    },
+    "degrade_history": {
+      "type": "array",
+      "items": { "$ref": "#/definitions/degrade_step" }
+    },
+    "xrun_autopsies": {
+      "type": "array",
+      "items": { "$ref": "#/definitions/xrun_autopsy" }
+    }
+  },
+  "definitions": {
+    "hex16": { "type": "string", "pattern": "^[0-9a-f]{16}$" },
+    "count": { "type": "integer", "minimum": 0 },
+    "histogram": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["unit", "edges", "counts", "overflow", "total", "max_seen"],
+      "properties": {
+        "unit": { "const": "us" },
+        "edges": {
+          "type": "array",
+          "minItems": 2,
+          "items": { "type": "number", "minimum": 0 },
+          "$comment": "N+1 bin edges, strictly ascending (writer's obligation; not expressible in draft-07). Serialized explicitly -- parsers must never assume the binning."
+        },
+        "counts": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "$ref": "#/definitions/count" },
+          "$comment": "N counts; counts.length == edges.length - 1 (writer's obligation)"
+        },
+        "overflow": { "$ref": "#/definitions/count" },
+        "total": { "$ref": "#/definitions/count" },
+        "max_seen": { "type": "number", "minimum": 0 }
+      }
+    },
+    "event": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["seq", "t_us", "code", "name", "words"],
+      "properties": {
+        "seq": { "type": "integer", "minimum": 0 },
+        "t_us": {
+          "type": "number",
+          "minimum": 0,
+          "$comment": "monotonic microseconds since stream start (clock pair, booklet section 7.1)"
+        },
+        "code": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 4294967295,
+          "$comment": "uint32 (module_id << 16) | low16 -- the E3 registry"
+        },
+        "name": { "type": "string", "pattern": "^[A-Z][A-Z0-9_]*$" },
+        "words": {
+          "type": "array",
+          "maxItems": 6,
+          "items": { "type": "string", "pattern": "^0x[0-9a-f]{1,16}$" },
+          "$comment": "raw payload words as hex strings: 64-bit exactness; JSON numbers lose precision above 2^53"
+        },
+        "decoded": {
+          "type": "object",
+          "$comment": "optional drain-side rendering; free-form, never the parse target"
+        }
+      }
+    },
+    "degrade_step": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["t_us", "rung_from", "rung_to", "reason", "headroom_pct"],
+      "properties": {
+        "t_us": { "type": "number", "minimum": 0 },
+        "rung_from": { "$ref": "#/definitions/rung" },
+        "rung_to": { "$ref": "#/definitions/rung" },
+        "reason": { "enum": ["headroom", "recovery", "forced"] },
+        "headroom_pct": { "type": "number" }
+      }
+    },
+    "rung": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 5,
+      "$comment": "0 = full quality; 1..5 = booklet section 12.2's ladder, 5 = fade-to-silence safe state"
+    },
+    "xrun_autopsy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["t_us", "class", "period_us", "wakeup_gap_us", "duration_us"],
+      "properties": {
+        "t_us": { "type": "number", "minimum": 0 },
+        "class": {
+          "enum": ["self_overrun", "late_wakeup", "external_stall", "device_fault", "unclassified"],
+          "$comment": "booklet section 2.4's taxonomy; unclassified when the platform allowed no finer verdict"
+        },
+        "period_us": { "type": "number", "exclusiveMinimum": 0 },
+        "wakeup_gap_us": { "type": "number", "minimum": 0 },
+        "duration_us": { "type": "number", "minimum": 0 },
+        "minflt": { "type": ["integer", "null"], "minimum": 0 },
+        "majflt": { "type": ["integer", "null"], "minimum": 0 },
+        "nvcsw": { "type": ["integer", "null"], "minimum": 0 },
+        "nivcsw": { "type": ["integer", "null"], "minimum": 0 },
+        "native": {
+          "type": ["string", "null"],
+          "pattern": "^(-?[0-9]{1,19}|0x[0-9a-f]{1,16})$",
+          "$comment": "adapter-preserved native value (E5-2): decimal errno as returned, or 0x-prefixed HRESULT; null when none"
+        },
+        "recovered_ms": { "type": ["number", "null"], "minimum": 0 }
+      }
+    }
+  }
+}

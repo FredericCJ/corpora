@@ -1,0 +1,26 @@
+# audio-rt-ground — config/.clang-format
+# LLVM base narrowed for C17 at 100 columns. Owned by reference/toolchain_build_manifest.md;
+# enforced in CI via `clang-format --dry-run --Werror` (config/check.sh, quality gates G2).
+# Parsed clean and applied by clang-format 22.1.8 (CLANG64 clang-tools-extra)
+# [MEASURED 2026-08-12].
+---
+Language: Cpp                          # clang-format parses .c/.h under its Cpp language mode
+BasedOnStyle: LLVM
+ColumnLimit: 100
+IndentWidth: 2                         # LLVM default kept [OPEN ASSUMED]
+ContinuationIndentWidth: 4
+UseTab: Never
+PointerAlignment: Right                # C declarator convention: `float *x`, never `float* x`
+AlignConsecutiveMacros: Consecutive    # flag tables / event-id registers read as columns
+AlignArrayOfStructures: Left           # dispatch tables and op registries read as columns
+AllowShortFunctionsOnASingleLine: Empty
+AllowShortIfStatementsOnASingleLine: Never
+AllowShortLoopsOnASingleLine: false
+BreakBeforeBraces: Attach
+# Include order is load-bearing in C on this project: rt_prelude_poison.h first in RT TUs
+# (config/rt_prelude_poison.h), COBJMACROS/CINTERFACE defines before mmdeviceapi.h/audioclient.h
+# on the WASAPI adapter (device_adapter D5). Never let a formatter reorder includes.
+SortIncludes: Never
+IncludeBlocks: Preserve
+MaxEmptyLinesToKeep: 1
+SpacesBeforeTrailingComments: 2

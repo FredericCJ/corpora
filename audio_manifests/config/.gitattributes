@@ -1,0 +1,5 @@
+# audio-rt-ground -- keep shell scripts LF on a Windows checkout.
+# check.sh is POSIX sh; CRLF breaks it (config/ci-github.yml header comment;
+# reference/quality_gates_ci_manifest.md section G5). Copy-verbatim artifact — see
+# cards/start-project.md Step 2 and AGENTS.md's config/* doctrine: do not retype.
+*.sh text eol=lf

@@ -1,0 +1,5561 @@
+{
+ "package": "audio-rt-ground",
+ "description": "Knowledge database for coding agents implementing real-time audio in C17 on Linux/Windows NT, clang/LLVM + MSYS2 CLANG64. Testability and traceability as the agent feedback loop.",
+ "version": "2026.08.12",
+ "facts_verified": "2026-08-12",
+ "entry_point": "AGENTS.md",
+ "how_to_use": [
+  "1. Always load AGENTS.md (~3k tokens): non-negotiables, tag protocol, task router.",
+  "2. Load the ONE card in cards/ matching the task (~2k tokens).",
+  "3. Read a reference/ section only when a card names it. Never a whole file.",
+  "4. Copy config/ artifacts verbatim rather than deriving them.",
+  "5. Any red artifact: cards/diagnose-failure.md is the dispatch table."
+ ],
+ "section_count": 693,
+ "sections": [
+  {
+   "file": "AGENTS.md",
+   "id": null,
+   "level": 1,
+   "title": "Audio RT Ground \u2014 agent entry point",
+   "line": 1,
+   "approx_tokens": 260
+  },
+  {
+   "file": "AGENTS.md",
+   "id": null,
+   "level": 2,
+   "title": "Why this package is shaped the way it is",
+   "line": 16,
+   "approx_tokens": 199
+  },
+  {
+   "file": "AGENTS.md",
+   "id": null,
+   "level": 2,
+   "title": "How to use this package \u2014 do not read it all",
+   "line": 27,
+   "approx_tokens": 129
+  },
+  {
+   "file": "AGENTS.md",
+   "id": null,
+   "level": 2,
+   "title": "The task router",
+   "line": 37,
+   "approx_tokens": 283
+  },
+  {
+   "file": "AGENTS.md",
+   "id": null,
+   "level": 2,
+   "title": "How to read a claim \u2014 the tag protocol",
+   "line": 57,
+   "approx_tokens": 214
+  },
+  {
+   "file": "AGENTS.md",
+   "id": null,
+   "level": 2,
+   "title": "Enforcement routes",
+   "line": 71,
+   "approx_tokens": 127
+  },
+  {
+   "file": "AGENTS.md",
+   "id": null,
+   "level": 2,
+   "title": "The twenty non-negotiables",
+   "line": 80,
+   "approx_tokens": 903
+  },
+  {
+   "file": "AGENTS.md",
+   "id": null,
+   "level": 2,
+   "title": "The reference shelf",
+   "line": 135,
+   "approx_tokens": 424
+  },
+  {
+   "file": "README.md",
+   "id": null,
+   "level": 1,
+   "title": "audio-rt-ground",
+   "line": 1,
+   "approx_tokens": 225
+  },
+  {
+   "file": "README.md",
+   "id": null,
+   "level": 2,
+   "title": "Layout",
+   "line": 15,
+   "approx_tokens": 185
+  },
+  {
+   "file": "README.md",
+   "id": null,
+   "level": 2,
+   "title": "Provenance",
+   "line": 27,
+   "approx_tokens": 163
+  },
+  {
+   "file": "cards/build-and-flags.md",
+   "id": null,
+   "level": 1,
+   "title": "Card: build and flags",
+   "line": 1,
+   "approx_tokens": 178
+  },
+  {
+   "file": "cards/build-and-flags.md",
+   "id": null,
+   "level": 2,
+   "title": "The standard this card serves",
+   "line": 11,
+   "approx_tokens": 70
+  },
+  {
+   "file": "cards/build-and-flags.md",
+   "id": null,
+   "level": 2,
+   "title": "The four TU classes",
+   "line": 15,
+   "approx_tokens": 271
+  },
+  {
+   "file": "cards/build-and-flags.md",
+   "id": null,
+   "level": 2,
+   "title": "Which preset when",
+   "line": 28,
+   "approx_tokens": 246
+  },
+  {
+   "file": "cards/build-and-flags.md",
+   "id": null,
+   "level": 2,
+   "title": "Adding a TU \u2014 the whole procedure",
+   "line": 39,
+   "approx_tokens": 156
+  },
+  {
+   "file": "cards/build-and-flags.md",
+   "id": null,
+   "level": 2,
+   "title": "Changing a flag \u2014 the ritual",
+   "line": 46,
+   "approx_tokens": 151
+  },
+  {
+   "file": "cards/build-and-flags.md",
+   "id": null,
+   "level": 2,
+   "title": "Remark gates \u2014 what you watch",
+   "line": 54,
+   "approx_tokens": 131
+  },
+  {
+   "file": "cards/build-and-flags.md",
+   "id": null,
+   "level": 2,
+   "title": "Build breaks \u2014 first moves",
+   "line": 58,
+   "approx_tokens": 244
+  },
+  {
+   "file": "cards/build-and-flags.md",
+   "id": null,
+   "level": 2,
+   "title": "Reproducing a remark locally",
+   "line": 70,
+   "approx_tokens": 133
+  },
+  {
+   "file": "cards/build-and-flags.md",
+   "id": null,
+   "level": 2,
+   "title": "Build identity",
+   "line": 74,
+   "approx_tokens": 135
+  },
+  {
+   "file": "cards/build-and-flags.md",
+   "id": null,
+   "level": 2,
+   "title": "Toolchain bump \u2014 the ritual",
+   "line": 78,
+   "approx_tokens": 110
+  },
+  {
+   "file": "cards/build-and-flags.md",
+   "id": null,
+   "level": 2,
+   "title": "Never",
+   "line": 82,
+   "approx_tokens": 197
+  },
+  {
+   "file": "cards/build-and-flags.md",
+   "id": null,
+   "level": 2,
+   "title": "Decisions you must not invent",
+   "line": 92,
+   "approx_tokens": 188
+  },
+  {
+   "file": "cards/build-and-flags.md",
+   "id": null,
+   "level": 2,
+   "title": "What you owe when done",
+   "line": 100,
+   "approx_tokens": 148
+  },
+  {
+   "file": "cards/build-and-flags.md",
+   "id": null,
+   "level": 2,
+   "title": "Go deeper",
+   "line": 104,
+   "approx_tokens": 222
+  },
+  {
+   "file": "cards/concurrency-channels.md",
+   "id": null,
+   "level": 1,
+   "title": "Card: concurrency channels",
+   "line": 1,
+   "approx_tokens": 184
+  },
+  {
+   "file": "cards/concurrency-channels.md",
+   "id": null,
+   "level": 2,
+   "title": "The standard this card serves",
+   "line": 11,
+   "approx_tokens": 98
+  },
+  {
+   "file": "cards/concurrency-channels.md",
+   "id": null,
+   "level": 2,
+   "title": "Selection \u2014 walk the tree, first yes decides (DT-2/DT-3 condensed)",
+   "line": 15,
+   "approx_tokens": 349
+  },
+  {
+   "file": "cards/concurrency-channels.md",
+   "id": null,
+   "level": 2,
+   "title": "The five shapes \u2014 contract highlights and which implementation to copy",
+   "line": 36,
+   "approx_tokens": 515
+  },
+  {
+   "file": "cards/concurrency-channels.md",
+   "id": null,
+   "level": 2,
+   "title": "Memory ordering \u2014 the four blessed idioms",
+   "line": 50,
+   "approx_tokens": 277
+  },
+  {
+   "file": "cards/concurrency-channels.md",
+   "id": null,
+   "level": 2,
+   "title": "Overflow policy \u2014 declared per channel, at creation",
+   "line": 67,
+   "approx_tokens": 121
+  },
+  {
+   "file": "cards/concurrency-channels.md",
+   "id": null,
+   "level": 2,
+   "title": "The RT worker join (C7)",
+   "line": 75,
+   "approx_tokens": 169
+  },
+  {
+   "file": "cards/concurrency-channels.md",
+   "id": null,
+   "level": 2,
+   "title": "Shutdown protocol (C9 condensed)",
+   "line": 79,
+   "approx_tokens": 168
+  },
+  {
+   "file": "cards/concurrency-channels.md",
+   "id": null,
+   "level": 2,
+   "title": "Stress tests owed (C8 condensed)",
+   "line": 83,
+   "approx_tokens": 151
+  },
+  {
+   "file": "cards/concurrency-channels.md",
+   "id": null,
+   "level": 2,
+   "title": "Never",
+   "line": 87,
+   "approx_tokens": 264
+  },
+  {
+   "file": "cards/concurrency-channels.md",
+   "id": null,
+   "level": 2,
+   "title": "Decisions you must not invent",
+   "line": 99,
+   "approx_tokens": 125
+  },
+  {
+   "file": "cards/concurrency-channels.md",
+   "id": null,
+   "level": 2,
+   "title": "What you owe when done",
+   "line": 106,
+   "approx_tokens": 175
+  },
+  {
+   "file": "cards/concurrency-channels.md",
+   "id": null,
+   "level": 2,
+   "title": "Go deeper",
+   "line": 110,
+   "approx_tokens": 213
+  },
+  {
+   "file": "cards/device-adapters.md",
+   "id": null,
+   "level": 1,
+   "title": "Card: device adapters",
+   "line": 1,
+   "approx_tokens": 200
+  },
+  {
+   "file": "cards/device-adapters.md",
+   "id": null,
+   "level": 2,
+   "title": "The standard this card serves",
+   "line": 11,
+   "approx_tokens": 57
+  },
+  {
+   "file": "cards/device-adapters.md",
+   "id": null,
+   "level": 2,
+   "title": "The port contract (D1 condensed)",
+   "line": 15,
+   "approx_tokens": 283
+  },
+  {
+   "file": "cards/device-adapters.md",
+   "id": null,
+   "level": 2,
+   "title": "Per-leg recipes \u2014 where to copy from",
+   "line": 24,
+   "approx_tokens": 456
+  },
+  {
+   "file": "cards/device-adapters.md",
+   "id": null,
+   "level": 2,
+   "title": "The loop's per-wake obligations",
+   "line": 37,
+   "approx_tokens": 255
+  },
+  {
+   "file": "cards/device-adapters.md",
+   "id": null,
+   "level": 2,
+   "title": "COM discipline (the anti-corruption layer)",
+   "line": 50,
+   "approx_tokens": 223
+  },
+  {
+   "file": "cards/device-adapters.md",
+   "id": null,
+   "level": 2,
+   "title": "Fault verbs \u2014 conversion matrix (D8 condensed)",
+   "line": 65,
+   "approx_tokens": 406
+  },
+  {
+   "file": "cards/device-adapters.md",
+   "id": null,
+   "level": 2,
+   "title": "Negotiation and conversion (D9)",
+   "line": 79,
+   "approx_tokens": 100
+  },
+  {
+   "file": "cards/device-adapters.md",
+   "id": null,
+   "level": 2,
+   "title": "Fake-device parity",
+   "line": 83,
+   "approx_tokens": 112
+  },
+  {
+   "file": "cards/device-adapters.md",
+   "id": null,
+   "level": 2,
+   "title": "Never",
+   "line": 87,
+   "approx_tokens": 273
+  },
+  {
+   "file": "cards/device-adapters.md",
+   "id": null,
+   "level": 2,
+   "title": "Decisions you must not invent",
+   "line": 98,
+   "approx_tokens": 214
+  },
+  {
+   "file": "cards/device-adapters.md",
+   "id": null,
+   "level": 2,
+   "title": "What you owe when done",
+   "line": 107,
+   "approx_tokens": 191
+  },
+  {
+   "file": "cards/device-adapters.md",
+   "id": null,
+   "level": 2,
+   "title": "Go deeper",
+   "line": 111,
+   "approx_tokens": 199
+  },
+  {
+   "file": "cards/diagnose-failure.md",
+   "id": null,
+   "level": 1,
+   "title": "Card: diagnose a red artifact",
+   "line": 1,
+   "approx_tokens": 224
+  },
+  {
+   "file": "cards/diagnose-failure.md",
+   "id": null,
+   "level": 2,
+   "title": "The failure-to-patch loop",
+   "line": 15,
+   "approx_tokens": 373
+  },
+  {
+   "file": "cards/diagnose-failure.md",
+   "id": null,
+   "level": 2,
+   "title": "The dispatch table",
+   "line": 41,
+   "approx_tokens": 1952
+  },
+  {
+   "file": "cards/diagnose-failure.md",
+   "id": null,
+   "level": 2,
+   "title": "The three machine formats, parsed",
+   "line": 61,
+   "approx_tokens": 9
+  },
+  {
+   "file": "cards/diagnose-failure.md",
+   "id": null,
+   "level": 3,
+   "title": "1. CHECK-FAIL line (format v1) \u2014 one line per check failure",
+   "line": 63,
+   "approx_tokens": 269
+  },
+  {
+   "file": "cards/diagnose-failure.md",
+   "id": null,
+   "level": 3,
+   "title": "2. UBSan runtime line \u2014 measured on this toolchain",
+   "line": 84,
+   "approx_tokens": 131
+  },
+  {
+   "file": "cards/diagnose-failure.md",
+   "id": null,
+   "level": 3,
+   "title": "3. TESTFAIL v1 block \u2014 one per failing test, sentinel-delimited",
+   "line": 96,
+   "approx_tokens": 272
+  },
+  {
+   "file": "cards/diagnose-failure.md",
+   "id": null,
+   "level": 2,
+   "title": "When the artifact is not enough",
+   "line": 120,
+   "approx_tokens": 170
+  },
+  {
+   "file": "cards/diagnose-failure.md",
+   "id": null,
+   "level": 2,
+   "title": "Never",
+   "line": 131,
+   "approx_tokens": 261
+  },
+  {
+   "file": "cards/diagnose-failure.md",
+   "id": null,
+   "level": 2,
+   "title": "What you owe",
+   "line": 148,
+   "approx_tokens": 101
+  },
+  {
+   "file": "cards/diagnose-failure.md",
+   "id": null,
+   "level": 2,
+   "title": "Decisions you must not invent",
+   "line": 156,
+   "approx_tokens": 90
+  },
+  {
+   "file": "cards/diagnose-failure.md",
+   "id": null,
+   "level": 2,
+   "title": "Go deeper",
+   "line": 163,
+   "approx_tokens": 231
+  },
+  {
+   "file": "cards/gates-and-ci.md",
+   "id": null,
+   "level": 1,
+   "title": "Card: gates and CI",
+   "line": 1,
+   "approx_tokens": 166
+  },
+  {
+   "file": "cards/gates-and-ci.md",
+   "id": null,
+   "level": 2,
+   "title": "The law",
+   "line": 14,
+   "approx_tokens": 92
+  },
+  {
+   "file": "cards/gates-and-ci.md",
+   "id": null,
+   "level": 2,
+   "title": "The gate ledger, condensed",
+   "line": 21,
+   "approx_tokens": 399
+  },
+  {
+   "file": "cards/gates-and-ci.md",
+   "id": null,
+   "level": 2,
+   "title": "check.sh \u2014 one entry point",
+   "line": 33,
+   "approx_tokens": 129
+  },
+  {
+   "file": "cards/gates-and-ci.md",
+   "id": null,
+   "level": 2,
+   "title": "What blocks merge",
+   "line": 42,
+   "approx_tokens": 168
+  },
+  {
+   "file": "cards/gates-and-ci.md",
+   "id": null,
+   "level": 2,
+   "title": "Adding a gate = the ratchet",
+   "line": 53,
+   "approx_tokens": 233
+  },
+  {
+   "file": "cards/gates-and-ci.md",
+   "id": null,
+   "level": 2,
+   "title": "Artifact locations",
+   "line": 71,
+   "approx_tokens": 213
+  },
+  {
+   "file": "cards/gates-and-ci.md",
+   "id": null,
+   "level": 2,
+   "title": "The dual-leg matrix",
+   "line": 87,
+   "approx_tokens": 192
+  },
+  {
+   "file": "cards/gates-and-ci.md",
+   "id": null,
+   "level": 2,
+   "title": "Never",
+   "line": 103,
+   "approx_tokens": 226
+  },
+  {
+   "file": "cards/gates-and-ci.md",
+   "id": null,
+   "level": 2,
+   "title": "What you owe",
+   "line": 117,
+   "approx_tokens": 104
+  },
+  {
+   "file": "cards/gates-and-ci.md",
+   "id": null,
+   "level": 2,
+   "title": "Decisions you must not invent",
+   "line": 125,
+   "approx_tokens": 84
+  },
+  {
+   "file": "cards/gates-and-ci.md",
+   "id": null,
+   "level": 2,
+   "title": "Go deeper",
+   "line": 132,
+   "approx_tokens": 240
+  },
+  {
+   "file": "cards/handle-errors.md",
+   "id": null,
+   "level": 1,
+   "title": "Card: handle errors",
+   "line": 1,
+   "approx_tokens": 184
+  },
+  {
+   "file": "cards/handle-errors.md",
+   "id": null,
+   "level": 2,
+   "title": "The standard this card serves",
+   "line": 14,
+   "approx_tokens": 80
+  },
+  {
+   "file": "cards/handle-errors.md",
+   "id": null,
+   "level": 2,
+   "title": "The dispositions, per plane",
+   "line": 20,
+   "approx_tokens": 477
+  },
+  {
+   "file": "cards/handle-errors.md",
+   "id": null,
+   "level": 2,
+   "title": "The code registry",
+   "line": 38,
+   "approx_tokens": 246
+  },
+  {
+   "file": "cards/handle-errors.md",
+   "id": null,
+   "level": 2,
+   "title": "Result convention in C \u2014 the shape",
+   "line": 54,
+   "approx_tokens": 207
+  },
+  {
+   "file": "cards/handle-errors.md",
+   "id": null,
+   "level": 2,
+   "title": "Conversion at the adapter \u2014 one vocabulary inward",
+   "line": 73,
+   "approx_tokens": 267
+  },
+  {
+   "file": "cards/handle-errors.md",
+   "id": null,
+   "level": 2,
+   "title": "RT-plane absorb-and-mark \u2014 the shape",
+   "line": 89,
+   "approx_tokens": 195
+  },
+  {
+   "file": "cards/handle-errors.md",
+   "id": null,
+   "level": 2,
+   "title": "The check-message contract",
+   "line": 105,
+   "approx_tokens": 205
+  },
+  {
+   "file": "cards/handle-errors.md",
+   "id": null,
+   "level": 2,
+   "title": "Never",
+   "line": 117,
+   "approx_tokens": 220
+  },
+  {
+   "file": "cards/handle-errors.md",
+   "id": null,
+   "level": 2,
+   "title": "What you owe",
+   "line": 131,
+   "approx_tokens": 104
+  },
+  {
+   "file": "cards/handle-errors.md",
+   "id": null,
+   "level": 2,
+   "title": "Decisions you must not invent",
+   "line": 139,
+   "approx_tokens": 76
+  },
+  {
+   "file": "cards/handle-errors.md",
+   "id": null,
+   "level": 2,
+   "title": "Go deeper",
+   "line": 145,
+   "approx_tokens": 223
+  },
+  {
+   "file": "cards/observability.md",
+   "id": null,
+   "level": 1,
+   "title": "Card: observability \u2014 events, counters, histograms",
+   "line": 1,
+   "approx_tokens": 196
+  },
+  {
+   "file": "cards/observability.md",
+   "id": null,
+   "level": 2,
+   "title": "The standard this card serves",
+   "line": 14,
+   "approx_tokens": 120
+  },
+  {
+   "file": "cards/observability.md",
+   "id": null,
+   "level": 2,
+   "title": "The always-on set",
+   "line": 22,
+   "approx_tokens": 217
+  },
+  {
+   "file": "cards/observability.md",
+   "id": null,
+   "level": 2,
+   "title": "Recipe: add a counter",
+   "line": 33,
+   "approx_tokens": 189
+  },
+  {
+   "file": "cards/observability.md",
+   "id": null,
+   "level": 2,
+   "title": "Recipe: add an event",
+   "line": 44,
+   "approx_tokens": 352
+  },
+  {
+   "file": "cards/observability.md",
+   "id": null,
+   "level": 2,
+   "title": "Recipe: add a histogram",
+   "line": 68,
+   "approx_tokens": 78
+  },
+  {
+   "file": "cards/observability.md",
+   "id": null,
+   "level": 2,
+   "title": "The session report \u2014 fields you must not break",
+   "line": 74,
+   "approx_tokens": 362
+  },
+  {
+   "file": "cards/observability.md",
+   "id": null,
+   "level": 2,
+   "title": "Heartbeat and supervisor",
+   "line": 95,
+   "approx_tokens": 116
+  },
+  {
+   "file": "cards/observability.md",
+   "id": null,
+   "level": 2,
+   "title": "Diagnosis mode",
+   "line": 103,
+   "approx_tokens": 137
+  },
+  {
+   "file": "cards/observability.md",
+   "id": null,
+   "level": 2,
+   "title": "Never on the RT plane",
+   "line": 112,
+   "approx_tokens": 250
+  },
+  {
+   "file": "cards/observability.md",
+   "id": null,
+   "level": 2,
+   "title": "What you owe",
+   "line": 129,
+   "approx_tokens": 72
+  },
+  {
+   "file": "cards/observability.md",
+   "id": null,
+   "level": 2,
+   "title": "Decisions you must not invent",
+   "line": 135,
+   "approx_tokens": 63
+  },
+  {
+   "file": "cards/observability.md",
+   "id": null,
+   "level": 2,
+   "title": "Go deeper",
+   "line": 141,
+   "approx_tokens": 224
+  },
+  {
+   "file": "cards/optimize-performance.md",
+   "id": null,
+   "level": 1,
+   "title": "Card: optimize performance",
+   "line": 1,
+   "approx_tokens": 182
+  },
+  {
+   "file": "cards/optimize-performance.md",
+   "id": null,
+   "level": 2,
+   "title": "The two oracles",
+   "line": 15,
+   "approx_tokens": 222
+  },
+  {
+   "file": "cards/optimize-performance.md",
+   "id": null,
+   "level": 2,
+   "title": "The ladder \u2014 walk top-down, each rung gated by a measurement",
+   "line": 31,
+   "approx_tokens": 500
+  },
+  {
+   "file": "cards/optimize-performance.md",
+   "id": null,
+   "level": 2,
+   "title": "Bench protocol, condensed",
+   "line": 48,
+   "approx_tokens": 259
+  },
+  {
+   "file": "cards/optimize-performance.md",
+   "id": null,
+   "level": 2,
+   "title": "Reading the machine \u2014 commands",
+   "line": 65,
+   "approx_tokens": 34
+  },
+  {
+   "file": "cards/optimize-performance.md",
+   "id": null,
+   "level": 1,
+   "title": "healthy hot kernel: \"vectorized loop (vectorization width: 8, interleaved count: 4)\"",
+   "line": 69,
+   "approx_tokens": 21
+  },
+  {
+   "file": "cards/optimize-performance.md",
+   "id": null,
+   "level": 1,
+   "title": "[MEASURED 2026-08-12: CLANG64 clang 22.1.8, restrict-qualified float saxpy]",
+   "line": 70,
+   "approx_tokens": 43
+  },
+  {
+   "file": "cards/optimize-performance.md",
+   "id": null,
+   "level": 1,
+   "title": "reference machine reports Dispatch Width: 6   [MEASURED 2026-08-12]",
+   "line": 74,
+   "approx_tokens": 63
+  },
+  {
+   "file": "cards/optimize-performance.md",
+   "id": null,
+   "level": 2,
+   "title": "When the tail will not reproduce on the bench",
+   "line": 80,
+   "approx_tokens": 246
+  },
+  {
+   "file": "cards/optimize-performance.md",
+   "id": null,
+   "level": 2,
+   "title": "The OS rung, quick rows",
+   "line": 95,
+   "approx_tokens": 296
+  },
+  {
+   "file": "cards/optimize-performance.md",
+   "id": null,
+   "level": 2,
+   "title": "Refusals \u2014 re-proposed annually, still refused",
+   "line": 111,
+   "approx_tokens": 165
+  },
+  {
+   "file": "cards/optimize-performance.md",
+   "id": null,
+   "level": 2,
+   "title": "Never",
+   "line": 121,
+   "approx_tokens": 223
+  },
+  {
+   "file": "cards/optimize-performance.md",
+   "id": null,
+   "level": 2,
+   "title": "What you owe",
+   "line": 136,
+   "approx_tokens": 95
+  },
+  {
+   "file": "cards/optimize-performance.md",
+   "id": null,
+   "level": 2,
+   "title": "Decisions you must not invent",
+   "line": 143,
+   "approx_tokens": 92
+  },
+  {
+   "file": "cards/optimize-performance.md",
+   "id": null,
+   "level": 2,
+   "title": "Go deeper",
+   "line": 150,
+   "approx_tokens": 308
+  },
+  {
+   "file": "cards/review-code.md",
+   "id": null,
+   "level": 1,
+   "title": "Card: review a diff (or final-check your own work)",
+   "line": 1,
+   "approx_tokens": 183
+  },
+  {
+   "file": "cards/review-code.md",
+   "id": null,
+   "level": 2,
+   "title": "How to use this",
+   "line": 14,
+   "approx_tokens": 89
+  },
+  {
+   "file": "cards/review-code.md",
+   "id": null,
+   "level": 2,
+   "title": "1. RT-plane violations \u2014 ship-frequency #1",
+   "line": 21,
+   "approx_tokens": 607
+  },
+  {
+   "file": "cards/review-code.md",
+   "id": null,
+   "level": 2,
+   "title": "2. Tests owed but missing",
+   "line": 57,
+   "approx_tokens": 156
+  },
+  {
+   "file": "cards/review-code.md",
+   "id": null,
+   "level": 2,
+   "title": "3. Untagged or mis-tagged claims",
+   "line": 67,
+   "approx_tokens": 136
+  },
+  {
+   "file": "cards/review-code.md",
+   "id": null,
+   "level": 2,
+   "title": "4. Error-code reuse",
+   "line": 76,
+   "approx_tokens": 110
+  },
+  {
+   "file": "cards/review-code.md",
+   "id": null,
+   "level": 2,
+   "title": "5. Event schema / session report broken",
+   "line": 84,
+   "approx_tokens": 104
+  },
+  {
+   "file": "cards/review-code.md",
+   "id": null,
+   "level": 2,
+   "title": "6. Flag ad-hoc-ism",
+   "line": 92,
+   "approx_tokens": 128
+  },
+  {
+   "file": "cards/review-code.md",
+   "id": null,
+   "level": 2,
+   "title": "7. Golden auto-approve",
+   "line": 101,
+   "approx_tokens": 147
+  },
+  {
+   "file": "cards/review-code.md",
+   "id": null,
+   "level": 2,
+   "title": "8. Bench-free performance claims",
+   "line": 110,
+   "approx_tokens": 98
+  },
+  {
+   "file": "cards/review-code.md",
+   "id": null,
+   "level": 2,
+   "title": "9. Unrouted rules",
+   "line": 117,
+   "approx_tokens": 111
+  },
+  {
+   "file": "cards/review-code.md",
+   "id": null,
+   "level": 2,
+   "title": "Never",
+   "line": 125,
+   "approx_tokens": 255
+  },
+  {
+   "file": "cards/review-code.md",
+   "id": null,
+   "level": 2,
+   "title": "The contract-only register \u2014 ask these by name",
+   "line": 135,
+   "approx_tokens": 248
+  },
+  {
+   "file": "cards/review-code.md",
+   "id": null,
+   "level": 2,
+   "title": "What you owe \u2014 before you say \"done\"",
+   "line": 153,
+   "approx_tokens": 144
+  },
+  {
+   "file": "cards/review-code.md",
+   "id": null,
+   "level": 2,
+   "title": "Decisions you must not invent",
+   "line": 164,
+   "approx_tokens": 50
+  },
+  {
+   "file": "cards/review-code.md",
+   "id": null,
+   "level": 2,
+   "title": "Go deeper",
+   "line": 169,
+   "approx_tokens": 151
+  },
+  {
+   "file": "cards/start-project.md",
+   "id": null,
+   "level": 1,
+   "title": "Card: start a project",
+   "line": 1,
+   "approx_tokens": 210
+  },
+  {
+   "file": "cards/start-project.md",
+   "id": null,
+   "level": 2,
+   "title": "The standard this card serves",
+   "line": 11,
+   "approx_tokens": 76
+  },
+  {
+   "file": "cards/start-project.md",
+   "id": null,
+   "level": 2,
+   "title": "Step 0 \u2014 toolchain",
+   "line": 15,
+   "approx_tokens": 268
+  },
+  {
+   "file": "cards/start-project.md",
+   "id": null,
+   "level": 2,
+   "title": "Step 1 \u2014 scaffold the layout",
+   "line": 27,
+   "approx_tokens": 234
+  },
+  {
+   "file": "cards/start-project.md",
+   "id": null,
+   "level": 2,
+   "title": "Step 2 \u2014 copy config artifacts verbatim",
+   "line": 43,
+   "approx_tokens": 349
+  },
+  {
+   "file": "cards/start-project.md",
+   "id": null,
+   "level": 2,
+   "title": "Step 3 \u2014 first build, both presets",
+   "line": 59,
+   "approx_tokens": 128
+  },
+  {
+   "file": "cards/start-project.md",
+   "id": null,
+   "level": 2,
+   "title": "Step 4 \u2014 first test run",
+   "line": 69,
+   "approx_tokens": 127
+  },
+  {
+   "file": "cards/start-project.md",
+   "id": null,
+   "level": 2,
+   "title": "Step 5 \u2014 wire check.sh",
+   "line": 77,
+   "approx_tokens": 110
+  },
+  {
+   "file": "cards/start-project.md",
+   "id": null,
+   "level": 2,
+   "title": "Step 6 \u2014 day-one registries",
+   "line": 81,
+   "approx_tokens": 177
+  },
+  {
+   "file": "cards/start-project.md",
+   "id": null,
+   "level": 2,
+   "title": "Step 7 \u2014 composition root skeleton",
+   "line": 91,
+   "approx_tokens": 153
+  },
+  {
+   "file": "cards/start-project.md",
+   "id": null,
+   "level": 2,
+   "title": "Never",
+   "line": 95,
+   "approx_tokens": 161
+  },
+  {
+   "file": "cards/start-project.md",
+   "id": null,
+   "level": 2,
+   "title": "Decisions you must not invent",
+   "line": 104,
+   "approx_tokens": 156
+  },
+  {
+   "file": "cards/start-project.md",
+   "id": null,
+   "level": 2,
+   "title": "What you owe when done",
+   "line": 113,
+   "approx_tokens": 133
+  },
+  {
+   "file": "cards/start-project.md",
+   "id": null,
+   "level": 2,
+   "title": "Go deeper",
+   "line": 117,
+   "approx_tokens": 189
+  },
+  {
+   "file": "cards/write-dsp-kernel.md",
+   "id": null,
+   "level": 1,
+   "title": "Card: write a DSP kernel",
+   "line": 1,
+   "approx_tokens": 199
+  },
+  {
+   "file": "cards/write-dsp-kernel.md",
+   "id": null,
+   "level": 2,
+   "title": "The standard this card serves",
+   "line": 11,
+   "approx_tokens": 66
+  },
+  {
+   "file": "cards/write-dsp-kernel.md",
+   "id": null,
+   "level": 2,
+   "title": "The shape rules",
+   "line": 15,
+   "approx_tokens": 545
+  },
+  {
+   "file": "cards/write-dsp-kernel.md",
+   "id": null,
+   "level": 2,
+   "title": "Add an op \u2014 the walkthrough (K4 condensed)",
+   "line": 46,
+   "approx_tokens": 444
+  },
+  {
+   "file": "cards/write-dsp-kernel.md",
+   "id": null,
+   "level": 2,
+   "title": "The FP regime you write under (K6 condensed)",
+   "line": 56,
+   "approx_tokens": 342
+  },
+  {
+   "file": "cards/write-dsp-kernel.md",
+   "id": null,
+   "level": 2,
+   "title": "Where a decision may live",
+   "line": 65,
+   "approx_tokens": 198
+  },
+  {
+   "file": "cards/write-dsp-kernel.md",
+   "id": null,
+   "level": 2,
+   "title": "State rules",
+   "line": 77,
+   "approx_tokens": 134
+  },
+  {
+   "file": "cards/write-dsp-kernel.md",
+   "id": null,
+   "level": 2,
+   "title": "Partition invariance \u2014 the property that owns you",
+   "line": 83,
+   "approx_tokens": 118
+  },
+  {
+   "file": "cards/write-dsp-kernel.md",
+   "id": null,
+   "level": 2,
+   "title": "Never",
+   "line": 87,
+   "approx_tokens": 266
+  },
+  {
+   "file": "cards/write-dsp-kernel.md",
+   "id": null,
+   "level": 2,
+   "title": "Decisions you must not invent",
+   "line": 98,
+   "approx_tokens": 174
+  },
+  {
+   "file": "cards/write-dsp-kernel.md",
+   "id": null,
+   "level": 2,
+   "title": "What you owe when done",
+   "line": 106,
+   "approx_tokens": 331
+  },
+  {
+   "file": "cards/write-dsp-kernel.md",
+   "id": null,
+   "level": 2,
+   "title": "Go deeper",
+   "line": 110,
+   "approx_tokens": 225
+  },
+  {
+   "file": "cards/write-rt-code.md",
+   "id": null,
+   "level": 1,
+   "title": "Card: write real-time-plane code",
+   "line": 1,
+   "approx_tokens": 213
+  },
+  {
+   "file": "cards/write-rt-code.md",
+   "id": null,
+   "level": 2,
+   "title": "The standard this card serves",
+   "line": 11,
+   "approx_tokens": 101
+  },
+  {
+   "file": "cards/write-rt-code.md",
+   "id": null,
+   "level": 2,
+   "title": "Plane declaration",
+   "line": 15,
+   "approx_tokens": 176
+  },
+  {
+   "file": "cards/write-rt-code.md",
+   "id": null,
+   "level": 2,
+   "title": "The banned table (R2 condensed)",
+   "line": 19,
+   "approx_tokens": 433
+  },
+  {
+   "file": "cards/write-rt-code.md",
+   "id": null,
+   "level": 2,
+   "title": "Crossing the boundary: five channels only",
+   "line": 35,
+   "approx_tokens": 127
+  },
+  {
+   "file": "cards/write-rt-code.md",
+   "id": null,
+   "level": 2,
+   "title": "FTZ/DAZ \u2014 per RT thread, at thread start",
+   "line": 39,
+   "approx_tokens": 155
+  },
+  {
+   "file": "cards/write-rt-code.md",
+   "id": null,
+   "level": 2,
+   "title": "The guard machinery \u2014 what your dev build will do to you",
+   "line": 52,
+   "approx_tokens": 324
+  },
+  {
+   "file": "cards/write-rt-code.md",
+   "id": null,
+   "level": 2,
+   "title": "Bounded work, bounded memory",
+   "line": 62,
+   "approx_tokens": 255
+  },
+  {
+   "file": "cards/write-rt-code.md",
+   "id": null,
+   "level": 2,
+   "title": "Waiting policy (DT-5 condensed)",
+   "line": 69,
+   "approx_tokens": 108
+  },
+  {
+   "file": "cards/write-rt-code.md",
+   "id": null,
+   "level": 2,
+   "title": "Faults on the plane: absorb and mark",
+   "line": 77,
+   "approx_tokens": 173
+  },
+  {
+   "file": "cards/write-rt-code.md",
+   "id": null,
+   "level": 2,
+   "title": "Never",
+   "line": 81,
+   "approx_tokens": 210
+  },
+  {
+   "file": "cards/write-rt-code.md",
+   "id": null,
+   "level": 2,
+   "title": "Decisions you must not invent",
+   "line": 92,
+   "approx_tokens": 179
+  },
+  {
+   "file": "cards/write-rt-code.md",
+   "id": null,
+   "level": 2,
+   "title": "What you owe when done",
+   "line": 100,
+   "approx_tokens": 168
+  },
+  {
+   "file": "cards/write-rt-code.md",
+   "id": null,
+   "level": 2,
+   "title": "Go deeper",
+   "line": 104,
+   "approx_tokens": 205
+  },
+  {
+   "file": "cards/write-tests.md",
+   "id": null,
+   "level": 1,
+   "title": "Card: write tests",
+   "line": 1,
+   "approx_tokens": 194
+  },
+  {
+   "file": "cards/write-tests.md",
+   "id": null,
+   "level": 2,
+   "title": "The standard this card serves",
+   "line": 11,
+   "approx_tokens": 89
+  },
+  {
+   "file": "cards/write-tests.md",
+   "id": null,
+   "level": 2,
+   "title": "Suite selection by change type (T11 condensed)",
+   "line": 15,
+   "approx_tokens": 383
+  },
+  {
+   "file": "cards/write-tests.md",
+   "id": null,
+   "level": 2,
+   "title": "Test ids and self-location (T2 condensed)",
+   "line": 28,
+   "approx_tokens": 406
+  },
+  {
+   "file": "cards/write-tests.md",
+   "id": null,
+   "level": 2,
+   "title": "Golden masters (T4 condensed)",
+   "line": 58,
+   "approx_tokens": 226
+  },
+  {
+   "file": "cards/write-tests.md",
+   "id": null,
+   "level": 2,
+   "title": "Property canon (T5 condensed)",
+   "line": 67,
+   "approx_tokens": 252
+  },
+  {
+   "file": "cards/write-tests.md",
+   "id": null,
+   "level": 2,
+   "title": "Fake-device scripting (T3/T6 condensed)",
+   "line": 82,
+   "approx_tokens": 185
+  },
+  {
+   "file": "cards/write-tests.md",
+   "id": null,
+   "level": 2,
+   "title": "Sanitizer and race lanes",
+   "line": 95,
+   "approx_tokens": 104
+  },
+  {
+   "file": "cards/write-tests.md",
+   "id": null,
+   "level": 2,
+   "title": "Never",
+   "line": 99,
+   "approx_tokens": 229
+  },
+  {
+   "file": "cards/write-tests.md",
+   "id": null,
+   "level": 2,
+   "title": "Decisions you must not invent",
+   "line": 110,
+   "approx_tokens": 145
+  },
+  {
+   "file": "cards/write-tests.md",
+   "id": null,
+   "level": 2,
+   "title": "What you owe when done",
+   "line": 118,
+   "approx_tokens": 157
+  },
+  {
+   "file": "cards/write-tests.md",
+   "id": null,
+   "level": 2,
+   "title": "Go deeper",
+   "line": 122,
+   "approx_tokens": 242
+  },
+  {
+   "file": "reference/audio_platform_baseline_manifest.md",
+   "id": null,
+   "level": 1,
+   "title": "Audio Platform Baseline \u2014 Version Hub",
+   "line": 1,
+   "approx_tokens": 227
+  },
+  {
+   "file": "reference/audio_platform_baseline_manifest.md",
+   "id": "H1",
+   "level": 2,
+   "title": "H1. Identity and scope",
+   "line": 11,
+   "approx_tokens": 6
+  },
+  {
+   "file": "reference/audio_platform_baseline_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "What this hub is",
+   "line": 13,
+   "approx_tokens": 173
+  },
+  {
+   "file": "reference/audio_platform_baseline_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "The hub-wins rules",
+   "line": 19,
+   "approx_tokens": 272
+  },
+  {
+   "file": "reference/audio_platform_baseline_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "Scope: two legs",
+   "line": 28,
+   "approx_tokens": 155
+  },
+  {
+   "file": "reference/audio_platform_baseline_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "What lives here vs. elsewhere",
+   "line": 35,
+   "approx_tokens": 254
+  },
+  {
+   "file": "reference/audio_platform_baseline_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "How to cite a hub row (the package's one citation shape)",
+   "line": 47,
+   "approx_tokens": 133
+  },
+  {
+   "file": "reference/audio_platform_baseline_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "Row-id index (for row-level citations and failure messages)",
+   "line": 60,
+   "approx_tokens": 372
+  },
+  {
+   "file": "reference/audio_platform_baseline_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "The hub in the agent feedback loop",
+   "line": 76,
+   "approx_tokens": 212
+  },
+  {
+   "file": "reference/audio_platform_baseline_manifest.md",
+   "id": "H2",
+   "level": 2,
+   "title": "H2. Reference machine and class floor",
+   "line": 84,
+   "approx_tokens": 10
+  },
+  {
+   "file": "reference/audio_platform_baseline_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "The reference machine",
+   "line": 86,
+   "approx_tokens": 273
+  },
+  {
+   "file": "reference/audio_platform_baseline_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "The class floor",
+   "line": 102,
+   "approx_tokens": 429
+  },
+  {
+   "file": "reference/audio_platform_baseline_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "Cost-model anchor rows",
+   "line": 123,
+   "approx_tokens": 256
+  },
+  {
+   "file": "reference/audio_platform_baseline_manifest.md",
+   "id": "H3",
+   "level": 2,
+   "title": "H3. CLANG64 environment, packages, install",
+   "line": 136,
+   "approx_tokens": 11
+  },
+  {
+   "file": "reference/audio_platform_baseline_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "What CLANG64 is",
+   "line": 138,
+   "approx_tokens": 195
+  },
+  {
+   "file": "reference/audio_platform_baseline_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "The four environments you will see (and the three you must not build in)",
+   "line": 145,
+   "approx_tokens": 165
+  },
+  {
+   "file": "reference/audio_platform_baseline_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "Paths and environment entry",
+   "line": 156,
+   "approx_tokens": 156
+  },
+  {
+   "file": "reference/audio_platform_baseline_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "Installed package inventory",
+   "line": 165,
+   "approx_tokens": 330
+  },
+  {
+   "file": "reference/audio_platform_baseline_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "Not yet installed \u2014 required by config/",
+   "line": 183,
+   "approx_tokens": 133
+  },
+  {
+   "file": "reference/audio_platform_baseline_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "Install and update commands",
+   "line": 196,
+   "approx_tokens": 9
+  },
+  {
+   "file": "reference/audio_platform_baseline_manifest.md",
+   "id": null,
+   "level": 1,
+   "title": "full baseline (idempotent; --needed skips present packages)",
+   "line": 199,
+   "approx_tokens": 103
+  },
+  {
+   "file": "reference/audio_platform_baseline_manifest.md",
+   "id": null,
+   "level": 1,
+   "title": "rolling update \u2014 MSYS2 has no versioned releases; this moves EVERY hub row in H3",
+   "line": 207,
+   "approx_tokens": 374
+  },
+  {
+   "file": "reference/audio_platform_baseline_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "Environment purity rules",
+   "line": 224,
+   "approx_tokens": 348
+  },
+  {
+   "file": "reference/audio_platform_baseline_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "First-time bootstrap (fresh Windows box \u2192 buildable leg)",
+   "line": 236,
+   "approx_tokens": 188
+  },
+  {
+   "file": "reference/audio_platform_baseline_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "Toolchain capability rows (measured on this clang; siblings cite, don't re-test)",
+   "line": 246,
+   "approx_tokens": 285
+  },
+  {
+   "file": "reference/audio_platform_baseline_manifest.md",
+   "id": "H4",
+   "level": 2,
+   "title": "H4. Linux leg baseline",
+   "line": 255,
+   "approx_tokens": 6
+  },
+  {
+   "file": "reference/audio_platform_baseline_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "The declared baseline",
+   "line": 257,
+   "approx_tokens": 317
+  },
+  {
+   "file": "reference/audio_platform_baseline_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "Packages typically needed",
+   "line": 268,
+   "approx_tokens": 220
+  },
+  {
+   "file": "reference/audio_platform_baseline_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "Per-deployment OPEN register (H4)",
+   "line": 282,
+   "approx_tokens": 125
+  },
+  {
+   "file": "reference/audio_platform_baseline_manifest.md",
+   "id": "H5",
+   "level": 2,
+   "title": "H5. Sanitizer / fuzzer / BOLT availability",
+   "line": 286,
+   "approx_tokens": 11
+  },
+  {
+   "file": "reference/audio_platform_baseline_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "The matrix",
+   "line": 288,
+   "approx_tokens": 304
+  },
+  {
+   "file": "reference/audio_platform_baseline_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "Consequences \u2014 which lane runs what",
+   "line": 299,
+   "approx_tokens": 266
+  },
+  {
+   "file": "reference/audio_platform_baseline_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "Windows ASan runtime note",
+   "line": 308,
+   "approx_tokens": 137
+  },
+  {
+   "file": "reference/audio_platform_baseline_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "Re-verify commands (both legs)",
+   "line": 312,
+   "approx_tokens": 10
+  },
+  {
+   "file": "reference/audio_platform_baseline_manifest.md",
+   "id": null,
+   "level": 1,
+   "title": "runtime libraries present for this compiler",
+   "line": 315,
+   "approx_tokens": 59
+  },
+  {
+   "file": "reference/audio_platform_baseline_manifest.md",
+   "id": null,
+   "level": 1,
+   "title": "expected on CLANG64 (2026-08-12): asan+ubsan+fuzzer hits, NO tsan hit",
+   "line": 318,
+   "approx_tokens": 17
+  },
+  {
+   "file": "reference/audio_platform_baseline_manifest.md",
+   "id": null,
+   "level": 1,
+   "title": "smoke: -fsanitize=address and -fsanitize=undefined must link AND run",
+   "line": 319,
+   "approx_tokens": 34
+  },
+  {
+   "file": "reference/audio_platform_baseline_manifest.md",
+   "id": "H6",
+   "level": 2,
+   "title": "H6. Audio API baselines: ALSA and WASAPI",
+   "line": 323,
+   "approx_tokens": 11
+  },
+  {
+   "file": "reference/audio_platform_baseline_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "ALSA (Linux leg)",
+   "line": 325,
+   "approx_tokens": 306
+  },
+  {
+   "file": "reference/audio_platform_baseline_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "PipeWire / JACK presence note",
+   "line": 336,
+   "approx_tokens": 138
+  },
+  {
+   "file": "reference/audio_platform_baseline_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "WASAPI (Windows leg)",
+   "line": 341,
+   "approx_tokens": 622
+  },
+  {
+   "file": "reference/audio_platform_baseline_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "Exclusions and OPEN adapters",
+   "line": 361,
+   "approx_tokens": 96
+  },
+  {
+   "file": "reference/audio_platform_baseline_manifest.md",
+   "id": "H7",
+   "level": 2,
+   "title": "H7. Privilege conventions",
+   "line": 366,
+   "approx_tokens": 7
+  },
+  {
+   "file": "reference/audio_platform_baseline_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "Linux: the three sanctioned grant shapes",
+   "line": 368,
+   "approx_tokens": 353
+  },
+  {
+   "file": "reference/audio_platform_baseline_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "Linux: RT throttling",
+   "line": 379,
+   "approx_tokens": 185
+  },
+  {
+   "file": "reference/audio_platform_baseline_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "Windows: MMCSS",
+   "line": 387,
+   "approx_tokens": 374
+  },
+  {
+   "file": "reference/audio_platform_baseline_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "Windows: memory-locking privileges",
+   "line": 397,
+   "approx_tokens": 188
+  },
+  {
+   "file": "reference/audio_platform_baseline_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "Latency-floor / power requests (booklet section 11.3 levy)",
+   "line": 404,
+   "approx_tokens": 178
+  },
+  {
+   "file": "reference/audio_platform_baseline_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "Both legs: the grant is evidence",
+   "line": 411,
+   "approx_tokens": 150
+  },
+  {
+   "file": "reference/audio_platform_baseline_manifest.md",
+   "id": "H8",
+   "level": 2,
+   "title": "H8. ISA floor and flag anchors",
+   "line": 415,
+   "approx_tokens": 8
+  },
+  {
+   "file": "reference/audio_platform_baseline_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "The floor",
+   "line": 417,
+   "approx_tokens": 284
+  },
+  {
+   "file": "reference/audio_platform_baseline_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "Flag anchors",
+   "line": 427,
+   "approx_tokens": 231
+  },
+  {
+   "file": "reference/audio_platform_baseline_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "Measured codegen anchors (this machine, this clang)",
+   "line": 437,
+   "approx_tokens": 303
+  },
+  {
+   "file": "reference/audio_platform_baseline_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "Class-level microarchitecture anchors",
+   "line": 445,
+   "approx_tokens": 215
+  },
+  {
+   "file": "reference/audio_platform_baseline_manifest.md",
+   "id": "H9",
+   "level": 2,
+   "title": "H9. Re-check triggers",
+   "line": 453,
+   "approx_tokens": 6
+  },
+  {
+   "file": "reference/audio_platform_baseline_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "Trigger table",
+   "line": 455,
+   "approx_tokens": 541
+  },
+  {
+   "file": "reference/audio_platform_baseline_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "The re-verification command set",
+   "line": 469,
+   "approx_tokens": 464
+  },
+  {
+   "file": "reference/audio_platform_baseline_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "The OPEN register (decisions this hub refuses to invent)",
+   "line": 494,
+   "approx_tokens": 217
+  },
+  {
+   "file": "reference/booklet_map.md",
+   "id": null,
+   "level": 1,
+   "title": "Booklet map \u2014 where the reasoning lives",
+   "line": 1,
+   "approx_tokens": 589
+  },
+  {
+   "file": "reference/concurrency_channels_manifest.md",
+   "id": null,
+   "level": 1,
+   "title": "Concurrency Channels \u2014 Cross-Plane Reference Implementations",
+   "line": 1,
+   "approx_tokens": 477
+  },
+  {
+   "file": "reference/concurrency_channels_manifest.md",
+   "id": "C1",
+   "level": 2,
+   "title": "C1. Channel selection decision tree",
+   "line": 17,
+   "approx_tokens": 83
+  },
+  {
+   "file": "reference/concurrency_channels_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "DT-2 \u2014 data INTO the RT plane (walk in order; first yes decides)",
+   "line": 21,
+   "approx_tokens": 247
+  },
+  {
+   "file": "reference/concurrency_channels_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "DT-3 \u2014 data OUT of the RT plane",
+   "line": 33,
+   "approx_tokens": 221
+  },
+  {
+   "file": "reference/concurrency_channels_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "What crosses where \u2014 the standing assignment",
+   "line": 44,
+   "approx_tokens": 198
+  },
+  {
+   "file": "reference/concurrency_channels_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "Never (RT side of any channel)",
+   "line": 58,
+   "approx_tokens": 387
+  },
+  {
+   "file": "reference/concurrency_channels_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "Decisions you must not invent (OPEN register for this file)",
+   "line": 69,
+   "approx_tokens": 254
+  },
+  {
+   "file": "reference/concurrency_channels_manifest.md",
+   "id": "C2",
+   "level": 2,
+   "title": "C2. SPSC ring",
+   "line": 84,
+   "approx_tokens": 76
+  },
+  {
+   "file": "reference/concurrency_channels_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "Contract",
+   "line": 88,
+   "approx_tokens": 330
+  },
+  {
+   "file": "reference/concurrency_channels_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "Reference implementation \u2014 struct + init",
+   "line": 99,
+   "approx_tokens": 408
+  },
+  {
+   "file": "reference/concurrency_channels_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "push / pop",
+   "line": 136,
+   "approx_tokens": 314
+  },
+  {
+   "file": "reference/concurrency_channels_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "Why each ordering (the idiom map \u2014 registry: R6)",
+   "line": 167,
+   "approx_tokens": 276
+  },
+  {
+   "file": "reference/concurrency_channels_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "Overflow policy hooks \u2014 per traffic class, declared at init time",
+   "line": 178,
+   "approx_tokens": 296
+  },
+  {
+   "file": "reference/concurrency_channels_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "Tests (pointers; harness mechanics in T7)",
+   "line": 188,
+   "approx_tokens": 198
+  },
+  {
+   "file": "reference/concurrency_channels_manifest.md",
+   "id": "C3",
+   "level": 2,
+   "title": "C3. Snapshot swap + generation reclaim",
+   "line": 199,
+   "approx_tokens": 103
+  },
+  {
+   "file": "reference/concurrency_channels_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "Contract",
+   "line": 203,
+   "approx_tokens": 298
+  },
+  {
+   "file": "reference/concurrency_channels_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "Reference implementation",
+   "line": 213,
+   "approx_tokens": 460
+  },
+  {
+   "file": "reference/concurrency_channels_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "The retire protocol, operational",
+   "line": 256,
+   "approx_tokens": 707
+  },
+  {
+   "file": "reference/concurrency_channels_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "Hazards \u2192 the test that catches each",
+   "line": 270,
+   "approx_tokens": 257
+  },
+  {
+   "file": "reference/concurrency_channels_manifest.md",
+   "id": "C4",
+   "level": 2,
+   "title": "C4. Triple-slot mailbox",
+   "line": 280,
+   "approx_tokens": 106
+  },
+  {
+   "file": "reference/concurrency_channels_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "Reference implementation",
+   "line": 284,
+   "approx_tokens": 307
+  },
+  {
+   "file": "reference/concurrency_channels_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "Contract + mechanics",
+   "line": 326,
+   "approx_tokens": 530
+  },
+  {
+   "file": "reference/concurrency_channels_manifest.md",
+   "id": "C5",
+   "level": 2,
+   "title": "C5. Seqlock",
+   "line": 342,
+   "approx_tokens": 73
+  },
+  {
+   "file": "reference/concurrency_channels_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "When to use / when not",
+   "line": 346,
+   "approx_tokens": 115
+  },
+  {
+   "file": "reference/concurrency_channels_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "Reference implementation",
+   "line": 353,
+   "approx_tokens": 361
+  },
+  {
+   "file": "reference/concurrency_channels_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "Mechanics rows",
+   "line": 387,
+   "approx_tokens": 465
+  },
+  {
+   "file": "reference/concurrency_channels_manifest.md",
+   "id": "C6",
+   "level": 2,
+   "title": "C6. Atomic params + smoothing",
+   "line": 401,
+   "approx_tokens": 66
+  },
+  {
+   "file": "reference/concurrency_channels_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "Declared semantics \u2014 every parameter states one, in the port contract",
+   "line": 405,
+   "approx_tokens": 240
+  },
+  {
+   "file": "reference/concurrency_channels_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "Reference implementation",
+   "line": 415,
+   "approx_tokens": 348
+  },
+  {
+   "file": "reference/concurrency_channels_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "Rules",
+   "line": 439,
+   "approx_tokens": 446
+  },
+  {
+   "file": "reference/concurrency_channels_manifest.md",
+   "id": "C7",
+   "level": 2,
+   "title": "C7. RT worker pool + eventcount join",
+   "line": 454,
+   "approx_tokens": 81
+  },
+  {
+   "file": "reference/concurrency_channels_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "Pool rules",
+   "line": 458,
+   "approx_tokens": 555
+  },
+  {
+   "file": "reference/concurrency_channels_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "Thread-port wait primitives (the only platform names in this file)",
+   "line": 469,
+   "approx_tokens": 288
+  },
+  {
+   "file": "reference/concurrency_channels_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "Reference implementation \u2014 the block gate",
+   "line": 479,
+   "approx_tokens": 455
+  },
+  {
+   "file": "reference/concurrency_channels_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "Worker body",
+   "line": 526,
+   "approx_tokens": 131
+  },
+  {
+   "file": "reference/concurrency_channels_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "Ordering + cost rows",
+   "line": 546,
+   "approx_tokens": 462
+  },
+  {
+   "file": "reference/concurrency_channels_manifest.md",
+   "id": "C8",
+   "level": 2,
+   "title": "C8. Stress/torture recipes",
+   "line": 559,
+   "approx_tokens": 60
+  },
+  {
+   "file": "reference/concurrency_channels_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "Harness output contract (the doctrine, applied)",
+   "line": 563,
+   "approx_tokens": 158
+  },
+  {
+   "file": "reference/concurrency_channels_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "Recipes",
+   "line": 567,
+   "approx_tokens": 457
+  },
+  {
+   "file": "reference/concurrency_channels_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "Where they run",
+   "line": 579,
+   "approx_tokens": 246
+  },
+  {
+   "file": "reference/concurrency_channels_manifest.md",
+   "id": "C9",
+   "level": 2,
+   "title": "C9. Shutdown protocol",
+   "line": 591,
+   "approx_tokens": 84
+  },
+  {
+   "file": "reference/concurrency_channels_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "The order (deviations are defects)",
+   "line": 595,
+   "approx_tokens": 359
+  },
+  {
+   "file": "reference/concurrency_channels_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "Pool release",
+   "line": 607,
+   "approx_tokens": 214
+  },
+  {
+   "file": "reference/concurrency_channels_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "Hang classes \u2192 the tests that target them",
+   "line": 622,
+   "approx_tokens": 303
+  },
+  {
+   "file": "reference/concurrency_channels_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "Timeout discipline (traceability at the exit)",
+   "line": 632,
+   "approx_tokens": 198
+  },
+  {
+   "file": "reference/device_adapter_manifest.md",
+   "id": null,
+   "level": 1,
+   "title": "Device Adapter Manifest \u2014 ALSA and WASAPI Behind One Audio Port",
+   "line": 1,
+   "approx_tokens": 512
+  },
+  {
+   "file": "reference/device_adapter_manifest.md",
+   "id": "D1",
+   "level": 2,
+   "title": "D1. The audio port contract",
+   "line": 15,
+   "approx_tokens": 74
+  },
+  {
+   "file": "reference/device_adapter_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "The contract in six rows",
+   "line": 19,
+   "approx_tokens": 422
+  },
+  {
+   "file": "reference/device_adapter_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "Port surface shape (C)",
+   "line": 30,
+   "approx_tokens": 399
+  },
+  {
+   "file": "reference/device_adapter_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "Rules",
+   "line": 67,
+   "approx_tokens": 392
+  },
+  {
+   "file": "reference/device_adapter_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "Thread-start prologue (both adapters, in order)",
+   "line": 78,
+   "approx_tokens": 126
+  },
+  {
+   "file": "reference/device_adapter_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "Never (both adapters)",
+   "line": 85,
+   "approx_tokens": 272
+  },
+  {
+   "file": "reference/device_adapter_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "The same loop, twice \u2014 stage map",
+   "line": 94,
+   "approx_tokens": 237
+  },
+  {
+   "file": "reference/device_adapter_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "Teardown order (voluntary stop; full protocol is concurrency C9)",
+   "line": 109,
+   "approx_tokens": 258
+  },
+  {
+   "file": "reference/device_adapter_manifest.md",
+   "id": "D2",
+   "level": 2,
+   "title": "D2. ALSA setup sequence",
+   "line": 125,
+   "approx_tokens": 114
+  },
+  {
+   "file": "reference/device_adapter_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "Call order (playback; capture mirrors with `SND_PCM_STREAM_CAPTURE`)",
+   "line": 131,
+   "approx_tokens": 712
+  },
+  {
+   "file": "reference/device_adapter_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "Device-string policy",
+   "line": 157,
+   "approx_tokens": 171
+  },
+  {
+   "file": "reference/device_adapter_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "Rules",
+   "line": 167,
+   "approx_tokens": 140
+  },
+  {
+   "file": "reference/device_adapter_manifest.md",
+   "id": "D3",
+   "level": 2,
+   "title": "D3. ALSA paced loop",
+   "line": 177,
+   "approx_tokens": 5
+  },
+  {
+   "file": "reference/device_adapter_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "Variant decision",
+   "line": 179,
+   "approx_tokens": 181
+  },
+  {
+   "file": "reference/device_adapter_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "Blocking writei loop (reference shape)",
+   "line": 189,
+   "approx_tokens": 220
+  },
+  {
+   "file": "reference/device_adapter_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "Poll-descriptor loop",
+   "line": 206,
+   "approx_tokens": 411
+  },
+  {
+   "file": "reference/device_adapter_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "mmap variant (optimization row)",
+   "line": 235,
+   "approx_tokens": 118
+  },
+  {
+   "file": "reference/device_adapter_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "Duplex ordering",
+   "line": 239,
+   "approx_tokens": 253
+  },
+  {
+   "file": "reference/device_adapter_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "Timestamps",
+   "line": 249,
+   "approx_tokens": 119
+  },
+  {
+   "file": "reference/device_adapter_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "Rules",
+   "line": 253,
+   "approx_tokens": 173
+  },
+  {
+   "file": "reference/device_adapter_manifest.md",
+   "id": "D4",
+   "level": 2,
+   "title": "D4. ALSA errors + recovery",
+   "line": 263,
+   "approx_tokens": 59
+  },
+  {
+   "file": "reference/device_adapter_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "Return-code table (from `writei`/`readi`/`avail_update`/`poll` demangle)",
+   "line": 267,
+   "approx_tokens": 371
+  },
+  {
+   "file": "reference/device_adapter_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "State readback (`snd_pcm_state`) \u2014 the second classification axis",
+   "line": 282,
+   "approx_tokens": 181
+  },
+  {
+   "file": "reference/device_adapter_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "Recovery shape (C) \u2014 count, classify, then recover",
+   "line": 294,
+   "approx_tokens": 341
+  },
+  {
+   "file": "reference/device_adapter_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "Recovery protocols, pinned",
+   "line": 325,
+   "approx_tokens": 311
+  },
+  {
+   "file": "reference/device_adapter_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "Rules",
+   "line": 331,
+   "approx_tokens": 206
+  },
+  {
+   "file": "reference/device_adapter_manifest.md",
+   "id": "D5",
+   "level": 2,
+   "title": "D5. WASAPI COM-in-C mechanics",
+   "line": 342,
+   "approx_tokens": 69
+  },
+  {
+   "file": "reference/device_adapter_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "Compile + link",
+   "line": 346,
+   "approx_tokens": 211
+  },
+  {
+   "file": "reference/device_adapter_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "Call pattern",
+   "line": 360,
+   "approx_tokens": 144
+  },
+  {
+   "file": "reference/device_adapter_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "COM lifetime discipline",
+   "line": 373,
+   "approx_tokens": 207
+  },
+  {
+   "file": "reference/device_adapter_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "Release table \u2014 every interface obtained, who releases, when",
+   "line": 379,
+   "approx_tokens": 232
+  },
+  {
+   "file": "reference/device_adapter_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "Rules",
+   "line": 392,
+   "approx_tokens": 245
+  },
+  {
+   "file": "reference/device_adapter_manifest.md",
+   "id": "D6",
+   "level": 2,
+   "title": "D6. WASAPI setup",
+   "line": 404,
+   "approx_tokens": 95
+  },
+  {
+   "file": "reference/device_adapter_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "Share-mode decision",
+   "line": 408,
+   "approx_tokens": 167
+  },
+  {
+   "file": "reference/device_adapter_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "Verify the spellings before first use",
+   "line": 418,
+   "approx_tokens": 153
+  },
+  {
+   "file": "reference/device_adapter_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "Shared low-latency path (IAudioClient3) \u2014 the compatible default",
+   "line": 422,
+   "approx_tokens": 561
+  },
+  {
+   "file": "reference/device_adapter_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "Exclusive event-driven path \u2014 the low-latency tier",
+   "line": 441,
+   "approx_tokens": 307
+  },
+  {
+   "file": "reference/device_adapter_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "Probe-candidate builder (C)",
+   "line": 453,
+   "approx_tokens": 361
+  },
+  {
+   "file": "reference/device_adapter_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "Grant readback",
+   "line": 479,
+   "approx_tokens": 114
+  },
+  {
+   "file": "reference/device_adapter_manifest.md",
+   "id": "D7",
+   "level": 2,
+   "title": "D7. WASAPI paced loop",
+   "line": 485,
+   "approx_tokens": 6
+  },
+  {
+   "file": "reference/device_adapter_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "Thread prologue (order matters)",
+   "line": 487,
+   "approx_tokens": 199
+  },
+  {
+   "file": "reference/device_adapter_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "Loop shape (shared mode, render)",
+   "line": 494,
+   "approx_tokens": 385
+  },
+  {
+   "file": "reference/device_adapter_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "Exclusive event-driven differences",
+   "line": 519,
+   "approx_tokens": 82
+  },
+  {
+   "file": "reference/device_adapter_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "Capture-side differences",
+   "line": 523,
+   "approx_tokens": 226
+  },
+  {
+   "file": "reference/device_adapter_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "Timestamps pair",
+   "line": 536,
+   "approx_tokens": 122
+  },
+  {
+   "file": "reference/device_adapter_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "Faults in the loop",
+   "line": 540,
+   "approx_tokens": 247
+  },
+  {
+   "file": "reference/device_adapter_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "Default-device change \u2014 control plane only",
+   "line": 550,
+   "approx_tokens": 561
+  },
+  {
+   "file": "reference/device_adapter_manifest.md",
+   "id": "D8",
+   "level": 2,
+   "title": "D8. Fault-verb conversion matrix",
+   "line": 583,
+   "approx_tokens": 81
+  },
+  {
+   "file": "reference/device_adapter_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "The matrix",
+   "line": 587,
+   "approx_tokens": 790
+  },
+  {
+   "file": "reference/device_adapter_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "What every fault event carries (self-locating failure artifact)",
+   "line": 609,
+   "approx_tokens": 415
+  },
+  {
+   "file": "reference/device_adapter_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "Rules",
+   "line": 628,
+   "approx_tokens": 192
+  },
+  {
+   "file": "reference/device_adapter_manifest.md",
+   "id": "D9",
+   "level": 2,
+   "title": "D9. Negotiation + conversion",
+   "line": 639,
+   "approx_tokens": 8
+  },
+  {
+   "file": "reference/device_adapter_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "Negotiation policy table",
+   "line": 641,
+   "approx_tokens": 500
+  },
+  {
+   "file": "reference/device_adapter_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "Sample-format table",
+   "line": 656,
+   "approx_tokens": 317
+  },
+  {
+   "file": "reference/device_adapter_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "Conversion kernels",
+   "line": 669,
+   "approx_tokens": 292
+  },
+  {
+   "file": "reference/device_adapter_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "The two classic conversion defects, pre-empted",
+   "line": 689,
+   "approx_tokens": 351
+  },
+  {
+   "file": "reference/device_adapter_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "Rules",
+   "line": 715,
+   "approx_tokens": 264
+  },
+  {
+   "file": "reference/device_adapter_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "Decisions you must not invent (whole-file register)",
+   "line": 725,
+   "approx_tokens": 139
+  },
+  {
+   "file": "reference/dsp_kernel_patterns_manifest.md",
+   "id": null,
+   "level": 1,
+   "title": "DSP Kernel Patterns \u2014 Ground-Truth Manifest",
+   "line": 1,
+   "approx_tokens": 635
+  },
+  {
+   "file": "reference/dsp_kernel_patterns_manifest.md",
+   "id": "K1",
+   "level": 2,
+   "title": "K1. The kernel shape contract",
+   "line": 25,
+   "approx_tokens": 79
+  },
+  {
+   "file": "reference/dsp_kernel_patterns_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "The two-layer signature convention",
+   "line": 29,
+   "approx_tokens": 341
+  },
+  {
+   "file": "reference/dsp_kernel_patterns_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "The restrict discipline",
+   "line": 55,
+   "approx_tokens": 241
+  },
+  {
+   "file": "reference/dsp_kernel_patterns_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "Rule rows",
+   "line": 61,
+   "approx_tokens": 746
+  },
+  {
+   "file": "reference/dsp_kernel_patterns_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "Never (K1)",
+   "line": 78,
+   "approx_tokens": 128
+  },
+  {
+   "file": "reference/dsp_kernel_patterns_manifest.md",
+   "id": "K2",
+   "level": 2,
+   "title": "K2. Block quantum and partition invariance",
+   "line": 87,
+   "approx_tokens": 11
+  },
+  {
+   "file": "reference/dsp_kernel_patterns_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "The quantum declaration",
+   "line": 89,
+   "approx_tokens": 254
+  },
+  {
+   "file": "reference/dsp_kernel_patterns_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "Device periods are assembled from quanta",
+   "line": 105,
+   "approx_tokens": 214
+  },
+  {
+   "file": "reference/dsp_kernel_patterns_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "Invariant 20 \u2014 the partition property",
+   "line": 110,
+   "approx_tokens": 474
+  },
+  {
+   "file": "reference/dsp_kernel_patterns_manifest.md",
+   "id": "K3",
+   "level": 2,
+   "title": "K3. Parameter consume and ramp",
+   "line": 133,
+   "approx_tokens": 135
+  },
+  {
+   "file": "reference/dsp_kernel_patterns_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "The three declared semantics",
+   "line": 137,
+   "approx_tokens": 205
+  },
+  {
+   "file": "reference/dsp_kernel_patterns_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "The consume/ramp/land protocol",
+   "line": 149,
+   "approx_tokens": 456
+  },
+  {
+   "file": "reference/dsp_kernel_patterns_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "Sample-accurate event splitting",
+   "line": 172,
+   "approx_tokens": 450
+  },
+  {
+   "file": "reference/dsp_kernel_patterns_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "Never (K3)",
+   "line": 200,
+   "approx_tokens": 105
+  },
+  {
+   "file": "reference/dsp_kernel_patterns_manifest.md",
+   "id": "K4",
+   "level": 2,
+   "title": "K4. Add-an-op walkthrough",
+   "line": 208,
+   "approx_tokens": 939
+  },
+  {
+   "file": "reference/dsp_kernel_patterns_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "Nonlinear / harmonic-generating ops \u2014 the recipe's silent gap",
+   "line": 231,
+   "approx_tokens": 217
+  },
+  {
+   "file": "reference/dsp_kernel_patterns_manifest.md",
+   "id": "K5",
+   "level": 2,
+   "title": "K5. The SIMD ladder",
+   "line": 237,
+   "approx_tokens": 69
+  },
+  {
+   "file": "reference/dsp_kernel_patterns_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "Rung 1 \u2014 auto-vectorization, verified",
+   "line": 241,
+   "approx_tokens": 417
+  },
+  {
+   "file": "reference/dsp_kernel_patterns_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "Rung 2 \u2014 pragma hints via the compiler port",
+   "line": 250,
+   "approx_tokens": 286
+  },
+  {
+   "file": "reference/dsp_kernel_patterns_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "Rung 3 \u2014 intrinsic TUs, init-time dispatch, the scalar twin",
+   "line": 264,
+   "approx_tokens": 442
+  },
+  {
+   "file": "reference/dsp_kernel_patterns_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "Lane rules and Never (K5)",
+   "line": 285,
+   "approx_tokens": 244
+  },
+  {
+   "file": "reference/dsp_kernel_patterns_manifest.md",
+   "id": "K6",
+   "level": 2,
+   "title": "K6. The floating-point regime",
+   "line": 295,
+   "approx_tokens": 59
+  },
+  {
+   "file": "reference/dsp_kernel_patterns_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "Pinned flags per TU class",
+   "line": 299,
+   "approx_tokens": 472
+  },
+  {
+   "file": "reference/dsp_kernel_patterns_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "The vendored-math rule and the IEEE-exact carve-out",
+   "line": 312,
+   "approx_tokens": 358
+  },
+  {
+   "file": "reference/dsp_kernel_patterns_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "Width policy",
+   "line": 318,
+   "approx_tokens": 263
+  },
+  {
+   "file": "reference/dsp_kernel_patterns_manifest.md",
+   "id": "K7",
+   "level": 2,
+   "title": "K7. Denormal and NaN hygiene",
+   "line": 331,
+   "approx_tokens": 73
+  },
+  {
+   "file": "reference/dsp_kernel_patterns_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "Mode set \u2014 but algorithms stay mode-independent",
+   "line": 335,
+   "approx_tokens": 238
+  },
+  {
+   "file": "reference/dsp_kernel_patterns_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "The two hygiene patterns (feedback paths)",
+   "line": 340,
+   "approx_tokens": 360
+  },
+  {
+   "file": "reference/dsp_kernel_patterns_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "Properties and fuzz (owed by every op with memory)",
+   "line": 359,
+   "approx_tokens": 239
+  },
+  {
+   "file": "reference/dsp_kernel_patterns_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "The output sentinel (final bus, always on)",
+   "line": 369,
+   "approx_tokens": 340
+  },
+  {
+   "file": "reference/dsp_kernel_patterns_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "Never (K7)",
+   "line": 386,
+   "approx_tokens": 124
+  },
+  {
+   "file": "reference/dsp_kernel_patterns_manifest.md",
+   "id": "K8",
+   "level": 2,
+   "title": "K8. Worked example: op `biquad`",
+   "line": 394,
+   "approx_tokens": 39
+  },
+  {
+   "file": "reference/dsp_kernel_patterns_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "Contract (`core/kernels/biquad.h` + `ops.def` row)",
+   "line": 398,
+   "approx_tokens": 379
+  },
+  {
+   "file": "reference/dsp_kernel_patterns_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "State, params, resolve/land",
+   "line": 418,
+   "approx_tokens": 107
+  },
+  {
+   "file": "reference/dsp_kernel_patterns_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "Scalar kernel \u2014 the twin (~20 lines, compiled)",
+   "line": 428,
+   "approx_tokens": 434
+  },
+  {
+   "file": "reference/dsp_kernel_patterns_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "SoA 8-voice bundle \u2014 the rung-1 vector form",
+   "line": 464,
+   "approx_tokens": 365
+  },
+  {
+   "file": "reference/dsp_kernel_patterns_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "Owed artifacts (K4 steps 6\u20138 instantiated)",
+   "line": 489,
+   "approx_tokens": 386
+  },
+  {
+   "file": "reference/dsp_kernel_patterns_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "Decisions you must not invent (register for this whole file)",
+   "line": 504,
+   "approx_tokens": 186
+  },
+  {
+   "file": "reference/error_tracing_contract_manifest.md",
+   "id": null,
+   "level": 1,
+   "title": "Error & Tracing Contract \u2014 Ground-Truth Manifest",
+   "line": 1,
+   "approx_tokens": 315
+  },
+  {
+   "file": "reference/error_tracing_contract_manifest.md",
+   "id": "E1",
+   "level": 2,
+   "title": "E1. The failure-to-patch loop",
+   "line": 13,
+   "approx_tokens": 903
+  },
+  {
+   "file": "reference/error_tracing_contract_manifest.md",
+   "id": "E2",
+   "level": 2,
+   "title": "E2. Dispositions per plane",
+   "line": 46,
+   "approx_tokens": 833
+  },
+  {
+   "file": "reference/error_tracing_contract_manifest.md",
+   "id": "E3",
+   "level": 2,
+   "title": "E3. The error-code registry",
+   "line": 101,
+   "approx_tokens": 1556
+  },
+  {
+   "file": "reference/error_tracing_contract_manifest.md",
+   "id": "E4",
+   "level": 2,
+   "title": "E4. Result conventions in C",
+   "line": 198,
+   "approx_tokens": 386
+  },
+  {
+   "file": "reference/error_tracing_contract_manifest.md",
+   "id": null,
+   "level": 1,
+   "title": "define RT_MUST_CHECK __attribute__((warn_unused_result))",
+   "line": 212,
+   "approx_tokens": 16
+  },
+  {
+   "file": "reference/error_tracing_contract_manifest.md",
+   "id": null,
+   "level": 1,
+   "title": "define RT_MUST_CHECK",
+   "line": 214,
+   "approx_tokens": 447
+  },
+  {
+   "file": "reference/error_tracing_contract_manifest.md",
+   "id": "E5",
+   "level": 2,
+   "title": "E5. Adapter conversion tables",
+   "line": 245,
+   "approx_tokens": 1622
+  },
+  {
+   "file": "reference/error_tracing_contract_manifest.md",
+   "id": "E6",
+   "level": 2,
+   "title": "E6. Check / assert message contract",
+   "line": 297,
+   "approx_tokens": 1295
+  },
+  {
+   "file": "reference/error_tracing_contract_manifest.md",
+   "id": null,
+   "level": 1,
+   "title": "define RT_DASSERT(expr) do { if (!(expr)) rt_trap(); } while (0)",
+   "line": 369,
+   "approx_tokens": 18
+  },
+  {
+   "file": "reference/error_tracing_contract_manifest.md",
+   "id": null,
+   "level": 1,
+   "title": "define RT_DASSERT(expr) ((void)0)",
+   "line": 371,
+   "approx_tokens": 66
+  },
+  {
+   "file": "reference/error_tracing_contract_manifest.md",
+   "id": "E7",
+   "level": 2,
+   "title": "E7. The evidence chain",
+   "line": 377,
+   "approx_tokens": 817
+  },
+  {
+   "file": "reference/error_tracing_contract_manifest.md",
+   "id": "E8",
+   "level": 2,
+   "title": "E8. The session report",
+   "line": 409,
+   "approx_tokens": 1465
+  },
+  {
+   "file": "reference/error_tracing_contract_manifest.md",
+   "id": "E9",
+   "level": 2,
+   "title": "E9. Crash capture and the dirty-exit harvest",
+   "line": 456,
+   "approx_tokens": 91
+  },
+  {
+   "file": "reference/error_tracing_contract_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "Windows leg: minidump",
+   "line": 460,
+   "approx_tokens": 513
+  },
+  {
+   "file": "reference/error_tracing_contract_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "Linux leg: core dump",
+   "line": 481,
+   "approx_tokens": 282
+  },
+  {
+   "file": "reference/error_tracing_contract_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "The dirty-exit marker + next-start harvest",
+   "line": 494,
+   "approx_tokens": 485
+  },
+  {
+   "file": "reference/error_tracing_contract_manifest.md",
+   "id": "E10",
+   "level": 2,
+   "title": "E10. Worked examples \u2014 the loop, end to end",
+   "line": 515,
+   "approx_tokens": 47
+  },
+  {
+   "file": "reference/error_tracing_contract_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "(a) TSan race on ring indices",
+   "line": 519,
+   "approx_tokens": 302
+  },
+  {
+   "file": "reference/error_tracing_contract_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "(b) Golden first-divergence at a block boundary",
+   "line": 535,
+   "approx_tokens": 376
+  },
+  {
+   "file": "reference/error_tracing_contract_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "(c) Xrun autopsy shows a residency gap",
+   "line": 564,
+   "approx_tokens": 469
+  },
+  {
+   "file": "reference/memory_residency_manifest.md",
+   "id": null,
+   "level": 1,
+   "title": "Memory and Residency \u2014 Ground-Truth Manifest",
+   "line": 1,
+   "approx_tokens": 307
+  },
+  {
+   "file": "reference/memory_residency_manifest.md",
+   "id": "M1",
+   "level": 2,
+   "title": "M1. Allocation classes",
+   "line": 13,
+   "approx_tokens": 417
+  },
+  {
+   "file": "reference/memory_residency_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "Rules",
+   "line": 27,
+   "approx_tokens": 510
+  },
+  {
+   "file": "reference/memory_residency_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "What memory owes the feedback loop",
+   "line": 40,
+   "approx_tokens": 313
+  },
+  {
+   "file": "reference/memory_residency_manifest.md",
+   "id": "M2",
+   "level": 2,
+   "title": "M2. The immortal arena",
+   "line": 54,
+   "approx_tokens": 178
+  },
+  {
+   "file": "reference/memory_residency_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "The bump allocator",
+   "line": 60,
+   "approx_tokens": 177
+  },
+  {
+   "file": "reference/memory_residency_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "Rules",
+   "line": 84,
+   "approx_tokens": 550
+  },
+  {
+   "file": "reference/memory_residency_manifest.md",
+   "id": "M3",
+   "level": 2,
+   "title": "M3. Pools and generation handles",
+   "line": 98,
+   "approx_tokens": 88
+  },
+  {
+   "file": "reference/memory_residency_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "Shape and code",
+   "line": 102,
+   "approx_tokens": 516
+  },
+  {
+   "file": "reference/memory_residency_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "Exhaustion policy \u2014 the split you must preserve",
+   "line": 146,
+   "approx_tokens": 181
+  },
+  {
+   "file": "reference/memory_residency_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "Rules",
+   "line": 153,
+   "approx_tokens": 281
+  },
+  {
+   "file": "reference/memory_residency_manifest.md",
+   "id": "M4",
+   "level": 2,
+   "title": "M4. The frame scratch arena",
+   "line": 164,
+   "approx_tokens": 271
+  },
+  {
+   "file": "reference/memory_residency_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "Rules",
+   "line": 186,
+   "approx_tokens": 402
+  },
+  {
+   "file": "reference/memory_residency_manifest.md",
+   "id": "M5",
+   "level": 2,
+   "title": "M5. Residency \u2014 Linux leg",
+   "line": 198,
+   "approx_tokens": 90
+  },
+  {
+   "file": "reference/memory_residency_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "The sequence, in root order",
+   "line": 202,
+   "approx_tokens": 641
+  },
+  {
+   "file": "reference/memory_residency_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "Rules",
+   "line": 244,
+   "approx_tokens": 535
+  },
+  {
+   "file": "reference/memory_residency_manifest.md",
+   "id": "M6",
+   "level": 2,
+   "title": "M6. Residency \u2014 Windows leg",
+   "line": 257,
+   "approx_tokens": 599
+  },
+  {
+   "file": "reference/memory_residency_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "Rules",
+   "line": 289,
+   "approx_tokens": 536
+  },
+  {
+   "file": "reference/memory_residency_manifest.md",
+   "id": "M7",
+   "level": 2,
+   "title": "M7. Real-time stacks",
+   "line": 304,
+   "approx_tokens": 98
+  },
+  {
+   "file": "reference/memory_residency_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "Prefault and paint, at thread start",
+   "line": 308,
+   "approx_tokens": 431
+  },
+  {
+   "file": "reference/memory_residency_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "Per-leg mechanics",
+   "line": 332,
+   "approx_tokens": 219
+  },
+  {
+   "file": "reference/memory_residency_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "Rules",
+   "line": 340,
+   "approx_tokens": 266
+  },
+  {
+   "file": "reference/memory_residency_manifest.md",
+   "id": "M8",
+   "level": 2,
+   "title": "M8. Layout and the working-set budget",
+   "line": 352,
+   "approx_tokens": 43
+  },
+  {
+   "file": "reference/memory_residency_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "Structure-of-arrays for the populations, hot/cold split",
+   "line": 356,
+   "approx_tokens": 349
+  },
+  {
+   "file": "reference/memory_residency_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "Alignment and padding are contracts",
+   "line": 380,
+   "approx_tokens": 224
+  },
+  {
+   "file": "reference/memory_residency_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "Buffer-pool stride stagger",
+   "line": 388,
+   "approx_tokens": 138
+  },
+  {
+   "file": "reference/memory_residency_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "The working-set-per-block budget procedure",
+   "line": 396,
+   "approx_tokens": 505
+  },
+  {
+   "file": "reference/memory_residency_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "Streams, prefetch, non-temporal \u2014 the refusals",
+   "line": 414,
+   "approx_tokens": 228
+  },
+  {
+   "file": "reference/memory_residency_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "Pages, TLB, and huge pages",
+   "line": 422,
+   "approx_tokens": 226
+  },
+  {
+   "file": "reference/memory_residency_manifest.md",
+   "id": null,
+   "level": 2,
+   "title": "Never (file-wide)",
+   "line": 428,
+   "approx_tokens": 317
+  },
+  {
+   "file": "reference/memory_residency_manifest.md",
+   "id": null,
+   "level": 2,
+   "title": "Decisions you must not invent (OPEN register)",
+   "line": 440,
+   "approx_tokens": 251
+  },
+  {
+   "file": "reference/observability_flightring_manifest.md",
+   "id": null,
+   "level": 1,
+   "title": "Observability & Flight Ring \u2014 Ground-Truth Manifest",
+   "line": 1,
+   "approx_tokens": 435
+  },
+  {
+   "file": "reference/observability_flightring_manifest.md",
+   "id": "O1",
+   "level": 2,
+   "title": "O1. Principles",
+   "line": 15,
+   "approx_tokens": 618
+  },
+  {
+   "file": "reference/observability_flightring_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "Never",
+   "line": 28,
+   "approx_tokens": 337
+  },
+  {
+   "file": "reference/observability_flightring_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "Decisions you must not invent",
+   "line": 37,
+   "approx_tokens": 124
+  },
+  {
+   "file": "reference/observability_flightring_manifest.md",
+   "id": "O2",
+   "level": 2,
+   "title": "O2. Event schema and the id registry",
+   "line": 41,
+   "approx_tokens": 10
+  },
+  {
+   "file": "reference/observability_flightring_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "The record \u2014 package contract",
+   "line": 43,
+   "approx_tokens": 413
+  },
+  {
+   "file": "reference/observability_flightring_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "Severity is a field, not a channel",
+   "line": 66,
+   "approx_tokens": 254
+  },
+  {
+   "file": "reference/observability_flightring_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "Id registry discipline",
+   "line": 79,
+   "approx_tokens": 299
+  },
+  {
+   "file": "reference/observability_flightring_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "Starter allocation",
+   "line": 90,
+   "approx_tokens": 506
+  },
+  {
+   "file": "reference/observability_flightring_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "Add a new event \u2014 walkthrough",
+   "line": 108,
+   "approx_tokens": 231
+  },
+  {
+   "file": "reference/observability_flightring_manifest.md",
+   "id": "O3",
+   "level": 2,
+   "title": "O3. The flight ring",
+   "line": 117,
+   "approx_tokens": 94
+  },
+  {
+   "file": "reference/observability_flightring_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "Topology",
+   "line": 121,
+   "approx_tokens": 252
+  },
+  {
+   "file": "reference/observability_flightring_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "Emit \u2014 the only RT-side API",
+   "line": 130,
+   "approx_tokens": 263
+  },
+  {
+   "file": "reference/observability_flightring_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "Overflow policy: drop-newest, alarmed",
+   "line": 147,
+   "approx_tokens": 258
+  },
+  {
+   "file": "reference/observability_flightring_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "Sizing rule",
+   "line": 153,
+   "approx_tokens": 142
+  },
+  {
+   "file": "reference/observability_flightring_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "Drain obligations (control plane, every pass)",
+   "line": 159,
+   "approx_tokens": 224
+  },
+  {
+   "file": "reference/observability_flightring_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "Failure modes in the artifacts",
+   "line": 168,
+   "approx_tokens": 330
+  },
+  {
+   "file": "reference/observability_flightring_manifest.md",
+   "id": "O4",
+   "level": 2,
+   "title": "O4. Histograms",
+   "line": 180,
+   "approx_tokens": 132
+  },
+  {
+   "file": "reference/observability_flightring_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "Bin table \u2014 package contract",
+   "line": 184,
+   "approx_tokens": 208
+  },
+  {
+   "file": "reference/observability_flightring_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "Writer idiom \u2014 single writer, relaxed, no RMW",
+   "line": 200,
+   "approx_tokens": 347
+  },
+  {
+   "file": "reference/observability_flightring_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "Reading and reset",
+   "line": 224,
+   "approx_tokens": 308
+  },
+  {
+   "file": "reference/observability_flightring_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "Percentile extraction (off-plane)",
+   "line": 233,
+   "approx_tokens": 205
+  },
+  {
+   "file": "reference/observability_flightring_manifest.md",
+   "id": "O5",
+   "level": 2,
+   "title": "O5. Counters canon",
+   "line": 253,
+   "approx_tokens": 789
+  },
+  {
+   "file": "reference/observability_flightring_manifest.md",
+   "id": "O6",
+   "level": 2,
+   "title": "O6. Heartbeat and supervisor",
+   "line": 276,
+   "approx_tokens": 499
+  },
+  {
+   "file": "reference/observability_flightring_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "Supervisor states",
+   "line": 285,
+   "approx_tokens": 311
+  },
+  {
+   "file": "reference/observability_flightring_manifest.md",
+   "id": "O7",
+   "level": 2,
+   "title": "O7. Session report generation",
+   "line": 300,
+   "approx_tokens": 46
+  },
+  {
+   "file": "reference/observability_flightring_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "Triggers",
+   "line": 304,
+   "approx_tokens": 216
+  },
+  {
+   "file": "reference/observability_flightring_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "Builder rules",
+   "line": 313,
+   "approx_tokens": 587
+  },
+  {
+   "file": "reference/observability_flightring_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "Consumers \u2014 deliberately one format",
+   "line": 322,
+   "approx_tokens": 177
+  },
+  {
+   "file": "reference/observability_flightring_manifest.md",
+   "id": "O8",
+   "level": 2,
+   "title": "O8. Control-plane logging",
+   "line": 326,
+   "approx_tokens": 74
+  },
+  {
+   "file": "reference/observability_flightring_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "Line grammar \u2014 package contract",
+   "line": 330,
+   "approx_tokens": 362
+  },
+  {
+   "file": "reference/observability_flightring_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "Rules",
+   "line": 349,
+   "approx_tokens": 424
+  },
+  {
+   "file": "reference/observability_flightring_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "Worked micro-example \u2014 one xrun, three artifacts, one grep",
+   "line": 360,
+   "approx_tokens": 260
+  },
+  {
+   "file": "reference/observability_flightring_manifest.md",
+   "id": "O9",
+   "level": 2,
+   "title": "O9. Diagnosis mode",
+   "line": 367,
+   "approx_tokens": 149
+  },
+  {
+   "file": "reference/observability_flightring_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "Layer 1 \u2014 per-callback deltas, on-plane at block edges",
+   "line": 371,
+   "approx_tokens": 813
+  },
+  {
+   "file": "reference/observability_flightring_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "Classification \u2014 the taxonomy decided at the block edge",
+   "line": 415,
+   "approx_tokens": 252
+  },
+  {
+   "file": "reference/observability_flightring_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "Layer 2 \u2014 system tracers, off-plane, external commands",
+   "line": 429,
+   "approx_tokens": 364
+  },
+  {
+   "file": "reference/observability_flightring_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "Correlation protocol",
+   "line": 453,
+   "approx_tokens": 336
+  },
+  {
+   "file": "reference/optimization_microarch_manifest.md",
+   "id": null,
+   "level": 1,
+   "title": "Optimization and Microarchitecture \u2014 Operations Manifest",
+   "line": 1,
+   "approx_tokens": 392
+  },
+  {
+   "file": "reference/optimization_microarch_manifest.md",
+   "id": "P1",
+   "level": 2,
+   "title": "P1. The optimization ladder",
+   "line": 18,
+   "approx_tokens": 304
+  },
+  {
+   "file": "reference/optimization_microarch_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "Rung 0 attribution triage",
+   "line": 33,
+   "approx_tokens": 203
+  },
+  {
+   "file": "reference/optimization_microarch_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "Rung 1's priced trap: silence gating",
+   "line": 46,
+   "approx_tokens": 159
+  },
+  {
+   "file": "reference/optimization_microarch_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "Gates between rungs, and the exit",
+   "line": 54,
+   "approx_tokens": 236
+  },
+  {
+   "file": "reference/optimization_microarch_manifest.md",
+   "id": "P2",
+   "level": 2,
+   "title": "P2. The bench protocol",
+   "line": 64,
+   "approx_tokens": 59
+  },
+  {
+   "file": "reference/optimization_microarch_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "Environment rows",
+   "line": 68,
+   "approx_tokens": 266
+  },
+  {
+   "file": "reference/optimization_microarch_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "The frequency-policy declaration rule",
+   "line": 80,
+   "approx_tokens": 355
+  },
+  {
+   "file": "reference/optimization_microarch_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "Timebase: serialized timestamps",
+   "line": 96,
+   "approx_tokens": 289
+  },
+  {
+   "file": "reference/optimization_microarch_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "The sink is real",
+   "line": 120,
+   "approx_tokens": 173
+  },
+  {
+   "file": "reference/optimization_microarch_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "The JSON artifact (self-locating, machine-parseable)",
+   "line": 135,
+   "approx_tokens": 401
+  },
+  {
+   "file": "reference/optimization_microarch_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "Running and comparing",
+   "line": 157,
+   "approx_tokens": 315
+  },
+  {
+   "file": "reference/optimization_microarch_manifest.md",
+   "id": "P3",
+   "level": 2,
+   "title": "P3. Measurement tools",
+   "line": 172,
+   "approx_tokens": 6
+  },
+  {
+   "file": "reference/optimization_microarch_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "llvm-mca \u2014 the static pipeline analyzer",
+   "line": 174,
+   "approx_tokens": 562
+  },
+  {
+   "file": "reference/optimization_microarch_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "Optimization remarks",
+   "line": 208,
+   "approx_tokens": 202
+  },
+  {
+   "file": "reference/optimization_microarch_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "Hardware counters",
+   "line": 216,
+   "approx_tokens": 199
+  },
+  {
+   "file": "reference/optimization_microarch_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "Disassembly check",
+   "line": 227,
+   "approx_tokens": 191
+  },
+  {
+   "file": "reference/optimization_microarch_manifest.md",
+   "id": "P4",
+   "level": 2,
+   "title": "P4. ILP recipes",
+   "line": 249,
+   "approx_tokens": 4
+  },
+  {
+   "file": "reference/optimization_microarch_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "The accumulator rule",
+   "line": 251,
+   "approx_tokens": 535
+  },
+  {
+   "file": "reference/optimization_microarch_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "Recursive filters: honestly serial",
+   "line": 277,
+   "approx_tokens": 320
+  },
+  {
+   "file": "reference/optimization_microarch_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "Chain algebra beyond filters",
+   "line": 290,
+   "approx_tokens": 283
+  },
+  {
+   "file": "reference/optimization_microarch_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "Structural hazards",
+   "line": 309,
+   "approx_tokens": 199
+  },
+  {
+   "file": "reference/optimization_microarch_manifest.md",
+   "id": "P5",
+   "level": 2,
+   "title": "P5. Branch discipline",
+   "line": 320,
+   "approx_tokens": 193
+  },
+  {
+   "file": "reference/optimization_microarch_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "Branchless idioms",
+   "line": 330,
+   "approx_tokens": 390
+  },
+  {
+   "file": "reference/optimization_microarch_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "Cold-path outlining",
+   "line": 349,
+   "approx_tokens": 143
+  },
+  {
+   "file": "reference/optimization_microarch_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "Dispatch spelling",
+   "line": 353,
+   "approx_tokens": 158
+  },
+  {
+   "file": "reference/optimization_microarch_manifest.md",
+   "id": "P6",
+   "level": 2,
+   "title": "P6. Cache recipes",
+   "line": 366,
+   "approx_tokens": 552
+  },
+  {
+   "file": "reference/optimization_microarch_manifest.md",
+   "id": "P7",
+   "level": 2,
+   "title": "P7. Stall/flush diagnostic table",
+   "line": 378,
+   "approx_tokens": 1069
+  },
+  {
+   "file": "reference/optimization_microarch_manifest.md",
+   "id": "P8",
+   "level": 2,
+   "title": "P8. PGO and BOLT operations",
+   "line": 404,
+   "approx_tokens": 7
+  },
+  {
+   "file": "reference/optimization_microarch_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "PGO, end to end",
+   "line": 406,
+   "approx_tokens": 54
+  },
+  {
+   "file": "reference/optimization_microarch_manifest.md",
+   "id": null,
+   "level": 1,
+   "title": "1. instrumented build (IR-level PGO)",
+   "line": 411,
+   "approx_tokens": 29
+  },
+  {
+   "file": "reference/optimization_microarch_manifest.md",
+   "id": null,
+   "level": 1,
+   "title": "2. the ONLY sanctioned workload: the offline renderer over the versioned corpus",
+   "line": 413,
+   "approx_tokens": 45
+  },
+  {
+   "file": "reference/optimization_microarch_manifest.md",
+   "id": null,
+   "level": 1,
+   "title": "3. merge",
+   "line": 415,
+   "approx_tokens": 26
+  },
+  {
+   "file": "reference/optimization_microarch_manifest.md",
+   "id": null,
+   "level": 1,
+   "title": "4. optimized rebuild",
+   "line": 417,
+   "approx_tokens": 592
+  },
+  {
+   "file": "reference/optimization_microarch_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "BOLT: Linux leg only",
+   "line": 440,
+   "approx_tokens": 117
+  },
+  {
+   "file": "reference/optimization_microarch_manifest.md",
+   "id": null,
+   "level": 1,
+   "title": "prerequisite: link with -Wl,--emit-relocs (and non-stripped)",
+   "line": 447,
+   "approx_tokens": 272
+  },
+  {
+   "file": "reference/optimization_microarch_manifest.md",
+   "id": "P9",
+   "level": 2,
+   "title": "P9. OS techniques",
+   "line": 462,
+   "approx_tokens": 207
+  },
+  {
+   "file": "reference/optimization_microarch_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "Elevation",
+   "line": 468,
+   "approx_tokens": 612
+  },
+  {
+   "file": "reference/optimization_microarch_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "Placement",
+   "line": 501,
+   "approx_tokens": 493
+  },
+  {
+   "file": "reference/optimization_microarch_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "Power",
+   "line": 526,
+   "approx_tokens": 431
+  },
+  {
+   "file": "reference/optimization_microarch_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "Deployment hardening rows",
+   "line": 546,
+   "approx_tokens": 353
+  },
+  {
+   "file": "reference/optimization_microarch_manifest.md",
+   "id": "P10",
+   "level": 2,
+   "title": "P10. Refusals register",
+   "line": 561,
+   "approx_tokens": 612
+  },
+  {
+   "file": "reference/quality_gates_ci_manifest.md",
+   "id": null,
+   "level": 1,
+   "title": "Quality Gates & CI \u2014 Ground-Truth Manifest",
+   "line": 1,
+   "approx_tokens": 338
+  },
+  {
+   "file": "reference/quality_gates_ci_manifest.md",
+   "id": "G1",
+   "level": 2,
+   "title": "G1. The gate ledger",
+   "line": 13,
+   "approx_tokens": 190
+  },
+  {
+   "file": "reference/quality_gates_ci_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "Blocking, per commit \u2014 both legs unless a row says otherwise",
+   "line": 19,
+   "approx_tokens": 872
+  },
+  {
+   "file": "reference/quality_gates_ci_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "Blocking, per merge",
+   "line": 35,
+   "approx_tokens": 263
+  },
+  {
+   "file": "reference/quality_gates_ci_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "Blocking, per release \u2014 target rungs, real machines",
+   "line": 43,
+   "approx_tokens": 148
+  },
+  {
+   "file": "reference/quality_gates_ci_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "Advisory rows (report, trend, alarm \u2014 never a silent number)",
+   "line": 52,
+   "approx_tokens": 220
+  },
+  {
+   "file": "reference/quality_gates_ci_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "Artifact-path convention",
+   "line": 57,
+   "approx_tokens": 129
+  },
+  {
+   "file": "reference/quality_gates_ci_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "Reading a red row \u2014 the failure-to-patch chain",
+   "line": 69,
+   "approx_tokens": 470
+  },
+  {
+   "file": "reference/quality_gates_ci_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "What the ledger honestly does not cover",
+   "line": 81,
+   "approx_tokens": 159
+  },
+  {
+   "file": "reference/quality_gates_ci_manifest.md",
+   "id": "G2",
+   "level": 2,
+   "title": "G2. The check.sh contract",
+   "line": 85,
+   "approx_tokens": 102
+  },
+  {
+   "file": "reference/quality_gates_ci_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "Invocation",
+   "line": 89,
+   "approx_tokens": 246
+  },
+  {
+   "file": "reference/quality_gates_ci_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "Wiring the three places",
+   "line": 103,
+   "approx_tokens": 142
+  },
+  {
+   "file": "reference/quality_gates_ci_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "Leg awareness",
+   "line": 111,
+   "approx_tokens": 170
+  },
+  {
+   "file": "reference/quality_gates_ci_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "Environment pins (override \u2192 env var; defaults are DECIDE rows)",
+   "line": 115,
+   "approx_tokens": 243
+  },
+  {
+   "file": "reference/quality_gates_ci_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "Machine-readable failure grammar",
+   "line": 129,
+   "approx_tokens": 352
+  },
+  {
+   "file": "reference/quality_gates_ci_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "Never",
+   "line": 152,
+   "approx_tokens": 175
+  },
+  {
+   "file": "reference/quality_gates_ci_manifest.md",
+   "id": "G3",
+   "level": 2,
+   "title": "G3. Structural audits",
+   "line": 160,
+   "approx_tokens": 882
+  },
+  {
+   "file": "reference/quality_gates_ci_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "Who catches what \u2014 the redundancy matrix",
+   "line": 186,
+   "approx_tokens": 272
+  },
+  {
+   "file": "reference/quality_gates_ci_manifest.md",
+   "id": "G4",
+   "level": 2,
+   "title": "G4. Remark + bench gate wiring",
+   "line": 198,
+   "approx_tokens": 8
+  },
+  {
+   "file": "reference/quality_gates_ci_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "The remark gate (invariant 15, vectorization half)",
+   "line": 200,
+   "approx_tokens": 847
+  },
+  {
+   "file": "reference/quality_gates_ci_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "The bench gate (invariant 15, measurement half)",
+   "line": 221,
+   "approx_tokens": 572
+  },
+  {
+   "file": "reference/quality_gates_ci_manifest.md",
+   "id": "G5",
+   "level": 2,
+   "title": "G5. The dual-leg CI matrix \u2014 config/ci-github.yml walkthrough",
+   "line": 236,
+   "approx_tokens": 753
+  },
+  {
+   "file": "reference/quality_gates_ci_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "Reading a red CI run",
+   "line": 256,
+   "approx_tokens": 248
+  },
+  {
+   "file": "reference/quality_gates_ci_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "Extending the matrix",
+   "line": 266,
+   "approx_tokens": 88
+  },
+  {
+   "file": "reference/quality_gates_ci_manifest.md",
+   "id": "G6",
+   "level": 2,
+   "title": "G6. The cross-leg exact-golden gate",
+   "line": 270,
+   "approx_tokens": 664
+  },
+  {
+   "file": "reference/quality_gates_ci_manifest.md",
+   "id": "G7",
+   "level": 2,
+   "title": "G7. Soak + release rungs",
+   "line": 300,
+   "approx_tokens": 768
+  },
+  {
+   "file": "reference/quality_gates_ci_manifest.md",
+   "id": "G8",
+   "level": 2,
+   "title": "G8. The ratchet",
+   "line": 330,
+   "approx_tokens": 742
+  },
+  {
+   "file": "reference/quality_gates_ci_manifest.md",
+   "id": "G9",
+   "level": 2,
+   "title": "G9. Audit-script reference",
+   "line": 350,
+   "approx_tokens": 193
+  },
+  {
+   "file": "reference/quality_gates_ci_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "config/audit_includes.py \u2014 the include audit (+ conditional confinement)",
+   "line": 360,
+   "approx_tokens": 766
+  },
+  {
+   "file": "reference/quality_gates_ci_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "config/audit_symbols.py \u2014 the symbol audit",
+   "line": 400,
+   "approx_tokens": 682
+  },
+  {
+   "file": "reference/quality_gates_ci_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "Wiring",
+   "line": 435,
+   "approx_tokens": 243
+  },
+  {
+   "file": "reference/rt_plane_rules_manifest.md",
+   "id": null,
+   "level": 1,
+   "title": "Real-Time Plane Rules \u2014 Ground-Truth Manifest",
+   "line": 1,
+   "approx_tokens": 276
+  },
+  {
+   "file": "reference/rt_plane_rules_manifest.md",
+   "id": "R1",
+   "level": 2,
+   "title": "R1. The two planes and the thread inventory",
+   "line": 13,
+   "approx_tokens": 148
+  },
+  {
+   "file": "reference/rt_plane_rules_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "The thread role inventory",
+   "line": 17,
+   "approx_tokens": 331
+  },
+  {
+   "file": "reference/rt_plane_rules_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "Rules",
+   "line": 31,
+   "approx_tokens": 501
+  },
+  {
+   "file": "reference/rt_plane_rules_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "The thread port's creation contract",
+   "line": 43,
+   "approx_tokens": 279
+  },
+  {
+   "file": "reference/rt_plane_rules_manifest.md",
+   "id": "R2",
+   "level": 2,
+   "title": "R2. The banned-operations table",
+   "line": 65,
+   "approx_tokens": 1511
+  },
+  {
+   "file": "reference/rt_plane_rules_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "Reading the enforcement failures (they are self-locating)",
+   "line": 87,
+   "approx_tokens": 198
+  },
+  {
+   "file": "reference/rt_plane_rules_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "Never",
+   "line": 93,
+   "approx_tokens": 356
+  },
+  {
+   "file": "reference/rt_plane_rules_manifest.md",
+   "id": "R3",
+   "level": 2,
+   "title": "R3. Bounded-work rules",
+   "line": 104,
+   "approx_tokens": 688
+  },
+  {
+   "file": "reference/rt_plane_rules_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "Legal bound sources (what a loop may bind to)",
+   "line": 129,
+   "approx_tokens": 216
+  },
+  {
+   "file": "reference/rt_plane_rules_manifest.md",
+   "id": "R4",
+   "level": 2,
+   "title": "R4. The guard machinery",
+   "line": 144,
+   "approx_tokens": 184
+  },
+  {
+   "file": "reference/rt_plane_rules_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "The plane tag and arming",
+   "line": 155,
+   "approx_tokens": 179
+  },
+  {
+   "file": "reference/rt_plane_rules_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "The interposition net (dev builds)",
+   "line": 165,
+   "approx_tokens": 360
+  },
+  {
+   "file": "reference/rt_plane_rules_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "The poison prelude",
+   "line": 181,
+   "approx_tokens": 148
+  },
+  {
+   "file": "reference/rt_plane_rules_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "Trap behavior (the failure artifact is self-locating)",
+   "line": 185,
+   "approx_tokens": 255
+  },
+  {
+   "file": "reference/rt_plane_rules_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "Worked failure, end to end (the E1 loop in miniature)",
+   "line": 194,
+   "approx_tokens": 254
+  },
+  {
+   "file": "reference/rt_plane_rules_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "Guard rules",
+   "line": 209,
+   "approx_tokens": 213
+  },
+  {
+   "file": "reference/rt_plane_rules_manifest.md",
+   "id": "R5",
+   "level": 2,
+   "title": "R5. FTZ/DAZ per thread",
+   "line": 220,
+   "approx_tokens": 107
+  },
+  {
+   "file": "reference/rt_plane_rules_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "The recipe (thread adapter, thread-start hook, every RT thread)",
+   "line": 224,
+   "approx_tokens": 315
+  },
+  {
+   "file": "reference/rt_plane_rules_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "The dev-build patrol",
+   "line": 246,
+   "approx_tokens": 319
+  },
+  {
+   "file": "reference/rt_plane_rules_manifest.md",
+   "id": "R6",
+   "level": 2,
+   "title": "R6. Memory-ordering blessed idioms",
+   "line": 265,
+   "approx_tokens": 333
+  },
+  {
+   "file": "reference/rt_plane_rules_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "(a) Release-publish / acquire-consume \u2014 SPSC ring (C2), snapshot swap (C3)",
+   "line": 279,
+   "approx_tokens": 160
+  },
+  {
+   "file": "reference/rt_plane_rules_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "(b) Relaxed counters \u2014 statistics, drop counts, generation stamps read for trend",
+   "line": 293,
+   "approx_tokens": 65
+  },
+  {
+   "file": "reference/rt_plane_rules_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "(c) Acquire-release exchange \u2014 the triple-slot mailbox (C4)",
+   "line": 301,
+   "approx_tokens": 87
+  },
+  {
+   "file": "reference/rt_plane_rules_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "(d) The seqlock pair (C5)",
+   "line": 310,
+   "approx_tokens": 391
+  },
+  {
+   "file": "reference/rt_plane_rules_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "Rules",
+   "line": 335,
+   "approx_tokens": 428
+  },
+  {
+   "file": "reference/rt_plane_rules_manifest.md",
+   "id": "R7",
+   "level": 2,
+   "title": "R7. Syscall classification",
+   "line": 348,
+   "approx_tokens": 914
+  },
+  {
+   "file": "reference/rt_plane_rules_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "Classifying a new call \u2014 the procedure",
+   "line": 372,
+   "approx_tokens": 167
+  },
+  {
+   "file": "reference/rt_plane_rules_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "Decisions you must not invent",
+   "line": 379,
+   "approx_tokens": 101
+  },
+  {
+   "file": "reference/rt_plane_rules_manifest.md",
+   "id": "R8",
+   "level": 2,
+   "title": "R8. Contract-only register",
+   "line": 385,
+   "approx_tokens": 433
+  },
+  {
+   "file": "reference/rt_plane_rules_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "Go deeper",
+   "line": 400,
+   "approx_tokens": 239
+  },
+  {
+   "file": "reference/testing_verification_manifest.md",
+   "id": null,
+   "level": 1,
+   "title": "Testing & Verification \u2014 Ground-Truth Manifest",
+   "line": 1,
+   "approx_tokens": 524
+  },
+  {
+   "file": "reference/testing_verification_manifest.md",
+   "id": "T1",
+   "level": 2,
+   "title": "T1. Test topology",
+   "line": 15,
+   "approx_tokens": 99
+  },
+  {
+   "file": "reference/testing_verification_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "Suite kinds \u00d7 location \u00d7 runner \u00d7 cadence",
+   "line": 19,
+   "approx_tokens": 557
+  },
+  {
+   "file": "reference/testing_verification_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "Directory layout convention",
+   "line": 39,
+   "approx_tokens": 300
+  },
+  {
+   "file": "reference/testing_verification_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "Never",
+   "line": 57,
+   "approx_tokens": 218
+  },
+  {
+   "file": "reference/testing_verification_manifest.md",
+   "id": "T2",
+   "level": 2,
+   "title": "T2. Naming + self-location contract",
+   "line": 67,
+   "approx_tokens": 105
+  },
+  {
+   "file": "reference/testing_verification_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "Test identity",
+   "line": 71,
+   "approx_tokens": 126
+  },
+  {
+   "file": "reference/testing_verification_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "The rules",
+   "line": 83,
+   "approx_tokens": 418
+  },
+  {
+   "file": "reference/testing_verification_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "TESTFAIL v1 block",
+   "line": 95,
+   "approx_tokens": 254
+  },
+  {
+   "file": "reference/testing_verification_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "The emit helper (the only legal failure reporter)",
+   "line": 116,
+   "approx_tokens": 398
+  },
+  {
+   "file": "reference/testing_verification_manifest.md",
+   "id": "T3",
+   "level": 2,
+   "title": "T3. Offline renderer harness",
+   "line": 154,
+   "approx_tokens": 134
+  },
+  {
+   "file": "reference/testing_verification_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "The contract",
+   "line": 158,
+   "approx_tokens": 507
+  },
+  {
+   "file": "reference/testing_verification_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "Session scripts and replay",
+   "line": 179,
+   "approx_tokens": 172
+  },
+  {
+   "file": "reference/testing_verification_manifest.md",
+   "id": "T4",
+   "level": 2,
+   "title": "T4. Golden masters",
+   "line": 187,
+   "approx_tokens": 315
+  },
+  {
+   "file": "reference/testing_verification_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "Master storage",
+   "line": 198,
+   "approx_tokens": 187
+  },
+  {
+   "file": "reference/testing_verification_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "Cross-leg mechanics (the G6 gate)",
+   "line": 210,
+   "approx_tokens": 94
+  },
+  {
+   "file": "reference/testing_verification_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "The diff report",
+   "line": 214,
+   "approx_tokens": 135
+  },
+  {
+   "file": "reference/testing_verification_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "Approve-the-diff workflow",
+   "line": 228,
+   "approx_tokens": 294
+  },
+  {
+   "file": "reference/testing_verification_manifest.md",
+   "id": "T5",
+   "level": 2,
+   "title": "T5. Property suite",
+   "line": 243,
+   "approx_tokens": 478
+  },
+  {
+   "file": "reference/testing_verification_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "Legal cuts for P-PART",
+   "line": 256,
+   "approx_tokens": 286
+  },
+  {
+   "file": "reference/testing_verification_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "Code shapes and required failure keys",
+   "line": 280,
+   "approx_tokens": 337
+  },
+  {
+   "file": "reference/testing_verification_manifest.md",
+   "id": "T6",
+   "level": 2,
+   "title": "T6. Port contract suites + fault injection",
+   "line": 295,
+   "approx_tokens": 109
+  },
+  {
+   "file": "reference/testing_verification_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "Fake device scripting interface",
+   "line": 299,
+   "approx_tokens": 326
+  },
+  {
+   "file": "reference/testing_verification_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "Fault case matrix (per commit, vs fake)",
+   "line": 320,
+   "approx_tokens": 529
+  },
+  {
+   "file": "reference/testing_verification_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "State-machine suites",
+   "line": 335,
+   "approx_tokens": 105
+  },
+  {
+   "file": "reference/testing_verification_manifest.md",
+   "id": "T7",
+   "level": 2,
+   "title": "T7. Concurrency suites",
+   "line": 341,
+   "approx_tokens": 323
+  },
+  {
+   "file": "reference/testing_verification_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "Dirty-exit harvest recipe",
+   "line": 353,
+   "approx_tokens": 224
+  },
+  {
+   "file": "reference/testing_verification_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "Rules",
+   "line": 365,
+   "approx_tokens": 158
+  },
+  {
+   "file": "reference/testing_verification_manifest.md",
+   "id": "T8",
+   "level": 2,
+   "title": "T8. Sanitizer legs",
+   "line": 375,
+   "approx_tokens": 64
+  },
+  {
+   "file": "reference/testing_verification_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "Build flags per lane",
+   "line": 379,
+   "approx_tokens": 335
+  },
+  {
+   "file": "reference/testing_verification_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "UBSan output \u2014 teach the parser",
+   "line": 391,
+   "approx_tokens": 163
+  },
+  {
+   "file": "reference/testing_verification_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "ASan report anatomy",
+   "line": 403,
+   "approx_tokens": 216
+  },
+  {
+   "file": "reference/testing_verification_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "Sanitizer-to-patch routing",
+   "line": 421,
+   "approx_tokens": 325
+  },
+  {
+   "file": "reference/testing_verification_manifest.md",
+   "id": "T9",
+   "level": 2,
+   "title": "T9. Fuzzing",
+   "line": 437,
+   "approx_tokens": 90
+  },
+  {
+   "file": "reference/testing_verification_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "Target shape",
+   "line": 441,
+   "approx_tokens": 178
+  },
+  {
+   "file": "reference/testing_verification_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "Layout and commands",
+   "line": 458,
+   "approx_tokens": 205
+  },
+  {
+   "file": "reference/testing_verification_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "Crash artifact handling (the law)",
+   "line": 471,
+   "approx_tokens": 195
+  },
+  {
+   "file": "reference/testing_verification_manifest.md",
+   "id": "T10",
+   "level": 2,
+   "title": "T10. Bench lane",
+   "line": 483,
+   "approx_tokens": 344
+  },
+  {
+   "file": "reference/testing_verification_manifest.md",
+   "id": "T11",
+   "level": 2,
+   "title": "T11. What-a-change-owes",
+   "line": 494,
+   "approx_tokens": 749
+  },
+  {
+   "file": "reference/testing_verification_manifest.md",
+   "id": "T12",
+   "level": 2,
+   "title": "T12. CI cadences",
+   "line": 515,
+   "approx_tokens": 624
+  },
+  {
+   "file": "reference/testing_verification_manifest.md",
+   "id": "T13",
+   "level": 2,
+   "title": "T13. Reading failure artifacts",
+   "line": 533,
+   "approx_tokens": 85
+  },
+  {
+   "file": "reference/testing_verification_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "Unit / table failure (TESTFAIL block)",
+   "line": 537,
+   "approx_tokens": 122
+  },
+  {
+   "file": "reference/testing_verification_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "Property failure (seeded)",
+   "line": 544,
+   "approx_tokens": 162
+  },
+  {
+   "file": "reference/testing_verification_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "Golden diff report (`golden_diff/v1` JSON)",
+   "line": 551,
+   "approx_tokens": 185
+  },
+  {
+   "file": "reference/testing_verification_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "TSan report (Linux lane)",
+   "line": 558,
+   "approx_tokens": 229
+  },
+  {
+   "file": "reference/testing_verification_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "ASan report",
+   "line": 565,
+   "approx_tokens": 135
+  },
+  {
+   "file": "reference/testing_verification_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "UBSan line",
+   "line": 572,
+   "approx_tokens": 148
+  },
+  {
+   "file": "reference/testing_verification_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "Bench regression JSON",
+   "line": 579,
+   "approx_tokens": 153
+  },
+  {
+   "file": "reference/testing_verification_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "Fuzz crash",
+   "line": 586,
+   "approx_tokens": 132
+  },
+  {
+   "file": "reference/testing_verification_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "CI gate log",
+   "line": 593,
+   "approx_tokens": 135
+  },
+  {
+   "file": "reference/testing_verification_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "The escalation rule",
+   "line": 600,
+   "approx_tokens": 93
+  },
+  {
+   "file": "reference/toolchain_build_manifest.md",
+   "id": null,
+   "level": 1,
+   "title": "Toolchain & Build \u2014 Ground-Truth Manifest",
+   "line": 1,
+   "approx_tokens": 529
+  },
+  {
+   "file": "reference/toolchain_build_manifest.md",
+   "id": "B1",
+   "level": 2,
+   "title": "B1. TU classes \u00d7 configurations \u2014 the flag model",
+   "line": 34,
+   "approx_tokens": 80
+  },
+  {
+   "file": "reference/toolchain_build_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "The four TU classes",
+   "line": 40,
+   "approx_tokens": 274
+  },
+  {
+   "file": "reference/toolchain_build_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "The four configurations",
+   "line": 53,
+   "approx_tokens": 173
+  },
+  {
+   "file": "reference/toolchain_build_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "Rules",
+   "line": 64,
+   "approx_tokens": 244
+  },
+  {
+   "file": "reference/toolchain_build_manifest.md",
+   "id": "B2",
+   "level": 2,
+   "title": "B2. The flag canon",
+   "line": 75,
+   "approx_tokens": 38
+  },
+  {
+   "file": "reference/toolchain_build_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "The everywhere row \u2014 all classes, all configs, both legs",
+   "line": 80,
+   "approx_tokens": 567
+  },
+  {
+   "file": "reference/toolchain_build_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "Class \u00d7 config matrix (added to the everywhere row)",
+   "line": 111,
+   "approx_tokens": 248
+  },
+  {
+   "file": "reference/toolchain_build_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "Per-leg rows \u2014 the only flag divergence allowed (B4)",
+   "line": 127,
+   "approx_tokens": 282
+  },
+  {
+   "file": "reference/toolchain_build_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "Never \u2014 banned flags in `core` and `core-kernel`",
+   "line": 141,
+   "approx_tokens": 379
+  },
+  {
+   "file": "reference/toolchain_build_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "Canon governance",
+   "line": 155,
+   "approx_tokens": 197
+  },
+  {
+   "file": "reference/toolchain_build_manifest.md",
+   "id": "B3",
+   "level": 2,
+   "title": "B3. The warning canon",
+   "line": 165,
+   "approx_tokens": 6
+  },
+  {
+   "file": "reference/toolchain_build_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "The list \u2014 explicit, promoted, identical on both legs",
+   "line": 167,
+   "approx_tokens": 360
+  },
+  {
+   "file": "reference/toolchain_build_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "Suppression hygiene",
+   "line": 185,
+   "approx_tokens": 178
+  },
+  {
+   "file": "reference/toolchain_build_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "Candidate extensions \u2014 not yet canon [OPEN NEEDS-INPUT]",
+   "line": 200,
+   "approx_tokens": 121
+  },
+  {
+   "file": "reference/toolchain_build_manifest.md",
+   "id": "B4",
+   "level": 2,
+   "title": "B4. Per-leg parity",
+   "line": 210,
+   "approx_tokens": 5
+  },
+  {
+   "file": "reference/toolchain_build_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "The parity table \u2014 what MAY differ, and nothing else",
+   "line": 212,
+   "approx_tokens": 271
+  },
+  {
+   "file": "reference/toolchain_build_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "Environment purity \u2014 Windows leg",
+   "line": 226,
+   "approx_tokens": 270
+  },
+  {
+   "file": "reference/toolchain_build_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "Environment purity \u2014 Linux leg",
+   "line": 248,
+   "approx_tokens": 117
+  },
+  {
+   "file": "reference/toolchain_build_manifest.md",
+   "id": "B5",
+   "level": 2,
+   "title": "B5. CMake + Ninja",
+   "line": 258,
+   "approx_tokens": 5
+  },
+  {
+   "file": "reference/toolchain_build_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "Install \u2014 Windows leg",
+   "line": 260,
+   "approx_tokens": 102
+  },
+  {
+   "file": "reference/toolchain_build_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "The presets model \u2014 config/CMakePresets.json",
+   "line": 271,
+   "approx_tokens": 291
+  },
+  {
+   "file": "reference/toolchain_build_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "Commands \u2014 from a CLANG64 shell (Windows) or any shell (Linux), repo root",
+   "line": 288,
+   "approx_tokens": 136
+  },
+  {
+   "file": "reference/toolchain_build_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "How CMakeLists consumes the flag variables",
+   "line": 301,
+   "approx_tokens": 14
+  },
+  {
+   "file": "reference/toolchain_build_manifest.md",
+   "id": null,
+   "level": 1,
+   "title": "per target, from its class (B1); the ONLY place flags attach to targets",
+   "line": 304,
+   "approx_tokens": 211
+  },
+  {
+   "file": "reference/toolchain_build_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "Build-type mechanics",
+   "line": 322,
+   "approx_tokens": 106
+  },
+  {
+   "file": "reference/toolchain_build_manifest.md",
+   "id": "B6",
+   "level": 2,
+   "title": "B6. ThinLTO",
+   "line": 332,
+   "approx_tokens": 463
+  },
+  {
+   "file": "reference/toolchain_build_manifest.md",
+   "id": "B7",
+   "level": 2,
+   "title": "B7. PGO \u2014 IR-level workflow, fed by the offline renderer",
+   "line": 357,
+   "approx_tokens": 83
+  },
+  {
+   "file": "reference/toolchain_build_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "The workflow \u2014 commands measured end to end on the Windows leg",
+   "line": 364,
+   "approx_tokens": 17
+  },
+  {
+   "file": "reference/toolchain_build_manifest.md",
+   "id": null,
+   "level": 1,
+   "title": "1. instrumented build (ship flags, PGO flipped to generate)",
+   "line": 367,
+   "approx_tokens": 46
+  },
+  {
+   "file": "reference/toolchain_build_manifest.md",
+   "id": null,
+   "level": 1,
+   "title": "2. run the profile corpus through the offline renderer (no device, full speed)",
+   "line": 370,
+   "approx_tokens": 55
+  },
+  {
+   "file": "reference/toolchain_build_manifest.md",
+   "id": null,
+   "level": 1,
+   "title": "3. merge",
+   "line": 373,
+   "approx_tokens": 22
+  },
+  {
+   "file": "reference/toolchain_build_manifest.md",
+   "id": null,
+   "level": 1,
+   "title": "4. optimized rebuild",
+   "line": 375,
+   "approx_tokens": 144
+  },
+  {
+   "file": "reference/toolchain_build_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "Rules",
+   "line": 386,
+   "approx_tokens": 263
+  },
+  {
+   "file": "reference/toolchain_build_manifest.md",
+   "id": "B8",
+   "level": 2,
+   "title": "B8. Remark gates",
+   "line": 398,
+   "approx_tokens": 64
+  },
+  {
+   "file": "reference/toolchain_build_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "Where remarks fire \u2014 the LTO timing trap",
+   "line": 404,
+   "approx_tokens": 218
+  },
+  {
+   "file": "reference/toolchain_build_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "Output formats \u2014 grep anchors (verbatim from the battery)",
+   "line": 415,
+   "approx_tokens": 16
+  },
+  {
+   "file": "reference/toolchain_build_manifest.md",
+   "id": null,
+   "level": 1,
+   "title": "compile-time (-Rpass), file:line:col prefix, bracketed source:",
+   "line": 418,
+   "approx_tokens": 43
+  },
+  {
+   "file": "reference/toolchain_build_manifest.md",
+   "id": null,
+   "level": 1,
+   "title": "link-time (-Wl,-mllvm,-pass-remarks), NO \"remark:\" tag, NO bracket suffix:",
+   "line": 420,
+   "approx_tokens": 219
+  },
+  {
+   "file": "reference/toolchain_build_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "The FP-reduction lesson \u2014 why a kernel \"stops vectorizing\" with legal code",
+   "line": 434,
+   "approx_tokens": 274
+  },
+  {
+   "file": "reference/toolchain_build_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "Gate wiring",
+   "line": 460,
+   "approx_tokens": 183
+  },
+  {
+   "file": "reference/toolchain_build_manifest.md",
+   "id": "B9",
+   "level": 2,
+   "title": "B9. Linking \u2014 lld, static policy, maps, visibility, split debug",
+   "line": 470,
+   "approx_tokens": 16
+  },
+  {
+   "file": "reference/toolchain_build_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "lld and the static policy",
+   "line": 472,
+   "approx_tokens": 240
+  },
+  {
+   "file": "reference/toolchain_build_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "Map files",
+   "line": 481,
+   "approx_tokens": 108
+  },
+  {
+   "file": "reference/toolchain_build_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "Visibility and exports",
+   "line": 489,
+   "approx_tokens": 106
+  },
+  {
+   "file": "reference/toolchain_build_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "Split debug \u2014 DWARF on both legs, lldb the one debugger",
+   "line": 497,
+   "approx_tokens": 234
+  },
+  {
+   "file": "reference/toolchain_build_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "`--wrap` and link-level guards",
+   "line": 517,
+   "approx_tokens": 129
+  },
+  {
+   "file": "reference/toolchain_build_manifest.md",
+   "id": "B10",
+   "level": 2,
+   "title": "B10. Build identity",
+   "line": 528,
+   "approx_tokens": 49
+  },
+  {
+   "file": "reference/toolchain_build_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "What is embedded",
+   "line": 533,
+   "approx_tokens": 168
+  },
+  {
+   "file": "reference/toolchain_build_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "The generated TU",
+   "line": 544,
+   "approx_tokens": 167
+  },
+  {
+   "file": "reference/toolchain_build_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "Where it surfaces",
+   "line": 565,
+   "approx_tokens": 247
+  },
+  {
+   "file": "reference/toolchain_build_manifest.md",
+   "id": "B11",
+   "level": 2,
+   "title": "B11. Build-failure troubleshooting \u2014 agent-facing",
+   "line": 583,
+   "approx_tokens": 13
+  },
+  {
+   "file": "reference/toolchain_build_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "The agent loop for a build failure",
+   "line": 585,
+   "approx_tokens": 126
+  },
+  {
+   "file": "reference/toolchain_build_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "Symptom \u2192 cause \u2192 fix",
+   "line": 594,
+   "approx_tokens": 1141
+  },
+  {
+   "file": "reference/toolchain_build_manifest.md",
+   "id": null,
+   "level": 3,
+   "title": "Decisions you must not invent (OPEN register)",
+   "line": 614,
+   "approx_tokens": 245
+  },
+  {
+   "file": "adapters/claude-code/SKILL.md",
+   "id": null,
+   "level": 1,
+   "title": "Audio RT Ground",
+   "line": 6,
+   "approx_tokens": 103
+  },
+  {
+   "file": "adapters/claude-code/SKILL.md",
+   "id": null,
+   "level": 2,
+   "title": "Step 1 \u2014 always",
+   "line": 15,
+   "approx_tokens": 50
+  },
+  {
+   "file": "adapters/claude-code/SKILL.md",
+   "id": null,
+   "level": 2,
+   "title": "Step 2 \u2014 load exactly one card",
+   "line": 20,
+   "approx_tokens": 333
+  },
+  {
+   "file": "adapters/claude-code/SKILL.md",
+   "id": null,
+   "level": 2,
+   "title": "Step 3 \u2014 reference sections, only as named",
+   "line": 43,
+   "approx_tokens": 154
+  },
+  {
+   "file": "adapters/claude-code/SKILL.md",
+   "id": null,
+   "level": 2,
+   "title": "Step 4 \u2014 config, copied not derived",
+   "line": 58,
+   "approx_tokens": 149
+  },
+  {
+   "file": "adapters/claude-code/SKILL.md",
+   "id": null,
+   "level": 2,
+   "title": "Non-negotiable conduct",
+   "line": 70,
+   "approx_tokens": 257
+  },
+  {
+   "file": "adapters/claude-code/SKILL.md",
+   "id": null,
+   "level": 2,
+   "title": "Facts expire",
+   "line": 85,
+   "approx_tokens": 79
+  }
+ ]
+}

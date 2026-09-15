@@ -1,0 +1,210 @@
+# =============================================================================
+# EXAMPLE-ONLY -- dual-leg CI for an audio-rt-ground project (GitHub Actions).
+# Copy into .github/workflows/, then resolve every DECIDE below before trusting
+# a green run. Walkthrough: reference/quality_gates_ci_manifest.md section G5
+# (the two leg jobs), section G6 (the cross-leg exact-golden pair).
+#
+# The parity law (section G2): every job funnels through ./check.sh -- the same
+# script the editor and the pre-commit hook run. CI adds only matrix (both legs)
+# and artifact upload. If you want a new check, add it to check.sh, not here.
+#
+# Action identities [CC-FACT: these actions exist under these names --
+# msys2/setup-msys2, actions/checkout, actions/upload-artifact,
+# actions/download-artifact; re-pin the @vN tags per your org's policy]:
+# hosted-runner OS images and default tool versions drift, so leg toolchain
+# versions are hub rows (reference/audio_platform_baseline_manifest.md H3/H4).
+#
+# Line endings: check.sh is POSIX sh -- CRLF breaks it. Commit a .gitattributes
+# with `*.sh text eol=lf` so the Windows runner's checkout stays LF [CC-FACT].
+#
+# Bench numbers from hosted runners NEVER gate (machine identity absent --
+# optimization P2); the blocking bench compare lives on a reference-class
+# self-hosted runner if the project has one (G4).
+# =============================================================================
+name: gates
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+jobs:
+  # --------------------------------------------------------------- windows leg
+  win:
+    name: windows leg (MSYS2 CLANG64)
+    runs-on: windows-latest
+    defaults:
+      run:
+        shell: msys2 {0}            # every run step executes inside the CLANG64 shell
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: msys2/setup-msys2@v2
+        with:
+          msystem: CLANG64
+          update: true
+          # Package set = hub H3 install row. Names verified in the pacman repo
+          # [MEASURED 2026-08-12: mingw-w64-clang-x86_64-cmake 4.3.4-1,
+          # mingw-w64-clang-x86_64-ninja 1.13.2-1; clang family 22.1.8-1].
+          # git: check.sh uses `git ls-files` inside the MSYS2 shell.
+          # diffutils: cmp for the golden byte-compare job below.
+          install: >-
+            git
+            make
+            diffutils
+            mingw-w64-clang-x86_64-clang
+            mingw-w64-clang-x86_64-lld
+            mingw-w64-clang-x86_64-llvm
+            mingw-w64-clang-x86_64-clang-tools-extra
+            mingw-w64-clang-x86_64-clang-analyzer
+            mingw-w64-clang-x86_64-compiler-rt
+            mingw-w64-clang-x86_64-cmake
+            mingw-w64-clang-x86_64-ninja
+            mingw-w64-clang-x86_64-python
+
+      - name: blocking gates (windows leg)
+        run: ./check.sh --all
+
+      - name: sanitizer lane -- ASan+UBSan   # TSan absent on CLANG64: hub H5
+        run: ./check.sh san
+
+      - name: bench lane (advisory on hosted runners -- G4)
+        run: ./check.sh bench
+        continue-on-error: true
+
+      # Failure artifacts are the agent's patch input (T13); upload them red or green.
+      - name: upload evidence artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: win-gate-evidence
+          if-no-files-found: ignore
+          # Globs = the artifact-path convention of quality_gates_ci G1.
+          path: |
+            build/**/session_reports/*.json
+            build/**/golden_diffs/**
+            build/**/bench/*.json
+            build/**/remarks.log
+            build/**/Testing/**/*.xml
+
+  # ----------------------------------------------------------------- linux leg
+  linux:
+    name: linux leg
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: install toolchain
+        # DECIDE: ubuntu-latest ships whatever clang its image carries; the flag
+        # canon (toolchain_build B2) assumes the pinned major from hub H4. Use the
+        # apt.llvm.org install script for the pinned major; the bare line below is
+        # the unpinned placeholder that makes this file runnable as an example.
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y clang lld clang-tidy clang-format clang-tools \
+                                  cmake ninja-build python3
+
+      - name: blocking gates (linux leg)
+        run: ./check.sh --all
+
+      - name: sanitizer lane -- ASan+UBSan
+        run: ./check.sh san
+
+      - name: TSan stress lane (Linux-only -- hub H5; testing T8)
+        run: ./check.sh tsan
+
+      - name: bench lane (advisory on hosted runners -- G4)
+        run: ./check.sh bench
+        continue-on-error: true
+
+      - name: upload evidence artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: linux-gate-evidence
+          if-no-files-found: ignore
+          path: |
+            build/**/session_reports/*.json
+            build/**/golden_diffs/**
+            build/**/bench/*.json
+            build/**/remarks.log
+            build/**/Testing/**/*.xml
+
+  # ------------------------------------------- cross-leg exact-golden (per merge)
+  # G6: one leg renders, the other byte-compares -- invariant 11's determinism
+  # contract enforced as a gate. Cadence: per merge (push to main), booklet 14.6.
+  # Preconditions (G6): pinned kernel tier, pinned contraction, exact suite only.
+  render-linux:
+    name: exact goldens -- render on linux
+    if: github.event_name == 'push'
+    needs: [linux]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: install toolchain
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y clang lld cmake ninja-build python3
+      - name: build + render the exact suite
+        # DECIDE: the offline renderer invocation (testing T3). It must force the
+        # pinned dispatch tier and write one file per exact-golden case.
+        run: |
+          cmake --preset linux-perf && cmake --build --preset linux-perf
+          ./build/linux-perf/tools/render_exact --out rendered-linux/   # DECIDE
+      - uses: actions/upload-artifact@v4
+        with:
+          name: exact-goldens-linux
+          path: rendered-linux/
+
+  compare-win:
+    name: exact goldens -- byte-compare on windows
+    if: github.event_name == 'push'
+    needs: [render-linux]
+    runs-on: windows-latest
+    defaults:
+      run:
+        shell: msys2 {0}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: msys2/setup-msys2@v2
+        with:
+          msystem: CLANG64
+          update: true
+          install: >-
+            git
+            diffutils
+            mingw-w64-clang-x86_64-clang
+            mingw-w64-clang-x86_64-lld
+            mingw-w64-clang-x86_64-cmake
+            mingw-w64-clang-x86_64-ninja
+      - uses: actions/download-artifact@v4
+        with:
+          name: exact-goldens-linux
+          path: rendered-linux/
+      - name: render locally and byte-compare
+        # A diverging byte is a determinism regression: route to dsp_kernel_patterns
+        # K6 (FP regime) and toolchain_build B2 (flag parity) -- G6.
+        run: |
+          cmake --preset win-perf && cmake --build --preset win-perf
+          ./build/win-perf/tools/render_exact --out rendered-win/       # DECIDE
+          rc=0
+          for f in rendered-linux/*; do
+            b="rendered-win/$(basename "$f")"
+            if ! cmp "$f" "$b"; then
+              echo "GATE-FAIL gate=cross-leg-golden case=$(basename "$f") route=quality_gates_ci G6"
+              rc=1
+            fi
+          done
+          exit $rc
+      - name: upload divergence evidence
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: cross-leg-divergence
+          path: |
+            rendered-linux/
+            rendered-win/
+
+# Per-release rungs (soak, buffer sweep, loopback latency, device matrix) do NOT
+# live here: they need real reference-class machines and real audio devices --
+# self-hosted runners or a manual ritual, spec in quality_gates_ci section G7.

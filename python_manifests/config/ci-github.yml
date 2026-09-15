@@ -1,0 +1,80 @@
+# .github/workflows/quality-gates.yml
+#
+# EXAMPLE ONLY. The portable artefact is config/check.sh; this file exists to show the wiring on one
+# platform. Translate freely — but keep the property that matters: CI invokes the SAME script the
+# editor and the hook invoke, at the SAME pinned versions. See quality_gates §3.
+#
+# The anti-pattern this file is written to avoid: a CI job that inlines its own list of commands,
+# which then drifts from what developers run locally until the two enforce different standards.
+
+name: quality-gates
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read          # least privilege; widen only where a job genuinely needs it
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  gates:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        # DECIDE: the interpreter matrix. It is NOT the same list as `requires-python`.
+        # requires-python states what you CLAIM to support; this matrix is what you TEST. Claiming
+        # support for a version you never run is the gap this row exists to close.
+        # Consult reference/python_platform_baseline_manifest.md §1a for each branch's phase before
+        # listing it — a matrix that still names an end-of-life interpreter is claiming support for
+        # something upstream has stopped fixing.
+        python-version: ["3.13", "3.14"]
+
+    steps:
+      - uses: actions/checkout@v4          # DECIDE: pin actions to a full commit SHA if your threat
+                                           # model warrants it; a tag is mutable.
+
+      - name: Set up uv
+        uses: astral-sh/setup-uv@v5        # DECIDE: pin. Or replace with your own runner.
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Install (locked)
+        run: uv sync --locked               # --locked, not a fresh resolve: CI must install exactly
+                                            # what was reviewed. A resolve in CI is an unreviewed
+                                            # dependency change.
+
+      - name: Run all gates
+        run: sh config/check.sh --all       # --all reports every failure rather than stopping at the
+                                            # first, so one push shows the whole picture.
+                                            # NEVER pass --fix here. CI reports; humans and hooks fix.
+
+  # Coverage is a DIAGNOSTIC. Reported, read, never the objective — no fail_under gate.
+  # (quality_gates §6: a percentage gate is gameable by construction, and precision settings
+  # participate in the comparison, so "80%" is not even a single number.)
+  coverage:
+    runs-on: ubuntu-latest
+    continue-on-error: true               # advisory by construction
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v5
+      - run: uv sync --locked
+      - run: uv run python -X dev -m pytest --cov=src --cov-report=term-missing
+
+  supply-chain:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v5
+      - run: uv sync --locked
+      # Audit the LOCK FILE, not the loose ranges in pyproject — the lock is what actually ships.
+      - name: Audit dependencies
+        run: uv run pip-audit --strict      # DECIDE: your auditing tool, pinned
+      # Workflow definitions execute with your credentials, so they are part of the attack surface.
+      # A workflow-security scanner belongs here. See quality_gates §7 for the current tool landscape
+      # and status; pin whatever you choose.

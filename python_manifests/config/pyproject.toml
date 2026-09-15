@@ -1,0 +1,171 @@
+# Starter pyproject.toml for the python-agent-ground baseline.
+#
+# PROVENANCE. The [tool.ruff] block below is copied VERBATIM from
+# reference/python_linting_practices_manifest.md §4.3, where it was verified by running it as a real
+# pyproject.toml against ruff 0.16.2: it loads clean, resolves to 708 enabled rules, and leaves no
+# default-on rule silently switched off. Do not "tidy" it without re-measuring.
+# The `§` references in its comments point into that manifest.
+#
+# Every other section is a defensible STARTING POINT assembled from the manifests, not a measured
+# artefact. Each is annotated with what you must decide. Anything the manifests tag OPEN is marked
+# DECIDE: — resolve it and record the choice (see cards/write-spec.md, the ASSUMED/NEEDS-INPUT split).
+#
+# Facts verified 2026-08-08. Tool versions drift; re-pin deliberately, never by floating a range.
+
+[project]
+name = "myapp"
+version = "0.1.0"
+description = ""
+readme = "README.md"
+
+# DECIDE: the floor. Default `>=3.13` per reference/python_platform_baseline_manifest.md §3e.
+# `>=3.12` is the SPEC 0-aligned alternative and forfeits @warnings.deprecated (needs
+# typing_extensions), callable split/subgroup on ExceptionGroup, and exc_type_str.
+# A FLOOR ONLY - never a ceiling. It must equal [tool.ruff] target-version below.
+requires-python = ">=3.13"
+
+dependencies = []                 # RUNTIME only
+
+[project.optional-dependencies]
+# Consumer-facing optional features ONLY. Development tooling does NOT go here.
+
+[dependency-groups]               # PEP 735 - this is where dev tooling belongs
+dev = [
+  # DECIDE: pin exact versions. An unpinned tool rewrites your standard on its own schedule -
+  # ruff 0.16.0 moved its default rule set from 59 rules to 413 and dropped 18, including the
+  # `== None` (E711) and `== True` (E712) checks.
+  # "ruff==0.16.2",
+  # "<your checker>==<pin>",
+  # "pytest==<pin>", "pytest-cov==<pin>",
+  # "import-linter==<pin>", "deptry==<pin>", "pre-commit==<pin>",
+]
+
+[build-system]
+requires = ["hatchling"]          # DECIDE: backend. Pin its minimum version.
+build-backend = "hatchling.build"
+
+# ---------------------------------------------------------------------------------------------------
+# ruff - VERBATIM from python_linting_practices_manifest.md §4.3 (MEASURED, ruff 0.16.2)
+# ---------------------------------------------------------------------------------------------------
+
+[tool.ruff]
+line-length = 88
+target-version = "py313"          # MUST equal the requires-python floor (hub §3e), never the newest
+                                  # release: it is a MINIMUM, and `UP` fixes obey it (§2.4)
+
+[tool.ruff.lint]
+select = [
+  "F", "E", "W", "I", "UP", "B", "C4", "SIM", "DTZ", "G", "LOG", "TRY", "BLE", "S",
+  "PGH", "RUF", "PT", "T20", "PTH", "FLY", "PERF", "N", "A",
+  "ICN", "INP", "PIE", "RSE", "SLF", "TID", "PYI",
+  "ASYNC", "FURB", "YTT", "EXE", "INT", "FA", "RET", "ISC", "T10",   # default-on families that
+                                  # `select` would otherwise switch OFF - it replaces (§2.3, §3.2)
+  "FBT",                          # contested-but-recommended; the boolean trap (§11.3)
+  "D", "PL", "C90",               # each configured below
+  "TC004", "TC005", "TC007", "TC010",   # the four default-on TC codes; TC001-TC003 only after the
+                                  # runtime-evaluated-* lists below are filled (§5.2)
+  "ANN401",                       # the one ANN rule that is not the checker's job
+]
+ignore = [
+  "W191", "E111", "E114", "E117", "D206", "D300", "D203",
+  "Q000", "Q001", "Q002", "Q003", "Q004", "COM812", "COM819",
+  "E501",                         # line length is the formatter's (§6.1)
+  "PTH123",                       # taste, and the fix drops comments
+  "ISC002", "ISC003",             # ISC002 is formatter-adjacent, and safe only because ISC001 stays
+                                  # on; ISC003 flags ordinary explicit `+` concatenation (§6.1)
+  "FBT003",                       # fires at call sites into third-party APIs you cannot change
+  "RET504",                       # a named intermediate is often the documentation
+  "RET505", "RET506", "RET507", "RET508",   # superfluous-else: early-return style, contested
+  "TRY300", "TRY301",             # contested and noisy - flip these deliberately, not by prefix
+]
+logger-objects = []               # name project logger wrappers here before trusting TRY400's fix,
+                                  # which is unsafe on any receiver ruff cannot prove is a Logger
+preview = false
+
+[tool.ruff.lint.per-file-ignores]
+"tests/**" = ["S101", "PLR2004", "D103"]
+"**/__main__.py" = ["T201"]
+
+[tool.ruff.lint.pydocstyle]
+convention = "google"             # NEVER leave at null (§6.3)
+
+[tool.ruff.lint.mccabe]
+max-complexity = 10
+
+[tool.ruff.lint.pylint]
+max-args = 5
+max-positional-args = 5
+
+[tool.ruff.lint.flake8-type-checking]
+runtime-evaluated-base-classes = []   # fill before enabling TC001-TC003 (§5.2)
+runtime-evaluated-decorators = []
+
+[tool.ruff.lint.flake8-tidy-imports.banned-api]
+"datetime.datetime.utcnow".msg = "Use datetime.now(tz=UTC) instead."
+
+[tool.ruff.format]
+quote-style = "double"
+
+# ---------------------------------------------------------------------------------------------------
+# Type checking - a starting point. See python_typing_contract_manifest.md §1.
+# DECIDE: which checker is authoritative. Pin it. A second checker is advisory at most - cross-checker
+# agreement is not an adoptable goal, because they use different inference and disagree by design.
+# The block below is mypy-shaped; translate if your authoritative checker differs.
+# ---------------------------------------------------------------------------------------------------
+
+[tool.mypy]
+strict = true
+warn_unused_ignores = true
+# Codes that catch real hazards and are NOT in --strict. Each is named in the manifests; add them
+# deliberately rather than wholesale, and expect the first run to be noisy on an existing codebase.
+enable_error_code = [
+  "truthy-bool",
+  "truthy-iterable",
+  "possibly-undefined",
+  "exhaustive-match",       # a non-exhaustive match over a union - the reason to use a union at all
+  "mutable-override",
+  "explicit-override",
+  "redundant-expr",
+  "ignore-without-code",    # forces every suppression to name what it suppresses
+  "unused-awaitable",
+  "deprecated",             # reports use of a @warnings.deprecated member (PEP 702)
+]
+
+# The per-module ratchet. enable_error_code / disable_error_code ARE per-module settable, which makes
+# this the real mechanism for raising a bar incrementally. See quality_gates §4-§5.
+# [[tool.mypy.overrides]]
+# module = ["myapp.legacy.*"]
+# disable_error_code = ["no-untyped-def"]
+
+# ---------------------------------------------------------------------------------------------------
+# pytest - see python_testing_tooling_manifest.md §1a
+# NOTE: [tool.pytest.ini_options] and the newer [tool.pytest] table CANNOT coexist in one file, and a
+# stray pytest.ini anywhere up the tree wins over pyproject.toml outright - candidates are never
+# merged, first match wins.
+# ---------------------------------------------------------------------------------------------------
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "--strict-markers --strict-config --import-mode=importlib"
+# Pin pytest to an exact-enough version: 9.0.0-9.0.3 silently ignored --strict-markers and
+# --strict-config when set via addopts, so suites that looked strict were not.
+filterwarnings = [
+  "error::DeprecationWarning",    # a deprecation in a dependency or in your own error contract fails
+  # NOTE: this alone does NOT surface ResourceWarning - it is filtered by default. You also need
+  # `-X dev` in the test command. Both are required. See config/check.sh.
+]
+markers = [
+  # Register EVERY custom marker, or --strict-markers is the only thing standing between you and a
+  # typo that silently skips nothing.
+]
+
+[tool.coverage.run]
+branch = true
+source = ["src"]
+
+[tool.coverage.report]
+# Coverage is a DIAGNOSTIC, not a target. Deliberately no fail_under here: gate on the absence of
+# assertion-free tests and on error paths having tests, and read the MISSING lines.
+# See quality_gates §6 for why a percentage gate is gameable by construction.
+show_missing = true
+precision = 2

@@ -1,0 +1,58 @@
+# .pre-commit-config.yaml
+#
+# The hook layer of the gate stack. See reference/python_quality_gates_manifest.md §2-§3.
+#
+# THE RULE THIS FILE MUST NOT BREAK: hooks and CI run the SAME checks at the SAME pinned versions.
+# When they drift, the hook stops being trusted and becomes something people bypass with --no-verify.
+# Keep every `rev:` in step with the pins in pyproject.toml's [dependency-groups], and update both in
+# one commit.
+#
+# DECIDE: whether hooks run the fast subset (format + lint) with the full set left to CI, or the whole
+# gate set. Fast hooks get used; slow hooks get skipped. A defensible split is below.
+
+repos:
+  # ---- fast: format and lint on changed files only -------------------------------------------------
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: ""          # DECIDE: pin to the SAME ruff version as [dependency-groups]. Never float this:
+                     # ruff 0.16.0 moved its default rule set from 59 rules to 413 and dropped 18,
+                     # including E711/E712. An unpinned hook rewrites your standard for you.
+    hooks:
+      - id: ruff-check
+        args: [--fix]        # safe fixes only - NEVER add --unsafe-fixes
+      - id: ruff-format
+
+  # ---- hygiene -------------------------------------------------------------------------------------
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: ""          # DECIDE: pin
+    hooks:
+      - id: end-of-file-fixer
+      - id: trailing-whitespace
+      - id: check-merge-conflict
+      - id: check-added-large-files
+      - id: check-toml
+      - id: check-yaml
+      - id: debug-statements     # a second net under ruff's T10
+
+  # ---- slower: types and boundaries ----------------------------------------------------------------
+  # Both are whole-project checks, so they are `pass_filenames: false`. If they make the hook too slow
+  # to tolerate, move them to CI only and say so out loud - an unstated omission becomes a surprise.
+  - repo: local
+    hooks:
+      - id: types
+        name: type check
+        entry: sh -c 'uv run mypy src'    # DECIDE: your authoritative checker, and the same RUNNER
+        language: system                  # as config/check.sh
+        pass_filenames: false
+        types: [python]
+
+      - id: boundaries
+        name: import contracts
+        entry: sh -c 'uv run lint-imports'
+        language: system
+        pass_filenames: false
+        types: [python]
+
+# NOT here, on purpose:
+# - tests: too slow for a commit hook. They belong in CI and in `./check.sh`.
+# - coverage thresholds: coverage is a diagnostic, not a gate (quality_gates §6).
+# - any autofix beyond ruff's safe set.

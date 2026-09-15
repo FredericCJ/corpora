@@ -1,0 +1,69 @@
+# audio-rt-ground clang-tidy configuration -- the analysis-catchable route's config artifact.
+# Owner docs: reference/quality_gates_ci_manifest.md section G1 (ledger row: tidy) and
+# reference/toolchain_build_manifest.md section B3. Booklet anchors: section 10.8 (check set
+# pinned + dated, deviations recorded) and section 15.2 (the RT-TU rule pack rides partly
+# here, partly on config/rt_prelude_poison.h).
+#
+# Scope: a C17 codebase. Only check GROUPS and names verified to exist are used
+# [MEASURED 2026-08-12: `clang-tidy --list-checks` on CLANG64 clang-tidy 22.1.8 resolves
+# 330 checks across the six groups below (bugprone=102, clang-analyzer=127, performance=19,
+# portability=5, misc=25, readability=52), and every disabled name below exists; the file
+# itself passes `clang-tidy --verify-config`]. cert-*, cppcoreguidelines-*, modernize-*,
+# cplusplus-* are deliberately absent: C++-centric noise on a C codebase [CC-FACT].
+#
+# Disabled checks, each with its reason (delete a line only via the ratchet, G8):
+#   bugprone-easily-swappable-parameters   -- (float*, float*, n) DSP signatures are the
+#                                             domain's idiom; noise dwarfs signal here
+#   clang-analyzer-security.insecureAPI.DeprecatedOrUnsafeBufferHandling
+#                                          -- flags every memcpy/memset; the _s variants it
+#                                             wants are not the portable answer on this
+#                                             toolchain; bounds discipline is owned by the
+#                                             kernel shape contract (dsp_kernel_patterns K1)
+#   misc-include-cleaner                   -- include-graph law is owned by
+#                                             config/audit_includes.py (G3), which knows the
+#                                             zone rules; this check fights umbrella headers
+#   misc-unused-parameters                 -- port vtable implementations legitimately ignore
+#                                             parameters; C17 has no unnamed parameters
+#   readability-identifier-length          -- x0, a1, b2 are the biquad literature's names
+#   readability-magic-numbers              -- filter coefficients and test vectors are numbers
+#   readability-function-cognitive-complexity -- hot kernels trade nesting for locality by
+#                                             design; complexity budgets belong to review
+#   readability-braces-around-statements   -- single-statement early-outs are house C style
+#   readability-isolate-declaration        -- multi-declaration lines are idiomatic in
+#                                             coefficient blocks
+#
+# misc-no-recursion stays ON via misc-*: it is the analysis-catchable rung of the RT-plane
+# no-recursion rule (rt_plane_rules R3; booklet 15.1). Scope it to RT TUs if tools/ code
+# legitimately recurses -- per-directory .clang-tidy files layer over this one [CC-FACT].
+#
+# Suppression discipline: NOLINT(<check-name>) with a trailing reason comment PLUS a
+# deviation record per toolchain_build B3. A bare NOLINT fails review (G8).
+#
+# WarningsAsErrors: the two families whose findings are defects by definition. The other
+# groups report as warnings locally but the tidy gate itself is blocking either way
+# (check.sh treats any non-zero exit as a failed gate).
+
+Checks: >
+  bugprone-*,
+  clang-analyzer-*,
+  performance-*,
+  portability-*,
+  misc-*,
+  readability-*,
+  -bugprone-easily-swappable-parameters,
+  -clang-analyzer-security.insecureAPI.DeprecatedOrUnsafeBufferHandling,
+  -misc-include-cleaner,
+  -misc-unused-parameters,
+  -readability-identifier-length,
+  -readability-magic-numbers,
+  -readability-function-cognitive-complexity,
+  -readability-braces-around-statements,
+  -readability-isolate-declaration
+
+WarningsAsErrors: 'bugprone-*,clang-analyzer-*'
+
+# DECIDE: match your zone directories (same list as config/audit_includes.py ZONES).
+# Substring-matched ERE over header paths [CC-FACT].
+HeaderFilterRegex: '(core|ports|adapters|shell|tools)/'
+
+FormatStyle: file

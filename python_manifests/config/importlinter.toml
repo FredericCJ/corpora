@@ -1,0 +1,59 @@
+# Dependency-direction contracts. VERBATIM from reference/python_module_boundaries_manifest.md §7,
+# with the surrounding notes added here.
+#
+# WHY THIS FILE EXISTS: `__all__` and directory names document intent. This file is the only thing
+# that makes a boundary enforceable. Run `lint-imports` as a blocking CI gate.
+#
+# Paste into pyproject.toml as-is (the tables are already namespaced under [tool.importlinter]),
+# or keep as .importlinter with the [importlinter] table name instead.
+#
+# THE ONE TRAP: the `protected` contract type checks DIRECT imports only. Unlike `layers`,
+# `forbidden` and `independence`, it does not follow chains - so `a -> b -> protected` PASSES.
+# Do not rely on it to stop an indirect import.
+
+[tool.importlinter]
+root_package = "myapp"
+include_external_packages = true
+
+[[tool.importlinter.contracts]]
+name = "Shell may see core; core may never see shell"   # ADR-0007
+type = "layers"
+layers = [
+    "myapp.cli | myapp.web",   # independent siblings: neither may import the other
+    "myapp.adapters", "myapp.services", "myapp.ports", "myapp.domain",
+]
+
+[[tool.importlinter.contracts]]
+name = "Domain imports no I/O library"
+type = "forbidden"
+source_modules = ["myapp.domain", "myapp.services"]
+forbidden_modules = ["httpx", "sqlalchemy", "boto3"]     # root-level external names only
+
+[[tool.importlinter.contracts]]
+name = "Only the composition root may import concrete adapters"
+type = "protected"
+protected_modules = ["myapp.adapters"]
+allowed_importers = ["myapp.composition"]
+
+# ---------------------------------------------------------------------------------------------------
+# ALTERNATIVE: tach. Also VERBATIM from module_boundaries §7 (the same section covers both tools).
+# Pick ONE - two boundary checkers is two sources of truth. tach.toml, not pyproject:
+#
+#   source_roots = ["src"]
+#   layers = ["shell", "service", "port", "domain"]   # first entry is the highest layer
+#   exact = true                                      # unused declared dependencies fail the check
+#   forbid_circular_dependencies = true
+#   # ignore_type_checking_imports defaults to true: TYPE_CHECKING edges are NOT checked
+#
+#   [[modules]]
+#   path = "myapp.domain"
+#   layer = "domain"
+#   depends_on = []          # explicit: the empty list is strict, an omitted key is permissive
+#
+#   [[interfaces]]
+#   expose = ["Store", "StoreError"]
+#   from = ["myapp.ports.storage"]
+#   exclusive = true
+#
+# Note tach's default: TYPE_CHECKING-only imports are NOT checked. If you use a TYPE_CHECKING import
+# to dodge a cycle, tach will not see the coupling - which is the coupling you most wanted checked.
