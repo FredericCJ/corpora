@@ -1,0 +1,469 @@
+id	year	title	authors	ident	corpora
+aapcs	2020	Procedure Call Standard for the Arm Architecture (AAPCS)	Arm Ltd (ABI-AA)	github.com/ARM-software/abi-aa	emb-ops
+aarenstrup	2015	Managing Model-Based Design	R. Aarenstrup	The MathWorks, ISBN 978-1512036138	simulink
+abas	1999	Attribute-Based Architectural Styles (ABAS)	M. Klein & R. Kazman	SEI CMU/SEI-99-TR-022	swa-science
+abiaa	living	ARM Application Binary Interface (ABI-AA) suite	Arm Ltd	github.com/ARM-software/abi-aa	emb-ops
+abowd	1995	Formalizing Style to Understand Descriptions of Software Architecture	G.D. Abowd, R. Allen & D. Garlan	ACM TOSEM 4(4):319-364	swa-science
+accelerate	2018	Accelerate: The Science of Lean Software and DevOps	N. Forsgren, J. Humble & G. Kim	ISBN 978-1-942788-33-1	swe-process
+acme	1997	Acme: An Architecture Description Interchange Language	D. Garlan, R.T. Monroe & D. Wile	Proc. CASCON 97 pp.169-183	swa-science
+agilemanifesto	2001	Manifesto for Agile Software Development	Beck, Fowler, Cunningham, Martin, Schwaber, Sutherland et al. (17 signatories)	agilemanifesto.org	swe-process
+alalfi	2012	Models are Code Too: Near-miss Clone Detection for Simulink Models	M. Alalfi, J. Cordy, T. Dean, M. Stephan & A. Stevenson	ICSM 2012 pp.295-304	simulink
+aldini	2010	A Process Algebraic Approach to Software Architecture Design	A. Aldini, M. Bernardo & F. Corradini	Springer	swa-science
+alma	2004	Architecture-level modifiability analysis (ALMA)	P. Bengtsson, N. Lassing, J. Bosch & H. van Vliet	JSS 69(1-2):129-147	swa-science
+amos	2020	Hands-On RTOS with Microcontrollers (FreeRTOS, STM32, SEGGER)	B. Amos	Packt	emb-cpp
+an4989	UNRESOLVED	AN4989 STM32 microcontroller debug toolbox	STMicroelectronics		emb-ops
+angelov	2012	A framework for analysis and design of software reference architectures	S. Angelov, P. Grefen & D. Greefhorst	IST 54(4):417-431	swa-science
+arc42	living	arc42 — architecture documentation template	G. Starke & P. Hruschka	arc42.org	swe-process
+arinc653	living	ARINC 653 — Avionics Application Standard Software Interface (Parts 0-5, APEX API)	AEEC/ARINC (SAE ITC)		emb-arch
+atam	2000	ATAM: Method for Architecture Evaluation	R. Kazman, M. Klein & P. Clements	SEI CMU/SEI-2000-TR-004	swa-science
+autosaradaptive	living	AUTOSAR Adaptive Platform — Explanation of Adaptive and Classic Platform Software Architectural Decisions	AUTOSAR Foundation		emb-arch
+autosarblockset	living	AUTOSAR Blockset documentation + Software Architecture Modeling	MathWorks		simulink
+autosarclassic	living	AUTOSAR Classic Platform — Layered Software Architecture	AUTOSAR		emb-arch
+autosarcpp14	2018	Guidelines for the use of the C++14 language in critical and safety-related systems (AUTOSAR C++14)	AUTOSAR		emb-cpp,swe-process
+avizienis	UNRESOLVED	Basic Concepts and Taxonomy of Dependable and Secure Computing (dependability taxonomy)	A. Avizienis, J.-C. Laprie & B. Randell		emb-arch
+babar04	2004	A Framework for Classifying and Comparing Software Architecture Evaluation Methods	M.A. Babar, L. Zhu & R. Jeffery	Proc. ASWEC 2004 pp.309-318	swa-science
+bacchellibird	2013	Expectations, Outcomes, and Challenges of Modern Code Review	A. Bacchelli & C. Bird	ICSE 2013 pp.712-721, DOI 10.1109/ICSE.2013.6606617	emb-c,swe-process
+ball	UNRESOLVED	Embedded Microprocessor Systems: Real World Design	S. Ball		emb-arch
+barbacci	1995	Quality Attributes	M. Barbacci, M.H. Klein, T.A. Longstaff & C.B. Weinstock	SEI CMU/SEI-95-TR-021	swa-science
+barnes	2014	Evolution Styles: foundations and models for software architecture evolution	J.M. Barnes, D. Garlan & B. Schmerl	SoSyM 13(2):649-678	swa-science
+barrbugs	UNRESOLVED	Top 10 Causes of Nasty Firmware Bugs	M. Barr		emb-c
+barrc	2018	Embedded C Coding Standard (BARR-C:2018)	M. Barr / Barr Group	ISBN 978-1-7211-2798-6	emb-arch,emb-c,swe-process
+barrmassa	2007	Programming Embedded Systems: With C and GNU Development Tools, 2nd ed.	M. Barr & A. Massa	OReilly, ISBN 978-0-596-00983-0	emb-arch,emb-ops
+barrycrowley	UNRESOLVED	Modern Embedded Computing	P. Barry & P. Crowley		emb-arch
+bck	2021	Software Architecture in Practice, 4th ed.	L. Bass, P. Clements & R. Kazman	Addison-Wesley SEI, ISBN 978-0-13-688609-9	swa-science,emb-arch
+beningodesign	2022	Embedded Software Design: A Practical Approach to Architecture, Processes, and Coding Techniques	J. Beningo	Apress, ISBN 978-1-4842-8278-6	emb-arch,emb-c
+beningofw	2017	Reusable Firmware Development: A Practical Approach to APIs, HALs and Drivers	J. Beningo	Apress, ISBN 978-1-4842-3296-5	emb-arch,emb-c
+berger	UNRESOLVED	Embedded Systems Design	A. Berger		emb-arch
+bertolotti	UNRESOLVED	Embedded Software Development: The Open-Source Approach	I.C. Bertolotti & T. Hu		emb-arch
+bestpractices	living	Applying Best Practices for Building Large Simulink Models	MathWorks		simulink
+binutilsblog	living	GNU Binutils: the ELF Swiss Army Knife	Memfault Interrupt blog	interrupt.memfault.com	emb-ops
+black	living	Black — The Uncompromising Code Formatter	Python Software Foundation	black.readthedocs.io	swe-process
+blanchette	2008	The Little Manual of API Design	J. Blanchette	Trolltech/Nokia	emb-c
+bloaty	living	Bloaty McBloatface binary-size profiler	J. Haberman / Google	github.com/google/bloaty	emb-cpp,emb-ops
+bloch	2006	How to Design a Good API and Why it Matters	J. Bloch	OOPSLA 2006 Companion, DOI 10.1145/1176617.1176622	emb-c
+boll	2021	Characteristics, potentials, and limitations of open-source Simulink projects for empirical research	A. Boll, F. Brokhausen, T. Amorim, T. Kehrer & A. Vogelsang	SoSyM 20:2111-2130	simulink
+boogerdmoonen	2009	Assessing the Value of Coding Standards: An Empirical Study / Evaluating the Relation Between Coding Standard Violations and Faults	C. Boogerd & L. Moonen	ICSM 2008; 2009	emb-c,swe-process
+boostoutcome	living	Boost.Outcome documentation (incl. experimental status_code)	N. Douglas		emb-cpp
+boostsml	living	Boost.SML — C++14 State Machine library	K. Jusiak	github.com/boost-ext/sml	emb-cpp
+bootlin	living	Bootlin embedded-Linux training slides	Bootlin		emb-arch,emb-ops
+bosch00	2000	Design and Use of Software Architectures: Adopting and Evolving a Product-Line Approach	J. Bosch	Addison-Wesley	swa-science
+boschmolin	1999	Software architecture design: evaluation and transformation	J. Bosch & P. Molin	Proc. IEEE ECBS 99	swa-science
+breathe	living	Breathe (Doxygen-XML to Sphinx bridge)	breathe-doc project	breathe-doc.org	emb-c,swe-process
+breivold	2012	A Systematic Review of Software Architecture Evolution Research	H.P. Breivold, I. Crnkovic & M. Larsson	IST 54(1):16-40	swa-science
+broy	2006	Challenges in automotive software engineering	M. Broy	ICSE 2006	emb-arch
+buildtool	2022	MATLAB build tool (buildtool)	MathWorks		simulink,swe-process
+burge	2008	Rationale-Based Software Engineering	J.E. Burge, J.M. Carroll, R. McCall & I. Mistrik	Springer	swa-science
+burnswellings	2009	Real-Time Systems and Programming Languages, 4th ed.	A. Burns & A. Wellings	Addison-Wesley, ISBN 978-0-321-41745-9	emb-arch
+busobj	living	Simulink.Bus objects documentation	MathWorks		simulink
+buttazzo	2023	Hard Real-Time Computing Systems: Predictable Scheduling Algorithms and Applications	G. Buttazzo	Springer, ISBN 978-3-031-45409-7	emb-arch
+c4model	living	The C4 model for visualising software architecture	S. Brown	c4model.com	swe-process
+caissetalk	UNRESOLVED	Modern C++ in an Embedded World	M. Caisse		emb-cpp
+capilla	2016	10 years of software architecture knowledge management: Practice and future	R. Capilla, A. Jansen, A. Tang, P. Avgeriou & M.A. Babar	JSS 116:191-205	swa-science
+carniebigfour	2015	The Rule of The Big Four (and a half) — Move Semantics and Resource Management	G. Carnie		emb-cpp
+carnieregisters	2017	Making things do stuff (register access using C++ templates), Parts 1-8	G. Carnie		emb-cpp
+catch2	living	Catch2	P. Nash; maintainer M. Horenovsky	github.com/catchorg/Catch2	emb-cpp
+catsoulis	UNRESOLVED	Designing Embedded Hardware	J. Catsoulis		emb-arch
+cbam	2001	Quantifying the Costs and Benefits of Architectural Decisions (CBAM)	R. Kazman, J. Asundi & M. Klein	Proc. ICSE 2001	swa-science
+ceedling	living	Ceedling (test/build manager, v1.0; bundles Unity + CMock + CException)	ThrowTheSwitch.org	github.com/throwtheswitch/ceedling	emb-c
+certc	2014	The CERT C Coding Standard, 2nd ed. (98 Rules)	R.C. Seacord	Addison-Wesley, ISBN 978-0321984043	emb-c,swe-process
+certcpp	2016	SEI CERT C++ Coding Standard (2016 Edition)	A. Ballman (ed.), SEI/CMU		emb-cpp,swe-process
+certkits	living	IEC Certification Kit (ISO 26262 & IEC 61508) and DO Qualification Kit (DO-178C/DO-331)	MathWorks		simulink
+cervanteskazman	2024	Designing Software Architectures: A Practical Approach, 2nd ed.	H. Cervantes & R. Kazman	Addison-Wesley SEI, ISBN 9780138108021	swa-science
+checkcode	living	checkcode / Code Analyzer (formerly mlint)	MathWorks	mathworks.com/help/matlab/ref/checkcode.html	swe-process
+chowdhury	2018	A Curated Corpus of Simulink Models for Model-Based Empirical Studies	S.A. Chowdhury et al.	SEsCPS@ICSE 2018	simulink
+cipart1	living	Continuous Integration for Verification of Simulink Models (Part 1)	MathWorks		simulink,swe-process
+cipart2	living	Continuous Integration for Verification of Simulink Models Using GitLab (Part 2)	MathWorks		simulink,swe-process
+clangdocs	living	Clang Compiler User's Manual / Cross-compilation / Command Line Reference	The LLVM Project	clang.llvm.org	emb-ops
+clangformat	living	clang-format	LLVM/Clang project	clang.llvm.org/docs/ClangFormat.html	emb-c,emb-cpp
+clangtidy	living	clang-tidy	LLVM/Clang project	clang.llvm.org/extra/clang-tidy	emb-c,emb-cpp
+cloudiotref	living	Azure IoT / AWS IoT Well-Architected reference architectures	Microsoft; AWS		emb-arch
+cmake	living	CMake documentation / build organization for embedded C++	Kitware	cmake.org	emb-cpp,emb-ops,swe-process
+cmock	living	CMock (mock/stub generator for C headers)	ThrowTheSwitch.org	github.com/throwtheswitch/cmock	emb-c
+cmsis	living	CMSIS — Cortex Microcontroller Software Interface Standard	Arm		emb-arch
+cohenreview	2006	Best Kept Secrets of Peer Code Review	J. Cohen (ed.) et al.	ISBN 978-1-59916-067-2	swe-process
+commercialtools	living	Commercial static-analysis/coverage tool docs (VectorCAST, LDRA, Cantata, Polyspace, Coverity, Klocwork, Axivion, PVS-Studio, Parasoft, Bullseye, PC-lint Plus)	Various vendors		emb-cpp
+compmodel	living	Component-Based Modeling in Simulink / Model Reference behavior docs	MathWorks		simulink
+contdeliv	2010	Continuous Delivery	J. Humble & D. Farley	ISBN 978-0-321-60191-9	swe-process
+contiki	2004	Contiki — a Lightweight and Flexible Operating System for Tiny Networked Sensors	A. Dunkels et al.		emb-arch
+convcommits	living	Conventional Commits (v1.0.0)	Conventional Commits community	conventionalcommits.org	swe-process
+cooling	UNRESOLVED	Software Engineering for Real-Time Systems / Real-Time Operating Systems series	J. Cooling		emb-arch
+coreguidelines	living	C++ Core Guidelines	B. Stroustrup & H. Sutter (eds.)		emb-cpp,swe-process
+cppcheck	living	cppcheck (with MISRA addon)	D. Marjamaki et al.	cppcheck.sourceforge.io	emb-cpp
+cpputest	living	CppUTest / CppUMock	cpputest project	cpputest.github.io	emb-cpp
+crosstoolng	living	crosstool-NG documentation	crosstool-ng project	crosstool-ng.github.io	emb-ops
+csapp	2016	Computer Systems: A Programmer's Perspective, 3rd ed. (linking chapter)	R. Bryant & D. O'Hallaron	Pearson	emb-ops
+csmith	2011	Finding and Understanding Bugs in C Compilers (Csmith)	X. Yang, Y. Chen, E. Eide & J. Regehr	PLDI 2011 pp.283-294, DOI 10.1145/1993498.1993532	emb-ops
+dagstuhl16	2016	Managing Technical Debt in Software Engineering	P. Avgeriou, P. Kruchten, I. Ozkaya & C. Seaman	Dagstuhl Reports 6(4):110-138	swa-science
+darwin	1996	Dynamic Structure in Software Architectures (Darwin)	J. Magee & J. Kramer	Proc. FSE-4; ACM SIGSOFT SEN 21(6):3-14	swa-science
+datadict	living	Simulink Data Dictionary documentation	MathWorks		simulink
+deissenboeck	2008	Clone Detection in Automotive Model-Based Development	F. Deissenboeck, B. Hummel, E. Juergens, B. Schaetz, S. Wagner, J.-F. Girard & S. Teuchert		simulink
+diataxis	living	Diátaxis — a systematic framework for technical documentation	D. Procida	diataxis.fr	swe-process
+dietzintoverflow	2015	Understanding Integer Overflow in C/C++	W. Dietz, P. Li, J. Regehr & V. Adve	DOI 10.1145/2743019	emb-c
+diffmergeci	living	Set Up Simulink Diff and Merge in CI/CD Pipeline	MathWorks		simulink
+dlmalloc	2000	A Memory Allocator (dlmalloc essay)	D. Lea	gee.cs.oswego.edu/dl/html/malloc.html	emb-ops
+do178c	2011	RTCA DO-178C / EUROCAE ED-12C — Software Considerations in Airborne Systems and Equipment Certification	RTCA/EUROCAE		emb-arch
+do331	2011	RTCA DO-331 / EUROCAE ED-218 — Model-Based Development and Verification Supplement to DO-178C and DO-278A	RTCA		simulink
+do332	2011	DO-332 Object-Oriented Technology and Related Techniques Supplement to DO-178C and DO-278A	RTCA		emb-cpp
+dobrica	2002	A Survey on Software Architecture Analysis Methods	L. Dobrica & E. Niemela	IEEE TSE 28(7):638-653	swa-science
+doctest	living	doctest	V. Kirilov	github.com/doctest/doctest	emb-cpp
+doors	living	Working with IBM DOORS / DOORS Next requirements docs	MathWorks		simulink
+dora	living	DORA — DevOps Research and Assessment / State of DevOps	DORA (Google Cloud)	dora.dev	swe-process
+douglassagility	UNRESOLVED	Real-Time Agility / Real-Time UML Workshop for Embedded Systems	B.P. Douglass		emb-arch
+douglasspatternsc	2011	Design Patterns for Embedded Systems in C: An Embedded Software Engineering Toolkit	B.P. Douglass	Newnes, ISBN 978-1-85617-707-8	emb-arch,emb-c
+douglassrtcorpus	living	Real-Time Design Patterns; Doing Hard Time; Real-Time UML	B.P. Douglass		emb-arch
+doxygen	living	Doxygen (manual, current)	D. van Heesch	doxygen.nl/manual	emb-c,emb-cpp,swe-process
+drepperlibs	2011	How To Write Shared Libraries	U. Drepper	Free PDF	emb-c,emb-ops
+dreppermem	2007	What Every Programmer Should Know About Memory	U. Drepper		emb-ops
+drl	1991	What's in Design Rationale? (DRL)	J. Lee & K.-Y. Lai	HCI 6(3-4):251-280	swa-science
+dsimonprimer	1999	An Embedded Software Primer	D.E. Simon	Addison-Wesley	emb-arch
+dspacecompare	living	dSPACE Model Compare	dSPACE GmbH		simulink
+dspaceguide	living	Modeling Guidelines for MATLAB/Simulink/Stateflow and TargetLink	dSPACE GmbH		simulink
+dutoit	2006	Rationale Management in Software Engineering	A.H. Dutoit, R. McCall, I. Mistrik & B. Paech (eds.)	Springer	swa-science
+dvorak	2009	Flight Software Complexity (NASA study)	D. Dvorak (ed.)		emb-arch
+dwarf5	2017	DWARF Debugging Information Format, Version 5	DWARF Committee	dwarfstd.org	emb-ops
+eafparm	UNRESOLVED	Embedded Artistry posts (Demystifying ARM Floating Point Compiler Options; libmemory docs)	Embedded Artistry	embeddedartistry.com	emb-ops
+eastadl	living	EAST-ADL	EAST-ADL Association		emb-arch
+eastl	2007	EASTL — Electronic Arts Standard Template Library (WG21 N2271)	P. Pedriana	open-std.org; github.com/electronicarts/EASTL	emb-cpp
+ebertjones	2009	Embedded Software: Facts, Figures, and Future	C. Ebert & C. Jones	IEEE Computer 2009	emb-arch
+ecpp	1999	The Embedded C++ (EC++) specification, WP-AM-003	Embedded C++ Technical Committee		emb-cpp
+ecss	UNRESOLVED	ESA ECSS-E-ST-40C and ECSS-Q-ST-80C	ESA/ECSS		emb-arch
+editorconfig	living	EditorConfig	EditorConfig project	editorconfig.org	emb-c
+ehabi32	2018	Exception Handling ABI for the Arm Architecture (EHABI32)	Arm Ltd (ABI-AA)	github.com/ARM-software/abi-aa	emb-ops
+eideregehr	2008	Volatiles Are Miscompiled, and What to Do about It	E. Eide & J. Regehr		emb-c
+elfspec	1995	Tool Interface Standard (TIS) ELF Specification, Version 1.2 (+ System V gABI)	TIS Committee	refspecs.linuxfoundation.org/elf/elf.pdf	emb-ops
+embeddedcoder	living	Embedded Coder documentation + production-code modeling patterns	MathWorks		simulink
+embeddedrust	living	The Embedded Rust Book / Discovery book / Ferrous Systems materials	Rust Embedded WG; Ferrous Systems		emb-arch
+emeryhilliard	2009	Every Architecture Description Needs a Framework: Expressing Architecture Frameworks Using ISO/IEC 42010	D. Emery & R. Hilliard	Proc. WICSA/ECSA 2009	swa-science
+en50128	2020	EN 50128:2011 (+A1/A2:2020) — Railway applications — Software for railway control and protection systems	CENELEC		emb-arch
+esa	2001	Evaluating Software Architectures: Methods and Case Studies	P. Clements, R. Kazman & M. Klein	Addison-Wesley	swa-science
+espidf	living	ESP-IDF architecture docs	Espressif		emb-arch
+etl	living	Embedded Template Library (ETL)	J. Wellbelove (Aster Consulting)	etlcpp.com, MIT	emb-cpp
+ettermtw	2016	Modern Technical Writing	A. Etter	ASIN B01A2QL9SS	swe-process
+exhale	living	Exhale (automatic C/C++ API docs via Doxygen + Sphinx + Breathe)	S. McDowell (svenevs)	github.com/svenevs/exhale	emb-c,swe-process
+fagan	1976	Design and Code Inspections to Reduce Errors in Program Development	M.E. Fagan	IBM Systems Journal 15(3):182-211	emb-c,swe-process
+falessi	2011	Decision-making techniques for software architecture design: A comparative survey	D. Falessi, G. Cantone, R. Kazman & P. Kruchten	ACM Computing Surveys 43(4) Art.33	swa-science
+fanrt	2015	Real-Time Embedded Systems	X. Fan	Elsevier	emb-arch
+feilergluch	2012	Model-Based Engineering with AADL: An Introduction to the SAE Architecture Analysis & Design Language	P.H. Feiler & D.P. Gluch	Addison-Wesley SEI	swa-science,emb-arch
+fixedpoint	living	Fixed-Point Designer documentation	MathWorks		simulink
+fowlerci	living	Continuous Integration	M. Fowler	martinfowler.com/articles/continuousIntegration.html	swe-process
+fowlerref	UNRESOLVED	Refactoring	M. Fowler		emb-arch
+framac	2015	Frama-C: A Software Analysis Perspective	P. Cuoq, F. Kirchner, N. Kosmatov, V. Prevosto, J. Signoles & B. Yakobowski	DOI 10.1007/s00165-014-0326-7	emb-c
+freertosbook	living	Mastering the FreeRTOS Real-Time Kernel	FreeRTOS project		emb-arch
+freertosheap	living	FreeRTOS memory management (heap_1 ... heap_5)	FreeRTOS project / Amazon	freertos.org	emb-ops
+fuerst	UNRESOLVED	AUTOSAR — A Worldwide Standard is on the Road	S. Fuerst et al.		emb-arch
+furber	UNRESOLVED	ARM System-on-Chip Architecture	S. Furber		emb-arch
+gajski	UNRESOLVED	Embedded System Design: Modeling, Synthesis and Verification	D. Gajski et al.		emb-arch
+galster	2011	Empirically-grounded reference architectures: a proposal	M. Galster & P. Avgeriou	Proc. QoSA/ISARCS 2011	swa-science
+ganssle	UNRESOLVED	The Art of Designing Embedded Systems; The Firmware Handbook (ed.); The Embedded Muse newsletter	J. Ganssle		emb-arch
+garlan14	2014	Software Architecture: a Travelogue	D. Garlan	Proc. FOSE 2014	swa-science
+garlanshaw93	1993	An Introduction to Software Architecture	D. Garlan & M. Shaw	Adv. SE & KE Vol.1, World Scientific	swa-science
+gccmanual	living	Using the GNU Compiler Collection (GCC) — incl. Optimize Options chapter and -fstack-usage	GNU Project / FSF	gcc.gnu.org/onlinedocs/gcc	emb-ops
+gdbmanual	living	Debugging with GDB, Tenth Edition	Free Software Foundation	sourceware.org/gdb	emb-ops
+gendesign	2007	A General Model of Software Architecture Design Derived from Five Industrial Approaches	C. Hofmeister, P. Kruchten, R.L. Nord, H. Obbink, A. Ran & P. America	JSS 80(1):106-126	swa-science
+gerlitz	2015	Detection and Handling of Model Smells for MATLAB/Simulink Models	T. Gerlitz, Q.M. Tran & C. Dziobek	MASE@MoDELS 2015, CEUR Vol-1487	simulink
+gitflow	2010	A successful Git branching model (git-flow)	V. Driessen	nvie.com/posts/a-successful-git-branching-model/	swe-process
+githubflow	living	GitHub flow	GitHub	docs.github.com	swe-process
+gitlabci	living	GitLab CI/CD documentation	GitLab	docs.gitlab.com/ci/	swe-process
+gitlabflow	living	GitLab flow	GitLab	about.gitlab.com/topics/version-control/what-is-gitlab-flow/	swe-process
+gnuinternals	living	GNU (GCC) Internals manual	GNU Project		emb-ops
+godbolt	2017	What Has My Compiler Done for Me Lately? + Compiler Explorer	M. Godbolt	godbolt.org	emb-cpp,emb-ops
+gof	1994	Design Patterns: Elements of Reusable Object-Oriented Software	E. Gamma, R. Helm, R. Johnson & J. Vlissides	Addison-Wesley, ISBN 978-0-201-63361-0	emb-arch
+gomaa	2016	Real-Time Software Design for Embedded Systems	H. Gomaa	Cambridge UP, ISBN 978-1-107-04109-7	emb-arch
+googleeng	living	Code Review Developer Guide (Google eng-practices)	Google	google.github.io/eng-practices/review/	swe-process
+googlestyle	living	Google C++ Style Guide	Google		emb-cpp,swe-process
+googletest	living	GoogleTest / GoogleMock	Google	google.github.io/googletest	emb-cpp
+graaf	2003	Embedded software engineering: the state of the practice	B. Graaf, M. Lormans & H. Toetenel	IEEE Software 2003	emb-arch
+grenningtdd	2011	Test-Driven Development for Embedded C	J.W. Grenning	Pragmatic Bookshelf, ISBN 978-1-934356-62-3	emb-arch,emb-c,emb-cpp
+gsl	living	Guideline Support Library (GSL)	Microsoft / isocpp	github.com/microsoft/GSL	emb-cpp
+gtkdoc	living	GTK-Doc (GNOME C API documentation tool)	GNOME project	gitlab.gnome.org/GNOME/gtk-doc	emb-c,swe-process
+gustedt	UNRESOLVED	Modern C (3rd ed., C23)	J. Gustedt		emb-c
+guyblog	2016	Three-Way Model Merge and Git	Guy on Simulink (MathWorks blog)		simulink,swe-process
+hallinan	UNRESOLVED	Embedded Linux Primer	C. Hallinan		emb-arch
+hanmer	UNRESOLVED	Patterns for Fault Tolerant Software	R. Hanmer		emb-arch
+hanson	1996	C Interfaces and Implementations: Techniques for Creating Reusable Software	D.R. Hanson	Addison-Wesley, ISBN 978-0201498417	emb-c
+hardfaultblog	living	How to debug a HardFault on an ARM Cortex-M MCU	C. Coleman	interrupt.memfault.com	emb-ops
+hatleypirbhai	UNRESOLVED	Strategies for Real-Time System Specification	D. Hatley & I. Pirbhai		emb-arch
+hatton95	1995	Safer C: Developing Software for High-Integrity and Safety-Critical Systems	L. Hatton	McGraw-Hill, ISBN 978-0077076405	emb-c
+hattonsubset	2004	Language subsetting in an industrial context: MISRA C 1998 vs 2004 / Safer language subsets: MISRA C	L. Hatton	IST 46(7):465-472	emb-c
+hauserblog	2015	Typesafe Register Access in C++	N. Hauser	blog.salkinium.com	emb-cpp
+hawkmoth	living	Hawkmoth (Sphinx C/C++ autodoc via Clang)	J. Nikula	github.com/jnikula/hawkmoth	emb-c,swe-process
+heath	UNRESOLVED	Embedded Systems Design	S. Heath	Newnes	emb-arch
+henzingersifakis	2006	The Embedded Systems Design Challenge	T. Henzinger & J. Sifakis	FM 2006	emb-arch
+hicpp	2013	High Integrity C++ Coding Standard v4.0	PRQA (now Perforce)		emb-cpp,swe-process
+hobbs	2019	Embedded Software Development for Safety-Critical Systems, 2nd ed.	C. Hobbs	CRC Press, ISBN 978-0-367-33885-5	emb-arch
+hofmeister00	2000	Applied Software Architecture	C. Hofmeister, R. Nord & D. Soni	Addison-Wesley	swa-science
+holmestalk	2019	Hey C, This Is What Performance Looks Like	O. Holmes		emb-cpp
+holzmannp10	2006	The Power of Ten: Rules for Developing Safety-Critical Code	G.J. Holzmann	IEEE Computer 39(6):95-99, DOI 10.1109/MC.2006.212	emb-arch,emb-c
+humphreypsp	1997	Introduction to the Personal Software Process	W.S. Humphrey	ISBN 978-0-201-54809-9	swe-process
+hutheses	UNRESOLVED	HU Utrecht / RWTH Aachen embedded-C++ HAL/metaprogramming theses	Various students		emb-cpp
+hwlib	living	hwlib	W. van Ooijen (HU; SG14)	github.com/wovo/hwlib	emb-cpp
+ibis	1970	Issues as Elements of Information Systems (IBIS)	W. Kunz & H.W.J. Rittel	Working Paper 131, IURD, UC Berkeley	swa-science
+iec61508	2010	IEC 61508:2010 — Functional safety of E/E/PE safety-related systems (Ed. 2.0, 7 parts)	IEC		emb-arch
+iec62304	2015	IEC 62304:2006 (+AMD1:2015) — Medical device software — Software life cycle processes	IEC		emb-arch
+ieee828	2012	IEEE 828-2012 — Configuration Management in Systems and Software Engineering	IEEE	IEEE 828-2012; ISBN 978-0-7381-7134-0	swe-process
+iglberger	2022	C++ Software Design: Design Principles and Patterns for High-Quality Software	K. Iglberger	OReilly, ISBN 978-1-098-11316-2	emb-cpp
+iira	living	Industrial Internet Reference Architecture (IIC)	Industry IoT Consortium		emb-arch
+iso12207	2017	ISO/IEC/IEEE 12207:2017 — Software life cycle processes	ISO/IEC/IEEE	ISO/IEC/IEEE 12207:2017; iso.org/standard/63712.html	swe-process
+iso25010	2023	ISO/IEC 25010:2023 — SQuaRE — Product quality model	ISO/IEC		swa-science
+iso26262	2018	ISO 26262:2018 — Road vehicles — Functional safety (2nd ed., 12 parts)	ISO		emb-arch
+iso26262p6	2018	ISO 26262-6:2018 — Road vehicles — Functional safety — Part 6: Product development at the software level	ISO		simulink
+iso42010	2022	ISO/IEC/IEEE 42010:2022 — Software, systems and enterprise — Architecture description	ISO/IEC/IEEE		swa-science,emb-arch
+itaniumabi	living	Itanium C++ ABI	Itanium C++ ABI group	itanium-cxx-abi.github.io	emb-ops
+janeliu	2000	Real-Time Systems	J.W.S. Liu	Prentice Hall	emb-arch
+jansenbosch	2005	Software Architecture as a Set of Architectural Design Decisions	A. Jansen & J. Bosch	Proc. WICSA 2005 pp.109-120	swa-science
+jmaab	2023	JMAAB Control Algorithm Modeling Guidelines, v5.1 / v6.0	Japan MATLAB Automotive Advisory Board		simulink,swe-process
+johnsonbook	2010	The Elements of MATLAB Style	R.K. Johnson	Cambridge UP, ISBN 978-0-521-73258-1	simulink,swe-process
+johnsonguide	living	MATLAB Style Guidelines 2.0 / MATLAB Programming Style Guidelines	R. Johnson		simulink,swe-process
+jplstd	2009	JPL Institutional Coding Standard for the C Programming Language	NASA/JPL Laboratory for Reliable Software		emb-c,swe-process,emb-arch
+jsfav	2007	JSF Air Vehicle C++ Coding Standards	Lockheed Martin		emb-cpp,swe-process
+jusiaktalks	2018	State Machines Battlefield / [Boost].DI - Inject all the things!	K. Jusiak		emb-cpp
+kandr	1988	The C Programming Language, 2nd ed.	B.W. Kernighan & D.M. Ritchie	Prentice Hall, ISBN 978-0131103627	emb-c
+kensmith	2010	C++ Hardware Register Access Redux	K. Smith	Self-published whitepaper, Feb 2010	emb-cpp
+kerneldoc	living	kernel-doc (Linux kernel documentation system)	Linux kernel community	docs.kernel.org/doc-guide/kernel-doc.html	emb-c
+kernelstyle	living	Linux kernel coding style	Linux kernel community	Documentation/process/coding-style.rst	emb-c,swe-process
+knuthlit	1992	Literate Programming	D.E. Knuth	CSLI Lecture Notes 27, ISBN 0-937073-80-6	emb-c
+koopmanbess	2010	Better Embedded System Software	P. Koopman	Drumnadrochit Press, ISBN 978-0-9844490-0-2	emb-arch,emb-c
+kopetz	2022	Real-Time Systems: Design Principles for Distributed Embedded Applications	H. Kopetz	Springer, DOI 10.1007/978-3-031-11992-7	emb-arch
+kopetzbauer	2003	The Time-Triggered Architecture	H. Kopetz & G. Bauer	Proc. IEEE 2003	emb-arch
+kormanyos	2021	Real-Time C++: Efficient Object-Oriented and Template Microcontroller Programming, 4th ed.	C. Kormanyos	Springer, ISBN 978-3-662-62995-6	emb-cpp,emb-ops
+kramermagee	2007	Self-Managed Systems: an Architectural Challenge	J. Kramer & J. Magee	Proc. FOSE 2007	swa-science
+kruchten	1995	Architectural Blueprints — The 4+1 View Model of Software Architecture	P. Kruchten	IEEE Software 12(6):42-50	swa-science,emb-arch
+kvasir	living	Kvasir register-abstraction library	O. Holmes	kvasir.io	emb-cpp
+l4liedtke	UNRESOLVED	L4 microkernel papers	J. Liedtke		emb-arch
+labrosse	2009	MicroC/OS-III: The Real-Time Kernel (also MicroC/OS-II; Embedded Systems Building Blocks)	J.J. Labrosse	Micrium Press	emb-arch
+lacamera	2023	Embedded Systems Architecture	D. Lacamera	Packt, ISBN 978-1-80323-954-5	emb-arch,emb-cpp
+lakosemcs	2021	Embracing Modern C++ Safely	J. Lakos, V. Romeo, R. Khlebnikov & A. Meredith	Addison-Wesley, ISBN 978-0-13-738035-0	emb-cpp
+lakoslsc	UNRESOLVED	Large-Scale C++ Software Design	J. Lakos		emb-arch,swe-process,emb-c
+lakosvol1	2019	Large-Scale C++ Volume I: Process and Architecture	J. Lakos	ISBN 978-0-201-71706-8	swe-process
+laplante	UNRESOLVED	Real-Time Systems Design and Analysis	P. LaPlante & S. Ovaska		emb-arch
+largescale	living	Large-Scale Modeling documentation chapter	MathWorks		simulink
+lattnerub	2011	What Every C Programmer Should Know About Undefined Behavior	C. Lattner		emb-c
+ld	living	The GNU Linker (ld)	S. Chamberlain et al., GNU Project/FSF	sourceware.org/binutils/docs/ld	emb-ops
+ldd3	2005	Linux Device Drivers, 3rd ed.	J. Corbet, A. Rubini & G. Kroah-Hartman	OReilly, ISBN 978-0-596-00590-0	emb-arch
+ledin	2021	Architecting High-Performance Embedded Systems	J. Ledin	Packt, ISBN 978-1-78995-596-5	emb-arch
+leecps	2008	Cyber-Physical Systems: Design Challenges	E.A. Lee		emb-arch
+leeseshia	2017	Introduction to Embedded Systems: A Cyber-Physical Systems Approach, 2nd ed.	E.A. Lee & S.A. Seshia	MIT Press, ISBN 978-0-262-53381-2	emb-arch
+levesonesw	UNRESOLVED	Engineering a Safer World (STAMP/STPA)	N. Leveson		emb-arch
+levesonsafeware	UNRESOLVED	Safeware	N. Leveson		emb-arch
+levine	1999	Linkers and Loaders	J.R. Levine	Morgan Kaufmann, ISBN 978-1-55860-496-4	emb-ops
+liggesmeyer	UNRESOLVED	Trends in embedded software engineering	P. Liggesmeyer & M. Trapp		emb-arch
+lippman	1996	Inside the C++ Object Model	S.B. Lippman	Addison-Wesley, ISBN 978-0-201-83454-3	emb-ops
+liulayland	1973	Scheduling Algorithms for Multiprogramming in a Hard-Real-Time Environment	C.L. Liu & J.W. Layland	JACM 20(1):46-61, DOI 10.1145/321738.321743	emb-arch
+liyao	UNRESOLVED	Real-Time Concepts for Embedded Systems	Q. Li & C. Yao		emb-arch
+lld	living	LLD — The LLVM Linker	LLVM Project	lld.llvm.org	emb-ops
+lldbdocs	living	LLDB documentation (remote debugging)	LLVM Project		emb-ops
+llvmeh	living	Exception Handling in LLVM	The LLVM Project	llvm.org/docs/ExceptionHandling.html	emb-ops
+mab	living	MAB Control Algorithm Modeling Guidelines	MathWorks Advisory Board		simulink,swe-process
+mabdoc	living	MAB Modeling Guidelines documentation sections (Simulink/Stateflow/MATLAB Function rule sets)	MathWorks		simulink
+maintdash	living	Model Maintainability Dashboard	MathWorks		simulink
+malavolta	2013	What Industry Needs from Architectural Languages: A Survey	I. Malavolta, P. Lago, H. Muccini, P. Pelliccione & A. Tang	IEEE TSE 39(6):869-891	swa-science
+marscode	2014	Mars Code	G.J. Holzmann	CACM 2014	emb-arch
+martincleanarch	2017	Clean Architecture	R.C. Martin		emb-arch,swe-process,emb-c
+martincleancode	UNRESOLVED	Clean Code	R.C. Martin		emb-arch,swe-process
+marwedel	2021	Embedded System Design: Foundations of Cyber-Physical Systems, and the Internet of Things, 4th ed.	P. Marwedel	Springer, DOI 10.1007/978-3-030-60910-8	emb-arch
+maskray	2022	All about... linker series (TLS, GOT, PLT, COMMON symbols)	F. Song (MaskRay)	maskray.me	emb-ops
+maskraygc	UNRESOLVED	MaskRay posts on linker garbage collection and COMDAT/section groups	F. Song (MaskRay)		emb-ops
+matlabci	living	Continuous Integration (CI) for MATLAB and Simulink	MathWorks	mathworks.com/solutions/continuous-integration.html	swe-process
+matlabpkg	living	MATLAB packages/namespaces, classes/OOP guide, toolbox packaging docs	MathWorks		simulink,swe-process
+matlabpublish	living	MATLAB Live Scripts & the publish workflow	MathWorks	mathworks.com/help/matlab/live-scripts-and-functions.html	swe-process
+matlabtest	2023	MATLAB Test	MathWorks		simulink,swe-process
+mcconnell	2004	Code Complete, 2nd ed.	S. McConnell	Microsoft Press, ISBN 978-0-7356-1967-8	emb-arch,swe-process
+mcdcchilenski	1994	Applicability of Modified Condition/Decision Coverage to Software Testing	J.J. Chilenski & S.P. Miller	SEJ 9(5):193-200	emb-c,emb-cpp
+mcdcnasa	2001	A Practical Tutorial on Modified Condition/Decision Coverage	K.J. Hayhurst et al.	NASA/TM-2001-210876	emb-c,emb-cpp
+medtay	2000	A Classification and Comparison Framework for Software Architecture Description Languages	N. Medvidovic & R.N. Taylor	IEEE TSE 26(1):70-93	swa-science
+medvidovicuml	2002	Modeling Software Architectures in the Unified Modeling Language	N. Medvidovic, D.S. Rosenblum, D.F. Redmiles & J.E. Robbins	ACM TOSEM 11(1):2-57	swa-science
+memfaultea	living	Memfault Interrupt / Embedded Artistry canonical guides	Memfault; Embedded Artistry		emb-arch
+memfaultsize	UNRESOLVED	Code Size Optimization: GCC Flags	Memfault Interrupt blog		emb-ops
+mergedocs	living	Resolve Conflicts Using Simulink Three-Way Merge / Customize External Source Control	MathWorks		simulink,swe-process
+metricsdash	living	Metrics Dashboard	MathWorks		simulink
+meyerseffcpp	2005	Effective C++, 3rd ed.	S. Meyers	Addison-Wesley	emb-cpp,emb-arch
+meyerseffmod	2014	Effective Modern C++	S. Meyers	OReilly	emb-cpp,emb-arch
+meyersembedded	2015	Effective C++ in an Embedded Environment (Presentation Materials)	S. Meyers	Artima Press	emb-cpp
+mismatch09	2009	Architectural Mismatch: Why Reuse Is Still So Hard	D. Garlan, R. Allen & J. Ockerbloom	IEEE Software 26(4):66-69	swa-science
+mismatch95	1995	Architectural Mismatch: Why Reuse Is So Hard	D. Garlan, R. Allen & J. Ockerbloom	IEEE Software 12(6):17-26	swa-science
+misrac	2025	MISRA C (C:2012 3rd ed. 2013; +AMD1-3; consolidated C:2023; C:2025)	MISRA Consortium		emb-arch,emb-c,swe-process
+misracompliance	2020	MISRA Compliance:2020	MISRA Consortium		emb-c
+misracpp2008	2008	MISRA C++:2008	MISRA Consortium		emb-arch,emb-cpp,swe-process
+misracpp2023	2023	MISRA C++:2023	MISRA Consortium		emb-arch,emb-cpp,swe-process
+misragmg	2023	MISRA AC GMG:2023 — Generic Modelling Design and Style Guidelines	MISRA Consortium	ISBN 978-1-911700-04-3	simulink
+misraslsf	2023	MISRA AC SLSF:2023 — Modelling design and style guidelines for Simulink and Stateflow	MISRA Consortium	ISBN 978-1-911700-06-7	simulink
+modelcompare	living	Model Comparison docs (Comparison Tool, visdiff, Three-Way Merge Tool)	MathWorks		simulink,swe-process
+modm	living	modm HAL / lbuild generator	N. Hauser et al.	modm.io	emb-cpp
+molloy	UNRESOLVED	Exploring BeagleBone / Exploring Raspberry Pi	D. Molloy		emb-arch
+moriconi	1995	Correct Architecture Refinement	M. Moriconi, X. Qian & R.A. Riemenschneider	IEEE TSE 21(4):356-372	swa-science
+mwcodingguide	living	MATLAB Coding Guidelines (mathworks/MATLAB-Coding-Guidelines)	MathWorks	GitHub	simulink,swe-process
+naturaldocs	living	Natural Docs	G. Valure	naturaldocs.org	emb-c
+nesc	2003	The nesC Language: A Holistic Approach to Networked Embedded Systems	D. Gay et al.	PLDI 2003	emb-arch
+newlib	living	newlib / newlib-nano documentation	newlib project		emb-ops
+nigeljones	UNRESOLVED	A 'C' Test: The 0x10 Best Questions for Would-be Embedded Programmers	N. Jones		emb-c
+noblesmallmem	2000	Small Memory Software: Patterns for Systems with Limited Memory	J. Noble & C. Weir	Addison-Wesley, ISBN 978-0-201-59607-6	emb-arch,emb-c
+noergaard	2013	Embedded Systems Architecture: A Comprehensive Guide for Engineers and Programmers	T. Noergaard	Newnes, ISBN 978-0-12-382196-6	emb-arch
+nordicacademy	living	Nordic Semiconductor / Zephyr DevAcademy	Nordic Semiconductor		emb-arch
+nygard	UNRESOLVED	Release It!	M. Nygard		emb-arch
+nygardadr	2011	Documenting Architecture Decisions	M. Nygard	cognitect.com/blog/2011/11/15/documenting-architecture-decisions	swe-process
+omgspecs	living	OMG specifications: MARTE, SysML, DDS	OMG		emb-arch
+openocd	living	OpenOCD User's Guide	Open On-Chip Debugger project	openocd.org	emb-ops
+oreizy	1998	Architecture-Based Runtime Software Evolution	P. Oreizy, N. Medvidovic & R.N. Taylor	Proc. ICSE 98 pp.177-186	swa-science
+oshana	2019	Software Engineering for Embedded Systems, 2nd ed.	R. Oshana & M. Kraeling (eds.)	Newnes, ISBN 978-0-12-809448-8	emb-arch
+osstyleguides	living	Zephyr / FreeRTOS / Apache NuttX / ESP-IDF coding guidelines; ARM CMSIS API conventions	Various projects		emb-c,swe-process
+ousterhout	UNRESOLVED	A Philosophy of Software Design	J. Ousterhout		emb-arch
+p0568	2017	P0568 Towards Better Embedded programming support for C++	WG21 SG14		emb-cpp
+p0709	2019	P0709 Zero-overhead deterministic exceptions: Throwing values	H. Sutter (WG21)	open-std.org	emb-cpp
+p0829	2019	P0829 Freestanding Proposal	B. Craig (WG21)		emb-cpp
+p1028	2020	P1028 SG14 status_code and standard error object	N. Douglas (WG21)		emb-cpp
+p1105	2019	P1105 Leaving no room for a lower-level language: A C++ Subset	B. Craig & B. Saks (WG21)		emb-cpp
+p2198	UNRESOLVED	P2198 Freestanding Feature-Test Macros and Implementation-Defined Extensions	B. Craig (WG21)		emb-cpp
+p2232	2021	P2232 Zero-Overhead Deterministic Exceptions: Catching Values	WG21		emb-cpp
+p2268	UNRESOLVED	P2268 Freestanding Roadmap	B. Craig (WG21)		emb-cpp
+p2338	UNRESOLVED	P2338 Freestanding Library: Character primitives and the C library	WG21		emb-cpp
+p2739	2022	P2739 A call to action: Think seriously about safety; then do something sensible about it	B. Stroustrup (WG21)		emb-cpp
+p2816	2023	P2816 Safety Profiles: Type-and-resource safe programming in ISO standard C++	B. Stroustrup & G. Dos Reis (WG21)		emb-cpp
+p3081	2025	P3081 Core safety Profiles: Specification, adoptability, and impact	H. Sutter (WG21)		emb-cpp
+parnas72	1972	On the Criteria To Be Used in Decomposing Systems into Modules	D.L. Parnas	CACM 15(12):1053-1058	swa-science,swe-process,emb-arch,emb-c
+parnas74	1974	On a 'Buzzword': Hierarchical Structure	D.L. Parnas	Proc. IFIP Congress 74	swa-science
+parnas79	1979	Designing Software for Ease of Extension and Contraction	D.L. Parnas	IEEE TSE SE-5(2):128-138	swa-science
+parnasclements	1986	A Rational Design Process: How and Why to Fake It	D.L. Parnas & P.C. Clements	IEEE TSE SE-12(2):251-257	swa-science,swe-process
+peckol	UNRESOLVED	Embedded Systems: A Contemporary Design Tool	J. Peckol		emb-arch
+pep20	living	The Zen of Python (PEP 20)	T. Peters	PEP 20; peps.python.org/pep-0020/	swe-process
+pep257	living	Docstring Conventions (PEP 257)	D. Goodger & G. van Rossum	PEP 257; peps.python.org/pep-0257/	swe-process
+pep517	2015	PEP 517 — A build-system independent format for source trees	N.J. Smith & T. Kluyver	PEP 517; peps.python.org/pep-0517/	swe-process
+pep518	2016	PEP 518 — Specifying Minimum Build System Requirements	B. Cannon, N.J. Smith & D. Stufft	PEP 518; peps.python.org/pep-0518/	swe-process
+pep621	2020	PEP 621 — Storing project metadata in pyproject.toml	B. Cannon et al.	PEP 621; peps.python.org/pep-0621/	swe-process
+pep8	living	Style Guide for Python Code (PEP 8)	G. van Rossum, B. Warsaw & A. Coghlan	PEP 8; peps.python.org/pep-0008/	swe-process
+pep8eyetracking	2024	Assessing Python Style Guides: An Eye-Tracking Study with Novice Developers	P. Roberto, R. Gheyi, J.A. Silva da Costa & M. Ribeiro	arXiv:2408.14566	swe-process
+perrywolf	1992	Foundations for the Study of Software Architecture	D.E. Perry & A.L. Wolf	ACM SIGSOFT SEN 17(4):40-52	swa-science
+piadl	2004	pi-ADL: an ADL based on the higher-order typed pi-calculus for dynamic and mobile architectures	F. Oquendo	ACM SIGSOFT SEN 29(3):1-14	swa-science
+picolibc	2023	Picolibc documentation	K. Packard / picolibc project	github.com/picolibc/picolibc	emb-ops
+pigweedcpp	living	Embedded C++ Guide and C++ style guide (Pigweed)	Google Pigweed	pigweed.dev	emb-cpp
+pigweedrefdoc	living	Pigweed reference-documentation conventions for C++	Google Pigweed		emb-cpp
+pigweedsdk	living	Pigweed SDK / build-system integrations (Bazel, GN, CMake)	Google	pigweed.dev	emb-cpp
+pitchfork	living	The Pitchfork Layout (PFL)	C. Pike (vector-of-bool)	github.com/vector-of-bool/pitchfork	swe-process
+pont	2001	Patterns for Time-Triggered Embedded Systems	M.J. Pont		emb-arch
+posa2	UNRESOLVED	Pattern-Oriented Software Architecture Vol. 2: Patterns for Concurrent and Networked Objects	D. Schmidt et al.		emb-arch
+posa3	UNRESOLVED	Pattern-Oriented Software Architecture Vol. 3: Patterns for Resource Management	M. Kircher & P. Jain		emb-arch
+posch	2019	Hands-On Embedded Programming with C++17	M. Posch	Packt, ISBN 9781788629300	emb-cpp
+potvinmonorepo	2016	Why Google Stores Billions of Lines of Code in a Single Repository	R. Potvin & J. Levenberg	DOI 10.1145/2854146; CACM 59(7):78-87	swe-process
+pragprog	UNRESOLVED	The Pragmatic Programmer	A. Hunt & D. Thomas		emb-arch
+precommit	living	pre-commit (hook framework)	A. Sottile	pre-commit.com	emb-c,swe-process
+preschern	2022	Fluent C: Principles, Practices, and Patterns	C. Preschern	OReilly, 2022-11-22, ISBN 978-1492097334	emb-c
+preschernplop	UNRESOLVED	Patterns for... EuroPLoP/PLoP pattern-paper series (organizing files; returning error information)	C. Preschern		emb-c
+pretschner	2007	Software Engineering for Automotive Systems: A Roadmap	A. Pretschner et al.	FOSE 2007	emb-arch
+probetools	living	probe-rs documentation; pyOCD docs; Black Magic Probe docs	probe-rs; pyOCD; 1BitSquared		emb-ops
+profcmake	living	Professional CMake: A Practical Guide	C. Scott	crascit.com/professional-cmake/	swe-process
+progit	2014	Pro Git, 2nd ed.	S. Chacon & B. Straub	ISBN 978-1-4842-0076-6; git-scm.com/book	swe-process
+projects	living	Simulink Projects / MATLAB Projects docs	MathWorks		simulink,swe-process
+protothreads	2006	Protothreads: Simplifying Event-Driven Programming of Memory-Constrained Embedded Systems	A. Dunkels et al.	SenSys 2006	emb-arch
+puncover	living	puncover	H. Behrens	github.com/HBehrens/puncover	emb-ops
+pwbloat	living	pw_bloat memory-report module	Google Pigweed		emb-cpp
+pwunittest	living	pw_unit_test	Google Pigweed		emb-cpp
+px4ardu	living	PX4 / ArduPilot architecture docs	PX4; ArduPilot projects		emb-arch
+pylint	living	Pylint	pylint-dev	pylint.readthedocs.io	swe-process
+pypackaging	living	Python Packaging User Guide	PyPA	packaging.python.org	swe-process
+qnxguide	living	QNX architecture guide	QNX/BlackBerry		emb-arch
+qoc	1991	Questions, Options, and Criteria: Elements of Design Space Analysis (QOC)	A. MacLean, R.M. Young, V.M.E. Bellotti & T.P. Moran	HCI 6(3-4):201-250	swa-science
+qpc	living	QP/C real-time embedded framework	Quantum Leaps (M. Samek)	state-machine.com	emb-c
+qpcpp	living	QP/C++ Real-Time Embedded Framework + QM modeler	Quantum Leaps (M. Samek)	state-machine.com	emb-cpp
+rainbow	2004	Rainbow: Architecture-Based Self-Adaptation with Reusable Infrastructure	D. Garlan, S.-W. Cheng, A.-C. Huang, B. Schmerl & P. Steenkiste	IEEE Computer 37(10):46-54	swa-science
+rami40	living	RAMI 4.0	Plattform Industrie 4.0		emb-arch
+rapide	1995	Specification and Analysis of System Architecture Using Rapide	D.C. Luckham, J.J. Kenney, L.M. Augustin, J. Vera, D. Bryan & W. Mann	IEEE TSE 21(4):336-355	swa-science
+rcda	2012	RCDA: Architecting as a risk- and cost management discipline	E.R. Poort & H. van Vliet	JSS 85(9):1995-2013	swa-science
+refmodels	living	Reference Existing Models & model-reference workflow docs	MathWorks		simulink
+regehrub	UNRESOLVED	A Guide to Undefined Behavior in C and C++	J. Regehr		emb-c
+renwick	2019	Low-cost deterministic C++ exceptions for embedded systems	J. Renwick, T. Spink & B. Franke	CC 19 pp.76-86, DOI 10.1145/3302516.3307346	emb-cpp
+replicability	2023	Replicability Study: Corpora For Understanding Simulink Models & Projects	S.L. Shrestha, S.A. Chowdhury & C. Csallner	arXiv:2308.01978	simulink
+reqtoolbox	living	Requirements Toolbox documentation	MathWorks		simulink
+richardsford	UNRESOLVED	Fundamentals of Software Architecture	M. Richards & N. Ford		emb-arch
+rierson	2013	Developing Safety-Critical Software: A Practical Guide for Aviation Software and DO-178C Compliance	L. Rierson	CRC Press, ISBN 978-1-4398-1368-3	emb-arch
+rigbybird	2013	Convergent Contemporary Software Peer Review Practices	P.C. Rigby & C. Bird	DOI 10.1145/2491411.2491444	swe-process
+riot	2018	RIOT: An Open Source Operating System for Low-End Embedded Devices in the IoT	E. Baccelli et al.		emb-arch
+rittelwebber	1973	Dilemmas in a General Theory of Planning	H.W.J. Rittel & M.M. Webber	Policy Sciences 4(2):155-169	swa-science
+room	1994	Real-Time Object-Oriented Modeling (ROOM)	B. Selic, G. Gullekson & P. Ward	Wiley	emb-arch
+ros2design	living	ROS 2 design docs	Open Robotics		emb-arch
+rozanski	2011	Software Systems Architecture: Working with Stakeholders Using Viewpoints and Perspectives, 2nd ed.	N. Rozanski & E. Woods	Addison-Wesley	swa-science,emb-arch
+ruff	living	Ruff — an extremely fast Python linter and formatter	Astral	docs.astral.sh/ruff	swe-process
+rushby	UNRESOLVED	Partitioning in avionics architectures (SRI/NASA report)	J. Rushby		emb-arch
+saam	1994	SAAM: A Method for Analyzing the Properties of Software Architectures	R. Kazman, G. Abowd, L. Bass & M. Webb	Proc. ICSE 94	swa-science
+sadowskigoogle	2018	Modern Code Review: A Case Study at Google	C. Sadowski, E. Soderberg, L. Church, M. Sipko & A. Bacchelli	ICSE-SEIP 2018, DOI 10.1145/3183519.3183525	emb-c,swe-process
+sae2010	2010	Large-Scale Modeling for Embedded Applications	MathWorks	SAE 2010-01-0938	simulink
+saksbtb	UNRESOLVED	Back to Basics CppCon talks	B. Saks & D. Saks		emb-cpp
+sakscolumns	UNRESOLVED	Dan Saks embedded.com columns on memory-mapped devices in C and C++	D. Saks		emb-cpp,emb-c
+samekbook	2008	Practical UML Statecharts in C/C++: Event-Driven Programming for Embedded Systems, 2nd ed.	M. Samek	Newnes, ISBN 978-0-7506-8706-5	emb-arch,emb-c,emb-cpp
+samekcourse	living	Modern Embedded Systems Programming video course + QP framework docs	M. Samek (Quantum Leaps)	state-machine.com	emb-arch,emb-c,emb-ops
+schaeuffele	UNRESOLVED	Automotive Software Engineering	J. Schaeuffele & T. Zurawka		emb-arch
+schreiner	2011	Object-Oriented Programming with ANSI-C	A.-T. Schreiner		emb-c
+scrumguide	living	The Scrum Guide	K. Schwaber & J. Sutherland	scrumguides.org	swe-process
+seacordeffc	2024	Effective C, 2nd ed.	R.C. Seacord	No Starch Press	emb-c
+seacordsecure	2013	Secure Coding in C and C++, 2nd ed.	R.C. Seacord	Addison-Wesley	emb-c
+segger	UNRESOLVED	SEGGER J-Link User Guide (UM08001), SystemView (UM08027), RTT documentation	SEGGER		emb-ops
+sel4	2009	seL4: Formal Verification of an OS Kernel	G. Klein et al.	SOSP 2009	emb-arch
+semihosting	2020	Semihosting for AArch32 and AArch64	Arm Ltd (ABI-AA)	github.com/ARM-software/abi-aa	emb-ops
+semver	living	Semantic Versioning (SemVer 2.0.0)	T. Preston-Werner	semver.org	swe-process
+sfm	2003	Formal Methods for Software Architectures (SFM 2003)	M. Bernardo & P. Inverardi (eds.)	Springer LNCS 2804	swa-science
+shaw01	2001	The Coming-of-Age of Software Architecture Research	M. Shaw	Proc. ICSE 2001	swa-science
+shawgarlan96	1996	Software Architecture: Perspectives on an Emerging Discipline	M. Shaw & D. Garlan	Prentice Hall	swa-science,emb-arch
+siewert	UNRESOLVED	Real-Time Embedded Components and Systems with Linux and RTOS	S. Siewert & J. Pratt		emb-arch
+signaltyping	living	Simulink signal naming/typing guidance (MAB signal rules; data-type propagation)	MathWorks Advisory Board / MathWorks		simulink
+simmonds	2021	Mastering Embedded Linux Programming, 3rd ed.	C. Simmonds (w/ F. Vasquez)	Packt, ISBN 978-1-78953-038-4	emb-arch,emb-ops
+simon96	1996	The Sciences of the Artificial, 3rd ed.	H.A. Simon	MIT Press	swa-science
+slcheck	living	Simulink Check docs (Model Advisor, MAB/JMAAB checks)	MathWorks		simulink
+slcoverage	living	Simulink Coverage docs (incl. MC/DC)	MathWorks		simulink
+slnet	2022	SLNET: A Redistributable Corpus of 3rd-party Simulink Models	S.L. Shrestha, S.A. Chowdhury & C. Csallner	MSR 2022, arXiv:2203.17112	simulink
+sloss	UNRESOLVED	ARM System Developer's Guide	A. Sloss, D. Symes & C. Wright		emb-arch
+sltest	living	Simulink Test docs + Continuous Integration	MathWorks		simulink,swe-process
+smitconventions	2011	Maintainability and Source Code Conventions: An Analysis of Open Source Projects	M. Smit, B. Gergel, H.J. Hoover & E. Stroulia	Univ. of Alberta TR11-06	swe-process
+sphinx	living	Sphinx documentation generator	Sphinx team	sphinx-doc.org	swe-process
+sple	2001	Software Product Lines: Practices and Patterns	P. Clements & L. Northrop	Addison-Wesley	swa-science
+sqlitetesting	living	How SQLite Is Tested	SQLite project		emb-c
+staron	2021	Automotive Software Architectures: An Introduction, 2nd ed.	M. Staron	Springer, ISBN 978-3-030-65938-7	emb-arch
+stephancordy	2015	Identification of Simulink Model Antipattern Instances Using Model Clone Detection	M. Stephan & J. Cordy	MODELS 2015 pp.276-285	simulink
+stevanovic	2014	Advanced C and C++ Compiling	M. Stevanovic	Apress, ISBN 978-1-4302-6667-9	emb-ops
+storey	UNRESOLVED	Safety-Critical Computer Systems	N. Storey		emb-arch
+stroustruptour	2022	A Tour of C++, 3rd ed. (C++20)	B. Stroustrup	Addison-Wesley	emb-cpp
+svincentelli	UNRESOLVED	Platform-based design papers	A. Sangiovanni-Vincentelli		emb-arch
+swebok	2024	Guide to the Software Engineering Body of Knowledge (SWEBOK v4.0)	H. Washizaki (ed.)	SWEBOK v4.0; IEEE Computer Society	swe-process
+syscompbp	living	Best Practices for Large-Scale Architecture Modeling	MathWorks (System Composer doc)		simulink
+syscomposer	living	System Composer documentation	MathWorks		simulink
+tactics	2003	Deriving Architectural Tactics: A Step Toward Methodical Architectural Design	F. Bachmann, L. Bass & M. Klein	SEI CMU/SEI-2003-TR-004	swa-science
+tangjinhan	2007	A rationale-based architecture model for design traceability and reasoning	A. Tang, Y. Jin & J. Han	JSS 80(6):918-934	swa-science
+tangrazavian	UNRESOLVED	Empirical studies on software design reasoning and reflection	A. Tang, M. Razavian et al.		swa-science
+tangsurvey06	2006	A survey of architecture design rationale	A. Tang, M.A. Babar, I. Gorton & J. Han	JSS 79(12):1792-1804	swa-science
+targetlink	living	dSPACE TargetLink	dSPACE GmbH		simulink
+taylorlinkers	2007	Linkers (20-part series)	I.L. Taylor	airs.com/blog	emb-ops
+techdebt19	2019	Managing Technical Debt: Reducing Friction in Software Development	P. Kruchten, R. Nord & I. Ozkaya	Addison-Wesley SEI, ISBN 9780135645932	swa-science
+thinlto	living	ThinLTO documentation	Clang/LLVM Project	clang.llvm.org/docs/ThinLTO.html	emb-ops
+thinltoblog	2016	ThinLTO: Scalable and Incremental LTO (blog + LLVM Dev Meeting 2016 talk)	T. Johnson, M. Amini & D. Li	blog.llvm.org	emb-ops
+tinyos	2000	System Architecture Directions for Networked Sensors	J. Hill, R. Szewczyk, A. Woo, S. Hollar, D. Culler & K. Pister	ASPLOS 2000 pp.93-104	emb-arch
+tlsf	2004	TLSF: a New Dynamic Memory Allocator for Real-Time Systems	M. Masmano, I. Ripoll, A. Crespo & J. Real	ECRTS 2004 pp.79-88, DOI 10.1109/ECRTS.2004.35	emb-ops
+tmd	2010	Software Architecture: Foundations, Theory, and Practice	R.N. Taylor, N. Medvidovic & E.M. Dashofy	Wiley, ISBN 978-0470167748	swa-science,emb-arch
+tornhill	UNRESOLVED	Patterns in C	A. Tornhill		emb-c
+tr18015	2006	ISO/IEC TR 18015:2006 — Technical Report on C++ Performance	ISO/IEC JTC1/SC22/WG21 (ed. L. Goldthwaite)	open-std.org 18015	emb-cpp
+trompeloeil	living	trompeloeil	B. Fahller	github.com/rollbear/trompeloeil	emb-cpp
+trunkbased	living	Trunk-Based Development	P. Hammant et al.	trunkbaseddevelopment.com	swe-process
+turnerc64	2016	Rich Code for Tiny Computers: A Simple Commodore 64 Game in C++17	J. Turner		emb-cpp
+uncrustify	living	Uncrustify (source beautifier)	uncrustify project	github.com/uncrustify/uncrustify	emb-c,swe-process
+unity	living	Unity (xUnit-style unit-test framework for C)	ThrowTheSwitch.org	github.com/ThrowTheSwitch/Unity	emb-c
+vab	2010	Documenting Software Architectures: Views and Beyond, 2nd ed.	P. Clements, F. Bachmann, L. Bass, D. Garlan, J. Ivers, R. Little, P. Merson, R. Nord & J. Stafford	Addison-Wesley	swa-science,emb-arch
+vahidgivargis	2002	Embedded System Design: A Unified Hardware/Software Introduction	F. Vahid & T. Givargis	Wiley	emb-arch
+vanooijentalk	2014	Objects? No Thanks!	W. van Ooijen		emb-cpp
+vanvliettang	2016	Decision making in software architecture	H. van Vliet & A. Tang	JSS 117:638-644	swa-science
+viarheichyk	2020	Embedded Programming with Modern C++ Cookbook	I. Viarheichyk	Packt	emb-cpp
+vxthreadx	living	VxWorks / ThreadX documentation	Wind River; Eclipse ThreadX		emb-arch
+walls	UNRESOLVED	Embedded Software: The Works	C. Walls	Newnes	emb-arch
+wangrt	UNRESOLVED	Real-Time Embedded Systems	K.C. Wang	Wiley	emb-arch
+wardmellor	UNRESOLVED	Structured Development for Real-Time Systems	P. Ward & S. Mellor		emb-arch
+weinreich	2016	Software architecture knowledge management approaches and their support for knowledge management activities: A systematic literature review	R. Weinreich & I. Groher	IST 80:265-286	swa-science
+weyns	2020	An Introduction to Self-Adaptive Systems: A Contemporary Software Engineering Perspective	D. Weyns	Wiley/IEEE	swa-science
+white	2024	Making Embedded Systems: Design Patterns for Great Software	E. White	OReilly, ISBN 9781098151546	emb-arch,emb-cpp,emb-c
+wiegers	2002	Peer Reviews in Software: A Practical Guide	K.E. Wiegers	Addison-Wesley, ISBN 978-0201734850	emb-c,swe-process
+wilsonsurvey	1995	Dynamic Storage Allocation: A Survey and Critical Review	P. Wilson, M. Johnstone, M. Neely & D. Boles		emb-ops
+wolf5	2022	Computers as Components: Principles of Embedded Computing System Design, 5th ed.	M. Wolf	Morgan Kaufmann, ISBN 978-0-323-85128-2	emb-arch
+wright	1997	A Formal Basis for Architectural Connection (Wright, CSP semantics)	R. Allen & D. Garlan	ACM TOSEM 6(3):213-249	swa-science
+xpexplained	2004	Extreme Programming Explained: Embrace Change, 2nd ed.	K. Beck & C. Andres	ISBN 978-0-321-27865-4	swe-process
+yaghmour	UNRESOLVED	Building Embedded Linux Systems	K. Yaghmour et al.	OReilly	emb-arch
+yiu	2013	The Definitive Guide to ARM Cortex-M3 and Cortex-M4 Processors, 3rd ed.	J. Yiu	Newnes, ISBN 978-0-12-408082-9	emb-arch,emb-c,emb-cpp
+zannier	2007	A model of design decision making based on empirical results of interviews with software designers	C. Zannier, M. Chiasson & F. Maurer	IST 49(6):637-653	swa-science
+zephyrdocs	living	Zephyr Project documentation	Zephyr Project		emb-arch
+zephyrlinker	living	Zephyr docs on linker scripts / code relocation	Zephyr Project		emb-ops
+zerotomain	2019	From Zero to main() series	F. Baldassari et al.	interrupt.memfault.com	emb-ops
+zhang	2010	A Classification and Comparison of Model Checking Software Architecture Techniques	P. Zhang, H. Muccini & B. Li	JSS 83(5):723-744	swa-science
+zimmermann	2007	Reusable Architectural Decision Models for Enterprise Application Development	O. Zimmermann et al.	Proc. QoSA 2007	swa-science

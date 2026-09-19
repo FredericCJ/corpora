@@ -12,9 +12,20 @@ DATA = os.path.normpath(os.path.join(HERE, '..', 'data'))
 os.makedirs(DATA, exist_ok=True)
 
 import records_sa, records_arch, records_c, records_cpp, records_ops, records_sim, records_proc
+# PASS 9 (arch-spine) is generated from the harvest by _spine_work/tools/gen_records.py. It is
+# optional on purpose: absent the generated module the first eight passes still build, and the
+# spine view simply reports itself empty rather than the build failing.
+try:
+    import records_spine
+    SPINE_R = records_spine.R
+    SPINE_THIN = getattr(records_spine, 'SPINE_THIN', {})
+except ImportError:
+    SPINE_R, SPINE_THIN = [], {}
 SOURCES = [('swa-science', records_sa.R), ('emb-arch', records_arch.R), ('emb-c', records_c.R),
            ('emb-cpp', records_cpp.R), ('emb-ops', records_ops.R), ('simulink', records_sim.R),
            ('swe-process', records_proc.R)]
+if SPINE_R:
+    SOURCES.append(('arch-spine', SPINE_R))
 CORPUS_LABELS = {
     'swa-science': 'Software architecture as a science',
     'emb-arch': 'Embedded architecture & design',
@@ -24,6 +35,8 @@ CORPUS_LABELS = {
     'simulink': 'Large Simulink/MATLAB projects',
     'swe-process': 'Engineering process & workflow',
 }
+if SPINE_R:
+    CORPUS_LABELS['arch-spine'] = 'The architecture spine (needs → design → tools)'
 # Lead-memberships: reports list these works as (unverified) leads that merge into a node
 # already carried verified by another corpus. (id, corpus-that-listed-the-lead, note)
 MERGE_MEMBERSHIP = [
@@ -181,7 +194,12 @@ adj += ['- TYPE: technical-guide->guide; course/lecture->course; journal->paper 
         '- SWE-PROCESS (pass 7, added 2026-07): area -> theme (standards|documentation|vcs-review|ci-cd|org-build|process); '
         'branch fixed to "process" for the whole pass (joins swa-science B->process); role (anchor|core|advanced|survey) kept; '
         'NEW facet LANG (agnostic|matlab|python|c|cpp|multi) introduced by this pass to make the language-transposition filterable — '
-        'set only for swe-process nodes, absent (never UNRESOLVED) for the other six corpora, exactly like the emb-ops LANE facet.', '']
+        'set only for swe-process nodes, absent (never UNRESOLVED) for the other six corpora, exactly like the emb-ops LANE facet.',
+        '- ARCH-SPINE (pass 9, added 2026-09): branch fixed to "spine" for the whole pass; stage projected into THEME as '
+        'spine-<stage> (prefixed to avoid collision with the eight existing theme vocabularies); role kept; TWO NEW array '
+        'facets STAGE (needs|obligations|requirements|design|tools-process) and DOMAIN (complex-scale|complex-science|'
+        'governance|measurement|runtime-ops|hand-c|model-c) introduced to make the derivation chain and its subject matter '
+        'independently filterable - set only for arch-spine nodes, absent for the other eight passes.', '']
 adj.append('## emb-arch theme gap-fills (derived from the report’s section headings)')
 for i, th in sorted(ARCH_THEME.items()):
     adj.append(f'- {i}: theme={th} (from section heading)')
@@ -190,6 +208,7 @@ adj.append('')
 
 for nd in nodes.values():
     branches, themes, role, lane, scope, access, auto, lang = set(), set(), set(), None, None, None, False, None
+    stages, domains = set(), set()
     for c, raw in nd['per'].items():
         if raw.get('lead'): continue
         if c == 'swa-science':
@@ -221,10 +240,24 @@ for nd in nodes.values():
             branches.add('process'); themes.add(raw['area']); lang = raw['lang']
             for rr in raw['role'].split(';'):
                 if rr: role.add(rr)
+        elif c == 'arch-spine':
+            # Pass 9 introduces TWO new array facets (stage, domain) on the pass-7 `lang` precedent:
+            # set only for arch-spine nodes, absent (never UNRESOLVED) elsewhere. The stage is ALSO
+            # projected into the shared `theme` vocabulary as spine-<stage>, prefixed so it cannot
+            # collide with the eight existing passes' theme values.
+            branches.add('spine')
+            for st in raw['stage'].split(';'):
+                if st:
+                    stages.add(st); themes.add('spine-' + st)
+            for dm in raw['domain'].split(';'):
+                if dm: domains.add(dm)
+            for rr in raw['role'].split(';'):
+                if rr: role.add(rr)
     nd['type'] = TYPE_MAP[nd['rtype']]
     nd['branches'] = sorted(branches); nd['themes'] = sorted(themes)
     nd['role'] = sorted(role); nd['lane'] = lane; nd['scope'] = scope
     nd['access'] = access; nd['automotive'] = auto; nd['lang'] = lang
+    nd['stages'] = sorted(stages) or None; nd['domains'] = sorted(domains) or None
     if nd['year'] == 'UNRESOLVED' and 'year' not in nd['unresolved']:
         nd['unresolved'].append('year')
     del nd['rtype']
@@ -267,7 +300,13 @@ views = dict(
                  computed='nodes with |corpora| >= 2, grouped by membership signature.'),
     anchors=dict(label='Anchors & spine', semantic='Curated per-corpus entry points: anchor/target/KEY-flagged nodes',
                  question='Where do I start in each corpus?',
-                 computed="nodes whose role includes 'anchor' (swa stars, simulink targets, ops KEY flags), grouped by corpus."))
+                 computed="nodes whose role includes 'anchor' (swa stars, simulink targets, ops KEY flags), grouped by corpus."),
+    spine=dict(label='The spine', semantic='Pass-9 coverage matrix: seven domains x five derivation stages',
+               question='How does a stakeholder need become a designed, tooled, measured system - and where is that chain unwritten?',
+               computed='Live counts over the nodes own stage/domain array facets (no inference). Thin cells carry the '
+                        'adversarial critic panels adjudication: literature-thin (the field never wrote that intersection) '
+                        'vs sweep-thin (the sweep looked in the wrong vocabulary).',
+               thin=SPINE_THIN))
 with open(os.path.join(DATA, 'relations.json'), 'w', encoding='utf-8') as f:
     json.dump(dict(kinds=kinds, provenance=dict(srcs), edges=E, views=views), f, indent=1, ensure_ascii=False)
 

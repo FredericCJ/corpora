@@ -10,7 +10,11 @@
   // The atlas views mount only when the atlas layer was built (data/atlas.js present); the explorer
   // degrades gracefully to the nine work+element views otherwise.
   const ATLAS_VIEWS = (window.SWE && window.SWE.atlas) ? ['el-atlas', 'el-bridgeflow'] : [];
-  const VIEW_ORDER = WORK_VIEWS.concat(EL_VIEWS).concat(ATLAS_VIEWS);
+  // The spine view (pass 9) mounts only once the arch-spine records are built into the fact
+  // layer; before that the eleven earlier views are unaffected and no empty tab appears.
+  const SPINE_VIEWS = (window.SWE && window.SWE.corpus && Array.isArray(window.SWE.corpus.nodes)
+    && window.SWE.corpus.nodes.some((n) => n && n.stages && n.stages.length)) ? ['spine'] : [];
+  const VIEW_ORDER = WORK_VIEWS.concat(EL_VIEWS).concat(ATLAS_VIEWS).concat(SPINE_VIEWS);
 
   window.addEventListener('error', (ev) => log.error('uncaught error escaped every boundary', { message: ev.message, src: ev.filename, line: ev.lineno }));
   window.addEventListener('unhandledrejection', (ev) => log.error('unhandled promise rejection', { reason: String(ev.reason) }));
@@ -50,6 +54,7 @@
       if (id === WORK_VIEWS[0]) tabs.appendChild(U.el('span', { class: 'tab-sep', 'aria-hidden': 'true', text: 'body of knowledge' }));
       if (id === EL_VIEWS[0]) tabs.appendChild(U.el('span', { class: 'tab-sep', 'aria-hidden': 'true', text: 'elements' }));
       if (ATLAS_VIEWS.length && id === ATLAS_VIEWS[0]) tabs.appendChild(U.el('span', { class: 'tab-sep', 'aria-hidden': 'true', text: 'atlas' }));
+      if (SPINE_VIEWS.length && id === SPINE_VIEWS[0]) tabs.appendChild(U.el('span', { class: 'tab-sep', 'aria-hidden': 'true', text: 'spine' }));
       tabs.appendChild(U.el('button', { role: 'tab', id: 'tab-' + id, 'aria-selected': 'false',
         text: (i + 1) + ' · ' + SWE.views[id].label, onclick: () => S.set({ view: id }) }));
     });

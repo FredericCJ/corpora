@@ -1,0 +1,97 @@
+[demoted] Exploring the Structure of Complex Software Designs: An Empirica
+[demoted] The new dynamics of strategy: Sense-making in a complex and comp
+[demoted] A Complexity Measure
+[demoted] A Metrics Suite for Object Oriented Design
+[demoted] DORA — Accelerate State of DevOps Report 2024
+[demoted] The Site Reliability Workbook: Practical Ways to Implement SRE
+[demoted] Observability Engineering: Achieving Production Excellence
+[demoted] Dapper, a Large-Scale Distributed Systems Tracing Infrastructure
+[demoted] Implementing Service Level Objectives: A Practical Guide to SLIs
+[demoted] Seeking SRE: Conversations About Running Production Systems at S
+[demoted] Chaos Engineering: System Resiliency in Practice
+[demoted] Release It! Design and Deploy Production-Ready Software (2nd ed.
+[demoted] The VOID — Verica Open Incident Database
+[demoted] Kubernetes: Liveness, Readiness, and Startup Probes
+[demoted] AWS Well-Architected Framework — Operational Excellence Pillar
+[demoted] Prometheus Documentation
+[demoted] AUTOSAR Classic Platform — Specification of Diagnostic Event Man
+[demoted] AUTOSAR Classic Platform — Specification of Diagnostic Communica
+[demoted] AUTOSAR Classic Platform — Specification of Watchdog Manager
+[demoted] MISRA C:2023 — Guidelines for the Use of the C Language in Criti
+[demoted] VectorCAST
+[demoted] General Principles of Software Validation; Final Guidance for In
+[demoted] Requirements Engineering: From System Goals to UML Models to Sof
+[demoted] Goal-directed Requirements Acquisition
+[demoted] Modelling Strategic Relationships for Process Reengineering
+[demoted] Mastering the Requirements Process: Getting Requirements Right, 
+[demoted] Requirements Engineering: Processes and Techniques
+[demoted] Requirements Engineering: Fundamentals, Principles, and Techniqu
+[demoted] Software Requirements, 3rd ed.
+[demoted] Writing Effective Use Cases
+[demoted] Use Case 2.0: The Guide to Succeeding with Use Cases
+[demoted] Soft Systems Methodology in Action
+[demoted] Problem Frames: Analysing and Structuring Software Development P
+[demoted] An Analysis of the Requirements Traceability Problem
+[demoted] Model-Based Engineering with AADL: An Introduction to the SAE Ar
+[demoted] Grand Challenges of Traceability: The Next Ten Years
+[demoted] Guidelines for performing Systematic Literature Reviews in Softw
+[demoted] Guidelines for conducting and reporting case study research in s
+[demoted] Software Architecture Optimization Methods: A Systematic Literat
+[demoted] Identifying and Quantifying Architectural Debt
+[demoted] Design erosion: problems and causes
+[demoted] The Structure and Value of Modularity in Software Design
+[demoted] Stakeholder Identification in the Requirements Engineering Proce
+[demoted] Systems Architecture: Strategy and Product Development for Compl
+[demoted] Classification of Research Efforts in Requirements Engineering
+[demoted] The TOGAF Standard, 10th Edition
+[demoted] Fault Tree Handbook (NUREG-0492)
+[demoted] Hazard Analysis Techniques for System Safety, 2nd ed.
+[demoted] Claims, Arguments, Evidence (CAE) Framework
+[demoted] AdvoCATE User Guide (Product Model 2.0), v1.4
+[demoted] Understanding the Overarching Properties
+[demoted] Software, systems and enterprise — Architecture processes
+[demoted] Software, systems and enterprise — Architecture evaluation frame
+[demoted] Systems and software engineering — Systems and software Quality 
+[demoted] Systems and software engineering — Systems and software Quality 
+[demoted] Software engineering — Software product Quality Requirements and
+[demoted] Systems and software engineering — Systems and software Quality 
+[demoted] Systems and software engineering — Systems and software Quality 
+[demoted] Systems and software engineering — Systems and software Quality 
+[demoted] Systems and software engineering — Systems and software quality 
+[demoted] Systems and software engineering — Systems and software Quality 
+[demoted] Systems and software engineering — Systems and software Quality 
+[demoted] Systems and software engineering — Systems and software quality 
+[demoted] Systems and software engineering — Systems and software Quality 
+[demoted] Systems and software engineering — Systems and software Quality 
+[demoted] EN 50716:2023 — Railway applications: Requirements for software 
+[demoted] ECSS-E-ST-40C Rev.1 — Space engineering: Software
+[demoted] ISO/IEC TS 17961:2013 — Information technology, Programming lang
+[demoted] Architecture Principles: The Cornerstones of Enterprise Architec
+[demoted] Federal Enterprise Architecture Framework, Version 2
+[demoted] The Practice of Enterprise Architecture: A Modern Approach to Bu
+[demoted] Enterprise Architecture at Work: Modelling, Communication and An
+[demoted] Strategic Enterprise Architecture Management: Challenges, Best P
+[demoted] AS5506D: Architecture Analysis & Design Language (AADL)
+[demoted] Model-based System and Architecture Engineering with the Arcadia
+[demoted] A Practical Guide to SysML: The Systems Modeling Language
+[demoted] Value and benefits of model-based systems engineering (MBSE): Ev
+[demoted] Statecharts: A Visual Formalism for Complex Systems
+[demoted] The STATEMATE Semantics of Statecharts
+[demoted] LUSTRE: A Declarative Language for Real-Time Programming
+[demoted] The Synchronous Data Flow Programming Language LUSTRE
+[demoted] The ESTEREL Synchronous Programming Language and its Mathematica
+[demoted] The ESTEREL Synchronous Programming Language: Design, Semantics,
+[demoted] Synchronous Programming of Reactive Systems
+[demoted] The Vision of Autonomic Computing
+[demoted] Models@run.time
+[demoted] Requirements-Aware Systems: A Research Agenda for RE for Self-Ad
+[demoted] A Goal-Based Modeling Approach to Develop Requirements of an Ada
+[bad-ident] TLSF: a New Dynamic Memory Allocator for Real- -> stripped 10.1109/ECRTS.2004.35
+[bad-ident] Software Aging -> stripped 10.5555/257734.257788
+[version-conflict] ArchiMate 3.1 entry flagged
+[version-conflict] AUTOSAR Dlt R24-11 flagged
+[deduped] ARP4754A — Guidelines For Development Of Civ  <=  SAE ARP4754A — Guidelines for Development of
+[deduped] ARP4761A — Guidelines for Conducting the Saf  <=  ARP4761A — Safety Assessment Process guideli
+[deduped] Embedded Systems Design  <=  Embedded Systems Design
+[deduped] Real-Time Embedded Systems  <=  Real-Time Embedded Systems
+[anchors] demoted 180 of 272 anchors to core (per-cell cap of 4)

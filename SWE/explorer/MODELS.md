@@ -187,3 +187,31 @@ corpus memberships, phase-2 reconciled tags, the raw per-report tags, both edge 
 the **elements it teaches** (work → element navigation). With an **element** selected it shows the
 definition, aliases, kind, realm, `named-in`, tags, the **covering works** (Phase 2, linking back to
 the work corpus), and every typed relation including the cross-realm bridge edges with provenance.
+
+## Model 12 — The spine (`spine`)
+
+- **Semantic.** The pass-9 derivation chain — stakeholder needs → architecture obligations →
+  architecture requirements → architecture design → tools & process — crossed with the seven subject
+  domains the pass harvests. 35 cells, each a coverage question rather than a quota.
+- **Question.** "How does a stakeholder need become a designed, tooled, measured system — and where is
+  that chain unwritten?"
+- **Computation (`core.facetCount` / `passLocal` over the `stages` and `domains` array facets).** Pure
+  counting over real node tags, exactly as the facet browser counts every other facet; `valuesOf`
+  already treats an array field as a multi-valued facet, so no core change was needed. A work occupies
+  every stage × domain product of its own tags, so the cross-product grid over-counts a broadly-tagged
+  work by design — the honest reading is per-cell membership, not a sum.
+- **Rendering.** A fitted matrix above an internally-scrolling result list (the facet-browser shape):
+  column headers carry the derivation arrow so the chain reads left to right, cell shade is scaled to
+  the busiest cell *currently on screen* (so it re-scales under the global filters), and thin cells
+  carry a flag whose tooltip gives the panel's adjudication and its reasoning.
+- **Provenance discipline.** The thin-cell adjudications come from the build
+  (`relations.views.spine.thin`, generated from the critic panels via `_spine_work/tools/thin_cells.py`)
+  — the view never decides that a cell is thin, it only renders the finding.
+
+### The two new facets
+
+Pass 9 introduces `stage` and `domain` on the pass-7 `lang` precedent: set only for `arch-spine` nodes
+and **absent** — never `UNRESOLVED` — for the other eight passes, because those passes never asserted
+them. Both are also projected into the shared `theme` vocabulary as `spine-<stage>`, prefixed so they
+cannot collide with the eight existing theme vocabularies, which makes the spine reachable from the
+Facets view and the Chronology without either view knowing pass 9 exists.

@@ -12,6 +12,7 @@ else the field is UNRESOLVED (source says unknown) or absent (source never asser
 - SCOPE: only emb-arch asserts embedded_relevance; kept for those nodes only.
 - ACCESS: only swa-science asserts OA systematically; kept for those nodes only.
 - SWE-PROCESS (pass 7, added 2026-07): area -> theme (standards|documentation|vcs-review|ci-cd|org-build|process); branch fixed to "process" for the whole pass (joins swa-science B->process); role (anchor|core|advanced|survey) kept; NEW facet LANG (agnostic|matlab|python|c|cpp|multi) introduced by this pass to make the language-transposition filterable — set only for swe-process nodes, absent (never UNRESOLVED) for the other six corpora, exactly like the emb-ops LANE facet.
+- ARCH-SPINE (pass 9, added 2026-09): branch fixed to "spine" for the whole pass; stage projected into THEME as spine-<stage> (prefixed to avoid collision with the eight existing theme vocabularies); role kept; TWO NEW array facets STAGE (needs|obligations|requirements|design|tools-process) and DOMAIN (complex-scale|complex-science|governance|measurement|runtime-ops|hand-c|model-c) introduced to make the derivation chain and its subject matter independently filterable - set only for arch-spine nodes, absent for the other eight passes.
 
 ## emb-arch theme gap-fills (derived from the report’s section headings)
 - arinc653: theme=os-platform (from section heading)
@@ -196,6 +197,278 @@ else the field is UNRESOLVED (source says unknown) or absent (source never asser
 - maskraygc: year
 - memfaultsize: year
 - smitconventions: report-number
+- salado21: DOI and full citation from search index only — live Wiley page blocked (403) this session
+- forum19: this harvest asserts two incompatible current versions of ArchiMate (3.1 here vs 4 / Open Group doc C260 elsew
+- greefhorst11: verified on non-primary evidence (search snippet / retail or aggregator listing); identifier unconfirmed
+- kano84: exact page range and J-STAGE identifier not confirmed live; year/venue/authors from Wikipedia secondary source
+- adkins202: Publisher and ISBN not returned by Open Library; O'Reilly catalog page returned HTTP 403 this session.
+- nasr: publication year unconfirmed — Crossref record has no issued date; the host book's other chapters and library , year
+- zave97: verified on non-primary evidence (search snippet / retail or aggregator listing); identifier unconfirmed
+- standard22: Exact IEC-issued part number/edition year (vs. the 2022 BSI adoption date shown) not independently confirmed a
+- rowland15: Co-authors beyond Rowland, publisher, and ISBN were not returned by the live Open Library record this session;
+- developmenthistoryof: ISBN/publisher taken from Wikipedia (secondary source); Asian Productivity Organization's own catalog page was
+- land08: Year given by the live bookseller fetch is 2008; some secondary listings found via search give 2009 (likely fi
+- food02: verified on non-primary evidence (search snippet / retail or aggregator listing); identifier unconfirmed
+- dardenne93: verified on non-primary evidence (search snippet / retail or aggregator listing); identifier unconfirmed
+- sei96: co-author byline (Goethert, Florac) not shown on the fetched SEI page, which lists only Park; title/report-num
+- lamsweerde01: DOI unconfirmed — found via search index and author mirror, not loaded from IEEE Xplore live
+- ieeeguideforinformat: Current status (superseded / folded into ISO/IEC/IEEE 29148 per a Wikipedia summary) not independently confirm
+- ieee1220-2005: standard number/year confirmed only via the SEBoK glossary citation; standards.ieee.org attempts this session 
+- hidalgo20: Publisher and ISBN not returned by the Open Library record; the O'Reilly catalog page returned HTTP 403 this s
+- group23: the identifier INCOSE-TP-2010-006-04 and exact release date come from a secondary summary-sheet listing, not t
+- iso15288: editorial: the specific clause title '6.4.2 Stakeholder Needs and Requirements Definition process' is well-est
+- iso15939: edition year confirmed only via search-index snippets of iso.org and standards.ieee.org listings, not a direct
+- robertson12: verified on non-primary evidence (search snippet / retail or aggregator listing); identifier unconfirmed
+- modellingstrategicre: verified on non-primary evidence (search snippet / retail or aggregator listing); identifier unconfirmed
+- mabelo20: Print ISBN not shown on the fetched record.
+- ford07: A second electronic ISBN (9780429133213) also appears on a Crossref record tied to the same DOI, likely a late
+- initiative2: psmsc.com itself could not be loaded live this session (502 both attempts); content reproduced entirely from t
+- mcgarry01: ISBN/publisher confirmed via OpenLibrary bibliographic aggregator, not Pearson/Addison-Wesley's own product pa
+- jackson01: verified on non-primary evidence (search snippet / retail or aggregator listing); identifier unconfirmed
+- fowler16: Publisher and ISBN not shown by the Open Library record; not independently confirmed this session.
+- lamsweerde09: verified on non-primary evidence (search snippet / retail or aggregator listing); identifier unconfirmed
+- pohl10: verified on non-primary evidence (search snippet / retail or aggregator listing); identifier unconfirmed
+- kotonya98: edition year given by multiple booksellers as 1998; not independently confirmed against a Wiley copyright page
+- sae1001: standard number/year taken from the SEBoK citation only; sae.org itself did not confirm it this session.
+- parasuraman88: page range/DOI not confirmed live this session; treat as low-confidence pending re-verification.
+- checkland90: first-edition year stated as 1990 by multiple booksellers; Wiley product page did not display a copyright date
+- wiegers13: verified on non-primary evidence (search snippet / retail or aggregator listing); identifier unconfirmed
+- sharp99: The paper is a workshop paper with no DOI; identifier given is the institutional repository eprint rather than
+- psm10: INCOSE product number and full author/organization list not confirmed live; both candidate hosts were unreacha
+- group10: INCOSE product/report number, exact author list, and any later version not confirmed live; incose.org is block
+- roedler05: exact INCOSE report/TP number not confirmed live; incose.org is blocked to this session's fetch tool.
+- kaplan96: ISBN and publisher taken from Wikipedia (secondary source); Harvard Business School Press's own page was not l
+- basili94: chapter pagination, Encyclopedia edition/ISBN, and publisher page not confirmed live this session (Wiley's own
+- solingen99: ISBN not confirmed; publisher page fetch returned no usable content this session.
+- griffin93: journal volume/issue/DOI not confirmed live this session; treat as low-confidence pending re-verification.
+- jacobson11: exact publication month not confirmed; treated as the company's authoritative white paper rather than a formal
+- cockburn00: verified on non-primary evidence (search snippet / retail or aggregator listing); identifier unconfirmed
+- sessions07: UNRESOLVED: the original MSDN URL is dead and the author's own rogersessions.com PDF refused connection in thi
+- foorthuis16: UNRESOLVED: ACM Digital Library and SpringerLink both blocked the live fetch (403 / login-wall) this session; 
+- denney22: verified on non-primary evidence (search snippet / retail or aggregator listing); identifier unconfirmed
+- group: UNRESOLVED: current version number and release year not confirmed on a live-loaded page this session (the host, year
+- intacs: Release year of PAM 4.0 not shown on the fetched vda-qmc.de page and not otherwise confirmed live this session, year
+- woods10: a later CRC Press printing appears in some retailer listings under ISBN 9781317175537; not cross-checked again
+- chen13: exact page range (widely reported as pp.38-45) not confirmed via a primary IEEE/ACM page load this session — p
+- alberts96: specific CMU/SEI technical-report number not shown on the loaded page
+- defence: UNRESOLVED: current issue number and publication date could not be confirmed against the issuing body this ses, year
+- do330: publisher's own page not accessible live this session; publication year (commonly cited as 2011, the same batc, year
+- goodenough15: UNRESOLVED: report number CMU/SEI-2015-TR-005 not confirmed on a live-loaded SEI page this session — corrobora
+- en50126-1: EN 50126-2:2017 (Part 2: Systems approach to safety) is the companion part and shares the 2017 date per multip
+- en50716: verified on non-primary evidence (search snippet / retail or aggregator listing); identifier unconfirmed
+- vesely81: verified on non-primary evidence (search snippet / retail or aggregator listing); identifier unconfirmed
+- group2: version number and year not present on the live-fetched page; taken only from secondary listings (Wikipedia, a, year
+- ericson15: verified on non-primary evidence (search snippet / retail or aggregator listing); identifier unconfirmed
+- iso21448: iso.org itself returned HTTP 403 to every WebFetch attempt this session (bot-detection on webstore, /obp/ui, a
+- palin11: UNRESOLVED: DOI/venue corroborated only via secondary aggregation, not a directly quoted live primary page, th
+- iso15026-3: UNRESOLVED: designation/year not confirmed on a live-loaded iso.org page this session.
+- jtc1sc22wg1413: verified on non-primary evidence (search snippet / retail or aggregator listing); identifier unconfirmed
+- iso15026-1: UNRESOLVED: exact ISO.org page content not loaded live (403 Forbidden this session); note an earlier edition I
+- iso15026-4: UNRESOLVED: designation/year not confirmed on a live-loaded iso.org page this session.
+- iso21434: iso.org returned 403 to direct WebFetch (webstore and /obp/ui); designation/year not loaded live from the issu
+- peoplecert19: exact edition year and ISBN unconfirmed — 2019 first ITIL4 edition vs. 2022 PeopleCert reprint not disambiguat
+- defense91: MIL-HDBK-217F was cancelled by DoD without a designated replacement; DLA/ASSIST's own distribution page was no
+- barbacci01: a 2nd edition (CMU/SEI-2002-TR-019, adding Lattanze as author) is referenced by multiple search-index summarie
+- rasmussen97: full metadata (exact volume/issue/pages) not independently read this session — the sciencedirect.com content f
+- do3302: seen only via vendor pages (Rapita, LDRA, Visure) describing the document; RTCA's own store was not reached li
+- do3303: rtca.org's store and publications pages returned 404/403 to WebFetch and did not render a catalog entry; the d
+- community: year
+- conrad11: exact SAE paper number not shown on the fetched page — omitted rather than guessed
+- ahlemann12: The ISBN confirmed live (978-3-642-24223-6) is the DOI/e-book identifier; the separate print ISBN 978-3-642-24
+- bahr15: ISBN varies slightly by binding/reprint across OpenLibrary editions (9781466551602 hardback vs. 9781138893368 
+- iso25030: verified on non-primary evidence (search snippet / retail or aggregator listing); identifier unconfirmed
+- vaughan: ISBN and publication year omitted rather than guessed; title/author/publisher from general knowledge only, not, year
+- rushby15: UNRESOLVED: exact report number and date confirmed only via secondary aggregation, not a directly quoted title
+- graydon17: UNRESOLVED: institution, degree type and exact publication venue (thesis vs. NASA report) not confirmed on a d
+- mathworks17: year
+- denney18: UNRESOLVED: volume/issue/pages and exact publication year (2017 NTRS deposit vs 2018 journal issue) not confir
+- wp2921: unece.org returned 403 to every WebFetch attempt (document pages and the WP.29 introduction page alike); desig
+- regulations21: the exact original entry-into-force date (widely cited elsewhere as 22 Jan 2021) is not stated in the specific
+- regulations212: unece.org returned 403 to every WebFetch attempt; designation/year not loaded live from unece.org this session
+- wp29212: exact article text and current amendment series (a proposed 01-series amendment was found in a 2025 UNECE work
+- holloway19: verified on non-primary evidence (search snippet / retail or aggregator listing); identifier unconfirmed
+- rinehart17: UNRESOLVED: authors and exact title confirmed only via secondary aggregation plus consistent embedded-metadata
+- boh07: UNRESOLVED: Taylor & Francis (the journal's publisher) and ResearchGate both returned 403 to a live fetch this
+- nuseibeh01: page numbers 115-119 and exact venue string not confirmed via a primary page load this session — both IEEE Xpl
+- cheng09: verified on non-primary evidence (search snippet / retail or aggregator listing); identifier unconfirmed
+- utting12: exact publication year and DOI taken from search-index snippet only; Wiley/dl.acm.org page not independently f
+- gotel94: DOI not confirmed against IEEE Xplore live this session
+- international: edition year, exact current part/revision code, and even continued existence under this number are UNCONFIRMED, year
+- international25: exact publication date and part-number suffix confirmed only via search snippet, not a live SAE.org page load
+- international22: publication date and scope confirmed only via search-index title, not a loaded page
+- session21: author list and full confirmation of DOI not loaded live this session (WebSearch snippet only)
+- clelandhuang17: verified on non-primary evidence (search snippet / retail or aggregator listing); identifier unconfirmed
+- iso20926: edition year and exact scope statement confirmed only via search-index snippets of the iso.org and ANSI websto
+- iso27145-1: UNRESOLVED: edition years for all four parts (search snippets suggest 27145-1:2012, -2:2012 with Amd1:2023, -3, year
+- zander12: original CRC Press hardback ISBN not shown on the fetched page; only the Routledge reissue's catalog ISBN (fro
+- 7272935: authors, exact conference/year, and DOI unconfirmed — IEEE Xplore page returned no retrievable content when fe, year
+- pretschner05: venue/page range taken from search-index snippet only, not confirmed by a live fetch of the ACM/IEEE proceedin
+- sawyer10: verified on non-primary evidence (search snippet / retail or aggregator listing); identifier unconfirmed
+- clelandhuang12: ISBN unconfirmed — Springer chapter/book landing page (link.springer.com/chapter/10.1007/978-1-4471-2239-5_16 
+- iso25012: verified on non-primary evidence (search snippet / retail or aggregator listing); identifier unconfirmed
+- conrad05: DOI and bibliographic detail taken from search-index snippets only; both the ScienceDirect article page (403) 
+- iso25000: verified on non-primary evidence (search snippet / retail or aggregator listing); identifier unconfirmed
+- iso25024: verified on non-primary evidence (search snippet / retail or aggregator listing); identifier unconfirmed
+- iso25022: verified on non-primary evidence (search snippet / retail or aggregator listing); identifier unconfirmed
+- iso25023: verified on non-primary evidence (search snippet / retail or aggregator listing); identifier unconfirmed
+- iso25021: verified on non-primary evidence (search snippet / retail or aggregator listing); identifier unconfirmed
+- iso25020: verified on non-primary evidence (search snippet / retail or aggregator listing); identifier unconfirmed
+- iso25019: verified on non-primary evidence (search snippet / retail or aggregator listing); identifier unconfirmed
+- informatik: verified on non-primary evidence (search snippet / retail or aggregator listing); identifier unconfirmed, year
+- mccabe76: exact page range (308-320) not re-confirmed from a readable IEEE page this session, only from search-index sni
+- habli09: UNRESOLVED: exact venue, publisher and DOI not confirmed live this session — treat venue name as soft.
+- bishop98: UNRESOLVED: exact publisher/DOI corroborated only via secondary aggregation this session; the openaccess.city.
+- chidamber94: exact page range (476-493) not re-confirmed from a readable IEEE page this session, only from search-index sni
+- hawkins11: UNRESOLVED: page range and DOI corroborated only via secondary aggregation, not a directly quoted live primary
+- friedenthal14: UNRESOLVED: a second ISBN pair (9780123786074 print / 9780123838575 ebook) also appears attached to '3rd editi
+- initiative: UNRESOLVED: could not load a live primary or archived copy this session to confirm edition/date/URL; multiple , year
+- group26: Precise day-of-month for the 2026 release is soft (announcement page vs. a corroborating 2026-05-20 Open Group
+- maier98: Wiley/Taylor & Francis primary page returned HTTP 403 this session and could not be loaded; DOI/venue/pages ta
+- fowler: page carries a rolling/updated date (session load showed 24 March 2026); treat as a living reference, not a fi
+- kelly98: UNRESOLVED: degree designation (DPhil vs PhD) and exact year (1998 is the consistent secondary figure, but not
+- committee: UNRESOLVED: edition/year not confirmed — the search snippet gave the exact title and part number but the catal, year
+- committee2: UNRESOLVED: edition/year not confirmed., year
+- committee22: verified on non-primary evidence (search snippet / retail or aggregator listing); identifier unconfirmed
+- hawkins13: UNRESOLVED: volume/page range corroborated only via secondary aggregation, not a directly quoted live primary 
+- wojcik06: report number CMU/SEI-2006-TR-023 and exact 2006 date not confirmed against a live SEI page this session (sei.
+- navet09: exact ISBN not restated in the fetched page body (only implied by the URL slug) — omitted rather than guessed
+- consortium25: verified on non-primary evidence (search snippet / retail or aggregator listing); identifier unconfirmed
+- consortium252: verified on non-primary evidence (search snippet / retail or aggregator listing); identifier unconfirmed
+- consortium24: pinned to AUTOSAR R24-11 while sibling entries and autosar.org carry R25-11; release unconfirmed
+- consortium253: verified on non-primary evidence (search snippet / retail or aggregator listing); identifier unconfirmed
+- services2: verified on non-primary evidence (search snippet / retail or aggregator listing); identifier unconfirmed
+- allspaw12: exact byline date/author not re-confirmed after redirect (403 on the destination fetch); date/author taken fro
+- ford22: ISBN unconfirmed live (publisher page blocked the fetch); 2nd-ed subtitle and 4th author (Sabate) not independ
+- newman21: ISBN not confirmed live this session (no primary O'Reilly page fetched); title/author/edition from general kno
+- adkins20: ISBN not confirmed live
+- rosenthal20: verified on non-primary evidence (search snippet / retail or aggregator listing); identifier unconfirmed
+- group24: verified on non-primary evidence (search snippet / retail or aggregator listing); identifier unconfirmed
+- oman94: volume/issue/page citation from search-index snippets (dblp/researchgate style listings), not an Elsevier/Scie
+- silva12: ScienceDirect primary page returned HTTP 403 this session; title/venue/DOI drawn from prior knowledge and sear
+- sigelman10: exact publication venue is a Google technical report, not peer-reviewed conference proceedings; treated as aut
+- gurp02: verified on non-primary evidence (search snippet / retail or aggregator listing); identifier unconfirmed
+- baldwin00: ISBN taken from bookseller listings (AbeBooks/Amazon) only; MIT Press primary pages (mitpress.mit.edu, direct.
+- eppinger12: ISBN not confirmed live this session; MIT Press primary page not fetched (prior MIT Press fetches this session
+- only24: authors, exact publication year/issue, and DOI are UNCONFIRMED this session — only the title and IEEE Xplore h
+- sridharan18: ISBN unconfirmed beyond O'Reilly catalog number
+- dekker11: ISBN not confirmed against a live publisher page this session — routledge.com returned 403 Forbidden on fetch;
+- international21: exact current revision date unconfirmed live; two revision codes (202104, 202604) appear in the search index w
+- project: the specific capability description beyond the confirmed project name/governance was not re-quoted from a seco
+- secretariat25: verified on non-primary evidence (search snippet / retail or aggregator listing); identifier unconfirmed
+- halstead77: ISBN sourced from Amazon/eBay/Semantic Scholar listings surfaced in search index, not a publisher or library-c
+- enterprisearchitectu: verified on non-primary evidence (search snippet / retail or aggregator listing); identifier unconfirmed
+- maccormack12: Journal-of-record DOI/pages taken from search-index (ideas.repec.org, ScienceDirect listing snippets) only; Sc
+- maccormack06: verified on non-primary evidence (search snippet / retail or aggregator listing); identifier unconfirmed
+- hodgson17: page not fetched live; date/author from secondary citation only
+- management13: The live fetch returned the file as an unreadable/password-protected binary rather than extractable text, so t
+- guidetothesystemseng: living-web page not fetched live; content summary from search index only
+- ibmengineeringrhapso: product remains under the IBM brand as of 2026-09-19, not HCL — noted because Rational's other assets moved to
+- xiao16: verified on non-primary evidence (search snippet / retail or aggregator listing); identifier unconfirmed
+- hidalgo202: verified on non-primary evidence (search snippet / retail or aggregator listing); identifier unconfirmed
+- incosesystemsenginee: incose.org returned 403 to WebFetch; edition number, publication year, and ISBN not confirmed live against inc, year
+- incosesystemsenginee2: incose.org primary page returned HTTP 403 this session; ISBN and exact edition confirmation not obtained live 
+- henry81: exact paper title, volume/issue/page numbers not confirmed — only the authors, year, and general topic are att
+- kuberneteslivenessre: verified on non-primary evidence (search snippet / retail or aggregator listing); identifier unconfirmed
+- bennett95: DOI/exact page range not confirmed live this session; taken from prior knowledge only.
+- caspi87: verified on non-primary evidence (search snippet / retail or aggregator listing); identifier unconfirmed
+- namaab: publication year not stated on the live-fetched page, year
+- voirin17: verified on non-primary evidence (search snippet / retail or aggregator listing); identifier unconfirmed
+- blair09: verified on non-primary evidence (search snippet / retail or aggregator listing); identifier unconfirmed
+- seacord03: ISBN not confirmed live this session (SEI page not fetched); title/authors/publisher taken from prior knowledg
+- engineer24: the exact current handbook version letter (the live swehb.nasa.gov wiki itself returned a 503 during this sess
+- nosilverbulletessenc: DOI and pages taken from search-index snippets only; IEEE Computer Society / IEEE Xplore page not loaded live 
+- majors22: verified on non-primary evidence (search snippet / retail or aggregator listing); identifier unconfirmed
+- group25: exact OMG document number for the finalized 2.0 text not independently confirmed beyond the press release + sp
+- martin94: year (1994) and authorship taken from widely-circulated mirror copies via search index, not from an authoritat
+- oconnor: year, ISBN and even the correct current edition number are UNCONFIRMED this session — flagged as a lead, not a, year
+- community19: page not fetched live this session; revision year approximate
+- lehman80: DOI resolved via doi.org to IEEE Xplore document 1456074, but the Xplore page returned no readable content whe
+- prometheusdocumentat: verified on non-primary evidence (search snippet / retail or aggregator listing); identifier unconfirmed
+- nygard18: verified on non-primary evidence (search snippet / retail or aggregator listing); identifier unconfirmed
+- hollnagel06: an earlier Ashgate hardback printing may carry a distinct ISBN from the CRC Press listing fetched here; not cr
+- iso15765-2: exact edition year (2016 is the commonly-cited current edition per training knowledge, not confirmed live this
+- iso13400-2: part number, exact edition year, and current status are UNCONFIRMED this session
+- standard24: edition year and amendment date confirmed only via search-index snippets, not a live-loaded ISO.org page
+- iso14229-1: edition year and 4th-ed. successor status from search index and secondary citation only — no ISO.org page load
+- do254: rtca.org store/publications pages did not render a catalog entry; title and 2000 year are from training knowle
+- do3332: rtca.org store/publications pages did not render a catalog entry (404/403); title and 2011 year are from train
+- arp47612: sae.org/standards/content/arp4761a/ loaded but rendered only page header/logo with no body content; could not 
+- bloomfield10: UNRESOLVED: DOI/venue corroborated only via secondary aggregation, not a directly quoted live primary page, th
+- wei25: peer-review status beyond arXiv preprint not confirmed — noting explicitly as unresolved rather than presentin
+- series: UNRESOLVED: exact inaugural year of the workshop-era SEAMS not stated on the fetched page (soft field) — secon, year
+- seekingsreconversati: verified on non-primary evidence (search snippet / retail or aggregator listing); identifier unconfirmed
+- salehie09: UNRESOLVED: could not load the ACM DL page's rendered content this session (403), so page/article-number preci
+- beyer16: exact ISBN and cover publication year (2016 vs. 2017 printing) not independently re-confirmed on the sre.googl
+- parnas94: the 10.5555 prefix is an ACM Digital Library internal id, not a resolvable DOI; identifier unconfirmed
+- ciceri22: ISBN and publication month from Amazon listing surfaced in search index; oreilly.com catalog page was not fetc
+- aleti13: verified on non-primary evidence (search snippet / retail or aggregator listing); identifier unconfirmed
+- ford21: ISBN not confirmed live this session; author list and edition taken from prior knowledge/search-index only.
+- contributors: tertiary encyclopedia source; included only as a living cross-reference, not a scholarly anchor — role deliber
+- murphy95: DOI and venue from search index only, not loaded live from ACM Digital Library
+- musa98: ISBN and edition (2nd ed. also circulates under ISBN 978-1-4184-9388-2) not independently confirmed from a pub
+- iso42030: verified on non-primary evidence (search snippet / retail or aggregator listing); identifier unconfirmed
+- iso42020: verified on non-primary evidence (search snippet / retail or aggregator listing); identifier unconfirmed
+- klein: ISBN and publication year omitted rather than guessed; title/author/publisher from general knowledge only, not, year
+- herbsleb99: ACM Digital Library page (dl.acm.org) returned HTTP 403 this session; DOI/pages taken from prior knowledge/sea
+- harel87: verified on non-primary evidence (search snippet / retail or aggregator listing); identifier unconfirmed
+- leveson18: author byline and exact edition year (2018) not independently confirmed via readable title-page text this sess
+- fowler24: Original 2004 naming/first-publication date of the pattern not separately confirmed live this session; only th
+- estefan08: the PDF's internal text could not be OCR'd/parsed by the fetch tool to directly quote its title page; identity
+- zdun13: DOI and venue from search index only, not loaded live from IEEE Xplore or ACM DL
+- halbwachs93: verified on non-primary evidence (search snippet / retail or aggregator listing); identifier unconfirmed
+- systemofsystemsengin: ISBN not confirmed live this session; publisher/year taken from prior knowledge only.
+- iso25040: verified on non-primary evidence (search snippet / retail or aggregator listing); identifier unconfirmed
+- iso25002: verified on non-primary evidence (search snippet / retail or aggregator listing); identifier unconfirmed
+- crawley15: Publication year (2015) sourced from secondary retailer listings, not from a live-loaded page carrying a copyr
+- steward81: DOI/exact page range not confirmed live this session; taken from prior knowledge only.
+- berry85: verified on non-primary evidence (search snippet / retail or aggregator listing); identifier unconfirmed
+- berry92: verified on non-primary evidence (search snippet / retail or aggregator listing); identifier unconfirmed
+- kelly04: UNRESOLVED: page numbers and exact workshop proceedings citation (publisher/DOI) not confirmed on a live-loade
+- nagappan08: DOI/exact pages not confirmed live this session; taken from prior knowledge only.
+- kurtz03: verified on non-primary evidence (search snippet / retail or aggregator listing); identifier unconfirmed
+- kotusev21: Publisher name 'SK Publishing' and exact publication day (2021-01-15) are corroborated only by bookseller list
+- weaver03: UNRESOLVED: exact submission year and thesis/report number not confirmed on a live-loaded primary page this se
+- beyer18: paperback vs. O'Reilly ebook ISBN variant not disambiguated live; used O'Reilly library identifier.
+- letouzey12: DOI/venue pairing (workshop paper vs. IEEE Software companion piece) not disambiguated live; treat identifier 
+- harel96: verified on non-primary evidence (search snippet / retail or aggregator listing); identifier unconfirmed
+- sullivan01: verified on non-primary evidence (search snippet / retail or aggregator listing); identifier unconfirmed
+- halbwachs91: verified on non-primary evidence (search snippet / retail or aggregator listing); identifier unconfirmed
+- woods18: full metadata not independently read this session — Springer's page required an authentication redirect that b
+- group22: Exact release date/edition year (2022) and the print-edition ISBN are sourced from the page's own version-hist
+- kephart03: verified on non-primary evidence (search snippet / retail or aggregator listing); identifier unconfirmed
+- international08: The framework graphic has reportedly been revised since 2008 without a new version number, per the vendor's ow
+- meadows: ISBN and exact publication year not confirmed live this session — the chelseagreen.com product-page fetch retu, year
+- group243: exact formal/ document number not captured from the fetched page text.
+- coleman94: volume/issue/page citation from search-index snippets, not an IEEE Xplore page loaded live this session
+- henderson21: the publisher page could not be fetched directly (403); DOI/venue corroborated by two independent secondary so
+- feathers04: ISBN not confirmed live this session; publisher/year taken from prior knowledge only.
+- ltd: current edition/version letter and publication date are UNCONFIRMED this session despite the page loading (no , year
+- asammcd2dodxopendiag: current version number, exact publication year, and even the correct current URL slug are UNCONFIRMED this ses, year
+- automotivespiceforcy: only seen via a third-party document host (scribd), not the VDA QMC primary page; exact publication URL and ed
+- unresolved: authors, exact book/proceedings title, and year not independently confirmed — page not fetched live this sessi, year
+- jrges14: title/author/venue/year taken from secondary aggregator text, not the primary Springer page's own rendered con
+- isaca23: release year (April 2023) and 'V3.0' designation are from secondary sources (Wikipedia, vendor explainer pages
+- mathworks4: page content not independently fetched live; relying on search index summary only
+- mathworks5: documentation page carries no publication/version date field to confirm, year
+- codescenetechnicalde: page content summarized from search-index snippet only; documentation page was not fetched live this session t
+- mathworks6: year
+- cloud24: verified on non-primary evidence (search snippet / retail or aggregator listing); identifier unconfirmed
+- nascio03: UNRESOLVED: nascio.org returned 403 to every live-fetch attempt this session (both the PDF and its resource-ce
+- subsidiary: exact current version number and release date not stated with a single confirmable figure on the fetched page, year
+- runeson09: verified on non-primary evidence (search snippet / retail or aggregator listing); identifier unconfirmed
+- kitchenham07: verified on non-primary evidence (search snippet / retail or aggregator listing); identifier unconfirmed
+- iso33001: edition year and exact scope wording confirmed only via search-result title, not loaded live from iso.org (blo
+- iso14764: Designation year is ambiguous between sources: IEEE names the edition '14764-2021' while ANSI/ISO-facing resel
+- otlpopentelemetrypro: exact version at capture inferred from search snippet, not independently re-fetched
+- systems2: live page could not be loaded this session (TLS certificate error on fetch); product version, exact tool-class, year
+- listing: authors, exact venue/year/DOI not confirmed against the primary IEEE Xplore page (rendered empty on fetch); id, year
+- absint: year
+- strmer07: page range and exact DOI unconfirmed — IEEE Xplore blocked the live fetch (HTTP 418); volume/issue/year taken 
+- iso25041: verified on non-primary evidence (search snippet / retail or aggregator listing); identifier unconfirmed
+- steenbergen09: UNRESOLVED: the SpringerLink chapter page redirected to a login wall this session; venue, year and author orde
+- nash: page content beyond the bare heading not retrievable via WebFetch (JS-rendered); scale figures sourced from se
+- gmbh2: exact current version number and release date not confirmed on the fetched page, year
+- gmbh3: the fetched page did not enumerate the full protocol list (J1939, XCP, etc.) explicitly in the extracted text,, year
 
 ## Notable fact fixes carried from the reports themselves
 - Taylor-Medvidovic-Dashofy: single edition only (swa report verification).

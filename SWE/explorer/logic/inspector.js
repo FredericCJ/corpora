@@ -143,6 +143,7 @@ SWE.inspector = (function () {
       const dl = U.el('dl', { class: 'dl' });
       const add = (k, v) => { if (v && v.length) { dl.appendChild(U.el('dt', { text: k })); dl.appendChild(U.el('dd', { text: Array.isArray(v) ? v.join(', ') : v })); } };
       add('type', n.type); add('branches', n.branches); add('themes', n.themes); add('language', n.lang); add('scope', n.scope);
+      add('spine stage', n.stages); add('spine domain', n.domains);
       host.appendChild(dl);
 
       host.appendChild(U.el('div', { class: 'sec', text: 'raw tags as each report stated them' }));

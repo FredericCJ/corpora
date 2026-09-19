@@ -1,13 +1,19 @@
 # Embedded Software Corpus Explorer
 
-A single-page explorer of a **unified embedded-software research corpus** — seven research passes of
+A single-page explorer of a **unified embedded-software research corpus** — eight research passes of
 *works* merged into one fact layer (five relational models), plus a two-realm layer of the *concepts
 themselves* — the **design + architecture elements** — wired to the works and to each other,
-navigable through **four element views** and a **two-view atlas** that maps the whole element space.
-Eleven views over two fact layers.
+navigable through **four element views** and a **two-view atlas** that maps the whole element space,
+and a **derivation spine** that runs from stakeholder need to running system.
+Twelve views over two fact layers.
 
-- **Works:** 468 resources · 7 corpora · 261 typed edges (86 swa + 57 sim + 50 derived + 19 editorial + 49 proc) ·
-  354 verified / 114 unverified · 82 cross-corpus works.
+- **Works:** 922 resources · 8 corpora · 261 typed edges (86 swa + 57 sim + 50 derived + 19 editorial + 49 proc) ·
+  585 verified / 337 unverified · 357 cross-corpus works.
+- **The spine (pass 9, `arch-spine`):** **796 works** — 454 new nodes + 342 memberships reclaiming works the
+  corpus already held — tagged on two new array facets, `stage` (needs · obligations · requirements · design ·
+  tools-process) and `domain` (complex-scale · complex-science · governance · measurement · runtime-ops ·
+  hand-c · model-c). 35 cells; 20 carry an adversarial panel's thin-cell adjudication. See
+  `../MISSION_arch_spine_v1.md` and `../EXPANSION_REPORT_2026-09-20_spine.md`.
 - **Elements (the ELEMENT-layer mission + atlas enrichment):** **709 design + 374 architecture = 1083
   elements**, wired by **2811 typed relations** (v1.1): the 878 cross-realm bridge edges (703/709 design
   elements bridged, 6 unbridged) plus a dense within-realm fabric (1267 design-sibling + 666
@@ -62,6 +68,15 @@ A persistent inspector dock shows the active view's method + legend, or — when
 (including cross-realm bridge edges with provenance). Selection flows across layers: an element's
 covering work links to the work corpus, and a work links back to the elements it teaches.
 
+## The spine (12) — the derivation chain
+
+12. **Spine** — the pass-9 coverage matrix: seven domains against the five derivation stages, the chain
+    reading left to right through the column headers. Counts are live over the works' own `stage`/`domain`
+    tags (no inference); click a cell, a stage or a domain to filter. Thin cells are flagged with the
+    adjudication the adversarial critic panels reached — **△ sweep-thin** (the material exists, the sweep
+    looked in the wrong vocabulary) or **○ literature-thin** (the field has not written that intersection).
+    The distinction is a finding the corpus records, never a guess made in the view.
+
 ## Open it
 
 - **Simplest:** double-click `index.html` — runs from `file://` with zero dependencies.
@@ -69,8 +84,8 @@ covering work links to the work corpus, and a work links back to the elements it
 
 ## Use it
 
-- **Tabs `1–9`** switch the first nine views (1–5 work models · 6–9 element views); the **atlas** (10) and
-  **Bridge-Flow** (11) are reached by the tab bar or **←/→**. **`/`** search (and atlas teleport) · **`v`** cycles verification · **`Esc`** clears.
+- **Tabs `1–9`** switch the first nine views (1–5 work models · 6–9 element views); the **atlas** (10),
+  **Bridge-Flow** (11) and **Spine** (12) are reached by the tab bar or **←/→**. **`/`** search (and atlas teleport) · **`v`** cycles verification · **`Esc`** clears.
 - Hover/focus a node in the graph to trace its closure; click any resource or element anywhere for its detail.
 - The **verification** and **corpus** selectors filter the work models; the element views filter by realm/kind in-view; **reset** clears all.
 

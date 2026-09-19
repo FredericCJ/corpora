@@ -1,0 +1,82 @@
+{
+ "model-c x needs": {
+  "adjudication": "literature-thin",
+  "why": "13 claims. The model-based-development literature — MathWorks primary docs, Aarenstrup, the certification kits, the b6 MBSE/ADL sweep and the b10 Simulink-corpus research venue sweep — consistently enters the chain at requirements or design and treats stakehol"
+ },
+ "model-c x design": {
+  "adjudication": "sweep-thin",
+  "why": "54 works but only 2 papers and 1 book against 32 MathWorks doc pages. The model-based design research literature (Broy's Proceedings of the IEEE papers, the MODELS conference, Simulink model-smell and clone-detection work already in the corpus as gerlitz/steph"
+ },
+ "model-c x tools-process": {
+  "adjudication": "sweep-thin",
+  "why": "85 works, 47 of them tool-doc and 1 book. The cell is a MathWorks documentation index with certification standards attached; independent evaluation of code-generator toolchains (Stuermer's TSE work is present but unverified; Jorges & Steffen present) is the on"
+ },
+ "runtime-ops x tools-process": {
+  "adjudication": "sweep-thin",
+  "why": "46 works and zero peer-reviewed papers — the only cell in the 35 with a double-digit count and no paper at all. SRE/observability has a real research literature (fault-injection and chaos-engineering evaluation, tracing overhead studies, incident-analysis rese"
+ },
+ "runtime-ops x design": {
+  "adjudication": "sweep-thin",
+  "why": "44 works, 4 papers. Operability-as-a-design-concern has a direct research lineage the corpus already holds unclaimed: rainbow (Garlan et al., architecture-based self-adaptation), kramermagee (Self-Managed Systems), oreizy (Architecture-Based Runtime Software E"
+ },
+ "measurement x obligations": {
+  "adjudication": "sweep-thin",
+  "why": "3 works under unambiguous tagging (13 under the inflated cross-product grid) — the only cell below 5 on the honest count. The literature plainly exists and the pass's own critic already named it: ISO/IEC 38500 (governance duties that impose measurement), ISO 3"
+ },
+ "complex-science x requirements": {
+  "adjudication": "sweep-thin",
+  "why": "21 works union, 19 new. b8 showed the self-adaptive RE literature (RELAX, Awareness Requirements, obstacle analysis) fills this cell readily; one file found most of what is there. A second pass over requirements-under-uncertainty would still yield."
+ },
+ "complex-science x tools-process": {
+  "adjudication": "sweep-thin",
+  "why": "5 works. Two named method-and-tool works for exactly this cell are absent: FRAM (the Functional Resonance Analysis Method — a method with a modelling tool) and Resilience Engineering in Practice: A Guidebook. Cynefin, Safety-II and Snowden are present in merge"
+ },
+ "complex-scale x obligations": {
+  "adjudication": "literature-thin",
+  "why": "9 works under unambiguous tagging (33 cross-product). Scale-and-structure literature (Simon, Parnas, Baldwin-Clark, Conway) describes forces, it does not issue obligations; the obligations at scale are written in the governance and certification domains, where"
+ },
+ "governance x needs": {
+  "adjudication": "sweep-thin",
+  "why": "23 works, home-scout contribution 0 — D3's own scout put nothing here. The governance literature does start downstream of needs, so the instinct to call this literature-thin is understandable and wrong: the needs-stage governance literature is filed under ente"
+ },
+ "complex-scale x requirements": {
+  "adjudication": "sweep-thin",
+  "why": "40 works looks like the healthiest cell in the row and is the most misleading number in the grid: home-scout contribution is 0/40. All 40 are the s3 stage scout's general QA-scenario/ATAM/CBAM corpus with 'complex-scale' attached. The scale-specific requiremen"
+ },
+ "measurement x needs": {
+  "adjudication": "sweep-thin",
+  "why": "23 works, home-scout contribution 0; the cell exists only because gapfill_measurement__needs.json was run late. It found the INCOSE side well (Technical Measurement Guide, Leading Indicators Guide, SEBoK Measurement) but missed the software side's founding met"
+ },
+ "runtime-ops x needs": {
+  "adjudication": "sweep-thin",
+  "why": "20 works union. Limoncelli's Practice of Cloud System Administration and Gregg's Systems Performance were both named by the critic and both came back empty; operability-as-a-design-concern literature is abundant and was not swept."
+ },
+ "hand-c x needs": {
+  "adjudication": "literature-thin",
+  "why": "19 claims, same structural cause as model-c × needs. MISRA, the coding-standard canon and the embedded-C design literature begin at requirements or implementation constraint; stakeholder-need work in this cell is entirely transposed from the domain-neutral RE "
+ },
+ "complex-science x design": {
+  "adjudication": "sweep-thin",
+  "why": "13 taggings, and the corpus already holds the obvious fillers unclaimed: Rainbow (Garlan et al. 2004), Kramer & Magee 'Self-Managed Systems: an Architectural Challenge' (2007), Oreizy et al. 'Architecture-Based Runtime Software Evolution' (1998). Self-adaptive"
+ },
+ "complex-science x needs": {
+  "adjudication": "sweep-thin",
+  "why": "10 claims, resting almost entirely on Rittel & Webber's wicked-problems paper claimed as a membership. The soft-systems / stakeholder-analysis-under-complexity literature that would fill it was not swept: Checkland's Soft Systems Methodology, Hollnagel's FRAM "
+ },
+ "complex-science x obligations": {
+  "adjudication": "literature-thin",
+  "why": "8 works, and this one is genuine. Complexity science and resilience engineering describe how systems behave; they do not issue binding must-holds. The works that do sit in governance and in the certification standards. The cell is correctly small and should be"
+ },
+ "hand-c x requirements": {
+  "adjudication": "sweep-thin",
+  "why": "14 works under unambiguous tagging against 125 in hand-c x design — a 9:1 imbalance that is not how the literature is shaped. The requirement-to-function traceability thread the mission names for D6 is under-swept: the WCET survey (Wilhelm et al., the canonica"
+ },
+ "model-c x requirements": {
+  "adjudication": "sweep-thin",
+  "why": "15 works against 91 in model-c x tools-process. Simulink Code Inspector — a MathWorks qualification tool that exists precisely to show generated code satisfies its model requirements — is named by critic_missing.json and still absent, as is the AUTOSAR Methodo"
+ },
+ "runtime-ops x obligations": {
+  "adjudication": "sweep-thin",
+  "why": "21 works union, 20 new. The four works that would anchor it are all still absent and all four were named by the critic: ISO 26262-7:2018 (production, operation, service, decommissioning), IEC 62443-4-1:2018, plus the MQTT/CoAP/LwM2M device layer. UN R155 and R"
+ }
+}

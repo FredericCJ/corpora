@@ -1,0 +1,19 @@
+[load] raw claims: 585 from 20 files
+[bundle-keep] MISRA C:2023 — Guidelines for the Use of the C Language in C
+[bundle-split] Real-Time Design Patterns; Doing Hard Time; Real-Tim -> 3 works
+[bundle-split] The Art of Designing Embedded Systems; The Firmware  -> 3 works
+[bundle-keep] Ceedling — build/test manager for C (bundles Unity, CMock, C
+[bundle-drop] Commercial static-analysis/coverage tool docs (Vecto (unbounded vendor catch-all, not a work; named vendors queued for round 2b)
+[bundle-membership] zephyr / freertos / apache nuttx / esp-i -> membership osstyleguides
+[bundle-keep] Simulink signal naming and data-type propagation guidance (M
+[bundle-drop] Commercial static-analysis/coverage tool docs (Vecto (unbounded vendor catch-all, not a work; named vendors queued for round 2b)
+[bundle-drop] Commercial static-analysis/coverage tool docs (Vecto (unbounded vendor catch-all, not a work; named vendors queued for round 2b)
+[bundle-keep] General Principles of Software Validation; Final Guidance fo
+[bundle-drop] Commercial static-analysis/coverage tool docs (Vecto (unbounded vendor catch-all, not a work; named vendors queued for round 2b)
+[bundle-keep] MISRA C:2023 — Guidelines for the Use of the C Language in C
+[schema] tag arrays repaired: 10
+[demote] membership-grep "verified" demoted: 58 ; evidence-free "verified" demoted: 24
+[merge] unique works after repair: 437
+[recall] set up simulink diff and merge in ci cd pipeline -> diffmergeci
+[recall] design and use of software architectures adopting an -> bosch00
+[recall-total] titles auto-linked to existing corpus ids: 2

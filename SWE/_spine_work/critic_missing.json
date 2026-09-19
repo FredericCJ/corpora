@@ -1,0 +1,737 @@
+{
+ "missing_works": [
+  {
+   "title": "Four Dark Corners of Requirements Engineering",
+   "authors": "P. Zave & M. Jackson",
+   "year": "1997",
+   "cell": "needs x complex-scale / obligations",
+   "why_canonical": "ACM TOSEM 6(1):1-30. The paper that formalises the distinction between the environment and the machine, and between a need stated about the world and a requirement stated about the system — which is the exact conceptual content the mission assigns to S1 and cites 29148 for. Absent from both harvest and the 468-work corpus (grep: 0 hits either side). The S1 anchor is currently a standard with no research paper behind it."
+  },
+  {
+   "title": "The World and the Machine",
+   "authors": "M. Jackson",
+   "year": "1995",
+   "cell": "needs x complex-scale",
+   "why_canonical": "ICSE 1995 keynote paper. The companion statement of the same distinction and the origin of the framing Jackson's Problem Frames (which IS in the harvest) builds on. Harvesting Problem Frames without this is harvesting the method without its premise. 0 hits in harvest and corpus."
+  },
+  {
+   "title": "Requirements Engineering: A Roadmap",
+   "authors": "B. Nuseibeh & S. Easterbrook",
+   "year": "2000",
+   "cell": "needs x complex-scale / requirements",
+   "why_canonical": "ICSE 2000, Future of Software Engineering track. The standard survey entry point to RE as a research field, and the natural counterweight to a needs stage currently built from 33 books and 22 standards with 20 papers. 'Easterbrook' returns 0 hits across harvest and corpus."
+  },
+  {
+   "title": "Non-Functional Requirements in Software Engineering",
+   "authors": "L. Chung, B.A. Nixon, E. Yu & J. Mylopoulos",
+   "cell": "obligations x governance / requirements x measurement",
+   "why_canonical": "Kluwer/Springer. The book-length treatment of quality attributes as softgoals with explicit interdependency and satisficing — the research-side counterpart to the SEI quality-attribute-scenario machinery the pass uses for S3. Without it, S2/S3 rest entirely on SEI practitioner material and ISO 25010. 'Chung' has 1 incidental harvest hit and 0 corpus hits."
+  },
+  {
+   "title": "Representing and Using Nonfunctional Requirements: A Process-Oriented Approach",
+   "authors": "J. Mylopoulos, L. Chung & B. Nixon",
+   "year": "1992",
+   "cell": "obligations x governance",
+   "why_canonical": "IEEE TSE 18(6):483-497. The originating paper for treating NFRs as goals to be decomposed and argued about rather than clauses to be checked — directly serves the mission's Phase 3b reconciliation of the five obligation vocabularies."
+  },
+  {
+   "title": "Software Architecture Optimization Methods: A Systematic Literature Review",
+   "authors": "A. Aleti, B. Buhnova, L. Grunske, A. Koziolek & I. Meedeniya",
+   "year": "2013",
+   "cell": "design x measurement / requirements x measurement",
+   "why_canonical": "IEEE TSE 39(5):658-683. The only systematic review that maps how architecture decisions are actually optimised against quantified quality attributes. The harvest contains zero systematic reviews of any kind; this is the one that sits on the design-meets-measurement seam the spine is built around."
+  },
+  {
+   "title": "The Danger of Architectural Technical Debt: Contagious Debt and Vicious Circles",
+   "authors": "A. Martini & J. Bosch",
+   "year": "2015",
+   "cell": "governance x measurement",
+   "why_canonical": "WICSA 2015. The empirical industrial study behind architectural technical debt as a managed liability — the mission names technical debt explicitly under D3 governance and D4 measurement, and the harvest carries the SQALE method and Kruchten/Nord/Ozkaya practitioner material but no field study of debt accumulation. 'Martini' returns 0 hits anywhere."
+  },
+  {
+   "title": "Experimentation in Software Engineering",
+   "authors": "C. Wohlin, P. Runeson, M. Host, M.C. Ohlsson, B. Regnell & A. Wesslen",
+   "year": "2012",
+   "cell": "measurement x tools-process",
+   "why_canonical": "Springer, 2nd ed. The standard text on how a software-engineering measurement claim is made defensible. D4 measurement currently holds 58 works, 17 papers, and no methodology reference at all — every metric in the domain is presented without the discipline that validates metrics. 0 hits anywhere."
+  },
+  {
+   "title": "Guidelines for conducting and reporting case study research in software engineering",
+   "authors": "P. Runeson & M. Host",
+   "year": "2009",
+   "cell": "measurement x tools-process",
+   "why_canonical": "Empirical Software Engineering 14(2):131-164. EMSE contributes exactly zero papers to this harvest; this is the single most-cited methodological paper in that journal and the reference that makes industrial architecture case studies (which the pass leans on heavily via SEI reports) assessable."
+  },
+  {
+   "title": "Software Metrics: A Rigorous and Practical Approach, 3rd ed.",
+   "authors": "N. Fenton & J. Bieman",
+   "year": "2014",
+   "cell": "measurement x complex-scale",
+   "why_canonical": "CRC Press. The standard textbook of software measurement, including the measurement-theory critique that determines when a coupling or complexity number means anything. Absent from the harvest AND from the 468-work corpus ('Fenton' and 'Software Metrics' both 0/0) while the domain harvests McCabe, Chidamber-Kemerer, Martin's metrics and SQALE. This is the largest single book-shaped hole in D4."
+  },
+  {
+   "title": "Guidelines for performing Systematic Literature Reviews in Software Engineering",
+   "authors": "B. Kitchenham & S. Charters",
+   "year": "2007",
+   "cell": "measurement x tools-process / governance x tools-process",
+   "why_canonical": "EBSE Technical Report EBSE-2007-01, Keele University / Univ. of Durham. The method by which the corpus's own kind of claim is made — and the reference a pass built on saturation-sweeping should hold. 'Kitchenham' returns 0 hits anywhere."
+  },
+  {
+   "title": "Software, systems and enterprise — Architecture processes",
+   "authors": "ISO/IEC/IEEE",
+   "year": "2019",
+   "cell": "governance x tools-process",
+   "why_canonical": "ISO/IEC/IEEE 42020:2019. 42010's direct companion: it specifies the architecture processes (conceptualization, evaluation, enablement, governance) that 42010's description work sits inside. The harvest anchors S2 and S4 on 42010 and has never heard of 42020 — grep '42020' returns 0 in harvest and 0 in id_index. This is the single clearest standards-side omission in the pass."
+  },
+  {
+   "title": "Software, systems and enterprise — Architecture evaluation framework",
+   "authors": "ISO/IEC/IEEE",
+   "year": "2019",
+   "cell": "requirements x governance / design x governance",
+   "why_canonical": "ISO/IEC/IEEE 42030:2019. The standardised counterpart to ATAM/CBAM, which the harvest holds in SEI form only. A pass whose S3 stage is about making obligations evaluable, and which cites 42010 five times, omitting 42030 entirely (0 hits either side) is a standards-sweep gap, not a literature gap."
+  },
+  {
+   "title": "Engineering Automotive Software",
+   "authors": "M. Broy, I.H. Kruger, A. Pretschner & C. Salzmann",
+   "year": "2007",
+   "cell": "model-c x design / model-c x obligations",
+   "why_canonical": "Proceedings of the IEEE 95(2):356-373. The reference academic account of how automotive software is actually architected and model-generated, by the group that also produced the pass's model-based-testing papers. model-c holds 13 papers and this is the field's survey; 'Broy' has 1 unclaimed corpus id (broy, ICSE 2006) and 0 harvest hits."
+  },
+  {
+   "title": "Seamless Model-Based Development: From Isolated Tools to Integrated Model Engineering Environments",
+   "authors": "M. Broy, M. Feilkas, M. Herrmannsdoerfer, S. Merenda & D. Ratiu",
+   "year": "2010",
+   "cell": "model-c x tools-process",
+   "why_canonical": "Proceedings of the IEEE 98(4):526-545. The research-side critique of exactly the toolchain the pass documents via 47 MathWorks pages in the model-c x tools-process cell. It names the integration gaps vendor documentation cannot, which is the whole reason peer review belongs in this cell."
+  },
+  {
+   "title": "Managing Model-Based Design",
+   "authors": "R. Aarenstrup",
+   "year": "2015",
+   "cell": "model-c x design / model-c x tools-process",
+   "why_canonical": "MEMBERSHIP, id=aarenstrup, already in the corpus (id_index row: 'The MathWorks, ISBN 978-1512036138', corpus tag 'simulink'). model-c reports two books, neither about Simulink; the corpus holds the book-length treatment of managing an MBD programme and pass 9 did not claim it. Zero-cost fix, resolvable id."
+  },
+  {
+   "title": "Automotive Software Engineering",
+   "authors": "J. Schaeuffele & T. Zurawka",
+   "cell": "model-c x design / hand-c x design",
+   "why_canonical": "MEMBERSHIP, id=schaeuffele, already in the corpus (corpus tag 'emb-arch', year currently UNRESOLVED there). SAE International's standard text on the automotive E/E and software development process, covering both the handwritten and generated legs — directly serves the Phase 3a hand-vs-model delta. Unclaimed."
+  },
+  {
+   "title": "A Curated Corpus of Simulink Models for Model-Based Empirical Studies",
+   "authors": "S.A. Chowdhury et al.",
+   "year": "2018",
+   "cell": "model-c x measurement / model-c x needs",
+   "why_canonical": "MEMBERSHIP, id=chowdhury. Together with slnet (SLNET, 2022), replicability (2023), boll (2021), alalfi (2012), deissenboeck (2008), gerlitz (2015) and stephancordy (2015) — eight peer-reviewed empirical papers on real Simulink models already in the corpus, all unclaimed by pass 9. These are the entire evidence base for what industrial Simulink models actually look like, and they are the direct antidote to a model-c domain that is 50% vendor documentation."
+  },
+  {
+   "title": "A Classification and Comparison Framework for Software Architecture Description Languages",
+   "authors": "N. Medvidovic & R.N. Taylor",
+   "year": "2000",
+   "cell": "design x complex-scale",
+   "why_canonical": "MEMBERSHIP, id=medtay, IEEE TSE 26(1):70-93. The canonical ADL comparison. The mission names AADL, SysML and System Composer under S4 and the harvest answers with tool documentation; the corpus already holds the framework that lets those be compared, plus acme, darwin, rapide, wright, piadl and zhang — six more unclaimed ADL works."
+  },
+  {
+   "title": "Foundations for the Study of Software Architecture",
+   "authors": "D.E. Perry & A.L. Wolf",
+   "year": "1992",
+   "cell": "design x complex-scale / obligations x complex-scale",
+   "why_canonical": "MEMBERSHIP, id=perrywolf, ACM SIGSOFT Software Engineering Notes 17(4):40-52. The founding paper of the field, holding a resolvable corpus id, unclaimed by a pass about architecture. Alongside garlanshaw93, shawgarlan96, shaw01 and garlan14 it constitutes the discipline's own account of itself, and all five are unclaimed."
+  },
+  {
+   "title": "A Survey on Software Architecture Analysis Methods",
+   "authors": "L. Dobrica & E. Niemela",
+   "year": "2002",
+   "cell": "requirements x governance",
+   "why_canonical": "MEMBERSHIP, id=dobrica. The comparison of architecture analysis methods that contextualises ATAM/CBAM, which the harvest carries three times over from SEI sources. With alma (Architecture-Level Modifiability Analysis) and boschmolin, also unclaimed, it gives the evaluation cell a research basis instead of a single-institution one."
+  },
+  {
+   "title": "Software Architecture as a Set of Architectural Design Decisions",
+   "authors": "A. Jansen & J. Bosch",
+   "year": "2005",
+   "cell": "governance x complex-scale / design x governance",
+   "why_canonical": "MEMBERSHIP, id=jansenbosch. The paper that reframed architecture as decisions rather than structures, and the research ancestor of the ADR practice the harvest represents with Nygard's blog post. The corpus additionally holds zimmermann, tangsurvey06, dutoit, burge, drl, ibis, vanvliettang and zannier — eight more decision-rationale works unclaimed, in a pass that names decision capture explicitly under S4 and D3."
+  },
+  {
+   "title": "Rainbow: Architecture-Based Self-Adaptation with Reusable Infrastructure",
+   "authors": "D. Garlan, S.-W. Cheng, A.-C. Huang, B. Schmerl & P. Steenkiste",
+   "year": "2004",
+   "cell": "runtime-ops x design",
+   "why_canonical": "MEMBERSHIP, id=rainbow. The architecture-level account of managing a system while it runs — the exact subject of D5 — with kramermagee (Self-Managed Systems, FOSE 2007), oreizy (Architecture-Based Runtime Software Evolution, ICSE 1998) and weyns (An Introduction to Self-Adaptive Systems, 2020) also unclaimed. Four resolvable ids that would raise runtime-ops x design from 4 papers to 8 at zero research cost."
+  },
+  {
+   "title": "Systems of systems considerations in life cycle stages of a system",
+   "authors": "ISO/IEC/IEEE",
+   "year": "2019",
+   "cell": "needs x complex-scale / obligations x complex-scale",
+   "why_canonical": "ISO/IEC/IEEE 21839:2019. The mission names systems-of-systems under D1 and the harvest answers with Maier's 1998 paper alone. The standards body has since written the SoS lifecycle considerations and its 15288-application companion; grep '21839' returns 0 in harvest and corpus. Standards are declared first-class works in this pass and this family was not swept."
+  },
+  {
+   "title": "Statecharts: A Visual Formalism for Complex Systems",
+   "authors": "David Harel",
+   "year": "1987",
+   "cell": "model-c x design",
+   "why_canonical": "The formalism Stateflow implements. A pass whose centre of gravity is model-generated C, which cites Stateflow 10 times, cannot omit the paper that defines what a Stateflow chart IS. Harel returns 0 hits in the harvest and 0 in the 468-work corpus."
+  },
+  {
+   "title": "Design erosion: problems and causes",
+   "authors": "Jilles van Gurp & Jan Bosch",
+   "year": "2002",
+   "cell": "complex-scale x design",
+   "why_canonical": "The empirical follow-through on Perry & Wolf, and the standard citation for why architecture degrades under change at scale. 0 hits."
+  },
+  {
+   "title": "The Goal Question Metric Approach",
+   "authors": "Victor R. Basili, Gianluigi Caldiera & H. Dieter Rombach",
+   "year": "1994",
+   "cell": "measurement x needs",
+   "why_canonical": "The founding method for deriving measures from goals — precisely the needs-to-measurement link this pass exists to trace. Basili returns 2 incidental mentions and no entry; the corpus holds nothing under GQM."
+  },
+  {
+   "title": "Practical Software Measurement: Objective Information for Decision Makers",
+   "authors": "John McGarry, David Card, Cheryl Jones, Beth Layman, Elizabeth Clark, Joseph Dean & Fred Hall",
+   "year": "2001",
+   "cell": "measurement x tools-process",
+   "why_canonical": "PSM is the direct ancestor of ISO/IEC/IEEE 15939, which the harvest holds as an anchor without holding the work that produced it."
+  },
+  {
+   "title": "ISO/IEC 25030 — Systems and software engineering — SQuaRE — Quality requirements framework",
+   "authors": "ISO/IEC JTC 1/SC 7",
+   "cell": "measurement x obligations",
+   "why_canonical": "The SQuaRE division that turns quality-model characteristics into specifiable, binding quality requirements. The harvest anchors ISO/IEC 25010 in five places and never reaches 25030 — 0 hits. This single standard IS the measurement x obligations cell. (Edition year deliberately omitted: I will not guess it.)"
+  },
+  {
+   "title": "ISO/IEC 25023 — SQuaRE — Measurement of system and software product quality",
+   "authors": "ISO/IEC JTC 1/SC 7",
+   "cell": "measurement x requirements",
+   "why_canonical": "Supplies the quality measure elements that make a 25010 characteristic testable — the operational half of the response-measure slot in a quality-attribute scenario. 0 hits."
+  },
+  {
+   "title": "Competitive Engineering: A Handbook for Systems Engineering, Requirements Engineering, and Software Engineering Using Planguage",
+   "authors": "Tom Gilb",
+   "year": "2005",
+   "cell": "measurement x requirements",
+   "why_canonical": "The canonical treatment of quantified, scale/meter/must/plan quality requirements — the practitioner tradition that runs parallel to QAW/utility trees and predates them. Gilb 0 hits, Planguage 0 hits."
+  },
+  {
+   "title": "Handling Obstacles in Goal-Oriented Requirements Engineering",
+   "authors": "Axel van Lamsweerde & Emmanuel Letier",
+   "year": "2000",
+   "cell": "complex-science x requirements",
+   "why_canonical": "Obstacle analysis is the field's actual answer to 'how do requirements survive a world that misbehaves' — the complexity-under-uncertainty question, written in RE vocabulary. The thinnest cell in the grid is thin because the sweep searched for complexity and the field filed this under goals and obstacles."
+  },
+  {
+   "title": "Requirements Engineering: From System Goals to UML Models to Software Specifications",
+   "authors": "Axel van Lamsweerde",
+   "year": "2009",
+   "cell": "complex-science x requirements",
+   "why_canonical": "The book-length KAOS treatment; the standard reference for goal-model-based derivation of requirements under conflict and uncertainty. KAOS scores 4 passing hits with no entry."
+  },
+  {
+   "title": "RELAX: Incorporating Uncertainty into the Specification of Self-Adaptive Systems",
+   "authors": "Jon Whittle, Pete Sawyer, Nelly Bencomo, Betty H.C. Cheng & Jean-Michel Bruel",
+   "year": "2009",
+   "cell": "complex-science x requirements",
+   "why_canonical": "The entry point to the requirements-under-uncertainty literature and the reason this cell is sweep-thin rather than literature-thin. RELAX 0 hits, 'self-adaptive' 0 hits across all 20 files."
+  },
+  {
+   "title": "Awareness Requirements for Adaptive Systems",
+   "authors": "Vitor E. Silva Souza, Alexei Lapouchnian, William N. Robinson & John Mylopoulos",
+   "year": "2011",
+   "cell": "complex-science x requirements",
+   "why_canonical": "Requirements that refer to the success of other requirements at runtime — the formal bridge from complex-science to runtime-ops that this pass claims to be tracing and currently has nothing on."
+  },
+  {
+   "title": "The Vision of Autonomic Computing",
+   "authors": "Jeffrey O. Kephart & David M. Chess",
+   "year": "2003",
+   "cell": "complex-science x design",
+   "why_canonical": "Origin of MAPE-K, the reference loop for every self-managing architecture since. MAPE-K 0 hits."
+  },
+  {
+   "title": "Problem Frames: Analysing and Structuring Software Development Problems",
+   "authors": "Michael Jackson",
+   "year": "2001",
+   "cell": "complex-scale x needs",
+   "why_canonical": "The canonical treatment of the world/machine boundary — the system context and boundary question the S1 stage definition names first. Jackson 1 hit, Problem Frames 1, both incidental."
+  },
+  {
+   "title": "Easy Approach to Requirements Syntax (EARS)",
+   "authors": "Alistair Mavin, Philip Wilkinson, Adrian Harwood & Mark Novak",
+   "year": "2009",
+   "cell": "governance x requirements",
+   "why_canonical": "EARS is referenced 8 times across the harvest with no entry for the paper that defines it and no author named — the sweep adopted the notation and skipped its source. Mavin 0 hits."
+  },
+  {
+   "title": "Requirements Engineering (Hull, Jackson & Dick)",
+   "authors": "Elizabeth Hull, Ken Jackson & Jeremy Dick",
+   "cell": "governance x requirements",
+   "why_canonical": "The standard traceability-and-derivation textbook of the DOORS tradition — the exact hand-off from requirements to tooling that stage S5 covers. Hull 0, Dick 0. (Edition/year omitted; several editions exist and I will not guess.)"
+  },
+  {
+   "title": "Architecture Principles: The Cornerstones of Enterprise Architecture",
+   "authors": "Danny Greefhorst & Erik Proper",
+   "year": "2011",
+   "cell": "governance x needs",
+   "why_canonical": "The one book-length treatment of architecture principles as derived from business drivers — the missing needs-stage governance mechanism. 0 hits."
+  },
+  {
+   "title": "Enterprise Architecture as Strategy: Creating a Foundation for Business Execution",
+   "authors": "Jeanne W. Ross, Peter Weill & David C. Robertson",
+   "year": "2006",
+   "cell": "governance x needs",
+   "why_canonical": "The standard reference for operating models and business-IT alignment as the source of architectural obligation. Governance x needs has zero home-scout finds and this is its anchor."
+  },
+  {
+   "title": "The TOGAF Standard",
+   "authors": "The Open Group",
+   "cell": "governance x tools-process",
+   "why_canonical": "Whatever one thinks of it, TOGAF's ADM is the most widely deployed architecture governance process in industry, and it is absent from both the harvest and the 468-work corpus. Its Phase A (Architecture Vision) and Architecture Board machinery are directly the D3 x S1/S5 cells. (Edition omitted.)"
+  },
+  {
+   "title": "ISO/IEC 15026 — Systems and software engineering — Systems and software assurance (esp. Part 2: Assurance case)",
+   "authors": "ISO/IEC JTC 1/SC 7",
+   "cell": "governance x obligations",
+   "why_canonical": "The international standard for assurance cases. 'safety case' returns 0 hits, ISO/IEC 15026 0, GSN 1, assurance case 1 — the sweep has the certification standards that DEMAND a safety case and nothing on how one is constructed or argued."
+  },
+  {
+   "title": "Goal Structuring Notation Community Standard",
+   "authors": "Assurance Case Working Group (Tim Kelly et al. lineage)",
+   "cell": "hand-c x obligations",
+   "why_canonical": "GSN is how the obligations of DO-178C/ISO 26262 are actually argued to a regulator. Kelly 0 hits, Habli 0, Hawkins 0."
+  },
+  {
+   "title": "SAE ARP4761 / ARP4761A — Guidelines and Methods for Conducting the Safety Assessment Process on Civil Airborne Systems and Equipment",
+   "authors": "SAE International S-18",
+   "cell": "model-c x obligations",
+   "why_canonical": "Present in std_standards_spine.json but with year 'unresolved' and no FHA/PSSA/SSA/FTA/FMEA content captured anywhere. FMEA 0, FMEDA 0, FTA 0, fault tree 0, HAZOP 0 across the entire harvest — the sweep holds STPA (6 hits) and none of the four hazard-analysis techniques that certification actually mandates. This is the obligations stage's largest hole."
+  },
+  {
+   "title": "The Worst-Case Execution-Time Problem — Overview of Methods and Survey of Tools",
+   "authors": "Reinhard Wilhelm et al.",
+   "year": "2008",
+   "cell": "hand-c x requirements",
+   "why_canonical": "WCET is how a timing obligation becomes a testable, measured requirement in embedded C. WCET 0 hits, aiT 0, Absint 2 passing mentions."
+  },
+  {
+   "title": "ISO/IEC 9899 — Programming languages — C",
+   "authors": "ISO/IEC JTC 1/SC 22/WG 14",
+   "cell": "hand-c x obligations",
+   "why_canonical": "The language standard itself. MISRA scores 24 hits across the harvest and the document MISRA constrains scores 0 (ISO/IEC 9899 0, C17 0, C23 0). Every undefined-behaviour obligation in D6 traces here. (Edition deliberately omitted.)"
+  },
+  {
+   "title": "A Practical Guide to SysML: The Systems Modeling Language",
+   "authors": "Sanford Friedenthal, Alan Moore & Rick Steiner",
+   "cell": "model-c x design",
+   "why_canonical": "The mission names SysML/MBSE in the S4 definition; the harvest has 'SysML' only as an incidental token and nothing on SysML v2 (0 hits). This is the standard reference. (Edition/year omitted.)"
+  },
+  {
+   "title": "Systems Architecture Modeling with the Arcadia Method",
+   "authors": "Pascal Roques",
+   "cell": "model-c x needs",
+   "why_canonical": "Arcadia/Capella is the dominant open MBSE method in European automotive and aerospace and is the literal answer to 'what does a needs-stage work for model-based development look like'. Capella 0, Arcadia 0 — the empty gapfill_model_c__needs.json is empty because the scout never tried this vocabulary."
+  },
+  {
+   "title": "The Practice of Cloud System Administration: Designing and Operating Large Distributed Systems",
+   "authors": "Thomas A. Limoncelli, Strata R. Chalup & Christina J. Hogan",
+   "year": "2014",
+   "cell": "runtime-ops x design",
+   "why_canonical": "The operational-design reference that predates and complements the Google SRE book; Limoncelli returns 0 hits despite the runtime-ops sweep running two dedicated files."
+  },
+  {
+   "title": "ASAM MCD-1 XCP, MCD-2 MC (A2L) and ASAM MDF",
+   "authors": "ASAM e.V.",
+   "cell": "runtime-ops x measurement (runtime-ops x tools-process)",
+   "why_canonical": "This is the embedded measurement-and-calibration stack — how field and bench data actually leaves an ECU. XCP 0, A2L 0, MDF 0, ASAM 1 passing hit. The mission calls the embedded runtime-ops leg 'the most valuable harvest' and the sweep captured diagnostics (UDS, DTC, ODX) while missing measurement entirely."
+  },
+  {
+   "title": "The synchronous data flow programming language LUSTRE",
+   "authors": "N. Halbwachs, P. Caspi, P. Raymond & D. Pilaud",
+   "year": "1991",
+   "cell": "model-c|design",
+   "why_canonical": "Proc. IEEE 79(9). SCADE Suite is in the harvest as a vendor tool; LUSTRE is the language SCADE *is*, and the synchronous-language school (Verimag/INRIA, Esterel, Signal) is the European formal foundation of certified model-to-code generation. A D7 sweep that harvests the French tool and drops the French theory is exactly the non-US-origin failure the lens hunts."
+  },
+  {
+   "title": "SCADE 6: A formal language for embedded critical software development",
+   "authors": "J.-L. Colaço, B. Pagano & M. Pouzet",
+   "year": "2017",
+   "cell": "model-c|design",
+   "why_canonical": "TASE 2017. The published account of how the synchronous semantics became the qualified commercial generator; the bridge between the LUSTRE paper and the SCADE tool page the harvest already has."
+  },
+  {
+   "title": "Functional Mock-up Interface (FMI), version 3.0",
+   "authors": "Modelica Association",
+   "year": "2022",
+   "cell": "model-c|tools-process",
+   "why_canonical": "The dominant vendor-neutral standard for model exchange and co-simulation, supported by Simulink, Dymola, SimulationX, AMESim, CarMaker and the rest. D7 has 116 tools-process taggings and zero FMI hits. Without it the D7 sweep documents one vendor's catalogue rather than the field's toolchain interoperability layer. Non-US (Modelica Association, Linköping/Germany)."
+  },
+  {
+   "title": "AUTOSAR Methodology (TR_Methodology), Virtual Functional Bus (EXP_VFB) and Software Component Template",
+   "authors": "AUTOSAR",
+   "cell": "model-c|tools-process",
+   "why_canonical": "The harvest has the Layered Software Architecture and three BSW module specifications (Dcm, Dem, WdgM). The Methodology, VFB and SW-C Template are the documents that define the derivation chain from component model through RTE contract to ECU-allocated generated code — which is this pass's declared object of study. Harvesting the layers and skipping the method is the automotive equivalent of citing 42010's views without its viewpoints."
+  },
+  {
+   "title": "ASAM MCD-1 XCP (Universal Measurement and Calibration Protocol) and ASAM MCD-2 MC (ASAP2 / A2L)",
+   "authors": "ASAM e.V.",
+   "cell": "runtime-ops|measurement",
+   "why_canonical": "XCP is how measurement and calibration data physically leaves a running ECU; A2L is the description file that maps generated-code symbols to measurable/calibratable objects and is emitted by Embedded Coder and TargetLink. The harvest took ODX (diagnostics) and left the measurement-and-calibration half of the automotive runtime interface empty. For a pass whose D5 embedded leg is 'the most valuable harvest' and whose D7 is the centre of gravity, this is the most embarrassing automotive omission. Non-US (ASAM e.V., Germany)."
+  },
+  {
+   "title": "EN 50716:2023 — Railway applications: Requirements for software development",
+   "authors": "CENELEC",
+   "year": "2023",
+   "cell": "hand-c|obligations",
+   "why_canonical": "The superseded-standard-whose-successor-was-missed, twice over. EN 50716 supersedes EN 50128:2011 and EN 50657:2017 and unifies rail software safety across rolling stock and signalling. EN 50128 is already in the corpus (id resolves in id_index.tsv) and pass 9 did not claim it as a membership; EN 50716 does not appear anywhere in 585 entries. Rail is the one safety sector with no representation at all in an obligations stage that covers five others."
+  },
+  {
+   "title": "IEC 61511 (process industry SIS), ISO 13849-1 and IEC 62061 (machinery), IEC 60880 (nuclear I&C)",
+   "authors": "IEC / ISO",
+   "cell": "hand-c|obligations",
+   "why_canonical": "Four further sectoral daughters of IEC 61508, all absent. The harvest anchors on 61508 and then jumps straight to automotive/aviation/medical. A practitioner in process safety, machinery safety or nuclear I&C would find nothing in this pass that addresses their binding duties, despite 61508 being present as their common parent."
+  },
+  {
+   "title": "ISO/IEC TS 17961:2013 — Information technology — Programming languages, their environments and system software interfaces — C secure coding rules",
+   "authors": "ISO/IEC JTC1/SC22/WG14",
+   "year": "2013",
+   "cell": "hand-c|obligations",
+   "why_canonical": "The ISO technical specification that defines analyzable secure-coding rules and analyzer conformance for C. The harvest holds both its neighbours — MISRA C and the SEI CERT C Standard — and not the ISO document that sits between them and is what static-analysis vendors claim conformance against."
+  },
+  {
+   "title": "ECSS-Q-ST-80C Rev.1 (Software product assurance) and ECSS-E-ST-40C (Software engineering)",
+   "authors": "ESA / ECSS",
+   "cell": "hand-c|obligations",
+   "why_canonical": "The harvest took ECSS-E-ST-10C (system engineering, generic) and left out the two ECSS standards that actually govern space software. Both sit in the corpus as a single UNRESOLVED row, never claimed as a pass-9 membership. European space standards, dropped by a sweep that found the NASA handbook."
+  },
+  {
+   "title": "NPR 7150.2 — NASA Software Engineering Requirements",
+   "authors": "NASA (Office of the Chief Engineer)",
+   "cell": "hand-c|obligations",
+   "why_canonical": "The harvest holds the NASA Systems Engineering Handbook, 'Mars Code' and the JPL coding standard; NPR 7150.2 is the directive those rest on and the one that classifies software by safety criticality and mandates work products. It is the obligations-stage document of the entire US civil space programme."
+  },
+  {
+   "title": "The Architecture of Complexity",
+   "authors": "H.A. Simon",
+   "year": "1962",
+   "cell": "complex-scale|design",
+   "why_canonical": "Proc. American Philosophical Society 106(6). The mission text itself names 'the architecture-of-complexity lineage (Simon, Brooks, Parnas, Baldwin–Clark)'. The harvest has Brooks, Parnas ×3, Baldwin–Clark and 'The Sciences of the Artificial' — and not the 1962 paper that gives near-decomposability and hierarchy their names, and which Baldwin & Clark build on explicitly."
+  },
+  {
+   "title": "Software Aging",
+   "authors": "D.L. Parnas",
+   "year": "1994",
+   "cell": "complex-scale|design",
+   "why_canonical": "ICSE-16. The paper that names the phenomenon; the harvest carries 'Controlling Software Architecture Erosion: A Survey' — a survey of the literature that starts here — without the origin it surveys."
+  },
+  {
+   "title": "Big Ball of Mud",
+   "authors": "B. Foote & J. Yoder",
+   "year": "1997",
+   "cell": "complex-scale|design",
+   "why_canonical": "PLoP '97. The most-cited description of what architectural drift actually produces, and the reference point for every erosion and modernization discussion since. Zero hits."
+  },
+  {
+   "title": "Out of the Tar Pit",
+   "authors": "B. Moseley & P. Marks",
+   "year": "2006",
+   "cell": "complex-scale|design",
+   "why_canonical": "The practitioner essay on essential versus accidental complexity that dominates the field's vocabulary and has almost no formal venue. Zero hits in both harvest and corpus. Exactly the 'practitioner work that dominates a field with no academic footprint' case."
+  },
+  {
+   "title": "A Field Study of the Software Design Process for Large Systems",
+   "authors": "B. Curtis, H. Krasner & N. Iscoe",
+   "year": "1988",
+   "cell": "complex-scale|needs",
+   "why_canonical": "CACM 31(11). The empirical origin of 'the thin spread of application-domain knowledge' and of fluctuating requirements as a structural property of large-system design. It is the S1 finding for D1 and it is absent."
+  },
+  {
+   "title": "The Structure and Value of Modularity in Software Design",
+   "authors": "K.J. Sullivan, W.G. Griswold, Y. Cai & B. Hallen",
+   "year": "2001",
+   "cell": "measurement|design",
+   "why_canonical": "ESEC/FSE 2001. The paper that carries Baldwin–Clark's real-options theory of modularity into software DSMs. The harvest holds Design Rules at one end and MacCormack's propagation-cost work at the other and omits the link between them."
+  },
+  {
+   "title": "The Art of Systems Architecting, 3rd ed.",
+   "authors": "E. Rechtin & M.W. Maier",
+   "year": "2009",
+   "cell": "complex-scale|design",
+   "why_canonical": "Maier appears in the harvest only via his systems-of-systems paper. The Rechtin–Maier heuristics book is the canonical systems-architecting text and the one that treats architecting as normative judgment under incomplete requirements — directly the S1→S4 link this pass exists to build."
+  },
+  {
+   "title": "System Architecture: Strategy and Product Development for Complex Systems",
+   "authors": "E. Crawley, B. Cameron & D. Selva",
+   "year": "2015",
+   "cell": "complex-scale|needs",
+   "why_canonical": "The standard MIT text on deriving architecture from stakeholder need and value; its whole structure is needs → concept → architecture, which is this pass's spine. Zero hits."
+  },
+  {
+   "title": "FRAM: The Functional Resonance Analysis Method — Modelling Complex Socio-technical Systems",
+   "authors": "E. Hollnagel",
+   "year": "2012",
+   "cell": "complex-science|tools-process",
+   "why_canonical": "Hollnagel appears three times in the harvest and his one actual method does not. D2 is otherwise a domain of books about why systems fail with no applicable technique; FRAM is the technique, and its absence is why complex-science|tools-process and |design both look thin."
+  },
+  {
+   "title": "Resilience Engineering in Practice: A Guidebook",
+   "authors": "E. Hollnagel, J. Pariès, D.D. Woods & J. Wreathall (eds.)",
+   "year": "2011",
+   "cell": "complex-science|tools-process",
+   "why_canonical": "The applied companion to 'Resilience Engineering: Concepts and Precepts', which the harvest does hold. Taking the theory volume and leaving the practice volume is the reason the domain's tools-process cell is empty."
+  },
+  {
+   "title": "Issues as Elements of Information Systems (IBIS)",
+   "authors": "W. Kunz & H.W.J. Rittel",
+   "year": "1970",
+   "cell": "governance|design",
+   "why_canonical": "IN THE CORPUS, UNCLAIMED. IBIS is the direct ancestor of QOC (harvested), of design-rationale research (Tang et al., in corpus) and of the ADR movement (harvested four times over). Pass 9 harvested every descendant and left the ancestor sitting unclaimed in its own index."
+  },
+  {
+   "title": "Dilemmas in a General Theory of Planning",
+   "authors": "H.W.J. Rittel & M.M. Webber",
+   "year": "1973",
+   "cell": "complex-science|needs",
+   "why_canonical": "IN THE CORPUS, UNCLAIMED. The source of 'wicked problem', the term the architecture and requirements literature reaches for whenever needs resist specification. complex-science|needs is adjudicated thin while this sits unclaimed."
+  },
+  {
+   "title": "The WyCash Portfolio Management System",
+   "authors": "W. Cunningham",
+   "year": "1992",
+   "cell": "governance|measurement",
+   "why_canonical": "OOPSLA '92 Experience Report. The origin of the technical-debt metaphor. The harvest holds four technical-debt works (SQALE ×2, the Dagstuhl report, Kruchten/Nord/Ozkaya) and not the two-page report that created the concept all four are managing."
+  },
+  {
+   "title": "TOGAF Standard, 10th Edition",
+   "authors": "The Open Group",
+   "year": "2022",
+   "cell": "governance|tools-process",
+   "why_canonical": "Zero hits across harvest and corpus. Whatever one thinks of it, TOGAF is the architecture-governance framework most enterprise architects are actually certified in and working under, and its ADM is the operating model D3 claims to cover. A governance domain with BTABoK and without TOGAF is indefensible."
+  },
+  {
+   "title": "ArchiMate 3.2 Specification",
+   "authors": "The Open Group",
+   "year": "2022",
+   "cell": "governance|design",
+   "why_canonical": "The standard modelling language for enterprise and solution architecture, and the notation in which governance artefacts are actually drawn. Zero hits. The harvest has C4, 4+1, Views & Beyond, AADL, SysML, EAST-ADL — and not ArchiMate."
+  },
+  {
+   "title": "ISO/IEC/IEEE 42020:2019 — Software, systems and enterprise — Architecture processes",
+   "authors": "ISO/IEC/IEEE",
+   "year": "2019",
+   "cell": "governance|tools-process",
+   "why_canonical": "The direct process companion to 42010, which this pass treats as its anchor standard in three separate stages. 42020 defines architecture governance, management, conception, elaboration and evaluation as standardised processes — i.e. it is the D3 standard. Missing the sibling of your own anchor is the companion-standard failure in its purest form."
+  },
+  {
+   "title": "ISO/IEC/IEEE 42030:2019 — Software, systems and enterprise — Architecture evaluation framework",
+   "authors": "ISO/IEC/IEEE",
+   "year": "2019",
+   "cell": "governance|requirements",
+   "why_canonical": "The standardisation of architecture evaluation. The harvest holds SAAM, ATAM, CBAM, ALMA-adjacent surveys and the Babar comparison framework, and not the ISO standard that generalises them. Same omission class as 42020."
+  },
+  {
+   "title": "ISO/IEC 38500:2015 — Information technology — Governance of IT for the organization",
+   "authors": "ISO/IEC",
+   "year": "2015",
+   "cell": "governance|obligations",
+   "why_canonical": "The international standard for IT governance, and the one that supplies the duty side of D3. Zero hits. COBIT 2019 (ISACA) is likewise absent; between them they are what 'governance bodies and operating models' means outside the software-architecture literature."
+  },
+  {
+   "title": "ISO 31000:2018 — Risk management — Guidelines",
+   "authors": "ISO",
+   "year": "2018",
+   "cell": "governance|obligations",
+   "why_canonical": "D3 explicitly claims architecture risk management. The harvest supplies the SEI Continuous Risk Management Guidebook (1996) and no current standard. Any regulated programme's risk process is written against 31000."
+  },
+  {
+   "title": "OMG Structured Assurance Case Metamodel (SACM) and ISO/IEC/IEEE 15026 (Systems and software assurance, Parts 1–4)",
+   "authors": "OMG / ISO/IEC/IEEE",
+   "cell": "governance|obligations",
+   "why_canonical": "The harvest holds the GSN Standard and stops. SACM is the OMG interchange metamodel for assurance cases and 15026 is the ISO assurance series that defines integrity levels and assurance-case content. Certification duties without an assurance-case standard is a hole a safety assessor would open the report at."
+  },
+  {
+   "title": "The Software Architect Elevator",
+   "authors": "G. Hohpe",
+   "year": "2020",
+   "cell": "governance|needs",
+   "why_canonical": "The dominant practitioner book on the architect's organisational role, decision authority and how architecture reaches the levels that fund it. No academic footprint, hence dropped — the lens's archetype for D3."
+  },
+  {
+   "title": "DoDAF 2.02, NATO NAF v4 and MODAF",
+   "authors": "US DoD / NATO / UK MoD",
+   "cell": "governance|design",
+   "why_canonical": "All three defence architecture frameworks are absent — including the two non-US ones. For a pass whose domains include systems-of-systems and whose obligations stage is dominated by certification regimes, dropping the entire defence architecture-framework tradition (and the viewpoint sets those regimes mandate) is a visible hole. Zachman is likewise absent."
+  },
+  {
+   "title": "ISO/IEC 25023:2016 — Measurement of system and software product quality",
+   "authors": "ISO/IEC",
+   "year": "2016",
+   "cell": "measurement|requirements",
+   "why_canonical": "The SQuaRE part that supplies the actual measurement functions for 25010's characteristics. The harvest cites 25010 four separate times as its quality anchor and never reaches 25023 — leaving the pass with a quality vocabulary and no way to measure anything in it. ISO/IEC 25040 (evaluation process) and 25012 (data quality) are likewise absent."
+  },
+  {
+   "title": "Software Structure Metrics Based on Information Flow",
+   "authors": "S. Henry & D. Kafura",
+   "year": "1981",
+   "cell": "measurement|design",
+   "why_canonical": "IEEE TSE SE-7(5). The fan-in/fan-out metric family. The harvest KNOWS this work exists — it files an entry titled 'Information flow metrics (fan-in/fan-out complexity)' with ident null, sourced from a Wikipedia list. The paper is trivially citable and was not cited."
+  },
+  {
+   "title": "Software Engineering Metrics: What Do They Measure and How Do We Know?",
+   "authors": "C. Kaner & W.P. Bond",
+   "year": "2004",
+   "cell": "measurement|requirements",
+   "why_canonical": "METRICS 2004. The canonical construct-validity critique of software measurement. A 31-entry measurement domain that harvests every metric and no critique of whether they measure anything is a sales brochure, and any measurement researcher would say so in the first review comment."
+  },
+  {
+   "title": "COSMIC functional size measurement method / ISO/IEC 19761",
+   "authors": "COSMIC (Common Software Measurement International Consortium) / ISO/IEC",
+   "cell": "measurement|requirements",
+   "why_canonical": "The harvest includes IFPUG's Counting Practices Manual. COSMIC is the ISO-standardised functional size method explicitly designed for real-time and embedded software — this pass's subject matter — and is the non-US (international consortium, Canada/Europe) alternative that the US-centric sweep dropped while keeping the US one. If IFPUG is in scope, COSMIC is more so."
+  },
+  {
+   "title": "A Methodology for Collecting Valid Software Engineering Data",
+   "authors": "V.R. Basili & D.M. Weiss",
+   "year": "1984",
+   "cell": "measurement|tools-process",
+   "why_canonical": "IEEE TSE SE-10(6). The foundation of the GQM tradition the harvest does hold; defines how measurement data is actually collected and validated in a real organisation."
+  },
+  {
+   "title": "Systems Performance: Enterprise and the Cloud, 2nd ed.",
+   "authors": "B. Gregg",
+   "year": "2020",
+   "cell": "runtime-ops|tools-process",
+   "why_canonical": "The dominant practitioner reference for observing running systems, and the source of the USE method that every SRE uses alongside the harvested Four Golden Signals. Zero hits for 'Gregg'. BPF Performance Tools (2019) likewise. Practitioner canon with no academic footprint — dropped exactly as the lens predicts."
+  },
+  {
+   "title": "The DevOps Handbook, 2nd ed.",
+   "authors": "G. Kim, J. Humble, P. Debois & J. Willis",
+   "year": "2021",
+   "cell": "runtime-ops|tools-process",
+   "why_canonical": "The harvest holds Accelerate (its empirical sequel) and the DORA reports and not the practitioner volume that defines the deployment, telemetry and feedback practices those reports measure."
+  },
+  {
+   "title": "RFC 5424 — The Syslog Protocol",
+   "authors": "IETF (R. Gerhards)",
+   "year": "2009",
+   "cell": "runtime-ops|tools-process",
+   "why_canonical": "D5 harvested the entire OpenTelemetry stack — spec, semantic conventions, OTLP, W3C Trace Context — and has no logging standard at all. Syslog is how logs actually move in production and in embedded Linux, and it is an IETF standard, which the mission explicitly counts as a first-class work."
+  },
+  {
+   "title": "OpenMetrics specification",
+   "authors": "CNCF / OpenMetrics project",
+   "cell": "runtime-ops|measurement",
+   "why_canonical": "The harvest holds the Prometheus documentation but not the interchange format Prometheus donated and which OTel now ingests. Same pattern as taking the tool and dropping the standard."
+  },
+  {
+   "title": "MQTT v5.0 (OASIS) / ISO/IEC 20922:2016",
+   "authors": "OASIS / ISO/IEC",
+   "cell": "runtime-ops|design",
+   "why_canonical": "The dominant telemetry transport for deployed constrained devices — the embedded counterpart of OTLP, which the harvest has in full. D5's embedded leg is declared the most valuable harvest of the pass and contains no telemetry transport whatsoever: update (Uptane, MCUboot, hawkBit, Mender) and diagnostics (UDS, DoIP, ODX) but nothing that carries field data off a device."
+  },
+  {
+   "title": "OMA LwM2M (Lightweight M2M) and IETF CoAP (RFC 7252)",
+   "authors": "OMA SpecWorks / IETF (Z. Shelby, K. Hartke, C. Bormann)",
+   "cell": "runtime-ops|design",
+   "why_canonical": "The standard device-management and monitoring stack for resource-constrained devices, and the protocol pair every non-automotive embedded fleet uses. Harvested nowhere; the harvest's embedded-ops answer to 'how do I observe a deployed device' is currently SEGGER RTT and a JTAG probe."
+  },
+  {
+   "title": "ISO 26262-7:2018 — Road vehicles — Functional safety — Part 7: Production, operation, service and decommissioning",
+   "authors": "ISO",
+   "year": "2018",
+   "cell": "runtime-ops|obligations",
+   "why_canonical": "The harvest cites ISO 26262 Parts 3, 6 and 8 individually and omits Part 7 — the one part of the standard that governs the system while it is running in the field, in a pass that made runtime-ops a first-class domain. Parts 2 (management of functional safety) and 9 (ASIL-oriented analyses) are likewise absent."
+  },
+  {
+   "title": "IEC 62443-4-1:2018 — Secure product development lifecycle requirements",
+   "authors": "IEC",
+   "year": "2018",
+   "cell": "governance|obligations",
+   "why_canonical": "The harvest took IEC 62443-3-3 and 62443-4-2 — both technical-requirement parts — and dropped 4-1, the process part that imposes duties on how the software is developed. In an obligations stage, the process part is the one that binds."
+  },
+  {
+   "title": "AUTOSAR Classic Platform — Specification of Diagnostic Log and Trace (Dlt)",
+   "authors": "AUTOSAR",
+   "cell": "runtime-ops|design",
+   "why_canonical": "The harvest holds COVESA's DLT daemon and AUTOSAR's Dcm, Dem and WdgM. The AUTOSAR Dlt SWS is the standardised on-ECU logging module and the direct embedded counterpart to the OTel logging spec the pass harvested on the IT side."
+  },
+  {
+   "title": "IEC 60812 (FMEA/FMECA) and IEC 61025 (Fault tree analysis)",
+   "authors": "IEC",
+   "cell": "governance|requirements",
+   "why_canonical": "Not one of 585 entries names FMEA or fault-tree analysis as a work. ARP4761A is present and assumes both. These are the two standardised safety-analysis techniques by which obligations become allocated requirements — the S2→S3 mechanism in every regulated industry."
+  },
+  {
+   "title": "Practical UML Statecharts in C/C++, 2nd ed. (and the QP/C framework)",
+   "authors": "M. Samek",
+   "year": "2008",
+   "cell": "hand-c|design",
+   "why_canonical": "IN THE CORPUS, UNCLAIMED — alongside QP/C, QP/C++ and Samek's video course. The dominant practitioner architecture for event-driven embedded C, with essentially no academic footprint. Pass 9's D6 sweep ran to 76 entries and claimed none of it."
+  },
+  {
+   "title": "Patterns for Time-Triggered Embedded Systems",
+   "authors": "M.J. Pont",
+   "year": "2001",
+   "cell": "hand-c|design",
+   "why_canonical": "IN THE CORPUS, UNCLAIMED. The other dominant practitioner architecture for embedded C — co-operative time-triggered schedulers — and the one most safety-critical single-processor systems are actually built on. Free to claim, and not claimed."
+  },
+  {
+   "title": "Introduction to Embedded Systems: A Cyber-Physical Systems Approach, 2nd ed.",
+   "authors": "E.A. Lee & S.A. Seshia",
+   "year": "2017",
+   "cell": "model-c|design",
+   "why_canonical": "IN THE CORPUS, UNCLAIMED. The textbook that connects models of computation to embedded implementation — which is the theory chapter of Phase 3a's hand↔model delta. Pass 9 is writing that delta and did not claim the book that explains why the two legs differ."
+  },
+  {
+   "title": "Simulink Code Inspector",
+   "authors": "MathWorks",
+   "cell": "model-c|tools-process",
+   "why_canonical": "The qualified tool that discharges DO-178C source-to-model review objectives without manual code review. The harvest has the DO Qualification Kit and Polyspace and Simulink Check and misses the one tool whose entire purpose is the model→generated-code traceability link this pass is built around."
+  },
+  {
+   "title": "Foundations for the Study of Software Architecture (Perry & Wolf 1992); Software Architecture: Perspectives on an Emerging Discipline (Shaw & Garlan 1996); An Introduction to Software Architecture (Garlan & Shaw 1993); Applied Software Architecture (Hofmeister, Nord & Soni 2000); The Time-Triggered Architecture (Kopetz & Bauer 2003); Automotive Software Architectures (Staron, 2nd ed. 2021); Managing Model-Based Design (Aarenstrup 2015); Continuous Delivery (Humble & Farley 2010); Safer C (Hatton 1995); Rainbow (Garlan et al. 2004); Self-Managed Systems (Kramer & Magee 2007); Architecture-Based Runtime Software Evolution (Oreizy et al. 1998)",
+   "authors": "various",
+   "cell": "multiple — all IN CORPUS, UNCLAIMED",
+   "why_canonical": "A systemic finding rather than one work. Pass 9 claimed 162 of 468 corpus ids. Among the 302 unclaimed are the two founding papers of software architecture as a discipline, the field's first textbook, the self-adaptive-architecture trio that would single-handedly fix complex-science|design and runtime-ops|design, the standard automotive-architecture book, the MathWorks MBD management book, and the delivery book behind every DORA metric the pass harvested. Membership claiming is free — no verification burden, no new node — and these were left on the table. Phase 2 should re-sweep the corpus index against all 35 cells before the census is written."
+  }
+ ],
+ "under_swept": [
+  "peer-reviewed papers x model-c — 13 papers against 61 tool-doc entries; the software-architecture and model-based-engineering research communities (ICSE/ICSA/MODELS/EMSE) are absent from the pass's declared centre of gravity, while the corpus already holds 8 unclaimed empirical Simulink papers (alalfi, boll, chowdhury, deissenboeck, gerlitz, slnet, replicability, stephancordy)",
+  "books x model-c — 2 books, neither about Simulink/Stateflow/Embedded Coder; zero book-length treatment of D7's actual subject despite aarenstrup and schaeuffele sitting unclaimed in the corpus",
+  "peer-reviewed papers x runtime-ops — 8 of 86 works (9%), the lowest paper share of any domain, and two of the eight are arXiv preprints; the runtime-ops x tools-process cell (46 works) contains zero papers at all",
+  "peer-reviewed papers x tools-process (stage) — 29 papers against 90 tool-doc entries; the stage is documented by vendors rather than studied",
+  "architecture-research venues across the whole harvest — ICSA 1, WICSA 1, ECSA 1, QoSA 0 in a pass about architecture; the field's own conferences contributed three papers",
+  "empirical software engineering across the whole harvest — EMSE 0, ESEM 0, MSR 0, TOSEM 0, ASE 0; no systematic review, no replication study, no practitioner survey anywhere in 478 works, which leaves every quantitative claim in D4 measurement unmoored",
+  "post-2015 literature of any kind — 5 of 97 papers are from the 2020s; the paper layer is a classics canon, not a sweep",
+  "requirements-engineering research x needs/obligations — 4 RE-conference papers and 1 REFSQ against 33 books at the needs stage; the RE research community is represented by books and standards but barely by its own literature",
+  "standards x complex-science — 0 standards and 4 papers across 23 works; the smallest domain in the harvest by a factor of four",
+  "books x measurement — 17 books for the whole domain and Fenton & Bieman's Software Metrics, the field's standard text, is in neither the harvest nor the corpus",
+  "The whole needs column outside D2: six of seven domain scouts contributed zero works to their own domain's needs cell, and the corrective gapfill covered only 4 of 7 domains with one returning an empty array.",
+  "Hazard-analysis vocabulary as the source of obligations: FMEA, FMEDA, FTA/fault tree, HAZOP all score 0 across 585 entries; only STPA was swept.",
+  "Assurance and safety cases: 'safety case' 0, ISO/IEC 15026 0, Kelly 0, GSN 1 — the argument structure that certification obligations are discharged through.",
+  "Enterprise architecture as the needs-stage governance vocabulary: TOGAF, Zachman, ArchiMate all 0 in the harvest AND 0 in the 468-work corpus.",
+  "MBSE as the needs/design vocabulary of the model-based leg: Capella 0, Arcadia 0, Rhapsody 0, Papyrus 0, SysML v2 0, AADL 1, EAST-ADL 1 — despite the mission naming AADL and SysML explicitly.",
+  "Harel statecharts and the formal lineage of Stateflow: Harel 0, statecharts 0, state machine 0.",
+  "The requirements-under-uncertainty / self-adaptive-systems literature: RELAX 0, self-adaptive 0, MAPE-K 0, awareness requirements 0 — the reason complex-science x requirements is the only sub-4 cell.",
+  "The requirements-side half of the SQuaRE family: ISO/IEC 25030 0, 25023 0, 25021 0, while 25010 is anchored five times.",
+  "GQM and the software measurement tradition: GQM as a work 0, Basili 2 incidental, PSM 1 incidental.",
+  "Embedded measurement and calibration: ASAM XCP/A2L/MDF 0, ETAS/INCA 0 — the sweep got diagnostics (UDS, ODX, DTC) and missed calibration and data acquisition.",
+  "Prognostics and field-data analytics for deployed devices: PHM 0, prognostics 0, condition monitoring 0, predictive maintenance 0 — the embedded counterpart of observability that D5's definition calls out.",
+  "WCET and timing analysis as a hand-c requirements mechanism: WCET 0, aiT 0, CBMC 0, Frama-C 1.",
+  "The C language standard itself (ISO/IEC 9899) under a domain that cites MISRA 24 times.",
+  "Architectural erosion/drift primary sources: Perry & Wolf 0, van Gurp & Bosch 0, Lattix 0, Structure101 0 — even though D1's definition names erosion and drift.",
+  "Competing model-based toolchains beyond MathWorks/dSPACE: ASCET 0, Esterel 0, Tessy 0, MES Model Examiner 0, Conformiq 0 — D7 is swept almost entirely through MathWorks' own documentation, which is a vendor-shaped view of the domain.",
+  "The evaluation-method family around ATAM: LAAAM 0, ARID 0, Tiny Architectural Review 0 (ATAM 17, SAAM 4, CBAM 8 are well covered).",
+  "Classic embedded failure case studies that motivate the obligations stage: Therac-25 0, Ariane 5 0, Toyota unintended acceleration 0.",
+  "Source-kind: standards issued by non-US / non-anglophone bodies — CENELEC (EN 50716, EN 50128, EN 50657), ASAM (XCP, A2L, XIL), Modelica Association (FMI), OMA SpecWorks (LwM2M), ECSS software parts (Q-ST-80C, E-ST-40C), The Open Group (TOGAF, ArchiMate). JMAAB and Automotive SPICE were caught; every other non-US standards body was not.",
+  "Source-kind: IETF RFCs and CNCF/OASIS specs. Zero RFC hits in 585 entries despite a fully-swept OpenTelemetry stack. RFC 5424 (syslog), RFC 7252 (CoAP), OASIS MQTT 5.0, CNCF OpenMetrics.",
+  "Source-kind: the ISO/IEC 250xx SQuaRE series beyond 25010. 25023 (measures), 25040 (evaluation process), 25012 (data quality) are all absent while 25010 is cited four times as the quality anchor.",
+  "Source-kind: the 42010 family beyond 42010 itself. 42020 (architecture processes) and 42030 (evaluation framework) — the two standards that ARE the governance and requirements stages in ISO's own vocabulary.",
+  "Source-kind: the sectoral daughters of IEC 61508 — 61511 (process), 13849-1 and 62061 (machinery), 60880 (nuclear). 61508 is present as their common parent and no daughter but the automotive and medical ones was swept.",
+  "Source-kind: individual parts of multi-part standards already held. ISO 26262-2, -7, -9, -10 (Part 7 is the runtime-ops part); IEC 62443-4-1 (the process part); ECSS-Q-ST-80C and E-ST-40C.",
+  "Stage×domain: complex-science × (requirements, design, tools-process). The fix is partly re-tagging works already harvested (STPA Handbook, Engineering a Safer World) and partly claiming corpus works never claimed (Rainbow, Kramer & Magee, Oreizy) plus Hollnagel's FRAM.",
+  "Stage×domain: model-c × needs. The dedicated gapfill scout returned an empty array. Re-run it against Broy et al. 2010, EAST-ADL's requirements layer, ASPICE SYS.1/SWE.1 model-based interpretation, and ISO 26262-3 item-definition-to-model practice.",
+  "Lens: the ancestor of every harvested descendant. Six confirmed instances — Harel behind Stateflow, LUSTRE behind SCADE, IBIS behind QOC/ADR, Cunningham behind technical debt, Parnas 'Software Aging' behind the erosion survey, Simon 1962 behind Baldwin–Clark. A single sweep asking 'what does each harvested work cite as its origin?' would have caught all six.",
+  "Lens: practitioner books with no academic footprint. Gregg (Systems Performance, BPF Performance Tools), Kim et al. (DevOps Handbook), Hohpe (Software Architect Elevator), Samek and Pont (both already in the corpus, unclaimed). The sweep's book-discovery path appears to run through citation graphs, which is exactly where these do not appear.",
+  "Process: membership re-sweep of the 302 unclaimed corpus ids against all 35 cells. Claiming is free and the unclaimed set contains Perry & Wolf, Shaw & Garlan, Hofmeister, Kopetz, Staron, Aarenstrup, Hatton, Humble & Farley, Lee & Seshia, Rittel ×2, EN 50128, ECSS, and the self-adaptive-architecture trio."
+ ]
+}

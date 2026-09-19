@@ -1,7 +1,7 @@
 # Corpus report — PHASE 1 (scrutiny of the seven SWE reports)
 
-Raw records transcribed: **534** -> merged into **468** unique nodes.
-Verification: 354 verified / 114 unverified (state preserved from reports; any-verified wins on merge).
+Raw records transcribed: **1330** -> merged into **922** unique nodes.
+Verification: 585 verified / 337 unverified (state preserved from reports; any-verified wins on merge).
 
 ## Nodes per corpus (after merge; a node may belong to several)
 - swa-science — Software architecture as a science: 77
@@ -11,91 +11,367 @@ Verification: 354 verified / 114 unverified (state preserved from reports; any-v
 - emb-ops — Embedded C/C++ operational use: 53
 - simulink — Large Simulink/MATLAB projects: 53
 - swe-process — Engineering process & workflow: 95
+- arch-spine — The architecture spine (needs → design → tools): 796
 
-## Cross-corpus works: 82 nodes appear in >=2 corpora
+## Cross-corpus works: 357 nodes appear in >=2 corpora
 
-- parnas72 (swa-science, swe-process, emb-arch, emb-c): On the Criteria To Be Used in Decomposing Systems into Modules
-- white (emb-arch, emb-cpp, emb-c): Making Embedded Systems: Design Patterns for Great Software
-- samekbook (emb-arch, emb-c, emb-cpp): Practical UML Statecharts in C/C++: Event-Driven Programming for Embedded Systems, 2nd ed.
-- samekcourse (emb-arch, emb-c, emb-ops): Modern Embedded Systems Programming video course + QP framework docs
-- barrc (emb-arch, emb-c, swe-process): Embedded C Coding Standard (BARR-C:2018)
-- misrac (emb-arch, emb-c, swe-process): MISRA C (C:2012 3rd ed. 2013; +AMD1-3; consolidated C:2023; C:2025)
-- misracpp2008 (emb-arch, emb-cpp, swe-process): MISRA C++:2008
-- misracpp2023 (emb-arch, emb-cpp, swe-process): MISRA C++:2023
-- grenningtdd (emb-arch, emb-c, emb-cpp): Test-Driven Development for Embedded C
-- yiu (emb-arch, emb-c, emb-cpp): The Definitive Guide to ARM Cortex-M3 and Cortex-M4 Processors, 3rd ed.
-- martincleanarch (emb-arch, swe-process, emb-c): Clean Architecture
-- lakoslsc (emb-arch, swe-process, emb-c): Large-Scale C++ Software Design
-- jplstd (emb-c, swe-process, emb-arch): JPL Institutional Coding Standard for the C Programming Language
+- parnas72 (swa-science, swe-process, arch-spine, emb-arch, emb-c): On the Criteria To Be Used in Decomposing Systems into Modules
+- white (emb-arch, arch-spine, emb-cpp, emb-c): Making Embedded Systems: Design Patterns for Great Software
+- samekbook (emb-arch, emb-c, emb-cpp, arch-spine): Practical UML Statecharts in C/C++: Event-Driven Programming for Embedded Systems, 2nd ed.
+- samekcourse (emb-arch, emb-c, emb-ops, arch-spine): Modern Embedded Systems Programming video course + QP framework docs
+- barrc (emb-arch, emb-c, swe-process, arch-spine): Embedded C Coding Standard (BARR-C:2018)
+- misrac (emb-arch, emb-c, swe-process, arch-spine): MISRA C (C:2012 3rd ed. 2013; +AMD1-3; consolidated C:2023; C:2025)
+- misracpp2008 (emb-arch, emb-cpp, arch-spine, swe-process): MISRA C++:2008
+- misracpp2023 (emb-arch, emb-cpp, swe-process, arch-spine): MISRA C++:2023
+- grenningtdd (emb-arch, emb-c, emb-cpp, arch-spine): Test-Driven Development for Embedded C
+- yiu (emb-arch, emb-c, emb-cpp, arch-spine): The Definitive Guide to ARM Cortex-M3 and Cortex-M4 Processors, 3rd ed.
+- martincleanarch (emb-arch, swe-process, arch-spine, emb-c): Clean Architecture
+- lakoslsc (emb-arch, swe-process, arch-spine, emb-c): Large-Scale C++ Software Design
+- jplstd (emb-c, swe-process, arch-spine, emb-arch): JPL Institutional Coding Standard for the C Programming Language
+- shawgarlan96 (swa-science, arch-spine, emb-arch): Software Architecture: Perspectives on an Emerging Discipline
+- tmd (swa-science, arch-spine, emb-arch): Software Architecture: Foundations, Theory, and Practice
+- bck (swa-science, emb-arch, arch-spine): Software Architecture in Practice, 4th ed.
+- iso42010 (swa-science, emb-arch, arch-spine): ISO/IEC/IEEE 42010:2022 — Software, systems and enterprise — Architecture description
+- vab (swa-science, arch-spine, emb-arch): Documenting Software Architectures: Views and Beyond, 2nd ed.
+- kruchten (swa-science, arch-spine, emb-arch): Architectural Blueprints — The 4+1 View Model of Software Architecture
+- rozanski (swa-science, arch-spine, emb-arch): Software Systems Architecture: Working with Stakeholders Using Viewpoints and Perspectives
+- feilergluch (swa-science, emb-arch, arch-spine): Model-Based Engineering with AADL: An Introduction to the SAE Architecture Analysis & Desi
+- parnasclements (swa-science, swe-process, arch-spine): A Rational Design Process: How and Why to Fake It
+- lacamera (emb-arch, arch-spine, emb-cpp): Embedded Systems Architecture
+- beningodesign (emb-arch, arch-spine, emb-c): Embedded Software Design: A Practical Approach to Architecture, Processes, and Coding Tech
+- beningofw (emb-arch, arch-spine, emb-c): Reusable Firmware Development: A Practical Approach to APIs, HALs and Drivers
+- douglasspatternsc (emb-arch, emb-c, arch-spine): Design Patterns for Embedded Systems in C: An Embedded Software Engineering Toolkit
+- barrmassa (emb-arch, emb-ops, arch-spine): Programming Embedded Systems: With C and GNU Development Tools, 2nd ed.
+- holzmannp10 (emb-arch, emb-c, arch-spine): The Power of Ten: Rules for Developing Safety-Critical Code
+- koopmanbess (emb-arch, emb-c, arch-spine): Better Embedded System Software
+- noblesmallmem (emb-arch, arch-spine, emb-c): Small Memory Software: Patterns for Systems with Limited Memory
+- simmonds (emb-arch, emb-ops, arch-spine): Mastering Embedded Linux Programming, 3rd ed.
+- mcconnell (emb-arch, swe-process, arch-spine): Code Complete, 2nd ed.
+- bootlin (emb-arch, emb-ops, arch-spine): Bootlin embedded-Linux training slides
+- martincleancode (emb-arch, swe-process, arch-spine): Clean Code
+- kernelstyle (emb-c, swe-process, arch-spine): Linux kernel coding style
+- certc (emb-c, swe-process, arch-spine): The CERT C Coding Standard, 2nd ed. (98 Rules)
 - doxygen (emb-c, emb-cpp, swe-process): Doxygen (manual, current)
+- hawkmoth (emb-c, arch-spine, swe-process): Hawkmoth (Sphinx C/C++ autodoc via Clang)
+- mcdcchilenski (emb-c, emb-cpp, arch-spine): Applicability of Modified Condition/Decision Coverage to Software Testing
+- mcdcnasa (emb-c, emb-cpp, arch-spine): A Practical Tutorial on Modified Condition/Decision Coverage
+- bacchellibird (emb-c, swe-process, arch-spine): Expectations, Outcomes, and Challenges of Modern Code Review
+- sadowskigoogle (emb-c, swe-process, arch-spine): Modern Code Review: A Case Study at Google
+- fagan (emb-c, swe-process, arch-spine): Design and Code Inspections to Reduce Errors in Program Development
+- wiegers (emb-c, swe-process, arch-spine): Peer Reviews in Software: A Practical Guide
+- clangtidy (emb-c, emb-cpp, arch-spine): clang-tidy
+- precommit (emb-c, swe-process, arch-spine): pre-commit (hook framework)
+- boogerdmoonen (emb-c, swe-process, arch-spine): Assessing the Value of Coding Standards: An Empirical Study / Evaluating the Relation Betw
+- osstyleguides (emb-c, arch-spine, swe-process): Zephyr / FreeRTOS / Apache NuttX / ESP-IDF coding guidelines; ARM CMSIS API conventions
+- bloaty (emb-cpp, emb-ops, arch-spine): Bloaty McBloatface binary-size profiler
+- autosarcpp14 (emb-cpp, swe-process, arch-spine): Guidelines for the use of the C++14 language in critical and safety-related systems (AUTOS
+- jsfav (emb-cpp, arch-spine, swe-process): JSF Air Vehicle C++ Coding Standards
+- hicpp (emb-cpp, arch-spine, swe-process): High Integrity C++ Coding Standard v4.0
 - cmake (emb-cpp, emb-ops, swe-process): CMake documentation / build organization for embedded C++
-- shawgarlan96 (swa-science, emb-arch): Software Architecture: Perspectives on an Emerging Discipline
-- tmd (swa-science, emb-arch): Software Architecture: Foundations, Theory, and Practice
-- bck (swa-science, emb-arch): Software Architecture in Practice, 4th ed.
-- iso42010 (swa-science, emb-arch): ISO/IEC/IEEE 42010:2022 — Software, systems and enterprise — Architecture description
-- vab (swa-science, emb-arch): Documenting Software Architectures: Views and Beyond, 2nd ed.
-- kruchten (swa-science, emb-arch): Architectural Blueprints — The 4+1 View Model of Software Architecture
-- rozanski (swa-science, emb-arch): Software Systems Architecture: Working with Stakeholders Using Viewpoints and Perspectives
-- feilergluch (swa-science, emb-arch): Model-Based Engineering with AADL: An Introduction to the SAE Architecture Analysis & Desi
-- parnasclements (swa-science, swe-process): A Rational Design Process: How and Why to Fake It
-- lacamera (emb-arch, emb-cpp): Embedded Systems Architecture
-- beningodesign (emb-arch, emb-c): Embedded Software Design: A Practical Approach to Architecture, Processes, and Coding Tech
-- beningofw (emb-arch, emb-c): Reusable Firmware Development: A Practical Approach to APIs, HALs and Drivers
-- douglasspatternsc (emb-arch, emb-c): Design Patterns for Embedded Systems in C: An Embedded Software Engineering Toolkit
-- barrmassa (emb-arch, emb-ops): Programming Embedded Systems: With C and GNU Development Tools, 2nd ed.
-- holzmannp10 (emb-arch, emb-c): The Power of Ten: Rules for Developing Safety-Critical Code
-- koopmanbess (emb-arch, emb-c): Better Embedded System Software
-- noblesmallmem (emb-arch, emb-c): Small Memory Software: Patterns for Systems with Limited Memory
-- simmonds (emb-arch, emb-ops): Mastering Embedded Linux Programming, 3rd ed.
-- mcconnell (emb-arch, swe-process): Code Complete, 2nd ed.
-- bootlin (emb-arch, emb-ops): Bootlin embedded-Linux training slides
-- martincleancode (emb-arch, swe-process): Clean Code
-- kernelstyle (emb-c, swe-process): Linux kernel coding style
-- certc (emb-c, swe-process): The CERT C Coding Standard, 2nd ed. (98 Rules)
+- sakscolumns (emb-cpp, arch-spine, emb-c): Dan Saks embedded.com columns on memory-mapped devices in C and C++
+- mab (simulink, swe-process, arch-spine): MAB Control Algorithm Modeling Guidelines
+- jmaab (simulink, swe-process, arch-spine): JMAAB Control Algorithm Modeling Guidelines, v5.1 / v6.0
+- johnsonbook (simulink, swe-process, arch-spine): The Elements of MATLAB Style
+- johnsonguide (simulink, arch-spine, swe-process): MATLAB Style Guidelines 2.0 / MATLAB Programming Style Guidelines
+- mwcodingguide (simulink, arch-spine, swe-process): MATLAB Coding Guidelines (mathworks/MATLAB-Coding-Guidelines)
+- matlabpkg (simulink, swe-process, arch-spine): MATLAB packages/namespaces, classes/OOP guide, toolbox packaging docs
+- modelcompare (simulink, swe-process, arch-spine): Model Comparison docs (Comparison Tool, visdiff, Three-Way Merge Tool)
+- mergedocs (simulink, swe-process, arch-spine): Resolve Conflicts Using Simulink Three-Way Merge / Customize External Source Control
+- projects (simulink, swe-process, arch-spine): Simulink Projects / MATLAB Projects docs
+- guyblog (simulink, arch-spine, swe-process): Three-Way Model Merge and Git
+- cipart1 (simulink, swe-process, arch-spine): Continuous Integration for Verification of Simulink Models (Part 1)
+- cipart2 (simulink, swe-process, arch-spine): Continuous Integration for Verification of Simulink Models Using GitLab (Part 2)
+- sltest (simulink, arch-spine, swe-process): Simulink Test docs + Continuous Integration
+- buildtool (simulink, swe-process, arch-spine): MATLAB build tool (buildtool)
+- matlabtest (simulink, swe-process, arch-spine): MATLAB Test
+- perrywolf (swa-science, arch-spine): Foundations for the Study of Software Architecture
+- garlanshaw93 (swa-science, arch-spine): An Introduction to Software Architecture
+- shaw01 (swa-science, arch-spine): The Coming-of-Age of Software Architecture Research
+- garlan14 (swa-science, arch-spine): Software Architecture: a Travelogue
+- hofmeister00 (swa-science, arch-spine): Applied Software Architecture
+- emeryhilliard (swa-science, arch-spine): Every Architecture Description Needs a Framework: Expressing Architecture Frameworks Using
+- medvidovicuml (swa-science, arch-spine): Modeling Software Architectures in the Unified Modeling Language
+- medtay (swa-science, arch-spine): A Classification and Comparison Framework for Software Architecture Description Languages
+- wright (swa-science, arch-spine): A Formal Basis for Architectural Connection (Wright, CSP semantics)
+- rapide (swa-science, arch-spine): Specification and Analysis of System Architecture Using Rapide
+- darwin (swa-science, arch-spine): Dynamic Structure in Software Architectures (Darwin)
+- acme (swa-science, arch-spine): Acme: An Architecture Description Interchange Language
+- moriconi (swa-science, arch-spine): Correct Architecture Refinement
+- piadl (swa-science, arch-spine): pi-ADL: an ADL based on the higher-order typed pi-calculus for dynamic and mobile architec
+- abowd (swa-science, arch-spine): Formalizing Style to Understand Descriptions of Software Architecture
+- sfm (swa-science, arch-spine): Formal Methods for Software Architectures (SFM 2003)
+- aldini (swa-science, arch-spine): A Process Algebraic Approach to Software Architecture Design
+- malavolta (swa-science, arch-spine): What Industry Needs from Architectural Languages: A Survey
+- zhang (swa-science, arch-spine): A Classification and Comparison of Model Checking Software Architecture Techniques
+- mismatch95 (swa-science, arch-spine): Architectural Mismatch: Why Reuse Is So Hard
+- mismatch09 (swa-science, arch-spine): Architectural Mismatch: Why Reuse Is Still So Hard
+- oreizy (swa-science, arch-spine): Architecture-Based Runtime Software Evolution
+- rainbow (swa-science, arch-spine): Rainbow: Architecture-Based Self-Adaptation with Reusable Infrastructure
+- kramermagee (swa-science, arch-spine): Self-Managed Systems: an Architectural Challenge
+- weyns (swa-science, arch-spine): An Introduction to Self-Adaptive Systems: A Contemporary Software Engineering Perspective
+- breivold (swa-science, arch-spine): A Systematic Review of Software Architecture Evolution Research
+- barnes (swa-science, arch-spine): Evolution Styles: foundations and models for software architecture evolution
+- angelov (swa-science, arch-spine): A framework for analysis and design of software reference architectures
+- galster (swa-science, arch-spine): Empirically-grounded reference architectures: a proposal
+- sple (swa-science, arch-spine): Software Product Lines: Practices and Patterns
+- parnas74 (swa-science, arch-spine): On a 'Buzzword': Hierarchical Structure
+- parnas79 (swa-science, arch-spine): Designing Software for Ease of Extension and Contraction
+- simon96 (swa-science, arch-spine): The Sciences of the Artificial, 3rd ed.
+- rittelwebber (swa-science, arch-spine): Dilemmas in a General Theory of Planning
+- gendesign (swa-science, arch-spine): A General Model of Software Architecture Design Derived from Five Industrial Approaches
+- cervanteskazman (swa-science, arch-spine): Designing Software Architectures: A Practical Approach, 2nd ed.
+- bosch00 (swa-science, arch-spine): Design and Use of Software Architectures: Adopting and Evolving a Product-Line Approach
+- jansenbosch (swa-science, arch-spine): Software Architecture as a Set of Architectural Design Decisions
+- boschmolin (swa-science, arch-spine): Software architecture design: evaluation and transformation
+- ibis (swa-science, arch-spine): Issues as Elements of Information Systems (IBIS)
+- qoc (swa-science, arch-spine): Questions, Options, and Criteria: Elements of Design Space Analysis (QOC)
+- drl (swa-science, arch-spine): What's in Design Rationale? (DRL)
+- dutoit (swa-science, arch-spine): Rationale Management in Software Engineering
+- burge (swa-science, arch-spine): Rationale-Based Software Engineering
+- tangjinhan (swa-science, arch-spine): A rationale-based architecture model for design traceability and reasoning
+- zimmermann (swa-science, arch-spine): Reusable Architectural Decision Models for Enterprise Application Development
+- capilla (swa-science, arch-spine): 10 years of software architecture knowledge management: Practice and future
+- weinreich (swa-science, arch-spine): Software architecture knowledge management approaches and their support for knowledge mana
+- tangsurvey06 (swa-science, arch-spine): A survey of architecture design rationale
+- vanvliettang (swa-science, arch-spine): Decision making in software architecture
+- falessi (swa-science, arch-spine): Decision-making techniques for software architecture design: A comparative survey
+- zannier (swa-science, arch-spine): A model of design decision making based on empirical results of interviews with software d
+- tangrazavian (swa-science, arch-spine): Empirical studies on software design reasoning and reflection
+- esa (swa-science, arch-spine): Evaluating Software Architectures: Methods and Case Studies
+- atam (swa-science, arch-spine): ATAM: Method for Architecture Evaluation
+- saam (swa-science, arch-spine): SAAM: A Method for Analyzing the Properties of Software Architectures
+- dobrica (swa-science, arch-spine): A Survey on Software Architecture Analysis Methods
+- babar04 (swa-science, arch-spine): A Framework for Classifying and Comparing Software Architecture Evaluation Methods
+- alma (swa-science, arch-spine): Architecture-level modifiability analysis (ALMA)
+- iso25010 (swa-science, arch-spine): ISO/IEC 25010:2023 — SQuaRE — Product quality model
+- barbacci (swa-science, arch-spine): Quality Attributes
+- abas (swa-science, arch-spine): Attribute-Based Architectural Styles (ABAS)
+- tactics (swa-science, arch-spine): Deriving Architectural Tactics: A Step Toward Methodical Architectural Design
+- cbam (swa-science, arch-spine): Quantifying the Costs and Benefits of Architectural Decisions (CBAM)
+- techdebt19 (swa-science, arch-spine): Managing Technical Debt: Reducing Friction in Software Development
+- dagstuhl16 (swa-science, arch-spine): Managing Technical Debt in Software Engineering
+- rcda (swa-science, arch-spine): RCDA: Architecting as a risk- and cost management discipline
+- kopetz (emb-arch, arch-spine): Real-Time Systems: Design Principles for Distributed Embedded Applications
+- leeseshia (emb-arch, arch-spine): Introduction to Embedded Systems: A Cyber-Physical Systems Approach, 2nd ed.
+- marwedel (emb-arch, arch-spine): Embedded System Design: Foundations of Cyber-Physical Systems, and the Internet of Things,
+- wolf5 (emb-arch, arch-spine): Computers as Components: Principles of Embedded Computing System Design, 5th ed.
+- noergaard (emb-arch, arch-spine): Embedded Systems Architecture: A Comprehensive Guide for Engineers and Programmers
+- ledin (emb-arch, arch-spine): Architecting High-Performance Embedded Systems
+- oshana (emb-arch, arch-spine): Software Engineering for Embedded Systems, 2nd ed.
+- staron (emb-arch, arch-spine): Automotive Software Architectures: An Introduction, 2nd ed.
+- buttazzo (emb-arch, arch-spine): Hard Real-Time Computing Systems: Predictable Scheduling Algorithms and Applications
+- burnswellings (emb-arch, arch-spine): Real-Time Systems and Programming Languages, 4th ed.
+- liulayland (emb-arch, arch-spine): Scheduling Algorithms for Multiprogramming in a Hard-Real-Time Environment
+- iso26262 (emb-arch, arch-spine): ISO 26262:2018 — Road vehicles — Functional safety (2nd ed., 12 parts)
+- do178c (emb-arch, arch-spine): RTCA DO-178C / EUROCAE ED-12C — Software Considerations in Airborne Systems and Equipment 
+- iec61508 (emb-arch, arch-spine): IEC 61508:2010 — Functional safety of E/E/PE safety-related systems (Ed. 2.0, 7 parts)
+- iec62304 (emb-arch, arch-spine): IEC 62304:2006 (+AMD1:2015) — Medical device software — Software life cycle processes
+- en50128 (emb-arch, arch-spine): EN 50128:2011 (+A1/A2:2020) — Railway applications — Software for railway control and prot
+- arinc653 (emb-arch, arch-spine): ARINC 653 — Avionics Application Standard Software Interface (Parts 0-5, APEX API)
+- autosarclassic (emb-arch, arch-spine): AUTOSAR Classic Platform — Layered Software Architecture
+- autosaradaptive (emb-arch, arch-spine): AUTOSAR Adaptive Platform — Explanation of Adaptive and Classic Platform Software Architec
+- tinyos (emb-arch, arch-spine): System Architecture Directions for Networked Sensors
+- douglassrtcorpus (emb-arch, arch-spine): Real-Time Design Patterns; Doing Hard Time; Real-Time UML
+- gomaa (emb-arch, arch-spine): Real-Time Software Design for Embedded Systems
+- hobbs (emb-arch, arch-spine): Embedded Software Development for Safety-Critical Systems, 2nd ed.
+- rierson (emb-arch, arch-spine): Developing Safety-Critical Software: A Practical Guide for Aviation Software and DO-178C C
+- ldd3 (emb-arch, arch-spine): Linux Device Drivers, 3rd ed.
+- cmsis (emb-arch, arch-spine): CMSIS — Cortex Microcontroller Software Interface Standard
+- gof (emb-arch, arch-spine): Design Patterns: Elements of Reusable Object-Oriented Software
+- pont (emb-arch, arch-spine): Patterns for Time-Triggered Embedded Systems
+- labrosse (emb-arch, arch-spine): MicroC/OS-III: The Real-Time Kernel (also MicroC/OS-II; Embedded Systems Building Blocks)
+- dsimonprimer (emb-arch, arch-spine): An Embedded Software Primer
+- ganssle (emb-arch, arch-spine): The Art of Designing Embedded Systems; The Firmware Handbook (ed.); The Embedded Muse news
+- room (emb-arch, arch-spine): Real-Time Object-Oriented Modeling (ROOM)
+- hatleypirbhai (emb-arch, arch-spine): Strategies for Real-Time System Specification
+- wardmellor (emb-arch, arch-spine): Structured Development for Real-Time Systems
+- douglassagility (emb-arch, arch-spine): Real-Time Agility / Real-Time UML Workshop for Embedded Systems
+- laplante (emb-arch, arch-spine): Real-Time Systems Design and Analysis
+- janeliu (emb-arch, arch-spine): Real-Time Systems
+- cooling (emb-arch, arch-spine): Software Engineering for Real-Time Systems / Real-Time Operating Systems series
+- liyao (emb-arch, arch-spine): Real-Time Concepts for Embedded Systems
+- fanrt (emb-arch, arch-spine): Real-Time Embedded Systems
+- vahidgivargis (emb-arch, arch-spine): Embedded System Design: A Unified Hardware/Software Introduction
+- gajski (emb-arch, arch-spine): Embedded System Design: Modeling, Synthesis and Verification
+- peckol (emb-arch, arch-spine): Embedded Systems: A Contemporary Design Tool
+- berger (emb-arch, arch-spine): Embedded Systems Design
+- ball (emb-arch, arch-spine): Embedded Microprocessor Systems: Real World Design
+- siewert (emb-arch, arch-spine): Real-Time Embedded Components and Systems with Linux and RTOS
+- bertolotti (emb-arch, arch-spine): Embedded Software Development: The Open-Source Approach
+- barrycrowley (emb-arch, arch-spine): Modern Embedded Computing
+- walls (emb-arch, arch-spine): Embedded Software: The Works
+- yaghmour (emb-arch, arch-spine): Building Embedded Linux Systems
+- freertosbook (emb-arch, arch-spine): Mastering the FreeRTOS Real-Time Kernel
+- zephyrdocs (emb-arch, arch-spine): Zephyr Project documentation
+- qnxguide (emb-arch, arch-spine): QNX architecture guide
+- vxthreadx (emb-arch, arch-spine): VxWorks / ThreadX documentation
+- espidf (emb-arch, arch-spine): ESP-IDF architecture docs
+- nordicacademy (emb-arch, arch-spine): Nordic Semiconductor / Zephyr DevAcademy
+- sel4 (emb-arch, arch-spine): seL4: Formal Verification of an OS Kernel
+- l4liedtke (emb-arch, arch-spine): L4 microkernel papers
+- contiki (emb-arch, arch-spine): Contiki — a Lightweight and Flexible Operating System for Tiny Networked Sensors
+- protothreads (emb-arch, arch-spine): Protothreads: Simplifying Event-Driven Programming of Memory-Constrained Embedded Systems
+- nesc (emb-arch, arch-spine): The nesC Language: A Holistic Approach to Networked Embedded Systems
+- riot (emb-arch, arch-spine): RIOT: An Open Source Operating System for Low-End Embedded Devices in the IoT
+- kopetzbauer (emb-arch, arch-spine): The Time-Triggered Architecture
+- henzingersifakis (emb-arch, arch-spine): The Embedded Systems Design Challenge
+- leecps (emb-arch, arch-spine): Cyber-Physical Systems: Design Challenges
+- svincentelli (emb-arch, arch-spine): Platform-based design papers
+- graaf (emb-arch, arch-spine): Embedded software engineering: the state of the practice
+- ebertjones (emb-arch, arch-spine): Embedded Software: Facts, Figures, and Future
+- liggesmeyer (emb-arch, arch-spine): Trends in embedded software engineering
+- broy (emb-arch, arch-spine): Challenges in automotive software engineering
+- pretschner (emb-arch, arch-spine): Software Engineering for Automotive Systems: A Roadmap
+- fuerst (emb-arch, arch-spine): AUTOSAR — A Worldwide Standard is on the Road
+- schaeuffele (emb-arch, arch-spine): Automotive Software Engineering
+- levesonesw (emb-arch, arch-spine): Engineering a Safer World (STAMP/STPA)
+- levesonsafeware (emb-arch, arch-spine): Safeware
+- storey (emb-arch, arch-spine): Safety-Critical Computer Systems
+- avizienis (emb-arch, arch-spine): Basic Concepts and Taxonomy of Dependable and Secure Computing (dependability taxonomy)
+- rushby (emb-arch, arch-spine): Partitioning in avionics architectures (SRI/NASA report)
+- dvorak (emb-arch, arch-spine): Flight Software Complexity (NASA study)
+- marscode (emb-arch, arch-spine): Mars Code
+- ecss (emb-arch, arch-spine): ESA ECSS-E-ST-40C and ECSS-Q-ST-80C
+- posa2 (emb-arch, arch-spine): Pattern-Oriented Software Architecture Vol. 2: Patterns for Concurrent and Networked Objec
+- posa3 (emb-arch, arch-spine): Pattern-Oriented Software Architecture Vol. 3: Patterns for Resource Management
+- hanmer (emb-arch, arch-spine): Patterns for Fault Tolerant Software
+- nygard (emb-arch, arch-spine): Release It!
+- richardsford (emb-arch, arch-spine): Fundamentals of Software Architecture
+- ousterhout (emb-arch, arch-spine): A Philosophy of Software Design
+- omgspecs (emb-arch, arch-spine): OMG specifications: MARTE, SysML, DDS
+- eastadl (emb-arch, arch-spine): EAST-ADL
+- ros2design (emb-arch, arch-spine): ROS 2 design docs
+- cloudiotref (emb-arch, arch-spine): Azure IoT / AWS IoT Well-Architected reference architectures
+- iira (emb-arch, arch-spine): Industrial Internet Reference Architecture (IIC)
+- rami40 (emb-arch, arch-spine): RAMI 4.0
+- px4ardu (emb-arch, arch-spine): PX4 / ArduPilot architecture docs
+- memfaultea (emb-arch, arch-spine): Memfault Interrupt / Embedded Artistry canonical guides
+- misracompliance (emb-c, arch-spine): MISRA Compliance:2020
+- hatton95 (emb-c, arch-spine): Safer C: Developing Software for High-Integrity and Safety-Critical Systems
+- framac (emb-c, arch-spine): Frama-C: A Software Analysis Perspective
 - breathe (emb-c, swe-process): Breathe (Doxygen-XML to Sphinx bridge)
 - exhale (emb-c, swe-process): Exhale (automatic C/C++ API docs via Doxygen + Sphinx + Breathe)
-- hawkmoth (emb-c, swe-process): Hawkmoth (Sphinx C/C++ autodoc via Clang)
 - gtkdoc (emb-c, swe-process): GTK-Doc (GNOME C API documentation tool)
-- mcdcchilenski (emb-c, emb-cpp): Applicability of Modified Condition/Decision Coverage to Software Testing
-- mcdcnasa (emb-c, emb-cpp): A Practical Tutorial on Modified Condition/Decision Coverage
-- bacchellibird (emb-c, swe-process): Expectations, Outcomes, and Challenges of Modern Code Review
-- sadowskigoogle (emb-c, swe-process): Modern Code Review: A Case Study at Google
-- fagan (emb-c, swe-process): Design and Code Inspections to Reduce Errors in Program Development
-- wiegers (emb-c, swe-process): Peer Reviews in Software: A Practical Guide
+- kerneldoc (emb-c, arch-spine): kernel-doc (Linux kernel documentation system)
+- unity (emb-c, arch-spine): Unity (xUnit-style unit-test framework for C)
+- cmock (emb-c, arch-spine): CMock (mock/stub generator for C headers)
+- ceedling (emb-c, arch-spine): Ceedling (test/build manager, v1.0; bundles Unity + CMock + CException)
 - drepperlibs (emb-c, emb-ops): How To Write Shared Libraries
+- blanchette (emb-c, arch-spine): The Little Manual of API Design
+- bloch (emb-c, arch-spine): How to Design a Good API and Why it Matters
 - clangformat (emb-c, emb-cpp): clang-format
-- clangtidy (emb-c, emb-cpp): clang-tidy
 - uncrustify (emb-c, swe-process): Uncrustify (source beautifier)
-- precommit (emb-c, swe-process): pre-commit (hook framework)
-- boogerdmoonen (emb-c, swe-process): Assessing the Value of Coding Standards: An Empirical Study / Evaluating the Relation Betw
-- osstyleguides (emb-c, swe-process): Zephyr / FreeRTOS / Apache NuttX / ESP-IDF coding guidelines; ARM CMSIS API conventions
+- hattonsubset (emb-c, arch-spine): Language subsetting in an industrial context: MISRA C 1998 vs 2004 / Safer language subset
+- preschern (emb-c, arch-spine): Fluent C: Principles, Practices, and Patterns
+- hanson (emb-c, arch-spine): C Interfaces and Implementations: Techniques for Creating Reusable Software
+- schreiner (emb-c, arch-spine): Object-Oriented Programming with ANSI-C
+- qpc (emb-c, arch-spine): QP/C real-time embedded framework
+- preschernplop (emb-c, arch-spine): Patterns for... EuroPLoP/PLoP pattern-paper series (organizing files; returning error info
+- tornhill (emb-c, arch-spine): Patterns in C
+- sqlitetesting (emb-c, arch-spine): How SQLite Is Tested
+- barrbugs (emb-c, arch-spine): Top 10 Causes of Nasty Firmware Bugs
 - kormanyos (emb-cpp, emb-ops): Real-Time C++: Efficient Object-Oriented and Template Microcontroller Programming, 4th ed.
+- viarheichyk (emb-cpp, arch-spine): Embedded Programming with Modern C++ Cookbook
+- amos (emb-cpp, arch-spine): Hands-On RTOS with Microcontrollers (FreeRTOS, STM32, SEGGER)
 - meyerseffmod (emb-cpp, emb-arch): Effective Modern C++
 - meyerseffcpp (emb-cpp, emb-arch): Effective C++, 3rd ed.
 - googlestyle (emb-cpp, swe-process): Google C++ Style Guide
-- bloaty (emb-cpp, emb-ops): Bloaty McBloatface binary-size profiler
-- autosarcpp14 (emb-cpp, swe-process): Guidelines for the use of the C++14 language in critical and safety-related systems (AUTOS
-- jsfav (emb-cpp, swe-process): JSF Air Vehicle C++ Coding Standards
-- hicpp (emb-cpp, swe-process): High Integrity C++ Coding Standard v4.0
+- pwbloat (emb-cpp, arch-spine): pw_bloat memory-report module
 - certcpp (emb-cpp, swe-process): SEI CERT C++ Coding Standard (2016 Edition)
 - coreguidelines (emb-cpp, swe-process): C++ Core Guidelines
+- do332 (emb-cpp, arch-spine): DO-332 Object-Oriented Technology and Related Techniques Supplement to DO-178C and DO-278A
+- cpputest (emb-cpp, arch-spine): CppUTest / CppUMock
+- trompeloeil (emb-cpp, arch-spine): trompeloeil
+- pwunittest (emb-cpp, arch-spine): pw_unit_test
+- cppcheck (emb-cpp, arch-spine): cppcheck (with MISRA addon)
+- pigweedsdk (emb-cpp, arch-spine): Pigweed SDK / build-system integrations (Bazel, GN, CMake)
+- lakosemcs (emb-cpp, arch-spine): Embracing Modern C++ Safely
+- vanooijentalk (emb-cpp, arch-spine): Objects? No Thanks!
 - godbolt (emb-cpp, emb-ops): What Has My Compiler Done for Me Lately? + Compiler Explorer
-- sakscolumns (emb-cpp, emb-c): Dan Saks embedded.com columns on memory-mapped devices in C and C++
-- mab (simulink, swe-process): MAB Control Algorithm Modeling Guidelines
-- jmaab (simulink, swe-process): JMAAB Control Algorithm Modeling Guidelines, v5.1 / v6.0
-- johnsonbook (simulink, swe-process): The Elements of MATLAB Style
-- johnsonguide (simulink, swe-process): MATLAB Style Guidelines 2.0 / MATLAB Programming Style Guidelines
-- mwcodingguide (simulink, swe-process): MATLAB Coding Guidelines (mathworks/MATLAB-Coding-Guidelines)
-- matlabpkg (simulink, swe-process): MATLAB packages/namespaces, classes/OOP guide, toolbox packaging docs
-- modelcompare (simulink, swe-process): Model Comparison docs (Comparison Tool, visdiff, Three-Way Merge Tool)
-- mergedocs (simulink, swe-process): Resolve Conflicts Using Simulink Three-Way Merge / Customize External Source Control
-- projects (simulink, swe-process): Simulink Projects / MATLAB Projects docs
-- guyblog (simulink, swe-process): Three-Way Model Merge and Git
-- cipart1 (simulink, swe-process): Continuous Integration for Verification of Simulink Models (Part 1)
-- cipart2 (simulink, swe-process): Continuous Integration for Verification of Simulink Models Using GitLab (Part 2)
-- sltest (simulink, swe-process): Simulink Test docs + Continuous Integration
-- buildtool (simulink, swe-process): MATLAB build tool (buildtool)
-- matlabtest (simulink, swe-process): MATLAB Test
+- commercialtools (emb-cpp, arch-spine): Commercial static-analysis/coverage tool docs (VectorCAST, LDRA, Cantata, Polyspace, Cover
+- hutheses (emb-cpp, arch-spine): HU Utrecht / RWTH Aachen embedded-C++ HAL/metaprogramming theses
+- caissetalk (emb-cpp, arch-spine): Modern C++ in an Embedded World
+- gccmanual (emb-ops, arch-spine): Using the GNU Compiler Collection (GCC) — incl. Optimize Options chapter and -fstack-usage
+- picolibc (emb-ops, arch-spine): Picolibc documentation
+- thinlto (emb-ops, arch-spine): ThinLTO documentation
+- thinltoblog (emb-ops, arch-spine): ThinLTO: Scalable and Incremental LTO (blog + LLVM Dev Meeting 2016 talk)
+- openocd (emb-ops, arch-spine): OpenOCD User's Guide
+- hardfaultblog (emb-ops, arch-spine): How to debug a HardFault on an ARM Cortex-M MCU
+- binutilsblog (emb-ops, arch-spine): GNU Binutils: the ELF Swiss Army Knife
+- semihosting (emb-ops, arch-spine): Semihosting for AArch32 and AArch64
+- stevanovic (emb-ops, arch-spine): Advanced C and C++ Compiling
+- zerotomain (emb-ops, arch-spine): From Zero to main() series
+- taylorlinkers (emb-ops, arch-spine): Linkers (20-part series)
+- dlmalloc (emb-ops, arch-spine): A Memory Allocator (dlmalloc essay)
+- tlsf (emb-ops, arch-spine): TLSF: a New Dynamic Memory Allocator for Real-Time Systems
+- freertosheap (emb-ops, arch-spine): FreeRTOS memory management (heap_1 ... heap_5)
+- puncover (emb-ops, arch-spine): puncover
+- an4989 (emb-ops, arch-spine): AN4989 STM32 microcontroller debug toolbox
+- segger (emb-ops, arch-spine): SEGGER J-Link User Guide (UM08001), SystemView (UM08027), RTT documentation
+- probetools (emb-ops, arch-spine): probe-rs documentation; pyOCD docs; Black Magic Probe docs
+- zephyrlinker (emb-ops, arch-spine): Zephyr docs on linker scripts / code relocation
+- dreppermem (emb-ops, arch-spine): What Every Programmer Should Know About Memory
+- wilsonsurvey (emb-ops, arch-spine): Dynamic Storage Allocation: A Survey and Critical Review
+- mabdoc (simulink, arch-spine): MAB Modeling Guidelines documentation sections (Simulink/Stateflow/MATLAB Function rule se
+- misraslsf (simulink, arch-spine): MISRA AC SLSF:2023 — Modelling design and style guidelines for Simulink and Stateflow
+- misragmg (simulink, arch-spine): MISRA AC GMG:2023 — Generic Modelling Design and Style Guidelines
+- fixedpoint (simulink, arch-spine): Fixed-Point Designer documentation
+- signaltyping (simulink, arch-spine): Simulink signal naming/typing guidance (MAB signal rules; data-type propagation)
+- embeddedcoder (simulink, arch-spine): Embedded Coder documentation + production-code modeling patterns
+- dspaceguide (simulink, arch-spine): Modeling Guidelines for MATLAB/Simulink/Stateflow and TargetLink
+- deissenboeck (simulink, arch-spine): Clone Detection in Automotive Model-Based Development
+- alalfi (simulink, arch-spine): Models are Code Too: Near-miss Clone Detection for Simulink Models
+- gerlitz (simulink, arch-spine): Detection and Handling of Model Smells for MATLAB/Simulink Models
+- stephancordy (simulink, arch-spine): Identification of Simulink Model Antipattern Instances Using Model Clone Detection
+- compmodel (simulink, arch-spine): Component-Based Modeling in Simulink / Model Reference behavior docs
+- refmodels (simulink, arch-spine): Reference Existing Models & model-reference workflow docs
+- busobj (simulink, arch-spine): Simulink.Bus objects documentation
+- datadict (simulink, arch-spine): Simulink Data Dictionary documentation
+- largescale (simulink, arch-spine): Large-Scale Modeling documentation chapter
+- bestpractices (simulink, arch-spine): Applying Best Practices for Building Large Simulink Models
+- sae2010 (simulink, arch-spine): Large-Scale Modeling for Embedded Applications
+- syscompbp (simulink, arch-spine): Best Practices for Large-Scale Architecture Modeling
+- syscomposer (simulink, arch-spine): System Composer documentation
+- autosarblockset (simulink, arch-spine): AUTOSAR Blockset documentation + Software Architecture Modeling
+- dspacecompare (simulink, arch-spine): dSPACE Model Compare
+- slcoverage (simulink, arch-spine): Simulink Coverage docs (incl. MC/DC)
+- diffmergeci (simulink, arch-spine): Set Up Simulink Diff and Merge in CI/CD Pipeline
+- reqtoolbox (simulink, arch-spine): Requirements Toolbox documentation
+- doors (simulink, arch-spine): Working with IBM DOORS / DOORS Next requirements docs
+- slcheck (simulink, arch-spine): Simulink Check docs (Model Advisor, MAB/JMAAB checks)
+- metricsdash (simulink, arch-spine): Metrics Dashboard
+- maintdash (simulink, arch-spine): Model Maintainability Dashboard
+- aarenstrup (simulink, arch-spine): Managing Model-Based Design
+- slnet (simulink, arch-spine): SLNET: A Redistributable Corpus of 3rd-party Simulink Models
+- chowdhury (simulink, arch-spine): A Curated Corpus of Simulink Models for Model-Based Empirical Studies
+- boll (simulink, arch-spine): Characteristics, potentials, and limitations of open-source Simulink projects for empirica
+- replicability (simulink, arch-spine): Replicability Study: Corpora For Understanding Simulink Models & Projects
+- iso26262p6 (simulink, arch-spine): ISO 26262-6:2018 — Road vehicles — Functional safety — Part 6: Product development at the 
+- do331 (simulink, arch-spine): RTCA DO-331 / EUROCAE ED-218 — Model-Based Development and Verification Supplement to DO-1
+- certkits (simulink, arch-spine): IEC Certification Kit (ISO 26262 & IEC 61508) and DO Qualification Kit (DO-178C/DO-331)
+- targetlink (simulink, arch-spine): dSPACE TargetLink
+- checkcode (swe-process, arch-spine): checkcode / Code Analyzer (formerly mlint)
+- arc42 (swe-process, arch-spine): arc42 — architecture documentation template
+- c4model (swe-process, arch-spine): The C4 model for visualising software architecture
+- nygardadr (swe-process, arch-spine): Documenting Architecture Decisions
+- progit (swe-process, arch-spine): Pro Git, 2nd ed.
+- trunkbased (swe-process, arch-spine): Trunk-Based Development
+- potvinmonorepo (swe-process, arch-spine): Why Google Stores Billions of Lines of Code in a Single Repository
+- rigbybird (swe-process, arch-spine): Convergent Contemporary Software Peer Review Practices
+- googleeng (swe-process, arch-spine): Code Review Developer Guide (Google eng-practices)
+- cohenreview (swe-process, arch-spine): Best Kept Secrets of Peer Code Review
+- fowlerci (swe-process, arch-spine): Continuous Integration
+- contdeliv (swe-process, arch-spine): Continuous Delivery
+- accelerate (swe-process, arch-spine): Accelerate: The Science of Lean Software and DevOps
+- dora (swe-process, arch-spine): DORA — DevOps Research and Assessment / State of DevOps
+- matlabci (swe-process, arch-spine): Continuous Integration (CI) for MATLAB and Simulink
+- lakosvol1 (swe-process, arch-spine): Large-Scale C++ Volume I: Process and Architecture
+- pitchfork (swe-process, arch-spine): The Pitchfork Layout (PFL)
+- profcmake (swe-process, arch-spine): Professional CMake: A Practical Guide
+- ieee828 (swe-process, arch-spine): IEEE 828-2012 — Configuration Management in Systems and Software Engineering
+- swebok (swe-process, arch-spine): Guide to the Software Engineering Body of Knowledge (SWEBOK v4.0)
+- iso12207 (swe-process, arch-spine): ISO/IEC/IEEE 12207:2017 — Software life cycle processes
+- smitconventions (swe-process, arch-spine): Maintainability and Source Code Conventions: An Analysis of Open Source Projects
 
 ## Merges & promotions performed
 
@@ -165,6 +441,348 @@ Verification: 354 verified / 114 unverified (state preserved from reports; any-v
 - cmake: merged swe-process record into existing node (emb-cpp+emb-ops)
 - matlabpkg: merged swe-process record into existing node (simulink)
 - projects: merged swe-process record into existing node (simulink)
+- aarenstrup: merged arch-spine record into existing node (simulink)
+- abas: merged arch-spine record into existing node (swa-science)
+- abowd: merged arch-spine record into existing node (swa-science)
+- accelerate: merged arch-spine record into existing node (swe-process)
+- acme: merged arch-spine record into existing node (swa-science)
+- alalfi: merged arch-spine record into existing node (simulink)
+- aldini: merged arch-spine record into existing node (swa-science)
+- alma: merged arch-spine record into existing node (swa-science)
+- amos: merged arch-spine record into existing node (emb-cpp)
+- an4989: merged arch-spine record into existing node (emb-ops)
+- angelov: merged arch-spine record into existing node (swa-science)
+- arc42: merged arch-spine record into existing node (swe-process)
+- arinc653: merged arch-spine record into existing node (emb-arch)
+- atam: merged arch-spine record into existing node (swa-science)
+- autosaradaptive: merged arch-spine record into existing node (emb-arch)
+- autosarblockset: merged arch-spine record into existing node (simulink)
+- autosarclassic: merged arch-spine record into existing node (emb-arch)
+- autosarcpp14: merged arch-spine record into existing node (emb-cpp+swe-process)
+- avizienis: merged arch-spine record into existing node (emb-arch)
+- babar04: merged arch-spine record into existing node (swa-science)
+- bacchellibird: merged arch-spine record into existing node (emb-c+swe-process)
+- ball: merged arch-spine record into existing node (emb-arch)
+- barbacci: merged arch-spine record into existing node (swa-science)
+- barnes: merged arch-spine record into existing node (swa-science)
+- barrbugs: merged arch-spine record into existing node (emb-c)
+- barrc: merged arch-spine record into existing node (emb-arch+emb-c+swe-process)
+- barrmassa: merged arch-spine record into existing node (emb-arch+emb-ops)
+- barrycrowley: merged arch-spine record into existing node (emb-arch)
+- bck: merged arch-spine record into existing node (swa-science+emb-arch)
+- beningodesign: merged arch-spine record into existing node (emb-arch)
+- beningofw: merged arch-spine record into existing node (emb-arch)
+- berger: merged arch-spine record into existing node (emb-arch)
+- bertolotti: merged arch-spine record into existing node (emb-arch)
+- bestpractices: merged arch-spine record into existing node (simulink)
+- binutilsblog: merged arch-spine record into existing node (emb-ops)
+- blanchette: merged arch-spine record into existing node (emb-c)
+- bloaty: merged arch-spine record into existing node (emb-cpp+emb-ops)
+- bloch: merged arch-spine record into existing node (emb-c)
+- boll: merged arch-spine record into existing node (simulink)
+- boogerdmoonen: merged arch-spine record into existing node (emb-c+swe-process)
+- bootlin: merged arch-spine record into existing node (emb-arch+emb-ops)
+- bosch00: merged arch-spine record into existing node (swa-science)
+- boschmolin: merged arch-spine record into existing node (swa-science)
+- breivold: merged arch-spine record into existing node (swa-science)
+- broy: merged arch-spine record into existing node (emb-arch)
+- buildtool: merged arch-spine record into existing node (simulink+swe-process)
+- burge: merged arch-spine record into existing node (swa-science)
+- burnswellings: merged arch-spine record into existing node (emb-arch)
+- busobj: merged arch-spine record into existing node (simulink)
+- buttazzo: merged arch-spine record into existing node (emb-arch)
+- c4model: merged arch-spine record into existing node (swe-process)
+- caissetalk: merged arch-spine record into existing node (emb-cpp)
+- capilla: merged arch-spine record into existing node (swa-science)
+- cbam: merged arch-spine record into existing node (swa-science)
+- ceedling: merged arch-spine record into existing node (emb-c)
+- certc: merged arch-spine record into existing node (emb-c+swe-process)
+- certkits: merged arch-spine record into existing node (simulink)
+- cervanteskazman: merged arch-spine record into existing node (swa-science)
+- checkcode: merged arch-spine record into existing node (swe-process)
+- chowdhury: merged arch-spine record into existing node (simulink)
+- cipart1: merged arch-spine record into existing node (simulink+swe-process)
+- cipart2: merged arch-spine record into existing node (simulink+swe-process)
+- clangtidy: merged arch-spine record into existing node (emb-c+emb-cpp)
+- cloudiotref: merged arch-spine record into existing node (emb-arch)
+- cmock: merged arch-spine record into existing node (emb-c)
+- cmsis: merged arch-spine record into existing node (emb-arch)
+- cohenreview: merged arch-spine record into existing node (swe-process)
+- commercialtools: merged arch-spine record into existing node (emb-cpp)
+- compmodel: merged arch-spine record into existing node (simulink)
+- contdeliv: merged arch-spine record into existing node (swe-process)
+- contiki: merged arch-spine record into existing node (emb-arch)
+- cooling: merged arch-spine record into existing node (emb-arch)
+- cppcheck: merged arch-spine record into existing node (emb-cpp)
+- cpputest: merged arch-spine record into existing node (emb-cpp)
+- dagstuhl16: merged arch-spine record into existing node (swa-science)
+- darwin: merged arch-spine record into existing node (swa-science)
+- datadict: merged arch-spine record into existing node (simulink)
+- deissenboeck: merged arch-spine record into existing node (simulink)
+- diffmergeci: merged arch-spine record into existing node (simulink)
+- dlmalloc: merged arch-spine record into existing node (emb-ops)
+- do178c: merged arch-spine record into existing node (emb-arch)
+- do331: merged arch-spine record into existing node (simulink)
+- do332: merged arch-spine record into existing node (emb-cpp)
+- dobrica: merged arch-spine record into existing node (swa-science)
+- doors: merged arch-spine record into existing node (simulink)
+- dora: merged arch-spine record into existing node (swe-process)
+- douglassagility: merged arch-spine record into existing node (emb-arch)
+- douglasspatternsc: merged arch-spine record into existing node (emb-arch+emb-c)
+- douglassrtcorpus: merged arch-spine record into existing node (emb-arch)
+- dreppermem: merged arch-spine record into existing node (emb-ops)
+- drl: merged arch-spine record into existing node (swa-science)
+- dsimonprimer: merged arch-spine record into existing node (emb-arch)
+- dspacecompare: merged arch-spine record into existing node (simulink)
+- dspaceguide: merged arch-spine record into existing node (simulink)
+- dutoit: merged arch-spine record into existing node (swa-science)
+- dvorak: merged arch-spine record into existing node (emb-arch)
+- eastadl: merged arch-spine record into existing node (emb-arch)
+- ebertjones: merged arch-spine record into existing node (emb-arch)
+- ecss: merged arch-spine record into existing node (emb-arch)
+- embeddedcoder: merged arch-spine record into existing node (simulink)
+- emeryhilliard: merged arch-spine record into existing node (swa-science)
+- en50128: merged arch-spine record into existing node (emb-arch)
+- esa: merged arch-spine record into existing node (swa-science)
+- espidf: merged arch-spine record into existing node (emb-arch)
+- fagan: merged arch-spine record into existing node (emb-c+swe-process)
+- falessi: merged arch-spine record into existing node (swa-science)
+- fanrt: merged arch-spine record into existing node (emb-arch)
+- feilergluch: merged arch-spine record into existing node (swa-science+emb-arch)
+- fixedpoint: merged arch-spine record into existing node (simulink)
+- fowlerci: merged arch-spine record into existing node (swe-process)
+- framac: merged arch-spine record into existing node (emb-c)
+- freertosbook: merged arch-spine record into existing node (emb-arch)
+- freertosheap: merged arch-spine record into existing node (emb-ops)
+- fuerst: merged arch-spine record into existing node (emb-arch)
+- gajski: merged arch-spine record into existing node (emb-arch)
+- galster: merged arch-spine record into existing node (swa-science)
+- ganssle: merged arch-spine record into existing node (emb-arch)
+- garlan14: merged arch-spine record into existing node (swa-science)
+- garlanshaw93: merged arch-spine record into existing node (swa-science)
+- gccmanual: merged arch-spine record into existing node (emb-ops)
+- gendesign: merged arch-spine record into existing node (swa-science)
+- gerlitz: merged arch-spine record into existing node (simulink)
+- gof: merged arch-spine record into existing node (emb-arch)
+- gomaa: merged arch-spine record into existing node (emb-arch)
+- googleeng: merged arch-spine record into existing node (swe-process)
+- graaf: merged arch-spine record into existing node (emb-arch)
+- grenningtdd: merged arch-spine record into existing node (emb-arch+emb-c+emb-cpp)
+- guyblog: merged arch-spine record into existing node (simulink)
+- hanmer: merged arch-spine record into existing node (emb-arch)
+- hanson: merged arch-spine record into existing node (emb-c)
+- hardfaultblog: merged arch-spine record into existing node (emb-ops)
+- hatleypirbhai: merged arch-spine record into existing node (emb-arch)
+- hatton95: merged arch-spine record into existing node (emb-c)
+- hattonsubset: merged arch-spine record into existing node (emb-c)
+- hawkmoth: merged arch-spine record into existing node (emb-c)
+- henzingersifakis: merged arch-spine record into existing node (emb-arch)
+- hicpp: merged arch-spine record into existing node (emb-cpp)
+- hobbs: merged arch-spine record into existing node (emb-arch)
+- hofmeister00: merged arch-spine record into existing node (swa-science)
+- holzmannp10: merged arch-spine record into existing node (emb-arch+emb-c)
+- hutheses: merged arch-spine record into existing node (emb-cpp)
+- ibis: merged arch-spine record into existing node (swa-science)
+- iec61508: merged arch-spine record into existing node (emb-arch)
+- iec62304: merged arch-spine record into existing node (emb-arch)
+- ieee828: merged arch-spine record into existing node (swe-process)
+- iira: merged arch-spine record into existing node (emb-arch)
+- iso12207: merged arch-spine record into existing node (swe-process)
+- iso25010: merged arch-spine record into existing node (swa-science)
+- iso26262: merged arch-spine record into existing node (emb-arch)
+- iso26262p6: merged arch-spine record into existing node (simulink)
+- iso42010: merged arch-spine record into existing node (swa-science+emb-arch)
+- janeliu: merged arch-spine record into existing node (emb-arch)
+- jansenbosch: merged arch-spine record into existing node (swa-science)
+- jmaab: merged arch-spine record into existing node (simulink+swe-process)
+- johnsonbook: merged arch-spine record into existing node (simulink+swe-process)
+- johnsonguide: merged arch-spine record into existing node (simulink)
+- jplstd: merged arch-spine record into existing node (emb-c+swe-process)
+- jsfav: merged arch-spine record into existing node (emb-cpp)
+- kerneldoc: merged arch-spine record into existing node (emb-c)
+- kernelstyle: merged arch-spine record into existing node (emb-c+swe-process)
+- koopmanbess: merged arch-spine record into existing node (emb-arch+emb-c)
+- kopetz: merged arch-spine record into existing node (emb-arch)
+- kopetzbauer: merged arch-spine record into existing node (emb-arch)
+- kramermagee: merged arch-spine record into existing node (swa-science)
+- kruchten: merged arch-spine record into existing node (swa-science)
+- l4liedtke: merged arch-spine record into existing node (emb-arch)
+- labrosse: merged arch-spine record into existing node (emb-arch)
+- lacamera: merged arch-spine record into existing node (emb-arch)
+- lakosemcs: merged arch-spine record into existing node (emb-cpp)
+- lakoslsc: merged arch-spine record into existing node (emb-arch+swe-process)
+- lakosvol1: merged arch-spine record into existing node (swe-process)
+- laplante: merged arch-spine record into existing node (emb-arch)
+- largescale: merged arch-spine record into existing node (simulink)
+- ldd3: merged arch-spine record into existing node (emb-arch)
+- ledin: merged arch-spine record into existing node (emb-arch)
+- leecps: merged arch-spine record into existing node (emb-arch)
+- leeseshia: merged arch-spine record into existing node (emb-arch)
+- levesonesw: merged arch-spine record into existing node (emb-arch)
+- levesonsafeware: merged arch-spine record into existing node (emb-arch)
+- liggesmeyer: merged arch-spine record into existing node (emb-arch)
+- liulayland: merged arch-spine record into existing node (emb-arch)
+- liyao: merged arch-spine record into existing node (emb-arch)
+- mab: merged arch-spine record into existing node (simulink+swe-process)
+- mabdoc: merged arch-spine record into existing node (simulink)
+- maintdash: merged arch-spine record into existing node (simulink)
+- malavolta: merged arch-spine record into existing node (swa-science)
+- marscode: merged arch-spine record into existing node (emb-arch)
+- martincleanarch: merged arch-spine record into existing node (emb-arch+swe-process)
+- martincleancode: merged arch-spine record into existing node (emb-arch+swe-process)
+- marwedel: merged arch-spine record into existing node (emb-arch)
+- matlabci: merged arch-spine record into existing node (swe-process)
+- matlabpkg: merged arch-spine record into existing node (simulink+swe-process)
+- matlabtest: merged arch-spine record into existing node (simulink+swe-process)
+- mcconnell: merged arch-spine record into existing node (emb-arch+swe-process)
+- mcdcchilenski: merged arch-spine record into existing node (emb-c+emb-cpp)
+- mcdcnasa: merged arch-spine record into existing node (emb-c+emb-cpp)
+- medtay: merged arch-spine record into existing node (swa-science)
+- medvidovicuml: merged arch-spine record into existing node (swa-science)
+- memfaultea: merged arch-spine record into existing node (emb-arch)
+- mergedocs: merged arch-spine record into existing node (simulink+swe-process)
+- metricsdash: merged arch-spine record into existing node (simulink)
+- mismatch09: merged arch-spine record into existing node (swa-science)
+- mismatch95: merged arch-spine record into existing node (swa-science)
+- misrac: merged arch-spine record into existing node (emb-arch+emb-c+swe-process)
+- misracompliance: merged arch-spine record into existing node (emb-c)
+- misracpp2008: merged arch-spine record into existing node (emb-arch+emb-cpp)
+- misracpp2023: merged arch-spine record into existing node (emb-arch+emb-cpp+swe-process)
+- misragmg: merged arch-spine record into existing node (simulink)
+- misraslsf: merged arch-spine record into existing node (simulink)
+- modelcompare: merged arch-spine record into existing node (simulink+swe-process)
+- moriconi: merged arch-spine record into existing node (swa-science)
+- mwcodingguide: merged arch-spine record into existing node (simulink)
+- nesc: merged arch-spine record into existing node (emb-arch)
+- noblesmallmem: merged arch-spine record into existing node (emb-arch)
+- noergaard: merged arch-spine record into existing node (emb-arch)
+- nordicacademy: merged arch-spine record into existing node (emb-arch)
+- nygard: merged arch-spine record into existing node (emb-arch)
+- nygardadr: merged arch-spine record into existing node (swe-process)
+- omgspecs: merged arch-spine record into existing node (emb-arch)
+- openocd: merged arch-spine record into existing node (emb-ops)
+- oreizy: merged arch-spine record into existing node (swa-science)
+- oshana: merged arch-spine record into existing node (emb-arch)
+- osstyleguides: merged arch-spine record into existing node (emb-c)
+- ousterhout: merged arch-spine record into existing node (emb-arch)
+- parnas72: merged arch-spine record into existing node (swa-science+swe-process)
+- parnas74: merged arch-spine record into existing node (swa-science)
+- parnas79: merged arch-spine record into existing node (swa-science)
+- parnasclements: merged arch-spine record into existing node (swa-science+swe-process)
+- peckol: merged arch-spine record into existing node (emb-arch)
+- perrywolf: merged arch-spine record into existing node (swa-science)
+- piadl: merged arch-spine record into existing node (swa-science)
+- picolibc: merged arch-spine record into existing node (emb-ops)
+- pigweedsdk: merged arch-spine record into existing node (emb-cpp)
+- pitchfork: merged arch-spine record into existing node (swe-process)
+- pont: merged arch-spine record into existing node (emb-arch)
+- posa2: merged arch-spine record into existing node (emb-arch)
+- posa3: merged arch-spine record into existing node (emb-arch)
+- potvinmonorepo: merged arch-spine record into existing node (swe-process)
+- precommit: merged arch-spine record into existing node (emb-c+swe-process)
+- preschern: merged arch-spine record into existing node (emb-c)
+- preschernplop: merged arch-spine record into existing node (emb-c)
+- pretschner: merged arch-spine record into existing node (emb-arch)
+- probetools: merged arch-spine record into existing node (emb-ops)
+- profcmake: merged arch-spine record into existing node (swe-process)
+- progit: merged arch-spine record into existing node (swe-process)
+- projects: merged arch-spine record into existing node (simulink+swe-process)
+- protothreads: merged arch-spine record into existing node (emb-arch)
+- puncover: merged arch-spine record into existing node (emb-ops)
+- pwbloat: merged arch-spine record into existing node (emb-cpp)
+- pwunittest: merged arch-spine record into existing node (emb-cpp)
+- px4ardu: merged arch-spine record into existing node (emb-arch)
+- qnxguide: merged arch-spine record into existing node (emb-arch)
+- qoc: merged arch-spine record into existing node (swa-science)
+- qpc: merged arch-spine record into existing node (emb-c)
+- rainbow: merged arch-spine record into existing node (swa-science)
+- rami40: merged arch-spine record into existing node (emb-arch)
+- rapide: merged arch-spine record into existing node (swa-science)
+- rcda: merged arch-spine record into existing node (swa-science)
+- refmodels: merged arch-spine record into existing node (simulink)
+- replicability: merged arch-spine record into existing node (simulink)
+- reqtoolbox: merged arch-spine record into existing node (simulink)
+- richardsford: merged arch-spine record into existing node (emb-arch)
+- rierson: merged arch-spine record into existing node (emb-arch)
+- rigbybird: merged arch-spine record into existing node (swe-process)
+- riot: merged arch-spine record into existing node (emb-arch)
+- rittelwebber: merged arch-spine record into existing node (swa-science)
+- room: merged arch-spine record into existing node (emb-arch)
+- ros2design: merged arch-spine record into existing node (emb-arch)
+- rozanski: merged arch-spine record into existing node (swa-science)
+- rushby: merged arch-spine record into existing node (emb-arch)
+- saam: merged arch-spine record into existing node (swa-science)
+- sadowskigoogle: merged arch-spine record into existing node (emb-c+swe-process)
+- sae2010: merged arch-spine record into existing node (simulink)
+- sakscolumns: merged arch-spine record into existing node (emb-cpp)
+- samekbook: merged arch-spine record into existing node (emb-arch+emb-c+emb-cpp)
+- samekcourse: merged arch-spine record into existing node (emb-arch+emb-c+emb-ops)
+- schaeuffele: merged arch-spine record into existing node (emb-arch)
+- schreiner: merged arch-spine record into existing node (emb-c)
+- segger: merged arch-spine record into existing node (emb-ops)
+- sel4: merged arch-spine record into existing node (emb-arch)
+- semihosting: merged arch-spine record into existing node (emb-ops)
+- sfm: merged arch-spine record into existing node (swa-science)
+- shaw01: merged arch-spine record into existing node (swa-science)
+- shawgarlan96: merged arch-spine record into existing node (swa-science)
+- siewert: merged arch-spine record into existing node (emb-arch)
+- signaltyping: merged arch-spine record into existing node (simulink)
+- simmonds: merged arch-spine record into existing node (emb-arch+emb-ops)
+- simon96: merged arch-spine record into existing node (swa-science)
+- slcheck: merged arch-spine record into existing node (simulink)
+- slcoverage: merged arch-spine record into existing node (simulink)
+- slnet: merged arch-spine record into existing node (simulink)
+- sltest: merged arch-spine record into existing node (simulink)
+- smitconventions: merged arch-spine record into existing node (swe-process)
+- sple: merged arch-spine record into existing node (swa-science)
+- sqlitetesting: merged arch-spine record into existing node (emb-c)
+- staron: merged arch-spine record into existing node (emb-arch)
+- stephancordy: merged arch-spine record into existing node (simulink)
+- stevanovic: merged arch-spine record into existing node (emb-ops)
+- storey: merged arch-spine record into existing node (emb-arch)
+- svincentelli: merged arch-spine record into existing node (emb-arch)
+- swebok: merged arch-spine record into existing node (swe-process)
+- syscompbp: merged arch-spine record into existing node (simulink)
+- syscomposer: merged arch-spine record into existing node (simulink)
+- tactics: merged arch-spine record into existing node (swa-science)
+- tangjinhan: merged arch-spine record into existing node (swa-science)
+- tangrazavian: merged arch-spine record into existing node (swa-science)
+- tangsurvey06: merged arch-spine record into existing node (swa-science)
+- targetlink: merged arch-spine record into existing node (simulink)
+- taylorlinkers: merged arch-spine record into existing node (emb-ops)
+- techdebt19: merged arch-spine record into existing node (swa-science)
+- thinlto: merged arch-spine record into existing node (emb-ops)
+- thinltoblog: merged arch-spine record into existing node (emb-ops)
+- tinyos: merged arch-spine record into existing node (emb-arch)
+- tlsf: merged arch-spine record into existing node (emb-ops)
+- tmd: merged arch-spine record into existing node (swa-science)
+- tornhill: merged arch-spine record into existing node (emb-c)
+- trompeloeil: merged arch-spine record into existing node (emb-cpp)
+- trunkbased: merged arch-spine record into existing node (swe-process)
+- unity: merged arch-spine record into existing node (emb-c)
+- vab: merged arch-spine record into existing node (swa-science)
+- vahidgivargis: merged arch-spine record into existing node (emb-arch)
+- vanooijentalk: merged arch-spine record into existing node (emb-cpp)
+- vanvliettang: merged arch-spine record into existing node (swa-science)
+- viarheichyk: merged arch-spine record into existing node (emb-cpp)
+- vxthreadx: merged arch-spine record into existing node (emb-arch)
+- walls: merged arch-spine record into existing node (emb-arch)
+- wardmellor: merged arch-spine record into existing node (emb-arch)
+- weinreich: merged arch-spine record into existing node (swa-science)
+- weyns: merged arch-spine record into existing node (swa-science)
+- white: merged arch-spine record into existing node (emb-arch)
+- wiegers: merged arch-spine record into existing node (emb-c+swe-process)
+- wilsonsurvey: merged arch-spine record into existing node (emb-ops)
+- wolf5: merged arch-spine record into existing node (emb-arch)
+- wright: merged arch-spine record into existing node (swa-science)
+- yaghmour: merged arch-spine record into existing node (emb-arch)
+- yiu: merged arch-spine record into existing node (emb-arch+emb-c+emb-cpp)
+- zannier: merged arch-spine record into existing node (swa-science)
+- zephyrdocs: merged arch-spine record into existing node (emb-arch)
+- zephyrlinker: merged arch-spine record into existing node (emb-ops)
+- zerotomain: merged arch-spine record into existing node (emb-ops)
+- zhang: merged arch-spine record into existing node (swa-science)
+- zimmermann: merged arch-spine record into existing node (swa-science)
 - shawgarlan96: +emb-arch membership — general-classics lead in emb-arch (unverified there; verified by swa-science)
 - tmd: +emb-arch membership — general-classics lead in emb-arch
 - kruchten: +emb-arch membership — general-classics lead in emb-arch
