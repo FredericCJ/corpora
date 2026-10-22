@@ -2,7 +2,7 @@
 # Applies the same honesty rules to round-2 output that round 1 had to be repaired for.
 import json, os, re, glob, collections
 
-SWE = r'E:\dev\corpora\SWE'
+SWE = r'F:\Projects\Writing\corpora\SWE'
 W = os.path.join(SWE, '_spine_work')
 STAGES = ['needs','obligations','requirements','design','tools-process']
 DOMAINS = ['complex-scale','complex-science','governance','measurement','runtime-ops','hand-c','model-c']

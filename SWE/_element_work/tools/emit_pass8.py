@@ -117,6 +117,6 @@ if os.path.exists(prose):
     L.append("\n## Coverage summary — where recall thins (honest gaps)\n\n")
     L.append(open(prose, encoding="utf-8").read())
 
-out = r"E:\dev\corpora\SWE\design_elements_corpus_v1_0.md"
+out = r"F:\Projects\Writing\corpora\SWE\design_elements_corpus_v1_0.md"
 open(out, "w", encoding="utf-8", newline="\n").write("".join(L))
 print(f"wrote {out}: {len(works)} works ({n_m} memberships, {n_new} new: {n_ver}v/{n_unv}u), {len(covered)}/{len(KIND)} covered, {len(uncov)} gaps")

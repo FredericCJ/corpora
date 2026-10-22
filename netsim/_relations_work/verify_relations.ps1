@@ -9,7 +9,7 @@
 $ErrorActionPreference = 'Stop'
 $chrome = 'C:\Program Files\Google\Chrome\Application\chrome.exe'
 if (-not (Test-Path $chrome)) { $chrome = 'C:\Program Files (x86)\Google\Chrome\Application\chrome.exe' }
-$base   = 'file:///E:/dev/corpora/netsim/explorer/index.html'
+$base   = 'file:///F:/Projects/Writing/corpora/netsim/explorer/index.html'
 $outdir = Join-Path $PSScriptRoot 'vout'
 $prof   = Join-Path $outdir 'profile'
 New-Item -ItemType Directory -Force -Path $outdir | Out-Null

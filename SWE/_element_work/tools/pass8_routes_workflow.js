@@ -38,14 +38,14 @@ const ROUTES = [
 ]
 
 function prompt(r) {
-  return `You are pass-8 route agent "${r.key}: ${r.name}" for Phase 2 of the ELEMENT-layer mission (repo E:/dev/corpora).
+  return `You are pass-8 route agent "${r.key}: ${r.name}" for Phase 2 of the ELEMENT-layer mission (repo F:/Projects/Writing/corpora).
 
 GOAL: for every element in your route file, establish which catalog-grade works define and/or teach it, verifying every NEW work against a live primary page. This becomes the pass-8 report (design-elements) extending a 468-work corpus.
 
 MANDATORY FIRST STEPS:
-1. Read E:/dev/corpora/SWE/MISSION_design_elements_v1.md - the PHASE 2 section is your contract (merge discipline, many-to-many mapping, verification discipline).
+1. Read F:/Projects/Writing/corpora/SWE/MISSION_design_elements_v1.md - the PHASE 2 section is your contract (merge discipline, many-to-many mapping, verification discipline).
 2. Read ${SCRATCH}/p2/${r.key}.json - your route's elements (id, name, kind, named_in, named_in_corpus_id, other_sources, tags).
-3. Read E:/dev/corpora/SWE/swe_process_corpus_v1_0.md lines 1-20 for the house entry style.
+3. Read F:/Projects/Writing/corpora/SWE/swe_process_corpus_v1_0.md lines 1-20 for the house entry style.
 4. Grep ${SCRATCH}/work_ids.tsv aggressively - works already in the corpus MUST become memberships reusing the EXACT existing id, never new nodes.
 
 WORK-SET SEEDS (verify, extend, or reject - your judgment governs): ${r.seeds}

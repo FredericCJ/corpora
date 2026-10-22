@@ -72,6 +72,6 @@ for r in sorted(rejected, key=lambda x: (x.get("decision", ""), x.get("name", ""
     into = f" → {r['into']}" if r.get("into") else ""
     L.append(f"- **{r.get('name','?')}** — {r.get('decision','?')}{into}: {r.get('why','')}\n")
 
-out = r"E:\dev\corpora\SWE\architecture_elements_catalog_v1_0.md"
+out = r"F:\Projects\Writing\corpora\SWE\architecture_elements_catalog_v1_0.md"
 open(out, "w", encoding="utf-8", newline="\n").write("".join(L))
 print(f"wrote {out}: {len(els)} elements; kinds {dict(counts)}; {len(rejected)} intake dispositions")

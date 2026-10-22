@@ -2,7 +2,7 @@
 # Deterministic and logged. merged_v3.json -> merged_v4.json
 import json, os, re, collections
 
-W = r'E:\dev\corpora\SWE\_spine_work'
+W = r'F:\Projects\Writing\corpora\SWE\_spine_work'
 STAGES = ['needs','obligations','requirements','design','tools-process']
 DOMAINS = ['complex-scale','complex-science','governance','measurement','runtime-ops','hand-c','model-c']
 

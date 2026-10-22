@@ -4,8 +4,8 @@ import re
 import sys
 from pathlib import Path
 
-SRC = Path(r"E:\dev\corpora\embedded-c-architecture-and-design-r1.md")
-DST = Path(r"E:\dev\corpora\embedded-c-architecture-and-design-r1.html")
+SRC = Path(r"F:\Projects\Writing\corpora\embedded-c-architecture-and-design-r1.md")
+DST = Path(r"F:\Projects\Writing\corpora\embedded-c-architecture-and-design-r1.html")
 
 text = SRC.read_text(encoding="utf-8")
 lines = text.split("\n")

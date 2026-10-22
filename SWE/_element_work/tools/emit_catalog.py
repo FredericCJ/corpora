@@ -122,7 +122,7 @@ def main():
     for x in sorted(excluded, key=lambda x: x["name"].lower()):
         L.append(f"- **{x['name']}** — {x.get('why','')}\n")
 
-    out = os.path.join(os.path.dirname(SCRATCH) if False else r"E:\dev\corpora\SWE", "design_elements_catalog_v1_0.md")
+    out = os.path.join(os.path.dirname(SCRATCH) if False else r"F:\Projects\Writing\corpora\SWE", "design_elements_catalog_v1_0.md")
     with open(out, "w", encoding="utf-8", newline="\n") as f:
         f.write("".join(L))
     print(f"wrote {out}: {len(els)} elements, {len(axes)} axes, {len(parked)} parked, {len(excluded)} excluded")

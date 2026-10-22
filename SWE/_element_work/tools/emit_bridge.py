@@ -58,6 +58,6 @@ if unb_ids:
 else:
     L.append("None — every design element carries ≥1 cross-realm edge.\n")
 
-out = r"E:\dev\corpora\SWE\design_elements_bridge_v1_0.md"
+out = r"F:\Projects\Writing\corpora\SWE\design_elements_bridge_v1_0.md"
 open(out, "w", encoding="utf-8", newline="\n").write("".join(L))
 print(f"wrote {out}: {len(edges)} edges, {len(bridged)}/{len(design)} bridged, {len(unb_ids)} unbridged, sourced {pc.get('sourced',0)}:{pc.get('editorial',0)} editorial")

@@ -8,7 +8,7 @@
 #     existing browser session") and dumps nothing. An ISOLATED, fresh --user-data-dir forces a real headless run.
 $ErrorActionPreference = 'Stop'
 $chrome = 'C:\Program Files\Google\Chrome\Application\chrome.exe'
-$base   = 'file:///E:/dev/corpora/SWE/explorer/index.html'
+$base   = 'file:///F:/Projects/Writing/corpora/SWE/explorer/index.html'
 $outdir = Join-Path $PSScriptRoot 'vout'
 $prof   = Join-Path $outdir 'profile'
 New-Item -ItemType Directory -Force -Path $outdir | Out-Null

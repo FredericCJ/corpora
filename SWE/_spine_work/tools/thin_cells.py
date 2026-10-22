@@ -3,7 +3,7 @@
 # Where panels disagree the LATER (better-informed) round wins and the disagreement is recorded.
 import json, os, sys, re, collections
 
-W = r'E:\dev\corpora\SWE\_spine_work'
+W = r'F:\Projects\Writing\corpora\SWE\_spine_work'
 STAGES = ['needs','obligations','requirements','design','tools-process']
 DOMAINS = ['complex-scale','complex-science','governance','measurement','runtime-ops','hand-c','model-c']
 

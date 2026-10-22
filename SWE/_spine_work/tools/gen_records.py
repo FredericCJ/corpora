@@ -3,7 +3,7 @@
 # fact-record module in the exact shape build.py PHASE 1 consumes (see records_proc.py).
 import json, os, re, collections
 
-SWE = r'E:\dev\corpora\SWE'
+SWE = r'F:\Projects\Writing\corpora\SWE'
 W = os.path.join(SWE, '_spine_work')
 OUT = os.path.join(SWE, 'explorer', 'build', 'records_spine.py')
 
